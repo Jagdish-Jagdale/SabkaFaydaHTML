@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="ecommerce login, user login, customer login, online shopping login, mobile login, OTP login, secure login, account access, Sabka Fayda login, shopping account, user authentication, online marketplace login">
+    <meta name="description"
+        content="Login to your Sabka Fayda account using your mobile number and OTP. Access orders, wishlist, cart, and personalized shopping experience.">
+    <title>Login | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts for Rubik and Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="../Header/header.css">
+    <link rel="stylesheet" href="../Footer/footer.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body
+    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; overflow-x: hidden;">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="container position-relative d-flex flex-column justify-content-center main-content-container"
+        style="min-height: 100vh; padding-top: 115px; max-width: 1200px;">
+
+        <!-- Decorative Dots Pattern -->
+        <div class="position-absolute d-none d-xl-block"
+            style="left: -120px; top: 15%; color: #e0e0e0; font-size: 8px; line-height: 14px; letter-spacing: 6px; z-index: -1;">
+            ● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ●
+            ● ● ● ●<br>● ● ● ● ● ●<br>
+            <br><br>
+            ● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ●
+            ● ● ● ●<br>● ● ● ● ● ●<br>
+        </div>
+
+        <!-- Decorative Dots Pattern Right/Bottom -->
+        <div class="position-absolute d-none d-xl-block"
+            style="right: -80px; bottom: 5%; color: #e0e0e0; font-size: 8px; line-height: 14px; letter-spacing: 6px; z-index: -1;">
+            ● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ●
+            ● ● ● ●<br>● ● ● ● ● ●<br>
+            <br><br>
+            ● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ● ● ● ● ●<br>● ●
+            ● ● ● ●<br>● ● ● ● ● ●<br>
+        </div>
+
+        <div class="row align-items-start justify-content-center gap-lg-4">
+
+            <!-- Left Side -->
+            <div class="col-lg-5 mb-5 mb-lg-0 position-relative d-none d-lg-block">
+                <h1 class="fw-bold mb-4 text-dark"
+                    style="font-family: 'Rubik', sans-serif; font-size: 1.8rem; line-height: 1.4;">Everything you Can
+                    Buy with<br>Your Sabka Fayda Account</h1>
+
+                <ul class="list-unstyled text-secondary fw-semibold"
+                    style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem;">
+                    <li class="mb-3">Access your Orders</li>
+                    <li class="mb-3">Access your Cart & Wishlist's</li>
+                    <li class="mb-3">Explore personalized Recommendations</li>
+                </ul>
+
+                <!-- Illustration -->
+                <div class="mx-auto mx-lg-0 text-center text-lg-start" style="margin-top: 40px; max-width: 80%;">
+                    <img src="../../assets/LoginImg.png" alt="Sabka Fayda Secure User Login and Shopping Illustration"
+                        class="img-fluid" style="max-height: 300px;">
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-lg-5 d-flex flex-column align-items-center">
+
+                <div class="w-100 mx-auto d-flex justify-content-center mb-4" style="max-width: 420px;">
+                    <img src="../../assets/sabkafaydalogin.png" alt="Sabka Fayda User Authentication Login Logo"
+                        height="90" class="top-login-logo">
+                </div>
+
+                <div class="rounded-3 p-5 mx-auto w-100 text-center login-card"
+                    style="background-color: #f4f4f3; max-width: 420px; box-shadow: 0 12px 40px rgba(0,0,0,0.08); padding-bottom: 70px !important; border: 1px solid #e0e0e0;">
+                    <h3 class="mb-2 text-dark login-heading" style="font-weight: 500; font-size: 2rem; font-family: 'Rubik', sans-serif;">Login with
+                        Mobile</h3>
+                    <p class="mb-2 text-secondary login-subtext text-lg-nowrap" style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">We will send you a 6 digit OTP on WhatsApp</p>
+
+                    <img src="../../assets/WhatsApp_icon.png" alt="WhatsApp Icon" height="70" class="mb-5 whatsapp-icon">
+
+                    <div id="mobileFormSection" class="mobile-form-section">
+                        <div class="text-start mb-5 position-relative">
+                            <div class="d-flex align-items-baseline">
+                                <span class="text-dark me-2 fs-5 input-prefix"
+                                    style="font-weight: 400; white-space: nowrap;">In
+                                    +91</span>
+                                <input type="text" class="w-100 bg-transparent pb-1 login-input"
+                                    placeholder="Enter Mobile Number"
+                                    style="outline: none; font-size: 1.25rem; border: none; border-bottom: 2px solid #ccc; color: #212529; transition: border-color 0.3s, color 0.3s;"
+                                    maxlength="10" id="mobileInput"
+                                    onfocus="if(document.getElementById('mobileError').classList.contains('d-none')) this.style.borderBottomColor='#0d8dfb'"
+                                    onblur="
+                                        if(this.value.length > 0 && this.value.length < 10) {
+                                            this.style.color = '#FB0000';
+                                            this.style.borderBottomColor = '#FB0000';
+                                            document.getElementById('mobileError').classList.remove('d-none');
+                                        } else if(document.getElementById('mobileError').classList.contains('d-none')) {
+                                            this.style.borderBottomColor='#ccc';
+                                        }
+                                    " oninput="
+                                        this.value = this.value.replace(/[^0-9]/g, ''); 
+                                        if(this.value.length > 0 && !/^[6-9]/.test(this.value[0])) {
+                                            this.style.color = '#FB0000';
+                                            this.style.borderBottomColor = '#FB0000';
+                                            document.getElementById('mobileError').classList.remove('d-none');
+                                        } else {
+                                            this.style.color = '#212529';
+                                            this.style.borderBottomColor = '#0d8dfb';
+                                            document.getElementById('mobileError').classList.add('d-none');
+                                        }
+                                    ">
+                            </div>
+                            <div id="mobileError" class="position-absolute mt-1 d-none"
+                                style="font-size: 0.95rem; color: #FB0000; left: 0; margin-left: 62px;">Please Enter
+                                Valid Mobile Number</div>
+                        </div>
+
+                        <button class="text-white fw-semibold w-100 border-0 mt-2 py-3 rounded-3 login-btn"
+                            style="background-color: #0d8dfb; font-size: 1.1rem; transition: background-color 0.3s;"
+                            onmouseover="this.style.backgroundColor='#0b7aeb'"
+                            onmouseout="this.style.backgroundColor='#0d8dfb'" onclick="handleSendOtp()">Send
+                            OTP</button>
+                    </div>
+
+                    <div id="otpFormSection" class="d-none mt-2">
+                        <p class="text-secondary mb-4" style="font-size: 0.95rem;">Enter OTP sent on WhatsApp No <span
+                                id="displayMobileNo" class="fw-bold text-dark"></span></p>
+
+                        <div class="d-flex justify-content-between mb-4 gap-2">
+                            <input type="text" maxlength="1"
+                                class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
+                                style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
+                                onkeyup="moveToNext(this, event)">
+                            <input type="text" maxlength="1"
+                                class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
+                                style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
+                                onkeyup="moveToNext(this, event)">
+                            <input type="text" maxlength="1"
+                                class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
+                                style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
+                                onkeyup="moveToNext(this, event)">
+                            <input type="text" maxlength="1"
+                                class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
+                                style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
+                                onkeyup="moveToNext(this, event)">
+                            <input type="text" maxlength="1"
+                                class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
+                                style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
+                                onkeyup="moveToNext(this, event)">
+                            <input type="text" maxlength="1"
+                                class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
+                                style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
+                                onkeyup="moveToNext(this, event)">
+                        </div>
+
+                        <button class="text-white fw-semibold w-100 border-0 mt-2 py-3 rounded-3 login-btn"
+                            style="background-color: #0b1120; font-size: 1.1rem; transition: background-color 0.3s;"
+                            onmouseover="this.style.backgroundColor='#000000'"
+                            onmouseout="this.style.backgroundColor='#0b1120'">Verify & Login</button>
+
+                        <div class="mt-4 text-secondary" style="font-size: 0.95rem;" id="resendContainer">
+                            Resend OTP in <span id="resendTimer">00:30</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script to load Header and Footer dynamically -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Load Header
+            fetch('../Header/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Initialize header specific JS
+                    let script = document.createElement('script');
+                    script.src = '../Header/header.js';
+                    document.body.appendChild(script);
+                })
+                .catch(error => console.error('Error loading header:', error));
+
+            // Load Footer
+            fetch('../Footer/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
+    </script>
+    
+    <!-- Page Specific JS -->
+    <script src="login.js"></script>
+</body>
+
+</html>
