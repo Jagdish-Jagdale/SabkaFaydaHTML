@@ -8,7 +8,7 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- Main CSS -->
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/main.css?v=2">
 
 <header class="fixed-top" style="z-index: 1030;">
     <!-- Top Black Bar -->
@@ -47,12 +47,12 @@
                     <a href="#" class="text-white ms-4 fw-bold text-decoration-none"
                         style="font-size: 0.85rem;">Update</a>
                 </div>
-                <div class="dropdown" style="cursor: pointer;">
-                    <div class="d-flex align-items-center text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="dropdown">
+                    <button class="btn btn-link text-white text-decoration-none d-flex align-items-center p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="box-shadow: none;">
                         <img src="https://flagcdn.com/w20/in.png" alt="India Flag" class="me-2" style="width: 18px;">
                         <span class="fw-bold"><span id="languageIndicator">EN</span> <i class="fas fa-chevron-down ms-1"
                                 style="font-size: 0.7rem;"></i></span>
-                    </div>
+                    </button>
                     <ul class="dropdown-menu dropdown-menu-end shadow-sm mt-2"
                         style="font-size: 0.85rem; min-width: 120px;">
                         <li><a class="dropdown-item fw-bold language-select" href="#" data-lang="EN">English</a></li>
@@ -158,19 +158,29 @@
         <div class="container" style="max-width: 1200px; padding: 0 12px;">
             <div class="d-flex align-items-center flex-nowrap category-scroll"
                 style="font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif; white-space: nowrap;">
-                <a href="#" class="text-dark text-decoration-none text-center"
-                    style="background-color: #ffffff; padding: 6px 24px; min-width: 130px;">Categories</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Best sellers</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Featured Products</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Under 50 Rs</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Electronics</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Beauty & Personal Care</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Gifts</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Car & Bikes</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Toys and Games</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Download our App</a>
-                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Contact Us</a>
+                <a href="#" class="text-dark text-decoration-none text-center category-link active-category"
+                    style="min-width: 130px;">Categories</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Best sellers</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Featured Products</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Under 50 Rs</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Electronics</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Beauty & Personal Care</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Gifts</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Car & Bikes</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Toys and Games</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Download our App</a>
+                <a href="#" class="text-dark text-decoration-none category-link">Contact Us</a>
             </div>
         </div>
     </div>
 </header>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Main JS -->
+<script src="assets/js/main.js?v=2"></script>
+<script>
+    if(typeof initHeader === 'function') {
+        initHeader();
+    }
+</script>
