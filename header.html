@@ -1,0 +1,176 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Rubik:wght@500;600;700&display=swap"
+    rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Main CSS -->
+<link rel="stylesheet" href="assets/css/main.css">
+
+<header class="fixed-top" style="z-index: 1030;">
+    <!-- Top Black Bar -->
+    <div class="w-100 d-none d-lg-block position-relative"
+        style="background-color: #1a1a1a; font-size: 0.8rem; color: #fff; padding: 6px 0; z-index: 10;">
+        <div class="container d-flex justify-content-between align-items-center" style="max-width: 1200px;">
+            <!-- Left side (Marquee) -->
+            <div class="flex-grow-1 overflow-hidden me-4" style="max-width: 60%; white-space: nowrap;">
+                <div class="marquee-seamless">
+                    <!-- First Set -->
+                    <div class="d-inline-flex" style="gap: 150px; padding-right: 150px;">
+                        <div class="d-flex align-items-center rounded px-2 py-1" style="background-color: #151d32;">
+                            <i class="fas fa-truck text-warning me-2"></i> FREE Express Shipping on all products
+                        </div>
+                        <div class="d-flex align-items-center rounded px-2 py-1" style="background-color: #151d32;">
+                            <i class="fa-solid fa-coins text-warning me-2"></i> Cash on Delivery Available Across India
+                        </div>
+                    </div>
+                    <!-- Second Set (Duplicate for seamless loop) -->
+                    <div class="d-inline-flex" style="gap: 150px; padding-right: 150px;">
+                        <div class="d-flex align-items-center rounded px-2 py-1" style="background-color: #151d32;">
+                            <i class="fas fa-truck text-warning me-2"></i> FREE Express Shipping on all products
+                        </div>
+                        <div class="d-flex align-items-center rounded px-2 py-1" style="background-color: #151d32;">
+                            <i class="fa-solid fa-coins text-warning me-2"></i> Cash on Delivery Available Across India
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right side -->
+            <div class="d-flex align-items-center gap-5 flex-shrink-0 pe-lg-4">
+                <div class="d-flex align-items-center">
+                    <span class="text-secondary me-4" style="font-size: 1.1rem;">|</span>
+                    <i class="fas fa-map-marker-alt me-2 text-white fs-6"></i>
+                    <span>Delivering to Surat 394210</span>
+                    <a href="#" class="text-white ms-4 fw-bold text-decoration-none"
+                        style="font-size: 0.85rem;">Update</a>
+                </div>
+                <div class="dropdown" style="cursor: pointer;">
+                    <div class="d-flex align-items-center text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://flagcdn.com/w20/in.png" alt="India Flag" class="me-2" style="width: 18px;">
+                        <span class="fw-bold"><span id="languageIndicator">EN</span> <i class="fas fa-chevron-down ms-1"
+                                style="font-size: 0.7rem;"></i></span>
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm mt-2"
+                        style="font-size: 0.85rem; min-width: 120px;">
+                        <li><a class="dropdown-item fw-bold language-select" href="#" data-lang="EN">English</a></li>
+                        <li><a class="dropdown-item language-select" href="#" data-lang="Mr">Marathi</a></li>
+                        <li><a class="dropdown-item language-select" href="#" data-lang="Hi">Hindi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm w-100" style="background-color: #0087F6; padding: 8px 0;">
+        <div class="container flex-wrap flex-lg-nowrap" style="max-width: 1200px;">
+
+            <!-- Mobile Top Row -->
+            <div class="d-flex w-100 justify-content-between align-items-center d-lg-none mb-3">
+                <a class="d-flex align-items-center text-decoration-none" href="#">
+                    <img src="assets/img/SabkaFaydaLogo.png" alt="Sabka Fayda E-Commerce Marketplace Logo"
+                        class="nav-logo-img">
+                </a>
+                <a class="text-white text-decoration-none d-flex align-items-center" href="#">
+                    <div class="position-relative mt-1">
+                        <i class="fas fa-shopping-cart fs-4"></i>
+                        <span class="position-absolute translate-middle badge rounded-pill bg-danger"
+                            style="top: 0px; left: 100%; font-size: 0.60rem; padding: 3px 5px;">2</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Mobile Bottom Row -->
+            <div class="d-flex w-100 justify-content-between align-items-center gap-3 d-lg-none">
+                <!-- Mobile Searchbar -->
+                <div class="d-flex flex-grow-1 bg-white rounded overflow-hidden">
+                    <input type="text" class="border-0 w-100 px-3 py-2"
+                        placeholder="Search for products, brands and more" style="outline: none; font-size: 0.9rem;">
+                    <button class="bg-white border-0 px-3 py-2" style="color: #0087F6;"><i
+                            class="fas fa-search fs-5"></i></button>
+                </div>
+                <!-- Wallet -->
+                <a class="text-white text-decoration-none" href="#">
+                    <i class="fas fa-wallet fs-4"></i>
+                </a>
+                <!-- Hamburger -->
+                <button class="navbar-toggler text-white border-0 p-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent" style="box-shadow: none;">
+                    <i class="fa-solid fa-bars fs-3"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Logo -->
+            <a class="d-none d-lg-flex align-items-center text-decoration-none me-lg-4" href="#">
+                <img src="assets/img/SabkaFaydaLogo.png" alt="Sabka Fayda E-Commerce Marketplace Logo" height="60"
+                    class="nav-logo-img">
+            </a>
+
+            <!-- The collapsible content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Desktop Searchbar -->
+                <div class="d-none d-lg-flex w-100 mx-lg-auto my-3 my-lg-0 rounded overflow-hidden"
+                    style="max-width: 650px;">
+                    <select class="border-0 fw-semibold px-3 py-2"
+                        style="background-color: #e6e6e6; color: #333; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
+                        <option>All Category</option>
+                    </select>
+                    <input type="text" class="border-0 w-100 px-3 py-2"
+                        placeholder="Search for products, brands and more" style="outline: none;">
+                    <button class="bg-white border-0 px-4 py-2" style="color: #555; cursor: pointer;"><i
+                            class="fas fa-search"></i></button>
+                </div>
+
+                <ul class="navbar-nav align-items-lg-center w-100 w-lg-auto mt-3 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-medium ms-lg-4 text-center" href="#"
+                            style="font-size: 0.95rem; line-height: 1.2;">Become a<br class="d-none d-lg-inline">
+                            Seller</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link text-white fw-normal ms-lg-4 d-flex align-items-center" href="#"
+                            style="font-size: 0.95rem;">
+                            <i class="fas fa-wallet fs-6 me-2"></i> Wallet
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link text-white fw-normal ms-lg-4 d-flex align-items-center" href="#">
+                            <div class="position-relative me-2 mt-1">
+                                <i class="fas fa-shopping-cart fs-6"></i>
+                                <span class="position-absolute translate-middle badge rounded-pill bg-danger"
+                                    style="top: 0px; left: 90%; font-size: 0.65rem; padding: 3px 5px;">
+                                    2
+                                </span>
+                            </div>
+                            <span class="fs-5 ms-1">Cart</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories Bar -->
+    <div class="w-100 d-none d-lg-block shadow-sm" style="background-color: #BFE2FF;">
+        <div class="container" style="max-width: 1200px; padding: 0 12px;">
+            <div class="d-flex align-items-center flex-nowrap category-scroll"
+                style="font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif; white-space: nowrap;">
+                <a href="#" class="text-dark text-decoration-none text-center"
+                    style="background-color: #ffffff; padding: 6px 24px; min-width: 130px;">Categories</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Best sellers</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Featured Products</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Under 50 Rs</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Electronics</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Beauty & Personal Care</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Gifts</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Car & Bikes</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Toys and Games</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Download our App</a>
+                <a href="#" class="text-dark text-decoration-none px-3 py-1 category-link">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</header>

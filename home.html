@@ -11,11 +11,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Component CSS -->
-    <link rel="stylesheet" href="../Header/header.css">
-    <link rel="stylesheet" href="../Footer/footer.css">
-    <!-- Page Specific CSS -->
-    <link rel="stylesheet" href="home.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
 
@@ -285,21 +282,24 @@
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
     <!-- Script to load Header and Footer dynamically -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Load Header
-            fetch('../Header/header.html')
+            fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
-                    let script = document.createElement('script');
-                    script.src = '../Header/header.js';
-                    document.body.appendChild(script);
+                    if(typeof initHeader === 'function') {
+                        initHeader();
+                    }
                 });
 
             // Load Footer
-            fetch('../Footer/footer.html')
+            fetch('footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;

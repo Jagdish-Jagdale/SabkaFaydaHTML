@@ -1,0 +1,142 @@
+/* header.css */
+@keyframes seamlessMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.marquee-seamless {
+    display: flex;
+    width: fit-content;
+    animation: seamlessMarquee 15s linear infinite;
+}
+.marquee-seamless:hover {
+    animation-play-state: paused;
+}
+
+@media (max-width: 991px) {
+    .nav-logo-img {
+        height: 45px !important;
+    }
+}
+.category-link {
+    transition: color 0.2s ease;
+}
+
+.category-link:hover {
+    color: #0087F6 !important;
+}
+
+.category-scroll {
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+/* footer.css */
+.footer-heading {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    cursor: default;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    transition: height 0.3s ease;
+}
+
+.footer-heading:hover::after {
+    height: 4px;
+}
+
+/* home.css */
+.icon-cat-link {
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+.icon-cat-link:hover {
+    transform: translateY(-4px);
+    filter: brightness(0.8);
+}
+.icon-category-scroll {
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    padding-bottom: 5px;
+}
+.icon-category-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.hide-scroll {
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.hide-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+/* login.css */
+@media (max-width: 991px) {
+    .main-content-container {
+        padding-top: 150px !important;
+        padding-bottom: 60px !important;
+        min-height: 100vh !important;
+    }
+
+    .top-login-logo {
+        height: 65px !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .login-card {
+        padding: 2rem !important;
+        padding-bottom: 75px !important;
+    }
+
+    .whatsapp-icon {
+        height: 55px !important;
+    }
+
+    .mobile-form-section {
+        margin-top: 1.5rem !important;
+    }
+
+    .login-heading {
+        font-size: 1.6rem !important;
+    }
+
+    .login-subtext {
+        font-size: 1.05rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .input-prefix {
+        font-size: 1.15rem !important;
+    }
+
+    .login-input {
+        font-size: 1.1rem !important;
+    }
+
+    .login-btn {
+        font-size: 0.95rem !important;
+        padding-top: 0.7rem !important;
+        padding-bottom: 0.7rem !important;
+    }
+
+    .otp-input-box {
+        width: 40px !important;
+        height: 45px !important;
+        font-size: 1.2rem !important;
+    }
+}

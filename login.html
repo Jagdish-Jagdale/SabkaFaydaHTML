@@ -9,7 +9,7 @@
     <meta name="description"
         content="Login to your Sabka Fayda account using your mobile number and OTP. Access orders, wishlist, cart, and personalized shopping experience.">
     <title>Login | Sabka Fayda</title>
-    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts for Rubik and Montserrat -->
@@ -21,11 +21,8 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Component CSS -->
-    <link rel="stylesheet" href="../Header/header.css">
-    <link rel="stylesheet" href="../Footer/footer.css">
-    <!-- Page Specific CSS -->
-    <link rel="stylesheet" href="login.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body
@@ -75,7 +72,7 @@
 
                 <!-- Illustration -->
                 <div class="mx-auto mx-lg-0 text-center text-lg-start" style="margin-top: 40px; max-width: 80%;">
-                    <img src="../../assets/LoginImg.png" alt="Sabka Fayda Secure User Login and Shopping Illustration"
+                    <img src="assets/img/LoginImg.png" alt="Sabka Fayda Secure User Login and Shopping Illustration"
                         class="img-fluid" style="max-height: 300px;">
                 </div>
             </div>
@@ -84,7 +81,7 @@
             <div class="col-lg-5 d-flex flex-column align-items-center">
 
                 <div class="w-100 mx-auto d-flex justify-content-center mb-4" style="max-width: 420px;">
-                    <img src="../../assets/sabkafaydalogin.png" alt="Sabka Fayda User Authentication Login Logo"
+                    <img src="assets/img/sabkafaydalogin.png" alt="Sabka Fayda User Authentication Login Logo"
                         height="90" class="top-login-logo">
                 </div>
 
@@ -94,7 +91,7 @@
                         Mobile</h3>
                     <p class="mb-2 text-secondary login-subtext text-lg-nowrap" style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">We will send you a 6 digit OTP on WhatsApp</p>
 
-                    <img src="../../assets/WhatsApp_icon.png" alt="WhatsApp Icon" height="70" class="mb-5 whatsapp-icon">
+                    <img src="assets/img/WhatsApp_icon.png" alt="WhatsApp Icon" height="70" class="mb-5 whatsapp-icon">
 
                     <div id="mobileFormSection" class="mobile-form-section">
                         <div class="text-start mb-5 position-relative">
@@ -193,23 +190,25 @@
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
     <!-- Script to load Header and Footer dynamically -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Load Header
-            fetch('../Header/header.html')
+            fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
-                    // Initialize header specific JS
-                    let script = document.createElement('script');
-                    script.src = '../Header/header.js';
-                    document.body.appendChild(script);
+                    if(typeof initHeader === 'function') {
+                        initHeader();
+                    }
                 })
                 .catch(error => console.error('Error loading header:', error));
 
             // Load Footer
-            fetch('../Footer/footer.html')
+            fetch('footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
@@ -217,9 +216,6 @@
                 .catch(error => console.error('Error loading footer:', error));
         });
     </script>
-    
-    <!-- Page Specific JS -->
-    <script src="login.js"></script>
 </body>
 
 </html>
