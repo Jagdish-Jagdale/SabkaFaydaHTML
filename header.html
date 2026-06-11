@@ -112,15 +112,36 @@
             <!-- The collapsible content -->
             <div class="collapse navbar-collapse" id="navbarContent">
                 <!-- Desktop Searchbar -->
-                <div class="d-none d-lg-flex w-100 mx-lg-auto my-3 my-lg-0 rounded overflow-hidden"
-                    style="max-width: 650px;">
-                    <select class="border-0 fw-semibold px-3 py-2"
-                        style="background-color: #e6e6e6; color: #333; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
-                        <option>All Category</option>
-                    </select>
-                    <input type="text" class="border-0 w-100 px-3 py-2"
+                <div class="d-none d-lg-flex w-100 mx-lg-auto my-3 my-lg-0 rounded position-relative align-items-center"
+                    style="max-width: 650px; border: 1px solid #ccc; background-color: #fff; z-index: 1050; height: 42px;">
+                    <div class="dropdown custom-category-dropdown h-100">
+                        <button class="btn border-0 fw-semibold px-3 py-0 h-100 d-flex align-items-center justify-content-between" 
+                                type="button" 
+                                id="categoryDropdownBtn" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false" 
+                                style="background-color: #e6e6e6; color: #333; outline: none; border-radius: 0; border-top-left-radius: 5px; border-bottom-left-radius: 5px; min-width: 140px; max-width: 160px; font-size: 0.9rem; box-shadow: none;">
+                            <span id="selectedCategoryText" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 105px; display: inline-block;">All Category</span>
+                            <i class="fas fa-caret-down ms-2"></i>
+                        </button>
+                        <ul class="dropdown-menu border-0 shadow-sm p-0 custom-category-dropdown-menu" 
+                            aria-labelledby="categoryDropdownBtn" 
+                            style="max-height: 250px; overflow-y: scroll; min-width: 230px; border-radius: 0; border: 1px solid #ccc !important; margin-top: 4px; position: absolute; left: -1px;">
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item active d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('All Category')">All Categories</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Home & Living')">Home & Living <i class="fas fa-chevron-right fs-7 opacity-75"></i></a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Electronics')">Electronics</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Toys and Games')">Toys and Games</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Gifts and Retail')">Gifts and Retail</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Health & Beauty')">Health & Beauty</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Business & Office')">Business & Office</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Automobile')">Automobile</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Animal & Pet')">Animal & Pet</a></li>
+                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between" href="#" onclick="selectCategory('Lifestyle & Fashion')">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" class="border-0 w-100 px-3 h-100"
                         placeholder="Search for products, brands and more" style="outline: none;">
-                    <button class="bg-white border-0 px-4 py-2" style="color: #555; cursor: pointer;"><i
+                    <button class="bg-white border-0 px-4 h-100" style="color: #555; cursor: pointer; border-top-right-radius: 5px; border-bottom-right-radius: 5px;"><i
                             class="fas fa-search"></i></button>
                 </div>
 
@@ -154,12 +175,14 @@
     </nav>
 
     <!-- Categories Bar -->
-    <div class="w-100 d-none d-lg-block shadow-sm" style="background-color: #BFE2FF;">
+    <div class="w-100 d-none d-lg-block shadow-sm position-relative" id="categoriesBarContainer" style="background-color: #BFE2FF; z-index: 1020;">
         <div class="container" style="max-width: 1200px; padding: 0 12px;">
             <div class="d-flex align-items-center flex-nowrap category-scroll"
                 style="font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif; white-space: nowrap;">
-                <a href="#" class="text-dark text-decoration-none text-center category-link active-category"
-                    style="min-width: 130px;">Categories</a>
+                
+                <a href="#" class="text-dark text-decoration-none text-center category-link active-category d-block"
+                    id="categoriesMegaMenuBtn" style="min-width: 130px;">Categories</a>
+                
                 <a href="#" class="text-dark text-decoration-none category-link">Best sellers</a>
                 <a href="#" class="text-dark text-decoration-none category-link">Featured Products</a>
                 <a href="#" class="text-dark text-decoration-none category-link">Under 50 Rs</a>
@@ -170,6 +193,124 @@
                 <a href="#" class="text-dark text-decoration-none category-link">Toys and Games</a>
                 <a href="#" class="text-dark text-decoration-none category-link">Download our App</a>
                 <a href="#" class="text-dark text-decoration-none category-link">Contact Us</a>
+            </div>
+        </div>
+        
+        <!-- Mega Dropdown Menu (Outside of scroll to prevent clipping) -->
+        <div class="shadow-lg border-0 p-0 mega-dropdown-menu d-none overflow-hidden" 
+             id="categoriesMegaMenu"
+             style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 96%; max-width: 1180px; margin-top: 8px; border-radius: 12px; z-index: 1000; background-color: #fff; border: 1px solid #dee2e6 !important;">
+            <div class="container-fluid" style="padding: 0;">
+                <div class="row g-0">
+                    <!-- Column 1 -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Lifestyle & Fashion</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 2 (Blue Background) -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px; background-color: #EAF2FF;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Home & Living</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Electronics</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 4 (Blue Background) -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px; background-color: #EAF2FF;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Retail & Gifts</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 5 -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Business & office</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 6 (Blue Background) -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px; background-color: #EAF2FF;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Automobile</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 7 -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">personal Care</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 8 (Blue Background) -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px; background-color: #EAF2FF;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Animal & Pet</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                    <!-- Column 9 -->
+                    <div class="col py-4 px-3" style="flex: 1; min-width: 100px;">
+                        <h6 class="fw-bold mb-2" style="font-size: 0.82rem;"><a href="#" class="text-decoration-none text-primary" style="color: #0087F6 !important;">Toy & Games</a></h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.78rem; font-weight: 500; color: #666; line-height: 1.7; white-space: normal;">
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                            <li><a href="#" class="text-secondary text-decoration-none">Lifestyle & Fashion</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

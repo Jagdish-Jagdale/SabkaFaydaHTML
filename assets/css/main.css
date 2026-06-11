@@ -1,13 +1,20 @@
 /* header.css */
 @keyframes seamlessMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
+
 .marquee-seamless {
     display: flex;
     width: fit-content;
     animation: seamlessMarquee 15s linear infinite;
 }
+
 .marquee-seamless:hover {
     animation-play-state: paused;
 }
@@ -17,6 +24,7 @@
         height: 45px !important;
     }
 }
+
 .category-link {
     transition: color 0.2s ease, background-color 0.2s ease;
     padding: 6px 16px;
@@ -31,18 +39,45 @@
     color: #333 !important;
 }
 
+/* Custom Category Dropdown Styling */
+.custom-category-dropdown {
+    height: 100%;
+}
+.custom-category-dropdown-menu {
+    border-radius: 0 !important;
+}
+.custom-dropdown-item {
+    font-size: 0.9rem;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    transition: background-color 0.15s, color 0.15s;
+}
+.custom-dropdown-item:hover,
+.custom-dropdown-item.active {
+    background-color: #0087F6 !important;
+    color: #fff !important;
+}
+.custom-dropdown-item .fa-chevron-right {
+    font-size: 0.75rem;
+    color: currentColor;
+}
+
 .category-scroll,
 .icon-category-scroll,
 .hide-scroll {
     overflow-x: auto;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .category-scroll::-webkit-scrollbar,
 .icon-category-scroll::-webkit-scrollbar,
 .hide-scroll::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
+    /* Chrome, Safari and Opera */
 }
 
 /* footer.css */
@@ -72,10 +107,12 @@
 .icon-cat-link {
     transition: transform 0.2s ease, filter 0.2s ease;
 }
+
 .icon-cat-link:hover {
     transform: translateY(-4px);
     filter: brightness(0.8);
 }
+
 .icon-category-scroll {
     padding-bottom: 5px;
 }
@@ -133,5 +170,170 @@
         width: 40px !important;
         height: 45px !important;
         font-size: 1.2rem !important;
+    }
+}
+
+/* Responsive Home Page Modifications */
+@media (max-width: 767px) {
+    .hero-slide-bg {
+        height: 200px !important;
+    }
+
+    .hero-title {
+        font-size: 1.4rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.65rem !important;
+    }
+
+    .hero-offer-text {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .hero-btn {
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.8rem !important;
+    }
+
+    .hero-btn-icon {
+        font-size: 0.7rem !important;
+    }
+
+    .hero-graphics-container {
+        width: 140px !important;
+        right: 0 !important;
+    }
+
+    .hero-deal-tag {
+        top: 25px !important;
+        left: -15px !important;
+        transform: scale(0.6) rotate(-15deg) !important;
+    }
+
+    .makeup-kit-img {
+        width: 130px;
+        height: auto;
+        transform: rotate(-10deg);
+        margin-top: 20px;
+    }
+
+    .cat-icon-img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .cat-icon-text {
+        font-size: 0.65rem !important;
+        line-height: 1.2;
+    }
+
+    .category-section-bg {
+        background-color: #f8fcf8 !important;
+        /* light greenish off-white */
+    }
+
+    .cat-item {
+        min-width: 65px;
+    }
+
+    /* Small card sizes */
+    .keep-shopping-small-box {
+        width: 31% !important;
+    }
+
+    .keep-shopping-small-img {
+        height: 90px !important;
+    }
+
+    .keep-shopping-small-box h6 {
+        font-size: 0.7rem !important;
+    }
+
+    .keep-shopping-small-box p {
+        font-size: 0.6rem !important;
+    }
+
+    .keep-shopping-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    /* Grid layout for refer products */
+    .refer-product-grid {
+        flex-wrap: wrap !important;
+    }
+
+    .refer-product-card {
+        width: calc(50% - 0.25rem) !important;
+    }
+
+    .refer-product-img {
+        height: 140px !important;
+    }
+
+    .refer-product-title {
+        font-size: 0.85rem !important;
+    }
+
+    .refer-product-subtitle {
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-slide-bg {
+        height: 380px !important;
+    }
+
+    .hero-title {
+        font-size: 2.8rem !important;
+    }
+
+    .hero-graphics-container {
+        width: 400px !important;
+        right: 10% !important;
+    }
+
+    .hero-deal-tag {
+        top: 80px !important;
+        left: -40px !important;
+        transform: rotate(-10deg) !important;
+    }
+
+    .makeup-kit-img {
+        width: 250px;
+        transform: rotate(-10deg);
+    }
+
+    .cat-icon-img {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .category-section-bg {
+        background-color: #ffffff !important;
+    }
+
+    .keep-shopping-small-box {
+        width: 170px !important;
+    }
+
+    .keep-shopping-small-img {
+        height: 170px !important;
+    }
+
+    .refer-product-grid {
+        flex-wrap: nowrap !important;
+    }
+
+    .refer-product-card {
+        width: 220px !important;
+        flex-shrink: 0;
+    }
+
+    .refer-product-img {
+        height: 220px !important;
     }
 }

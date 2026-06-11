@@ -1,4 +1,23 @@
 /* header.js */
+function selectCategory(categoryName) {
+    const textSpan = document.getElementById('selectedCategoryText');
+    if (textSpan) {
+        textSpan.textContent = categoryName;
+    }
+    
+    const dropdownItems = document.querySelectorAll('.custom-dropdown-item');
+    dropdownItems.forEach(item => {
+        item.classList.remove('active');
+        // check if text matches or if it starts with the category name (to handle nested icons)
+        const itemText = item.textContent.trim();
+        if (itemText === categoryName || 
+            (categoryName === 'All Category' && itemText === 'All Categories') ||
+            itemText.startsWith(categoryName)) {
+            item.classList.add('active');
+        }
+    });
+}
+
 function initHeader() {
     const languageOptions = document.querySelectorAll('.language-select');
     const languageIndicator = document.getElementById('languageIndicator');
@@ -25,6 +44,24 @@ function initHeader() {
                 categoryLinks.forEach(l => l.classList.remove('active-category'));
                 this.classList.add('active-category');
             });
+        });
+    }
+
+    // Toggle Categories Mega Menu
+    const megaMenuBtn = document.getElementById('categoriesMegaMenuBtn');
+    const megaMenu = document.getElementById('categoriesMegaMenu');
+    if (megaMenuBtn && megaMenu) {
+        megaMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            megaMenu.classList.toggle('d-none');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!megaMenuBtn.contains(e.target) && !megaMenu.contains(e.target)) {
+                megaMenu.classList.add('d-none');
+            }
         });
     }
 }
