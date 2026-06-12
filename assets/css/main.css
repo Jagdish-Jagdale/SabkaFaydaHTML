@@ -117,6 +117,34 @@
     padding-bottom: 5px;
 }
 
+.cat-icon-text {
+    white-space: nowrap;
+}
+
+.keep-shopping-small-img {
+    border-radius: 8px !important;
+}
+
+.keep-shopping-small-box h6,
+.keep-shopping-small-box p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.special-banner-top {
+    height: 90px !important;
+}
+
+.special-banner-bottom {
+    height: 220px !important;
+}
+
+@media (min-width: 768px) {
+    .special-banner-top,
+    .special-banner-bottom {
+        height: 280px !important;
+    }
+}
+
 /* login.css */
 @media (max-width: 991px) {
     .main-content-container {
@@ -236,11 +264,13 @@
 
     .cat-item {
         min-width: 65px;
+        flex-shrink: 0 !important;
     }
 
     /* Small card sizes */
     .keep-shopping-small-box {
         width: 31% !important;
+        flex-shrink: 0 !important;
     }
 
     .keep-shopping-small-img {
@@ -280,6 +310,76 @@
     .refer-product-subtitle {
         font-size: 0.7rem !important;
     }
+
+    /* Grid layout for On Sale products */
+    .on-sale-grid {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    .on-sale-card {
+        width: calc(50% - 5px) !important;
+        flex-shrink: 0 !important;
+    }
+
+    .on-sale-img-wrapper {
+        height: 140px !important;
+    }
+
+    .fashion-banner-img {
+        height: 120px !important;
+    }
+
+    .fashion-banner-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 3rem !important;
+        letter-spacing: -2px;
+    }
+
+    .fashion-banner-subtitle {
+        font-family: 'Rubik', sans-serif;
+        color: #f0c14b;
+        font-size: 1.8rem !important;
+        margin-top: -10px !important;
+        margin-left: 10px !important;
+    }
+
+    /* Grid layout for Featured products */
+    .featured-grid {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    .featured-card {
+        width: calc(50% - 5px) !important;
+        flex-shrink: 0 !important;
+    }
+
+    .featured-img-wrapper {
+        height: 140px !important;
+    }
+
+    .explore-products-title {
+        font-size: 1.25rem !important;
+    }
+}
+
+.fashion-banner-img {
+    height: 250px;
+}
+
+.fashion-banner-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6rem;
+    letter-spacing: -2px;
+}
+
+.fashion-banner-subtitle {
+    font-family: 'Rubik', sans-serif;
+    color: #f0c14b;
+    font-size: 3.5rem;
+    margin-top: -25px;
+    margin-left: 20px;
 }
 
 @media (min-width: 768px) {
