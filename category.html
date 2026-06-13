@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse our high-quality products, apply filters to find exactly what you need, and shop the best deals on Sabka Fayda.">
+    <title>Category | Sabka Fayda</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <style>
+        body {
+            background-color: #f7f9fa;
+        }
+
+        /* Banner Styling */
+        .category-banner-container {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        .category-banner-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 992px) {
+            .category-banner-img {
+                height: 240px;
+            }
+        }
+
+        /* Filter Sidebar Card Styling */
+        .filter-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .filter-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .filter-heading-outside {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 10px;
+            margin-bottom: 12px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .filter-section-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Category Tree */
+        .category-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        .category-item {
+            margin-bottom: 12px;
+        }
+        .category-link-item {
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s;
+        }
+        .category-link-item:hover {
+            color: #0087F6;
+        }
+        .subcategory-list {
+            list-style: none;
+            padding-left: 15px;
+            margin-top: 8px;
+        }
+        .subcategory-item {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .subcategory-item::before {
+            content: "•";
+            color: #cbd5e0;
+            position: absolute;
+            left: -10px;
+            top: 0;
+        }
+        .subcategory-link {
+            color: #718096;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .subcategory-link:hover {
+            color: #0087F6;
+        }
+
+        /* Price Filter Slider */
+        .price-slider-container {
+            padding: 0 5px;
+        }
+        .price-inputs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .price-input-box {
+            flex: 1;
+            background-color: #f7f9fa;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            color: #4a5568;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price-input-box span {
+            font-size: 0.75rem;
+            color: #a0aec0;
+        }
+        .price-input-box input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-weight: 600;
+            color: #2d3748;
+            outline: none;
+            text-align: right;
+        }
+
+        /* Sort Bar Styling */
+        .sort-bar {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0px;
+            margin-bottom: 25px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+        .sort-bar::-webkit-scrollbar {
+            display: none;
+        }
+        .sort-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-right: 30px;
+            padding-bottom: 10px;
+        }
+        .sort-options-container {
+            display: flex;
+        }
+        .sort-option {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #555;
+            text-decoration: none;
+            padding-bottom: 10px;
+            margin-right: 30px;
+            position: relative;
+            transition: color 0.2s;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .sort-option:hover {
+            color: #0087F6;
+        }
+        .sort-option.active {
+            color: #0087F6;
+        }
+        .sort-option.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #0087F6;
+        }
+
+        @media (min-width: 768px) {
+            .filter-sidebar-col {
+                margin-top: 50px;
+            }
+        }
+
+        /* Product Cards Container (Large card wrapper) */
+        .products-card-wrapper {
+            background-color: #ffffff;
+            border: 1px solid #eef2f5;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            min-height: 600px;
+        }
+
+        /* Product Card Styling */
+        .product-card {
+            border: 1px solid #f0f3f6;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            background-color: #ffffff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-color: #d2e3f7;
+        }
+        .product-image-container {
+            position: relative;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            background-color: #fafbfc;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image-container img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .product-card:hover .product-image-container img {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        .product-details {
+            padding: 16px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sponsored-tag {
+            font-size: 0.7rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .product-name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #2d3748;
+            line-height: 1.4;
+            height: 3.6em; /* Limit to 2 lines */
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            margin-bottom: 12px;
+        }
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .custom-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .badge-rating {
+            background-color: #faf0ff;
+            color: #b05ad6;
+            border: 1px solid #f3e5f5;
+        }
+        .badge-rating i {
+            color: #ffb400;
+        }
+        .badge-refer {
+            background-color: #e6fffa;
+            color: #319795;
+            border: 1px solid #e2fbf5;
+        }
+        .badge-earn {
+            background-color: #fffaf0;
+            color: #dd6b20;
+            border: 1px solid #fdf5e6;
+        }
+        .price-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .original-price {
+            font-size: 0.75rem;
+            text-decoration: line-through;
+            color: #a0aec0;
+        }
+        .current-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .discount-text {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #4f46e5;
+        }
+
+        /* Range Slider Custom Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #e2e8f0;
+            border-radius: 3px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background: #0087F6;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #e2e8f0;
+            border-radius: 3px;
+        }
+        input[type=range]::-moz-range-thumb {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background: #0087F6;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden;">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
+        
+        <!-- Breadcrumbs -->
+        <div class="container py-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif;">
+                    <li class="breadcrumb-item"><a href="home.html" class="text-decoration-none text-secondary">Home</a></li>
+                    <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">Fashion & Lifestyle</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Banner Section -->
+        <div class="container category-banner-container">
+            <img src="assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png" class="category-banner-img" alt="Exclusive Savings Festival Banner">
+        </div>
+
+        <!-- Split Layout Content -->
+        <div class="container pb-5">
+            <div class="row">
+                
+                <!-- Left Sidebar Filters -->
+                <div class="col-lg-3 col-md-4 mb-4 filter-sidebar-col">
+                    
+                    <!-- Category Filter Card -->
+                    <div class="filter-card">
+                        <h5 class="filter-title">Category</h5>
+                        <ul class="category-list">
+                            <li class="category-item">
+                                <a href="#" class="category-link-item" onclick="toggleSubcategory(event)">
+                                    <span>Apparel & Fashion Accessories</span>
+                                    <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                                </a>
+                                <!-- Subcategories -->
+                                <ul class="subcategory-list" id="accessoriesSubMenu">
+                                    <li class="subcategory-item"><a href="#" class="subcategory-link">Beautu</a></li>
+                                    <li class="subcategory-item"><a href="#" class="subcategory-link">Beautu</a></li>
+                                    <li class="subcategory-item"><a href="#" class="subcategory-link">Beautu</a></li>
+                                    <li class="subcategory-item"><a href="#" class="subcategory-link">Beautu</a></li>
+                                </ul>
+                            </li>
+                            <li class="category-item">
+                                <a href="#" class="category-link-item">
+                                    <span>Fashion Accessories</span>
+                                </a>
+                            </li>
+                            <li class="category-item"><a href="#" class="subcategory-link d-block py-1 ps-2">Beautu</a></li>
+                            <li class="category-item"><a href="#" class="subcategory-link d-block py-1 ps-2">Beautu</a></li>
+                            <li class="category-item"><a href="#" class="subcategory-link d-block py-1 ps-2">Beautu</a></li>
+                            <li class="category-item"><a href="#" class="subcategory-link d-block py-1 ps-2">Beautu</a></li>
+                            <li class="category-item"><a href="#" class="subcategory-link d-block py-1 ps-2">Beautu</a></li>
+                            <li class="category-item"><a href="#" class="subcategory-link d-block py-1 ps-2">Beautu</a></li>
+                            <li class="category-item"><a href="#" class="subcategory-link d-block py-1 ps-2">Beautu</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Price Filter Card -->
+                    <div class="filter-card">
+                        <h5 class="filter-title">Filter By Price</h5>
+                        <div class="price-slider-container">
+                            <input type="range" class="form-range" min="100" max="1000" step="10" value="500" id="priceRange" oninput="updatePriceInputs(this.value)">
+                            <div class="price-inputs">
+                                <div class="price-input-box">
+                                    <input type="text" id="minPriceInput" value="200" readonly>
+                                    <span class="ms-1">Mini</span>
+                                </div>
+                                <div class="price-input-box">
+                                    <input type="text" id="maxPriceInput" value="500" readonly>
+                                    <span class="ms-1">Max</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Status Filter Card -->
+                    <div class="filter-card">
+                        <h5 class="filter-title">Products Status</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input rounded-circle" type="checkbox" id="statusOnSale">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusOnSale">
+                                On Sale
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input rounded-circle" type="checkbox" id="statusFeatured">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusFeatured">
+                                Featured
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input rounded-circle" type="checkbox" id="statusTopRefer">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTopRefer">
+                                Top Refer
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input rounded-circle" type="checkbox" id="statusEarnPoints">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusEarnPoints">
+                                Earn Points
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input rounded-circle" type="checkbox" id="statusHotDeal">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusHotDeal">
+                                Hot Deal
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Customer Reviews Filter Card -->
+                    <h5 class="filter-heading-outside">Customer Reviews</h5>
+                    <div class="filter-card">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="review4">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review4">
+                                <span class="text-warning">★★★★☆</span> and up
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="review3">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review3">
+                                <span class="text-warning">★★★☆☆</span> and up
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="review2">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review2">
+                                <span class="text-warning">★★☆☆☆</span> and up
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="review1">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review1">
+                                <span class="text-warning">★☆☆☆☆</span> and up
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Main Products Grid -->
+                <div class="col-lg-9 col-md-8">
+                    
+                    <!-- Sorting Bar -->
+                    <div class="sort-bar">
+                        <span class="sort-label">Sort By</span>
+                        <div class="sort-options-container">
+                            <a class="sort-option active" onclick="setSortActive(this)">Most selling</a>
+                            <a class="sort-option" onclick="setSortActive(this)">Newest First</a>
+                            <a class="sort-option" onclick="setSortActive(this)">Price Low to Hight</a>
+                            <a class="sort-option" onclick="setSortActive(this)">Price High to Low</a>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid Container -->
+                    <div class="products-card-wrapper">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-3" id="productsGrid">
+                            <!-- Product 1 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 2 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 3 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2 Product 5 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 6 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 7 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 8 -->
+                            <div class="col">
+                                <div class="product-card">
+                                    <div class="product-image-container">
+                                        <img src="assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png" alt="Premium Tea">
+                                    </div>
+                                    <div class="product-details">
+                                        <div>
+                                            <div class="sponsored-tag">Sponsored</div>
+                                            <h6 class="product-name">Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic</h6>
+                                            <div class="badge-row">
+                                                <span class="custom-badge badge-rating">4.5 <i class="fas fa-star"></i> (209)</span>
+                                                <span class="custom-badge badge-refer">Refer 16</span>
+                                                <span class="custom-badge badge-earn">Earn 68</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-row mt-2">
+                                            <span class="original-price">1000</span>
+                                            <span class="current-price">Rs 500</span>
+                                            <div class="w-100"></div>
+                                            <span class="discount-text">70 % Off on all Jewellry</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Script to load Header/Footer dynamically & page interactions -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load Header
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                });
+
+            // Load Footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        });
+
+        // Toggle Subcategory
+        function toggleSubcategory(e) {
+            e.preventDefault();
+            const subMenu = document.getElementById('accessoriesSubMenu');
+            const icon = e.currentTarget.querySelector('i');
+            
+            if (subMenu.style.display === 'none' || subMenu.style.display === '') {
+                subMenu.style.display = 'block';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                subMenu.style.display = 'none';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // Update price inputs when range slider moves
+        function updatePriceInputs(val) {
+            document.getElementById('maxPriceInput').value = val;
+        }
+
+        // Sorting Active styling
+        function setSortActive(element) {
+            const options = document.querySelectorAll('.sort-option');
+            options.forEach(opt => opt.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
