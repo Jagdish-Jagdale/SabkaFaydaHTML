@@ -20,7 +20,7 @@
         rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -87,9 +87,11 @@
 
                 <div class="rounded-3 p-5 mx-auto w-100 text-center login-card"
                     style="background-color: #f4f4f3; max-width: 420px; box-shadow: 0 12px 40px rgba(0,0,0,0.08); padding-bottom: 70px !important; border: 1px solid #e0e0e0;">
-                    <h3 class="mb-2 text-dark login-heading" style="font-weight: 500; font-size: 2rem; font-family: 'Rubik', sans-serif;">Login with
+                    <h3 class="mb-2 text-dark login-heading"
+                        style="font-weight: 500; font-size: 2rem; font-family: 'Rubik', sans-serif;">Login with
                         Mobile</h3>
-                    <p class="mb-2 text-secondary login-subtext text-lg-nowrap" style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">We will send you a 6 digit OTP on WhatsApp</p>
+                    <p class="mb-2 text-secondary login-subtext text-lg-nowrap"
+                        style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">OTP sent on your Whatsup </p>
 
                     <img src="assets/img/WhatsApp_icon.png" alt="WhatsApp Icon" height="70" class="mb-5 whatsapp-icon">
 
@@ -195,13 +197,13 @@
 
     <!-- Script to load Header and Footer dynamically -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // Load Header
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
-                    if(typeof initHeader === 'function') {
+                    if (typeof initHeader === 'function') {
                         initHeader();
                     }
                 })

@@ -682,6 +682,12 @@ input[type=range]::-moz-range-thumb {
     justify-content: center;
     width: 100%;
 }
+@media (min-width: 992px) {
+    .main-image-wrapper {
+        aspect-ratio: 4 / 4.55;
+    }
+}
+
 
 #mainProductImage {
     max-width: 100%;
@@ -696,3 +702,13 @@ input[type=range]::-moz-range-thumb {
     height: 100%;
     object-fit: cover;
 }
+
+@media (min-width: 992px) {
+    .sticky-gallery {
+        position: sticky;
+        top: 175px;
+        align-self: start;
+    }
+}
+
+
