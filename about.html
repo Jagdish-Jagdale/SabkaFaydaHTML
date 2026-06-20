@@ -27,7 +27,7 @@
             background: linear-gradient(135deg, #0056b3 0%, #0087F6 100%);
             position: relative;
             overflow: hidden;
-            border-radius: 16px;
+            border-radius: 0px;
         }
 
         .brand-banner::before {
@@ -132,6 +132,88 @@
                 margin: 20px auto;
             }
         }
+
+        .stat-col {
+            border-right: 1.5px solid rgba(0, 86, 179, 0.2);
+        }
+
+        @media (max-width: 991px) {
+            .stat-col:nth-child(even) {
+                border-right: none;
+            }
+            .stat-col:nth-child(1), .stat-col:nth-child(2) {
+                border-bottom: 1.5px solid rgba(0, 86, 179, 0.15);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .stat-col:last-child {
+                border-right: none;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .stat-val-mobile {
+                font-size: 1.15rem !important;
+            }
+            .stat-lbl-mobile {
+                font-size: 0.75rem !important;
+                line-height: 1.2 !important;
+            }
+            .stat-icon-mobile {
+                font-size: 1.6rem !important;
+            }
+            .stat-col-mobile {
+                padding: 10px 5px !important;
+            }
+            .stat-col-mobile:nth-child(odd) {
+                border-right: 1.5px solid rgba(0, 86, 179, 0.15) !important;
+            }
+            .stat-col-mobile:nth-child(even) {
+                border-right: none !important;
+            }
+            .stat-col-mobile:nth-child(1), .stat-col-mobile:nth-child(2) {
+                border-bottom: 1.5px solid rgba(0, 86, 179, 0.12) !important;
+            }
+            .satisfaction-text-mobile {
+                font-size: 0.78rem !important;
+                line-height: 1.4 !important;
+            }
+            .ready-banner-mobile {
+                padding: 1.25rem 1rem !important;
+            }
+            .banner-title-mobile {
+                font-size: 1.35rem !important;
+            }
+            .banner-desc-mobile {
+                font-size: 0.82rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            .banner-btn-mobile {
+                font-size: 0.8rem !important;
+                padding: 0.35rem 1.2rem !important;
+            }
+            .banner-img-mobile {
+                height: 80% !important;
+                max-height: 110px !important;
+            }
+            .satisfaction-shield-mobile {
+                width: 22px !important;
+                height: 25px !important;
+            }
+            .welcome-title-mobile {
+                font-size: 1.45rem !important;
+                white-space: nowrap;
+            }
+            .welcome-desc-mobile p {
+                font-size: 0.85rem !important;
+                line-height: 1.6 !important;
+            }
+            .shop-title-mobile {
+                font-size: 1.45rem !important;
+                white-space: nowrap;
+            }
+        }
     </style>
 </head>
 
@@ -146,7 +228,7 @@
         <div class="container py-4">
 
             <!-- Brand Banner Section -->
-            <div class="brand-banner text-white p-4 p-md-5 mb-4 shadow-sm" style="background: linear-gradient(135deg, #0076f6 0%, #0056b3 100%);">
+            <div class="brand-banner d-none d-md-block text-white px-4 px-md-5 mb-0 shadow-sm" style="background: url('assets/img/aboutbg.png') no-repeat center center; background-size: cover; padding-top: 4.5rem; padding-bottom: 4.5rem; border-radius: 0 !important;">
                 <div class="row align-items-center">
                     <!-- Column 1: About Us info -->
                     <div class="col-md-4 text-center text-md-start mb-3 mb-md-0 border-end border-white-50 pe-md-4">
@@ -165,13 +247,8 @@
                     <!-- Column 3: Brand Logo & Slogan -->
                     <div class="col-md-4 text-center text-md-start ps-md-4">
                         <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3">
-                            <!-- SVG White Monogram Logo cart matching the image -->
-                            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 30H75C78 30 80 32 79 35L72 65C71 67 69 68 67 68H30C28 68 26 67 25 65L15 20H10" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M30 42H70M30 54H60" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                                <circle cx="35" cy="80" r="8" fill="white"/>
-                                <circle cx="68" cy="80" r="8" fill="white"/>
-                            </svg>
+                            <!-- Logo image from sf.png -->
+                            <img src="assets/img/sf.png" alt="Sabka Fayda Logo" style="height: 65px; object-fit: contain;">
                             <div>
                                 <h3 class="fw-bold mb-0 text-white" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem;">Sabka Fayda</h3>
                                 <p class="small mb-0 opacity-80" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; white-space: nowrap;">Fayda Sabka, Bharosa Hamara</p>
@@ -181,46 +258,54 @@
                 </div>
             </div>
 
-            <!-- 4 Features Horizontal Strip -->
-            <div class="bg-white rounded-4 border p-3 mb-5 shadow-sm">
+            <!-- 4 Features Horizontal Strip (Attached directly to top blue section) -->
+            <div class="bg-white d-none d-md-block border p-3 mb-5 shadow-sm" style="border-radius: 0 !important; border-top: none !important;">
                 <div class="row g-3 text-center text-md-start align-items-center">
                     <!-- Feature 1 -->
-                    <div class="col-6 col-lg-3 mb-3 mb-lg-0 border-end border-light border-2">
-                        <div class="d-flex flex-column flex-md-row align-items-center gap-2 px-2">
-                            <div class="info-item-icon" style="flex-shrink: 0;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="col-6 col-lg-3 mb-3 mb-lg-0 border-end border-light-subtle">
+                        <div class="d-flex flex-column flex-md-row align-items-center gap-3 px-2">
+                            <div style="width: 55px; height: 55px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.35rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-0 text-primary" style="font-size: 0.85rem; font-family: 'Rubik', sans-serif;">Quality You Can Trust</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">Carefully selected products for your satisfaction.</p>
+                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Quality You Can Trust</h6>
+                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">Carefully selected products for your satisfaction.</p>
                             </div>
                         </div>
                     </div>
                     <!-- Feature 2 -->
-                    <div class="col-6 col-lg-3 mb-3 mb-lg-0 border-end border-light border-2">
-                        <div class="d-flex flex-column flex-md-row align-items-center gap-2 px-2">
-                            <div class="info-item-icon" style="flex-shrink: 0;"><i class="fa-solid fa-medal"></i></div>
+                    <div class="col-6 col-lg-3 mb-3 mb-lg-0 border-end border-light-subtle">
+                        <div class="d-flex flex-column flex-md-row align-items-center gap-3 px-2">
+                            <div style="width: 55px; height: 55px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.35rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-medal"></i>
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-0 text-primary" style="font-size: 0.85rem; font-family: 'Rubik', sans-serif;">Best Value</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">Top quality at honest prices.</p>
+                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Best Value</h6>
+                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">Top quality at honest prices.</p>
                             </div>
                         </div>
                     </div>
                     <!-- Feature 3 -->
-                    <div class="col-6 col-lg-3 mb-3 mb-lg-0 border-end border-light border-2">
-                        <div class="d-flex flex-column flex-md-row align-items-center gap-2 px-2">
-                            <div class="info-item-icon" style="flex-shrink: 0;"><i class="fa-solid fa-truck"></i></div>
+                    <div class="col-6 col-lg-3 mb-3 mb-lg-0 border-end border-light-subtle">
+                        <div class="d-flex flex-column flex-md-row align-items-center gap-3 px-2">
+                            <div style="width: 55px; height: 55px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.35rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-truck"></i>
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-0 text-primary" style="font-size: 0.85rem; font-family: 'Rubik', sans-serif;">Fast & Reliable Delivery</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">On-time delivery, every time.</p>
+                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Fast & Reliable Delivery</h6>
+                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">On-time delivery, every time.</p>
                             </div>
                         </div>
                     </div>
                     <!-- Feature 4 -->
                     <div class="col-6 col-lg-3">
-                        <div class="d-flex flex-column flex-md-row align-items-center gap-2 px-2">
-                            <div class="info-item-icon" style="flex-shrink: 0;"><i class="fa-solid fa-headphones"></i></div>
+                        <div class="d-flex flex-column flex-md-row align-items-center gap-3 px-2">
+                            <div style="width: 55px; height: 55px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.35rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-headphones"></i>
+                            </div>
                             <div>
-                                <h6 class="fw-bold mb-0 text-primary" style="font-size: 0.85rem; font-family: 'Rubik', sans-serif;">Customer First</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">We're here to help, always.</p>
+                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Customer First</h6>
+                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">We're here to help, always.</p>
                             </div>
                         </div>
                     </div>
@@ -228,13 +313,13 @@
             </div>
 
             <!-- Welcome to SabkaFayda Section -->
-            <div class="row align-items-center g-5 mb-5">
-                <div class="col-lg-5 text-center">
+            <div class="row align-items-center g-4 g-md-5 my-4 my-md-5 px-3 px-md-0">
+                <div class="col-lg-5 text-center mb-3 mb-lg-0">
                     <img src="assets/img/aboutusbanner.png" alt="Welcome to Sabka Fayda Banner Graphic" class="img-fluid rounded-4 shadow-sm" style="max-height: 420px; object-fit: contain;">
                 </div>
                 <div class="col-lg-7">
-                    <h2 class="fw-bold mb-4" style="font-family: 'Rubik', sans-serif;">Welcome to <span style="color: #0087F6;">SabkaFayda</span></h2>
-                    <div class="fs-5 text-secondary" style="font-family: 'Montserrat', sans-serif; line-height: 1.8;">
+                    <h2 class="fw-bold mb-4 welcome-title-mobile" style="font-family: 'Rubik', sans-serif; font-size: 2.25rem;">Welcome to <span style="color: #0087F6;">SabkaFayda</span></h2>
+                    <div class="text-secondary welcome-desc-mobile" style="font-family: 'Montserrat', sans-serif; line-height: 1.8; font-size: 1.05rem;">
                         <p class="mb-4">SabkaFayda is your trusted online shopping destination offering quality products at affordable prices across multiple categories.</p>
                         <p class="mb-4">Our platform is operated by <strong>TEAMMUNITY BUSINESS PRIVATE LIMITED</strong>, committed to providing a seamless, secure, and value-driven experience.</p>
                         <p class="mb-0">Our mission is to make online shopping simple, affordable, and accessible for everyone by connecting customers with a wide range of products at competitive prices.</p>
@@ -251,139 +336,127 @@
                 <!-- Title with Left & Right Blue Lines -->
                 <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
                     <div style="width: 40px; height: 2px; background-color: #0087F6; opacity: 0.7;"></div>
-                    <h2 class="fw-bold mb-0 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.85rem; letter-spacing: -0.5px;">Why Shop With Us?</h2>
+                    <h2 class="fw-bold mb-0 text-dark shop-title-mobile" style="font-family: 'Rubik', sans-serif; font-size: 2rem; letter-spacing: -0.5px;">Why Shop With Us?</h2>
                     <div style="width: 40px; height: 2px; background-color: #0087F6; opacity: 0.7;"></div>
                 </div>
                 
                 <!-- 6 Columns Cards Grid -->
-                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-3 mt-2">
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3 mt-2">
                     <!-- Card 1 -->
                     <div class="col">
                         <div class="card h-100 p-3 text-center bg-white border border-light-subtle rounded-4 shadow-sm" style="transition: transform 0.2s ease;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #e6f0fa; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 46px; height: 46px; border-radius: 50%; background-color: #0066ff; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.15rem;">
-                                        <i class="fa-solid fa-bag-shopping"></i>
-                                    </div>
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 2rem;">
+                                    <i class="fa-solid fa-bag-shopping"></i>
                                 </div>
                             </div>
                             <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Wide Range of Products</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Explore a variety of products across multiple categories.</p>
+                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Explore a variety of products across multiple categories.</p>
                         </div>
                     </div>
                     <!-- Card 2 -->
                     <div class="col">
                         <div class="card h-100 p-3 text-center bg-white border border-light-subtle rounded-4 shadow-sm" style="transition: transform 0.2s ease;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #e6f0fa; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 46px; height: 46px; border-radius: 50%; background-color: #0066ff; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.15rem;">
-                                        <i class="fa-solid fa-tag"></i>
-                                    </div>
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 2rem;">
+                                    <i class="fa-solid fa-tag"></i>
                                 </div>
                             </div>
                             <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Affordable Pricing</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Best quality products at prices that fit your budget.</p>
+                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Best quality products at prices that fit your budget.</p>
                         </div>
                     </div>
                     <!-- Card 3 -->
                     <div class="col">
                         <div class="card h-100 p-3 text-center bg-white border border-light-subtle rounded-4 shadow-sm" style="transition: transform 0.2s ease;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #e6f0fa; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 46px; height: 46px; border-radius: 50%; background-color: #0066ff; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.15rem;">
-                                        <i class="fa-solid fa-shield-halved"></i>
-                                    </div>
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 2rem;">
+                                    <i class="fa-solid fa-shield-halved"></i>
                                 </div>
                             </div>
                             <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Secure Payment Options</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Safe and secure payments with trusted gateways.</p>
+                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Safe and secure payments with trusted gateways.</p>
                         </div>
                     </div>
                     <!-- Card 4 -->
                     <div class="col">
                         <div class="card h-100 p-3 text-center bg-white border border-light-subtle rounded-4 shadow-sm" style="transition: transform 0.2s ease;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #e6f0fa; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 46px; height: 46px; border-radius: 50%; background-color: #0066ff; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.15rem;">
-                                        <i class="fa-solid fa-truck"></i>
-                                    </div>
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 2rem;">
+                                    <i class="fa-solid fa-truck"></i>
                                 </div>
                             </div>
                             <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Fast & Efficient Delivery</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Quick processing and on-time delivery at your doorstep.</p>
+                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Quick processing and on-time delivery at your doorstep.</p>
                         </div>
                     </div>
                     <!-- Card 5 -->
                     <div class="col">
                         <div class="card h-100 p-3 text-center bg-white border border-light-subtle rounded-4 shadow-sm" style="transition: transform 0.2s ease;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #e6f0fa; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 46px; height: 46px; border-radius: 50%; background-color: #0066ff; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.15rem;">
-                                        <i class="fa-solid fa-wallet"></i>
-                                    </div>
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 2rem;">
+                                    <i class="fa-solid fa-wallet"></i>
                                 </div>
                             </div>
                             <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Cash on Delivery Available</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Pay conveniently when your order is delivered.</p>
+                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Pay conveniently when your order is delivered.</p>
                         </div>
                     </div>
                     <!-- Card 6 -->
                     <div class="col">
                         <div class="card h-100 p-3 text-center bg-white border border-light-subtle rounded-4 shadow-sm" style="transition: transform 0.2s ease;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div style="width: 70px; height: 70px; border-radius: 50%; background-color: #e6f0fa; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 46px; height: 46px; border-radius: 50%; background-color: #0066ff; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.15rem;">
-                                        <i class="fa-solid fa-headphones"></i>
-                                    </div>
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 2rem;">
+                                    <i class="fa-solid fa-headphones"></i>
                                 </div>
                             </div>
                             <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Reliable Customer Support</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.75rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">We're here to help you, before and after your purchase.</p>
+                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">We're here to help you, before and after your purchase.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Stats Strip Section -->
-            <div class="rounded-4 border p-3 mb-5 shadow-sm" style="background-color: #f0f7ff;">
-                <div class="row g-3 text-center align-items-center">
+            <div class="rounded-0 border p-2 p-md-3 mb-5 shadow-sm" style="background-color: #f0f7ff;">
+                <div class="row g-0 g-md-3 text-center align-items-center">
                     <!-- Stat 1 -->
-                    <div class="col-6 col-lg-3 border-end border-light-subtle">
-                        <div class="d-flex align-items-center justify-content-center gap-3 py-2">
-                            <div class="text-primary fs-2"><i class="fa-solid fa-users"></i></div>
+                    <div class="col-6 col-lg-3 stat-col stat-col-mobile">
+                        <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
+                            <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-users"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">10,000+</h4>
-                                <p class="text-secondary small mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Happy Customers</p>
+                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">10,000+</h4>
+                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Happy Customers</p>
                             </div>
                         </div>
                     </div>
                     <!-- Stat 2 -->
-                    <div class="col-6 col-lg-3 border-end border-light-subtle">
-                        <div class="d-flex align-items-center justify-content-center gap-3 py-2">
-                            <div class="text-primary fs-2"><i class="fa-solid fa-box-open"></i></div>
+                    <div class="col-6 col-lg-3 stat-col stat-col-mobile">
+                        <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
+                            <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-box-open"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">500+</h4>
-                                <p class="text-secondary small mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Products Available</p>
+                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">500+</h4>
+                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Products Available</p>
                             </div>
                         </div>
                     </div>
                     <!-- Stat 3 -->
-                    <div class="col-6 col-lg-3 border-end border-light-subtle">
-                        <div class="d-flex align-items-center justify-content-center gap-3 py-2">
-                            <div class="text-primary fs-2"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="col-6 col-lg-3 stat-col stat-col-mobile">
+                        <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
+                            <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-shield-halved"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">100%</h4>
-                                <p class="text-secondary small mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Secure Payments</p>
+                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">100%</h4>
+                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Secure Payments</p>
                             </div>
                         </div>
                     </div>
                     <!-- Stat 4 -->
-                    <div class="col-6 col-lg-3">
-                        <div class="d-flex align-items-center justify-content-center gap-3 py-2">
-                            <div class="text-primary fs-2"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="col-6 col-lg-3 stat-col stat-col-mobile">
+                        <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
+                            <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-wallet"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">COD</h4>
-                                <p class="text-secondary small mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Available Across India</p>
+                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">COD</h4>
+                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Available Across India</p>
                             </div>
                         </div>
                     </div>
@@ -394,37 +467,43 @@
             <div class="row g-4 mb-5">
                 <!-- Company Details -->
                 <div class="col-lg-6">
-                    <div class="info-card p-4 shadow-sm">
-                        <h4 class="fw-bold mb-4 d-flex align-items-center gap-2" style="font-family: 'Rubik', sans-serif; color: #0b1120;">
-                            <i class="fa-solid fa-building text-primary"></i> Company Details
-                        </h4>
+                    <div class="info-card p-3 shadow-sm">
+                        <!-- Header Wrapper for clean underline starting below text instead of logo -->
+                        <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
+                            <div class="text-primary fs-4"><i class="fa-solid fa-building"></i></div>
+                            <div>
+                                <h4 class="fw-bold mb-1" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.2;">Company Details</h4>
+                                <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
+                            </div>
+                        </div>
                         
-                        <div class="mb-4 d-flex align-items-start gap-3">
-                            <div class="info-item-icon"><i class="fa-solid fa-briefcase"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Legal Name</h6>
-                                <p class="fw-semibold text-dark mb-0">TEAMMUNITY BUSINESS PRIVATE LIMITED</p>
+                        <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
+                            <!-- Legal Name Row -->
+                            <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
+                                <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-briefcase"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem; font-family: 'Rubik', sans-serif;">Legal Name</h6>
+                                    <p class="text-secondary mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif;">TEAMMUNITY BUSINESS PRIVATE LIMITED</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="mb-4 d-flex align-items-start gap-3">
-                            <div class="info-item-icon"><i class="fa-solid fa-receipt"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">GSTIN</h6>
-                                <p class="fw-semibold text-dark mb-0">27AALCT8650K1ZN</p>
+                            <!-- GSTIN Row -->
+                            <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
+                                <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-receipt"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem; font-family: 'Rubik', sans-serif;">GSTIN</h6>
+                                    <p class="text-secondary mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif;">27AALCT8650K1ZN</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="info-item-icon"><i class="fa-solid fa-location-dot"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Address</h6>
-                                <p class="fw-semibold text-dark mb-0" style="line-height: 1.6;">
-                                    Plot No. 19 & 20, Sector F1,<br>
-                                    Parvati Co-Op Industrial Estate,<br>
-                                    Yadrav, Ichalkaranji, Kolhapur,<br>
-                                    Maharashtra – 416148
-                                </p>
+                            <!-- Address Row -->
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem; font-family: 'Rubik', sans-serif;">Address</h6>
+                                    <p class="text-secondary mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif; line-height: 1.5;">
+                                        Plot No. 19 & 20, Sector F1, Parvati Co-Op Industrial Estate,
+                                        Yadrav, Ichalkaranji, Kolhapur, Maharashtra – 416148
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -432,24 +511,39 @@
 
                 <!-- Contact Us -->
                 <div class="col-lg-6">
-                    <div class="info-card p-4 shadow-sm">
-                        <h4 class="fw-bold mb-4 d-flex align-items-center gap-2" style="font-family: 'Rubik', sans-serif; color: #0b1120;">
-                            <i class="fa-solid fa-phone text-primary"></i> Contact Us
-                        </h4>
-
-                        <div class="mb-4 d-flex align-items-start gap-3">
-                            <div class="info-item-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="info-card p-3 shadow-sm">
+                        <!-- Header Wrapper for clean underline starting below text instead of logo -->
+                        <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
+                            <div class="text-primary fs-4"><i class="fa-solid fa-phone"></i></div>
                             <div>
-                                <h6 class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Email</h6>
-                                <p class="fw-semibold mb-0"><a href="mailto:support@sabkafayda.com" class="text-decoration-none text-dark">support@sabkafayda.com</a></p>
+                                <h4 class="fw-bold mb-1" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.2;">Contact Us</h4>
+                                <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
                             </div>
                         </div>
 
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="info-item-icon"><i class="fa-solid fa-phone-volume"></i></div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Phone</h6>
-                                <p class="fw-semibold mb-0"><a href="tel:+918329606969" class="text-decoration-none text-dark">+91 832 960 6969</a></p>
+                        <!-- Email Container -->
+                        <div class="p-3 border border-light-subtle rounded-4 mb-3" style="background-color: #fdfdfd;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-primary" style="font-size: 1rem; font-family: 'Rubik', sans-serif;">Email</h6>
+                                    <p class="mb-0"><a href="mailto:support@sabkafayda.com" class="text-decoration-none text-dark fw-medium" style="font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">support@sabkafayda.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phone Container -->
+                        <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-primary" style="font-size: 1rem; font-family: 'Rubik', sans-serif;">Phone</h6>
+                                    <p class="mb-0"><a href="tel:+918329606969" class="text-decoration-none text-dark fw-medium" style="font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">+91 832 960 6969</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -457,25 +551,29 @@
             </div>
 
             <!-- Ready to Shop Banner -->
-            <div class="ready-banner text-white p-4 p-md-5 mb-5 shadow-sm text-center position-relative">
-                <div class="row align-items-center justify-content-between g-4">
-                    <div class="col-md-7 text-md-start">
-                        <h3 class="fw-bold mb-2" style="font-family: 'Rubik', sans-serif; font-size: 2rem;">Ready to Shop?</h3>
-                        <p class="mb-0 opacity-90" style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem;">Discover quality products at affordable prices.</p>
-                    </div>
-                    <div class="col-md-5 text-md-end">
-                        <a href="home.html" class="btn btn-light btn-lg fw-bold text-primary px-4 py-3 shadow" style="border-radius: 8px; font-family: 'Rubik', sans-serif;">
-                            Shop Now <i class="fa-solid fa-chevron-right ms-2 fs-6"></i>
-                        </a>
-                    </div>
+            <div class="ready-banner ready-banner-mobile text-white p-3 p-md-4 mb-0 shadow-sm text-center position-relative" style="background: url('assets/img/aboutbg.png') no-repeat center center; background-size: cover; border-radius: 0 !important; overflow: hidden;">
+                <!-- Centered Text and Button -->
+                <div class="position-relative py-2 pe-5 pe-md-0" style="z-index: 2; max-width: 600px; margin: 0 auto;">
+                    <h3 class="fw-bold mb-1 banner-title-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.8rem;">Ready to Shop?</h3>
+                    <p class="mb-3 opacity-90 banner-desc-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 1rem;">Discover quality products at affordable prices.</p>
+                    <a href="home.html" class="btn btn-light fw-bold text-primary px-4 py-2 shadow banner-btn-mobile" style="border-radius: 8px; font-family: 'Rubik', sans-serif; font-size: 0.95rem;">
+                        Shop Now <i class="fa-solid fa-chevron-right ms-2 fs-6"></i>
+                    </a>
                 </div>
+                <!-- Cart Graphic at bottom right -->
+                <img src="assets/img/cartimg.png" alt="Shopping Cart" class="position-absolute end-0 bottom-0 d-block banner-img-mobile" style="height: 75%; max-height: 160px; width: auto; z-index: 1;">
             </div>
 
-            <!-- Customer Satisfaction Note Footer -->
-            <div class="d-flex align-items-center justify-content-center gap-3 p-4 bg-white rounded-4 border mb-4 shadow-sm">
-                <div class="fs-2 text-primary"><i class="fa-solid fa-shield-check"></i></div>
-                <p class="mb-0 fw-medium text-secondary text-center text-md-start" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; max-width: 800px;">
-                    At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
+            <!-- Customer Satisfaction Note Footer (Attached directly to top banner) -->
+            <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 p-3 p-md-4 bg-white border-start border-end border-bottom mb-5 shadow-sm" style="border-radius: 0 !important; border-top: none !important;">
+                <!-- SVG Shield Check Logo (Outline shield with solid inner check shield) -->
+                <svg class="satisfaction-shield-mobile" width="28" height="32" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <path d="M12 2L4 5.5V13C4 18.5 7.4 23.5 12 26C16.6 23.5 20 18.5 20 13V5.5L12 2Z" stroke="#0066ff" stroke-width="2" stroke-linejoin="round" fill="none"/>
+                    <path d="M12 5.5L6.5 7.8V13C6.5 16.8 8.8 20.3 12 22C15.2 20.3 17.5 16.8 17.5 13V7.8L12 5.5Z" fill="#0066ff"/>
+                    <path d="M9.5 14L11.5 16L14.5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="mb-0 text-secondary text-start satisfaction-text-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; line-height: 1.5; max-width: 800px;">
+                    At SabkaFayda, customer satisfaction remains our highest priority and<br class="d-none d-md-block"> we continuously strive to deliver the best shopping experience possible.
                 </p>
             </div>
 
