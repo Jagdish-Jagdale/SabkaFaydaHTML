@@ -21,6 +21,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css?v=2">
+    <style>
+        .product-card-img-wrapper {
+            height: 160px;
+        }
+        .product-card-badges {
+            font-size: 0.5rem;
+        }
+        .product-card-title {
+            font-size: 0.78rem;
+        }
+        .product-card-desc {
+            font-size: 0.68rem;
+        }
+        .product-card-original-price {
+            font-size: 0.68rem;
+        }
+        .product-card-offer-price {
+            font-size: 0.85rem;
+        }
+        .product-card-promo {
+            font-size: 0.68rem;
+        }
+        @media (min-width: 768px) {
+            .product-card-img-wrapper {
+                height: 250px;
+            }
+            .product-card-badges {
+                font-size: 0.6rem;
+            }
+            .product-card-title {
+                font-size: 0.95rem;
+            }
+            .product-card-desc {
+                font-size: 0.82rem;
+            }
+            .product-card-original-price {
+                font-size: 0.78rem;
+            }
+            .product-card-offer-price {
+                font-size: 1.05rem;
+            }
+            .product-card-promo {
+                font-size: 0.78rem;
+            }
+        }
+    </style>
 </head>
 
 <body
@@ -717,149 +763,231 @@
 
         <!-- Product Grid Section -->
         <div class="container mb-5">
-            <div class="rounded-4 p-3 p-md-4" style="background-color: #eaeaea;">
+            <div class="rounded-4 p-4" style="background-color: #eaeaea;">
                 <div class="row g-3">
-
-                    <!-- Card 1 -->
+                    <!-- Grid Card 1 -->
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <a href="#"
-                            class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none bg-white">
-                            <div class="position-relative" style="height: 200px;">
-                                <img src="https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=400&auto=format&fit=crop"
-                                    class="w-100 h-100 object-fit-cover" alt="Jewelry">
-                                <div class="position-absolute bottom-0 start-0 w-100 px-2 pb-2 d-flex gap-1 flex-wrap"
-                                    style="background: linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 100%);">
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold"
-                                        style="background-color: #d4edda; font-size: 0.6rem;">Refer 17</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Trending</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Earn 67</span>
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">new Arrival</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
                                 </div>
                             </div>
-                            <div class="p-2">
-                                <div class="d-flex align-items-center mb-1 overflow-hidden">
-                                    <span class="fw-bold text-dark me-2 text-nowrap" style="font-size: 0.85rem;">Tanishk
-                                        Zumke</span>
-                                    <span class="text-secondary text-truncate" style="font-size: 0.75rem;">thisis the
-                                        tital of...</span>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
                                 </div>
-                                <div class="d-flex align-items-center gap-2 flex-wrap">
-                                    <span class="text-muted text-decoration-line-through"
-                                        style="font-size: 0.7rem;">1000</span>
-                                    <span class="fw-bold text-dark" style="font-size: 0.9rem;">Rs 500</span>
-                                    <span class="text-truncate" style="font-size: 0.68rem; color: #7b8de6;">70%
-                                        Off</span>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Card 2 -->
+                    <!-- Grid Card 2 -->
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <a href="#"
-                            class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none bg-white">
-                            <div class="position-relative" style="height: 200px;">
-                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=crop"
-                                    class="w-100 h-100 object-fit-cover" alt="Watch">
-                                <div class="position-absolute bottom-0 start-0 w-100 px-2 pb-2 d-flex gap-1 flex-wrap"
-                                    style="background: linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 100%);">
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold"
-                                        style="background-color: #d4edda; font-size: 0.6rem;">Refer 17</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Trending</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Earn 67</span>
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">50 % OFF</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
                                 </div>
                             </div>
-                            <div class="p-2">
-                                <div class="d-flex align-items-center mb-1 overflow-hidden">
-                                    <span class="fw-bold text-dark me-2 text-nowrap" style="font-size: 0.85rem;">Tanishk
-                                        Zumke</span>
-                                    <span class="text-secondary text-truncate" style="font-size: 0.75rem;">thisis the
-                                        tital of...</span>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
                                 </div>
-                                <div class="d-flex align-items-center gap-2 flex-wrap">
-                                    <span class="text-muted text-decoration-line-through"
-                                        style="font-size: 0.7rem;">1000</span>
-                                    <span class="fw-bold text-dark" style="font-size: 0.9rem;">Rs 500</span>
-                                    <span class="text-truncate" style="font-size: 0.68rem; color: #7b8de6;">70%
-                                        Off</span>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Card 3 -->
+                    <!-- Grid Card 3 -->
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <a href="#"
-                            class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none bg-white">
-                            <div class="position-relative" style="height: 200px;">
-                                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400&auto=format&fit=crop"
-                                    class="w-100 h-100 object-fit-cover" alt="Electronics">
-                                <div class="position-absolute bottom-0 start-0 w-100 px-2 pb-2 d-flex gap-1 flex-wrap"
-                                    style="background: linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 100%);">
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold"
-                                        style="background-color: #d4edda; font-size: 0.6rem;">Refer 17</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Trending</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Earn 67</span>
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">4.5★(209)</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
                                 </div>
                             </div>
-                            <div class="p-2">
-                                <div class="d-flex align-items-center mb-1 overflow-hidden">
-                                    <span class="fw-bold text-dark me-2 text-nowrap" style="font-size: 0.85rem;">Tanishk
-                                        Zumke</span>
-                                    <span class="text-secondary text-truncate" style="font-size: 0.75rem;">thisis the
-                                        tital of...</span>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
                                 </div>
-                                <div class="d-flex align-items-center gap-2 flex-wrap">
-                                    <span class="text-muted text-decoration-line-through"
-                                        style="font-size: 0.7rem;">1000</span>
-                                    <span class="fw-bold text-dark" style="font-size: 0.9rem;">Rs 500</span>
-                                    <span class="text-truncate" style="font-size: 0.68rem; color: #7b8de6;">70%
-                                        Off</span>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- Card 4 -->
+                    <!-- Grid Card 4 -->
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <a href="#"
-                            class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none bg-white">
-                            <div class="position-relative" style="height: 200px;">
-                                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=400&auto=format&fit=crop"
-                                    class="w-100 h-100 object-fit-cover" alt="Earbuds">
-                                <div class="position-absolute bottom-0 start-0 w-100 px-2 pb-2 d-flex gap-1 flex-wrap"
-                                    style="background: linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 100%);">
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold"
-                                        style="background-color: #d4edda; font-size: 0.6rem;">Refer 17</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Trending</span>
-                                    <span class="px-2 py-1 rounded-pill text-dark fw-semibold bg-white"
-                                        style="font-size: 0.6rem;">Earn 67</span>
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded text-white border-0 text-center" style="background-color: #ff6633; flex: 1;">Best Seller</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
                                 </div>
                             </div>
-                            <div class="p-2">
-                                <div class="d-flex align-items-center mb-1 overflow-hidden">
-                                    <span class="fw-bold text-dark me-2 text-nowrap" style="font-size: 0.85rem;">Tanishk
-                                        Zumke</span>
-                                    <span class="text-secondary text-truncate" style="font-size: 0.75rem;">thisis the
-                                        tital of...</span>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
                                 </div>
-                                <div class="d-flex align-items-center gap-2 flex-wrap">
-                                    <span class="text-muted text-decoration-line-through"
-                                        style="font-size: 0.7rem;">1000</span>
-                                    <span class="fw-bold text-dark" style="font-size: 0.9rem;">Rs 500</span>
-                                    <span class="text-truncate" style="font-size: 0.68rem; color: #7b8de6;">70%
-                                        Off</span>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
                                 </div>
                             </div>
                         </a>
                     </div>
 
+                    <!-- Grid Card 5 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">Trending</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 6 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">50 % OFF</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 7 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">4.5★(209)</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 8 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded text-white border-0 text-center" style="background-color: #ff6633; flex: 1;">Best Seller</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
