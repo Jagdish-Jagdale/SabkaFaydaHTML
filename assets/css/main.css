@@ -21,13 +21,14 @@
 
 @media (max-width: 991px) {
     .nav-logo-img {
-        height: 45px !important;
+        height: 36px !important;
     }
 }
 
 .category-link {
     transition: color 0.2s ease, background-color 0.2s ease;
     padding: 6px 16px;
+    border-radius: 8px 8px 0 0;
 }
 
 .category-link:hover {
@@ -124,20 +125,24 @@
 
 /* home.css */
 .icon-cat-link {
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .icon-cat-link:hover {
     transform: translateY(-4px);
-    filter: brightness(0.8);
 }
 
 .icon-category-scroll {
     padding-bottom: 5px;
 }
 
+.cat-icon-img {
+    object-fit: contain !important;
+}
+
 .cat-icon-text {
     white-space: nowrap;
+    font-size: 0.78rem;
 }
 
 .keep-shopping-small-img {
@@ -160,7 +165,7 @@
 @media (min-width: 768px) {
     .special-banner-top,
     .special-banner-bottom {
-        height: 280px !important;
+        height: 247px !important;
     }
 }
 
@@ -173,7 +178,7 @@
     }
 
     .top-login-logo {
-        height: 65px !important;
+        height: 52px !important;
         margin-bottom: 0.5rem !important;
     }
 
@@ -272,7 +277,7 @@
     }
 
     .cat-icon-text {
-        font-size: 0.65rem !important;
+        font-size: 0.6rem !important;
         line-height: 1.2;
     }
 
@@ -516,9 +521,14 @@ body {
     transform: translate(-50%, -50%) scale(1.05);
 }
 .product-name {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    display: block !important;
+    height: 2.8em !important;
+    overflow-y: auto !important;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+.product-name::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
 }
 
 /* Custom Badges */
@@ -711,4 +721,191 @@ input[type=range]::-moz-range-thumb {
     }
 }
 
+/* Category Page Specific Styles */
+/* Dual Range Slider Styling */
+.range-slider-container {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    display: flex;
+    align-items: center;
+}
+.range-slider-container input[type="range"].custom-range-slider {
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    background: transparent;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    z-index: 2;
+}
+.range-slider-container input[type="range"].custom-range-slider::-webkit-slider-runnable-track {
+    background: transparent;
+    border: none;
+}
+.range-slider-container input[type="range"].custom-range-slider::-moz-range-track {
+    background: transparent;
+    border: none;
+}
+.range-slider-container input[type="range"].custom-range-slider::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #0087F6;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 10;
+}
+.range-slider-container input[type="range"].custom-range-slider::-moz-range-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #0087F6;
+    pointer-events: auto;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 10;
+}
+.slider-track {
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #e2e8f0;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+/* Custom active/hover styling for Bootstrap nav-underline */
+.nav-underline .nav-link.active {
+    color: #0087F6 !important;
+    border-bottom-color: #0087F6 !important;
+}
+.nav-underline .nav-link:hover {
+    color: #0087F6 !important;
+}
+
+/* Desktop sidebar alignment */
+@media (min-width: 768px) {
+    .filter-sidebar-col {
+        margin-top: 88px;
+    }
+}
+
+/* Privacy Policy Page Custom Styles */
+.privacy-summary-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease !important;
+}
+.privacy-summary-card:hover {
+    transform: translateY(-12px) scale(1.04);
+    box-shadow: 0 20px 30px rgba(0, 87, 246, 0.2) !important;
+    border-color: #0087F6 !important;
+}
+.privacy-summary-card p {
+    text-align: justify;
+    text-align-last: center;
+    text-justify: inter-word;
+    margin-top: 10px;
+}
+.privacy-banner-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease !important;
+}
+.privacy-banner-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 22px 35px rgba(0, 135, 246, 0.25) !important;
+}
+.privacy-feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+.privacy-feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+    border-color: #0087F6 !important;
+}
+
+/* Cascading Category Dropdown */
+.cat-drop-box {
+    position: absolute;
+    top: calc(100% + 6px);
+    z-index: 1050;
+    background: #fff;
+    min-width: 210px;
+    padding: 6px 0;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+    border: 1px solid #e4e4e4;
+}
+.cat-l1-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    font-size: 0.87rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.cat-l1-item:hover,
+.cat-l1-item.active {
+    background: #EAF2FF;
+    color: #0087F6;
+    border-left-color: #0087F6;
+}
+.cat-l1-item .cat-chevron {
+    font-size: 0.65rem;
+    color: #bbb;
+    transition: color 0.12s;
+}
+.cat-l1-item:hover .cat-chevron,
+.cat-l1-item.active .cat-chevron {
+    color: #0087F6;
+}
+.cat-l2-item {
+    display: block;
+    padding: 9px 18px;
+    font-size: 0.84rem;
+    font-weight: 400;
+    color: #444;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.12s, color 0.12s;
+}
+.cat-l2-item:hover {
+    background: #EAF2FF;
+    color: #0087F6;
+    text-decoration: none;
+}
+
+@media (max-width: 991px) {
+    .top-black-bar {
+        padding: 3px 0 !important;
+        font-size: 0.72rem !important;
+    }
+    .top-black-bar .d-inline-flex {
+        gap: 80px !important;
+        padding-right: 80px !important;
+    }
+    .mobile-lang-item:hover, .mobile-lang-item:focus {
+        background-color: #0076d6 !important;
+        color: #ffffff !important;
+    }
+}
 
