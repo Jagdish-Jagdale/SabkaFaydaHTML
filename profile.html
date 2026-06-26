@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Manage your Sabka Fayda account. Update your personal information, address, wallet, wishlist, notifications, cart and coupons all in one place.">
+    <meta name="keywords"
+        content="Sabka Fayda profile, my account, personal information, my orders, my wallet, my wishlist, my cart, my coupons, saved UPI">
+    <title>My Profile | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS (includes profile styles) -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="bg-light" style="font-family:'Montserrat',sans-serif;">
+
+    <!-- Site Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Content -->
+    <div class="container-fluid px-3 px-md-4" style="max-width:1100px; padding-top:155px; padding-bottom:60px;">
+        <div class="row g-4">
+
+            <!-- ═══ SIDEBAR ═══ -->
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar-card bg-white rounded-4 shadow-sm py-3">
+
+                    <!-- Heading -->
+                    <div class="px-3 pb-2">
+                        <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+                    </div>
+
+                    <!-- My Orders -->
+                    <a href="#" class="sidebar-link" id="link-orders">
+                        <i class="fa-solid fa-box"></i>
+                        <span>My Orders</span>
+                    </a>
+
+                    <hr class="mx-3 my-1 opacity-25">
+                    <p class="sidebar-section-title">Account Settings</p>
+
+                    <a href="#" class="sidebar-link active" id="link-myinfo"
+                        onclick="switchSection('myinfo',this);return false;">
+                        <i class="fa-solid fa-user"></i>
+                        <span>My Information</span>
+                    </a>
+
+                    <a href="#" class="sidebar-link" id="link-myaddress"
+                        onclick="switchSection('myaddress',this);return false;">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>My Address</span>
+                    </a>
+
+                    <hr class="mx-3 my-1 opacity-25">
+                    <p class="sidebar-section-title">Income and payments</p>
+
+                    <a href="#" class="sidebar-link">
+                        <i class="fa-solid fa-wallet"></i>
+                        <div>
+                            <div>My Wallet</div>
+                            <div class="sidebar-badge">Balance: &#8377; 10.00</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="sidebar-link">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span>Saved UPI</span>
+                    </a>
+
+                    <hr class="mx-3 my-1 opacity-25">
+                    <p class="sidebar-section-title">Saved stuffs</p>
+
+                    <a href="#" class="sidebar-link">
+                        <i class="fa-solid fa-bell"></i>
+                        <span>My Notifications</span>
+                    </a>
+
+                    <a href="#" class="sidebar-link">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>My Wishlist</span>
+                    </a>
+
+                    <a href="checkout.html" class="sidebar-link">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>My Cart</span>
+                    </a>
+
+                    <a href="#" class="sidebar-link">
+                        <i class="fa-solid fa-tag"></i>
+                        <span>My Coupons</span>
+                    </a>
+
+                    <hr class="mx-3 my-1 opacity-25">
+
+                    <!-- Logout -->
+                    <div class="px-3 pt-2">
+                        <a href="login.html"
+                            class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2 fw-semibold"
+                            style="font-size:.82rem; border-radius:10px;">
+                            <i class="fa-solid fa-right-from-bracket"></i> Logout
+                        </a>
+                    </div>
+
+                </div>
+            </div><!-- /sidebar col -->
+
+            <!-- ═══ MAIN CONTENT ═══ -->
+            <div class="col-lg-9 col-md-8">
+
+                <!-- Main card -->
+                <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+
+                    <!-- Welcome Banner -->
+                    <div class="welcome-banner d-flex align-items-center gap-3 px-4 py-4 position-relative overflow-hidden">
+                        <div class="welcome-avatar rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <p class="mb-0 fw-medium text-secondary" style="font-size:.85rem;">Welcome,</p>
+                            <h2 class="mb-0 fw-bold" style="font-size:1.5rem; color:#1a1a2e;">Rajesh Sharma</h2>
+                        </div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                            alt="People illustration" class="welcome-banner-art"
+                            onerror="this.style.display='none'">
+                    </div>
+
+                    <!-- Tab Navigation -->
+                    <div class="d-flex border-bottom border-2 px-4" style="border-color:#e8eef8 !important;">
+                        <a href="#" class="profile-tab active" id="tab-myinfo"
+                            onclick="switchTab('myinfo',this);return false;">My Information</a>
+                        <a href="#" class="profile-tab" id="tab-myaddress"
+                            onclick="switchTab('myaddress',this);return false;">My Address</a>
+                    </div>
+
+                    <!-- Tab Panel: My Information -->
+                    <div class="p-4" id="panel-myinfo">
+                        <form id="profile-form" onsubmit="saveProfile(event)">
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-semibold small text-secondary" for="firstName">First Name</label>
+                                    <input type="text" class="profile-form-control" id="firstName"
+                                        placeholder="First Name" value="Rajesh">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-semibold small text-secondary" for="lastName">Last Name</label>
+                                    <input type="text" class="profile-form-control" id="lastName"
+                                        placeholder="Last Name" value="Sharma">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small text-secondary" for="gender">Gender</label>
+                                <select class="profile-form-control" id="gender">
+                                    <option value="male" selected>Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not">Prefer not to say</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small text-secondary" for="mobile">Mobile Number</label>
+                                <input type="tel" class="profile-form-control" id="mobile"
+                                    placeholder="+91 XXXXX XXXXX" value="+01 032 950 8069">
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold small text-secondary" for="email">Email Address</label>
+                                <input type="email" class="profile-form-control" id="email"
+                                    placeholder="email@example.com" value="email@rajeshafayda.com">
+                            </div>
+
+                            <button type="submit" class="btn-profile-save" id="btn-save-info">
+                                <i class="fa-solid fa-floppy-disk me-2"></i>Save Changes
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Tab Panel: My Address -->
+                    <div class="p-4 d-none" id="panel-myaddress">
+
+                        <!-- Empty state -->
+                        <div class="address-empty-card text-center p-4 p-md-5" id="no-address-box">
+                            <i class="fa-solid fa-location-dot d-block mb-3"></i>
+                            <p class="fw-semibold text-secondary mb-1">No saved address found</p>
+                            <p class="text-muted small mb-0">Add a delivery address to make checkout faster.</p>
+                            <button class="btn btn-primary btn-sm mt-3 px-4 fw-semibold" onclick="toggleAddressForm()">
+                                <i class="fa-solid fa-plus me-1"></i>Add New Address
+                            </button>
+                        </div>
+
+                        <!-- Address form (collapsed by default) -->
+                        <div class="d-none mt-4" id="address-form-wrap">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-name">Full Name</label>
+                                    <input type="text" class="profile-form-control" id="addr-name" placeholder="Full Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-phone">Phone</label>
+                                    <input type="tel" class="profile-form-control" id="addr-phone" placeholder="+91 XXXXX XXXXX">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-line1">Address Line 1</label>
+                                    <input type="text" class="profile-form-control" id="addr-line1" placeholder="House / Flat / Block No.">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-line2">Address Line 2</label>
+                                    <input type="text" class="profile-form-control" id="addr-line2" placeholder="Street / Colony / Landmark">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-city">City</label>
+                                    <input type="text" class="profile-form-control" id="addr-city" placeholder="City">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-state">State</label>
+                                    <input type="text" class="profile-form-control" id="addr-state" placeholder="State">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-pin">PIN Code</label>
+                                    <input type="text" class="profile-form-control" id="addr-pin" placeholder="416146">
+                                </div>
+                                <div class="col-12 d-flex gap-2 mt-1">
+                                    <button type="button" class="btn-profile-save" onclick="saveAddress()">
+                                        <i class="fa-solid fa-floppy-disk me-2"></i>Save Address
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary px-4 fw-semibold" onclick="toggleAddressForm()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /panel-myaddress -->
+
+                </div><!-- /main-card -->
+
+                <!-- FAQ Section -->
+                <div class="faq-section mt-4 p-4">
+                    <h4 class="fw-bold mb-4" style="font-size:1rem; color:#1a1a2e;">FAQ - Customer Data Privacy</h4>
+
+                    <div class="mb-3">
+                        <p class="faq-question mb-1">Q: How does Sabka Fayda ensure my data privacy?</p>
+                        <div class="faq-answer">A: We employ advanced encryption and strictly controlled access to safeguard all your personal and financial information.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p class="faq-question mb-1">Q: What steps are in place to verify data access requests?</p>
+                        <div class="faq-answer">A: Before accessing sensitive data, our system performs multifactor authentication (including codes sent to your registered mobile number) to ensure the request is from you.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p class="faq-question mb-1">Q: Can my data be shared with other sellers or partners?</p>
+                        <div class="faq-answer">A: No, your primary contact details are masked from individual sellers. Limited data required for services (like delivery addresses to logistics partners) is shared under strict data processing agreements.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p class="faq-question mb-1">Q: How do I control my marketing preferences?</p>
+                        <div class="faq-answer">A: You can easily manage all your consent settings directly within your Sabka Fayda profile.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p class="faq-question mb-1">Q: Can I access or delete my saved data?</p>
+                        <div class="faq-answer">A: Yes, users can request access to or deletion of their personal data directly through the account settings.</div>
+                    </div>
+
+                    <div class="mb-0">
+                        <p class="faq-question mb-1">Q: What are your data retention practices?</p>
+                        <div class="faq-answer">A: We retain your account data only for as long as necessary to provide seamless services and fulfill security requirements.</div>
+                    </div>
+                </div><!-- /faq -->
+
+            </div><!-- /main col -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+
+    <!-- Mini Footer -->
+    <div class="profile-mini-footer mt-2">
+        <div class="container py-3 text-center" style="max-width:1100px;">
+            <p class="text-muted mb-0" style="font-size:.75rem;">
+                <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
+                At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
+            </p>
+        </div>
+        <div class="border-top" style="border-color:#dde9f8 !important;">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-3" style="max-width:1100px;">
+                <div>
+                    <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Sabka Fayda</p>
+                    <span class="text-muted" style="font-size:.68rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="phone-icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Phone</p>
+                        <span class="text-muted" style="font-size:.68rem;">+01 032 950 8069</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+        <div id="save-toast" class="toast align-items-center text-bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-msg">
+                    <i class="fa-solid fa-circle-check me-2"></i>Saved successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS (header init) -->
+    <script src="assets/js/main.js?v=2"></script>
+
+    <!-- Load Header -->
+    <script>
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                if (typeof initHeader === 'function') initHeader();
+            });
+    </script>
+
+    <script>
+        /* Tab switch */
+        function switchTab(tabName, el) {
+            document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            ['myinfo', 'myaddress'].forEach(id => {
+                document.getElementById('panel-' + id).classList.toggle('d-none', id !== tabName);
+            });
+        }
+
+        /* Sidebar section switch */
+        function switchSection(section, el) {
+            ['link-myinfo', 'link-myaddress'].forEach(id => {
+                document.getElementById(id).classList.remove('active');
+            });
+            el.classList.add('active');
+            const tabEl = document.getElementById('tab-' + section);
+            if (tabEl) switchTab(section, tabEl);
+        }
+
+        /* Save profile */
+        function saveProfile(e) {
+            e.preventDefault();
+            document.getElementById('toast-msg').innerHTML =
+                '<i class="fa-solid fa-circle-check me-2"></i>Profile saved successfully!';
+            new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
+        }
+
+        /* Toggle address form */
+        function toggleAddressForm() {
+            document.getElementById('address-form-wrap').classList.toggle('d-none');
+        }
+
+        /* Save address */
+        function saveAddress() {
+            document.getElementById('toast-msg').innerHTML =
+                '<i class="fa-solid fa-circle-check me-2"></i>Address saved successfully!';
+            new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
+            document.getElementById('address-form-wrap').classList.add('d-none');
+        }
+    </script>
+</body>
+</html>
