@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,93 +29,110 @@
 
     <!-- Page Content -->
     <div class="container-fluid px-3 px-md-4" style="max-width:1100px; padding-top:155px; padding-bottom:60px;">
+        
+        <!-- Mobile Sidebar Toggle Row -->
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">Profile Page</span>
+        </div>
+
         <div class="row g-4">
 
             <!-- ═══ SIDEBAR ═══ -->
-            <div class="col-lg-3 col-md-4">
-                <div class="sidebar-card bg-white rounded-4 shadow-sm py-3">
-
-                    <!-- Heading -->
-                    <div class="px-3 pb-2">
-                        <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+            <div class="col-lg-3">
+                <div class="offcanvas-lg offcanvas-start bg-white rounded-4" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header border-bottom d-lg-none">
+                        <h5 class="offcanvas-title fw-bold text-dark" id="sidebarMenuLabel">Profile Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                     </div>
+                    <div class="offcanvas-body p-0">
+                        <div class="sidebar-card bg-white rounded-4 shadow-sm py-3 w-100">
 
-                    <!-- My Orders -->
-                    <a href="orders.html" class="sidebar-link" id="link-orders">
-                        <i class="fa-solid fa-box"></i>
-                        <span>My Orders</span>
-                    </a>
+                            <!-- Heading -->
+                            <div class="px-3 pb-2">
+                                <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+                            </div>
 
-                    <hr class="mx-3 my-1 opacity-25">
-                    <p class="sidebar-section-title">Account Settings</p>
+                            <!-- My Orders -->
+                            <a href="orders.html" class="sidebar-link" id="link-orders">
+                                <i class="fa-solid fa-box"></i>
+                                <span>My Orders</span>
+                            </a>
 
-                    <a href="#" class="sidebar-link active" id="link-myinfo"
-                        onclick="switchSection('myinfo',this);return false;">
-                        <i class="fa-solid fa-user"></i>
-                        <span>My Information</span>
-                    </a>
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Account Settings</p>
 
-                    <a href="#" class="sidebar-link" id="link-myaddress"
-                        onclick="switchSection('myaddress',this);return false;">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>My Address</span>
-                    </a>
+                            <a href="#" class="sidebar-link active" id="link-myinfo"
+                                onclick="switchSection('myinfo',this);return false;">
+                                <i class="fa-solid fa-user"></i>
+                                <span>My Information</span>
+                            </a>
 
-                    <hr class="mx-3 my-1 opacity-25">
-                    <p class="sidebar-section-title">Income and payments</p>
+                            <a href="#" class="sidebar-link" id="link-myaddress"
+                                onclick="switchSection('myaddress',this);return false;">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>My Address</span>
+                            </a>
 
-                    <a href="#" class="sidebar-link">
-                        <i class="fa-solid fa-wallet"></i>
-                        <div>
-                            <div>My Wallet</div>
-                            <div class="sidebar-badge">Balance: &#8377; 10.00</div>
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Income and payments</p>
+
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div>
+                                    <div>My Wallet</div>
+                                    <div class="sidebar-badge">Balance: &#8377; 10.00</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>Saved UPI</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Saved stuffs</p>
+
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>My Notifications</span>
+                            </a>
+
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>My Wishlist</span>
+                            </a>
+
+                            <a href="checkout.html" class="sidebar-link">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>My Cart</span>
+                            </a>
+
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-tag"></i>
+                                <span>My Coupons</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+
+                            <!-- Logout -->
+                            <div class="px-3 pt-2">
+                                <a href="login.html"
+                                    class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2 fw-semibold"
+                                    style="font-size:.82rem; border-radius:10px;">
+                                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                                </a>
+                            </div>
+
                         </div>
-                    </a>
-
-                    <a href="#" class="sidebar-link">
-                        <i class="fa-solid fa-building-columns"></i>
-                        <span>Saved UPI</span>
-                    </a>
-
-                    <hr class="mx-3 my-1 opacity-25">
-                    <p class="sidebar-section-title">Saved stuffs</p>
-
-                    <a href="#" class="sidebar-link">
-                        <i class="fa-solid fa-bell"></i>
-                        <span>My Notifications</span>
-                    </a>
-
-                    <a href="#" class="sidebar-link">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>My Wishlist</span>
-                    </a>
-
-                    <a href="checkout.html" class="sidebar-link">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>My Cart</span>
-                    </a>
-
-                    <a href="#" class="sidebar-link">
-                        <i class="fa-solid fa-tag"></i>
-                        <span>My Coupons</span>
-                    </a>
-
-                    <hr class="mx-3 my-1 opacity-25">
-
-                    <!-- Logout -->
-                    <div class="px-3 pt-2">
-                        <a href="login.html"
-                            class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2 fw-semibold"
-                            style="font-size:.82rem; border-radius:10px;">
-                            <i class="fa-solid fa-right-from-bracket"></i> Logout
-                        </a>
                     </div>
-
                 </div>
             </div><!-- /sidebar col -->
 
             <!-- ═══ MAIN CONTENT ═══ -->
-            <div class="col-lg-9 col-md-8">
+            <div class="col-lg-9 col-12">
 
                 <!-- Main card -->
                 <div class="bg-white rounded-4 shadow-sm overflow-hidden">
@@ -357,6 +374,13 @@
             el.classList.add('active');
             const tabEl = document.getElementById('tab-' + section);
             if (tabEl) switchTab(section, tabEl);
+
+            // Close mobile offcanvas if open
+            const sidebarEl = document.getElementById('sidebarMenu');
+            if (sidebarEl && window.innerWidth < 992) {
+                const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebarEl) || new bootstrap.Offcanvas(sidebarEl);
+                if (bsOffcanvas) bsOffcanvas.hide();
+            }
         }
 
         /* Save profile */
