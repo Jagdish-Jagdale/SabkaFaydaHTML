@@ -2048,6 +2048,11 @@ select.profile-form-control {
     margin-bottom: 24px;
 }
 
+.banner-title {
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+}
+
 .details-card {
     background: #fff;
     border: 1px solid #eef2f6;
@@ -2302,12 +2307,35 @@ select.profile-form-control {
     .timeline-circle {
         margin: 0;
     }
+
+    .banner-stats-container {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        width: 100%;
+        padding-bottom: 8px;
+        gap: 8px !important;
+        scrollbar-width: none;
+    }
+    .banner-stats-container::-webkit-scrollbar {
+        display: none;
+    }
+    .banner-stat-card {
+        flex: 0 0 auto;
+        min-width: 135px;
+    }
 }
 
 @media (max-width: 767px) {
     .order-details-banner {
+        padding: 16px 20px;
+    }
+    .order-details-banner > div {
         flex-direction: column;
-        gap: 20px;
+        align-items: flex-start !important;
+        gap: 16px !important;
+    }
+    .banner-title {
+        font-size: 1.35rem;
     }
 }
 
