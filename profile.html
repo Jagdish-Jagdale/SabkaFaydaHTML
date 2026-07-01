@@ -119,9 +119,7 @@
 
                             <!-- Logout -->
                             <div class="px-3 pt-2">
-                                <a href="login.html"
-                                    class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2 fw-semibold"
-                                    style="font-size:.82rem; border-radius:10px;">
+                                <a href="login.html" class="btn orders-logout-btn w-100">
                                     <i class="fa-solid fa-right-from-bracket"></i> Logout
                                 </a>
                             </div>
@@ -135,7 +133,7 @@
             <div class="col-lg-9 col-12">
 
                 <!-- Main card -->
-                <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+                <div class="bg-white rounded-4 shadow-sm overflow-hidden profile-main-card">
 
                     <!-- Welcome Banner -->
                     <div class="welcome-banner d-flex align-items-center gap-3 px-4 py-4 position-relative overflow-hidden">
@@ -211,8 +209,8 @@
                             <i class="fa-solid fa-location-dot d-block mb-3"></i>
                             <p class="fw-semibold text-secondary mb-1">No saved address found</p>
                             <p class="text-muted small mb-0">Add a delivery address to make checkout faster.</p>
-                            <button class="btn btn-primary btn-sm mt-3 px-4 fw-semibold" onclick="toggleAddressForm()">
-                                <i class="fa-solid fa-plus me-1"></i>Add New Address
+                            <button class="btn btn-primary btn-sm mt-3 px-3 py-2 fw-semibold d-inline-flex align-items-center justify-content-center" style="font-size: 0.78rem; border-radius: 6px; gap: 6px;" onclick="toggleAddressForm()">
+                                <i class="fa-solid fa-circle-plus" style="font-size: 0.9rem; vertical-align: middle;"></i>Add New Address
                             </button>
                         </div>
 
@@ -247,7 +245,7 @@
                                     <label class="form-label fw-semibold small text-secondary" for="addr-pin">PIN Code</label>
                                     <input type="text" class="profile-form-control" id="addr-pin" placeholder="416146">
                                 </div>
-                                <div class="col-12 d-flex gap-2 mt-1">
+                                <div class="col-12 d-flex gap-2 mt-3">
                                     <button type="button" class="btn-profile-save" onclick="saveAddress()">
                                         <i class="fa-solid fa-floppy-disk me-2"></i>Save Address
                                     </button>
@@ -264,7 +262,7 @@
 
                 <!-- FAQ Section -->
                 <div class="faq-section mt-4 p-4">
-                    <h4 class="fw-bold mb-4" style="font-size:1rem; color:#1a1a2e;">FAQ - Customer Data Privacy</h4>
+                    <h4 class="fw-bold mb-4" style="font-size:1rem; color:#1a1a2e; font-family: 'Montserrat', sans-serif;">FAQ - Customer Data Privacy</h4>
 
                     <div class="mb-3">
                         <p class="faq-question mb-1">Q: How does Sabka Fayda ensure my data privacy?</p>
@@ -364,6 +362,12 @@
             ['myinfo', 'myaddress'].forEach(id => {
                 document.getElementById('panel-' + id).classList.toggle('d-none', id !== tabName);
             });
+            
+            // Hide FAQ section when on the address tab
+            const faqEl = document.querySelector('.faq-section');
+            if (faqEl) {
+                faqEl.classList.toggle('d-none', tabName === 'myaddress');
+            }
         }
 
         /* Sidebar section switch */
@@ -393,7 +397,16 @@
 
         /* Toggle address form */
         function toggleAddressForm() {
-            document.getElementById('address-form-wrap').classList.toggle('d-none');
+            const formWrap = document.getElementById('address-form-wrap');
+            const noAddressBox = document.getElementById('no-address-box');
+            
+            if (formWrap.classList.contains('d-none')) {
+                formWrap.classList.remove('d-none');
+                noAddressBox.classList.add('d-none');
+            } else {
+                formWrap.classList.add('d-none');
+                noAddressBox.classList.remove('d-none');
+            }
         }
 
         /* Save address */
@@ -402,6 +415,7 @@
                 '<i class="fa-solid fa-circle-check me-2"></i>Address saved successfully!';
             new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
             document.getElementById('address-form-wrap').classList.add('d-none');
+            document.getElementById('no-address-box').classList.remove('d-none');
         }
     </script>
 </body>

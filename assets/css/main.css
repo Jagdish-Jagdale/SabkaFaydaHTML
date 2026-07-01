@@ -1188,24 +1188,27 @@ select.profile-form-control {
 
 /* FAQ section */
 .faq-section {
-    background: #e8f3ff;
-    border: 1px solid #c8ddf5;
+    background: #ffffff;
+    border: 1px solid #eef2f6;
     border-radius: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .faq-question {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: #1a1a2e;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .faq-answer {
-    background: #fff;
+    background: #f8f9fa;
     border-radius: 8px;
     padding: 10px 14px;
     font-size: 0.78rem;
     color: #555;
     line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Mini footer */
@@ -1453,9 +1456,9 @@ select.profile-form-control {
 
 .orders-logout-btn {
     align-items: center;
-    border: 1.5px solid #0087F6;
+    border: 1.5px solid #cbd5e1;
     border-radius: 8px;
-    color: #0087F6;
+    color: #64748b;
     display: flex;
     font-size: 0.85rem;
     font-weight: 700;
@@ -1467,9 +1470,10 @@ select.profile-form-control {
 }
 
 .orders-logout-btn:hover {
-    background: #0087F6;
+    background: #dc3545;
+    border-color: #dc3545;
     color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 93, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);
 }
 
 .orders-summary-grid {
@@ -2519,6 +2523,35 @@ select.profile-form-control {
     }
 }
 
+/* ================================================
+   Wishlist Page Styles (wishlist.html)
+   ================================================ */
+#wishlistItemsList {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 12px;
+}
+
+@media (min-width: 992px) {
+    #wishlistItemsList {
+        max-height: 600px;
+    }
+}
+
+#wishlistItemsList::-webkit-scrollbar {
+    width: 6px;
+}
+#wishlistItemsList::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+#wishlistItemsList::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+#wishlistItemsList::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
 #cartItemsList::-webkit-scrollbar {
     width: 6px;
 }
@@ -2534,6 +2567,14 @@ select.profile-form-control {
 
 #cartItemsList::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
+}
+
+@media (min-width: 992px) {
+    .profile-main-card {
+        min-height: 625px;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 
