@@ -1578,6 +1578,22 @@ select.profile-form-control {
     color: #ea580c;
 }
 
+.stat-red {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.notification-icon-wrapper {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    flex: 0 0 44px;
+    font-size: 1.2rem;
+    height: 44px;
+    justify-content: center;
+    width: 44px;
+}
+
 .orders-toolbar {
     align-items: center;
     border: 1px solid #eef2f6;
