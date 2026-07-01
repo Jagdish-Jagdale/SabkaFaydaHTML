@@ -274,3 +274,38 @@ function resendOtp(event) {
     // Optional: call your resend OTP API here
     startTimer(30);
 }
+
+function loadSidebar() {
+    const placeholder = document.getElementById('sidebar-placeholder');
+    if (!placeholder) return;
+    
+    fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            placeholder.innerHTML = data;
+            
+            // Set active state
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const currentHash = window.location.hash;
+            
+            const links = placeholder.querySelectorAll('.sidebar-link');
+            links.forEach(link => link.classList.remove('active'));
+            let matchedLink = null;
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath + currentHash || (currentHash === '' && href === currentPath)) {
+                    matchedLink = link;
+                }
+                // Handle sub-pages
+                if ((currentPath === 'order-details.html' || currentPath === 'order-breakdown.html') && href === 'orders.html') {
+                    matchedLink = link;
+                }
+            });
+            
+            if (currentPath === 'profile.html' && typeof updateProfileSection === 'function') {
+                 updateProfileSection();
+            } else if (matchedLink) {
+                matchedLink.classList.add('active');
+            }
+        });
+}
