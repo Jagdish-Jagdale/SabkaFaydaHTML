@@ -1915,6 +1915,7 @@ select.profile-form-control {
     font-weight: 800;
     width: 100%;
     padding: 8px 12px;
+    white-space: nowrap;
     transition: all 0.2s ease;
 }
 
