@@ -9,7 +9,9 @@
     border-color: #0087F6 !important;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
     background-color: #0075d9 !important;
     border-color: #0075d9 !important;
 }
@@ -19,7 +21,9 @@
     border-color: #0087F6 !important;
 }
 
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
     background-color: #0087F6 !important;
     border-color: #0087F6 !important;
     color: #fff !important;
@@ -1240,6 +1244,7 @@ select.profile-form-control {
         font-size: 1.15rem;
     }
 }
+
 /* ================================================
    Return & Exchange Policy Page (return-policy.html)
    ================================================ */
@@ -1252,6 +1257,7 @@ select.profile-form-control {
     margin-top: 30px;
     margin-bottom: 60px;
 }
+
 @media (max-width: 768px) {
     .policy-container {
         padding: 20px;
@@ -1293,6 +1299,7 @@ select.profile-form-control {
     height: 100%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .policy-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(11, 60, 117, 0.05);
@@ -1327,8 +1334,14 @@ select.profile-form-control {
     font-size: 0.55rem;
     border: 2.5px solid white;
 }
-.icon-badge-green { background-color: #2ec4b6; }
-.icon-badge-red   { background-color: #e74c3c; }
+
+.icon-badge-green {
+    background-color: #2ec4b6;
+}
+
+.icon-badge-red {
+    background-color: #e74c3c;
+}
 
 .card-heading {
     font-family: 'Rubik', sans-serif;
@@ -1415,6 +1428,7 @@ select.profile-form-control {
     height: 100%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .terms-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 35px rgba(12, 60, 134, 0.06);
@@ -1680,12 +1694,12 @@ select.profile-form-control {
     box-shadow: 0 12px 35px rgba(0, 93, 255, 0.05);
 }
 
-.order-card > * {
+.order-card>* {
     border-left: 1px solid #f1f5f9;
     padding: 18px 20px;
 }
 
-.order-card > *:first-child {
+.order-card>*:first-child {
     border-left: 0;
 }
 
@@ -1964,13 +1978,13 @@ select.profile-form-control {
         grid-template-columns: 1fr;
     }
 
-    .order-card > * {
+    .order-card>* {
         border-left: 0;
         border-top: 1px solid #f1f5f9;
         padding: 16px;
     }
 
-    .order-card > *:first-child {
+    .order-card>*:first-child {
         border-top: 0;
     }
 
@@ -2047,7 +2061,7 @@ select.profile-form-control {
         width: 280px !important;
         border-radius: 0 16px 16px 0 !important;
     }
-    
+
     .sidebar-card {
         min-height: auto !important;
         box-shadow: none !important;
@@ -2057,7 +2071,7 @@ select.profile-form-control {
         padding-bottom: 10px !important;
         border: none !important;
     }
-    
+
     .sidebar-link.active {
         margin: 0 16px !important;
     }
@@ -2070,7 +2084,8 @@ select.profile-form-control {
         box-shadow: none !important;
         border: none !important;
     }
-    .offcanvas-lg, 
+
+    .offcanvas-lg,
     .offcanvas-lg .offcanvas-body {
         overflow: visible !important;
         height: 100% !important;
@@ -2331,21 +2346,21 @@ select.profile-form-control {
     .timeline-line {
         display: none;
     }
-    
+
     .timeline-steps {
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
         padding-left: 20px;
     }
-    
+
     .timeline-step {
         display: flex;
         align-items: center;
         text-align: left;
         gap: 16px;
     }
-    
+
     .timeline-circle {
         margin: 0;
     }
@@ -2358,9 +2373,11 @@ select.profile-form-control {
         gap: 8px !important;
         scrollbar-width: none;
     }
+
     .banner-stats-container::-webkit-scrollbar {
         display: none;
     }
+
     .banner-stat-card {
         flex: 0 0 auto;
         min-width: 135px;
@@ -2371,11 +2388,13 @@ select.profile-form-control {
     .order-details-banner {
         padding: 16px 20px;
     }
-    .order-details-banner > div {
+
+    .order-details-banner>div {
         flex-direction: column;
         align-items: flex-start !important;
         gap: 16px !important;
     }
+
     .banner-title {
         font-size: 1.35rem;
     }
@@ -2493,11 +2512,13 @@ select.profile-form-control {
         text-align: center;
         gap: 12px;
     }
-    .wallet-history-card > * {
+
+    .wallet-history-card>* {
         border-bottom: 1px solid #f1f5f9;
         padding-bottom: 8px;
     }
-    .wallet-history-card > *:last-child {
+
+    .wallet-history-card>*:last-child {
         border-bottom: 0;
     }
 }
@@ -2517,6 +2538,7 @@ select.profile-form-control {
         display: flex;
         flex-direction: column;
     }
+
     #cartItemsList {
         flex: 1;
         /* max-height: 495px; */
@@ -2541,13 +2563,16 @@ select.profile-form-control {
 #wishlistItemsList::-webkit-scrollbar {
     width: 6px;
 }
+
 #wishlistItemsList::-webkit-scrollbar-track {
     background: #f1f5f9;
 }
+
 #wishlistItemsList::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 3px;
 }
+
 #wishlistItemsList::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
 }
@@ -2586,8 +2611,13 @@ select.profile-form-control {
    Skeleton Loaders
    ================================================ */
 @keyframes skeleton-loading {
-    0% { background-color: #f1f5f9; }
-    100% { background-color: #e2e8f0; }
+    0% {
+        background-color: #f1f5f9;
+    }
+
+    100% {
+        background-color: #e2e8f0;
+    }
 }
 
 .skeleton-box {
