@@ -1753,19 +1753,27 @@ select.profile-form-control {
 }
 
 .order-id {
+    align-items: center;
     color: #6b7280;
+    display: flex;
     font-size: 0.72rem;
     font-weight: 700;
     margin-top: 8px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .order-id strong {
     color: #0087F6;
+    margin-left: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .order-id i {
     color: #0087F6;
-    margin-left: 8px;
+    flex-shrink: 0;
+    margin-left: 6px;
     transition: color 0.15s ease;
 }
 
