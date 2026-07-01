@@ -397,10 +397,30 @@
 
             // Filter Chips Interaction
             const filterChips = document.querySelectorAll('.orders-filter-chip');
+            const orderCards = document.querySelectorAll('.order-card');
+            
             filterChips.forEach(chip => {
                 chip.addEventListener('click', function () {
                     filterChips.forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
+                    
+                    const filterText = this.textContent.split(' (')[0].trim().toLowerCase();
+                    
+                    orderCards.forEach(card => {
+                        if (filterText === 'all') {
+                            card.style.display = '';
+                        } else {
+                            const statusPill = card.querySelector('.status-pill');
+                            if (statusPill) {
+                                const statusText = statusPill.textContent.trim().toLowerCase();
+                                if (statusText.includes(filterText)) {
+                                    card.style.display = '';
+                                } else {
+                                    card.style.display = 'none';
+                                }
+                            }
+                        }
+                    });
                 });
             });
         });
