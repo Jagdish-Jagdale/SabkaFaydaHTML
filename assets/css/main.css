@@ -1020,7 +1020,12 @@ input[type=range]::-moz-range-thumb {
     position: sticky;
     top: 155px;
     height: fit-content;
-    min-height: 660px;
+    max-height: calc(100vh - 170px);
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+}
+.sidebar-card::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .sidebar-section-title {
