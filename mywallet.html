@@ -17,7 +17,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=4">
 </head>
 
 <body class="orders-page">
@@ -171,178 +171,7 @@
         </div>
     </main>
 
-    <!-- Mini Footer -->
-    <div class="profile-mini-footer mt-5">
-        <div class="container py-3 text-center" style="max-width:1100px;">
-            <p class="text-muted mb-0" style="font-size:.75rem;">
-                <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
-                At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
-            </p>
-        </div>
-        <div class="border-top" style="border-color:#dde9f8 !important;">
-            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-3" style="max-width:1100px;">
-                <div>
-                    <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Sabka Fayda</p>
-                    <span class="text-muted" style="font-size:.68rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda</span>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <div class="phone-icon-circle">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <div>
-                        <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Phone</p>
-                        <span class="text-muted" style="font-size:.68rem;">+01 032 950 8069</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Share Modal -->
-    <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 border-0 shadow-lg">
-                <div class="modal-header border-bottom-0 pb-0">
-                    <h5 class="modal-title fw-bold text-dark" id="shareModalLabel">Share & Earn</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-3 text-center">
-                    <p class="text-muted" style="font-size: 0.85rem;">Share Sabka Fayda app to unlock the Redeem cash option! Share count: <strong class="text-primary" id="share-count-display">0/5</strong></p>
-                    
-                    <div class="d-flex justify-content-around my-4 flex-wrap gap-3">
-                        <button class="btn btn-outline-success rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('WhatsApp')">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </button>
-                        <button class="btn btn-outline-primary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('Facebook')">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </button>
-                        <button class="btn btn-outline-info rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('Telegram')">
-                            <i class="fa-brands fa-telegram"></i>
-                        </button>
-                        <button class="btn btn-outline-secondary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('Copy Link')">
-                            <i class="fa-regular fa-copy"></i>
-                        </button>
-                    </div>
-
-                    <button class="btn btn-primary fw-bold w-100 py-2.5 rounded-3 mb-2" onclick="simulateFullShares()">
-                        Simulate All 5 Shares
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Redeem Modal -->
-    <div class="modal fade" id="redeemModal" tabindex="-1" aria-labelledby="redeemModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 border-0 shadow-lg">
-                <div class="modal-header border-bottom-0 pb-0">
-                    <h5 class="modal-title fw-bold text-dark" id="redeemModalLabel">Redeem Wallet Cash</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-3">
-                    <p class="text-muted" style="font-size: 0.85rem;">Withdraw your available balance directly to your bank account or UPI.</p>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold text-secondary" style="font-size: 0.8rem;">Select Transfer Method</label>
-                        <select class="form-select rounded-3 py-2" id="transfer-method" style="font-size: 0.85rem;">
-                            <option value="upi">UPI (GPay / PhonePe / Paytm)</option>
-                            <option value="bank">Bank Account Transfer</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold text-secondary" style="font-size: 0.8rem;">Enter UPI ID / Bank Details</label>
-                        <input type="text" class="form-control rounded-3 py-2" id="redeem-details" placeholder="e.g. rajesh@okaxis" style="font-size: 0.85rem;">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold text-secondary" style="font-size: 0.8rem;">Enter Amount (Max <span id="max-redeem-display">&#8377; 179.17</span>)</label>
-                        <input type="number" class="form-control rounded-3 py-2" id="redeem-amount" placeholder="e.g. 179" style="font-size: 0.85rem;">
-                    </div>
-                    <button class="btn btn-primary fw-bold w-100 py-2.5 rounded-3 mt-2" onclick="processRedeem()">
-                        Confirm Transfer
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Redeem History Modal -->
-    <div class="modal fade" id="redeemHistoryModal" tabindex="-1" aria-labelledby="redeemHistoryLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 border-0 shadow-lg">
-                <div class="modal-header border-bottom-0 pb-0">
-                    <h5 class="modal-title fw-bold text-dark" id="redeemHistoryLabel">Redeem History</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-3">
-                    <div id="redeemHistoryList">
-                        <!-- Mock Redemption 1 -->
-                        <div class="border rounded-3 p-3 mb-2 bg-light d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">UPI Transfer</h6>
-                                <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">10 Jun 2026, 04:30 PM</span>
-                            </div>
-                            <div class="text-end">
-                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹150</span><br>
-                                <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
-                            </div>
-                        </div>
-                        <!-- Mock Redemption 2 -->
-                        <div class="border rounded-3 p-3 mb-2 bg-light d-flex justify-content-between align-items-center">
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">UPI Transfer</h6>
-                                <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">02 Jun 2026, 12:15 PM</span>
-                            </div>
-                            <div class="text-end">
-                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹100</span><br>
-                                <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
-                            </div>
-                        </div>
-                        <!-- If list is empty placeholder -->
-                        <p class="text-muted text-center py-4 mb-0" id="emptyRedeemHistoryText" style="display: none; font-size: 0.85rem;">No redemption history found.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Transaction Details Modal -->
-    <div class="modal fade" id="txDetailsModal" tabindex="-1" aria-labelledby="txDetailsLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 border-0 shadow-lg">
-                <div class="modal-header border-bottom-0 pb-0">
-                    <h5 class="modal-title fw-bold text-dark" id="txDetailsLabel">Transaction Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-3">
-                    <div class="bg-light p-3 rounded-3" style="font-size: 0.8rem;">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-secondary fw-semibold">Source/Reference:</span>
-                            <span class="fw-bold text-dark" id="tx-ref"></span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-secondary fw-semibold">Date/Time:</span>
-                            <span class="fw-bold text-dark" id="tx-date"></span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-secondary fw-semibold">Type:</span>
-                            <span class="fw-bold text-success" id="tx-type"></span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-secondary fw-semibold">Amount Credited:</span>
-                            <span class="fw-bold text-success" id="tx-amount"></span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span class="text-secondary fw-semibold">Points Gained:</span>
-                            <span class="fw-bold text-warning" id="tx-points"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer border-top-0 pt-0">
-                    <button type="button" class="btn btn-primary fw-bold px-4 py-2" data-bs-dismiss="modal" style="border-radius: 8px;">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="footer-placeholder"></div>
 
     <!-- Notification Toast System -->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
@@ -368,6 +197,12 @@
             .then(html => {
                 document.getElementById('header-placeholder').innerHTML = html;
                 if (typeof initHeader === 'function') initHeader();
+            });
+
+        fetch('footer.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
             });
     </script>
 

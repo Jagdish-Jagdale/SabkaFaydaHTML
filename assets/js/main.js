@@ -285,14 +285,14 @@ function loadSidebar() {
             placeholder.innerHTML = data;
             
             // Set active state
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            const currentHash = window.location.hash;
+            const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+            const currentHash = window.location.hash.toLowerCase();
             
             const links = placeholder.querySelectorAll('.sidebar-link');
             links.forEach(link => link.classList.remove('active'));
             let matchedLink = null;
             links.forEach(link => {
-                const href = link.getAttribute('href');
+                const href = (link.getAttribute('href') || '').toLowerCase();
                 if (href === currentPath + currentHash || (currentHash === '' && href === currentPath)) {
                     matchedLink = link;
                 }
