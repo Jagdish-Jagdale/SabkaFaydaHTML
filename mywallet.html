@@ -83,95 +83,7 @@
                 <!-- Wallet History Section -->
                 <h5 class="fw-bold text-dark mb-3" style="font-family: 'Montserrat', sans-serif;">Wallet History</h5>
                 
-                <div class="d-flex flex-column gap-3" id="walletHistoryContainer">
-                    
-                    <!-- History Item 1 -->
-                    <article class="wallet-history-card" style="cursor: pointer;" onclick="location.href='order-breakdown.html'">
-                        <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
-                                <i class="fa-solid fa-receipt"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Order #399</h6>
-                                <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">20 Jun 2026, 03:07 PM</span>
-                            </div>
-                        </div>
-                        <div class="px-4 text-start" style="min-width: 150px;">
-                            <span class="text-secondary d-block fw-semibold mb-1" style="font-size: 0.8rem;">Bonus Amount</span>
-                            <span class="text-secondary d-block fw-semibold" style="font-size: 0.8rem;">Bonus Points</span>
-                        </div>
-                        <div class="px-4 text-start" style="min-width: 150px;">
-                            <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 179.17
-                            </span>
-                            <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-star me-2 text-warning"></i>2
-                            </span>
-                        </div>
-                        <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
-                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #399', '20 Jun 2026, 03:07 PM', 'Bonus Credited', '₹ 179.17', '2 Points')">View Details</button>
-                        </div>
-                    </article>
-
-                    <!-- History Item 2 -->
-                    <article class="wallet-history-card" style="cursor: pointer;" onclick="location.href='order-breakdown.html'">
-                        <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
-                                <i class="fa-solid fa-receipt"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Order #398</h6>
-                                <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">18 Jun 2026, 11:20 AM</span>
-                            </div>
-                        </div>
-                        <div class="px-4 text-start" style="min-width: 150px;">
-                            <span class="text-secondary d-block fw-semibold mb-1" style="font-size: 0.8rem;">Bonus Amount</span>
-                            <span class="text-secondary d-block fw-semibold" style="font-size: 0.8rem;">Bonus Points</span>
-                        </div>
-                        <div class="px-4 text-start" style="min-width: 150px;">
-                            <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 120
-                            </span>
-                            <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-star me-2 text-warning"></i>1
-                            </span>
-                        </div>
-                        <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
-                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #398', '18 Jun 2026, 11:20 AM', 'Referral Reward', '₹ 120', '1 Point')">View Details</button>
-                        </div>
-                    </article>
-
-                    <!-- History Item 3 -->
-                    <article class="wallet-history-card" style="cursor: pointer;" onclick="location.href='order-breakdown.html'">
-                        <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
-                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
-                                <i class="fa-solid fa-receipt"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Order #397</h6>
-                                <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">15 Jun 2026, 08:45 PM</span>
-                            </div>
-                        </div>
-                        <div class="px-4 text-start" style="min-width: 150px;">
-                            <span class="text-secondary d-block fw-semibold mb-1" style="font-size: 0.8rem;">Bonus Amount</span>
-                            <span class="text-secondary d-block fw-semibold" style="font-size: 0.8rem;">Bonus Points</span>
-                        </div>
-                        <div class="px-4 text-start" style="min-width: 150px;">
-                            <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 50
-                            </span>
-                            <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-star me-2 text-warning"></i>1
-                            </span>
-                        </div>
-                        <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
-                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #397', '15 Jun 2026, 08:45 PM', 'Welcome Reward', '₹ 50', '1 Point')">View Details</button>
-                        </div>
-                    </article>
-
-                </div>
-
-
+                <div class="d-flex flex-column gap-3" id="walletHistoryContainer"></div>
             </section>
         </div>
     </main>
@@ -194,6 +106,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Header Injection & Loader Script -->
+    <script src="assets/js/mockData.js"></script>
+    <script src="assets/js/renderWallet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mockData !== 'undefined' && mockData.wallet) {
+                renderWallet(mockData.wallet);
+            }
+        });
+    </script>
     <script src="assets/js/main.js?v=6"></script>
     <script>
         if (typeof loadSidebar === 'function') loadSidebar();

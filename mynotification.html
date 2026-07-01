@@ -153,211 +153,7 @@
                 </div>
 
                 <!-- Notifications List -->
-                <div class="orders-list" id="notificationsList">
-
-                    <!-- Notification 1 -->
-                    <article class="order-card bg-white shadow-sm notification-card" data-category="order-updates"
-                        data-status="unread" data-date="2026-06-28T11:30:00" data-timestamp="1782631800000" data-id="1">
-                        <div class="order-product">
-                            <div class="notification-icon-wrapper stat-green">
-                                <i class="fa-solid fa-truck"></i>
-                            </div>
-                            <div>
-                                <h3 class="product-title">Order SF#2026001254 - boAt Airdopes 311 Pro, Out for Delivery
-                                </h3>
-                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Your boAt
-                                    Airdopes 311 Pro has reached the local hub, out for delivery to your shipping
-                                    address.</p>
-                            </div>
-                        </div>
-                        <div class="order-info-column">
-                            <div class="order-meta">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <div>
-                                    <span>Notification Date</span>
-                                    <strong>28 Jun 2026, 11:30 AM</strong>
-                                    <small class="text-primary fw-bold mt-1">2 Minutes Ago</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-status-panel justify-content-between">
-                            <div class="d-flex justify-content-end">
-                                <span class="status-pill unread m-0 px-2 py-1 align-self-start text-uppercase"
-                                    style="font-size: 0.65rem;">UNREAD</span>
-                            </div>
-                            <div class="d-flex gap-2 w-100">
-                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap"
-                                    style="font-size: 0.7rem;" onclick="viewNotification(1)">View More</button>
-                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read"
-                                    style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 1)">Mark Read</button>
-                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;"
-                                    onclick="deleteNotification(this, 1)"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Notification 2 -->
-                    <article class="order-card bg-white shadow-sm notification-card" data-category="promotions"
-                        data-status="read" data-date="2026-06-28T21:15:00" data-timestamp="1782666900000" data-id="2">
-                        <div class="order-product">
-                            <div class="notification-icon-wrapper stat-orange">
-                                <i class="fa-solid fa-percent"></i>
-                            </div>
-                            <div>
-                                <h3 class="product-title">Limited-Time Offer: Up to 50% Off Electronics!</h3>
-                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Don't miss out
-                                    on deals for premium audio and phone accessories to upgrade your home audio setup.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="order-info-column">
-                            <div class="order-meta">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <div>
-                                    <span>Notification Date</span>
-                                    <strong>28 Jun 2026, 09:15 PM</strong>
-                                    <small class="text-muted fw-semibold mt-1">3 Hours Ago</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-status-panel justify-content-between">
-                            <div class="d-flex justify-content-end">
-                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase"
-                                    style="font-size: 0.65rem;">READ</span>
-                            </div>
-                            <div class="d-flex gap-2 w-100">
-                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap"
-                                    style="font-size: 0.7rem;" onclick="viewNotification(2)">View More</button>
-                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read"
-                                    style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 2)">Mark Unread</button>
-                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;"
-                                    onclick="deleteNotification(this, 2)"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Notification 3 -->
-                    <article class="order-card bg-white shadow-sm notification-card" data-category="wallet-payments"
-                        data-status="read" data-date="2026-06-28T21:15:00" data-timestamp="1782666900000" data-id="3">
-                        <div class="order-product">
-                            <div class="notification-icon-wrapper stat-green">
-                                <i class="fa-solid fa-gift"></i>
-                            </div>
-                            <div>
-                                <h3 class="product-title">Offer Rewards Claimed</h3>
-                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Rewards 8 of 28
-                                    Rewards claimed from notifications successfully added to your wallet balance.</p>
-                            </div>
-                        </div>
-                        <div class="order-info-column">
-                            <div class="order-meta">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <div>
-                                    <span>Notification Date</span>
-                                    <strong>28 Jun 2026, 09:15 PM</strong>
-                                    <small class="text-muted fw-semibold mt-1">3 Hours Ago</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-status-panel justify-content-between">
-                            <div class="d-flex justify-content-end">
-                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase"
-                                    style="font-size: 0.65rem;">READ</span>
-                            </div>
-                            <div class="d-flex gap-2 w-100">
-                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap"
-                                    style="font-size: 0.7rem;" onclick="viewNotification(3)">View More</button>
-                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read"
-                                    style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 3)">Mark Unread</button>
-                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;"
-                                    onclick="deleteNotification(this, 3)"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Notification 4 -->
-                    <article class="order-card bg-white shadow-sm notification-card" data-category="account-offers"
-                        data-status="read" data-date="2026-06-28T23:30:00" data-timestamp="1782675000000" data-id="4">
-                        <div class="order-product">
-                            <div class="order-product-img position-relative"
-                                style="width: 48px; height: 48px; flex: 0 0 48px; background: none; border: none; padding: 0;">
-                                <img src="assets/img/adidas_shoes.png" alt="Adidas Shoes"
-                                    style="object-fit: contain; width: 100%; height: 100%;">
-                            </div>
-                            <div>
-                                <h3 class="product-title">Account Changed to Your User's Nest Account</h3>
-                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Your account
-                                    credentials have been successfully updated. Secure your account if this wasn't you.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="order-info-column">
-                            <div class="order-meta">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <div>
-                                    <span>Notification Date</span>
-                                    <strong>28 Jun 2026, 11:30 PM</strong>
-                                    <small class="text-muted fw-semibold mt-1">3 Hours Ago</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-status-panel justify-content-between">
-                            <div class="d-flex justify-content-end">
-                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase"
-                                    style="font-size: 0.65rem;">READ</span>
-                            </div>
-                            <div class="d-flex gap-2 w-100">
-                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap"
-                                    style="font-size: 0.7rem;" onclick="viewNotification(4)">View More</button>
-                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read"
-                                    style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 4)">Mark Unread</button>
-                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;"
-                                    onclick="deleteNotification(this, 4)"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Notification 5 -->
-                    <article class="order-card bg-white shadow-sm notification-card" data-category="account-offers"
-                        data-status="read" data-date="2026-06-28T21:15:00" data-timestamp="1782666900000" data-id="5">
-                        <div class="order-product">
-                            <div class="notification-icon-wrapper stat-orange">
-                                <i class="fa-solid fa-percent"></i>
-                            </div>
-                            <div>
-                                <h3 class="product-title">Account Changed Up to 50% Offer!</h3>
-                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Don't miss out
-                                    on deals for premium audio and phone accessories to upgrade your setup.</p>
-                            </div>
-                        </div>
-                        <div class="order-info-column">
-                            <div class="order-meta">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <div>
-                                    <span>Notification Date</span>
-                                    <strong>28 Jun 2026, 09:15 PM</strong>
-                                    <small class="text-muted fw-semibold mt-1">5 Hours Ago</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-status-panel justify-content-between">
-                            <div class="d-flex justify-content-end">
-                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase"
-                                    style="font-size: 0.65rem;">READ</span>
-                            </div>
-                            <div class="d-flex gap-2 w-100">
-                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap"
-                                    style="font-size: 0.72rem;" onclick="viewNotification(5)">View More</button>
-                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read"
-                                    style="font-size: 0.72rem;" onclick="toggleReadStatus(this, 5)">Mark Unread</button>
-                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.72rem;"
-                                    onclick="deleteNotification(this, 5)"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
+                <div class="orders-list" id="notificationsList"></div>
             </section>
         </div>
     </main>
@@ -384,6 +180,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Header Injection & Loader Script -->
+    <script src="assets/js/mockData.js"></script>
+    <script src="assets/js/renderNotifications.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof mockData !== 'undefined' && mockData.notifications) {
+                renderNotifications(mockData.notifications);
+            }
+        });
+    </script>
     <script src="assets/js/main.js?v=6"></script>
     <script>
         if (typeof loadSidebar === 'function') loadSidebar();
