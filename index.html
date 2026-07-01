@@ -4,118 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabka Fayda - Project Index</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f7f9;
-            color: #1a1a2e;
-            padding: 2rem 1rem;
-        }
-        .header-box {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-        .header-box h1 {
-            color: #0087F6;
-            font-weight: 700;
-        }
-        .category-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
             color: #333;
-            border-bottom: 2px solid #eef2f6;
-            padding-bottom: 0.5rem;
+            padding: 2rem;
+            margin: 0;
         }
-        .nav-btn {
-            display: block;
-            width: 100%;
-            margin-bottom: 0.75rem;
-            padding: 0.75rem 1rem;
-            font-weight: 500;
+        .warning-banner {
+            background-color: #ff4d4f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
             border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(255, 77, 79, 0.2);
         }
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 135, 246, 0.2);
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
-        .card-container {
-            background: #ffffff;
-            padding: 1.5rem;
+        .header h1 {
+            color: #0087F6;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            height: 100%;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 135, 246, 0.15);
+            border-color: #0087F6;
+        }
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+            color: #0087F6;
+            font-size: 1.3rem;
+        }
+        .card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .section-title {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            color: #1e293b;
+            font-size: 1.5rem;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header-box">
-        <h1>Sabka Fayda</h1>
-        <p class="text-muted mb-0">Project Pages Index</p>
+    <div class="warning-banner">
+        This is a dummy testing page. Do not use it.
     </div>
 
-    <div class="row g-4">
-        <!-- Main Pages -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card-container">
-                <h2 class="category-title">Main Pages</h2>
-                <a href="home.html" class="btn btn-primary nav-btn">Home</a>
-                <a href="fullhome.html" class="btn btn-outline-primary nav-btn">Full Home</a>
-                <a href="category.html" class="btn btn-outline-primary nav-btn">Category</a>
-                <a href="product-details.html" class="btn btn-outline-primary nav-btn">Product Details</a>
-            </div>
-        </div>
-
-        <!-- E-commerce / Checkout -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card-container">
-                <h2 class="category-title">Shopping & Checkout</h2>
-                <a href="mycart.html" class="btn btn-primary nav-btn">My Cart</a>
-                <a href="checkout.html" class="btn btn-outline-primary nav-btn">Checkout</a>
-                <a href="wishlist.html" class="btn btn-outline-primary nav-btn">Wishlist</a>
-            </div>
-        </div>
-
-        <!-- User Profile & Account -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card-container">
-                <h2 class="category-title">My Account</h2>
-                <a href="login.html" class="btn btn-primary nav-btn">Login / OTP</a>
-                <a href="profile.html" class="btn btn-outline-primary nav-btn">My Profile</a>
-                <a href="orders.html" class="btn btn-outline-primary nav-btn">My Orders</a>
-                <a href="order-details.html" class="btn btn-outline-primary nav-btn">Order Details</a>
-                <a href="order-breakdown.html" class="btn btn-outline-primary nav-btn">Order Breakdown</a>
-                <a href="mywallet.html" class="btn btn-outline-primary nav-btn">My Wallet</a>
-                <a href="notifications.html" class="btn btn-outline-primary nav-btn">Notifications</a>
-            </div>
-        </div>
-
-        <!-- Information & Legal -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card-container">
-                <h2 class="category-title">Info & Legal</h2>
-                <a href="about.html" class="btn btn-outline-secondary nav-btn">About Us</a>
-                <a href="terms.html" class="btn btn-outline-secondary nav-btn">Terms & Conditions</a>
-                <a href="privacy.html" class="btn btn-outline-secondary nav-btn">Privacy Policy</a>
-                <a href="return-policy.html" class="btn btn-outline-secondary nav-btn">Return Policy</a>
-            </div>
-        </div>
+    <div class="header">
+        <h1>Sabka Fayda Pages</h1>
+        <p>Project Directory</p>
     </div>
-</div>
+
+    <div class="grid">
+        <h2 class="section-title">Main Pages</h2>
+        <a href="home.html" class="card">
+            <h3>Home</h3>
+            <p>Main landing page</p>
+        </a>
+        <a href="fullhome.html" class="card">
+            <h3>Full Home</h3>
+            <p>Alternative home layout</p>
+        </a>
+        <a href="category.html" class="card">
+            <h3>Category</h3>
+            <p>Product categories</p>
+        </a>
+        <a href="product-details.html" class="card">
+            <h3>Product Details</h3>
+            <p>Single product view</p>
+        </a>
+
+        <h2 class="section-title">Shopping & Checkout</h2>
+        <a href="mycart.html" class="card">
+            <h3>My Cart</h3>
+            <p>Shopping cart</p>
+        </a>
+        <a href="checkout.html" class="card">
+            <h3>Checkout</h3>
+            <p>Payment and shipping</p>
+        </a>
+        <a href="wishlist.html" class="card">
+            <h3>Wishlist</h3>
+            <p>Saved items</p>
+        </a>
+
+        <h2 class="section-title">My Account</h2>
+        <a href="login.html" class="card">
+            <h3>Login / OTP</h3>
+            <p>Authentication</p>
+        </a>
+        <a href="profile.html" class="card">
+            <h3>My Profile</h3>
+            <p>User details & address</p>
+        </a>
+        <a href="orders.html" class="card">
+            <h3>My Orders</h3>
+            <p>Order history</p>
+        </a>
+        <a href="order-details.html" class="card">
+            <h3>Order Details</h3>
+            <p>Specific order info</p>
+        </a>
+        <a href="order-breakdown.html" class="card">
+            <h3>Order Breakdown</h3>
+            <p>Detailed invoice</p>
+        </a>
+        <a href="mywallet.html" class="card">
+            <h3>My Wallet</h3>
+            <p>Balance and transactions</p>
+        </a>
+        <a href="notifications.html" class="card">
+            <h3>Notifications</h3>
+            <p>Alerts and updates</p>
+        </a>
+
+        <h2 class="section-title">Information & Legal</h2>
+        <a href="about.html" class="card">
+            <h3>About Us</h3>
+            <p>Company information</p>
+        </a>
+        <a href="terms.html" class="card">
+            <h3>Terms</h3>
+            <p>Terms and conditions</p>
+        </a>
+        <a href="privacy.html" class="card">
+            <h3>Privacy</h3>
+            <p>Privacy policy</p>
+        </a>
+        <a href="return-policy.html" class="card">
+            <h3>Return Policy</h3>
+            <p>Returns and refunds</p>
+        </a>
+    </div>
 
 </body>
 </html>
