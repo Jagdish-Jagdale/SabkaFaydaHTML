@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your Sabka Fayda shopping cart. Review prices, apply coupons, and proceed to checkout securely.">
+    <meta name="keywords" content="Sabka Fayda cart, shopping cart, checkout, coupon codes, buy online">
+    <title>My Cart | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="orders-page">
+    <!-- Site Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Main Shell -->
+    <main class="orders-shell container-fluid px-3 px-md-4">
+        
+        <!-- Mobile Sidebar Toggle Row -->
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">My Cart</span>
+        </div>
+
+        <div class="row g-4">
+            <!-- ═══ SIDEBAR MENU ═══ -->
+            <aside class="col-lg-3">
+                <div class="offcanvas-lg offcanvas-start bg-white rounded-4" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header border-bottom d-lg-none">
+                        <h5 class="offcanvas-title fw-bold text-dark" id="sidebarMenuLabel">Profile Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <div class="sidebar-card orders-sidebar bg-white shadow-sm py-3 w-100">
+                            <!-- Section Heading -->
+                            <div class="px-3 pb-2">
+                                <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+                            </div>
+
+                            <!-- My Orders -->
+                            <a href="orders.html" class="sidebar-link">
+                                <i class="fa-solid fa-box"></i>
+                                <span>My Orders</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Account Settings</p>
+
+                            <!-- My Information -->
+                            <a href="profile.html" class="sidebar-link">
+                                <i class="fa-solid fa-user"></i>
+                                <span>My Information</span>
+                            </a>
+
+                            <!-- My Address -->
+                            <a href="profile.html#myaddress" class="sidebar-link">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>My Address</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Income and payments</p>
+
+                            <!-- My Wallet -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div>
+                                    <div>My Wallet</div>
+                                    <div class="sidebar-badge">Balance: &#8377; 10.00</div>
+                                </div>
+                            </a>
+
+                            <!-- Saved UPI -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>Saved UPI</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+                            <p class="sidebar-section-title">Saved stuffs</p>
+
+                            <!-- My Notifications -->
+                            <a href="notifications.html" class="sidebar-link">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>My Notifications</span>
+                            </a>
+
+                            <!-- My Wishlist -->
+                            <a href="wishlist.html" class="sidebar-link">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>My Wishlist</span>
+                            </a>
+
+                            <!-- My Cart (Active) -->
+                            <a href="mycart.html" class="sidebar-link active">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>My Cart</span>
+                            </a>
+
+                            <!-- My Coupons -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-tags"></i>
+                                <span>My Coupons</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+
+                            <!-- Logout Button -->
+                            <div class="px-3 pt-2">
+                                <a href="login.html" class="btn orders-logout-btn w-100">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ═══ MAIN CONTENT AREA ═══ -->
+            <section class="col-lg-9 col-12">
+                <!-- Progress Stepper Header -->
+                <div class="d-flex flex-column flex-md-row align-items-stretch align-items-md-center justify-content-between p-2 rounded-3 mb-4 shadow-sm" style="background-color: #eef2f6; border: 1px solid #dde5eb; font-size: 0.82rem; font-weight: 700;">
+                    <div class="d-flex align-items-center justify-content-center text-white bg-primary py-2 px-3 rounded-2 flex-grow-1 mx-1 my-1 shadow-sm text-nowrap" style="background-color: #005dff !important;">
+                        Shopping Cart (<i class="fa-solid fa-cart-shopping ms-1"></i>) <i class="fa-solid fa-arrow-right ms-2 d-none d-md-inline-block"></i>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center text-secondary py-2 px-3 rounded-2 flex-grow-1 mx-1 my-1 text-nowrap">
+                        Delivery Address (<i class="fa-solid fa-location-dot ms-1"></i>) <i class="fa-solid fa-arrow-right ms-2 d-none d-md-inline-block"></i>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center text-secondary py-2 px-3 rounded-2 flex-grow-1 mx-1 my-1 text-nowrap">
+                        Payment Method (<i class="fa-solid fa-credit-card ms-1"></i>) <i class="fa-solid fa-arrow-right ms-2 d-none d-md-inline-block"></i>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center text-secondary py-2 px-3 rounded-2 flex-grow-1 mx-1 my-1 text-nowrap">
+                        Order Confirmation (<i class="fa-solid fa-gift ms-1"></i>)
+                    </div>
+                </div>
+
+                <!-- Empty State (Hidden initially) -->
+                <div class="flex-column align-items-center justify-content-center py-5 px-3 bg-white rounded-4 border text-center shadow-sm" id="emptyCartState" style="display: none;">
+                    <i class="fa-solid fa-cart-plus mb-3 text-primary opacity-25" style="font-size: 4rem;"></i>
+                    <h4 class="fw-bold text-dark mb-2">Your cart is empty</h4>
+                    <p class="text-muted mb-4">Add items to your cart to see them here and proceed with checkout.</p>
+                    <a href="category.html" class="btn btn-primary px-4 py-2 fw-bold" style="border-radius: 8px;">Shop Now Partners</a>
+                </div>
+
+                <!-- Cart Grid -->
+                <div class="row g-4" id="cartContentGrid">
+                    <!-- Left: Cart Items Card -->
+                    <div class="col-lg-8">
+                        <div class="bg-white rounded-4 shadow-sm border p-3">
+                            <div id="cartItemsList">
+                                
+                                <!-- Cart Item 1: Samsung Galaxy M35 5G -->
+                                <div class="row align-items-center py-3 border-bottom cart-item" data-price="15990" data-original-price="17990" data-id="1">
+                                    <div class="col-auto">
+                                        <input type="checkbox" class="form-check-input cart-checkbox" checked style="width: 20px; height: 20px; cursor: pointer;" onchange="calculateTotals()">
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="border rounded bg-white p-2 d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                            <img src="assets/img/iphone15_blue.png" alt="Samsung Galaxy M35 5G" class="img-fluid object-fit-contain" style="max-height: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col px-3">
+                                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">Samsung Galaxy M35 5G</h6>
+                                        <div class="text-muted" style="font-size: 0.72rem; line-height: 1.4;">
+                                            <span>Spec: Exynos 1380, 6000mAh Battery</span><br>
+                                            <span>6GB RAM, 128GB Storage</span><br>
+                                            <span class="text-success fw-bold">In Stock</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-2">
+                                        <div class="d-flex align-items-center border rounded bg-light" style="width: fit-content;">
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-minus fw-bold" type="button" onclick="updateQty(this, -1)">-</button>
+                                            <span class="px-2 fw-bold qty-val" style="font-size: 0.85rem; min-width: 24px; text-align: center;">1</span>
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-plus fw-bold" type="button" onclick="updateQty(this, 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto text-end px-3" style="min-width: 110px;">
+                                        <h6 class="fw-bold text-dark mb-0 item-current-price">₹15,990.00</h6>
+                                        <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.75rem;">₹17,990.00</span>
+                                        <span class="badge bg-success bg-opacity-10 text-success ms-1 px-1.5 py-0.5" style="font-size: 0.62rem;">11% Off</span>
+                                    </div>
+                                    <div class="col-auto text-center ps-2">
+                                        <button class="btn btn-link text-danger p-0 border-0 btn-remove" type="button" style="text-decoration: none;" onclick="removeCartItem(this, 1)">
+                                            <i class="fa-solid fa-trash-can fs-5 d-block mb-1"></i>
+                                            <span style="font-size: 0.65rem; font-weight: 700;">Remove</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Cart Item 2: boAt Airdopes -->
+                                <div class="row align-items-center py-3 border-bottom cart-item" data-price="2500" data-original-price="2799" data-id="2">
+                                    <div class="col-auto">
+                                        <input type="checkbox" class="form-check-input cart-checkbox" checked style="width: 20px; height: 20px; cursor: pointer;" onchange="calculateTotals()">
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="border rounded bg-white p-2 d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                            <img src="assets/img/sony_headphones.png" alt="boAt Airdopes" class="img-fluid object-fit-contain" style="max-height: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col px-3">
+                                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">boAt Airdopes 311 Pro</h6>
+                                        <div class="text-muted" style="font-size: 0.72rem; line-height: 1.4;">
+                                            <span>Spec: Dual Mics, ENx Tech</span><br>
+                                            <span>BT 5.3, IPX4 Water Resistant</span><br>
+                                            <span class="text-success fw-bold">In Stock</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-2">
+                                        <div class="d-flex align-items-center border rounded bg-light" style="width: fit-content;">
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-minus fw-bold" type="button" onclick="updateQty(this, -1)">-</button>
+                                            <span class="px-2 fw-bold qty-val" style="font-size: 0.85rem; min-width: 24px; text-align: center;">1</span>
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-plus fw-bold" type="button" onclick="updateQty(this, 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto text-end px-3" style="min-width: 110px;">
+                                        <h6 class="fw-bold text-dark mb-0 item-current-price">₹2,500.00</h6>
+                                        <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.75rem;">₹2,799.00</span>
+                                        <span class="badge bg-success bg-opacity-10 text-success ms-1 px-1.5 py-0.5" style="font-size: 0.62rem;">11% Off</span>
+                                    </div>
+                                    <div class="col-auto text-center ps-2">
+                                        <button class="btn btn-link text-danger p-0 border-0 btn-remove" type="button" style="text-decoration: none;" onclick="removeCartItem(this, 2)">
+                                            <i class="fa-solid fa-trash-can fs-5 d-block mb-1"></i>
+                                            <span style="font-size: 0.65rem; font-weight: 700;">Remove</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Cart Item 3: AGARO Waffle Maker -->
+                                <div class="row align-items-center py-3 border-bottom cart-item" data-price="2290" data-original-price="2590" data-id="3">
+                                    <div class="col-auto">
+                                        <input type="checkbox" class="form-check-input cart-checkbox" checked style="width: 20px; height: 20px; cursor: pointer;" onchange="calculateTotals()">
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="border rounded bg-white p-2 d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                            <img src="assets/img/blue_shirt.png" alt="AGARO Waffle Maker" class="img-fluid object-fit-contain" style="max-height: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col px-3">
+                                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">AGARO Waffle Maker</h6>
+                                        <div class="text-muted" style="font-size: 0.72rem; line-height: 1.4;">
+                                            <span>Spec: Non-Stick Plates, 750W</span><br>
+                                            <span>Compact Design, Indicator Light</span><br>
+                                            <span class="text-success fw-bold">In Stock</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-2">
+                                        <div class="d-flex align-items-center border rounded bg-light" style="width: fit-content;">
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-minus fw-bold" type="button" onclick="updateQty(this, -1)">-</button>
+                                            <span class="px-2 fw-bold qty-val" style="font-size: 0.85rem; min-width: 24px; text-align: center;">1</span>
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-plus fw-bold" type="button" onclick="updateQty(this, 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto text-end px-3" style="min-width: 110px;">
+                                        <h6 class="fw-bold text-dark mb-0 item-current-price">₹2,290.00</h6>
+                                        <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.75rem;">₹2,590.00</span>
+                                        <span class="badge bg-success bg-opacity-10 text-success ms-1 px-1.5 py-0.5" style="font-size: 0.62rem;">11% Off</span>
+                                    </div>
+                                    <div class="col-auto text-center ps-2">
+                                        <button class="btn btn-link text-danger p-0 border-0 btn-remove" type="button" style="text-decoration: none;" onclick="removeCartItem(this, 3)">
+                                            <i class="fa-solid fa-trash-can fs-5 d-block mb-1"></i>
+                                            <span style="font-size: 0.65rem; font-weight: 700;">Remove</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Cart Item 4: AGARO Waffle Maker (Duplicate for reference layout) -->
+                                <div class="row align-items-center py-3 border-bottom cart-item" data-price="2390" data-original-price="2690" data-id="4">
+                                    <div class="col-auto">
+                                        <input type="checkbox" class="form-check-input cart-checkbox" checked style="width: 20px; height: 20px; cursor: pointer;" onchange="calculateTotals()">
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="border rounded bg-white p-2 d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
+                                            <img src="assets/img/blue_shirt.png" alt="AGARO Waffle Maker" class="img-fluid object-fit-contain" style="max-height: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="col px-3">
+                                        <h6 class="fw-bold text-dark mb-1" style="font-size: 0.95rem;">AGARO Waffle Maker Pro</h6>
+                                        <div class="text-muted" style="font-size: 0.72rem; line-height: 1.4;">
+                                            <span>Spec: Double Non-Stick Plates</span><br>
+                                            <span>850W High Power Heating</span><br>
+                                            <span class="text-success fw-bold">In Stock</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto px-2">
+                                        <div class="d-flex align-items-center border rounded bg-light" style="width: fit-content;">
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-minus fw-bold" type="button" onclick="updateQty(this, -1)">-</button>
+                                            <span class="px-2 fw-bold qty-val" style="font-size: 0.85rem; min-width: 24px; text-align: center;">1</span>
+                                            <button class="btn btn-sm btn-light border-0 px-2 py-1 btn-plus fw-bold" type="button" onclick="updateQty(this, 1)">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto text-end px-3" style="min-width: 110px;">
+                                        <h6 class="fw-bold text-dark mb-0 item-current-price">₹2,390.00</h6>
+                                        <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.75rem;">₹2,690.00</span>
+                                        <span class="badge bg-success bg-opacity-10 text-success ms-1 px-1.5 py-0.5" style="font-size: 0.62rem;">11% Off</span>
+                                    </div>
+                                    <div class="col-auto text-center ps-2">
+                                        <button class="btn btn-link text-danger p-0 border-0 btn-remove" type="button" style="text-decoration: none;" onclick="removeCartItem(this, 4)">
+                                            <i class="fa-solid fa-trash-can fs-5 d-block mb-1"></i>
+                                            <span style="font-size: 0.65rem; font-weight: 700;">Remove</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                            <!-- Coupon Trigger Area -->
+                            <div class="text-center pt-3">
+                                <a href="#" class="fw-bold text-primary text-decoration-underline" style="font-size: 0.85rem;" data-bs-toggle="modal" data-bs-target="#couponsModal">View Available Coupons/Offers</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Price Summary Panel -->
+                    <div class="col-lg-4">
+                        <div class="bg-white rounded-4 shadow-sm border p-4">
+                            <h5 class="fw-bold text-dark mb-4" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif;">Price Details</h5>
+                            
+                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.88rem; font-weight: 500;">
+                                <span id="summary-items-count">Price (4 items)</span>
+                                <span id="summary-price-total">₹23,170.00</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.88rem; font-weight: 500;">
+                                <span>Discount</span>
+                                <span class="text-success" id="summary-discount-total">-₹2,669.00</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.88rem; font-weight: 500;">
+                                <span>Delivery Charges</span>
+                                <span class="text-success">FREE</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.88rem; font-weight: 500;">
+                                <span>Secured Packaging Fee</span>
+                                <span>₹29.00</span>
+                            </div>
+
+                            <!-- Coupon Discount (Hidden initially) -->
+                            <div class="d-flex justify-content-between mb-3 text-secondary" id="couponRow" style="font-size: 0.88rem; font-weight: 500; display: none !important;">
+                                <span class="d-flex align-items-center gap-1">
+                                    Coupon (<strong class="text-primary" id="appliedCouponName">FAYDA500</strong>)
+                                    <button class="btn btn-link text-danger p-0 border-0 ms-1 fw-bold" onclick="removeCoupon()" style="font-size: 0.72rem; text-decoration: none;">Remove</button>
+                                </span>
+                                <span class="text-success" id="couponDiscountTotal">-₹500.00</span>
+                            </div>
+                            
+                            <hr class="my-3 opacity-25">
+                            
+                            <div class="d-flex justify-content-between mb-4 align-items-center">
+                                <h6 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">Total Payable Amount</h6>
+                                <h5 class="fw-bold text-primary mb-0" id="summary-payable-amount" style="font-size: 1.25rem;">₹20,530.00</h5>
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 fw-bold py-2.5 mb-3" style="border-radius: 8px; font-size: 0.9rem; box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="proceedToCheckout()">
+                                Proceed to Checkout
+                            </button>
+                            
+                            <p class="text-muted text-center mb-0" style="font-size: 0.72rem; font-weight: 500;">
+                                <i class="fa-solid fa-shield-halved text-success me-1"></i> Safe and Secure Payments. Easy returns.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Mini Footer -->
+    <div class="profile-mini-footer mt-5">
+        <div class="container py-3 text-center" style="max-width:1100px;">
+            <p class="text-muted mb-0" style="font-size:.75rem;">
+                <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
+                At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
+            </p>
+        </div>
+        <div class="border-top" style="border-color:#dde9f8 !important;">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-3" style="max-width:1100px;">
+                <div>
+                    <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Sabka Fayda</p>
+                    <span class="text-muted" style="font-size:.68rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="phone-icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Phone</p>
+                        <span class="text-muted" style="font-size:.68rem;">+01 032 950 8069</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coupons Modal -->
+    <div class="modal fade" id="couponsModal" tabindex="-1" aria-labelledby="couponsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="couponsModalLabel">Available Coupons</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <!-- Coupon 1 -->
+                    <div class="border rounded-3 p-3 mb-3 d-flex justify-content-between align-items-center bg-light">
+                        <div>
+                            <span class="badge bg-primary text-uppercase mb-1" style="font-size: 0.65rem;">FAYDA500</span>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Save ₹500.00</h6>
+                            <p class="text-muted mb-0" style="font-size: 0.72rem;">Applicable on minimum cart value of ₹15,000.</p>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm fw-bold px-3" style="border-radius: 6px; font-size: 0.75rem;" onclick="applyCoupon('FAYDA500', 500, 15000)">Apply</button>
+                    </div>
+                    <!-- Coupon 2 -->
+                    <div class="border rounded-3 p-3 mb-3 d-flex justify-content-between align-items-center bg-light">
+                        <div>
+                            <span class="badge bg-primary text-uppercase mb-1" style="font-size: 0.65rem;">FAYDA200</span>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Save ₹200.00</h6>
+                            <p class="text-muted mb-0" style="font-size: 0.72rem;">Applicable on minimum cart value of ₹5,000.</p>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm fw-bold px-3" style="border-radius: 6px; font-size: 0.75rem;" onclick="applyCoupon('FAYDA200', 200, 5000)">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast System -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-body-content">
+                    <i class="fa-solid fa-circle-check me-2"></i>Action completed successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Header Injection & Loader Script -->
+    <script>
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                if (typeof initHeader === 'function') initHeader();
+            });
+    </script>
+
+    <!-- Cart Page Dynamic Logic -->
+    <script>
+        let appliedCoupon = null;
+        let appliedCouponDiscount = 0;
+
+        // Toast Trigger
+        function showToast(message, isSuccess = true) {
+            const toastEl = document.getElementById('action-toast');
+            const toastBody = document.getElementById('toast-body-content');
+            
+            if (isSuccess) {
+                toastEl.classList.remove('text-bg-danger');
+                toastEl.classList.add('text-bg-success');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${message}`;
+            } else {
+                toastEl.classList.remove('text-bg-success');
+                toastEl.classList.add('text-bg-danger');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i>${message}`;
+            }
+            
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+        }
+
+        // Qty Increment/Decrement
+        window.updateQty = function(buttonEl, amount) {
+            const qtyValEl = buttonEl.parentNode.querySelector('.qty-val');
+            let currentQty = parseInt(qtyValEl.textContent);
+            
+            currentQty += amount;
+            if (currentQty < 1) currentQty = 1;
+            
+            qtyValEl.textContent = currentQty;
+            
+            // Recalculate item and totals
+            const cartItem = buttonEl.closest('.cart-item');
+            const price = parseFloat(cartItem.getAttribute('data-price'));
+            const originalPrice = parseFloat(cartItem.getAttribute('data-original-price'));
+            
+            const currentPriceEl = cartItem.querySelector('.item-current-price');
+            const originalPriceEl = cartItem.querySelector('.style-original-price');
+            
+            currentPriceEl.textContent = `₹${(price * currentQty).toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+            originalPriceEl.textContent = `₹${(originalPrice * currentQty).toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+
+            calculateTotals();
+        }
+
+        // Remove Item
+        window.removeCartItem = function(buttonEl, id) {
+            const item = buttonEl.closest('.cart-item');
+            
+            item.style.transition = 'all 0.4s ease';
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                item.remove();
+                showToast('Item removed from cart.');
+                calculateTotals();
+            }, 400);
+        }
+
+        // Apply Coupon
+        window.applyCoupon = function(code, discountAmount, minCartValue) {
+            // Get current active subtotal
+            let subtotal = 0;
+            const items = document.querySelectorAll('.cart-item');
+            items.forEach(item => {
+                const checkbox = item.querySelector('.cart-checkbox');
+                if (checkbox.checked) {
+                    const price = parseFloat(item.getAttribute('data-price'));
+                    const qty = parseInt(item.querySelector('.qty-val').textContent);
+                    subtotal += (price * qty);
+                }
+            });
+
+            if (subtotal < minCartValue) {
+                showToast(`Coupon applicable only on orders above ₹${minCartValue.toLocaleString('en-IN')}`, false);
+                return;
+            }
+
+            appliedCoupon = code;
+            appliedCouponDiscount = discountAmount;
+            
+            // Close modal
+            const modalEl = document.getElementById('couponsModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+            
+            showToast(`Coupon "${code}" applied successfully!`);
+            calculateTotals();
+        }
+
+        // Remove Coupon
+        window.removeCoupon = function() {
+            appliedCoupon = null;
+            appliedCouponDiscount = 0;
+            showToast('Coupon removed.');
+            calculateTotals();
+        }
+
+        // Calculate Totals
+        window.calculateTotals = function() {
+            const items = document.querySelectorAll('.cart-item');
+            const cartContentGrid = document.getElementById('cartContentGrid');
+            const emptyCartState = document.getElementById('emptyCartState');
+
+            if (items.length === 0) {
+                cartContentGrid.style.setProperty('display', 'none', 'important');
+                emptyCartState.style.display = 'flex';
+                return;
+            } else {
+                cartContentGrid.style.display = 'flex';
+                emptyCartState.style.display = 'none';
+            }
+
+            let subtotal = 0;
+            let originalSubtotal = 0;
+            let checkedItemsCount = 0;
+
+            items.forEach(item => {
+                const checkbox = item.querySelector('.cart-checkbox');
+                if (checkbox.checked) {
+                    const price = parseFloat(item.getAttribute('data-price'));
+                    const originalPrice = parseFloat(item.getAttribute('data-original-price'));
+                    const qty = parseInt(item.querySelector('.qty-val').textContent);
+                    
+                    subtotal += (price * qty);
+                    originalSubtotal += (originalPrice * qty);
+                    checkedItemsCount++;
+                }
+            });
+
+            const discount = originalSubtotal - subtotal;
+            const packagingFee = checkedItemsCount > 0 ? 29 : 0;
+
+            // Check coupon eligibility
+            if (appliedCoupon) {
+                // If subtotal fell below requirement, automatically invalidate
+                let minRequired = appliedCoupon === 'FAYDA500' ? 15000 : 5000;
+                if (subtotal < minRequired) {
+                    appliedCoupon = null;
+                    appliedCouponDiscount = 0;
+                    showToast('Coupon invalidated due to low cart value.', false);
+                }
+            }
+
+            // Update UI elements
+            document.getElementById('summary-items-count').textContent = `Price (${checkedItemsCount} items)`;
+            document.getElementById('summary-price-total').textContent = `₹${originalSubtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+            document.getElementById('summary-discount-total').textContent = `-₹${discount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+            
+            const couponRow = document.getElementById('couponRow');
+            if (appliedCoupon) {
+                document.getElementById('appliedCouponName').textContent = appliedCoupon;
+                document.getElementById('couponDiscountTotal').textContent = `-₹${appliedCouponDiscount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+                couponRow.style.setProperty('display', 'flex', 'important');
+            } else {
+                couponRow.style.setProperty('display', 'none', 'important');
+            }
+
+            const totalPayable = Math.max(0, subtotal + packagingFee - appliedCouponDiscount);
+            document.getElementById('summary-payable-amount').textContent = `₹${totalPayable.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+        }
+
+        // Proceed to Checkout
+        window.proceedToCheckout = function() {
+            // Count checked items
+            let checkedCount = 0;
+            const checkboxes = document.querySelectorAll('.cart-checkbox');
+            checkboxes.forEach(c => { if (c.checked) checkedCount++; });
+
+            if (checkedCount === 0) {
+                showToast('Please select at least one item to proceed.', false);
+                return;
+            }
+
+            showToast('Redirecting to secure checkout...');
+            setTimeout(() => {
+                window.location.href = 'checkout.html';
+            }, 800);
+        }
+
+        // Initial run
+        calculateTotals();
+    </script>
+</body>
+
+</html>
