@@ -1714,12 +1714,12 @@ select.profile-form-control {
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     display: flex;
-    flex: 0 0 90px;
-    height: 90px;
+    flex: 0 0 100px;
+    height: 100px;
     justify-content: center;
     overflow: hidden;
     padding: 8px;
-    width: 90px;
+    width: 100px;
 }
 
 .order-product-img img {
@@ -1736,13 +1736,20 @@ select.profile-form-control {
     margin: 0 0 6px;
 }
 
-.order-product p,
-.order-product span {
+.order-product p {
     color: #4b5563;
     display: block;
     font-size: 0.72rem;
     font-weight: 600;
     margin: 0 0 4px;
+}
+
+.order-product span {
+    color: #4b5563;
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin: 6px 0 4px;
 }
 
 .order-id {
