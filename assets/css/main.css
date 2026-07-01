@@ -1503,9 +1503,9 @@ select.profile-form-control {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 93, 255, 0.02);
     display: flex;
-    gap: 16px;
-    min-height: 86px;
-    padding: 18px 20px;
+    gap: 12px;
+    min-height: 72px;
+    padding: 12px 14px;
     transition: transform 0.2s ease;
 }
 
@@ -1521,13 +1521,13 @@ select.profile-form-control {
 
 .orders-stat-card p {
     color: #6b7280;
-    font-size: 0.72rem;
+    font-size: 0.65rem;
     font-weight: 700;
 }
 
 .orders-stat-card h2 {
     color: #1f2937;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     font-weight: 800;
     line-height: 1.25;
     margin-top: 2px;
@@ -1536,7 +1536,7 @@ select.profile-form-control {
 .orders-stat-card span:not(.orders-stat-icon) {
     color: #9ca3af;
     display: block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
     margin-top: 2px;
 }
@@ -1545,11 +1545,11 @@ select.profile-form-control {
     align-items: center;
     border-radius: 50%;
     display: flex;
-    flex: 0 0 48px;
-    font-size: 1.3rem;
-    height: 48px;
+    flex: 0 0 40px;
+    font-size: 1.1rem;
+    height: 40px;
     justify-content: center;
-    width: 48px;
+    width: 40px;
 }
 
 .stat-blue {
