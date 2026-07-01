@@ -215,13 +215,18 @@
             }
         }
     </style>
+
+    <!-- Preload Dynamic Components -->
+    <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
 </head>
 
 <body
     style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
 
     <!-- Header Placeholder -->
-    <div id="header-placeholder"></div>
+    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
 
     <!-- Main Content -->
     <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
@@ -581,7 +586,7 @@
     </div>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

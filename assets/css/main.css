@@ -2581,3 +2581,34 @@ select.profile-form-control {
 
 
 
+
+/* ================================================
+   Skeleton Loaders
+   ================================================ */
+@keyframes skeleton-loading {
+    0% { background-color: #f1f5f9; }
+    100% { background-color: #e2e8f0; }
+}
+
+.skeleton-box {
+    animation: skeleton-loading 1s linear infinite alternate;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.skeleton-header {
+    height: 70px;
+    margin-bottom: 0px;
+    border-radius: 0;
+}
+
+.skeleton-sidebar {
+    height: 80vh;
+    border-radius: 16px;
+}
+
+.skeleton-footer {
+    height: 250px;
+    border-radius: 0;
+    margin-top: 0px;
+}
