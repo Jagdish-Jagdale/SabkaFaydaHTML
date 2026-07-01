@@ -2642,3 +2642,29 @@ select.profile-form-control {
     border-radius: 0;
     margin-top: 0px;
 }
+/* ================================================
+   Text Truncation (Line Clamping)
+   ================================================ */
+.notification-card .product-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notification-card .order-product p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-card:not(.notification-card) .order-product h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
