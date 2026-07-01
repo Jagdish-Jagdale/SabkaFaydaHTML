@@ -1032,13 +1032,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Main JS -->
-    <script src="assets/js/main.js?v=3"></script>
+    <script src="assets/js/main.js?v=5"></script>
 
     <!-- Script to load Header and Footer dynamically -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Load Header
-            fetch('header.html')
+            fetch('header.html?v=5')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
@@ -1048,7 +1048,7 @@
                 });
 
             // Load Footer
-            fetch('footer.html')
+            fetch('footer.html?v=5')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;

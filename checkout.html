@@ -892,7 +892,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Load Header
-            fetch('header.html')
+            fetch('header.html?v=5')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
@@ -902,7 +902,7 @@
                 });
 
             // Load Footer
-            fetch('footer.html')
+            fetch('footer.html?v=5')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;

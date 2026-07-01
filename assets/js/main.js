@@ -279,7 +279,7 @@ function loadSidebar() {
     const placeholder = document.getElementById('sidebar-placeholder');
     if (!placeholder) return;
     
-    fetch('sidebar.html')
+    fetch('sidebar.html?v=5')
         .then(response => response.text())
         .then(data => {
             placeholder.innerHTML = data;
