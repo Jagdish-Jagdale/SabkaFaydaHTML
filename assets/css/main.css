@@ -1453,7 +1453,7 @@ select.profile-form-control {
 
 .orders-shell {
     max-width: 1200px;
-    padding-top: 165px;
+    padding-top: 195px;
     padding-bottom: 64px;
 }
 
@@ -1461,7 +1461,7 @@ select.profile-form-control {
     border: 1px solid #eef2f6;
     border-radius: 16px;
     position: sticky;
-    top: 165px;
+    top: 195px;
     height: fit-content;
     overflow: visible;
     min-height: auto !important;
@@ -1982,7 +1982,7 @@ select.profile-form-control {
 
 @media (max-width: 991px) {
     .orders-shell {
-        padding-top: 140px;
+        padding-top: 170px;
     }
 
     .orders-sidebar {
