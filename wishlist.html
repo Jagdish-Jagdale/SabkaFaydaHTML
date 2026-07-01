@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="View and manage your Sabka Fayda wishlist. Keep track of price drops, check stock availability, and easily add saved items to your cart.">
+    <meta name="keywords"
+        content="Sabka Fayda wishlist, saved items, shopping wishlist, price drop alerts, in stock, out of stock, buy later">
+    <title>My Wishlist | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="orders-page">
+    <!-- Site Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Main Shell -->
+    <main class="orders-shell container-fluid px-3 px-md-4">
+        
+        <!-- Mobile Sidebar Toggle Row -->
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">My Wishlist</span>
+        </div>
+
+        <div class="row g-4">
+            <!-- ═══ SIDEBAR MENU ═══ -->
+            <aside class="col-lg-3">
+                <div class="offcanvas-lg offcanvas-start bg-white rounded-4" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header border-bottom d-lg-none">
+                        <h5 class="offcanvas-title fw-bold text-dark" id="sidebarMenuLabel">Profile Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <div class="sidebar-card orders-sidebar bg-white shadow-sm py-3 w-100">
+                            <!-- Section Heading -->
+                            <div class="px-3 pb-2">
+                                <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+                            </div>
+
+                            <!-- My Orders -->
+                            <a href="orders.html" class="sidebar-link">
+                                <i class="fa-solid fa-box"></i>
+                                <span>My Orders</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Account Settings</p>
+
+                            <!-- My Information -->
+                            <a href="profile.html" class="sidebar-link">
+                                <i class="fa-solid fa-user"></i>
+                                <span>My Information</span>
+                            </a>
+
+                            <!-- My Address -->
+                            <a href="profile.html#myaddress" class="sidebar-link">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>My Address</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Income and payments</p>
+
+                            <!-- My Wallet -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div>
+                                    <div>My Wallet</div>
+                                    <div class="sidebar-badge">Balance: &#8377; 10.00</div>
+                                </div>
+                            </a>
+
+                            <!-- Saved UPI -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>Saved UPI</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+                            <p class="sidebar-section-title">Saved stuffs</p>
+
+                            <!-- My Notifications -->
+                            <a href="notifications.html" class="sidebar-link">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>My Notifications</span>
+                            </a>
+
+                            <!-- My Wishlist (Active) -->
+                            <a href="wishlist.html" class="sidebar-link active">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>My Wishlist</span>
+                            </a>
+
+                            <!-- My Cart -->
+                            <a href="checkout.html" class="sidebar-link">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>My Cart</span>
+                            </a>
+
+                            <!-- My Coupons -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-tags"></i>
+                                <span>My Coupons</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+
+                            <!-- Logout Button -->
+                            <div class="px-3 pt-2">
+                                <a href="login.html" class="btn orders-logout-btn w-100">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ═══ MAIN CONTENT AREA ═══ -->
+            <section class="col-lg-9 col-12">
+                <!-- Summary Statistics Grid -->
+                <div class="orders-summary-grid mb-3">
+                    <!-- Stat Card 1: Wishlist Items -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-blue"><i class="fa-solid fa-heart"></i></span>
+                        <div>
+                            <p>Wishlist Items</p>
+                            <h2 id="summary-total-value">&#8377; 5,29,590.00</h2>
+                            <span>Total Value All Time</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Stat Card 2: Price Drop Alerts -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-purple"><i class="fa-solid fa-tag"></i></span>
+                        <div>
+                            <p>Price Drop Alerts</p>
+                            <h2>6 Items</h2>
+                            <span class="text-success fw-bold" style="font-size: 0.72rem;">Currently on sale <span class="fw-semibold">(Avg. Savings 15%)</span></span>
+                        </div>
+                    </article>
+                    
+                    <!-- Stat Card 3: Recent Additions -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-green"><i class="fa-solid fa-bag-shopping"></i></span>
+                        <div>
+                            <p>Recent Additions</p>
+                            <h2>14 Items</h2>
+                            <span>Added This Month</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Stat Card 4: Availability Status -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-orange"><i class="fa-regular fa-clock"></i></span>
+                        <div>
+                            <p>Availability Status</p>
+                            <h2 id="summary-stock-status">38 <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">In Stock</span></h2>
+                            <span style="font-size: 0.65rem; color: #ea580c; font-weight: 700;">4 Low Stock <span class="text-danger ms-2">4 Out of Stock</span></span>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Search & Sort Toolbar -->
+                <div class="orders-toolbar bg-white shadow-sm mb-3">
+                    <div class="orders-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" id="wishlistSearchInput" placeholder="Search by Order ID, Product or Brand...">
+                    </div>
+                    <div class="dropdown">
+                        <button class="orders-sort-btn dropdown-toggle" type="button" id="sortDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Sort By:</span> <span id="current-sort-label">Recently Added</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end orders-dropdown" aria-labelledby="sortDropdownBtn">
+                            <li><a class="dropdown-item active sort-option" href="#" data-sort="recent">Recently Added</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="oldest">Oldest Added</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="price-high">Price: High to Low</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="price-low">Price: Low to High</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="name-asc">Name: A to Z</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Filter Chips Row -->
+                <div class="orders-filter-row mb-3" id="filterChipsContainer">
+                    <button class="orders-filter-chip active" data-filter="all" id="chip-all">All (5)</button>
+                    <button class="orders-filter-chip" data-filter="in-stock" id="chip-in-stock">In Stock (2)</button>
+                    <button class="orders-filter-chip" data-filter="low-stock" id="chip-low-stock">Low Stock (2)</button>
+                    <button class="orders-filter-chip" data-filter="out-of-stock" id="chip-out-of-stock">Out of Stock (1)</button>
+                </div>
+
+                <!-- Empty State (Hidden initially) -->
+                <div class="flex-column align-items-center justify-content-center py-5 px-3 bg-white rounded-4 border text-center shadow-sm" id="emptyWishlistState" style="display: none;">
+                    <i class="fa-solid fa-heart-crack mb-3 text-primary opacity-25" style="font-size: 4rem;"></i>
+                    <h4 class="fw-bold text-dark mb-2">Your wishlist is empty</h4>
+                    <p class="text-muted mb-4">Explore items and save your favorite products to view them here.</p>
+                    <a href="category.html" class="btn btn-primary px-4 py-2 fw-bold" style="border-radius: 8px;">Explore Products</a>
+                </div>
+
+                <!-- Wishlist Items List -->
+                <div class="orders-list" id="wishlistItemsList">
+                    
+                    <!-- Product Item 1: Apple iPhone 15 Pro, 256GB, Blue Titanium -->
+                    <article class="order-card bg-white shadow-sm wishlist-item" 
+                             data-status="in-stock" 
+                             data-price="124900" 
+                             data-date="2026-06-28" 
+                             data-timestamp="1782631800000"
+                             data-name="Apple iPhone 15 Pro, 256GB, Blue Titanium">
+                        <div class="order-product">
+                            <div class="order-product-img position-relative">
+                                <img src="assets/img/iphone15_blue.png" alt="Apple iPhone 15 Pro">
+                                <span class="position-absolute top-0 end-0 m-1 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; z-index: 2;" title="Saved to Wishlist">
+                                    <i class="fa-solid fa-heart text-danger" style="font-size: 0.75rem;"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Apple iPhone 15 Pro, 256GB, Blue Titanium</h3>
+                                <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
+                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Order Date</span>
+                                    <strong>28 Jun 2026</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel">
+                            <span class="status-pill delivered m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">IN STOCK</span>
+                            <span class="mt-2 text-muted" style="font-size: 0.7rem; font-weight: 600;">Added Date</span>
+                            <strong style="font-size: 0.75rem; color: #333;">28 Jun 2026, 11:30 AM</strong>
+                        </div>
+                        <div class="order-actions d-flex flex-column justify-content-center align-items-stretch p-2">
+                            <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('Apple iPhone 15 Pro, 256GB, Blue Titanium')">
+                                <i class="fa-solid fa-cart-shopping me-1"></i> Add to Cart
+                            </button>
+                            <a href="product-details.html" class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap">View Product</a>
+                            <button class="btn btn-outline-danger w-100 fw-bold py-2 text-nowrap" onclick="removeWishlistItem(this)">Remove Item</button>
+                        </div>
+                    </article>
+
+                    <!-- Product Item 2: Sony WH-1000XM5 Black -->
+                    <article class="order-card bg-white shadow-sm wishlist-item" 
+                             data-status="in-stock" 
+                             data-price="124900" 
+                             data-date="2026-06-28" 
+                             data-timestamp="1782631800000"
+                             data-name="Sony WH-1000XM5 Black">
+                        <div class="order-product">
+                            <div class="order-product-img position-relative">
+                                <img src="assets/img/sony_headphones.png" alt="Sony WH-1000XM5 Black">
+                                <span class="position-absolute top-0 end-0 m-1 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; z-index: 2;" title="Saved to Wishlist">
+                                    <i class="fa-solid fa-heart text-danger" style="font-size: 0.75rem;"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Sony WH-1000XM5 Black</h3>
+                                <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
+                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Order Date</span>
+                                    <strong>28 Jun 2026</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel">
+                            <span class="status-pill delivered m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">IN STOCK</span>
+                            <span class="mt-2 text-muted" style="font-size: 0.7rem; font-weight: 600;">Added Date</span>
+                            <strong style="font-size: 0.75rem; color: #333;">28 Jun 2026, 11:30 AM</strong>
+                        </div>
+                        <div class="order-actions d-flex flex-column justify-content-center align-items-stretch p-2">
+                            <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('Sony WH-1000XM5 Black')">
+                                <i class="fa-solid fa-cart-shopping me-1"></i> Add to Cart
+                            </button>
+                            <a href="product-details.html" class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap">View Product</a>
+                            <button class="btn btn-outline-danger w-100 fw-bold py-2 text-nowrap" onclick="removeWishlistItem(this)">Remove Item</button>
+                        </div>
+                    </article>
+
+                    <!-- Product Item 3: Apple iPhone 15 Pro, 256GB, Blue Titanium (Low Stock) -->
+                    <article class="order-card bg-white shadow-sm wishlist-item" 
+                             data-status="low-stock" 
+                             data-price="124900" 
+                             data-date="2026-06-28" 
+                             data-timestamp="1782631800000"
+                             data-name="Apple iPhone 15 Pro, 256GB, Blue Titanium">
+                        <div class="order-product">
+                            <div class="order-product-img position-relative">
+                                <img src="assets/img/iphone15_blue.png" alt="Apple iPhone 15 Pro">
+                                <span class="position-absolute top-0 end-0 m-1 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; z-index: 2;" title="Saved to Wishlist">
+                                    <i class="fa-solid fa-heart text-danger" style="font-size: 0.75rem;"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Apple iPhone 15 Pro 256GB, Blue Titanium</h3>
+                                <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
+                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Order Date</span>
+                                    <strong>28 Jun 2026</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel">
+                            <span class="status-pill out-delivery m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;"><i class="fa-solid fa-triangle-exclamation me-1"></i>LOW STOCK - 2 left</span>
+                            <span class="mt-2 text-muted" style="font-size: 0.7rem; font-weight: 600;">Added Date</span>
+                            <strong style="font-size: 0.75rem; color: #333;">28 Jun 2026, 11:30 AM</strong>
+                        </div>
+                        <div class="order-actions d-flex flex-column justify-content-center align-items-stretch p-2">
+                            <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('Apple iPhone 15 Pro 256GB, Blue Titanium')">
+                                <i class="fa-solid fa-cart-shopping me-1"></i> Add to Cart
+                            </button>
+                            <a href="product-details.html" class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap">View Product</a>
+                            <button class="btn btn-outline-danger w-100 fw-bold py-2 text-nowrap" onclick="removeWishlistItem(this)">Remove Item</button>
+                        </div>
+                    </article>
+
+                    <!-- Product Item 4: Adidas Ultraboost 750GB, Black -->
+                    <article class="order-card bg-white shadow-sm wishlist-item" 
+                             data-status="low-stock" 
+                             data-price="124900" 
+                             data-date="2026-06-10" 
+                             data-timestamp="1781077800000"
+                             data-name="Adidas Ultraboost 750GB, Black">
+                        <div class="order-product">
+                            <div class="order-product-img position-relative">
+                                <img src="assets/img/adidas_shoes.png" alt="Adidas Ultraboost 750GB, Black">
+                                <span class="position-absolute top-0 end-0 m-1 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; z-index: 2;" title="Saved to Wishlist">
+                                    <i class="fa-solid fa-heart text-danger" style="font-size: 0.75rem;"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Adidas Ultraboost 750GB, Black</h3>
+                                <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
+                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Order Date</span>
+                                    <strong>10 Jun 2026</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel">
+                            <span class="status-pill out-delivery m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;"><i class="fa-solid fa-triangle-exclamation me-1"></i>LOW STOCK - 2 left</span>
+                            <span class="mt-2 text-muted" style="font-size: 0.7rem; font-weight: 600;">Added Date</span>
+                            <strong style="font-size: 0.75rem; color: #333;">28 Jun 2026, 11:30 AM</strong>
+                        </div>
+                        <div class="order-actions d-flex flex-column justify-content-center align-items-stretch p-2">
+                            <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('Adidas Ultraboost 750GB, Black')">
+                                <i class="fa-solid fa-cart-shopping me-1"></i> Add to Cart
+                            </button>
+                            <a href="product-details.html" class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap">View Product</a>
+                            <button class="btn btn-outline-danger w-100 fw-bold py-2 text-nowrap" onclick="removeWishlistItem(this)">Remove Item</button>
+                        </div>
+                    </article>
+
+                    <!-- Product Item 5: Adidas Ultraboost Size- 8, Black (Out of Stock) -->
+                    <article class="order-card bg-white shadow-sm wishlist-item" 
+                             data-status="out-of-stock" 
+                             data-price="124900" 
+                             data-date="2026-06-10" 
+                             data-timestamp="1781077800000"
+                             data-name="Adidas Ultraboost Size- 8, Black">
+                        <div class="order-product">
+                            <div class="order-product-img position-relative">
+                                <img src="assets/img/blue_shirt.png" alt="Adidas Ultraboost Size- 8, Black">
+                                <span class="position-absolute top-0 end-0 m-1 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; z-index: 2;" title="Saved to Wishlist">
+                                    <i class="fa-solid fa-heart text-danger" style="font-size: 0.75rem;"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Adidas Ultraboost Size- 8, Black</h3>
+                                <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
+                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Order Date</span>
+                                    <strong>10 Jun 2026</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel">
+                            <span class="status-pill cancelled m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;"><i class="fa-solid fa-circle-xmark me-1"></i>OUT OF STOCK</span>
+                            <span class="mt-2 text-muted" style="font-size: 0.7rem; font-weight: 600;">Added Date</span>
+                            <strong style="font-size: 0.75rem; color: #333;">28 Jun 2026, 11:30 AM</strong>
+                        </div>
+                        <div class="order-actions d-flex flex-column justify-content-center align-items-stretch p-2">
+                            <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('Adidas Ultraboost Size- 8, Black')">
+                                <i class="fa-solid fa-cart-shopping me-1"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap" onclick="notifyMe('Adidas Ultraboost Size- 8, Black')">Notify Me</button>
+                            <button class="btn btn-outline-danger w-100 fw-bold py-2 text-nowrap" onclick="removeWishlistItem(this)">Remove Item</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Mini Footer -->
+    <div class="profile-mini-footer mt-5">
+        <div class="container py-3 text-center" style="max-width:1100px;">
+            <p class="text-muted mb-0" style="font-size:.75rem;">
+                <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
+                At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
+            </p>
+        </div>
+        <div class="border-top" style="border-color:#dde9f8 !important;">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-3" style="max-width:1100px;">
+                <div>
+                    <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Sabka Fayda</p>
+                    <span class="text-muted" style="font-size:.68rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="phone-icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Phone</p>
+                        <span class="text-muted" style="font-size:.68rem;">+01 032 950 8069</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast System -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-body-content">
+                    <i class="fa-solid fa-circle-check me-2"></i>Action completed successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Header Injection & Loader Script -->
+    <script>
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                if (typeof initHeader === 'function') initHeader();
+            });
+    </script>
+
+    <!-- Wishlist Page Dynamic Logic -->
+    <script>
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let currentSort = 'recent';
+
+        // Elements
+        const searchInput = document.getElementById('wishlistSearchInput');
+        const filterChips = document.querySelectorAll('.orders-filter-chip');
+        const sortOptions = document.querySelectorAll('.sort-option');
+        const wishlistItems = document.querySelectorAll('.wishlist-item');
+        const itemsListContainer = document.getElementById('wishlistItemsList');
+        const emptyState = document.getElementById('emptyWishlistState');
+        const summaryTotalValue = document.getElementById('summary-total-value');
+        const summaryStockStatus = document.getElementById('summary-stock-status');
+
+        // Toast Trigger
+        function showToast(message, isSuccess = true) {
+            const toastEl = document.getElementById('action-toast');
+            const toastBody = document.getElementById('toast-body-content');
+            
+            if (isSuccess) {
+                toastEl.classList.remove('text-bg-danger');
+                toastEl.classList.add('text-bg-success');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${message}`;
+            } else {
+                toastEl.classList.remove('text-bg-success');
+                toastEl.classList.add('text-bg-danger');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i>${message}`;
+            }
+            
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+        }
+
+        // Add to Cart Simulation
+        window.addToCart = function(productName) {
+            showToast(`"${productName}" added to cart successfully!`);
+        }
+
+        // Notify Me Simulation
+        window.notifyMe = function(productName) {
+            showToast(`Notification registered for "${productName}". We will alert you when it's back in stock.`);
+        }
+
+        // Remove Item Simulation
+        window.removeWishlistItem = function(buttonEl) {
+            const card = buttonEl.closest('.wishlist-item');
+            const productName = card.getAttribute('data-name');
+            
+            // Fade out animation
+            card.style.transition = 'all 0.4s ease';
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                card.remove();
+                showToast(`"${productName}" removed from your wishlist.`);
+                updateUIState();
+            }, 400);
+        }
+
+        // Filter chips click handling
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                currentFilter = chip.getAttribute('data-filter');
+                applyFiltersAndSorting();
+            });
+        });
+
+        // Search inputs handling
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            applyFiltersAndSorting();
+        });
+
+        // Sorting options click handling
+        sortOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                sortOptions.forEach(o => o.classList.remove('active'));
+                option.classList.add('active');
+                currentSort = option.getAttribute('data-sort');
+                document.getElementById('current-sort-label').textContent = option.textContent;
+                applyFiltersAndSorting();
+            });
+        });
+
+        // Filtering and Sorting engine
+        function applyFiltersAndSorting() {
+            const itemsArray = Array.from(document.querySelectorAll('.wishlist-item'));
+            let visibleCount = 0;
+
+            itemsArray.forEach(item => {
+                const name = item.getAttribute('data-name').toLowerCase();
+                const status = item.getAttribute('data-status');
+                
+                const matchesSearch = name.includes(searchQuery);
+                const matchesFilter = (currentFilter === 'all') || (status === currentFilter);
+
+                if (matchesSearch && matchesFilter) {
+                    item.style.display = 'grid';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Handle sorting of DOM elements
+            if (visibleCount > 0) {
+                emptyState.style.display = 'none';
+                
+                itemsArray.sort((a, b) => {
+                    const priceA = parseFloat(a.getAttribute('data-price'));
+                    const priceB = parseFloat(b.getAttribute('data-price'));
+                    const nameA = a.getAttribute('data-name').toLowerCase();
+                    const nameB = b.getAttribute('data-name').toLowerCase();
+                    const timestampA = parseInt(a.getAttribute('data-timestamp'));
+                    const timestampB = parseInt(b.getAttribute('data-timestamp'));
+
+                    if (currentSort === 'price-low') {
+                        return priceA - priceB;
+                    } else if (currentSort === 'price-high') {
+                        return priceB - priceA;
+                    } else if (currentSort === 'name-asc') {
+                        return nameA.localeCompare(nameB);
+                    } else if (currentSort === 'oldest') {
+                        return timestampA - timestampB;
+                    } else { // default: recent (timestamp desc)
+                        return timestampB - timestampA;
+                    }
+                });
+
+                // Re-append sorted elements to the container
+                itemsArray.forEach(item => itemsListContainer.appendChild(item));
+            } else {
+                emptyState.style.display = 'flex';
+            }
+        }
+
+        // Live calculation of totals and counts
+        function updateUIState() {
+            const items = document.querySelectorAll('.wishlist-item');
+            
+            let totalVal = 0;
+            let inStockCount = 0;
+            let lowStockCount = 0;
+            let outOfStockCount = 0;
+
+            items.forEach(item => {
+                const price = parseFloat(item.getAttribute('data-price'));
+                const status = item.getAttribute('data-status');
+                totalVal += price;
+
+                if (status === 'in-stock') inStockCount++;
+                else if (status === 'low-stock') lowStockCount++;
+                else if (status === 'out-of-stock') outOfStockCount++;
+            });
+
+            // Update stats cards
+            summaryTotalValue.innerHTML = `&#8377; ${totalVal.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            summaryStockStatus.innerHTML = `${inStockCount + lowStockCount} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Available</span>`;
+            
+            // Update filter chips counts
+            document.getElementById('chip-all').textContent = `All (${items.length})`;
+            document.getElementById('chip-in-stock').textContent = `In Stock (${inStockCount})`;
+            document.getElementById('chip-low-stock').textContent = `Low Stock (${lowStockCount})`;
+            document.getElementById('chip-out-of-stock').textContent = `Out of Stock (${outOfStockCount})`;
+
+            // If zero items overall, show empty state
+            if (items.length === 0) {
+                emptyState.style.display = 'flex';
+            } else {
+                applyFiltersAndSorting();
+            }
+        }
+
+        // Initial setup
+        updateUIState();
+    </script>
+</body>
+
+</html>

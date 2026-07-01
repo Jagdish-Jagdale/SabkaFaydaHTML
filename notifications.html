@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and manage your Sabka Fayda notifications. Keep track of order updates, wallet transactions, rewards, and account alerts.">
+    <meta name="keywords" content="Sabka Fayda notifications, alerts, order tracking, rewards, wallet payments, account security">
+    <title>My Notifications | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Notifications Specific Styles */
+        .notification-card {
+            grid-template-columns: minmax(280px, 1.8fr) minmax(180px, 1fr) minmax(220px, 1.2fr) !important;
+        }
+        
+        .notification-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .icon-blue { background: #eff6ff; color: #005dff; }
+        .icon-purple { background: #f3e8ff; color: #7c3aed; }
+        .icon-green { background: #dcfce7; color: #16a34a; }
+        .icon-orange { background: #ffedd5; color: #ea580c; }
+        
+        .status-pill.unread {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+        
+        .status-pill.read {
+            background: #dcfce7;
+            color: #15803d;
+        }
+        
+        /* Pagination indicator dots */
+        .dot-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        
+        .dot-pagination .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #dbeafe;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .dot-pagination .dot.active {
+            background-color: #005dff;
+            transform: scale(1.2);
+            width: 24px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="orders-page">
+    <!-- Site Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Main Shell -->
+    <main class="orders-shell container-fluid px-3 px-md-4">
+        
+        <!-- Mobile Sidebar Toggle Row -->
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">My Notifications</span>
+        </div>
+
+        <div class="row g-4">
+            <!-- ═══ SIDEBAR MENU ═══ -->
+            <aside class="col-lg-3">
+                <div class="offcanvas-lg offcanvas-start bg-white rounded-4" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header border-bottom d-lg-none">
+                        <h5 class="offcanvas-title fw-bold text-dark" id="sidebarMenuLabel">Profile Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <div class="sidebar-card orders-sidebar bg-white shadow-sm py-3 w-100">
+                            <!-- Section Heading -->
+                            <div class="px-3 pb-2">
+                                <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+                            </div>
+
+                            <!-- My Orders -->
+                            <a href="orders.html" class="sidebar-link">
+                                <i class="fa-solid fa-box"></i>
+                                <span>My Orders</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Account Settings</p>
+
+                            <!-- My Information -->
+                            <a href="profile.html" class="sidebar-link">
+                                <i class="fa-solid fa-user"></i>
+                                <span>My Information</span>
+                            </a>
+
+                            <!-- My Address -->
+                            <a href="profile.html#myaddress" class="sidebar-link">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>My Address</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Income and payments</p>
+
+                            <!-- My Wallet -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div>
+                                    <div>My Wallet</div>
+                                    <div class="sidebar-badge">Balance: &#8377; 10.00</div>
+                                </div>
+                            </a>
+
+                            <!-- Saved UPI -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>Saved UPI</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+                            <p class="sidebar-section-title">Saved stuffs</p>
+
+                            <!-- My Notifications (Active) -->
+                            <a href="notifications.html" class="sidebar-link active">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>My Notifications</span>
+                            </a>
+
+                            <!-- My Wishlist -->
+                            <a href="wishlist.html" class="sidebar-link">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>My Wishlist</span>
+                            </a>
+
+                            <!-- My Cart -->
+                            <a href="checkout.html" class="sidebar-link">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>My Cart</span>
+                            </a>
+
+                            <!-- My Coupons -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-tags"></i>
+                                <span>My Coupons</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+
+                            <!-- Logout Button -->
+                            <div class="px-3 pt-2">
+                                <a href="login.html" class="btn orders-logout-btn w-100">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ═══ MAIN CONTENT AREA ═══ -->
+            <section class="col-lg-9 col-12">
+                <!-- Summary Statistics Grid -->
+                <div class="orders-summary-grid mb-3">
+                    <!-- Stat Card 1: Total Notifications -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-blue"><i class="fa-solid fa-bell"></i></span>
+                        <div>
+                            <p>Total Notifications</p>
+                            <h2 id="summary-total-alerts">145 <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Total Alerts</span></h2>
+                            <span class="text-primary fw-bold" style="font-size: 0.72rem;" id="summary-unread-today">3 Unread Today <span class="fw-semibold text-muted">(All Time)</span></span>
+                        </div>
+                    </article>
+                    
+                    <!-- Stat Card 2: Total Mark Read -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-purple"><i class="fa-solid fa-circle-check"></i></span>
+                        <div>
+                            <p>Total Mark Read</p>
+                            <h2 id="summary-total-read">142 <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Items</span></h2>
+                            <span class="text-success fw-bold" style="font-size: 0.72rem;" id="summary-read-rate">98% <span class="fw-semibold text-muted">Read Rate</span></span>
+                        </div>
+                    </article>
+                    
+                    <!-- Stat Card 3: Total Offers Claimed -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-green"><i class="fa-solid fa-percent"></i></span>
+                        <div>
+                            <p>Total Offers Claimed</p>
+                            <h2 id="summary-total-offers">28 <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Rewards</span></h2>
+                            <span class="text-muted" style="font-size: 0.72rem; font-weight: 600;">Claimed from notifications</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Stat Card 4: Total System Alerts -->
+                    <article class="orders-stat-card">
+                        <span class="orders-stat-icon stat-orange"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                        <div>
+                            <p>Total System Alerts</p>
+                            <h2 id="summary-system-alerts">15 <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Crucial Updates</span></h2>
+                            <span class="text-danger fw-bold" style="font-size: 0.72rem;">Action required</span>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Search & Sort Toolbar -->
+                <div class="orders-toolbar bg-white shadow-sm mb-3">
+                    <div class="orders-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" id="notificationSearchInput" placeholder="Search by Notification Title, Message...">
+                    </div>
+                    <div class="dropdown">
+                        <button class="orders-sort-btn dropdown-toggle" type="button" id="sortDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Sort By:</span> <span id="current-sort-label">Latest First</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end orders-dropdown" aria-labelledby="sortDropdownBtn">
+                            <li><a class="dropdown-item active sort-option" href="#" data-sort="latest">Latest First</a></li>
+                            <li><a class="dropdown-item sort-option" href="#" data-sort="oldest">Oldest First</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Filter Chips Row -->
+                <div class="orders-filter-row mb-3" id="filterChipsContainer">
+                    <button class="orders-filter-chip active" data-filter="all" id="chip-all">All (145)</button>
+                    <button class="orders-filter-chip" data-filter="unread" id="chip-unread">Unread (3)</button>
+                    <button class="orders-filter-chip" data-filter="order-updates" id="chip-order-updates">Order Updates (82)</button>
+                    <button class="orders-filter-chip" data-filter="wallet-payments" id="chip-wallet-payments">Wallet/Payments (14)</button>
+                    <button class="orders-filter-chip" data-filter="account-offers" id="chip-account-offers">Account/Offers (49)</button>
+                    <button class="orders-filter-chip" data-filter="promotions" id="chip-promotions">Promotions (7)</button>
+                </div>
+
+                <!-- Empty State (Hidden initially) -->
+                <div class="flex-column align-items-center justify-content-center py-5 px-3 bg-white rounded-4 border text-center shadow-sm" id="emptyState" style="display: none;">
+                    <i class="fa-solid fa-bell-slash mb-3 text-primary opacity-25" style="font-size: 4rem;"></i>
+                    <h4 class="fw-bold text-dark mb-2">No notifications found</h4>
+                    <p class="text-muted mb-4">You're all caught up! There are no alerts matching your filters.</p>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="orders-list" id="notificationsList">
+                    
+                    <!-- Notification 1 -->
+                    <article class="order-card bg-white shadow-sm notification-card" 
+                             data-category="order-updates" 
+                             data-status="unread" 
+                             data-date="2026-06-28T11:30:00"
+                             data-timestamp="1782631800000"
+                             data-id="1">
+                        <div class="order-product">
+                            <div class="notification-icon-wrapper icon-green">
+                                <i class="fa-solid fa-truck"></i>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Order SF#2026001254 - boAt Airdopes 311 Pro, Out for Delivery</h3>
+                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Your boAt Airdopes 311 Pro has reached the local hub, out for delivery to your shipping address.</p>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Notification Date</span>
+                                    <strong>28 Jun 2026, 11:30 AM</strong>
+                                    <small class="text-primary fw-bold mt-1">2 Minutes Ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel justify-content-between">
+                            <div class="d-flex justify-content-end">
+                                <span class="status-pill unread m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">UNREAD</span>
+                            </div>
+                            <div class="d-flex gap-2 w-100">
+                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap" style="font-size: 0.7rem;" onclick="viewNotification(1)">View More</button>
+                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read" style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 1)">Mark Read</button>
+                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;" onclick="deleteNotification(this, 1)"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Notification 2 -->
+                    <article class="order-card bg-white shadow-sm notification-card" 
+                             data-category="promotions" 
+                             data-status="read" 
+                             data-date="2026-06-28T21:15:00"
+                             data-timestamp="1782666900000"
+                             data-id="2">
+                        <div class="order-product">
+                            <div class="notification-icon-wrapper icon-orange">
+                                <i class="fa-solid fa-percent"></i>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Limited-Time Offer: Up to 50% Off Electronics!</h3>
+                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Don't miss out on deals for premium audio and phone accessories to upgrade your home audio setup.</p>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Notification Date</span>
+                                    <strong>28 Jun 2026, 09:15 PM</strong>
+                                    <small class="text-muted fw-semibold mt-1">3 Hours Ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel justify-content-between">
+                            <div class="d-flex justify-content-end">
+                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">READ</span>
+                            </div>
+                            <div class="d-flex gap-2 w-100">
+                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap" style="font-size: 0.7rem;" onclick="viewNotification(2)">View More</button>
+                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read" style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 2)">Mark Unread</button>
+                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;" onclick="deleteNotification(this, 2)"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Notification 3 -->
+                    <article class="order-card bg-white shadow-sm notification-card" 
+                             data-category="wallet-payments" 
+                             data-status="read" 
+                             data-date="2026-06-28T21:15:00"
+                             data-timestamp="1782666900000"
+                             data-id="3">
+                        <div class="order-product">
+                            <div class="notification-icon-wrapper icon-green">
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Offer Rewards Claimed</h3>
+                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Rewards 8 of 28.00 Rewards claimed from notifications successfully added to your wallet balance.</p>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Notification Date</span>
+                                    <strong>28 Jun 2026, 09:15 PM</strong>
+                                    <small class="text-muted fw-semibold mt-1">3 Hours Ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel justify-content-between">
+                            <div class="d-flex justify-content-end">
+                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">READ</span>
+                            </div>
+                            <div class="d-flex gap-2 w-100">
+                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap" style="font-size: 0.7rem;" onclick="viewNotification(3)">View More</button>
+                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read" style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 3)">Mark Unread</button>
+                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;" onclick="deleteNotification(this, 3)"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Notification 4 -->
+                    <article class="order-card bg-white shadow-sm notification-card" 
+                             data-category="account-offers" 
+                             data-status="read" 
+                             data-date="2026-06-28T23:30:00"
+                             data-timestamp="1782675000000"
+                             data-id="4">
+                        <div class="order-product">
+                            <div class="order-product-img position-relative" style="width: 48px; height: 48px; flex: 0 0 48px; background: none; border: none; padding: 0;">
+                                <img src="assets/img/adidas_shoes.png" alt="Adidas Shoes" style="object-fit: contain; width: 100%; height: 100%;">
+                            </div>
+                            <div>
+                                <h3 class="product-title">Account Changed to Your User's Nest Account</h3>
+                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Your account credentials have been successfully updated. Secure your account if this wasn't you.</p>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Notification Date</span>
+                                    <strong>28 Jun 2026, 11:30 PM</strong>
+                                    <small class="text-muted fw-semibold mt-1">3 Hours Ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel justify-content-between">
+                            <div class="d-flex justify-content-end">
+                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">READ</span>
+                            </div>
+                            <div class="d-flex gap-2 w-100">
+                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap" style="font-size: 0.7rem;" onclick="viewNotification(4)">View More</button>
+                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read" style="font-size: 0.7rem;" onclick="toggleReadStatus(this, 4)">Mark Unread</button>
+                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.7rem;" onclick="deleteNotification(this, 4)"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Notification 5 -->
+                    <article class="order-card bg-white shadow-sm notification-card" 
+                             data-category="account-offers" 
+                             data-status="read" 
+                             data-date="2026-06-28T21:15:00"
+                             data-timestamp="1782666900000"
+                             data-id="5">
+                        <div class="order-product">
+                            <div class="notification-icon-wrapper icon-orange">
+                                <i class="fa-solid fa-percent"></i>
+                            </div>
+                            <div>
+                                <h3 class="product-title">Account Changed Up to 50% Offer!</h3>
+                                <p class="text-muted mb-0" style="font-size: 0.78rem; line-height: 1.4;">Don't miss out on deals for premium audio and phone accessories to upgrade your setup.</p>
+                            </div>
+                        </div>
+                        <div class="order-info-column">
+                            <div class="order-meta">
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <div>
+                                    <span>Notification Date</span>
+                                    <strong>28 Jun 2026, 09:15 PM</strong>
+                                    <small class="text-muted fw-semibold mt-1">5 Hours Ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-status-panel justify-content-between">
+                            <div class="d-flex justify-content-end">
+                                <span class="status-pill read m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">READ</span>
+                            </div>
+                            <div class="d-flex gap-2 w-100">
+                                <button class="btn btn-primary flex-fill fw-bold py-2 text-nowrap" style="font-size: 0.72rem;" onclick="viewNotification(5)">View More</button>
+                                <button class="btn btn-outline-primary flex-fill fw-bold py-2 text-nowrap btn-mark-read" style="font-size: 0.72rem;" onclick="toggleReadStatus(this, 5)">Mark Unread</button>
+                                <button class="btn btn-outline-danger fw-bold py-2 px-2" style="font-size: 0.72rem;" onclick="deleteNotification(this, 5)"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="dot-pagination">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Mini Footer -->
+    <div class="profile-mini-footer mt-5">
+        <div class="container py-3 text-center" style="max-width:1100px;">
+            <p class="text-muted mb-0" style="font-size:.75rem;">
+                <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
+                At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
+            </p>
+        </div>
+        <div class="border-top" style="border-color:#dde9f8 !important;">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-3" style="max-width:1100px;">
+                <div>
+                    <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Sabka Fayda</p>
+                    <span class="text-muted" style="font-size:.68rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="phone-icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Phone</p>
+                        <span class="text-muted" style="font-size:.68rem;">+01 032 950 8069</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Details Modal -->
+    <div class="modal fade" id="notificationDetailsModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="notificationModalLabel">Notification Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div id="modal-icon-container"></div>
+                        <div>
+                            <span class="badge text-uppercase mb-1" id="modal-category-badge" style="font-size: 0.65rem;">Order Update</span>
+                            <h6 class="fw-bold mb-0 text-dark" id="modal-title"></h6>
+                        </div>
+                    </div>
+                    <p class="text-muted fs-6 mb-4" id="modal-description" style="line-height: 1.5;"></p>
+                    <div class="bg-light p-3 rounded-3" style="font-size: 0.8rem;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Received On:</span>
+                            <span class="fw-bold text-dark" id="modal-date"></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-secondary fw-semibold">Time Elapsed:</span>
+                            <span class="fw-bold text-dark" id="modal-time-ago"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 pt-0">
+                    <button type="button" class="btn btn-primary fw-bold px-4 py-2" data-bs-dismiss="modal" style="border-radius: 8px;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast System -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-body-content">
+                    <i class="fa-solid fa-circle-check me-2"></i>Action completed successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Header Injection & Loader Script -->
+    <script>
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                if (typeof initHeader === 'function') initHeader();
+            });
+    </script>
+
+    <!-- Notification Page Logic -->
+    <script>
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let currentSort = 'latest';
+
+        // Elements
+        const searchInput = document.getElementById('notificationSearchInput');
+        const filterChips = document.querySelectorAll('.orders-filter-chip');
+        const sortOptions = document.querySelectorAll('.sort-option');
+        const listContainer = document.getElementById('notificationsList');
+        const emptyState = document.getElementById('emptyState');
+        const summaryTotalAlerts = document.getElementById('summary-total-alerts');
+        const summaryUnreadToday = document.getElementById('summary-unread-today');
+        const summaryTotalRead = document.getElementById('summary-total-read');
+        const summaryReadRate = document.getElementById('summary-read-rate');
+        const summaryTotalOffers = document.getElementById('summary-total-offers');
+        const summarySystemAlerts = document.getElementById('summary-system-alerts');
+
+        // Toast Trigger
+        function showToast(message, isSuccess = true) {
+            const toastEl = document.getElementById('action-toast');
+            const toastBody = document.getElementById('toast-body-content');
+            
+            if (isSuccess) {
+                toastEl.classList.remove('text-bg-danger');
+                toastEl.classList.add('text-bg-success');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${message}`;
+            } else {
+                toastEl.classList.remove('text-bg-success');
+                toastEl.classList.add('text-bg-danger');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i>${message}`;
+            }
+            
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+        }
+
+        // View Notification Details
+        window.viewNotification = function(id) {
+            const card = document.querySelector(`.notification-card[data-id="${id}"]`);
+            if (!card) return;
+
+            const title = card.querySelector('.product-title').textContent;
+            const description = card.querySelector('p').textContent;
+            const date = card.querySelector('strong').textContent;
+            const timeAgo = card.querySelector('small').textContent;
+            const category = card.getAttribute('data-category');
+            const iconHtml = card.querySelector('.notification-icon-wrapper, .order-product-img').outerHTML;
+
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-description').textContent = description;
+            document.getElementById('modal-date').textContent = date;
+            document.getElementById('modal-time-ago').textContent = timeAgo;
+            
+            const badge = document.getElementById('modal-category-badge');
+            badge.textContent = category.replace('-', ' ');
+            badge.className = 'badge mb-1 text-uppercase ';
+            
+            if (category === 'order-updates') badge.classList.add('bg-success');
+            else if (category === 'wallet-payments') badge.classList.add('bg-info');
+            else if (category === 'account-offers') badge.classList.add('bg-warning');
+            else if (category === 'promotions') badge.classList.add('bg-primary');
+            else badge.classList.add('bg-secondary');
+
+            document.getElementById('modal-icon-container').innerHTML = iconHtml;
+
+            // Automatically mark as read when viewed
+            if (card.getAttribute('data-status') === 'unread') {
+                const markReadBtn = card.querySelector('.btn-mark-read');
+                toggleReadStatus(markReadBtn, id, false);
+            }
+
+            const modal = new bootstrap.Modal(document.getElementById('notificationDetailsModal'));
+            modal.show();
+        }
+
+        // Toggle Read Status
+        window.toggleReadStatus = function(buttonEl, id, showToastNotify = true) {
+            const card = document.querySelector(`.notification-card[data-id="${id}"]`);
+            if (!card) return;
+
+            const currentStatus = card.getAttribute('data-status');
+            const pill = card.querySelector('.status-pill');
+
+            if (currentStatus === 'unread') {
+                card.setAttribute('data-status', 'read');
+                pill.className = 'status-pill read m-0 px-2 py-1 align-self-start text-uppercase';
+                pill.textContent = 'READ';
+                buttonEl.textContent = 'Mark Unread';
+                if (showToastNotify) showToast('Notification marked as read.');
+            } else {
+                card.setAttribute('data-status', 'unread');
+                pill.className = 'status-pill unread m-0 px-2 py-1 align-self-start text-uppercase';
+                pill.textContent = 'UNREAD';
+                buttonEl.textContent = 'Mark Read';
+                if (showToastNotify) showToast('Notification marked as unread.');
+            }
+
+            updateUIState();
+        }
+
+        // Delete Notification
+        window.deleteNotification = function(buttonEl, id) {
+            const card = document.querySelector(`.notification-card[data-id="${id}"]`);
+            if (!card) return;
+
+            card.style.transition = 'all 0.4s ease';
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.9)';
+
+            setTimeout(() => {
+                card.remove();
+                showToast('Notification deleted.');
+                updateUIState();
+            }, 400);
+        }
+
+        // Filter chips click handling
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                currentFilter = chip.getAttribute('data-filter');
+                applyFiltersAndSorting();
+            });
+        });
+
+        // Search input handling
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            applyFiltersAndSorting();
+        });
+
+        // Sorting options click handling
+        sortOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                sortOptions.forEach(o => o.classList.remove('active'));
+                option.classList.add('active');
+                currentSort = option.getAttribute('data-sort');
+                document.getElementById('current-sort-label').textContent = option.textContent;
+                applyFiltersAndSorting();
+            });
+        });
+
+        // Filtering and Sorting engine
+        function applyFiltersAndSorting() {
+            const cardsArray = Array.from(document.querySelectorAll('.notification-card'));
+            let visibleCount = 0;
+
+            cardsArray.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const category = card.getAttribute('data-category');
+                const status = card.getAttribute('data-status');
+                
+                const matchesSearch = title.includes(searchQuery) || description.includes(searchQuery);
+                const matchesFilter = (currentFilter === 'all') || 
+                                     (currentFilter === 'unread' && status === 'unread') ||
+                                     (category === currentFilter);
+
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'grid';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Handle sorting of DOM elements
+            if (visibleCount > 0) {
+                emptyState.style.display = 'none';
+                
+                cardsArray.sort((a, b) => {
+                    const timestampA = parseInt(a.getAttribute('data-timestamp'));
+                    const timestampB = parseInt(b.getAttribute('data-timestamp'));
+
+                    if (currentSort === 'oldest') {
+                        return timestampA - timestampB;
+                    } else { // default: latest (timestamp desc)
+                        return timestampB - timestampA;
+                    }
+                });
+
+                // Re-append sorted elements to the container
+                cardsArray.forEach(card => listContainer.appendChild(card));
+            } else {
+                emptyState.style.display = 'flex';
+            }
+        }
+
+        // Live calculation of stats and counts
+        function updateUIState() {
+            const cards = document.querySelectorAll('.notification-card');
+            
+            let unreadCount = 0;
+            let orderUpdatesCount = 0;
+            let walletPaymentsCount = 0;
+            let accountOffersCount = 0;
+            let promotionsCount = 0;
+
+            cards.forEach(card => {
+                const status = card.getAttribute('data-status');
+                const category = card.getAttribute('data-category');
+
+                if (status === 'unread') unreadCount++;
+                
+                if (category === 'order-updates') orderUpdatesCount++;
+                else if (category === 'wallet-payments') walletPaymentsCount++;
+                else if (category === 'account-offers') accountOffersCount++;
+                else if (category === 'promotions') promotionsCount++;
+            });
+
+            const readCount = cards.length - unreadCount;
+            const readRatePercent = cards.length > 0 ? Math.round((readCount / cards.length) * 100) : 0;
+
+            // Update stats cards
+            summaryTotalAlerts.innerHTML = `${cards.length} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Total Alerts</span>`;
+            summaryUnreadToday.innerHTML = `${unreadCount} Unread Today <span class="fw-semibold text-muted">(All Time)</span>`;
+            summaryTotalRead.innerHTML = `${readCount} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Items</span>`;
+            summaryReadRate.innerHTML = `${readRatePercent}% <span class="fw-semibold text-muted">Read Rate</span>`;
+            
+            // System Alerts count (derived from account-offers and unread notifications)
+            summarySystemAlerts.innerHTML = `${unreadCount + accountOffersCount} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Crucial Updates</span>`;
+
+            // Update filter chips counts
+            document.getElementById('chip-all').textContent = `All (${cards.length})`;
+            document.getElementById('chip-unread').textContent = `Unread (${unreadCount})`;
+            document.getElementById('chip-order-updates').textContent = `Order Updates (${orderUpdatesCount})`;
+            document.getElementById('chip-wallet-payments').textContent = `Wallet/Payments (${walletPaymentsCount})`;
+            document.getElementById('chip-account-offers').textContent = `Account/Offers (${accountOffersCount})`;
+            document.getElementById('chip-promotions').textContent = `Promotions (${promotionsCount})`;
+
+            applyFiltersAndSorting();
+        }
+
+        // Initial setup
+        updateUIState();
+    </script>
+</body>
+
+</html>
