@@ -149,27 +149,23 @@
                     document.getElementById('footer-placeholder').innerHTML = data;
                 });
 
-            // Order ID Copying Feature
-            document.querySelectorAll('.order-id i.fa-copy').forEach(copyBtn => {
-                copyBtn.addEventListener('click', function () {
-                    const orderIdStrong = this.previousElementSibling;
-                    const orderIdText = orderIdStrong.textContent.trim();
-
+            // Order ID Copying Feature (event delegation - works after dynamic render)
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('fa-copy')) {
+                    const orderIdStrong = e.target.previousElementSibling;
+                    const orderIdText = orderIdStrong ? orderIdStrong.textContent.trim() : '';
                     navigator.clipboard.writeText(orderIdText).then(() => {
-                        // Change icon to show success
-                        this.classList.remove('fa-regular', 'fa-copy');
-                        this.classList.add('fa-solid', 'fa-check', 'text-success');
-
-                        // Revert back after 1.5 seconds
+                        e.target.classList.remove('fa-regular', 'fa-copy');
+                        e.target.classList.add('fa-solid', 'fa-check', 'text-success');
                         setTimeout(() => {
-                            this.classList.remove('fa-solid', 'fa-check', 'text-success');
-                            this.classList.add('fa-regular', 'fa-copy');
+                            e.target.classList.remove('fa-solid', 'fa-check', 'text-success');
+                            e.target.classList.add('fa-regular', 'fa-copy');
                         }, 1500);
-                    }).catch(err => {
-                        console.error('Failed to copy order ID: ', err);
                     });
-                });
+                }
             });
+        });
+    </script>
 
     <script src="assets/js/mockData.js"></script>
     <script src="assets/js/renderOrders.js"></script>

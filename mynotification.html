@@ -187,6 +187,8 @@
             if (typeof mockData !== 'undefined' && mockData.notifications) {
                 renderNotifications(mockData.notifications);
             }
+            // updateUIState must run AFTER cards are injected into the DOM
+            if (typeof updateUIState === 'function') updateUIState();
         });
     </script>
     <script src="assets/js/main.js?v=6"></script>
@@ -443,8 +445,8 @@
             applyFiltersAndSorting();
         }
 
-        // Initial setup
-        updateUIState();
+        // Initial setup is now triggered from the DOMContentLoaded listener
+        // after renderNotifications() has injected the cards.
     </script>
 </body>
 
