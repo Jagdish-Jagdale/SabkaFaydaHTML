@@ -141,7 +141,7 @@
                         <span class="orders-stat-icon stat-blue"><i class="fa-solid fa-heart"></i></span>
                         <div>
                             <p>Wishlist Items</p>
-                            <h2 id="summary-total-value" class="text-nowrap">&#8377;5,29,590.00</h2>
+                            <h2 id="summary-total-value">&#8377; 5,29,590</h2>
                             <span>Total Value All Time</span>
                         </div>
                     </article>
@@ -233,7 +233,7 @@
                             <div>
                                 <h3 class="product-title">Apple iPhone 15 Pro, 256GB, Blue Titanium</h3>
                                 <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
-                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                                <b class="fs-5 text-dark">&#8377;1,24,900</b>
                             </div>
                         </div>
                         <div class="order-info-column">
@@ -276,7 +276,7 @@
                             <div>
                                 <h3 class="product-title">Sony WH-1000XM5 Black</h3>
                                 <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
-                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                                <b class="fs-5 text-dark">&#8377;1,24,900</b>
                             </div>
                         </div>
                         <div class="order-info-column">
@@ -319,7 +319,7 @@
                             <div>
                                 <h3 class="product-title">Apple iPhone 15 Pro 256GB, Blue Titanium</h3>
                                 <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
-                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                                <b class="fs-5 text-dark">&#8377;1,24,900</b>
                             </div>
                         </div>
                         <div class="order-info-column">
@@ -362,7 +362,7 @@
                             <div>
                                 <h3 class="product-title">Adidas Ultraboost 750GB, Black</h3>
                                 <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
-                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                                <b class="fs-5 text-dark">&#8377;1,24,900</b>
                             </div>
                         </div>
                         <div class="order-info-column">
@@ -405,7 +405,7 @@
                             <div>
                                 <h3 class="product-title">Adidas Ultraboost Size- 8, Black</h3>
                                 <span class="text-muted mb-1 d-block" style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
-                                <b class="fs-5 text-dark">&#8377;1,24,900.00</b>
+                                <b class="fs-5 text-dark">&#8377;1,24,900</b>
                             </div>
                         </div>
                         <div class="order-info-column">
@@ -649,7 +649,7 @@
             });
 
             // Update stats cards
-            summaryTotalValue.innerHTML = `&#8377; ${totalVal.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            summaryTotalValue.innerHTML = `&#8377; ${totalVal.toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
             summaryStockStatus.innerHTML = `${inStockCount + lowStockCount} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Available</span>`;
             
             // Update filter chips counts

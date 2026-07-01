@@ -216,14 +216,14 @@
                         </div>
                         <div class="px-4 text-start" style="min-width: 150px;">
                             <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 120.00
+                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 120
                             </span>
                             <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
                                 <i class="fa-solid fa-star me-2 text-warning"></i>1
                             </span>
                         </div>
                         <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
-                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #398', '18 Jun 2026, 11:20 AM', 'Referral Reward', '₹ 120.00', '1 Point')">View Details</button>
+                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #398', '18 Jun 2026, 11:20 AM', 'Referral Reward', '₹ 120', '1 Point')">View Details</button>
                         </div>
                     </article>
 
@@ -244,14 +244,14 @@
                         </div>
                         <div class="px-4 text-start" style="min-width: 150px;">
                             <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
-                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 50.00
+                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 50
                             </span>
                             <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
                                 <i class="fa-solid fa-star me-2 text-warning"></i>1
                             </span>
                         </div>
                         <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
-                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #397', '15 Jun 2026, 08:45 PM', 'Welcome Reward', '₹ 50.00', '1 Point')">View Details</button>
+                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #397', '15 Jun 2026, 08:45 PM', 'Welcome Reward', '₹ 50', '1 Point')">View Details</button>
                         </div>
                     </article>
 
@@ -373,7 +373,7 @@
                                 <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">10 Jun 2026, 04:30 PM</span>
                             </div>
                             <div class="text-end">
-                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹150.00</span><br>
+                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹150</span><br>
                                 <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
                             </div>
                         </div>
@@ -384,7 +384,7 @@
                                 <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">02 Jun 2026, 12:15 PM</span>
                             </div>
                             <div class="text-end">
-                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹100.00</span><br>
+                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹100</span><br>
                                 <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
                             </div>
                         </div>
@@ -567,7 +567,7 @@
                     <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">Just now</span>
                 </div>
                 <div class="text-end">
-                    <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹${amount.toFixed(2)}</span><br>
+                    <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹${amount.toFixed(0)}</span><br>
                     <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
                 </div>
             `;
@@ -593,14 +593,14 @@
                 </div>
                 <div class="px-4 text-start" style="min-width: 150px;">
                     <span class="text-danger d-block fw-bold mb-1" style="font-size: 0.85rem;">
-                        <i class="fa-solid fa-money-bill-wave me-2 text-danger"></i>-&#8377; ${amount.toFixed(2)}
+                        <i class="fa-solid fa-money-bill-wave me-2 text-danger"></i>-&#8377; ${amount.toFixed(0)}
                     </span>
                     <span class="text-muted d-block fw-bold" style="font-size: 0.85rem;">
                         <i class="fa-solid fa-star me-2 text-muted"></i>0
                     </span>
                 </div>
                 <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
-                    <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('${methodText}', 'Just now', 'Redeemed Out', '-₹ ${amount.toFixed(2)}', '0 Points')">View Details</button>
+                    <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('${methodText}', 'Just now', 'Redeemed Out', '-₹ ${amount.toFixed(0)}', '0 Points')">View Details</button>
                 </div>
             `;
             walletHistoryContainer.insertBefore(txItem, walletHistoryContainer.firstChild);
@@ -615,7 +615,7 @@
             const modal = bootstrap.Modal.getInstance(redeemModalEl);
             if (modal) modal.hide();
 
-            showToast(`₹${amount.toFixed(2)} transfer request initiated successfully!`);
+            showToast(`₹${amount.toFixed(0)} transfer request initiated successfully!`);
         }
 
         // Open Redeem History Modal
