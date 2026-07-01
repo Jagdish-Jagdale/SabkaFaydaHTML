@@ -2713,3 +2713,22 @@ select.profile-form-control {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* Notification card: compact button column */
+.notification-card .order-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+    min-width: 130px;
+}
+
+.notification-card .order-actions .btn {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 6px 10px;
+    width: 100%;
+    white-space: nowrap;
+    border-radius: 6px;
+}
+

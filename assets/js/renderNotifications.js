@@ -39,9 +39,9 @@ function renderNotifications(notificationsData) {
                 <span class="status-pill ${statusPillClass} m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">${statusLabel}</span>
             </div>
             <div class="order-actions">
-                <button class="btn btn-primary btn-sm" onclick="viewNotification('${item.id}')">${item.primaryAction}</button>
-                <button class="btn btn-outline-primary btn-sm btn-mark-read" onclick="toggleReadStatus(this, '${item.id}', ${isUnread ? 'false' : 'true'})">${markReadLabel}</button>
-                <button class="btn btn-outline-danger btn-sm" onclick="deleteNotification(this)">Delete</button>
+                <button class="btn btn-primary" onclick="viewNotification('${item.id}')">${item.primaryAction}</button>
+                <button class="btn btn-outline-primary btn-mark-read" onclick="toggleReadStatus(this, '${item.id}', ${isUnread ? 'false' : 'true'})">${markReadLabel}</button>
+                <button class="btn btn-outline-danger" onclick="deleteNotification(this)">Delete</button>
             </div>
         </article>`;
     });
