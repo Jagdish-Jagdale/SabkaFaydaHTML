@@ -1054,15 +1054,15 @@ input[type=range]::-moz-range-thumb {
 }
 
 .sidebar-link.active {
-    background: #0087F6;
-    color: #fff;
+    background: #0087F6 !important;
+    color: #fff !important;
     border-radius: 8px;
     margin: 0 10px;
     padding: 10px 14px;
 }
 
 .sidebar-link.active i {
-    color: #fff;
+    color: #fff !important;
 }
 
 .sidebar-badge {

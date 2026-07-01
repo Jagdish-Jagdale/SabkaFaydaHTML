@@ -284,28 +284,31 @@ function loadSidebar() {
         .then(data => {
             placeholder.innerHTML = data;
             
-            // Set active state
-            const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
-            const currentHash = window.location.hash.toLowerCase();
-            
-            const links = placeholder.querySelectorAll('.sidebar-link');
-            links.forEach(link => link.classList.remove('active'));
-            let matchedLink = null;
-            links.forEach(link => {
-                const href = (link.getAttribute('href') || '').toLowerCase();
-                if (href === currentPath + currentHash || (currentHash === '' && href === currentPath)) {
-                    matchedLink = link;
+            setTimeout(() => {
+                const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+                const currentHash = window.location.hash.toLowerCase();
+                
+                const links = placeholder.querySelectorAll('.sidebar-link');
+                links.forEach(link => link.classList.remove('active'));
+                let matchedLink = null;
+                links.forEach(link => {
+                    let href = (link.getAttribute('href') || '').toLowerCase();
+                    let cleanHref = href.replace('.html', '');
+                    let cleanPath = currentPath.replace('.html', '');
+                    
+                    if (cleanHref === cleanPath + currentHash || (currentHash === '' && cleanHref === cleanPath)) {
+                        matchedLink = link;
+                    }
+                    if ((cleanPath === 'order-details' || cleanPath === 'order-breakdown') && cleanHref === 'orders') {
+                        matchedLink = link;
+                    }
+                });
+                
+                if (typeof updateProfileSection === 'function') {
+                     updateProfileSection();
+                } else if (matchedLink) {
+                    matchedLink.classList.add('active');
                 }
-                // Handle sub-pages
-                if ((currentPath === 'order-details.html' || currentPath === 'order-breakdown.html') && href === 'orders.html') {
-                    matchedLink = link;
-                }
-            });
-            
-            if (currentPath === 'profile.html' && typeof updateProfileSection === 'function') {
-                 updateProfileSection();
-            } else if (matchedLink) {
-                matchedLink.classList.add('active');
-            }
+            }, 50);
         });
 }
