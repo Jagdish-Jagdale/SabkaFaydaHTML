@@ -2684,3 +2684,11 @@ select.profile-form-control {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.order-card:not(.notification-card) .order-product p {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
