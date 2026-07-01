@@ -2464,8 +2464,8 @@ select.profile-form-control {
 }
 
 #walletHistoryContainer {
-    max-height: 380px;
-    overflow-y: auto;
+    /* max-height: 380px; */
+    /* overflow-y: auto; */
     padding-right: 8px;
 }
 
@@ -2506,20 +2506,20 @@ select.profile-form-control {
    Cart Page Styles (mycart.html)
    ================================================ */
 #cartItemsList {
-    max-height: 480px;
-    overflow-y: auto;
+    /* max-height: 480px; */
+    /* overflow-y: auto; */
     padding-right: 12px;
 }
 
 @media (min-width: 992px) {
     .cart-main-card {
-        height: 590px;
+        /* height: 590px; */
         display: flex;
         flex-direction: column;
     }
     #cartItemsList {
         flex: 1;
-        max-height: 495px;
+        /* max-height: 495px; */
     }
 }
 
@@ -2527,14 +2527,14 @@ select.profile-form-control {
    Wishlist Page Styles (wishlist.html)
    ================================================ */
 #wishlistItemsList {
-    max-height: 500px;
-    overflow-y: auto;
+    /* max-height: 500px; */
+    /* overflow-y: auto; */
     padding-right: 12px;
 }
 
 @media (min-width: 992px) {
     #wishlistItemsList {
-        max-height: 600px;
+        /* max-height: 600px; */
     }
 }
 
