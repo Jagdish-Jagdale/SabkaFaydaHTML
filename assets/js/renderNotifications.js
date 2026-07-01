@@ -11,13 +11,14 @@ function renderNotifications(notificationsData) {
 
         html += `
         <article class="order-card bg-white shadow-sm notification-card"
+            style="grid-template-columns: 2fr 1fr 0.65fr 0.9fr; align-items: center;"
             data-category="${item.category}"
             data-status="${item.status}"
             data-date="${item.dateISO}"
             data-timestamp="${item.timestamp}"
             data-id="${item.id}">
             <div class="order-product">
-                <div class="notification-icon-wrapper ${item.iconStatClass}">
+                <div class="notification-icon-wrapper ${item.iconStatClass}" style="flex:0 0 44px; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
                     <i class="fa-solid ${item.iconClass}"></i>
                 </div>
                 <div>
@@ -38,10 +39,10 @@ function renderNotifications(notificationsData) {
             <div class="order-status-panel">
                 <span class="status-pill ${statusPillClass} m-0 px-2 py-1 align-self-start text-uppercase" style="font-size: 0.65rem;">${statusLabel}</span>
             </div>
-            <div class="order-actions">
-                <button class="btn btn-primary btn-sm" onclick="viewNotification('${item.id}')">${item.primaryAction}</button>
-                <button class="btn btn-outline-primary btn-sm btn-mark-read" onclick="toggleReadStatus(this, '${item.id}', ${isUnread ? 'false' : 'true'})">${markReadLabel}</button>
-                <button class="btn btn-outline-danger btn-sm" onclick="deleteNotification(this)">Delete</button>
+            <div class="order-actions" style="display:flex; flex-direction:column; gap:8px; align-items:stretch; justify-content:center; padding:18px 16px;">
+                <button class="btn btn-primary btn-sm" style="width:100%; font-size:0.72rem; font-weight:700; white-space:nowrap;" onclick="viewNotification('${item.id}')">${item.primaryAction}</button>
+                <button class="btn btn-outline-primary btn-sm btn-mark-read" style="width:100%; font-size:0.72rem; font-weight:700; white-space:nowrap;" onclick="toggleReadStatus(this, '${item.id}', ${isUnread ? 'false' : 'true'})">${markReadLabel}</button>
+                <button class="btn btn-outline-danger btn-sm" style="width:100%; font-size:0.72rem; font-weight:700; white-space:nowrap;" onclick="deleteNotification(this)">Delete</button>
             </div>
         </article>`;
     });
