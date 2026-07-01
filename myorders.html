@@ -395,10 +395,29 @@
                 });
             });
 
-            // Filter Chips Interaction
+            // Filter Chips Interaction & Dynamic Counting
             const filterChips = document.querySelectorAll('.orders-filter-chip');
             const orderCards = document.querySelectorAll('.order-card');
             
+            // 1. Calculate Counts dynamically
+            const counts = { all: orderCards.length };
+            orderCards.forEach(card => {
+                const statusPill = card.querySelector('.status-pill');
+                if (statusPill) {
+                    const statusText = statusPill.textContent.trim().toLowerCase();
+                    counts[statusText] = (counts[statusText] || 0) + 1;
+                }
+            });
+
+            // 2. Update filter chips UI with new counts
+            filterChips.forEach(chip => {
+                const baseText = chip.textContent.split(' (')[0].trim();
+                const key = baseText.toLowerCase();
+                const count = key === 'all' ? counts.all : (counts[key] || 0);
+                chip.textContent = `${baseText} (${count})`;
+            });
+            
+            // 3. Click event for filtering
             filterChips.forEach(chip => {
                 chip.addEventListener('click', function () {
                     filterChips.forEach(c => c.classList.remove('active'));
