@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and manage your Sabka Fayda wallet. Check your balance, redeem earnings, and view transaction history.">
+    <meta name="keywords" content="Sabka Fayda wallet, redeem earnings, wallet history, balance, withdraw money">
+    <title>My Wallet | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="orders-page">
+    <!-- Site Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Main Shell -->
+    <main class="orders-shell container-fluid px-3 px-md-4">
+        
+        <!-- Mobile Sidebar Toggle Row -->
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">My Wallet</span>
+        </div>
+
+        <div class="row g-4">
+            <!-- ═══ SIDEBAR MENU ═══ -->
+            <aside class="col-lg-3">
+                <div class="offcanvas-lg offcanvas-start bg-white rounded-4" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header border-bottom d-lg-none">
+                        <h5 class="offcanvas-title fw-bold text-dark" id="sidebarMenuLabel">Profile Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <div class="sidebar-card orders-sidebar bg-white shadow-sm py-3 w-100">
+                            <!-- Section Heading -->
+                            <div class="px-3 pb-2">
+                                <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+                            </div>
+
+                            <!-- My Orders -->
+                            <a href="orders.html" class="sidebar-link">
+                                <i class="fa-solid fa-box"></i>
+                                <span>My Orders</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Account Settings</p>
+
+                            <!-- My Information -->
+                            <a href="profile.html" class="sidebar-link">
+                                <i class="fa-solid fa-user"></i>
+                                <span>My Information</span>
+                            </a>
+
+                            <!-- My Address -->
+                            <a href="profile.html#myaddress" class="sidebar-link">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>My Address</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Income and payments</p>
+
+                            <!-- My Wallet (Active) -->
+                            <a href="mywallet.html" class="sidebar-link active">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div>
+                                    <div>My Wallet</div>
+                                    <div class="sidebar-badge" id="sidebar-wallet-balance">Balance: &#8377; 179.17</div>
+                                </div>
+                            </a>
+
+                            <!-- Saved UPI -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>Saved UPI</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+                            <p class="sidebar-section-title">Saved stuffs</p>
+
+                            <!-- My Notifications -->
+                            <a href="notifications.html" class="sidebar-link">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>My Notifications</span>
+                            </a>
+
+                            <!-- My Wishlist -->
+                            <a href="wishlist.html" class="sidebar-link">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>My Wishlist</span>
+                            </a>
+
+                            <!-- My Cart -->
+                            <a href="mycart.html" class="sidebar-link">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>My Cart</span>
+                            </a>
+
+                            <!-- My Coupons -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-tags"></i>
+                                <span>My Coupons</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+
+                            <!-- Logout Button -->
+                            <div class="px-3 pt-2">
+                                <a href="login.html" class="btn orders-logout-btn w-100">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ═══ MAIN CONTENT AREA ═══ -->
+            <section class="col-lg-9 col-12">
+                <!-- Dashboard Page Header -->
+                <div class="d-flex align-items-center justify-content-between mb-4 bg-white p-3 rounded-0 shadow-sm border">
+                    <h4 class="fw-bold text-dark mb-0" style="font-family: 'Montserrat', sans-serif;">My Wallet</h4>
+                    <div class="d-flex align-items-center gap-2 border rounded-pill px-3 py-1.5 bg-light shadow-sm" style="font-size: 0.88rem; font-weight: 700;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Avatar" class="rounded-circle" style="width: 24px; height: 24px; object-fit: cover;">
+                        <span class="text-primary" id="header-wallet-balance">&#8377; 179.17</span>
+                    </div>
+                </div>
+
+                <!-- Total Wallet Balance Card -->
+                <div class="wallet-card mb-4">
+                    <p class="mb-2 fw-semibold text-uppercase text-white-50" style="font-size: 0.78rem; letter-spacing: 0.08em;">Total Wallet Balance</p>
+                    <h1 class="display-5 fw-bold mb-3 d-flex align-items-center justify-content-center gap-2">
+                        <i class="fa-solid fa-wallet"></i> <span id="card-wallet-balance">&#8377; 179.17</span>
+                    </h1>
+                    <p class="mb-4 text-white-50 mx-auto" style="font-size: 0.8rem; max-width: 600px;">
+                        Share the app to 5 people or upload a single video (max 30 seconds) to get Redeem option available.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <button class="btn btn-outline-light px-4 py-2 fw-bold text-nowrap rounded-pill" style="font-size: 0.8rem;" data-bs-toggle="modal" data-bs-target="#shareModal">
+                            <i class="fa-solid fa-share-nodes me-1"></i> Share
+                        </button>
+                        <button class="btn btn-light px-4 py-2 fw-bold text-nowrap rounded-pill shadow-sm disabled" id="btn-redeem" style="font-size: 0.8rem;" onclick="openRedeemModal()">
+                            <i class="fa-solid fa-money-bill-transfer me-1"></i> Redeem
+                        </button>
+                        <button class="btn btn-outline-light px-4 py-2 fw-bold text-nowrap rounded-pill" style="font-size: 0.8rem;" onclick="openRedeemHistoryModal()">
+                            <i class="fa-solid fa-clock-rotate-left me-1"></i> Redeem History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Wallet History Section -->
+                <h5 class="fw-bold text-dark mb-3" style="font-family: 'Montserrat', sans-serif;">Wallet History</h5>
+                
+                <div class="d-flex flex-column gap-3" id="walletHistoryContainer">
+                    
+                    <!-- History Item 1 -->
+                    <article class="wallet-history-card" style="cursor: pointer;" onclick="location.href='order-breakdown.html'">
+                        <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Order #399</h6>
+                                <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">20 Jun 2026, 03:07 PM</span>
+                            </div>
+                        </div>
+                        <div class="px-4 text-start" style="min-width: 150px;">
+                            <span class="text-secondary d-block fw-semibold mb-1" style="font-size: 0.8rem;">Bonus Amount</span>
+                            <span class="text-secondary d-block fw-semibold" style="font-size: 0.8rem;">Bonus Points</span>
+                        </div>
+                        <div class="px-4 text-start" style="min-width: 150px;">
+                            <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
+                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 179.17
+                            </span>
+                            <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
+                                <i class="fa-solid fa-star me-2 text-warning"></i>2
+                            </span>
+                        </div>
+                        <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
+                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #399', '20 Jun 2026, 03:07 PM', 'Bonus Credited', '₹ 179.17', '2 Points')">View Details</button>
+                        </div>
+                    </article>
+
+                    <!-- History Item 2 -->
+                    <article class="wallet-history-card" style="cursor: pointer;" onclick="location.href='order-breakdown.html'">
+                        <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Order #398</h6>
+                                <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">18 Jun 2026, 11:20 AM</span>
+                            </div>
+                        </div>
+                        <div class="px-4 text-start" style="min-width: 150px;">
+                            <span class="text-secondary d-block fw-semibold mb-1" style="font-size: 0.8rem;">Bonus Amount</span>
+                            <span class="text-secondary d-block fw-semibold" style="font-size: 0.8rem;">Bonus Points</span>
+                        </div>
+                        <div class="px-4 text-start" style="min-width: 150px;">
+                            <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
+                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 120.00
+                            </span>
+                            <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
+                                <i class="fa-solid fa-star me-2 text-warning"></i>1
+                            </span>
+                        </div>
+                        <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
+                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #398', '18 Jun 2026, 11:20 AM', 'Referral Reward', '₹ 120.00', '1 Point')">View Details</button>
+                        </div>
+                    </article>
+
+                    <!-- History Item 3 -->
+                    <article class="wallet-history-card" style="cursor: pointer;" onclick="location.href='order-breakdown.html'">
+                        <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.95rem;">Order #397</h6>
+                                <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">15 Jun 2026, 08:45 PM</span>
+                            </div>
+                        </div>
+                        <div class="px-4 text-start" style="min-width: 150px;">
+                            <span class="text-secondary d-block fw-semibold mb-1" style="font-size: 0.8rem;">Bonus Amount</span>
+                            <span class="text-secondary d-block fw-semibold" style="font-size: 0.8rem;">Bonus Points</span>
+                        </div>
+                        <div class="px-4 text-start" style="min-width: 150px;">
+                            <span class="text-success d-block fw-bold mb-1" style="font-size: 0.85rem;">
+                                <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>₹ 50.00
+                            </span>
+                            <span class="text-warning d-block fw-bold" style="font-size: 0.85rem;">
+                                <i class="fa-solid fa-star me-2 text-warning"></i>1
+                            </span>
+                        </div>
+                        <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
+                            <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('Order #397', '15 Jun 2026, 08:45 PM', 'Welcome Reward', '₹ 50.00', '1 Point')">View Details</button>
+                        </div>
+                    </article>
+
+                </div>
+
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Mini Footer -->
+    <div class="profile-mini-footer mt-5">
+        <div class="container py-3 text-center" style="max-width:1100px;">
+            <p class="text-muted mb-0" style="font-size:.75rem;">
+                <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
+                At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
+            </p>
+        </div>
+        <div class="border-top" style="border-color:#dde9f8 !important;">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-3" style="max-width:1100px;">
+                <div>
+                    <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Sabka Fayda</p>
+                    <span class="text-muted" style="font-size:.68rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="phone-icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Phone</p>
+                        <span class="text-muted" style="font-size:.68rem;">+01 032 950 8069</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="shareModalLabel">Share & Earn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3 text-center">
+                    <p class="text-muted" style="font-size: 0.85rem;">Share Sabka Fayda app to unlock the Redeem cash option! Share count: <strong class="text-primary" id="share-count-display">0/5</strong></p>
+                    
+                    <div class="d-flex justify-content-around my-4 flex-wrap gap-3">
+                        <button class="btn btn-outline-success rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('WhatsApp')">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+                        <button class="btn btn-outline-primary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('Facebook')">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </button>
+                        <button class="btn btn-outline-info rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('Telegram')">
+                            <i class="fa-brands fa-telegram"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; font-size: 1.5rem;" onclick="simulateShare('Copy Link')">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <button class="btn btn-primary fw-bold w-100 py-2.5 rounded-3 mb-2" onclick="simulateFullShares()">
+                        Simulate All 5 Shares
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redeem Modal -->
+    <div class="modal fade" id="redeemModal" tabindex="-1" aria-labelledby="redeemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="redeemModalLabel">Redeem Wallet Cash</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <p class="text-muted" style="font-size: 0.85rem;">Withdraw your available balance directly to your bank account or UPI.</p>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-secondary" style="font-size: 0.8rem;">Select Transfer Method</label>
+                        <select class="form-select rounded-3 py-2" id="transfer-method" style="font-size: 0.85rem;">
+                            <option value="upi">UPI (GPay / PhonePe / Paytm)</option>
+                            <option value="bank">Bank Account Transfer</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-secondary" style="font-size: 0.8rem;">Enter UPI ID / Bank Details</label>
+                        <input type="text" class="form-control rounded-3 py-2" id="redeem-details" placeholder="e.g. rajesh@okaxis" style="font-size: 0.85rem;">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-secondary" style="font-size: 0.8rem;">Enter Amount (Max <span id="max-redeem-display">&#8377; 179.17</span>)</label>
+                        <input type="number" class="form-control rounded-3 py-2" id="redeem-amount" placeholder="e.g. 179" style="font-size: 0.85rem;">
+                    </div>
+                    <button class="btn btn-primary fw-bold w-100 py-2.5 rounded-3 mt-2" onclick="processRedeem()">
+                        Confirm Transfer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redeem History Modal -->
+    <div class="modal fade" id="redeemHistoryModal" tabindex="-1" aria-labelledby="redeemHistoryLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="redeemHistoryLabel">Redeem History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <div id="redeemHistoryList">
+                        <!-- Mock Redemption 1 -->
+                        <div class="border rounded-3 p-3 mb-2 bg-light d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">UPI Transfer</h6>
+                                <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">10 Jun 2026, 04:30 PM</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹150.00</span><br>
+                                <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
+                            </div>
+                        </div>
+                        <!-- Mock Redemption 2 -->
+                        <div class="border rounded-3 p-3 mb-2 bg-light d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">UPI Transfer</h6>
+                                <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">02 Jun 2026, 12:15 PM</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹100.00</span><br>
+                                <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
+                            </div>
+                        </div>
+                        <!-- If list is empty placeholder -->
+                        <p class="text-muted text-center py-4 mb-0" id="emptyRedeemHistoryText" style="display: none; font-size: 0.85rem;">No redemption history found.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transaction Details Modal -->
+    <div class="modal fade" id="txDetailsModal" tabindex="-1" aria-labelledby="txDetailsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="txDetailsLabel">Transaction Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <div class="bg-light p-3 rounded-3" style="font-size: 0.8rem;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Source/Reference:</span>
+                            <span class="fw-bold text-dark" id="tx-ref"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Date/Time:</span>
+                            <span class="fw-bold text-dark" id="tx-date"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Type:</span>
+                            <span class="fw-bold text-success" id="tx-type"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Amount Credited:</span>
+                            <span class="fw-bold text-success" id="tx-amount"></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-secondary fw-semibold">Points Gained:</span>
+                            <span class="fw-bold text-warning" id="tx-points"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 pt-0">
+                    <button type="button" class="btn btn-primary fw-bold px-4 py-2" data-bs-dismiss="modal" style="border-radius: 8px;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast System -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-body-content">
+                    <i class="fa-solid fa-circle-check me-2"></i>Action completed successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Header Injection & Loader Script -->
+    <script>
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                if (typeof initHeader === 'function') initHeader();
+            });
+    </script>
+
+    <!-- Wallet Page Dynamic Logic -->
+    <script>
+        let walletBalance = 179.17;
+        let shareCount = 0;
+
+        // Elements
+        const sidebarBalance = document.getElementById('sidebar-wallet-balance');
+        const headerBalance = document.getElementById('header-wallet-balance');
+        const cardBalance = document.getElementById('card-wallet-balance');
+        const maxRedeemDisplay = document.getElementById('max-redeem-display');
+        const btnRedeem = document.getElementById('btn-redeem');
+        const shareCountDisplay = document.getElementById('share-count-display');
+        const redeemHistoryList = document.getElementById('redeemHistoryList');
+
+        // Toast Trigger
+        function showToast(message, isSuccess = true) {
+            const toastEl = document.getElementById('action-toast');
+            const toastBody = document.getElementById('toast-body-content');
+            
+            if (isSuccess) {
+                toastEl.classList.remove('text-bg-danger');
+                toastEl.classList.add('text-bg-success');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${message}`;
+            } else {
+                toastEl.classList.remove('text-bg-success');
+                toastEl.classList.add('text-bg-danger');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i>${message}`;
+            }
+            
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+        }
+
+        // Simulate Share
+        window.simulateShare = function(platform) {
+            shareCount++;
+            if (shareCount > 5) shareCount = 5;
+            
+            shareCountDisplay.textContent = `${shareCount}/5`;
+            showToast(`Shared successfully on ${platform}!`);
+
+            if (shareCount >= 5) {
+                btnRedeem.classList.remove('disabled');
+            }
+        }
+
+        // Simulate Full Shares
+        window.simulateFullShares = function() {
+            shareCount = 5;
+            shareCountDisplay.textContent = `5/5`;
+            btnRedeem.classList.remove('disabled');
+            showToast('All 5 shares completed! Redeem option is now available.');
+            
+            // Close modal
+            const shareModalEl = document.getElementById('shareModal');
+            const modal = bootstrap.Modal.getInstance(shareModalEl);
+            if (modal) modal.hide();
+        }
+
+        // Open Redeem Modal
+        window.openRedeemModal = function() {
+            if (btnRedeem.classList.contains('disabled')) return;
+            document.getElementById('redeem-amount').value = Math.floor(walletBalance);
+            const modal = new bootstrap.Modal(document.getElementById('redeemModal'));
+            modal.show();
+        }
+
+        // Process Redeem Cash
+        window.processRedeem = function() {
+            const amountInput = document.getElementById('redeem-amount');
+            const detailsInput = document.getElementById('redeem-details');
+            const methodSelect = document.getElementById('transfer-method');
+            
+            const amount = parseFloat(amountInput.value);
+            const details = detailsInput.value.trim();
+
+            if (isNaN(amount) || amount <= 0) {
+                showToast('Please enter a valid amount to redeem.', false);
+                return;
+            }
+
+            if (amount > walletBalance) {
+                showToast('Redeem amount cannot exceed wallet balance.', false);
+                return;
+            }
+
+            if (!details) {
+                showToast('Please enter your payment details.', false);
+                return;
+            }
+
+            // Deduct balance
+            walletBalance = Math.round((walletBalance - amount) * 100) / 100;
+            
+            // Update UI
+            updateBalanceUI();
+
+            // Append to redeem history
+            const historyItem = document.createElement('div');
+            historyItem.className = 'border rounded-3 p-3 mb-2 bg-light d-flex justify-content-between align-items-center';
+            const methodText = methodSelect.value === 'upi' ? 'UPI Transfer' : 'Bank Transfer';
+            historyItem.innerHTML = `
+                <div>
+                    <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">${methodText}</h6>
+                    <span class="text-muted" style="font-size: 0.7rem; font-weight: 500;">Just now</span>
+                </div>
+                <div class="text-end">
+                    <span class="text-danger fw-bold" style="font-size: 0.85rem;">-₹${amount.toFixed(2)}</span><br>
+                    <span class="badge bg-success bg-opacity-10 text-success" style="font-size: 0.65rem;">Completed</span>
+                </div>
+            `;
+            redeemHistoryList.insertBefore(historyItem, redeemHistoryList.firstChild);
+
+            // Append to Wallet History List
+            const walletHistoryContainer = document.getElementById('walletHistoryContainer');
+            const txItem = document.createElement('article');
+            txItem.className = 'wallet-history-card';
+            txItem.innerHTML = `
+                <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-danger bg-opacity-10 text-danger" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold mb-1 text-dark">Redeem Transfer</h6>
+                        <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">Just now</span>
+                    </div>
+                </div>
+                <div class="px-4 text-start" style="min-width: 150px;">
+                    <span class="text-secondary d-block fw-semibold mb-1" style="font-size: 0.8rem;">Redeem Cash</span>
+                    <span class="text-secondary d-block fw-semibold" style="font-size: 0.8rem;">Details: ${details}</span>
+                </div>
+                <div class="px-4 text-start" style="min-width: 150px;">
+                    <span class="text-danger d-block fw-bold mb-1" style="font-size: 0.85rem;">
+                        <i class="fa-solid fa-money-bill-wave me-2 text-danger"></i>-&#8377; ${amount.toFixed(2)}
+                    </span>
+                    <span class="text-muted d-block fw-bold" style="font-size: 0.85rem;">
+                        <i class="fa-solid fa-star me-2 text-muted"></i>0
+                    </span>
+                </div>
+                <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
+                    <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('${methodText}', 'Just now', 'Redeemed Out', '-₹ ${amount.toFixed(2)}', '0 Points')">View Details</button>
+                </div>
+            `;
+            walletHistoryContainer.insertBefore(txItem, walletHistoryContainer.firstChild);
+
+            // Reset Share Count & Redeem state
+            shareCount = 0;
+            shareCountDisplay.textContent = `0/5`;
+            btnRedeem.classList.add('disabled');
+
+            // Close modal
+            const redeemModalEl = document.getElementById('redeemModal');
+            const modal = bootstrap.Modal.getInstance(redeemModalEl);
+            if (modal) modal.hide();
+
+            showToast(`₹${amount.toFixed(2)} transfer request initiated successfully!`);
+        }
+
+        // Open Redeem History Modal
+        window.openRedeemHistoryModal = function() {
+            const modal = new bootstrap.Modal(document.getElementById('redeemHistoryModal'));
+            modal.show();
+        }
+
+        // View Transaction Details
+        window.viewTxDetails = function(ref, date, type, amount, points) {
+            document.getElementById('tx-ref').textContent = ref;
+            document.getElementById('tx-date').textContent = date;
+            document.getElementById('tx-type').textContent = type;
+            
+            const amtEl = document.getElementById('tx-amount');
+            amtEl.textContent = amount;
+            if (amount.startsWith('-')) {
+                amtEl.className = 'fw-bold text-danger';
+            } else {
+                amtEl.className = 'fw-bold text-success';
+            }
+
+            document.getElementById('tx-points').textContent = points;
+
+            const modal = new bootstrap.Modal(document.getElementById('txDetailsModal'));
+            modal.show();
+        }
+
+        // Update Balance UI
+        function updateBalanceUI() {
+            const formatted = `&#8377; ${walletBalance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+            sidebarBalance.innerHTML = `Balance: ${formatted}`;
+            headerBalance.innerHTML = formatted;
+            cardBalance.innerHTML = formatted;
+            maxRedeemDisplay.innerHTML = formatted;
+        }
+
+        // Initial Balance Setup
+        updateBalanceUI();
+    </script>
+</body>
+
+</html>

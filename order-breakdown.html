@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View order bonus distribution breakdown. Check daily, weekly, and monthly releases for Order #399.">
+    <title>Order #399 Breakdown | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body class="orders-page">
+    <!-- Site Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Main Shell -->
+    <main class="orders-shell container-fluid px-3 px-md-4">
+        
+        <!-- Mobile Sidebar Toggle Row -->
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">Order Breakdown</span>
+        </div>
+
+        <div class="row g-4">
+            <!-- ═══ SIDEBAR MENU ═══ -->
+            <aside class="col-lg-3">
+                <div class="offcanvas-lg offcanvas-start bg-white rounded-4" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header border-bottom d-lg-none">
+                        <h5 class="offcanvas-title fw-bold text-dark" id="sidebarMenuLabel">Profile Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <div class="sidebar-card orders-sidebar bg-white shadow-sm py-3 w-100" style="border-radius: 0px !important;">
+                            <!-- Section Heading -->
+                            <div class="px-3 pb-2">
+                                <p class="sidebar-section-title text-primary mb-0" style="letter-spacing:.1em;">Profile Menu</p>
+                            </div>
+
+                            <!-- My Orders -->
+                            <a href="orders.html" class="sidebar-link">
+                                <i class="fa-solid fa-box"></i>
+                                <span>My Orders</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Account Settings</p>
+
+                            <!-- My Information -->
+                            <a href="profile.html" class="sidebar-link">
+                                <i class="fa-solid fa-user"></i>
+                                <span>My Information</span>
+                            </a>
+
+                            <!-- My Address -->
+                            <a href="profile.html#myaddress" class="sidebar-link">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>My Address</span>
+                            </a>
+
+                            <hr class="mx-3 my-1 opacity-25">
+                            <p class="sidebar-section-title">Income and payments</p>
+
+                            <!-- My Wallet (Active) -->
+                            <a href="mywallet.html" class="sidebar-link active">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div>
+                                    <div>My Wallet</div>
+                                    <div class="sidebar-badge">Balance: &#8377; 179.17</div>
+                                </div>
+                            </a>
+
+                            <!-- Saved UPI -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>Saved UPI</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+                            <p class="sidebar-section-title">Saved stuffs</p>
+
+                            <!-- My Notifications -->
+                            <a href="notifications.html" class="sidebar-link">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>My Notifications</span>
+                            </a>
+
+                            <!-- My Wishlist -->
+                            <a href="wishlist.html" class="sidebar-link">
+                                <i class="fa-solid fa-heart"></i>
+                                <span>My Wishlist</span>
+                            </a>
+
+                            <!-- My Cart -->
+                            <a href="mycart.html" class="sidebar-link">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>My Cart</span>
+                            </a>
+
+                            <!-- My Coupons -->
+                            <a href="#" class="sidebar-link">
+                                <i class="fa-solid fa-tags"></i>
+                                <span>My Coupons</span>
+                            </a>
+
+                            <hr class="mx-3 my-2 opacity-25">
+
+                            <!-- Logout Button -->
+                            <div class="px-3 pt-2">
+                                <a href="login.html" class="btn orders-logout-btn w-100" style="border-radius: 0px !important;">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ═══ MAIN CONTENT AREA ═══ -->
+            <section class="col-lg-9 col-12">
+                
+                <!-- Page Top Header Bar -->
+                <div class="d-flex align-items-center justify-content-between mb-4 bg-white p-3 border" style="border-radius: 8px !important;">
+                    <h4 class="fw-bold text-dark mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 1.35rem;">Order #399 Breakdown</h4>
+                    <div class="d-flex align-items-center gap-2 border rounded-pill px-3 py-1.5 bg-light shadow-sm" style="font-size: 0.88rem; font-weight: 700;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User Avatar" class="rounded-circle" style="width: 24px; height: 24px; object-fit: cover;">
+                        <span class="text-secondary" style="font-size: 0.75rem; font-weight: 500;">Balance</span>
+                        <span class="text-primary">&#8377; 360.00</span>
+                    </div>
+                </div>
+
+                <!-- Stepper-like Stat Cards -->
+                <div class="row g-3 mb-4">
+                    <!-- Card 1: Total Order Bonus -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 32px; height: 32px; font-size: 0.95rem;">
+                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                                </div>
+                                <span class="fw-bold text-dark" style="font-size: 0.78rem;">Total Order Bonus</span>
+                            </div>
+                            <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">₹179.17</h4>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">All-time earned from Order #399</p>
+                        </div>
+                    </div>
+                    <!-- Card 2: Daily Distribution -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-purple bg-opacity-10 text-purple text-info" style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #f3e8ff !important; color: #7c3aed !important;">
+                                    <i class="fa-solid fa-1"></i>
+                                </div>
+                                <span class="fw-bold text-dark" style="font-size: 0.78rem;">Daily Distribution</span>
+                            </div>
+                            <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">1 Claimed</h4>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Daily recurring cash rewards</p>
+                        </div>
+                    </div>
+                    <!-- Card 3: Weekly Milestones -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-success" style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #dcfce7 !important; color: #16a34a !important;">
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                </div>
+                                <span class="fw-bold text-dark" style="font-size: 0.78rem;">Weekly Milestones</span>
+                            </div>
+                            <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">0 Completed</h4>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Achieve tier goals for extra bonus</p>
+                        </div>
+                    </div>
+                    <!-- Card 4: Monthly Tiers -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-warning" style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #ffedd5 !important; color: #ea580c !important;">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                                <span class="fw-bold text-dark" style="font-size: 0.78rem;">Monthly Tiers</span>
+                            </div>
+                            <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">3 Settled</h4>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Recurring high-value cash releases</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toolbar Filters -->
+                <div class="d-flex flex-wrap align-items-center justify-content-between p-3 bg-white border mb-3 gap-3" style="border-radius: 8px !important;">
+                    <div class="position-relative flex-grow-1" style="max-width: 350px;">
+                        <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.85rem;"></i>
+                        <input type="search" id="logSearch" placeholder="Search" class="form-control py-1.5 ps-5 rounded-3" style="font-size: 0.82rem; border-color: #dde5eb;">
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-secondary fw-semibold text-nowrap" style="font-size: 0.8rem;">Sort by</span>
+                        <select class="form-select py-1.5 px-3 rounded-3" id="logSort" style="font-size: 0.82rem; border-color: #dde5eb; min-width: 130px; cursor: pointer;">
+                            <option value="latest">Latest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Chips filters -->
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button class="btn btn-outline-primary py-1 px-3 fw-bold rounded-pill active-chip" style="font-size: 0.75rem; border-radius: 20px !important; border: 1px solid #005dff;" onclick="filterLogs('all', this)" id="chip-all">All (4)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('daily', this)" id="chip-daily">Daily (1)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('weekly', this)" id="chip-weekly">Weekly (0)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('monthly', this)" id="chip-monthly">Monthly (3)</button>
+                </div>
+
+                <!-- Grid layout of breakdown list + side card -->
+                <div class="row g-3">
+                    <!-- Left: Log items list -->
+                    <div class="col-lg-8 col-12">
+                        <div class="d-flex flex-column gap-2" id="breakdownLogsList">
+                            
+                            <!-- Log Item 1 -->
+                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
+                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
+                                 data-type="daily" data-day="1" data-date="2026-05-26T15:07:00">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #005dff; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 1</span>
+                                    <div>
+                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">26 May 2026, 03:07 PM</span>
+                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="text-center" style="min-width: 80px;">
+                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
+                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Daily</span>
+                                    </div>
+                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹0.60 Bonus</span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(1)">
+                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
+                                        </button>
+                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
+                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Log Item 2 -->
+                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
+                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
+                                 data-type="daily" data-day="2" data-date="2026-05-24T15:07:00">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #ea580c; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 2</span>
+                                    <div>
+                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">24 May 2026, 03:07 PM</span>
+                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="text-center" style="min-width: 80px;">
+                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
+                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Daily</span>
+                                    </div>
+                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹0.60 Bonus</span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(2)">
+                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
+                                        </button>
+                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
+                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Log Item 3 -->
+                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
+                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
+                                 data-type="monthly" data-day="3" data-date="2026-05-24T15:07:00">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #10b981; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 3</span>
+                                    <div>
+                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">24 May 2026, 03:07 PM</span>
+                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="text-center" style="min-width: 80px;">
+                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
+                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Monthly</span>
+                                    </div>
+                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹178.50 Bonus</span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(3)">
+                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
+                                        </button>
+                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
+                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Log Item 4 -->
+                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
+                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
+                                 data-type="monthly" data-day="4" data-date="2026-05-27T15:07:00">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #10b981; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 4</span>
+                                    <div>
+                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">27 May 2026, 03:07 PM</span>
+                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="text-center" style="min-width: 80px;">
+                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
+                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Monthly</span>
+                                    </div>
+                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹178.50 Bonus</span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(4)">
+                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
+                                        </button>
+                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
+                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav class="d-flex justify-content-center mt-4">
+                            <ul class="pagination pagination-sm shadow-sm" id="logsPagination">
+                                <li class="page-item disabled"><a class="page-link py-1 px-2.5" href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                                <li class="page-item active"><a class="page-link py-1 px-2.5" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Right Column: Order Info side card -->
+                    <div class="col-lg-4 col-12">
+                        <div class="card p-4 shadow-sm border bg-white" style="border-radius: 8px !important;">
+                            <h5 class="fw-bold text-dark mb-3" style="font-size: 1.05rem; font-family: 'Montserrat', sans-serif;">Order Information<br>#SF2026001254</h5>
+                            
+                            <div class="d-flex justify-content-between mb-2 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                                <span>Invoice ID</span>
+                                <span class="fw-bold text-dark">#SF2026001254</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                                <span>Order Date</span>
+                                <span class="fw-bold text-dark">24 May 2026</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                                <span>Total Items</span>
+                                <span class="fw-bold text-dark">1</span>
+                            </div>
+                            
+                            <hr class="my-3 opacity-25">
+
+                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                                <span>Original Amount</span>
+                                <span class="fw-bold text-dark">₹15,990.00</span>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <span class="text-secondary fw-semibold d-block mb-1" style="font-size: 0.8rem;">Purchase Details</span>
+                                <span class="fw-bold text-dark d-block" style="font-size: 0.82rem;">Samsung Galaxy M35 5G x1</span>
+                            </div>
+
+                            <button class="btn btn-primary w-100 fw-bold py-2 mb-2" style="border-radius: 4px; font-size: 0.85rem;" onclick="location.href='order-details.html'">
+                                View Original Order
+                            </button>
+                            <button class="btn btn-outline-primary w-100 fw-bold py-2" style="border-radius: 4px; font-size: 0.85rem;" onclick="downloadStatement()">
+                                Download Bonus Statement
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Mini Footer -->
+    <div class="profile-mini-footer mt-5">
+        <div class="container py-3 text-center" style="max-width:1100px;">
+            <p class="text-muted mb-0" style="font-size:.75rem;">
+                <i class="fa-solid fa-shield-halved me-2 text-primary"></i>
+                At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
+            </p>
+        </div>
+        <div class="border-top" style="border-color:#dde9f8 !important;">
+            <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-3" style="max-width:1100px;">
+                <div>
+                    <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Sabka Fayda</p>
+                    <span class="text-muted" style="font-size:.68rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="phone-icon-circle">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="fw-semibold mb-0" style="font-size:.72rem; color:#1a1a2e;">Phone</p>
+                        <span class="text-muted" style="font-size:.68rem;">+01 032 950 8069</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-0 border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="detailsModalLabel">Bonus Release details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <div class="bg-light p-3 rounded-0" style="font-size: 0.8rem;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Day:</span>
+                            <span class="fw-bold text-dark" id="modal-day"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Release Date/Time:</span>
+                            <span class="fw-bold text-dark" id="modal-date"></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary fw-semibold">Distribution Type:</span>
+                            <span class="fw-bold text-primary" id="modal-type"></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-secondary fw-semibold">Release Value:</span>
+                            <span class="fw-bold text-success" id="modal-value"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 pt-0">
+                    <button type="button" class="btn btn-primary fw-bold px-4 py-2" data-bs-dismiss="modal" style="border-radius: 4px;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast System -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-body-content">
+                    <i class="fa-solid fa-circle-check me-2"></i>Action completed successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Header Injection & Loader Script -->
+    <script>
+        fetch('header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                if (typeof initHeader === 'function') initHeader();
+            });
+    </script>
+
+    <!-- Page Logic -->
+    <script>
+        const logsData = [
+            { id: 1, day: 1, date: '26 May 2026, 03:07 PM', type: 'daily', desc: 'Daily Bonus Release', val: '₹0.60 Bonus', color: '#005dff' },
+            { id: 2, day: 2, date: '24 May 2026, 03:07 PM', type: 'daily', desc: 'Daily Bonus Release', val: '₹0.60 Bonus', color: '#ea580c' },
+            { id: 3, day: 3, date: '24 May 2026, 03:07 PM', type: 'monthly', desc: 'Monthly Bonus Release', val: '₹178.50 Bonus', color: '#10b981' },
+            { id: 4, day: 4, date: '27 May 2026, 03:07 PM', type: 'monthly', desc: 'Monthly Bonus Release', val: '₹178.50 Bonus', color: '#10b981' }
+        ];
+
+        let activeFilter = 'all';
+
+        // Toast Trigger
+        function showToast(message, isSuccess = true) {
+            const toastEl = document.getElementById('action-toast');
+            const toastBody = document.getElementById('toast-body-content');
+            
+            if (isSuccess) {
+                toastEl.classList.remove('text-bg-danger');
+                toastEl.classList.add('text-bg-success');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${message}`;
+            } else {
+                toastEl.classList.remove('text-bg-success');
+                toastEl.classList.add('text-bg-danger');
+                toastBody.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i>${message}`;
+            }
+            
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+        }
+
+        // Filter Function
+        window.filterLogs = function(filter, element) {
+            activeFilter = filter;
+            
+            // Toggle active classes on buttons
+            document.querySelectorAll('.active-chip').forEach(btn => {
+                btn.classList.remove('active-chip');
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline-secondary');
+            });
+            element.classList.add('active-chip');
+            element.classList.remove('btn-outline-secondary');
+            element.classList.add('btn-primary');
+
+            updateList();
+        }
+
+        // Live Search
+        document.getElementById('logSearch').addEventListener('input', function() {
+            updateList();
+        });
+
+        // Live Sort
+        document.getElementById('logSort').addEventListener('change', function() {
+            updateList();
+        });
+
+        // Update list display
+        function updateList() {
+            const searchVal = document.getElementById('logSearch').value.toLowerCase();
+            const sortVal = document.getElementById('logSort').value;
+            const rows = document.querySelectorAll('.log-row');
+
+            let visibleRows = [];
+
+            rows.forEach(row => {
+                const type = row.getAttribute('data-type');
+                const textContent = row.textContent.toLowerCase();
+                
+                let matchesFilter = (activeFilter === 'all' || type === activeFilter);
+                let matchesSearch = textContent.includes(searchVal);
+
+                if (matchesFilter && matchesSearch) {
+                    row.style.setProperty('display', 'flex', 'important');
+                    visibleRows.push(row);
+                } else {
+                    row.style.setProperty('display', 'none', 'important');
+                }
+            });
+
+            // Handle Sorting
+            const container = document.getElementById('breakdownLogsList');
+            visibleRows.sort((a, b) => {
+                const dateA = new Date(a.getAttribute('data-date'));
+                const dateB = new Date(b.getAttribute('data-date'));
+                return sortVal === 'latest' ? dateB - dateA : dateA - dateB;
+            });
+
+            visibleRows.forEach(row => container.appendChild(row));
+        }
+
+        // Hide Row
+        window.hideLog = function(btn) {
+            const row = btn.closest('.log-row');
+            row.style.transition = 'all 0.3s ease';
+            row.style.opacity = '0';
+            row.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                row.remove();
+                showToast('Log entry hidden.');
+                updateList();
+            }, 300);
+        }
+
+        // Open details modal
+        window.openLogDetails = function(id) {
+            const data = logsData.find(item => item.id === id);
+            if (!data) return;
+
+            document.getElementById('modal-day').textContent = `Day ${data.day}`;
+            document.getElementById('modal-date').textContent = data.date;
+            document.getElementById('modal-type').textContent = data.type === 'daily' ? 'Daily recurring bonus' : 'Monthly Tier bonus';
+            document.getElementById('modal-value').textContent = data.val;
+
+            const modal = new bootstrap.Modal(document.getElementById('detailsModal'));
+            modal.show();
+        }
+
+        // Download statement
+        window.downloadStatement = function() {
+            showToast('Statement download initiated successfully!');
+        }
+    </script>
+</body>
+
+</html>

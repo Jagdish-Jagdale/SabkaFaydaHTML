@@ -2391,6 +2391,114 @@ select.profile-form-control {
     border-radius: 4px;
 }
 
+/* ================================================
+   Wallet Page Styles (mywallet.html)
+   ================================================ */
+.wallet-card {
+    background: #1e5ed3;
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 93, 255, 0.15);
+}
+
+.wallet-history-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid #eef2f6;
+    border-radius: 0px;
+    background: #ffffff;
+    padding: 16px 20px;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 30px rgba(0, 93, 255, 0.02);
+}
+
+.wallet-history-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 93, 255, 0.05);
+    transform: translateY(-1px);
+}
+
+#walletHistoryContainer {
+    max-height: 380px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#walletHistoryContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+#walletHistoryContainer::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+#walletHistoryContainer::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+#walletHistoryContainer::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+@media (max-width: 767px) {
+    .wallet-history-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 12px;
+    }
+    .wallet-history-card > * {
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 8px;
+    }
+    .wallet-history-card > *:last-child {
+        border-bottom: 0;
+    }
+}
+
+/* ================================================
+   Cart Page Styles (mycart.html)
+   ================================================ */
+#cartItemsList {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 12px;
+}
+
+@media (min-width: 992px) {
+    .cart-main-card {
+        height: 590px;
+        display: flex;
+        flex-direction: column;
+    }
+    #cartItemsList {
+        flex: 1;
+        max-height: 495px;
+    }
+}
+
+#cartItemsList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#cartItemsList::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+#cartItemsList::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+#cartItemsList::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
 
 
 
