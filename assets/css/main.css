@@ -1900,6 +1900,30 @@ select.profile-form-control {
     font-weight: 700;
 }
 
+/* Notification card — adjusted grid so the 4th column (actions) is always visible */
+.notification-card {
+    grid-template-columns: minmax(200px, 2fr) minmax(170px, 1fr) minmax(120px, 0.8fr) minmax(160px, 0.9fr);
+    align-items: center;
+}
+
+.notification-card .order-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    justify-content: center;
+    padding: 18px 16px;
+}
+
+.notification-card .order-actions .btn {
+    width: 100%;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 8px 10px;
+    white-space: nowrap;
+    border-radius: 6px;
+}
+
 .status-pill {
     align-items: center;
     align-self: flex-start;
@@ -2713,22 +2737,3 @@ select.profile-form-control {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-/* Notification card: compact button column */
-.notification-card .order-actions {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 6px;
-    justify-content: center;
-    min-width: 130px;
-}
-
-.notification-card .order-actions .btn {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 6px 10px;
-    width: 100%;
-    white-space: nowrap;
-    border-radius: 6px;
-}
-
