@@ -98,31 +98,42 @@
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-name">Full Name</label>
-                                    <input type="text" class="profile-form-control" id="addr-name" placeholder="Full Name">
+                                    <input type="text" class="profile-form-control" id="addr-name" placeholder="Enter full name (letters only)" maxlength="50"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-name"></div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-phone">Phone</label>
-                                    <input type="tel" class="profile-form-control" id="addr-phone" placeholder="+91 XXXXX XXXXX">
+                                    <input type="tel" class="profile-form-control" id="addr-phone" placeholder="Enter 10-digit mobile number" maxlength="10"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-phone"></div>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-line1">Address Line 1</label>
-                                    <input type="text" class="profile-form-control" id="addr-line1" placeholder="House / Flat / Block No.">
+                                    <textarea class="profile-form-control" id="addr-line1" placeholder="Enter house / flat / block no." maxlength="200" rows="2" style="resize: vertical; min-height: 60px;"></textarea>
+                                    <div class="invalid-feedback-custom d-none" id="err-line1"></div>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-line2">Address Line 2</label>
-                                    <input type="text" class="profile-form-control" id="addr-line2" placeholder="Street / Colony / Landmark">
+                                    <textarea class="profile-form-control" id="addr-line2" placeholder="Enter street / colony / landmark (optional)" maxlength="200" rows="2" style="resize: vertical; min-height: 60px;"></textarea>
                                 </div>
                                 <div class="col-sm-4">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-city">City</label>
-                                    <input type="text" class="profile-form-control" id="addr-city" placeholder="City">
+                                    <input type="text" class="profile-form-control" id="addr-city" placeholder="Enter your city" maxlength="50"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-city"></div>
                                 </div>
                                 <div class="col-sm-4">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-state">State</label>
-                                    <input type="text" class="profile-form-control" id="addr-state" placeholder="State">
+                                    <input type="text" class="profile-form-control" id="addr-state" placeholder="Enter your state" maxlength="50"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-state"></div>
                                 </div>
                                 <div class="col-sm-4">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-pin">PIN Code</label>
-                                    <input type="text" class="profile-form-control" id="addr-pin" placeholder="416146">
+                                    <input type="text" class="profile-form-control" id="addr-pin" placeholder="Enter 6-digit PIN code" maxlength="6"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-pin"></div>
                                 </div>
                                 <div class="col-12 d-flex gap-2 mt-3">
                                     <button type="button" class="btn-profile-save" onclick="saveAddress()">
@@ -269,13 +280,81 @@
 
         /* Save address */
         function saveAddress() {
-            const city = (document.getElementById('addr-city').value || '').trim();
-            const pincode = (document.getElementById('addr-pin').value || '').trim();
-            const state = (document.getElementById('addr-state').value || '').trim();
             const name = (document.getElementById('addr-name').value || '').trim();
             const phone = (document.getElementById('addr-phone').value || '').trim();
             const line1 = (document.getElementById('addr-line1').value || '').trim();
             const line2 = (document.getElementById('addr-line2').value || '').trim();
+            const city = (document.getElementById('addr-city').value || '').trim();
+            const state = (document.getElementById('addr-state').value || '').trim();
+            const pincode = (document.getElementById('addr-pin').value || '').trim();
+
+            // Clear previous errors
+            document.querySelectorAll('.invalid-feedback-custom').forEach(el => {
+                el.classList.add('d-none');
+                el.textContent = '';
+            });
+            document.querySelectorAll('.profile-form-control').forEach(el => el.style.borderColor = '');
+
+            let hasError = false;
+
+            // Name: only letters and spaces, max 50, required
+            if (!name) {
+                showFieldError('addr-name', 'err-name', 'Full name is required');
+                hasError = true;
+            } else if (!/^[a-zA-Z\s]+$/.test(name)) {
+                showFieldError('addr-name', 'err-name', 'Only letters and spaces allowed');
+                hasError = true;
+            } else if (name.length > 50) {
+                showFieldError('addr-name', 'err-name', 'Maximum 50 characters allowed');
+                hasError = true;
+            }
+
+            // Phone: only digits, exactly 10
+            if (!phone) {
+                showFieldError('addr-phone', 'err-phone', 'Phone number is required');
+                hasError = true;
+            } else if (!/^[0-9]{10}$/.test(phone)) {
+                showFieldError('addr-phone', 'err-phone', 'Enter exactly 10 digits');
+                hasError = true;
+            }
+
+            // Address Line 1: required, max 200
+            if (!line1) {
+                showFieldError('addr-line1', 'err-line1', 'Address Line 1 is required');
+                hasError = true;
+            } else if (line1.length > 200) {
+                showFieldError('addr-line1', 'err-line1', 'Maximum 200 characters allowed');
+                hasError = true;
+            }
+
+            // City: required, only letters
+            if (!city) {
+                showFieldError('addr-city', 'err-city', 'City is required');
+                hasError = true;
+            } else if (!/^[a-zA-Z\s]+$/.test(city)) {
+                showFieldError('addr-city', 'err-city', 'Only letters allowed');
+                hasError = true;
+            }
+
+            // State: required, only letters
+            if (!state) {
+                showFieldError('addr-state', 'err-state', 'State is required');
+                hasError = true;
+            } else if (!/^[a-zA-Z\s]+$/.test(state)) {
+                showFieldError('addr-state', 'err-state', 'Only letters allowed');
+                hasError = true;
+            }
+
+            // PIN Code: only digits, exactly 6
+            if (!pincode) {
+                showFieldError('addr-pin', 'err-pin', 'PIN code is required');
+                hasError = true;
+            } else if (!/^[0-9]{6}$/.test(pincode)) {
+                showFieldError('addr-pin', 'err-pin', 'Enter exactly 6 digits');
+                hasError = true;
+            }
+
+            if (hasError) return;
 
             // Save to localStorage for header delivery location
             const addrObj = {
@@ -306,6 +385,17 @@
 
             // Show saved card
             showSavedAddressCard(addrObj);
+        }
+
+        /* Show field error */
+        function showFieldError(fieldId, errId, message) {
+            const field = document.getElementById(fieldId);
+            const errEl = document.getElementById(errId);
+            if (field) field.style.borderColor = '#dc3545';
+            if (errEl) {
+                errEl.textContent = message;
+                errEl.classList.remove('d-none');
+            }
         }
     </script>
 </body>

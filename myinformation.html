@@ -56,37 +56,51 @@
 
                     <!-- Welcome Banner -->
                     <div class="welcome-banner d-flex align-items-center gap-3 px-4 py-4 position-relative overflow-hidden">
-                        <div class="welcome-avatar rounded-circle d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-user"></i>
+                        <!-- Profile avatar with edit overlay -->
+                        <div class="position-relative" style="flex-shrink: 0;">
+                            <div class="welcome-avatar rounded-circle d-flex align-items-center justify-content-center" id="profileAvatarWrap" style="cursor: pointer;" title="Change profile photo">
+                                <i class="fa-solid fa-user" id="profileAvatarIcon"></i>
+                                <img id="profileAvatarImg" src="" alt="Profile" class="d-none" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                            </div>
+                            <!-- Edit icon overlay -->
+                            <button type="button" onclick="document.getElementById('profilePhotoInput').click()"
+                                class="position-absolute border-0 d-flex align-items-center justify-content-center"
+                                style="bottom:2px; right:2px; width:26px; height:26px; border-radius:50%; background:#0087F6; color:#fff; font-size:0.65rem; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,.2); z-index:2;"
+                                title="Edit profile photo">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <input type="file" id="profilePhotoInput" accept="image/*" class="d-none" onchange="handleProfilePhoto(event)">
                         </div>
                         <div>
                             <p class="mb-0 fw-medium text-secondary" style="font-size:.85rem;">Welcome,</p>
                             <h2 class="mb-0 fw-bold" style="font-size:1.5rem; color:#1a1a2e;">Rajesh Sharma</h2>
                         </div>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                            alt="People illustration" class="welcome-banner-art"
-                            onerror="this.style.display='none'">
                     </div>
 
-                    <!-- Tab Panel: My Information -->
+                    <!-- My Information Form -->
                     <div class="p-4" id="panel-myinfo">
                         <form id="profile-form" onsubmit="saveProfile(event)">
                             <div class="row g-3 mb-3">
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small text-secondary" for="firstName">First Name</label>
                                     <input type="text" class="profile-form-control" id="firstName"
-                                        placeholder="First Name" value="Rajesh">
+                                        placeholder="Enter your first name" value="Rajesh" maxlength="50"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-firstName"></div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small text-secondary" for="lastName">Last Name</label>
                                     <input type="text" class="profile-form-control" id="lastName"
-                                        placeholder="Last Name" value="Sharma">
+                                        placeholder="Enter your last name" value="Sharma" maxlength="50"
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-lastName"></div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold small text-secondary" for="gender">Gender</label>
                                 <select class="profile-form-control" id="gender">
+                                    <option value="" disabled>Select your gender</option>
                                     <option value="male" selected>Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
@@ -97,13 +111,16 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold small text-secondary" for="mobile">Mobile Number</label>
                                 <input type="tel" class="profile-form-control" id="mobile"
-                                    placeholder="+91 XXXXX XXXXX" value="+01 032 950 8069">
+                                    placeholder="Enter 10-digit mobile number" value="" maxlength="20"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                <div class="invalid-feedback-custom d-none" id="err-mobile"></div>
                             </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-semibold small text-secondary" for="email">Email Address</label>
                                 <input type="email" class="profile-form-control" id="email"
-                                    placeholder="email@example.com" value="email@rajeshafayda.com">
+                                    placeholder="Enter your email address" value="email@rajeshafayda.com">
+                                <div class="invalid-feedback-custom d-none" id="err-email"></div>
                             </div>
 
                             <button type="submit" class="btn-profile-save" id="btn-save-info">
@@ -155,8 +172,8 @@
 
     <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
 
-    <!-- Toast -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+    <!-- Toast (top-right) -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index:9999; margin-top: 80px;">
         <div id="save-toast" class="toast align-items-center text-bg-success border-0" role="alert"
             aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
@@ -191,9 +208,76 @@
     </script>
 
     <script>
-        /* Save profile */
+        /* Show field error helper */
+        function showProfileError(fieldId, errId, message) {
+            const field = document.getElementById(fieldId);
+            const errEl = document.getElementById(errId);
+            if (field) field.style.borderColor = '#dc3545';
+            if (errEl) {
+                errEl.textContent = message;
+                errEl.classList.remove('d-none');
+            }
+        }
+
+        /* Save profile with validation */
         function saveProfile(e) {
             e.preventDefault();
+
+            const firstName = (document.getElementById('firstName').value || '').trim();
+            const lastName  = (document.getElementById('lastName').value || '').trim();
+            const mobile    = (document.getElementById('mobile').value || '').trim();
+            const email     = (document.getElementById('email').value || '').trim();
+
+            // Clear previous errors
+            document.querySelectorAll('.invalid-feedback-custom').forEach(el => {
+                el.classList.add('d-none');
+                el.textContent = '';
+            });
+            document.querySelectorAll('.profile-form-control').forEach(el => el.style.borderColor = '');
+
+            let hasError = false;
+
+            // First Name: letters & spaces only, required
+            if (!firstName) {
+                showProfileError('firstName', 'err-firstName', 'First name is required');
+                hasError = true;
+            } else if (!/^[a-zA-Z\s]+$/.test(firstName)) {
+                showProfileError('firstName', 'err-firstName', 'Only letters and spaces allowed');
+                hasError = true;
+            }
+
+            // Last Name: letters & spaces only, required
+            if (!lastName) {
+                showProfileError('lastName', 'err-lastName', 'Last name is required');
+                hasError = true;
+            } else if (!/^[a-zA-Z\s]+$/.test(lastName)) {
+                showProfileError('lastName', 'err-lastName', 'Only letters and spaces allowed');
+                hasError = true;
+            }
+
+            // Mobile: digits only, max 20
+            if (!mobile) {
+                showProfileError('mobile', 'err-mobile', 'Mobile number is required');
+                hasError = true;
+            } else if (!/^[0-9]+$/.test(mobile)) {
+                showProfileError('mobile', 'err-mobile', 'Only digits are allowed');
+                hasError = true;
+            } else if (mobile.length > 20) {
+                showProfileError('mobile', 'err-mobile', 'Maximum 20 digits allowed');
+                hasError = true;
+            }
+
+            // Email: valid email format
+            if (!email) {
+                showProfileError('email', 'err-email', 'Email address is required');
+                hasError = true;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showProfileError('email', 'err-email', 'Enter a valid email address (e.g. name@example.com)');
+                hasError = true;
+            }
+
+            if (hasError) return;
+
             document.getElementById('toast-msg').innerHTML =
                 '<i class="fa-solid fa-circle-check me-2"></i>Profile saved successfully!';
             new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();

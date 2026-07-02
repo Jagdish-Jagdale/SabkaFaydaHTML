@@ -1208,6 +1208,15 @@ select.profile-form-control {
     color: #fff;
 }
 
+/* Validation error messages */
+.invalid-feedback-custom {
+    font-size: 0.78rem;
+    color: #dc3545;
+    margin-top: 5px;
+    font-weight: 500;
+    display: block;
+}
+
 /* Address empty card */
 .address-empty-card {
     border: 1.5px dashed #b8ceea;
