@@ -129,16 +129,18 @@ function proceedInitHeader() {
     const catBarCont = document.getElementById('categoriesBarContainer');
     const catLinks   = document.querySelectorAll('.category-link');
     let catHideTimer = null;
+    const catHideDelay = 420;
 
     function cancelCatHide() { clearTimeout(catHideTimer); }
 
     function scheduleCatHide() {
+        cancelCatHide();
         catHideTimer = setTimeout(function () {
             if (catL1Box) catL1Box.style.display = 'none';
             if (catL2Box) catL2Box.style.display = 'none';
             const currentLinks = document.querySelectorAll('.category-link');
             currentLinks.forEach(function(l) { l.classList.remove('active-category'); });
-        }, 150);
+        }, catHideDelay);
     }
 
     function showCatL1(link) {
@@ -191,8 +193,8 @@ function proceedInitHeader() {
                     return '<li><a href="#" class="cat-l2-item">' + it + '</a></li>';
                 }).join('');
 
-                // Position L2 to the right of L1, same top, with a small gap
-                catL2Box.style.left = (leftPos + catL1Box.offsetWidth + 8) + 'px';
+                // Position L2 flush with L1 so the cursor can move between levels without dropping hover.
+                catL2Box.style.left = (leftPos + catL1Box.offsetWidth) + 'px';
                 catL2Box.style.display = 'block';
 
                 catL2List.querySelectorAll('a').forEach(function(a) {
