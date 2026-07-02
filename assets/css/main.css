@@ -1552,6 +1552,16 @@ select.profile-form-control {
     padding-bottom: 64px;
 }
 
+/* White card wrapper for the main content panel (col-lg-9) on all profile pages */
+.content-card {
+    background: #ffffff;
+    border: 1px solid #e8eef8;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 93, 255, 0.05);
+    overflow: hidden;
+    padding: 24px;
+}
+
 .orders-sidebar {
     border: 1px solid #eef2f6;
     border-radius: 16px;
