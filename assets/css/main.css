@@ -193,6 +193,63 @@
     height: 4px;
 }
 
+.sf-chat-widget {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 1200;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 52px;
+    padding: 8px 10px 8px 16px;
+    color: #fff;
+    background: #128c7e;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    box-shadow: 0 10px 28px rgba(18, 140, 126, 0.32);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.sf-chat-widget:hover,
+.sf-chat-widget:focus {
+    color: #fff;
+    background: #0f7a6e;
+    box-shadow: 0 12px 32px rgba(18, 140, 126, 0.42);
+    transform: translateY(-2px);
+}
+
+.sf-chat-widget__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #25d366;
+    border-radius: 50%;
+    font-size: 1.35rem;
+}
+
+@media (max-width: 575px) {
+    .sf-chat-widget {
+        right: 14px;
+        bottom: 14px;
+        min-height: 48px;
+        padding: 7px 8px 7px 12px;
+        font-size: 0.8rem;
+    }
+
+    .sf-chat-widget__icon {
+        width: 34px;
+        height: 34px;
+        font-size: 1.25rem;
+    }
+}
+
 /* home.css */
 .icon-cat-link {
     transition: transform 0.2s ease;
@@ -965,21 +1022,6 @@ input[type=range]::-moz-range-thumb {
     border-radius: 10px;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.13);
     border: 1px solid #e4e4e4;
-}
-
-.cat-drop-box::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    right: -22px;
-    bottom: -10px;
-    left: -22px;
-    z-index: 0;
-}
-
-.cat-drop-box > ul {
-    position: relative;
-    z-index: 1;
 }
 
 .cat-l1-item {
@@ -2559,77 +2601,6 @@ select.profile-form-control {
     transform: scale(1.2);
     width: 24px;
     border-radius: 4px;
-}
-
-/* ================================================
-   Wallet Page Styles (mywallet.html)
-   ================================================ */
-.wallet-card {
-    background: #0087F6;
-    border-radius: 0px;
-    color: #ffffff;
-    padding: 32px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 93, 255, 0.15);
-}
-
-.wallet-history-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    border: 1px solid #eef2f6;
-    border-radius: 0px;
-    background: #ffffff;
-    padding: 16px 20px;
-    transition: all 0.2s ease;
-    box-shadow: 0 10px 30px rgba(0, 93, 255, 0.02);
-}
-
-.wallet-history-card:hover {
-    box-shadow: 0 12px 35px rgba(0, 93, 255, 0.05);
-    transform: translateY(-1px);
-}
-
-#walletHistoryContainer {
-    /* max-height: 380px; */
-    /* overflow-y: auto; */
-    padding-right: 8px;
-}
-
-#walletHistoryContainer::-webkit-scrollbar {
-    width: 6px;
-}
-
-#walletHistoryContainer::-webkit-scrollbar-track {
-    background: #f1f5f9;
-}
-
-#walletHistoryContainer::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 3px;
-}
-
-#walletHistoryContainer::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-@media (max-width: 767px) {
-    .wallet-history-card {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        gap: 12px;
-    }
-
-    .wallet-history-card>* {
-        border-bottom: 1px solid #f1f5f9;
-        padding-bottom: 8px;
-    }
-
-    .wallet-history-card>*:last-child {
-        border-bottom: 0;
-    }
 }
 
 /* ================================================
