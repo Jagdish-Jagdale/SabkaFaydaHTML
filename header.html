@@ -43,8 +43,8 @@
                 <div class="d-flex align-items-center">
                     <span class="text-secondary me-4" style="font-size: 1.1rem;">|</span>
                     <i class="fas fa-map-marker-alt me-2 text-white fs-6"></i>
-                    <span>Delivering to Surat 394210</span>
-                    <a href="#" class="text-white ms-4 fw-bold text-decoration-none"
+                    <span>Delivering to <span id="headerDeliveryLocation">_ _ _ _</span></span>
+                    <a href="myinformation.html" class="text-white ms-4 fw-bold text-decoration-none"
                         style="font-size: 0.85rem;">Update</a>
                 </div>
                 <div class="dropdown">
@@ -74,7 +74,7 @@
                 <a class="d-flex align-items-center text-decoration-none" href="#">
                     <img src="assets/img/sflogo.png" alt="Sabka Fayda E-Commerce Marketplace Logo" class="nav-logo-img">
                 </a>
-                <a class="text-white text-decoration-none d-flex align-items-center" href="#">
+                <a class="text-white text-decoration-none d-flex align-items-center" href="mycart.html">
                     <div class="position-relative mt-1">
                         <i class="fas fa-shopping-cart fs-4"></i>
                         <span class="position-absolute translate-middle badge rounded-pill bg-danger"
@@ -93,7 +93,7 @@
                             class="fas fa-search fs-5"></i></button>
                 </div>
                 <!-- Wallet -->
-                <a class="text-white text-decoration-none" href="#">
+                <a class="text-white text-decoration-none" href="mywallet.html">
                     <i class="fas fa-wallet fs-4"></i>
                 </a>
                 <!-- Hamburger -->
@@ -126,29 +126,9 @@
                         </button>
                         <ul class="dropdown-menu border-0 shadow-sm p-0 custom-category-dropdown-menu"
                             aria-labelledby="categoryDropdownBtn"
+                            id="searchCategoryDropdownMenu"
                             style="max-height: 350px; overflow-y: auto; min-width: 210px; margin-top: 6px; position: absolute; left: -1px;">
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item active d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('All Category')">All Categories</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Home & Living')">Home & Living <i
-                                        class="fas fa-chevron-right fs-7 opacity-75"></i></a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Electronics')">Electronics</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Toys and Games')">Toys and Games</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Gifts and Retail')">Gifts and Retail</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Health & Beauty')">Health & Beauty</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Business & Office')">Business & Office</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Automobile')">Automobile</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Animal & Pet')">Animal & Pet</a></li>
-                            <li><a class="dropdown-item py-2 px-3 custom-dropdown-item d-flex align-items-center justify-content-between"
-                                    href="#" onclick="selectCategory('Lifestyle & Fashion')">Lifestyle & Fashion</a>
-                            </li>
+                            <!-- Populated dynamically from mockCategories.js -->
                         </ul>
                     </div>
                     <input type="text" id="desktopSearchInput" class="border-0 w-100 px-3 h-100"
@@ -170,13 +150,13 @@
                             style="font-size: 0.95rem; line-height: 1.2;">Become a Seller</a>
                     </li>
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link text-white fw-medium ms-lg-4 d-flex align-items-center" href="#"
+                        <a class="nav-link text-white fw-medium ms-lg-4 d-flex align-items-center" href="mywallet.html"
                             style="font-size: 0.95rem;">
                             <i class="fas fa-wallet fs-6 me-2"></i> Wallet
                         </a>
                     </li>
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link text-white fw-medium ms-lg-4 d-flex align-items-center" href="#"
+                        <a class="nav-link text-white fw-medium ms-lg-4 d-flex align-items-center" href="mycart.html"
                             style="font-size: 0.95rem;">
                             <div class="position-relative me-2 mt-1">
                                 <i class="fas fa-shopping-cart fs-6"></i>
@@ -234,18 +214,9 @@
         <div class="container d-flex justify-content-between align-items-center"
             style="max-width: 1200px; padding: 0 12px;">
             <div class="d-flex align-items-center flex-nowrap category-scroll"
+                id="headerCategoryScroll"
                 style="font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif; white-space: nowrap;">
-
-                <a href="#" class="text-dark text-decoration-none category-link">Best sellers</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Featured Products</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Under 50 Rs</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Electronics</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Beauty & Personal Care</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Gifts</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Car & Bikes</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Toys and Games</a>
-                <a href="#" class="text-dark text-decoration-none category-link">Download App</a>
-
+                <!-- Populated dynamically from mockCategories.js -->
             </div>
 
         </div>

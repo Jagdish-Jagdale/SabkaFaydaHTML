@@ -319,6 +319,31 @@
 
         /* Save address */
         function saveAddress() {
+            const city = (document.getElementById('addr-city').value || '').trim();
+            const pincode = (document.getElementById('addr-pin').value || '').trim();
+            const state = (document.getElementById('addr-state').value || '').trim();
+            const name = (document.getElementById('addr-name').value || '').trim();
+            const phone = (document.getElementById('addr-phone').value || '').trim();
+            const line1 = (document.getElementById('addr-line1').value || '').trim();
+            const line2 = (document.getElementById('addr-line2').value || '').trim();
+
+            // Save to localStorage for header delivery location
+            localStorage.setItem('userAddress', JSON.stringify({
+                name: name,
+                phone: phone,
+                line1: line1,
+                line2: line2,
+                city: city,
+                state: state,
+                pincode: pincode
+            }));
+
+            // Update header delivery location immediately if present
+            const deliveryEl = document.getElementById('headerDeliveryLocation');
+            if (deliveryEl && (city || pincode)) {
+                deliveryEl.textContent = [city, pincode].filter(Boolean).join(' ');
+            }
+
             document.getElementById('toast-msg').innerHTML =
                 '<i class="fa-solid fa-circle-check me-2"></i>Address saved successfully!';
             new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();

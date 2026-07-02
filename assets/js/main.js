@@ -19,6 +19,22 @@ function selectCategory(categoryName) {
 }
 
 function initHeader() {
+    if (typeof mockCategories === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'assets/js/mockCategories.js';
+        script.onload = function() {
+            proceedInitHeader();
+        };
+        script.onerror = function() {
+            console.error('Failed to load mockCategories.js');
+        };
+        document.head.appendChild(script);
+    } else {
+        proceedInitHeader();
+    }
+}
+
+function proceedInitHeader() {
     const languageOptions = document.querySelectorAll('.language-select');
     const languageIndicator = document.getElementById('languageIndicator');
     const mobileLanguageIndicator = document.getElementById('mobileLanguageIndicator');
@@ -36,48 +52,45 @@ function initHeader() {
         });
     }
 
+    // Load delivery location from localStorage
+    const deliveryLocationEl = document.getElementById('headerDeliveryLocation');
+    if (deliveryLocationEl) {
+        const savedAddress = localStorage.getItem('userAddress');
+        if (savedAddress) {
+            try {
+                const address = JSON.parse(savedAddress);
+                const city = address.city || '';
+                const pincode = address.pincode || '';
+                if (city || pincode) {
+                    deliveryLocationEl.textContent = [city, pincode].filter(Boolean).join(' ');
+                }
+            } catch (e) {
+                // Invalid JSON, keep default placeholder
+            }
+        }
+    }
+
+    // Populate search bar category dropdown
+    const searchDropdownMenu = document.getElementById('searchCategoryDropdownMenu');
+    if (searchDropdownMenu && typeof mockCategories !== 'undefined' && mockCategories.searchCategories) {
+        searchDropdownMenu.innerHTML = mockCategories.searchCategories.map((cat, idx) => {
+            const isActive = idx === 0 ? 'active' : '';
+            const hasChevron = cat.name === 'Home & Living' ? ' <i class="fas fa-chevron-right fs-7 opacity-75"></i>' : '';
+            return `<li><a class="dropdown-item py-2 px-3 custom-dropdown-item ${isActive} d-flex align-items-center justify-content-between"
+                        href="#" onclick="selectCategory('${cat.value}')">${cat.name}${hasChevron}</a></li>`;
+        }).join('');
+    }
+
+    // Populate categories bar scroll list
+    const categoryScroll = document.getElementById('headerCategoryScroll');
+    if (categoryScroll && typeof mockCategories !== 'undefined' && mockCategories.barCategories) {
+        categoryScroll.innerHTML = mockCategories.barCategories.map(cat => {
+            return `<a href="${cat.link || '#'}" class="text-dark text-decoration-none category-link">${cat.name}</a>`;
+        }).join('');
+    }
+
     // --- Cascading Category Dropdown (2 levels) ---
-    const catDropData = {
-        'Best sellers': [
-            { name: 'Top Picks', items: ['Wireless Earbuds', 'Smart Watch', 'Power Bank', 'Bluetooth Speaker', 'Phone Cases'] },
-            { name: 'Trending Now', items: ['Running Shoes', 'Backpacks', 'Sunglasses', 'Travel Bags', 'Caps & Hats'] },
-            { name: 'Most Loved', items: ['Scented Candles', 'Wall Art', 'Desk Organizer', 'Indoor Plants', 'Photo Frames'] },
-        ],
-        'Featured Products': [
-            { name: 'New Arrivals', items: ['Latest Gadgets', 'New Fashion', 'Fresh Home Decor', 'New Books'] },
-            { name: 'Hot Deals', items: ['Flash Sale', 'Clearance', 'Bundle Offers', 'Discounted Items'] },
-        ],
-        'Under 50 Rs': [
-            { name: 'Daily Essentials', items: ['Pens', 'Erasers', 'Paper Clips', 'Sticky Notes', 'Rubber Bands'] },
-            { name: 'Snacks & Treats', items: ['Candies', 'Chips', 'Biscuits', 'Namkeen', 'Wafers'] },
-            { name: 'Small Gifts', items: ['Key Chains', 'Fridge Magnets', 'Mini Plants', 'Bookmarks'] },
-        ],
-        'Electronics': [
-            { name: 'Mobiles & Tablets', items: ['Smartphones', 'Tablets', 'Mobile Covers', 'Screen Guards', 'Chargers & Cables'] },
-            { name: 'Computers', items: ['Laptops', 'Desktop PCs', 'Keyboards', 'Mice', 'Monitors', 'Webcams'] },
-            { name: 'Audio & Video', items: ['Headphones', 'Earbuds', 'Bluetooth Speakers', 'Smart TVs', 'Projectors'] },
-        ],
-        'Beauty & Personal Care': [
-            { name: 'Skincare', items: ['Face Wash', 'Moisturizers', 'Sunscreen', 'Face Masks', 'Serums'] },
-            { name: 'Hair Care', items: ['Shampoo', 'Conditioner', 'Hair Oil', 'Hair Masks', 'Combs & Brushes'] },
-            { name: 'Makeup', items: ['Lipstick', 'Foundation', 'Mascara', 'Eyeliner', 'Blush & Highlighter'] },
-        ],
-        'Gifts': [
-            { name: 'Gift Sets', items: ['Hampers', 'Combo Packs', 'Personalized Gifts', 'Gift Cards', 'Chocolates'] },
-            { name: 'Occasions', items: ['Birthday', 'Anniversary', 'Wedding', 'Diwali', 'Corporate Gifts'] },
-            { name: 'Stationery', items: ['Notebooks', 'Pens & Pencils', 'Diaries', 'Sticky Notes', 'Calendars'] },
-        ],
-        'Car & Bikes': [
-            { name: 'Car Accessories', items: ['Car Covers', 'Seat Covers', 'Dash Cams', 'Car Fresheners', 'Steering Covers'] },
-            { name: 'Bike Accessories', items: ['Helmets', 'Gloves', 'Bike Locks', 'Mirrors', 'Phone Mounts'] },
-            { name: 'Tools & Care', items: ['Car Wash Kits', 'Tyre Inflators', 'Jump Starters', 'Polish & Wax'] },
-        ],
-        'Toys and Games': [
-            { name: 'Kids Toys', items: ['Action Figures', 'Building Blocks', 'Dolls', 'Educational Toys', 'Art & Craft'] },
-            { name: 'Board Games', items: ['Chess', 'Ludo', 'Card Games', 'Puzzles', 'Strategy Games'] },
-            { name: 'Outdoor Play', items: ['Cricket Sets', 'Badminton', 'Footballs', 'Frisbees', 'Skipping Ropes'] },
-        ],
-    };
+    const catDropData = (typeof mockCategories !== 'undefined' && mockCategories.cascadingData) ? mockCategories.cascadingData : {};
 
     const catL1Box  = document.getElementById('catDropL1');
     const catL2Box  = document.getElementById('catDropL2');
@@ -93,13 +106,15 @@ function initHeader() {
         catHideTimer = setTimeout(function () {
             if (catL1Box) catL1Box.style.display = 'none';
             if (catL2Box) catL2Box.style.display = 'none';
-            catLinks.forEach(function(l) { l.classList.remove('active-category'); });
+            const currentLinks = document.querySelectorAll('.category-link');
+            currentLinks.forEach(function(l) { l.classList.remove('active-category'); });
         }, 150);
     }
 
     function showCatL1(link) {
         cancelCatHide();
-        catLinks.forEach(function(l) { l.classList.remove('active-category'); });
+        const currentLinks = document.querySelectorAll('.category-link');
+        currentLinks.forEach(function(l) { l.classList.remove('active-category'); });
         link.classList.add('active-category');
 
         var catName = link.textContent.trim();
@@ -157,8 +172,10 @@ function initHeader() {
         });
     }
 
-    if (catL1Box && catL2Box && catBarCont && catLinks.length) {
-        catLinks.forEach(function(link) {
+    if (catL1Box && catL2Box && catBarCont) {
+        // Since links are dynamic, bind mouseenter dynamically or query them here after injection
+        const currentLinks = document.querySelectorAll('.category-link');
+        currentLinks.forEach(function(link) {
             link.addEventListener('mouseenter', function() { showCatL1(this); });
             link.addEventListener('click',      function(e) { e.preventDefault(); });
         });
@@ -168,6 +185,7 @@ function initHeader() {
         catL2Box.addEventListener('mouseenter', cancelCatHide);
         catL2Box.addEventListener('mouseleave', scheduleCatHide);
     }
+
 
     // Toggle search icon visibility based on input text
     const desktopSearchInput = document.getElementById('desktopSearchInput');
