@@ -96,41 +96,47 @@
                         <!-- Address form (collapsed by default) -->
                         <div class="d-none mt-4" id="address-form-wrap">
                             <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-name">Full Name</label>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-name">Full Name <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="addr-name" placeholder="Enter full name (letters only)" maxlength="50"
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-name"></div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-phone">Phone</label>
-                                    <input type="tel" class="profile-form-control" id="addr-phone" placeholder="Enter 10-digit mobile number" maxlength="10"
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-phone">Phone <span class="text-danger">*</span></label>
+                                    <input type="tel" class="profile-form-control" id="addr-phone" placeholder="Enter 10-digit mobile number (starts with 6-9)" maxlength="10"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-phone"></div>
                                 </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-altphone">Alternate Phone</label>
+                                    <input type="tel" class="profile-form-control" id="addr-altphone" placeholder="Enter alternate mobile number (optional)" maxlength="10"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    <div class="invalid-feedback-custom d-none" id="err-altphone"></div>
+                                </div>
                                 <div class="col-12">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-line1">Address Line 1</label>
-                                    <textarea class="profile-form-control" id="addr-line1" placeholder="Enter house / flat / block no." maxlength="200" rows="2" style="resize: vertical; min-height: 60px;"></textarea>
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-line1">Address <span class="text-danger">*</span></label>
+                                    <textarea class="profile-form-control" id="addr-line1" placeholder="Enter house / flat / block no., street, area" maxlength="200" rows="2" style="resize: vertical; min-height: 60px;"></textarea>
                                     <div class="invalid-feedback-custom d-none" id="err-line1"></div>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-line2">Address Line 2</label>
-                                    <textarea class="profile-form-control" id="addr-line2" placeholder="Enter street / colony / landmark (optional)" maxlength="200" rows="2" style="resize: vertical; min-height: 60px;"></textarea>
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-line2">Alternate Address</label>
+                                    <textarea class="profile-form-control" id="addr-line2" placeholder="Enter alternate address / landmark (optional)" maxlength="200" rows="2" style="resize: vertical; min-height: 60px;"></textarea>
                                 </div>
                                 <div class="col-sm-4">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-city">City</label>
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-city">City <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="addr-city" placeholder="Enter your city" maxlength="50"
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-city"></div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-state">State</label>
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-state">State <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="addr-state" placeholder="Enter your state" maxlength="50"
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-state"></div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-pin">PIN Code</label>
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-pin">PIN Code <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="addr-pin" placeholder="Enter 6-digit PIN code" maxlength="6"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-pin"></div>
@@ -157,7 +163,7 @@
     <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
 
     <!-- Toast -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+    <div class="position-fixed top-0 end-0 p-3" style="z-index:9999; margin-top: 80px;">
         <div id="save-toast" class="toast align-items-center text-bg-success border-0" role="alert"
             aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
@@ -282,6 +288,7 @@
         function saveAddress() {
             const name = (document.getElementById('addr-name').value || '').trim();
             const phone = (document.getElementById('addr-phone').value || '').trim();
+            const altPhone = (document.getElementById('addr-altphone').value || '').trim();
             const line1 = (document.getElementById('addr-line1').value || '').trim();
             const line2 = (document.getElementById('addr-line2').value || '').trim();
             const city = (document.getElementById('addr-city').value || '').trim();
@@ -309,18 +316,32 @@
                 hasError = true;
             }
 
-            // Phone: only digits, exactly 10
+            // Phone: exactly 10 digits, must start with 6-9
             if (!phone) {
                 showFieldError('addr-phone', 'err-phone', 'Phone number is required');
                 hasError = true;
-            } else if (!/^[0-9]{10}$/.test(phone)) {
+            } else if (phone.length !== 10) {
                 showFieldError('addr-phone', 'err-phone', 'Enter exactly 10 digits');
+                hasError = true;
+            } else if (parseInt(phone[0]) <= 5) {
+                showFieldError('addr-phone', 'err-phone', 'Phone must start with 6, 7, 8 or 9');
                 hasError = true;
             }
 
-            // Address Line 1: required, max 200
+            // Alternate Phone: optional, but if filled must be valid
+            if (altPhone) {
+                if (altPhone.length !== 10) {
+                    showFieldError('addr-altphone', 'err-altphone', 'Enter exactly 10 digits');
+                    hasError = true;
+                } else if (parseInt(altPhone[0]) <= 5) {
+                    showFieldError('addr-altphone', 'err-altphone', 'Alternate phone must start with 6, 7, 8 or 9');
+                    hasError = true;
+                }
+            }
+
+            // Address: required, max 200
             if (!line1) {
-                showFieldError('addr-line1', 'err-line1', 'Address Line 1 is required');
+                showFieldError('addr-line1', 'err-line1', 'Address is required');
                 hasError = true;
             } else if (line1.length > 200) {
                 showFieldError('addr-line1', 'err-line1', 'Maximum 200 characters allowed');
@@ -356,19 +377,13 @@
 
             if (hasError) return;
 
-            // Save to localStorage for header delivery location
+            // Save to localStorage
             const addrObj = {
-                name: name,
-                phone: phone,
-                line1: line1,
-                line2: line2,
-                city: city,
-                state: state,
-                pincode: pincode
+                name, phone, altPhone, line1, line2, city, state, pincode
             };
             localStorage.setItem('userAddress', JSON.stringify(addrObj));
 
-            // Update header delivery location immediately if present
+            // Update header delivery location
             const deliveryTextEl = document.getElementById('headerDeliveryText');
             const deliveryActionEl = document.getElementById('headerDeliveryAction');
             if (deliveryTextEl && (city || pincode)) {
@@ -383,7 +398,6 @@
                 '<i class="fa-solid fa-circle-check me-2"></i>Address saved successfully!';
             new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
 
-            // Show saved card
             showSavedAddressCard(addrObj);
         }
 
