@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Manage your delivery addresses on Sabka Fayda. Add, edit or remove saved shipping addresses for faster checkout.">
+    <meta name="keywords"
+        content="Sabka Fayda address, delivery address, shipping address, my address, manage address">
+    <title>My Address | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS (includes profile styles) -->
+    <link rel="stylesheet" href="assets/css/main.css?v=15">
+
+    <!-- Preload Dynamic Components -->
+    <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
+</head>
+
+<body class="orders-page">
+
+    <!-- Site Header -->
+    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+
+    <!-- Page Main Shell -->
+    <main class="orders-shell container-fluid px-3 px-md-4">
+        
+        <!-- Mobile Sidebar Toggle Row -->
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">My Address</span>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- ═══ SIDEBAR ═══ -->
+            <div class="col-lg-3" id="sidebar-placeholder"><div class="skeleton-box skeleton-sidebar d-none d-lg-block"></div></div>
+
+            <!-- ═══ MAIN CONTENT ═══ -->
+            <div class="col-lg-9 col-12">
+
+                <!-- Main card -->
+                <div class="bg-white rounded-4 shadow-sm overflow-hidden profile-main-card">
+
+                    <!-- Page Header -->
+                    <div class="d-flex align-items-center justify-content-between px-4 py-3 border-bottom" style="border-color:#e8eef8 !important;">
+                        <h1 class="mb-0 fw-bold" style="font-size:1.15rem; color:#1a1a2e; font-family: 'Montserrat', sans-serif;">
+                            <i class="fa-solid fa-location-dot me-2 text-primary"></i>My Address
+                        </h1>
+                        <button class="btn btn-primary btn-sm px-3 py-2 fw-semibold d-inline-flex align-items-center justify-content-center" id="btn-add-address" style="font-size: 0.78rem; border-radius: 6px; gap: 6px;" onclick="toggleAddressForm()">
+                            <i class="fa-solid fa-circle-plus" style="font-size: 0.9rem;"></i>Add New Address
+                        </button>
+                    </div>
+
+                    <!-- Address Content -->
+                    <div class="p-4">
+
+                        <!-- Empty state -->
+                        <div class="address-empty-card text-center p-4 p-md-5" id="no-address-box">
+                            <i class="fa-solid fa-location-dot d-block mb-3"></i>
+                            <p class="fw-semibold text-secondary mb-1">No saved address found</p>
+                            <p class="text-muted small mb-0">Add a delivery address to make checkout faster.</p>
+                        </div>
+
+                        <!-- Saved address card (shown when address exists) -->
+                        <div class="d-none" id="saved-address-card">
+                            <div class="border rounded-3 p-3 p-md-4 mb-3 position-relative" style="border-color: #e2e8f0 !important;">
+                                <span class="badge bg-primary position-absolute" style="top: 12px; right: 12px; font-size: 0.7rem;">Default</span>
+                                <h6 class="fw-bold mb-1" id="display-addr-name" style="font-size: 0.95rem; color: #1a1a2e;"></h6>
+                                <p class="text-secondary mb-1" style="font-size: 0.85rem;" id="display-addr-phone"></p>
+                                <p class="text-secondary mb-1" style="font-size: 0.85rem;" id="display-addr-lines"></p>
+                                <p class="text-secondary mb-0" style="font-size: 0.85rem;" id="display-addr-city-state"></p>
+                                <div class="d-flex gap-2 mt-3">
+                                    <button class="btn btn-outline-primary btn-sm px-3 fw-semibold" style="font-size: 0.78rem; border-radius: 6px;" onclick="editSavedAddress()">
+                                        <i class="fa-solid fa-pen-to-square me-1"></i>Edit
+                                    </button>
+                                    <button class="btn btn-outline-danger btn-sm px-3 fw-semibold" style="font-size: 0.78rem; border-radius: 6px;" onclick="deleteSavedAddress()">
+                                        <i class="fa-solid fa-trash-can me-1"></i>Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Address form (collapsed by default) -->
+                        <div class="d-none mt-4" id="address-form-wrap">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-name">Full Name</label>
+                                    <input type="text" class="profile-form-control" id="addr-name" placeholder="Full Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-phone">Phone</label>
+                                    <input type="tel" class="profile-form-control" id="addr-phone" placeholder="+91 XXXXX XXXXX">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-line1">Address Line 1</label>
+                                    <input type="text" class="profile-form-control" id="addr-line1" placeholder="House / Flat / Block No.">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-line2">Address Line 2</label>
+                                    <input type="text" class="profile-form-control" id="addr-line2" placeholder="Street / Colony / Landmark">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-city">City</label>
+                                    <input type="text" class="profile-form-control" id="addr-city" placeholder="City">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-state">State</label>
+                                    <input type="text" class="profile-form-control" id="addr-state" placeholder="State">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="form-label fw-semibold small text-secondary" for="addr-pin">PIN Code</label>
+                                    <input type="text" class="profile-form-control" id="addr-pin" placeholder="416146">
+                                </div>
+                                <div class="col-12 d-flex gap-2 mt-3">
+                                    <button type="button" class="btn-profile-save" onclick="saveAddress()">
+                                        <i class="fa-solid fa-floppy-disk me-2"></i>Save Address
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary px-4 fw-semibold" onclick="toggleAddressForm()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- /main-card -->
+
+            </div><!-- /main col -->
+        </div><!-- /row -->
+    </main><!-- /container -->
+
+    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+
+    <!-- Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+        <div id="save-toast" class="toast align-items-center text-bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-msg">
+                    <i class="fa-solid fa-circle-check me-2"></i>Saved successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS (header init) -->
+    <script src="assets/js/main.js?v=6"></script>
+
+    <!-- Load Header & Sidebar -->
+    <script>
+        if (typeof loadSidebar === 'function') loadSidebar();
+        fetch('header.html?v=5')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                if (typeof initHeader === 'function') initHeader();
+            });
+
+        fetch('footer.html?v=5')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+    <script>
+        /* On page load, check if an address already exists in localStorage */
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedAddress();
+        });
+
+        function loadSavedAddress() {
+            const savedAddress = localStorage.getItem('userAddress');
+            if (savedAddress) {
+                try {
+                    const addr = JSON.parse(savedAddress);
+                    if (addr.city || addr.pincode || addr.line1) {
+                        showSavedAddressCard(addr);
+                        return;
+                    }
+                } catch (e) { /* ignore */ }
+            }
+            // No address — show empty state
+            document.getElementById('no-address-box').classList.remove('d-none');
+            document.getElementById('saved-address-card').classList.add('d-none');
+        }
+
+        function showSavedAddressCard(addr) {
+            document.getElementById('no-address-box').classList.add('d-none');
+            document.getElementById('saved-address-card').classList.remove('d-none');
+            document.getElementById('address-form-wrap').classList.add('d-none');
+
+            document.getElementById('display-addr-name').textContent = addr.name || '';
+            document.getElementById('display-addr-phone').textContent = addr.phone || '';
+            document.getElementById('display-addr-lines').textContent = [addr.line1, addr.line2].filter(Boolean).join(', ');
+            document.getElementById('display-addr-city-state').textContent = [addr.city, addr.state, addr.pincode].filter(Boolean).join(', ');
+        }
+
+        /* Toggle address form */
+        function toggleAddressForm() {
+            const formWrap = document.getElementById('address-form-wrap');
+            const noAddressBox = document.getElementById('no-address-box');
+            const savedCard = document.getElementById('saved-address-card');
+            
+            if (formWrap.classList.contains('d-none')) {
+                formWrap.classList.remove('d-none');
+                noAddressBox.classList.add('d-none');
+                savedCard.classList.add('d-none');
+            } else {
+                formWrap.classList.add('d-none');
+                loadSavedAddress();
+            }
+        }
+
+        /* Edit existing address — populate form fields */
+        function editSavedAddress() {
+            const savedAddress = localStorage.getItem('userAddress');
+            if (savedAddress) {
+                try {
+                    const addr = JSON.parse(savedAddress);
+                    document.getElementById('addr-name').value = addr.name || '';
+                    document.getElementById('addr-phone').value = addr.phone || '';
+                    document.getElementById('addr-line1').value = addr.line1 || '';
+                    document.getElementById('addr-line2').value = addr.line2 || '';
+                    document.getElementById('addr-city').value = addr.city || '';
+                    document.getElementById('addr-state').value = addr.state || '';
+                    document.getElementById('addr-pin').value = addr.pincode || '';
+                } catch (e) { /* ignore */ }
+            }
+            toggleAddressForm();
+        }
+
+        /* Delete saved address */
+        function deleteSavedAddress() {
+            localStorage.removeItem('userAddress');
+            document.getElementById('saved-address-card').classList.add('d-none');
+            document.getElementById('no-address-box').classList.remove('d-none');
+
+            // Update header if present
+            const deliveryTextEl = document.getElementById('headerDeliveryText');
+            const deliveryActionEl = document.getElementById('headerDeliveryAction');
+            if (deliveryTextEl) deliveryTextEl.textContent = 'Set Delivery Address';
+            if (deliveryActionEl) {
+                deliveryActionEl.textContent = 'Add';
+                deliveryActionEl.href = 'myaddress.html';
+            }
+
+            document.getElementById('toast-msg').innerHTML =
+                '<i class="fa-solid fa-circle-check me-2"></i>Address removed successfully!';
+            new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
+        }
+
+        /* Save address */
+        function saveAddress() {
+            const city = (document.getElementById('addr-city').value || '').trim();
+            const pincode = (document.getElementById('addr-pin').value || '').trim();
+            const state = (document.getElementById('addr-state').value || '').trim();
+            const name = (document.getElementById('addr-name').value || '').trim();
+            const phone = (document.getElementById('addr-phone').value || '').trim();
+            const line1 = (document.getElementById('addr-line1').value || '').trim();
+            const line2 = (document.getElementById('addr-line2').value || '').trim();
+
+            // Save to localStorage for header delivery location
+            const addrObj = {
+                name: name,
+                phone: phone,
+                line1: line1,
+                line2: line2,
+                city: city,
+                state: state,
+                pincode: pincode
+            };
+            localStorage.setItem('userAddress', JSON.stringify(addrObj));
+
+            // Update header delivery location immediately if present
+            const deliveryTextEl = document.getElementById('headerDeliveryText');
+            const deliveryActionEl = document.getElementById('headerDeliveryAction');
+            if (deliveryTextEl && (city || pincode)) {
+                deliveryTextEl.textContent = 'Delivering to ' + [city, pincode].filter(Boolean).join(' ');
+            }
+            if (deliveryActionEl && (city || pincode)) {
+                deliveryActionEl.textContent = 'Update';
+                deliveryActionEl.href = 'myaddress.html';
+            }
+
+            document.getElementById('toast-msg').innerHTML =
+                '<i class="fa-solid fa-circle-check me-2"></i>Address saved successfully!';
+            new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
+
+            // Show saved card
+            showSavedAddressCard(addrObj);
+        }
+    </script>
+</body>
+</html>

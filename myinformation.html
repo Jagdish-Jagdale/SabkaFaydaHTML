@@ -68,14 +68,6 @@
                             onerror="this.style.display='none'">
                     </div>
 
-                    <!-- Tab Navigation -->
-                    <div class="d-flex border-bottom border-2 px-4" style="border-color:#e8eef8 !important;">
-                        <a href="#" class="profile-tab active" id="tab-myinfo"
-                            onclick="switchTab('myinfo',this);return false;">My Information</a>
-                        <a href="#" class="profile-tab" id="tab-myaddress"
-                            onclick="switchTab('myaddress',this);return false;">My Address</a>
-                    </div>
-
                     <!-- Tab Panel: My Information -->
                     <div class="p-4" id="panel-myinfo">
                         <form id="profile-form" onsubmit="saveProfile(event)">
@@ -119,63 +111,6 @@
                             </button>
                         </form>
                     </div>
-
-                    <!-- Tab Panel: My Address -->
-                    <div class="p-4 d-none" id="panel-myaddress">
-
-                        <!-- Empty state -->
-                        <div class="address-empty-card text-center p-4 p-md-5" id="no-address-box">
-                            <i class="fa-solid fa-location-dot d-block mb-3"></i>
-                            <p class="fw-semibold text-secondary mb-1">No saved address found</p>
-                            <p class="text-muted small mb-0">Add a delivery address to make checkout faster.</p>
-                            <button class="btn btn-primary btn-sm mt-3 px-3 py-2 fw-semibold d-inline-flex align-items-center justify-content-center" style="font-size: 0.78rem; border-radius: 6px; gap: 6px;" onclick="toggleAddressForm()">
-                                <i class="fa-solid fa-circle-plus" style="font-size: 0.9rem; vertical-align: middle;"></i>Add New Address
-                            </button>
-                        </div>
-
-                        <!-- Address form (collapsed by default) -->
-                        <div class="d-none mt-4" id="address-form-wrap">
-                            <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-name">Full Name</label>
-                                    <input type="text" class="profile-form-control" id="addr-name" placeholder="Full Name">
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-phone">Phone</label>
-                                    <input type="tel" class="profile-form-control" id="addr-phone" placeholder="+91 XXXXX XXXXX">
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-line1">Address Line 1</label>
-                                    <input type="text" class="profile-form-control" id="addr-line1" placeholder="House / Flat / Block No.">
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-line2">Address Line 2</label>
-                                    <input type="text" class="profile-form-control" id="addr-line2" placeholder="Street / Colony / Landmark">
-                                </div>
-                                <div class="col-sm-4">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-city">City</label>
-                                    <input type="text" class="profile-form-control" id="addr-city" placeholder="City">
-                                </div>
-                                <div class="col-sm-4">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-state">State</label>
-                                    <input type="text" class="profile-form-control" id="addr-state" placeholder="State">
-                                </div>
-                                <div class="col-sm-4">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-pin">PIN Code</label>
-                                    <input type="text" class="profile-form-control" id="addr-pin" placeholder="416146">
-                                </div>
-                                <div class="col-12 d-flex gap-2 mt-3">
-                                    <button type="button" class="btn-profile-save" onclick="saveAddress()">
-                                        <i class="fa-solid fa-floppy-disk me-2"></i>Save Address
-                                    </button>
-                                    <button type="button" class="btn btn-outline-secondary px-4 fw-semibold" onclick="toggleAddressForm()">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div><!-- /panel-myaddress -->
 
                 </div><!-- /main-card -->
 
@@ -256,103 +191,12 @@
     </script>
 
     <script>
-        /* Sidebar section switch based on hash */
-        function updateProfileSection() {
-            const hash = window.location.hash;
-            const isAddress = hash === '#myaddress';
-            const section = isAddress ? 'myaddress' : 'myinfo';
-            
-            // update active sidebar link
-            setTimeout(() => {
-                document.querySelectorAll('#sidebar-placeholder .sidebar-link').forEach(link => link.classList.remove('active'));
-                const activeLink = document.getElementById(isAddress ? 'link-myaddress' : 'link-myinfo');
-                if (activeLink) activeLink.classList.add('active');
-            }, 50);
-
-            // update visible panel
-            ['myinfo', 'myaddress'].forEach(id => {
-                const panel = document.getElementById('panel-' + id);
-                if (panel) panel.classList.toggle('d-none', id !== section);
-            });
-            
-            // update top tabs
-            document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
-            const tabEl = document.getElementById('tab-' + section);
-            if (tabEl) tabEl.classList.add('active');
-
-            // Hide FAQ section when on the address tab
-            const faqEl = document.querySelector('.faq-section');
-            if (faqEl) {
-                faqEl.classList.toggle('d-none', isAddress);
-            }
-
-            // Close mobile offcanvas if open
-            const sidebarEl = document.getElementById('sidebarMenu');
-            if (sidebarEl && window.innerWidth < 992) {
-                const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebarEl) || new bootstrap.Offcanvas(sidebarEl);
-                if (bsOffcanvas) bsOffcanvas.hide();
-            }
-        }
-        window.addEventListener('hashchange', updateProfileSection);
-
         /* Save profile */
         function saveProfile(e) {
             e.preventDefault();
             document.getElementById('toast-msg').innerHTML =
                 '<i class="fa-solid fa-circle-check me-2"></i>Profile saved successfully!';
             new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
-        }
-
-        /* Toggle address form */
-        function toggleAddressForm() {
-            const formWrap = document.getElementById('address-form-wrap');
-            const noAddressBox = document.getElementById('no-address-box');
-            
-            if (formWrap.classList.contains('d-none')) {
-                formWrap.classList.remove('d-none');
-                noAddressBox.classList.add('d-none');
-            } else {
-                formWrap.classList.add('d-none');
-                noAddressBox.classList.remove('d-none');
-            }
-        }
-
-        /* Save address */
-        function saveAddress() {
-            const city = (document.getElementById('addr-city').value || '').trim();
-            const pincode = (document.getElementById('addr-pin').value || '').trim();
-            const state = (document.getElementById('addr-state').value || '').trim();
-            const name = (document.getElementById('addr-name').value || '').trim();
-            const phone = (document.getElementById('addr-phone').value || '').trim();
-            const line1 = (document.getElementById('addr-line1').value || '').trim();
-            const line2 = (document.getElementById('addr-line2').value || '').trim();
-
-            // Save to localStorage for header delivery location
-            localStorage.setItem('userAddress', JSON.stringify({
-                name: name,
-                phone: phone,
-                line1: line1,
-                line2: line2,
-                city: city,
-                state: state,
-                pincode: pincode
-            }));
-
-            // Update header delivery location immediately if present
-            const deliveryTextEl = document.getElementById('headerDeliveryText');
-            const deliveryActionEl = document.getElementById('headerDeliveryAction');
-            if (deliveryTextEl && (city || pincode)) {
-                deliveryTextEl.textContent = 'Delivering to ' + [city, pincode].filter(Boolean).join(' ');
-            }
-            if (deliveryActionEl && (city || pincode)) {
-                deliveryActionEl.textContent = 'Update';
-            }
-
-            document.getElementById('toast-msg').innerHTML =
-                '<i class="fa-solid fa-circle-check me-2"></i>Address saved successfully!';
-            new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
-            document.getElementById('address-form-wrap').classList.add('d-none');
-            document.getElementById('no-address-box').classList.remove('d-none');
         }
     </script>
 </body>

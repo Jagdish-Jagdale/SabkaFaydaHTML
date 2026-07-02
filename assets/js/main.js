@@ -65,7 +65,7 @@ function proceedInitHeader() {
                 if (city || pincode) {
                     deliveryTextEl.textContent = 'Delivering to ' + [city, pincode].filter(Boolean).join(' ');
                     deliveryActionEl.textContent = 'Update';
-                    deliveryActionEl.href = 'myinformation.html#myaddress';
+                    deliveryActionEl.href = 'myaddress.html';
                 }
             } catch (e) {
                 // Invalid JSON, keep default "Set Delivery Address" + "Add"
