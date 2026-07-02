@@ -102,17 +102,11 @@
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-name"></div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-12">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-phone">Phone <span class="text-danger">*</span></label>
                                     <input type="tel" class="profile-form-control" id="addr-phone" placeholder="Enter 10-digit mobile number (starts with 6-9)" maxlength="10"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-phone"></div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="form-label fw-semibold small text-secondary" for="addr-altphone">Alternate Phone</label>
-                                    <input type="tel" class="profile-form-control" id="addr-altphone" placeholder="Enter alternate mobile number (optional)" maxlength="10"
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                                    <div class="invalid-feedback-custom d-none" id="err-altphone"></div>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-line1">Address <span class="text-danger">*</span></label>
@@ -288,7 +282,6 @@
         function saveAddress() {
             const name = (document.getElementById('addr-name').value || '').trim();
             const phone = (document.getElementById('addr-phone').value || '').trim();
-            const altPhone = (document.getElementById('addr-altphone').value || '').trim();
             const line1 = (document.getElementById('addr-line1').value || '').trim();
             const line2 = (document.getElementById('addr-line2').value || '').trim();
             const city = (document.getElementById('addr-city').value || '').trim();
@@ -326,17 +319,6 @@
             } else if (parseInt(phone[0]) <= 5) {
                 showFieldError('addr-phone', 'err-phone', 'Phone must start with 6, 7, 8 or 9');
                 hasError = true;
-            }
-
-            // Alternate Phone: optional, but if filled must be valid
-            if (altPhone) {
-                if (altPhone.length !== 10) {
-                    showFieldError('addr-altphone', 'err-altphone', 'Enter exactly 10 digits');
-                    hasError = true;
-                } else if (parseInt(altPhone[0]) <= 5) {
-                    showFieldError('addr-altphone', 'err-altphone', 'Alternate phone must start with 6, 7, 8 or 9');
-                    hasError = true;
-                }
             }
 
             // Address: required, max 200
@@ -379,7 +361,7 @@
 
             // Save to localStorage
             const addrObj = {
-                name, phone, altPhone, line1, line2, city, state, pincode
+                name, phone, line1, line2, city, state, pincode
             };
             localStorage.setItem('userAddress', JSON.stringify(addrObj));
 
