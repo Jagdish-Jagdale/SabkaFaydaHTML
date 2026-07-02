@@ -129,7 +129,8 @@ function proceedInitHeader() {
     const catBarCont = document.getElementById('categoriesBarContainer');
     const catLinks   = document.querySelectorAll('.category-link');
     let catHideTimer = null;
-    const catHideDelay = 420;
+    const catHideDelay = 650;
+    const catFlyoutGap = 8;
 
     function cancelCatHide() { clearTimeout(catHideTimer); }
 
@@ -193,8 +194,8 @@ function proceedInitHeader() {
                     return '<li><a href="#" class="cat-l2-item">' + it + '</a></li>';
                 }).join('');
 
-                // Position L2 flush with L1 so the cursor can move between levels without dropping hover.
-                catL2Box.style.left = (leftPos + catL1Box.offsetWidth) + 'px';
+                // Keep a visible gap between levels while the hide delay covers cursor travel.
+                catL2Box.style.left = (leftPos + catL1Box.offsetWidth + catFlyoutGap) + 'px';
                 catL2Box.style.display = 'block';
 
                 catL2List.querySelectorAll('a').forEach(function(a) {
