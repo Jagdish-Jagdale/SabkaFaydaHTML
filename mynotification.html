@@ -30,7 +30,7 @@
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
 </head>
 
-<body class="orders-page">
+<body class="orders-page notification-page">
     <!-- Site Header -->
     <div id="header-placeholder">
         <div class="skeleton-box skeleton-header"></div>
@@ -64,11 +64,9 @@
                         <span class="orders-stat-icon stat-blue"><i class="fa-solid fa-bell"></i></span>
                         <div>
                             <p>Total Notifications</p>
-                            <h2 id="summary-total-alerts">145 <span
-                                    style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Total Alerts</span>
-                            </h2>
+                            <h2 id="summary-total-alerts">145</h2>
                             <span class="text-primary fw-bold" style="font-size: 0.72rem;" id="summary-unread-today">3
-                                Unread Today <span class="fw-semibold text-muted">(All Time)</span></span>
+                                Unread Today</span>
                         </div>
                     </article>
 
@@ -77,10 +75,8 @@
                         <span class="orders-stat-icon stat-purple"><i class="fa-solid fa-circle-check"></i></span>
                         <div>
                             <p>Total Mark Read</p>
-                            <h2 id="summary-total-read">142 <span
-                                    style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Items</span></h2>
-                            <span class="text-success fw-bold" style="font-size: 0.72rem;" id="summary-read-rate">98%
-                                <span class="fw-semibold text-muted">Read Rate</span></span>
+                            <h2 id="summary-total-read">142</h2>
+                            <span class="text-success fw-bold d-none" style="font-size: 0.72rem;" id="summary-read-rate"></span>
                         </div>
                     </article>
 
@@ -89,10 +85,7 @@
                         <span class="orders-stat-icon stat-green"><i class="fa-solid fa-percent"></i></span>
                         <div>
                             <p>Total Offers Claimed</p>
-                            <h2 id="summary-total-offers">28 <span
-                                    style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Rewards</span></h2>
-                            <span class="text-muted" style="font-size: 0.72rem; font-weight: 600;">Claimed from
-                                notifications</span>
+                            <h2 id="summary-total-offers">28</h2>
                         </div>
                     </article>
 
@@ -102,10 +95,7 @@
                                 class="fa-solid fa-triangle-exclamation"></i></span>
                         <div>
                             <p>Total System Alerts</p>
-                            <h2 id="summary-system-alerts">15 <span
-                                    style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Crucial Updates</span>
-                            </h2>
-                            <span class="text-danger fw-bold" style="font-size: 0.72rem;">Action required</span>
+                            <h2 id="summary-system-alerts">15</h2>
                         </div>
                     </article>
                 </div>
@@ -172,6 +162,36 @@
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                     aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Details Modal -->
+    <div class="modal fade" id="notificationDetailsModal" tabindex="-1" aria-labelledby="modal-title"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <div class="d-flex align-items-center gap-3">
+                        <div id="modal-icon-container"></div>
+                        <div>
+                            <span class="badge mb-1 text-uppercase bg-secondary" id="modal-category-badge">Alert</span>
+                            <h5 class="modal-title fw-bold mb-0" id="modal-title">Notification</h5>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <p class="text-secondary mb-3" id="modal-description"></p>
+                    <div class="rounded-3 p-3" style="background:#f8fbff; border:1px solid #e4edf8;">
+                        <span class="d-block text-muted fw-bold mb-1" style="font-size:0.72rem;">Notification Date</span>
+                        <strong class="d-block text-dark" id="modal-date"></strong>
+                        <small class="text-primary fw-bold" id="modal-time-ago"></small>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-primary px-4 fw-bold" data-bs-dismiss="modal">Done</button>
+                </div>
             </div>
         </div>
     </div>
@@ -295,13 +315,13 @@
 
             if (currentStatus === 'unread') {
                 card.setAttribute('data-status', 'read');
-                pill.className = 'status-pill read m-0 px-2 py-1 align-self-start text-uppercase';
+                pill.className = 'status-pill read';
                 pill.textContent = 'READ';
                 buttonEl.textContent = 'Mark Unread';
                 if (showToastNotify) showToast('Notification marked as read.');
             } else {
                 card.setAttribute('data-status', 'unread');
-                pill.className = 'status-pill unread m-0 px-2 py-1 align-self-start text-uppercase';
+                pill.className = 'status-pill unread';
                 pill.textContent = 'UNREAD';
                 buttonEl.textContent = 'Mark Read';
                 if (showToastNotify) showToast('Notification marked as unread.');
@@ -423,16 +443,14 @@
             });
 
             const readCount = cards.length - unreadCount;
-            const readRatePercent = cards.length > 0 ? Math.round((readCount / cards.length) * 100) : 0;
-
             // Update stats cards
-            summaryTotalAlerts.innerHTML = `${cards.length} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Total Alerts</span>`;
-            summaryUnreadToday.innerHTML = `${unreadCount} Unread Today <span class="fw-semibold text-muted">(All Time)</span>`;
-            summaryTotalRead.innerHTML = `${readCount} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Items</span>`;
-            summaryReadRate.innerHTML = `${readRatePercent}% <span class="fw-semibold text-muted">Read Rate</span>`;
+            summaryTotalAlerts.textContent = cards.length;
+            summaryUnreadToday.textContent = `${unreadCount} Unread Today`;
+            summaryTotalRead.textContent = readCount;
+            summaryReadRate.textContent = '';
 
             // System Alerts count (derived from account-offers and unread notifications)
-            summarySystemAlerts.innerHTML = `${unreadCount + accountOffersCount} <span style="font-size: 0.72rem; color: #6b7280; font-weight: 500;">Crucial Updates</span>`;
+            summarySystemAlerts.textContent = unreadCount + accountOffersCount;
 
             // Update filter chips counts
             document.getElementById('chip-all').textContent = `All (${cards.length})`;
