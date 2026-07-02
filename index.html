@@ -1,83 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabka Fayda - Project Index</title>
+    <meta name="description"
+        content="Sabka Fayda is your ultimate e-commerce marketplace for the best deals, offers, and high-quality products across all categories. Shop electronics, fashion, beauty, and more.">
+    <meta name="keywords"
+        content="Sabka Fayda, e-commerce, online shopping, buy online, electronics, fashion, best deals, India shopping, marketplace, offers">
+    <title>Home | Sabka Fayda</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link class="main-stylesheet" rel="stylesheet" href="assets/css/main.css?v=15">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7f9;
-            color: #333;
-            padding: 2rem;
-            margin: 0;
+        .product-card-img-wrapper {
+            height: 160px;
         }
-        .warning-banner {
-            background-color: #ff4d4f;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 6px rgba(255, 77, 79, 0.2);
+        .product-card-badges {
+            font-size: 0.5rem;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
+        .product-card-title {
+            font-size: 0.78rem;
         }
-        .header h1 {
-            color: #0087F6;
-            font-size: 2.5rem;
-            margin: 0;
+        .product-card-desc {
+            font-size: 0.68rem;
         }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .product-card-original-price {
+            font-size: 0.68rem;
         }
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: #333;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border: 2px solid transparent;
+        .product-card-offer-price {
+            font-size: 0.85rem;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 135, 246, 0.15);
-            border-color: #0087F6;
+        .product-card-promo {
+            font-size: 0.68rem;
         }
-        .card h3 {
-            margin: 0 0 0.5rem 0;
-            color: #0087F6;
-            font-size: 1.3rem;
-        }
-        .card p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #666;
-        }
-        .section-title {
-            grid-column: 1 / -1;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-            color: #1e293b;
-            font-size: 1.5rem;
+        @media (min-width: 768px) {
+            .product-card-img-wrapper {
+                height: 250px;
+            }
+            .product-card-badges {
+                font-size: 0.6rem;
+            }
+            .product-card-title {
+                font-size: 0.95rem;
+            }
+            .product-card-desc {
+                font-size: 0.82rem;
+            }
+            .product-card-original-price {
+                font-size: 0.78rem;
+            }
+            .product-card-offer-price {
+                font-size: 1.05rem;
+            }
+            .product-card-promo {
+                font-size: 0.78rem;
+            }
         }
     </style>
 
@@ -86,98 +74,992 @@
     <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
 </head>
-<body>
 
-    <div class="warning-banner">
-        This is a dummy testing page. Do not use it.
+<body
+    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+
+    <!-- Main Content -->
+    <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
+
+        <!-- Hero Carousel Section -->
+        <div class="container mb-4 position-relative">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="d-flex align-items-center justify-content-center hero-slide-bg position-relative"
+                            style="background: url('assets/img/homescreenimg.png') no-repeat center center; background-size: cover; color: white;">
+                            <!-- Only Shop Now Button -->
+                            <div class="position-absolute bottom-0 start-0 mb-4 ms-4 ms-md-5 z-3">
+                                <a href="category.html"
+                                    class="btn btn-light fw-bold text-dark shadow hero-btn px-4 py-2 px-md-5 py-md-3 text-decoration-none"
+                                    style="border-radius: 8px;">Shop Now <i
+                                        class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="d-flex align-items-center justify-content-center hero-slide-bg position-relative"
+                            style="background: url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop') no-repeat center center; background-size: cover; color: white;">
+                            <!-- Only Shop Now Button -->
+                            <div class="position-absolute bottom-0 start-0 mb-4 ms-4 ms-md-5 z-3">
+                                <a href="category.html"
+                                    class="btn btn-light fw-bold text-dark shadow hero-btn px-4 py-2 px-md-5 py-md-3 text-decoration-none"
+                                    style="border-radius: 8px;">Shop Now <i
+                                        class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Carousel Controls -->
+                <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#heroCarousel"
+                    data-bs-slide="prev" style="width: 5%; justify-content: flex-start; margin-left: 0;">
+                    <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow"
+                        style="width: 40px; height: 80px; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+                        <i class="fas fa-chevron-left fs-4"></i>
+                    </div>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#heroCarousel"
+                    data-bs-slide="next" style="width: 5%; justify-content: flex-end; margin-right: 0;">
+                    <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow"
+                        style="width: 40px; height: 80px; border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+                        <i class="fas fa-chevron-right fs-4"></i>
+                    </div>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Category Icons Section -->
+        <div class="container mb-5">
+            <div class="rounded shadow-sm py-3 py-md-4 px-3 px-md-5 category-section-bg"
+                style="border: 1px solid #eaeaea;">
+                <div class="d-flex justify-content-between justify-content-md-center justify-content-lg-between align-items-start flex-nowrap icon-category-scroll overflow-auto w-100 px-1 px-md-0"
+                    style="gap: 10px; gap: md-30px;">
+
+                    <a href="category.html"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item">
+                        <img src="assets/img/f6a3531d25c91b762c556b205d1ab4311e7f1cad.png"
+                            alt="For You" class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">For You</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item">
+                        <img src="assets/img/17d9cf86f77963084917e236b3476c79d44da9d4.png"
+                            alt="Fashion & Lifestyle" class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">Fashion & Lifestyle</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item">
+                        <img src="assets/img/5a9a7882b4ce8bd4d6ec186cabbd89c39873031d.png" alt="Electronics"
+                            class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">Electronics</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item">
+                        <img src="assets/img/49518ef2fad5561a0a3ecc6464a6e66adb806089.png" alt="Home & Living"
+                            class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">Home & Living</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item">
+                        <img src="assets/img/3f1343f9b0707ada3f4ffd9192cf53dab12b7984.png" alt="kids & Toys"
+                            class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">kids & Toys</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-md-flex">
+                        <img src="assets/img/4fb99229018727c624d87bcca8e826f53a077ad8.png" alt="Personal Care"
+                            class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">Personal Care</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-md-flex">
+                        <img src="assets/img/b84f8d1c8308b81255dc347d4561545b0c03f019.png"
+                            alt="Retail & Gifts" class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">Retail & Gifts</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-lg-flex">
+                        <img src="assets/img/63e1ee7740ba6f820ad1907f5613d6e4b29fec86.png" alt="Animal & pet"
+                            class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">Animal & pet</span>
+                    </a>
+
+                    <a href="#"
+                        class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-lg-flex">
+                        <img src="assets/img/c1632a7344a0e80972ea60a118230e4f012c2900.png" alt="Automobile"
+                            class="cat-icon-img mb-1 mb-md-2">
+                        <span class="text-dark fw-bold text-center cat-icon-text">Automobile</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Keep Shopping Section -->
+        <div class="container mb-5">
+            <div class="rounded-4 p-3 p-md-4"
+                style="background: conic-gradient(from 4.22deg at 110.99% 41.84%, #FDFAFF -29.77deg, #FAEDFF 17.05deg, #E3A3F9 167.23deg, #F59EEC 169.47deg, #FDFAFF 330.23deg, #FAEDFF 377.05deg), linear-gradient(180deg, rgba(137, 198, 255, 0.2) -38.12%, rgba(255, 255, 255, 0.2) 88.77%);">
+                <h3 class="text-dark fw-bold keep-shopping-title mb-3"
+                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">keep Shopping User Name</h3>
+
+                <div class="bg-white rounded-0 p-2 p-md-3 shadow-sm d-inline-block"
+                    style="max-width: 100%; width: 100%;">
+                    <div class="d-flex justify-content-between gap-2 gap-md-3 flex-nowrap hide-scroll">
+
+                        <a href="#" class="card border-0 text-center keep-shopping-small-box text-decoration-none">
+                            <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img"
+                                style="overflow: hidden;">
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1"
+                                    style="font-size: 0.5rem; border-radius: 4px;">AD</div>
+                                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=200&auto=format&fit=crop"
+                                    class="w-100 h-100 object-fit-cover" alt="Shirt">
+                            </div>
+                            <h6 class="fw-bold mb-1 text-dark">Min. 70% Off</h6>
+                            <p class="text-secondary mb-0">Structured style</p>
+                        </a>
+
+                        <a href="#" class="card border-0 text-center keep-shopping-small-box text-decoration-none">
+                            <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img"
+                                style="overflow: hidden;">
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1"
+                                    style="font-size: 0.5rem; border-radius: 4px;">AD</div>
+                                <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=200&auto=format&fit=crop"
+                                    class="w-100 h-100 object-fit-cover" alt="Toy Car">
+                            </div>
+                            <h6 class="fw-bold mb-1 text-dark">Up to 80% Off</h6>
+                            <p class="text-secondary mb-0">Fun playtime</p>
+                        </a>
+
+                        <a href="#" class="card border-0 text-center keep-shopping-small-box text-decoration-none">
+                            <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img"
+                                style="overflow: hidden;">
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1"
+                                    style="font-size: 0.5rem; border-radius: 4px;">AD</div>
+                                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=200&auto=format&fit=crop"
+                                    class="w-100 h-100 object-fit-cover" alt="Laptop">
+                            </div>
+                            <h6 class="fw-bold mb-1 text-dark">From ₹6,299/M*</h6>
+                            <p class="text-secondary mb-0">Intel® Core™ Ultra PCs</p>
+                        </a>
+
+                        <a href="#" class="card border-0 text-center keep-shopping-small-box text-decoration-none">
+                            <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img"
+                                style="overflow: hidden;">
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1"
+                                    style="font-size: 0.5rem; border-radius: 4px;">AD</div>
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop"
+                                    class="w-100 h-100 object-fit-cover" alt="Sneakers">
+                            </div>
+                            <h6 class="fw-bold mb-1 text-dark">Min. 50% Off</h6>
+                            <p class="text-secondary mb-0">Trendy Sneakers</p>
+                        </a>
+
+                        <a href="#" class="card border-0 text-center keep-shopping-small-box text-decoration-none">
+                            <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img"
+                                style="overflow: hidden;">
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1"
+                                    style="font-size: 0.5rem; border-radius: 4px;">AD</div>
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=200&auto=format&fit=crop"
+                                    class="w-100 h-100 object-fit-cover" alt="Audio">
+                            </div>
+                            <h6 class="fw-bold mb-1 text-dark">Up to 60% Off</h6>
+                            <p class="text-secondary mb-0">Premium Audio</p>
+                        </a>
+
+                        <a href="#" class="card border-0 text-center keep-shopping-small-box text-decoration-none">
+                            <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img"
+                                style="overflow: hidden;">
+                                <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1"
+                                    style="font-size: 0.5rem; border-radius: 4px;">AD</div>
+                                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=200&auto=format&fit=crop"
+                                    class="w-100 h-100 object-fit-cover" alt="Workspace">
+                            </div>
+                            <h6 class="fw-bold mb-1 text-dark">Min. 40% Off</h6>
+                            <p class="text-secondary mb-0">Cozy Workspace</p>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Refer Products Section -->
+        <div class="container mb-5 position-relative">
+            <div class="rounded-4 p-3 p-md-4" style="background-color: #e3f2fd;">
+                <div class="d-flex justify-content-between align-items-center mb-3 mb-md-4">
+                    <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">
+                        TOP Refer Product</h3>
+                    <a href="#" class="text-primary text-decoration-none fw-bold"
+                        style="color: #0087F6 !important; font-size: 0.9rem;">View All</a>
+                </div>
+
+                <div class="position-relative">
+                    <div class="d-flex gap-2 gap-md-3 hide-scroll pb-2 refer-product-grid"
+                        style="scroll-snap-type: x mandatory;">
+
+                        <!-- Card 1 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden refer-product-card text-decoration-none"
+                            style="scroll-snap-align: start;">
+                            <div
+                                class="bg-white p-2 p-md-3 d-flex align-items-center justify-content-center refer-product-img">
+                                <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry">
+                            </div>
+                            <div class="p-2 p-md-3 text-center text-white"
+                                style="background: linear-gradient(to right, #00c6ff, #0072ff);">
+                                <h6 class="fw-bold mb-1 refer-product-title">Jewelry Set</h6>
+                                <p class="mb-0 refer-product-subtitle">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 2 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden refer-product-card text-decoration-none"
+                            style="scroll-snap-align: start;">
+                            <div
+                                class="bg-white p-2 p-md-3 d-flex align-items-center justify-content-center refer-product-img">
+                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry">
+                            </div>
+                            <div class="p-2 p-md-3 text-center text-white"
+                                style="background: linear-gradient(to right, #00c6ff, #0072ff);">
+                                <h6 class="fw-bold mb-1 refer-product-title">Jewelry Set</h6>
+                                <p class="mb-0 refer-product-subtitle">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden refer-product-card text-decoration-none"
+                            style="scroll-snap-align: start;">
+                            <div
+                                class="bg-white p-2 p-md-3 d-flex align-items-center justify-content-center refer-product-img">
+                                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry">
+                            </div>
+                            <div class="p-2 p-md-3 text-center text-white"
+                                style="background: linear-gradient(to right, #00c6ff, #0072ff);">
+                                <h6 class="fw-bold mb-1 refer-product-title">Jewelry Set</h6>
+                                <p class="mb-0 refer-product-subtitle">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 4 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden refer-product-card text-decoration-none"
+                            style="scroll-snap-align: start;">
+                            <div
+                                class="bg-white p-2 p-md-3 d-flex align-items-center justify-content-center refer-product-img">
+                                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry">
+                            </div>
+                            <div class="p-2 p-md-3 text-center text-white"
+                                style="background: linear-gradient(to right, #00c6ff, #0072ff);">
+                                <h6 class="fw-bold mb-1 refer-product-title">Jewelry Set</h6>
+                                <p class="mb-0 refer-product-subtitle">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 5 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden refer-product-card d-none d-md-block text-decoration-none"
+                            style="scroll-snap-align: start;">
+                            <div
+                                class="bg-white p-2 p-md-3 d-flex align-items-center justify-content-center refer-product-img">
+                                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry">
+                            </div>
+                            <div class="p-2 p-md-3 text-center text-white"
+                                style="background: linear-gradient(to right, #00c6ff, #0072ff);">
+                                <h6 class="fw-bold mb-1 refer-product-title">Jewelry Set</h6>
+                                <p class="mb-0 refer-product-subtitle">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <!-- Right Arrow Button -->
+                    <button
+                        class="d-none d-md-flex position-absolute top-50 translate-middle-y end-0 bg-white border shadow-sm justify-content-center align-items-center"
+                        style="width: 45px; height: 70px; border-top-left-radius: 40px; border-bottom-left-radius: 40px; border-top-right-radius: 0; border-bottom-right-radius: 0; right: -1.5rem !important; z-index: 5; cursor: pointer;">
+                        <i class="fas fa-chevron-right text-dark fs-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banners Section -->
+        <div class="container mb-5">
+            <div class="row g-3">
+                <div class="col-md-8">
+                    <a href="category.html" class="d-block text-decoration-none">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop"
+                            class="img-fluid rounded-3 w-100 object-fit-cover shadow-sm special-banner-top"
+                            alt="Sale is Coming Banner">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="category.html?category=electronics" class="d-block text-decoration-none">
+                        <img src="assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png"
+                            class="img-fluid rounded-3 w-100 object-fit-cover shadow-sm special-banner-bottom"
+                            alt="Electronics Accessories Banner">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- On Sale Section -->
+        <div class="container mb-5 position-relative">
+            <div class="rounded-4 p-4" style="background-color: #e6f9f0;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="mb-0 text-dark fw-bold" style="font-family: 'Rubik', sans-serif;">On sale</h3>
+                    <a href="#" class="text-success text-decoration-none fw-bold">View All</a>
+                </div>
+
+                <div class="position-relative">
+                    <div class="d-flex gap-3 hide-scroll pb-2 on-sale-grid" style="scroll-snap-type: x mandatory;">
+
+                        <!-- Card 1 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden flex-shrink-0 on-sale-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center on-sale-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(180deg, #00a82d 0%, #20e850 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 2 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden flex-shrink-0 on-sale-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center on-sale-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(180deg, #00a82d 0%, #20e850 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden flex-shrink-0 on-sale-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center on-sale-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(180deg, #00a82d 0%, #20e850 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 4 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden flex-shrink-0 on-sale-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center on-sale-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(180deg, #00a82d 0%, #20e850 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 5 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-4 overflow-hidden flex-shrink-0 on-sale-card d-none d-md-block text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center on-sale-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(180deg, #00a82d 0%, #20e850 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Right Arrow Button -->
+                    <button
+                        class="position-absolute top-50 translate-middle-y end-0 bg-white border shadow-sm d-none d-md-flex justify-content-center align-items-center"
+                        style="width: 45px; height: 70px; border-top-left-radius: 40px; border-bottom-left-radius: 40px; border-top-right-radius: 0; border-bottom-right-radius: 0; right: -1.5rem !important; z-index: 5; cursor: pointer;">
+                        <i class="fas fa-chevron-right text-dark fs-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Electronics Gadgets Section -->
+        <div class="container mb-5 position-relative">
+            <div class="rounded-4 p-4" style="background-color: #bde0fe;">
+                <div class="row g-4 position-relative">
+
+                    <!-- Left Banner -->
+                    <div class="col-lg-4">
+                        <div class="h-100 rounded-3 position-relative overflow-hidden"
+                            style="background-color: #fcebd1; min-height: 380px;">
+                            <div class="p-4 position-relative" style="z-index: 3;">
+                                <h3 class="fw-bold mb-4 text-dark"
+                                    style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; letter-spacing: 1px;">
+                                    Electronics<br>Gadgets</h3>
+                                <ul class="list-unstyled mb-0 text-dark fw-medium"
+                                    style="font-size: 0.8rem; line-height: 1.8; font-family: 'Montserrat', sans-serif;">
+                                    <li>• Electronics</li>
+                                    <li>• Audio & Accessories</li>
+                                    <li>• Home Appliances</li>
+                                    <li>• Lighting & Smart<br>&nbsp;&nbsp;Home</li>
+                                    <li>• Personal Care<br>&nbsp;&nbsp;Appliances</li>
+                                    <li>• Home & Garden</li>
+                                    <li>• Wearables</li>
+                                </ul>
+                            </div>
+                            <!-- Woman Pointing (Top Right) -->
+                            <img src="assets/img/homescreenimg.png" class="position-absolute top-0 end-0 mt-3"
+                                style="max-height: 60%; width: auto; object-fit: contain; z-index: 1;"
+                                alt="Woman Pointing">
+                            <!-- Electronics Gadgets Collage (Centered at bottom) -->
+                            <img src="assets/img/electronicimg.png"
+                                class="position-absolute start-50 translate-middle-x"
+                                style="max-height: 39%; width: auto; object-fit: contain; z-index: 2; bottom: -20px;"
+                                alt="Electronics Gadgets Collage">
+                        </div>
+                    </div>
+
+                    <!-- Right Grid -->
+                    <div class="col-lg-8 position-relative pe-lg-5">
+                        <div class="row g-3">
+                            <!-- Card 1 -->
+                            <div class="col-md-3 col-6">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="col-md-3 col-6">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="col-md-3 col-6">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="col-md-3 col-6">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 5 -->
+                            <div class="col-md-3 col-6 d-none d-md-block">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 6 -->
+                            <div class="col-md-3 col-6 d-none d-md-block">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 7 -->
+                            <div class="col-md-3 col-6 d-none d-md-block">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 8 -->
+                            <div class="col-md-3 col-6 d-none d-md-block">
+                                <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
+                                    <div class="bg-white p-2 d-flex align-items-center justify-content-center"
+                                        style="height: 150px;">
+                                        <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop"
+                                            class="img-fluid object-fit-contain" style="max-height: 100%;"
+                                            alt="Jewelry Set">
+                                    </div>
+                                    <div class="p-2 text-center text-white" style="background-color: #0d6efd;">
+                                        <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Jewelry Set</h6>
+                                        <p class="mb-0" style="font-size: 0.7rem;">Mini 70 % off</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Arrow Button -->
+                    <button
+                        class="position-absolute top-50 translate-middle-y end-0 bg-white border shadow-sm d-none d-md-flex justify-content-center align-items-center"
+                        style="width: 45px; height: 70px; border-top-left-radius: 40px; border-bottom-left-radius: 40px; border-top-right-radius: 0; border-bottom-right-radius: 0; right: -1rem !important; z-index: 5; cursor: pointer;">
+                        <i class="fas fa-chevron-right text-dark fs-5"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Fashion Sale Banner -->
+        <div class="container mb-5">
+            <a href="category.html?category=fashion" class="text-decoration-none d-block">
+                <div class="position-relative overflow-hidden" style="border-radius: 4px;">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop"
+                        class="w-100 object-fit-cover fashion-banner-img" style="object-position: center 20%;"
+                        alt="Fashion Sale Banner">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                        style="background: linear-gradient(to right, rgba(0,40,60,0.8) 0%, rgba(0,40,60,0.2) 100%);">
+                        <div class="ms-md-5 ms-3 text-white">
+                            <h2 class="fw-bold mb-0 fashion-banner-title">SALE</h2>
+                            <h3 class="fst-italic fashion-banner-subtitle">fashion</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="container mb-5 position-relative">
+            <div class="rounded-4 p-4" style="background-color: #d1f5ff;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="mb-0 text-dark fw-bold explore-products-title" style="font-family: 'Rubik', sans-serif;">
+                        Explore Electronics Products</h3>
+                    <a href="#" class="text-decoration-none fw-bold" style="color: #0087F6;">View All</a>
+                </div>
+
+                <div class="position-relative">
+                    <div class="d-flex gap-3 hide-scroll pb-2 featured-grid" style="scroll-snap-type: x mandatory;">
+                        <!-- Card 1 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden flex-shrink-0 featured-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center featured-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(90deg, #4588FF 14.42%, #00C9C1 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+                        <!-- Card 2 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden flex-shrink-0 featured-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center featured-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(90deg, #4588FF 14.42%, #00C9C1 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+                        <!-- Card 3 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden flex-shrink-0 featured-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center featured-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(90deg, #4588FF 14.42%, #00C9C1 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+                        <!-- Card 4 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden flex-shrink-0 featured-card text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center featured-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(90deg, #4588FF 14.42%, #00C9C1 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+                        <!-- Card 5 -->
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden flex-shrink-0 featured-card d-none d-md-block text-decoration-none"
+                            style="width: 220px; scroll-snap-align: start;">
+                            <div class="bg-white p-3 d-flex align-items-center justify-content-center featured-img-wrapper"
+                                style="height: 220px;">
+                                <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=200&auto=format&fit=crop"
+                                    class="img-fluid object-fit-contain" style="max-height: 100%;" alt="Jewelry Set">
+                            </div>
+                            <div class="p-3 text-center text-white"
+                                style="background: linear-gradient(90deg, #4588FF 14.42%, #00C9C1 100%);">
+                                <h6 class="fw-bold mb-1">Jewelry Set</h6>
+                                <p class="mb-0" style="font-size: 0.75rem;">Mini 70 % off</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid Section -->
+        <div class="container mb-5">
+            <div class="rounded-4 p-4" style="background-color: #eaeaea;">
+                <div class="row g-3">
+                    <!-- Grid Card 1 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">new Arrival</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 2 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">50 % OFF</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 3 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">4.5★(209)</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 4 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded text-white border-0 text-center" style="background-color: #ff6633; flex: 1;">Best Seller</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 17</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 5 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">Trending</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 6 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">50 % OFF</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 7 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">4.5★(209)</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Grid Card 8 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 d-none d-md-block">
+                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 text-decoration-none">
+                            <div class="rounded-2 overflow-hidden mb-2">
+                                <div class="position-relative product-card-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=300&auto=format&fit=crop"
+                                        class="w-100 h-100 object-fit-cover" alt="Jewelry">
+                                </div>
+                                <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
+                                    <span class="px-1 py-1 rounded text-white border-0 text-center" style="background-color: #ff6633; flex: 1;">Best Seller</span>
+                                    <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #d4edda; flex: 1;">Refer 16</span>
+                                    <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 68</span>
+                                </div>
+                            </div>
+                            <div class="px-1 pb-1">
+                                <div class="d-flex align-items-center mb-1 text-truncate">
+                                    <span class="fw-bold text-dark me-2 product-card-title">Tanishk Zumke</span>
+                                    <span class="text-secondary text-truncate product-card-desc">thisis the tital of......</span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="text-muted text-decoration-line-through product-card-original-price">1000</span>
+                                    <span class="fw-bold text-dark product-card-offer-price">Rs 500</span>
+                                    <span class="product-card-promo" style="color: #7b8de6;">70 % Off on all Jewellry</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="header">
-        <h1>Sabka Fayda Pages</h1>
-        <p>Project Directory</p>
-    </div>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
 
-    <div class="grid">
-        <h2 class="section-title">Main Pages</h2>
-        <a href="home.html" class="card">
-            <h3>Home</h3>
-            <p>Main landing page</p>
-        </a>
-        <a href="fullhome.html" class="card">
-            <h3>Full Home</h3>
-            <p>Alternative home layout</p>
-        </a>
-        <a href="category.html" class="card">
-            <h3>Category</h3>
-            <p>Product categories</p>
-        </a>
-        <a href="product-details.html" class="card">
-            <h3>Product Details</h3>
-            <p>Single product view</p>
-        </a>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        <h2 class="section-title">Shopping & Checkout</h2>
-        <a href="mycart.html" class="card">
-            <h3>My Cart</h3>
-            <p>Shopping cart</p>
-        </a>
-        <a href="checkout.html" class="card">
-            <h3>Checkout</h3>
-            <p>Payment and shipping</p>
-        </a>
-        <a href="mywishlist.html" class="card">
-            <h3>Wishlist</h3>
-            <p>Saved items</p>
-        </a>
+    <!-- Main JS -->
+    <script src="assets/js/main.js?v=6"></script>
 
-        <h2 class="section-title">My Account</h2>
-        <a href="login.html" class="card">
-            <h3>Login / OTP</h3>
-            <p>Authentication</p>
-        </a>
-        <a href="myinformation.html" class="card">
-            <h3>My Profile</h3>
-            <p>User details & address</p>
-        </a>
-        <a href="myorders.html" class="card">
-            <h3>My Orders</h3>
-            <p>Order history</p>
-        </a>
-        <a href="order-details.html" class="card">
-            <h3>Order Details</h3>
-            <p>Specific order info</p>
-        </a>
-        <a href="order-breakdown.html" class="card">
-            <h3>Order Breakdown</h3>
-            <p>Detailed invoice</p>
-        </a>
-        <a href="mywallet.html" class="card">
-            <h3>My Wallet</h3>
-            <p>Balance and transactions</p>
-        </a>
-        <a href="mynotification.html" class="card">
-            <h3>Notifications</h3>
-            <p>Alerts and updates</p>
-        </a>
+    <!-- Script to load Header and Footer dynamically -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load Header
+            fetch('header.html?v=5')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                });
 
-        <h2 class="section-title">Information & Legal</h2>
-        <a href="about.html" class="card">
-            <h3>About Us</h3>
-            <p>Company information</p>
-        </a>
-        <a href="terms.html" class="card">
-            <h3>Terms</h3>
-            <p>Terms and conditions</p>
-        </a>
-        <a href="privacy.html" class="card">
-            <h3>Privacy</h3>
-            <p>Privacy policy</p>
-        </a>
-        <a href="return-policy.html" class="card">
-            <h3>Return Policy</h3>
-            <p>Returns and refunds</p>
-        </a>
-    </div>
-
+            // Load Footer
+            fetch('footer.html?v=5')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        });
+    </script>
 </body>
+
 </html>
