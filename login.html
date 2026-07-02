@@ -180,9 +180,23 @@
                             onmouseover="this.style.backgroundColor='#000000'"
                             onmouseout="this.style.backgroundColor='#0b1120'"
                             onclick="handleVerifyOtp()">Verify & Login</button>
-                        <div id="otpError" class="d-none mt-2 text-danger fw-semibold" style="font-size:0.88rem;"></div>
 
-                        <div class="mt-4 text-secondary" style="font-size: 0.95rem;" id="resendContainer">
+                        <!-- OTP Error Alert -->
+                        <div id="otpError" class="d-none mt-3" role="alert"
+                            style="background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%); border: 1.5px solid #fca5a5; border-left: 4px solid #dc2626; border-radius: 10px; padding: 14px 16px;">
+                            <div class="d-flex align-items-flex-start gap-3">
+                                <div style="flex-shrink:0; width:36px; height:36px; background:#fee2e2; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                    <i class="fa-solid fa-shield-xmark" style="color:#dc2626; font-size:1rem;"></i>
+                                </div>
+                                <div style="flex:1; min-width:0;">
+                                    <p class="mb-1 fw-bold" style="color:#991b1b; font-size:0.88rem; margin:0;">Incorrect OTP</p>
+                                    <p id="otpErrorMsg" class="mb-1" style="color:#b91c1c; font-size:0.8rem; margin:0; line-height:1.4;">The OTP you entered does not match. Please check and try again.</p>
+                                    <p id="otpAttemptHint" class="mb-0" style="color:#6b7280; font-size:0.72rem; margin:0;"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-2 text-secondary" style="font-size: 0.9rem;" id="resendContainer">
                             Resend OTP in <span id="resendTimer">00:30</span>
                         </div>
                     </div>
@@ -208,29 +222,75 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Verify OTP using loginmock.js
+            let otpAttempts = 0;
+
+            // Shake animation for OTP inputs
+            function shakeOtpInputs() {
+                const inputs = document.querySelectorAll('.otp-input-box');
+                inputs.forEach(i => {
+                    i.classList.remove('otp-shake');
+                    void i.offsetWidth; // reflow to restart animation
+                    i.classList.add('otp-shake');
+                    i.style.borderColor = '#dc2626';
+                    i.style.background  = '#fff5f5';
+                });
+                setTimeout(() => {
+                    inputs.forEach(i => i.classList.remove('otp-shake'));
+                }, 600);
+            }
+
+            function clearOtpError() {
+                const errEl = document.getElementById('otpError');
+                const inputs = document.querySelectorAll('.otp-input-box');
+                errEl.classList.add('d-none');
+                inputs.forEach(i => {
+                    i.style.borderColor = '#e0e0e0';
+                    i.style.background  = '#fff';
+                });
+            }
+
+            // Clear error when user starts typing again
+            document.querySelectorAll('.otp-input-box').forEach(input => {
+                input.addEventListener('keydown', clearOtpError);
+            });
+
             window.handleVerifyOtp = function () {
                 const mobile  = document.getElementById('mobileInput').value.trim();
                 const inputs  = document.querySelectorAll('.otp-input-box');
                 const otp     = Array.from(inputs).map(i => i.value.trim()).join('');
                 const errEl   = document.getElementById('otpError');
+                const errMsg  = document.getElementById('otpErrorMsg');
+                const hintEl  = document.getElementById('otpAttemptHint');
 
                 if (otp.length < 6) {
-                    errEl.textContent = 'Please enter all 6 digits of the OTP.';
+                    errMsg.textContent = 'Please enter all 6 digits of your OTP before continuing.';
+                    hintEl.textContent = '';
                     errEl.classList.remove('d-none');
+                    shakeOtpInputs();
                     return;
                 }
 
                 const result = mockVerifyOtp(mobile, otp);
                 if (result.success) {
-                    errEl.classList.add('d-none');
-                    // Small success flash then redirect
+                    clearOtpError();
+                    otpAttempts = 0;
                     const btn = document.querySelector('#otpFormSection .login-btn');
-                    if (btn) { btn.textContent = '✓ Logged in! Redirecting…'; btn.style.backgroundColor = '#15803d'; }
+                    if (btn) {
+                        btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i>Logged in! Redirecting…';
+                        btn.style.backgroundColor = '#15803d';
+                    }
                     setTimeout(() => { window.location.href = 'index.html'; }, 900);
                 } else {
-                    errEl.textContent = result.message || 'Invalid OTP. Please try again.';
+                    otpAttempts++;
+                    const remaining = Math.max(0, 3 - otpAttempts);
+                    errMsg.textContent = 'The OTP you entered is incorrect. Please check the OTP sent to your WhatsApp and try again.';
+                    if (remaining > 0) {
+                        hintEl.textContent = `You have ${remaining} attempt${remaining === 1 ? '' : 's'} remaining before your OTP expires.`;
+                    } else {
+                        hintEl.textContent = 'Too many incorrect attempts. Please request a new OTP using Resend OTP.';
+                    }
                     errEl.classList.remove('d-none');
-                    inputs.forEach(i => { i.style.borderColor = '#dc2626'; });
+                    shakeOtpInputs();
                 }
             };
 
