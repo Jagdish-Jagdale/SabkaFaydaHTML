@@ -2770,3 +2770,104 @@ select.profile-form-control {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* ================================================
+   Search Results Dropdown Styling
+   ================================================ */
+.search-results-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    margin-top: 6px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1100;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f3f6;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background-color: #f7f9fc;
+}
+
+.search-result-img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.search-result-info {
+    flex-grow: 1;
+    min-width: 0;
+    margin-left: 14px;
+    margin-right: 14px;
+    text-align: left;
+}
+
+.search-result-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.35;
+}
+
+.search-result-price {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0087F6;
+}
+
+.search-result-btn {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background-color: #0087F6;
+    color: #fff;
+    border: none;
+    transition: background-color 0.15s;
+    text-decoration: none;
+}
+
+.search-result-btn:hover {
+    background-color: #0076d6;
+    color: #fff;
+}
+
+.search-no-results {
+    padding: 20px;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+

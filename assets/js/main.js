@@ -19,19 +19,46 @@ function selectCategory(categoryName) {
 }
 
 function initHeader() {
+    let loadedCats = false;
+    let loadedProducts = false;
+
+    function checkReady() {
+        if (loadedCats && loadedProducts) {
+            proceedInitHeader();
+        }
+    }
+
     if (typeof mockCategories === 'undefined') {
         const script = document.createElement('script');
         script.src = 'assets/js/mockCategories.js';
         script.onload = function() {
-            proceedInitHeader();
+            loadedCats = true;
+            checkReady();
         };
         script.onerror = function() {
             console.error('Failed to load mockCategories.js');
         };
         document.head.appendChild(script);
     } else {
-        proceedInitHeader();
+        loadedCats = true;
     }
+
+    if (typeof mockProducts === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'assets/js/products-mock.js';
+        script.onload = function() {
+            loadedProducts = true;
+            checkReady();
+        };
+        script.onerror = function() {
+            console.error('Failed to load products-mock.js');
+        };
+        document.head.appendChild(script);
+    } else {
+        loadedProducts = true;
+    }
+
+    checkReady();
 }
 
 function proceedInitHeader() {
@@ -190,30 +217,102 @@ function proceedInitHeader() {
     }
 
 
-    // Toggle search icon visibility based on input text
+    // Toggle search icon visibility based on input text and handle search results
+    let searchTimeout = null;
+
+    function handleSearchInput(inputEl, resultsEl, buttonEl) {
+        if (!inputEl || !resultsEl) return;
+
+        if (buttonEl) {
+            if (inputEl.value.trim().length > 0) {
+                buttonEl.classList.add('d-none');
+            } else {
+                buttonEl.classList.remove('d-none');
+            }
+        }
+
+        clearTimeout(searchTimeout);
+
+        const query = inputEl.value.trim().toLowerCase();
+        if (query.length === 0) {
+            resultsEl.classList.add('d-none');
+            resultsEl.innerHTML = '';
+            return;
+        }
+
+        // Debounce search input for 3000ms (3 seconds)
+        searchTimeout = setTimeout(() => {
+            performSearch(query, resultsEl);
+        }, 3000);
+    }
+
+    function performSearch(query, resultsEl) {
+        if (typeof mockProducts === 'undefined') {
+            console.error('mockProducts is not loaded.');
+            return;
+        }
+
+        const filtered = mockProducts.filter(product => 
+            product.name.toLowerCase().includes(query)
+        );
+
+        if (filtered.length === 0) {
+            resultsEl.innerHTML = '<div class="search-no-results">No products found</div>';
+            resultsEl.classList.remove('d-none');
+            return;
+        }
+
+        resultsEl.innerHTML = filtered.map(product => `
+            <a href="product-details.html?id=${product.id}" class="search-result-item text-decoration-none">
+                <img src="${product.image}" alt="${product.name}" class="search-result-img" onerror="this.src='assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png'">
+                <div class="search-result-info">
+                    <div class="search-result-title">${product.name}</div>
+                    <div class="search-result-price">₹ ${product.price}</div>
+                </div>
+                <button class="search-result-btn" type="button">View Details</button>
+            </a>
+        `).join('');
+        resultsEl.classList.remove('d-none');
+    }
+
     const desktopSearchInput = document.getElementById('desktopSearchInput');
     const desktopSearchBtn = document.getElementById('desktopSearchBtn');
-    if (desktopSearchInput && desktopSearchBtn) {
+    const desktopSearchResults = document.getElementById('desktopSearchResults');
+    if (desktopSearchInput) {
         desktopSearchInput.addEventListener('input', function() {
-            if (this.value.trim().length > 0) {
-                desktopSearchBtn.classList.add('d-none');
-            } else {
-                desktopSearchBtn.classList.remove('d-none');
+            handleSearchInput(desktopSearchInput, desktopSearchResults, desktopSearchBtn);
+        });
+        // Re-show dropdown on focus if input is not empty
+        desktopSearchInput.addEventListener('focus', function() {
+            if (this.value.trim().length > 0 && desktopSearchResults.children.length > 0) {
+                desktopSearchResults.classList.remove('d-none');
             }
         });
     }
 
     const mobileSearchInput = document.getElementById('mobileSearchInput');
     const mobileSearchBtn = document.getElementById('mobileSearchBtn');
-    if (mobileSearchInput && mobileSearchBtn) {
+    const mobileSearchResults = document.getElementById('mobileSearchResults');
+    if (mobileSearchInput) {
         mobileSearchInput.addEventListener('input', function() {
-            if (this.value.trim().length > 0) {
-                mobileSearchBtn.classList.add('d-none');
-            } else {
-                mobileSearchBtn.classList.remove('d-none');
+            handleSearchInput(mobileSearchInput, mobileSearchResults, mobileSearchBtn);
+        });
+        mobileSearchInput.addEventListener('focus', function() {
+            if (this.value.trim().length > 0 && mobileSearchResults.children.length > 0) {
+                mobileSearchResults.classList.remove('d-none');
             }
         });
     }
+
+    // Close search dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (desktopSearchResults && !desktopSearchResults.contains(e.target) && e.target !== desktopSearchInput) {
+            desktopSearchResults.classList.add('d-none');
+        }
+        if (mobileSearchResults && !mobileSearchResults.contains(e.target) && e.target !== mobileSearchInput) {
+            mobileSearchResults.classList.add('d-none');
+        }
+    });
 
     // Close mobile navbar on clicking outside
     const navbarContent = document.getElementById('navbarContent');
