@@ -339,9 +339,13 @@
             }));
 
             // Update header delivery location immediately if present
-            const deliveryEl = document.getElementById('headerDeliveryLocation');
-            if (deliveryEl && (city || pincode)) {
-                deliveryEl.textContent = [city, pincode].filter(Boolean).join(' ');
+            const deliveryTextEl = document.getElementById('headerDeliveryText');
+            const deliveryActionEl = document.getElementById('headerDeliveryAction');
+            if (deliveryTextEl && (city || pincode)) {
+                deliveryTextEl.textContent = 'Delivering to ' + [city, pincode].filter(Boolean).join(' ');
+            }
+            if (deliveryActionEl && (city || pincode)) {
+                deliveryActionEl.textContent = 'Update';
             }
 
             document.getElementById('toast-msg').innerHTML =

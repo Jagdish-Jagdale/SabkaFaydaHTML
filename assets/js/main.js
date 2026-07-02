@@ -53,8 +53,9 @@ function proceedInitHeader() {
     }
 
     // Load delivery location from localStorage
-    const deliveryLocationEl = document.getElementById('headerDeliveryLocation');
-    if (deliveryLocationEl) {
+    const deliveryTextEl = document.getElementById('headerDeliveryText');
+    const deliveryActionEl = document.getElementById('headerDeliveryAction');
+    if (deliveryTextEl && deliveryActionEl) {
         const savedAddress = localStorage.getItem('userAddress');
         if (savedAddress) {
             try {
@@ -62,10 +63,12 @@ function proceedInitHeader() {
                 const city = address.city || '';
                 const pincode = address.pincode || '';
                 if (city || pincode) {
-                    deliveryLocationEl.textContent = [city, pincode].filter(Boolean).join(' ');
+                    deliveryTextEl.textContent = 'Delivering to ' + [city, pincode].filter(Boolean).join(' ');
+                    deliveryActionEl.textContent = 'Update';
+                    deliveryActionEl.href = 'myinformation.html#myaddress';
                 }
             } catch (e) {
-                // Invalid JSON, keep default placeholder
+                // Invalid JSON, keep default "Set Delivery Address" + "Add"
             }
         }
     }
