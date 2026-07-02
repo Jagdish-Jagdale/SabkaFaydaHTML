@@ -17,7 +17,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css?v=15">
+    <link rel="stylesheet" href="assets/css/main.css?v=16">
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
@@ -89,6 +89,117 @@
     </main>
 
     <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+
+    <!-- ═══ SHARE MODAL ═══ -->
+    <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="shareModalLabel"><i class="fa-solid fa-share-nodes text-primary me-2"></i>Share &amp; Unlock Redeem</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <p class="text-muted" style="font-size: 0.82rem;">Share the app with <strong>5 friends</strong> to unlock the Redeem option. Progress: <span id="share-count-display" class="fw-bold text-primary">0/5</span></p>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="btn btn-outline-primary rounded-pill fw-bold" onclick="simulateShare('WhatsApp')"><i class="fa-brands fa-whatsapp me-2"></i>Share on WhatsApp</button>
+                        <button class="btn btn-outline-primary rounded-pill fw-bold" onclick="simulateShare('Facebook')"><i class="fa-brands fa-facebook me-2"></i>Share on Facebook</button>
+                        <button class="btn btn-outline-primary rounded-pill fw-bold" onclick="simulateShare('Instagram')"><i class="fa-brands fa-instagram me-2"></i>Share on Instagram</button>
+                        <button class="btn btn-outline-primary rounded-pill fw-bold" onclick="simulateShare('Twitter')"><i class="fa-brands fa-x-twitter me-2"></i>Share on X (Twitter)</button>
+                        <button class="btn btn-outline-primary rounded-pill fw-bold" onclick="simulateShare('Telegram')"><i class="fa-brands fa-telegram me-2"></i>Share on Telegram</button>
+                    </div>
+                    <hr>
+                    <button class="btn btn-primary w-100 rounded-pill fw-bold" onclick="simulateFullShares()"><i class="fa-solid fa-check-circle me-2"></i>Simulate All 5 Shares</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ REDEEM MODAL ═══ -->
+    <div class="modal fade" id="redeemModal" tabindex="-1" aria-labelledby="redeemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="redeemModalLabel"><i class="fa-solid fa-money-bill-transfer text-success me-2"></i>Redeem Wallet Balance</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <p class="text-muted mb-3" style="font-size: 0.82rem;">Available Balance: <span id="max-redeem-display" class="fw-bold text-success"></span></p>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold" style="font-size: 0.82rem;">Amount to Redeem (&#8377;)</label>
+                        <input type="number" class="form-control rounded-3" id="redeem-amount" placeholder="Enter amount" min="1">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold" style="font-size: 0.82rem;">Transfer Method</label>
+                        <select class="form-select rounded-3" id="transfer-method">
+                            <option value="upi">UPI Transfer</option>
+                            <option value="bank">Bank Transfer</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold" style="font-size: 0.82rem;">UPI ID / Account Details</label>
+                        <input type="text" class="form-control rounded-3" id="redeem-details" placeholder="e.g. user@upi or Account No.">
+                    </div>
+                    <button class="btn btn-primary w-100 rounded-pill fw-bold" onclick="processRedeem()"><i class="fa-solid fa-paper-plane me-2"></i>Initiate Transfer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ REDEEM HISTORY MODAL ═══ -->
+    <div class="modal fade" id="redeemHistoryModal" tabindex="-1" aria-labelledby="redeemHistoryLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="redeemHistoryLabel"><i class="fa-solid fa-clock-rotate-left text-primary me-2"></i>Redeem History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <div id="redeemHistoryList">
+                        <p class="text-muted text-center py-3" style="font-size: 0.82rem;">No redeem transactions yet. Complete 5 shares and redeem your balance!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ TX DETAILS MODAL ═══ -->
+    <div class="modal fade" id="txDetailsModal" tabindex="-1" aria-labelledby="txDetailsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="txDetailsLabel"><i class="fa-solid fa-receipt text-primary me-2"></i>Transaction Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item d-flex justify-content-between py-3">
+                            <span class="text-muted fw-semibold" style="font-size: 0.82rem;">Reference</span>
+                            <span class="fw-bold text-dark" id="tx-ref" style="font-size: 0.85rem;">—</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between py-3">
+                            <span class="text-muted fw-semibold" style="font-size: 0.82rem;">Date &amp; Time</span>
+                            <span class="fw-bold text-dark" id="tx-date" style="font-size: 0.85rem;">—</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between py-3">
+                            <span class="text-muted fw-semibold" style="font-size: 0.82rem;">Type</span>
+                            <span class="fw-bold text-dark" id="tx-type" style="font-size: 0.85rem;">—</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between py-3">
+                            <span class="text-muted fw-semibold" style="font-size: 0.82rem;">Amount</span>
+                            <span class="fw-bold" id="tx-amount" style="font-size: 0.85rem;">—</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between py-3">
+                            <span class="text-muted fw-semibold" style="font-size: 0.82rem;">Bonus Points</span>
+                            <span class="fw-bold text-warning" id="tx-points" style="font-size: 0.85rem;">—</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button class="btn btn-outline-secondary rounded-pill fw-bold px-4" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Notification Toast System -->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
@@ -319,10 +430,10 @@
         // Update Balance UI
         function updateBalanceUI() {
             const formatted = `&#8377; ${walletBalance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
-            sidebarBalance.innerHTML = `Balance: ${formatted}`;
-            headerBalance.innerHTML = formatted;
-            cardBalance.innerHTML = formatted;
-            maxRedeemDisplay.innerHTML = formatted;
+            if (sidebarBalance) sidebarBalance.innerHTML = `Balance: ${formatted}`;
+            if (headerBalance) headerBalance.innerHTML = formatted;
+            if (cardBalance) cardBalance.innerHTML = formatted;
+            if (maxRedeemDisplay) maxRedeemDisplay.innerHTML = formatted;
         }
 
         // Initial Balance Setup

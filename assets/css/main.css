@@ -2105,6 +2105,109 @@ select.profile-form-control {
     color: #ffffff;
 }
 
+/* ================================================
+   Wallet Page Styles (mywallet.html)
+   ================================================ */
+
+.wallet-card {
+    background: linear-gradient(135deg, #0053b3 0%, #0087F6 55%, #33a8ff 100%);
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(0, 93, 255, 0.22);
+    color: #fff;
+    padding: 40px 32px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.wallet-card::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+}
+
+.wallet-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.wallet-history-card {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 93, 255, 0.03);
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.wallet-history-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 93, 255, 0.09);
+    transform: translateY(-2px);
+}
+
+.wallet-history-card > div {
+    padding: 18px 20px;
+}
+
+.wallet-history-card > div:not(:first-child) {
+    border-left: 1px solid #f1f5f9;
+}
+
+@media (max-width: 768px) {
+    .wallet-history-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wallet-history-card > div:not(:first-child) {
+        border-left: 0;
+        border-top: 1px solid #f1f5f9;
+        width: 100%;
+    }
+
+    .wallet-card {
+        padding: 28px 20px 24px;
+    }
+}
+
+/* ================================================
+   Wishlist Status Pills
+   ================================================ */
+
+.status-pill.in-stock {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-pill.low-stock {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.status-pill.out-of-stock {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
 @media (max-width: 1199px) {
     .orders-summary-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));

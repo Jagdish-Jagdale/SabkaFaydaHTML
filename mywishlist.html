@@ -21,7 +21,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css?v=15">
+    <link rel="stylesheet" href="assets/css/main.css?v=16">
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
@@ -143,37 +143,8 @@
                         style="border-radius: 8px;">Explore Products</a>
                 </div>
 
-                <!-- Wishlist Items List -->
-                <div class="orders-list" id="wishlistItemsList">
-
-                    <!-- Product Item 1: Apple iPhone 15 Pro, 256GB, Blue Titanium -->
-                    <article class="order-card bg-white shadow-sm wishlist-item" data-status="in-stock"
-                        data-price="124900" data-date="2026-06-28" data-timestamp="1782631800000"
-                        data-name="Apple iPhone 15 Pro, 256GB, Blue Titanium">
-                        <div class="order-product">
-                            <div class="order-product-img position-relative">
-                                <img src="assets/img/iphone15_blue.png" alt="Apple iPhone 15 Pro">
-                                <span
-                                    class="position-absolute top-0 end-0 m-1 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center"
-                                    style="width: 24px; height: 24px; z-index: 2;" title="Saved to Wishlist">
-                                    <i class="fa-solid fa-heart text-danger" style="font-size: 0.75rem;"></i>
-                                </span>
-                            </div>
-                            <div>
-                                <h3 class="product-title">Apple iPhone 15 Pro, 256GB, Blue Titanium</h3>
-                                <span class="text-muted mb-1 d-block"
-                                    style="font-size: 0.72rem; font-weight: 500;">Current Price</span>
-                                <b class="fs-5 text-dark">&#8377;1,24,900</b>
-                            </div>
-                        </div>
-                        <div class="order-info-column">
-                            <div class="order-meta">
-                                <i class="fa-regular fa-calendar-days"></i>
-                                <div>
-                                    <span>Order Date</span>
-                <div class="orders-list" id="wishlistContainer">
-                    <!-- Wishlist items will be injected here dynamically by renderWishlist.js -->
-                </div>
+                <!-- Wishlist Items List (populated by renderWishlist.js) -->
+                <div class="orders-list" id="wishlistItemsList"></div>
             </section>
         </div>
     </main>

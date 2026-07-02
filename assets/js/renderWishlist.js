@@ -1,11 +1,13 @@
 function renderWishlist(wishlistData) {
-    const container = document.getElementById('wishlistContainer');
+    const container = document.getElementById('wishlistItemsList');
     if (!container) return;
 
     let html = '';
-    wishlistData.forEach(item => {
+    wishlistData.forEach((item, index) => {
+        // Generate a stable timestamp for sorting (if not in data, use index-based offset)
+        const timestamp = item.timestamp || (Date.now() - index * 86400000);
         html += `
-        <article class="order-card bg-white shadow-sm wishlist-item" data-status="${item.statusClass}" data-price="${item.price.replace(/,/g, '')}" data-name="${item.productName}">
+        <article class="order-card bg-white shadow-sm wishlist-item" data-status="${item.statusClass}" data-price="${(item.price || '0').replace(/,/g, '')}" data-name="${item.productName}" data-timestamp="${timestamp}">
             <div class="order-product">
                 <div class="order-product-img position-relative">
                     <img src="${item.image}" alt="${item.productName}">
