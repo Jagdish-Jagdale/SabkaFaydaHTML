@@ -8,7 +8,6 @@ function selectCategory(categoryName) {
     const dropdownItems = document.querySelectorAll('.custom-dropdown-item');
     dropdownItems.forEach(item => {
         item.classList.remove('active');
-        // check if text matches or if it starts with the category name (to handle nested icons)
         const itemText = item.textContent.trim();
         if (itemText === categoryName || 
             (categoryName === 'All Category' && itemText === 'All Categories') ||
@@ -95,9 +94,14 @@ function proceedInitHeader() {
                     deliveryActionEl.href = 'myaddress.html';
                 }
             } catch (e) {
-                // Invalid JSON, keep default "Set Delivery Address" + "Add"
+                // Invalid JSON, keep default
             }
         }
+    }
+
+    // Update login button based on auth state
+    if (typeof updateLoginButton === 'function') {
+        updateLoginButton();
     }
 
     // Populate search bar category dropdown
@@ -127,10 +131,11 @@ function proceedInitHeader() {
     const catL1List = document.getElementById('catDropL1List');
     const catL2List = document.getElementById('catDropL2List');
     const catBarCont = document.getElementById('categoriesBarContainer');
-    const catLinks   = document.querySelectorAll('.category-link');
+
     let catHideTimer = null;
-    const catHideDelay = 650;
-    const catFlyoutGap = 8;
+    // Short delay — just enough for the cursor to travel across the gap between bar and dropdown
+    const catHideDelay = 200;
+    const catFlyoutGap = 0;
 
     function cancelCatHide() { clearTimeout(catHideTimer); }
 
@@ -158,7 +163,7 @@ function proceedInitHeader() {
             return;
         }
 
-        // Position L1 below the hovered link
+        // Position L1 directly below the hovered link
         var contRect = catBarCont.getBoundingClientRect();
         var linkRect = link.getBoundingClientRect();
         var leftPos  = linkRect.left - contRect.left;
@@ -194,7 +199,6 @@ function proceedInitHeader() {
                     return '<li><a href="#" class="cat-l2-item">' + it + '</a></li>';
                 }).join('');
 
-                // Keep a visible gap between levels while the hide delay covers cursor travel.
                 catL2Box.style.left = (leftPos + catL1Box.offsetWidth + catFlyoutGap) + 'px';
                 catL2Box.style.display = 'block';
 
@@ -202,15 +206,20 @@ function proceedInitHeader() {
                     a.addEventListener('click', function(e) { e.preventDefault(); });
                 });
             });
+            item.addEventListener('mouseleave', function() {
+                // Only schedule hide if also leaving L2
+                // The L2 mouseenter will cancel it if cursor goes there
+                scheduleCatHide();
+            });
         });
     }
 
     if (catL1Box && catL2Box && catBarCont) {
-        // Since links are dynamic, bind mouseenter dynamically or query them here after injection
         const currentLinks = document.querySelectorAll('.category-link');
         currentLinks.forEach(function(link) {
             link.addEventListener('mouseenter', function() { showCatL1(this); });
-            link.addEventListener('click',      function(e) { e.preventDefault(); });
+            link.addEventListener('mouseleave', scheduleCatHide);
+            link.addEventListener('click', function(e) { e.preventDefault(); });
         });
         catBarCont.addEventListener('mouseleave', scheduleCatHide);
         catL1Box.addEventListener('mouseenter', cancelCatHide);
@@ -285,7 +294,6 @@ function proceedInitHeader() {
         desktopSearchInput.addEventListener('input', function() {
             handleSearchInput(desktopSearchInput, desktopSearchResults, desktopSearchBtn);
         });
-        // Re-show dropdown on focus if input is not empty
         desktopSearchInput.addEventListener('focus', function() {
             if (this.value.trim().length > 0 && desktopSearchResults.children.length > 0) {
                 desktopSearchResults.classList.remove('d-none');
@@ -341,13 +349,11 @@ function handleSendOtp() {
     const mobileError = document.getElementById('mobileError');
 
     if (mobileInput.value.length === 10 && /^[6-9]/.test(mobileInput.value)) {
-        // Valid mobile number
         document.getElementById('displayMobileNo').innerText = mobileInput.value;
         document.getElementById('mobileFormSection').classList.add('d-none');
         document.getElementById('otpFormSection').classList.remove('d-none');
         startTimer(30);
     } else {
-        // Invalid, trigger error state manually
         mobileInput.style.color = '#FB0000';
         mobileInput.style.borderBottomColor = '#FB0000';
         mobileError.classList.remove('d-none');
@@ -371,7 +377,6 @@ function startTimer(duration) {
     let timer = duration, minutes, seconds;
     const container = document.getElementById('resendContainer');
 
-    // Reset container content to show timer
     container.innerHTML = 'Resend OTP in <span id="resendTimer"></span>';
     const display = document.getElementById('resendTimer');
 
@@ -394,7 +399,6 @@ function startTimer(duration) {
 
 function resendOtp(event) {
     event.preventDefault();
-    // Optional: call your resend OTP API here
     startTimer(30);
 }
 
