@@ -26,7 +26,6 @@
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
 </head>
 
@@ -96,7 +95,7 @@
                         style="font-weight: 500; font-size: 2rem; font-family: 'Rubik', sans-serif;">Login with
                         Mobile</h3>
                     <p class="mb-2 text-secondary login-subtext text-lg-nowrap"
-                        style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">OTP sent on your Whatsup </p>
+                        style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">OTP sent on your WhatsApp </p>
 
                     <img src="assets/img/WhatsApp_icon.png" alt="WhatsApp Icon" height="70" class="mb-5 whatsapp-icon">
 
@@ -106,7 +105,7 @@
                                 <span class="text-dark me-2 fs-5 input-prefix"
                                     style="font-weight: 400; white-space: nowrap;">In
                                     +91</span>
-                                <input type="text" class="w-100 bg-transparent pb-1 login-input"
+                                <input type="tel" inputmode="numeric" class="w-100 bg-transparent pb-1 login-input"
                                     placeholder="Enter Mobile Number"
                                     style="outline: none; font-size: 1.25rem; border: none; border-bottom: 2px solid #ccc; color: #212529; transition: border-color 0.3s, color 0.3s;"
                                     maxlength="10" id="mobileInput"
@@ -133,8 +132,7 @@
                                     ">
                             </div>
                             <div id="mobileError" class="position-absolute mt-1 d-none"
-                                style="font-size: 0.95rem; color: #FB0000; left: 0; margin-left: 62px;">Please Enter
-                                Valid Mobile Number</div>
+                                style="font-size: 0.95rem; color: #FB0000; left: 0; margin-left: 62px;">Please enter a valid mobile number</div>
                         </div>
 
                         <button class="text-white fw-semibold w-100 border-0 mt-2 py-3 rounded-3 login-btn"
@@ -150,32 +148,32 @@
                                 id="displayMobileNo" class="fw-bold text-dark"></span></p>
 
                         <div class="d-flex justify-content-between mb-4 gap-2">
-                            <input type="text" maxlength="1"
+                            <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
                                 onkeyup="moveToNext(this, event)">
-                            <input type="text" maxlength="1"
+                            <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
                                 onkeyup="moveToNext(this, event)">
-                            <input type="text" maxlength="1"
+                            <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
                                 onkeyup="moveToNext(this, event)">
-                            <input type="text" maxlength="1"
+                            <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
                                 onkeyup="moveToNext(this, event)">
-                            <input type="text" maxlength="1"
+                            <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
                                 onkeyup="moveToNext(this, event)">
-                            <input type="text" maxlength="1"
+                            <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
                                 onkeyup="moveToNext(this, event)">
                         </div>
-                        <div id="otpError" class="d-none my-2 text-danger" role="alert"
+                        <div id="otpError" class="d-none my-2 text-danger" role="alert" aria-live="polite"
                             style="font-size: 0.85rem; font-weight: 500;">
                             The OTP you entered is incorrect. Please try again.
                         </div>
@@ -247,11 +245,55 @@
                 input.addEventListener('keydown', clearOtpError);
             });
 
+            window.handleSendOtp = function () {
+                const mobile = document.getElementById('mobileInput').value.trim();
+                const btn = document.querySelector('#mobileFormSection .login-btn');
+                
+                if (!/^[6-9]\d{9}$/.test(mobile)) {
+                    document.getElementById('mobileError').classList.remove('d-none');
+                    return;
+                }
+
+                // Disable button during processing
+                if (btn) {
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Sending OTP...';
+                }
+
+                // Simulate OTP sending
+                setTimeout(() => {
+                    if (mockSendOtp(mobile)) {
+                        document.getElementById('mobileFormSection').classList.add('d-none');
+                        document.getElementById('otpFormSection').classList.remove('d-none');
+                        document.getElementById('displayMobileNo').textContent = mobile;
+                        startResendTimer();
+                    }
+                    // Re-enable button
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.innerHTML = 'Send OTP';
+                    }
+                }, 1000);
+            };
+
             window.handleVerifyOtp = function () {
                 const mobile  = document.getElementById('mobileInput').value.trim();
                 const inputs  = document.querySelectorAll('.otp-input-box');
                 const otp     = Array.from(inputs).map(i => i.value.trim()).join('');
                 const errEl   = document.getElementById('otpError');
+                const btn     = document.querySelector('#otpFormSection .login-btn');
+
+                // Rate limiting: max 3 attempts
+                if (otpAttempts >= 3) {
+                    errEl.textContent = 'Too many incorrect attempts. Please request a new OTP.';
+                    errEl.classList.remove('d-none');
+                    shakeOtpInputs();
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.innerHTML = 'Too many attempts';
+                    }
+                    return;
+                }
 
                 if (otp.length < 6) {
                     errEl.textContent = 'Please enter all 6 digits of your OTP before continuing.';
@@ -260,11 +302,16 @@
                     return;
                 }
 
+                // Disable button during processing
+                if (btn) {
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Verifying...';
+                }
+
                 const result = mockVerifyOtp(mobile, otp);
                 if (result.success) {
                     clearOtpError();
                     otpAttempts = 0;
-                    const btn = document.querySelector('#otpFormSection .login-btn');
                     if (btn) {
                         btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i>Logged in! Redirecting…';
                         btn.style.backgroundColor = '#15803d';
@@ -272,15 +319,30 @@
                     setTimeout(() => { window.location.href = 'index.html'; }, 900);
                 } else {
                     otpAttempts++;
-                    errEl.textContent = 'The OTP you entered is incorrect. Please try again.';
+                    const remainingAttempts = 3 - otpAttempts;
+                    if (remainingAttempts > 0) {
+                        errEl.textContent = `The OTP you entered is incorrect. ${remainingAttempts} attempt${remainingAttempts > 1 ? 's' : ''} remaining.`;
+                    } else {
+                        errEl.textContent = 'Too many incorrect attempts. Please request a new OTP.';
+                    }
                     errEl.classList.remove('d-none');
                     shakeOtpInputs();
+                    // Re-enable button if not maxed out
+                    if (btn && otpAttempts < 3) {
+                        btn.disabled = false;
+                        btn.innerHTML = 'Verify & Login';
+                    }
                 }
             };
 
             // Load Header
             fetch('header.html?v=5')
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
                     if (typeof initHeader === 'function') {
@@ -291,7 +353,12 @@
 
             // Load Footer
             fetch('footer.html?v=5')
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
                 })
