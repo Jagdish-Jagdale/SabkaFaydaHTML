@@ -85,13 +85,13 @@
             <!-- Right Side -->
             <div class="col-lg-5 d-flex flex-column align-items-center">
 
-                <div class="w-100 mx-auto d-flex justify-content-center mb-4" style="max-width: 420px;">
+                <div class="w-100 mx-auto d-flex justify-content-center" style="max-width: 420px;">
                     <img src="assets/img/sflogo.png" alt="Sabka Fayda User Authentication Login Logo"
                         height="72" class="top-login-logo">
                 </div>
 
                 <div class="rounded-3 p-5 mx-auto w-100 text-center login-card"
-                    style="background-color: #f4f4f3; max-width: 420px; box-shadow: 0 12px 40px rgba(0,0,0,0.08); padding-bottom: 70px !important; border: 1px solid #e0e0e0;">
+                    style="background-color: #f4f4f3; max-width: 420px; box-shadow: 0 12px 40px rgba(0,0,0,0.08); padding-bottom: 30px !important; border: 1px solid #e0e0e0; margin-top: -45px;">
                     <h3 class="mb-2 text-dark login-heading"
                         style="font-weight: 500; font-size: 2rem; font-family: 'Rubik', sans-serif;">Login with
                         Mobile</h3>
@@ -144,7 +144,8 @@
                             OTP</button>
                     </div>
 
-                    <div id="otpFormSection" class="d-none mt-2">
+                    <div id="otpFormSection" class="d-none ">
+
                         <p class="text-secondary mb-4" style="font-size: 0.95rem;">Enter OTP sent on WhatsApp No <span
                                 id="displayMobileNo" class="fw-bold text-dark"></span></p>
 
@@ -174,6 +175,10 @@
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
                                 onkeyup="moveToNext(this, event)">
                         </div>
+                        <div id="otpError" class="d-none my-2 text-danger" role="alert"
+                            style="font-size: 0.85rem; font-weight: 500;">
+                            The OTP you entered is incorrect. Please try again.
+                        </div>
 
                         <button class="text-white fw-semibold w-100 border-0 mt-2 py-3 rounded-3 login-btn"
                             style="background-color: #0b1120; font-size: 1.1rem; transition: background-color 0.3s;"
@@ -182,19 +187,7 @@
                             onclick="handleVerifyOtp()">Verify & Login</button>
 
                         <!-- OTP Error Alert -->
-                        <div id="otpError" class="d-none mt-3" role="alert"
-                            style="background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%); border: 1.5px solid #fca5a5; border-left: 4px solid #dc2626; border-radius: 10px; padding: 14px 16px;">
-                            <div class="d-flex align-items-flex-start gap-3">
-                                <div style="flex-shrink:0; width:36px; height:36px; background:#fee2e2; border-radius:50%; display:flex; align-items:center; justify-content:center;">
-                                    <i class="fa-solid fa-shield-xmark" style="color:#dc2626; font-size:1rem;"></i>
-                                </div>
-                                <div style="flex:1; min-width:0;">
-                                    <p class="mb-1 fw-bold" style="color:#991b1b; font-size:0.88rem; margin:0;">Incorrect OTP</p>
-                                    <p id="otpErrorMsg" class="mb-1" style="color:#b91c1c; font-size:0.8rem; margin:0; line-height:1.4;">The OTP you entered does not match. Please check and try again.</p>
-                                    <p id="otpAttemptHint" class="mb-0" style="color:#6b7280; font-size:0.72rem; margin:0;"></p>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="mt-4 text-secondary" style="font-size: 0.95rem;" id="resendContainer">
                             Resend OTP in <span id="resendTimer">00:30</span>
@@ -259,12 +252,9 @@
                 const inputs  = document.querySelectorAll('.otp-input-box');
                 const otp     = Array.from(inputs).map(i => i.value.trim()).join('');
                 const errEl   = document.getElementById('otpError');
-                const errMsg  = document.getElementById('otpErrorMsg');
-                const hintEl  = document.getElementById('otpAttemptHint');
 
                 if (otp.length < 6) {
-                    errMsg.textContent = 'Please enter all 6 digits of your OTP before continuing.';
-                    hintEl.textContent = '';
+                    errEl.textContent = 'Please enter all 6 digits of your OTP before continuing.';
                     errEl.classList.remove('d-none');
                     shakeOtpInputs();
                     return;
@@ -282,13 +272,7 @@
                     setTimeout(() => { window.location.href = 'index.html'; }, 900);
                 } else {
                     otpAttempts++;
-                    const remaining = Math.max(0, 3 - otpAttempts);
-                    errMsg.textContent = 'The OTP you entered is incorrect. Please check the OTP sent to your WhatsApp and try again.';
-                    if (remaining > 0) {
-                        hintEl.textContent = `You have ${remaining} attempt${remaining === 1 ? '' : 's'} remaining before your OTP expires.`;
-                    } else {
-                        hintEl.textContent = 'Too many incorrect attempts. Please request a new OTP using Resend OTP.';
-                    }
+                    errEl.textContent = 'The OTP you entered is incorrect. Please try again.';
                     errEl.classList.remove('d-none');
                     shakeOtpInputs();
                 }
