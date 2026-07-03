@@ -1,6 +1,22 @@
 function renderWishlist(wishlistData) {
     const container = document.getElementById('wishlistItemsList');
+    const emptyState = document.getElementById('emptyWishlistState');
     if (!container) return;
+
+    // Check if wishlist is empty
+    if (!wishlistData || wishlistData.length === 0) {
+        // Show empty state
+        if (emptyState) {
+            emptyState.classList.remove('d-none');
+        }
+        container.innerHTML = '';
+        return;
+    }
+
+    // Hide empty state and show items
+    if (emptyState) {
+        emptyState.classList.add('d-none');
+    }
 
     let html = '';
     wishlistData.forEach((item, index) => {

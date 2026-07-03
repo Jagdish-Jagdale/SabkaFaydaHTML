@@ -256,6 +256,17 @@
             setTimeout(() => {
                 card.remove();
                 showToast(`"${productName}" removed from your wishlist.`);
+                
+                // Check if wishlist is now empty
+                const remainingItems = document.querySelectorAll('.wishlist-item');
+                if (remainingItems.length === 0) {
+                    // Show empty state
+                    const emptyState = document.getElementById('emptyWishlistState');
+                    if (emptyState) {
+                        emptyState.classList.remove('d-none');
+                    }
+                }
+                
                 updateUIState();
             }, 400);
         }
