@@ -108,7 +108,7 @@
                                 <input type="tel" inputmode="numeric" class="w-100 bg-transparent pb-1 login-input"
                                     placeholder="Enter Mobile Number"
                                     style="outline: none; font-size: 1.25rem; border: none; border-bottom: 2px solid #ccc; color: #212529; transition: border-color 0.3s, color 0.3s;"
-                                    maxlength="10" id="mobileInput"
+                                    maxlength="10" id="mobileInput" autofocus
                                     onfocus="if(document.getElementById('mobileError').classList.contains('d-none')) this.style.borderBottomColor='#0d8dfb'"
                                     onblur="
                                         if(this.value.length > 0 && this.value.length < 10) {
@@ -151,7 +151,7 @@
                             <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
-                                onkeyup="moveToNext(this, event)">
+                                onkeyup="moveToNext(this, event)" autofocus>
                             <input type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1"
                                 class="form-control text-center fs-4 rounded-3 p-0 otp-input-box"
                                 style="width: 50px; height: 55px; border-color: #e0e0e0; transition: border-color 0.3s;"
@@ -308,6 +308,12 @@
                             input.style.borderColor = '#e0e0e0';
                             input.style.background = '#fff';
                         });
+                        
+                        // Focus first OTP input
+                        const firstOtpInput = document.querySelector('.otp-input-box');
+                        if (firstOtpInput) {
+                            firstOtpInput.focus();
+                        }
                         
                         startResendTimer();
                     }
