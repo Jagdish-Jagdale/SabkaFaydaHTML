@@ -18,6 +18,10 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css?v=15">
 
+    <!-- Order Breakdown Mock Data -->
+    <script src="assets/js/order-breakdown-mock.js"></script>
+    <script src="assets/js/renderOrderBreakdown.js"></script>
+
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
@@ -142,121 +146,7 @@
                 <div class="row g-3">
                     <!-- Left: Log items list -->
                     <div class="col-lg-8 col-12">
-                        <div class="d-flex flex-column gap-2" id="breakdownLogsList">
-                            
-                            <!-- Log Item 1 -->
-                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
-                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
-                                 data-type="daily" data-day="1" data-date="2026-05-26T15:07:00">
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #0087F6; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 1</span>
-                                    <div>
-                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">26 May 2026, 03:07 PM</span>
-                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="text-center" style="min-width: 80px;">
-                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
-                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Daily</span>
-                                    </div>
-                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹0.60 Bonus</span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(1)">
-                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
-                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Log Item 2 -->
-                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
-                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
-                                 data-type="daily" data-day="2" data-date="2026-05-24T15:07:00">
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #ea580c; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 2</span>
-                                    <div>
-                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">24 May 2026, 03:07 PM</span>
-                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="text-center" style="min-width: 80px;">
-                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
-                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Daily</span>
-                                    </div>
-                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹0.60 Bonus</span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(2)">
-                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
-                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Log Item 3 -->
-                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
-                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
-                                 data-type="monthly" data-day="3" data-date="2026-05-24T15:07:00">
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #10b981; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 3</span>
-                                    <div>
-                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">24 May 2026, 03:07 PM</span>
-                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="text-center" style="min-width: 80px;">
-                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
-                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Monthly</span>
-                                    </div>
-                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹178.50 Bonus</span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(3)">
-                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
-                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Log Item 4 -->
-                            <div class="d-flex align-items-center justify-content-between p-2 flex-wrap flex-md-nowrap gap-2 log-row" 
-                                 style="background-color: #ebf3fc; border: 1px solid #b8dafd; border-radius: 8px !important;"
-                                 data-type="monthly" data-day="4" data-date="2026-05-27T15:07:00">
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="fw-bold text-white px-2 py-1" style="background-color: #10b981; font-size: 0.72rem; min-width: 50px; text-align: center;">Day 4</span>
-                                    <div>
-                                        <span class="fw-semibold text-dark d-block" style="font-size: 0.8rem;">27 May 2026, 03:07 PM</span>
-                                        <span class="text-secondary" style="font-size: 0.75rem;">Daily Bonus Release</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="text-center" style="min-width: 80px;">
-                                        <span class="text-success fw-bold d-block" style="font-size: 0.72rem;"><i class="fa-solid fa-circle-check me-1"></i>RELEASED</span>
-                                        <span class="text-uppercase text-muted" style="font-size: 0.6rem; font-weight: 700;">Monthly</span>
-                                    </div>
-                                    <span class="text-success fw-bold" style="font-size: 0.88rem; min-width: 100px; text-align: right;">₹178.50 Bonus</span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-link text-secondary p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="openLogDetails(4)">
-                                            <i class="fa-solid fa-file-invoice fs-6 text-primary mb-0.5"></i> Details
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0 text-decoration-none d-flex flex-column align-items-center" style="font-size: 0.65rem; font-weight: 700;" onclick="hideLog(this)">
-                                            <i class="fa-solid fa-trash-can fs-6 text-danger mb-0.5"></i> Hide Log
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        <div class="d-flex flex-column gap-2" id="breakdownLogsList"></div>
 
                         <!-- Pagination -->
                         <nav class="d-flex justify-content-center mt-4">
@@ -352,126 +242,7 @@
 
     <!-- Page Logic -->
     <script>
-        const logsData = [
-            { id: 1, day: 1, date: '26 May 2026, 03:07 PM', type: 'daily', desc: 'Daily Bonus Release', val: '₹0.60 Bonus', color: '#0087F6' },
-            { id: 2, day: 2, date: '24 May 2026, 03:07 PM', type: 'daily', desc: 'Daily Bonus Release', val: '₹0.60 Bonus', color: '#ea580c' },
-            { id: 3, day: 3, date: '24 May 2026, 03:07 PM', type: 'monthly', desc: 'Monthly Bonus Release', val: '₹178.50 Bonus', color: '#10b981' },
-            { id: 4, day: 4, date: '27 May 2026, 03:07 PM', type: 'monthly', desc: 'Monthly Bonus Release', val: '₹178.50 Bonus', color: '#10b981' }
-        ];
-
-        let activeFilter = 'all';
-
-        // Toast Trigger
-        function showToast(message, isSuccess = true) {
-            const toastEl = document.getElementById('action-toast');
-            const toastBody = document.getElementById('toast-body-content');
-            
-            if (isSuccess) {
-                toastEl.classList.remove('text-bg-danger');
-                toastEl.classList.add('text-bg-success');
-                toastBody.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${message}`;
-            } else {
-                toastEl.classList.remove('text-bg-success');
-                toastEl.classList.add('text-bg-danger');
-                toastBody.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i>${message}`;
-            }
-            
-            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
-            toast.show();
-        }
-
-        // Filter Function
-        window.filterLogs = function(filter, element) {
-            activeFilter = filter;
-            
-            // Toggle active classes on buttons
-            document.querySelectorAll('.active-chip').forEach(btn => {
-                btn.classList.remove('active-chip');
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline-secondary');
-            });
-            element.classList.add('active-chip');
-            element.classList.remove('btn-outline-secondary');
-            element.classList.add('btn-primary');
-
-            updateList();
-        }
-
-        // Live Search
-        document.getElementById('logSearch').addEventListener('input', function() {
-            updateList();
-        });
-
-        // Live Sort
-        document.getElementById('logSort').addEventListener('change', function() {
-            updateList();
-        });
-
-        // Update list display
-        function updateList() {
-            const searchVal = document.getElementById('logSearch').value.toLowerCase();
-            const sortVal = document.getElementById('logSort').value;
-            const rows = document.querySelectorAll('.log-row');
-
-            let visibleRows = [];
-
-            rows.forEach(row => {
-                const type = row.getAttribute('data-type');
-                const textContent = row.textContent.toLowerCase();
-                
-                let matchesFilter = (activeFilter === 'all' || type === activeFilter);
-                let matchesSearch = textContent.includes(searchVal);
-
-                if (matchesFilter && matchesSearch) {
-                    row.style.setProperty('display', 'flex', 'important');
-                    visibleRows.push(row);
-                } else {
-                    row.style.setProperty('display', 'none', 'important');
-                }
-            });
-
-            // Handle Sorting
-            const container = document.getElementById('breakdownLogsList');
-            visibleRows.sort((a, b) => {
-                const dateA = new Date(a.getAttribute('data-date'));
-                const dateB = new Date(b.getAttribute('data-date'));
-                return sortVal === 'latest' ? dateB - dateA : dateA - dateB;
-            });
-
-            visibleRows.forEach(row => container.appendChild(row));
-        }
-
-        // Hide Row
-        window.hideLog = function(btn) {
-            const row = btn.closest('.log-row');
-            row.style.transition = 'all 0.3s ease';
-            row.style.opacity = '0';
-            row.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                row.remove();
-                showToast('Log entry hidden.');
-                updateList();
-            }, 300);
-        }
-
-        // Open details modal
-        window.openLogDetails = function(id) {
-            const data = logsData.find(item => item.id === id);
-            if (!data) return;
-
-            document.getElementById('modal-day').textContent = `Day ${data.day}`;
-            document.getElementById('modal-date').textContent = data.date;
-            document.getElementById('modal-type').textContent = data.type === 'daily' ? 'Daily recurring bonus' : 'Monthly Tier bonus';
-            document.getElementById('modal-value').textContent = data.val;
-
-            const modal = new bootstrap.Modal(document.getElementById('detailsModal'));
-            modal.show();
-        }
-
-        // Download statement
-        window.downloadStatement = function() {
-            showToast('Statement download initiated successfully!');
-        }
+        // This logic is now handled by renderOrderBreakdown.js
     </script>
 </body>
 

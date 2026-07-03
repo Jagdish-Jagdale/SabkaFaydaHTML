@@ -1,3 +1,20 @@
+/* Scroll Position Preservation */
+(function() {
+    // Save scroll position before page unload
+    window.addEventListener('beforeunload', function() {
+        sessionStorage.setItem('scrollPosition', window.pageYOffset || document.documentElement.scrollTop);
+    });
+
+    // Restore scroll position on page load
+    window.addEventListener('load', function() {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition !== null) {
+            window.scrollTo(0, parseInt(scrollPosition, 10));
+            sessionStorage.removeItem('scrollPosition');
+        }
+    });
+})();
+
 /* header.js */
 function selectCategory(categoryName) {
     const textSpan = document.getElementById('selectedCategoryText');
