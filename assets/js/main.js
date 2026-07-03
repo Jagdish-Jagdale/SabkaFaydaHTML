@@ -1,12 +1,24 @@
 /* Scroll Position Preservation */
 (function() {
+    // Disable browser's automatic scroll restoration
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     // Save scroll position before page unload
     window.addEventListener('beforeunload', function() {
         sessionStorage.setItem('scrollPosition', window.pageYOffset || document.documentElement.scrollTop);
     });
 
-    // Restore scroll position on page load
-    window.addEventListener('load', function() {
+    // Restore scroll position immediately on page load (before content renders)
+    const scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition !== null) {
+        window.scrollTo(0, parseInt(scrollPosition, 10));
+        sessionStorage.removeItem('scrollPosition');
+    }
+
+    // Also restore on DOMContentLoaded as backup
+    window.addEventListener('DOMContentLoaded', function() {
         const scrollPosition = sessionStorage.getItem('scrollPosition');
         if (scrollPosition !== null) {
             window.scrollTo(0, parseInt(scrollPosition, 10));
