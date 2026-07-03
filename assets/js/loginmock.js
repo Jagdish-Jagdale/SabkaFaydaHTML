@@ -42,6 +42,14 @@ function mockLogin(mobile, otp) {
 function mockLogout() {
     clearAuthUser();
     updateLoginButton();
+    // Close the logout modal if it's open
+    const logoutModal = document.getElementById('logoutModal');
+    if (logoutModal) {
+        const modalInstance = bootstrap.Modal.getInstance(logoutModal);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+    }
     // Redirect to login page
     window.location.href = 'login.html';
 }
