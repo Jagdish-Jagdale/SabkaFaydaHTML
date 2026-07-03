@@ -58,10 +58,10 @@ function updateLoginButton() {
         const profileHTML = `
             <a href="myinformation.html"
                id="header-login-btn"
-               class="d-none d-lg-inline-flex align-items-center gap-2 ms-4 fw-bold text-white text-decoration-none"
-               style="font-size:0.92rem;">
-                <i class="fa-regular fa-circle-user" style="font-size:1.3rem;"></i>
-                <span>My Profile</span>
+               class="nav-link text-white fw-medium ms-lg-4 d-flex align-items-center gap-2"
+               style="font-size: 0.95rem; line-height: 1.2;">
+                <i class="fa-regular fa-circle-user" style="font-size: 1.1rem;"></i>
+                My Profile
             </a>`;
 
         const mobileProfileHTML = `
@@ -87,7 +87,7 @@ function updateLoginButton() {
         const loginHTML = `
             <a href="login.html"
                id="header-login-btn"
-               class="btn btn-light ms-4 d-none d-lg-inline-block fw-bold text-primary"
+               class="btn btn-light ms-5 d-none d-lg-inline-block fw-bold text-primary"
                style="border-radius:6px; font-size:0.9rem; padding:8px 20px; background-color:#fff; color:#0087F6 !important; border:none;">
                 Login
             </a>`;

@@ -179,19 +179,23 @@
                 renderWishlist(mockData.wishlist);
             }
             if (typeof loadSidebar === 'function') loadSidebar();
-        });
-        fetch('header.html?v=5')
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById('header-placeholder').innerHTML = html;
-                if (typeof initHeader === 'function') initHeader();\n                if (typeof updateLoginButton === 'function') updateLoginButton();
-            });
 
-        fetch('footer.html?v=5')
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById('footer-placeholder').innerHTML = html;
-            });
+            // Load header
+            fetch('header.html?v=5')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('header-placeholder').innerHTML = html;
+                    if (typeof initHeader === 'function') initHeader();
+                    if (typeof updateLoginButton === 'function') updateLoginButton();
+                });
+
+            // Load footer
+            fetch('footer.html?v=5')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('footer-placeholder').innerHTML = html;
+                });
+        });
     </script>
 
     <!-- Wishlist Page Dynamic Logic -->
