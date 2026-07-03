@@ -50,10 +50,7 @@
             inset: 0;
             z-index: 99999;
             background: #f4f7fb;
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            padding: 18px;
+            overflow-y: auto;
             transition: opacity 0.25s ease, visibility 0.25s ease;
         }
 
@@ -64,7 +61,17 @@
         }
 
         .home-skeleton-shell {
-            width: min(1180px, 100%);
+            width: min(1200px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .home-skeleton-header-band {
+            width: 100%;
+        }
+
+        .home-skeleton-inner {
+            width: min(1470px, calc(100% - 32px));
+            margin: 0 auto;
         }
 
         .home-skeleton-line,
@@ -91,37 +98,42 @@
         }
 
         .home-skeleton-topbar {
-            height: 32px;
-            background: #17202d;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            height: 48px;
+            background: #1a1a1a;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
         }
 
         .home-skeleton-nav {
-            height: 76px;
+            height: 95px;
             background: #0087F6;
-            border-radius: 10px;
-            padding: 16px 18px;
+            border-radius: 0;
+            padding: 18px 0;
+        }
+
+        .home-skeleton-nav-grid {
             display: grid;
-            grid-template-columns: 170px minmax(260px, 1fr) 90px 320px;
+            grid-template-columns: 210px minmax(360px, 700px) 100px minmax(360px, 1fr);
             align-items: center;
-            gap: 22px;
-            margin-bottom: 10px;
+            gap: 28px;
+            height: 100%;
         }
 
         .home-skeleton-logo {
-            height: 44px;
+            width: 170px;
+            height: 54px;
             border-radius: 8px;
             background-color: rgba(255, 255, 255, 0.35);
         }
 
         .home-skeleton-search {
-            height: 46px;
+            height: 54px;
             border-radius: 8px;
         }
 
         .home-skeleton-login {
-            height: 44px;
+            height: 48px;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.85);
         }
@@ -138,21 +150,27 @@
         }
 
         .home-skeleton-categorybar {
-            height: 40px;
+            height: 43px;
             background: #bfe2ff;
-            border-radius: 8px;
+            border-radius: 0;
+        }
+
+        .home-skeleton-category-grid {
+            height: 100%;
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 18px;
             align-items: center;
-            padding: 0 18px;
-            margin-bottom: 18px;
+        }
+
+        .home-skeleton-content {
+            padding-top: 0;
         }
 
         .home-skeleton-hero {
-            height: 300px;
-            border-radius: 10px;
-            margin-bottom: 18px;
+            height: 397px;
+            border-radius: 0;
+            margin-bottom: 30px;
         }
 
         .home-skeleton-tiles {
@@ -163,7 +181,7 @@
             border: 1px solid #e8eef6;
             border-radius: 10px;
             padding: 18px;
-            margin-bottom: 18px;
+            margin-bottom: 60px;
         }
 
         .home-skeleton-tile {
@@ -202,8 +220,11 @@
 
         @media (max-width: 991px) {
             .home-skeleton-nav {
-                grid-template-columns: 120px 1fr 44px;
                 height: 118px;
+            }
+
+            .home-skeleton-nav-grid {
+                grid-template-columns: 120px 1fr 44px;
             }
 
             .home-skeleton-login,
@@ -211,7 +232,7 @@
                 display: none;
             }
 
-            .home-skeleton-categorybar {
+            .home-skeleton-category-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
 
@@ -229,11 +250,12 @@
         }
 
         @media (max-width: 575px) {
-            .home-skeleton-modal {
-                padding: 10px;
+            .home-skeleton-shell,
+            .home-skeleton-inner {
+                width: calc(100% - 20px);
             }
 
-            .home-skeleton-categorybar {
+            .home-skeleton-category-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -277,9 +299,14 @@
     style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
 
     <div id="homeSkeletonModal" class="home-skeleton-modal" role="status" aria-live="polite" aria-label="Loading home page">
-        <div class="home-skeleton-shell">
-            <div class="home-skeleton-topbar"></div>
+        <div class="home-skeleton-header-band">
+            <div class="home-skeleton-topbar">
+                <div class="home-skeleton-inner">
+                    <div class="home-skeleton-line" style="width: 42%; margin-left: auto;"></div>
+                </div>
+            </div>
             <div class="home-skeleton-nav">
+                <div class="home-skeleton-inner home-skeleton-nav-grid">
                 <div class="home-skeleton-logo"></div>
                 <div class="home-skeleton-search"></div>
                 <div class="home-skeleton-login"></div>
@@ -288,8 +315,10 @@
                     <div class="home-skeleton-line"></div>
                     <div class="home-skeleton-line"></div>
                 </div>
+                </div>
             </div>
             <div class="home-skeleton-categorybar">
+                <div class="home-skeleton-inner home-skeleton-category-grid">
                 <div class="home-skeleton-line"></div>
                 <div class="home-skeleton-line"></div>
                 <div class="home-skeleton-line"></div>
@@ -297,36 +326,41 @@
                 <div class="home-skeleton-line"></div>
                 <div class="home-skeleton-line"></div>
                 <div class="home-skeleton-line"></div>
+                </div>
             </div>
-            <div class="home-skeleton-hero"></div>
-            <div class="home-skeleton-tiles">
-                <div class="home-skeleton-tile"></div>
-                <div class="home-skeleton-tile"></div>
-                <div class="home-skeleton-tile"></div>
-                <div class="home-skeleton-tile"></div>
-                <div class="home-skeleton-tile"></div>
-                <div class="home-skeleton-tile"></div>
-            </div>
-            <div class="home-skeleton-products">
-                <div class="home-skeleton-product">
-                    <div class="home-skeleton-card-img"></div>
-                    <div class="home-skeleton-card-text"></div>
-                    <div class="home-skeleton-card-text short"></div>
+        </div>
+        <div class="home-skeleton-content">
+            <div class="home-skeleton-shell">
+                <div class="home-skeleton-hero"></div>
+                <div class="home-skeleton-tiles">
+                    <div class="home-skeleton-tile"></div>
+                    <div class="home-skeleton-tile"></div>
+                    <div class="home-skeleton-tile"></div>
+                    <div class="home-skeleton-tile"></div>
+                    <div class="home-skeleton-tile"></div>
+                    <div class="home-skeleton-tile"></div>
                 </div>
-                <div class="home-skeleton-product">
-                    <div class="home-skeleton-card-img"></div>
-                    <div class="home-skeleton-card-text"></div>
-                    <div class="home-skeleton-card-text short"></div>
-                </div>
-                <div class="home-skeleton-product">
-                    <div class="home-skeleton-card-img"></div>
-                    <div class="home-skeleton-card-text"></div>
-                    <div class="home-skeleton-card-text short"></div>
-                </div>
-                <div class="home-skeleton-product">
-                    <div class="home-skeleton-card-img"></div>
-                    <div class="home-skeleton-card-text"></div>
-                    <div class="home-skeleton-card-text short"></div>
+                <div class="home-skeleton-products">
+                    <div class="home-skeleton-product">
+                        <div class="home-skeleton-card-img"></div>
+                        <div class="home-skeleton-card-text"></div>
+                        <div class="home-skeleton-card-text short"></div>
+                    </div>
+                    <div class="home-skeleton-product">
+                        <div class="home-skeleton-card-img"></div>
+                        <div class="home-skeleton-card-text"></div>
+                        <div class="home-skeleton-card-text short"></div>
+                    </div>
+                    <div class="home-skeleton-product">
+                        <div class="home-skeleton-card-img"></div>
+                        <div class="home-skeleton-card-text"></div>
+                        <div class="home-skeleton-card-text short"></div>
+                    </div>
+                    <div class="home-skeleton-product">
+                        <div class="home-skeleton-card-img"></div>
+                        <div class="home-skeleton-card-text"></div>
+                        <div class="home-skeleton-card-text short"></div>
+                    </div>
                 </div>
             </div>
         </div>
