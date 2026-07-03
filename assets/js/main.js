@@ -252,10 +252,10 @@ function proceedInitHeader() {
             return;
         }
 
-        // Debounce search input for 3000ms (3 seconds)
+        // Keep search responsive without firing on every single keystroke.
         searchTimeout = setTimeout(() => {
             performSearch(query, resultsEl);
-        }, 3000);
+        }, 250);
     }
 
     function performSearch(query, resultsEl) {
