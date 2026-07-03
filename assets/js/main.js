@@ -5,25 +5,37 @@
         history.scrollRestoration = 'manual';
     }
 
-    // Save scroll position before page unload
+    // Save scroll position and current page URL before page unload
     window.addEventListener('beforeunload', function() {
         sessionStorage.setItem('scrollPosition', window.pageYOffset || document.documentElement.scrollTop);
+        sessionStorage.setItem('currentPageUrl', window.location.href);
     });
 
-    // Restore scroll position immediately on page load (before content renders)
-    const scrollPosition = sessionStorage.getItem('scrollPosition');
-    if (scrollPosition !== null) {
-        window.scrollTo(0, parseInt(scrollPosition, 10));
-        sessionStorage.removeItem('scrollPosition');
+    // Restore scroll position only if it's the same page (refresh)
+    function restoreScrollPosition() {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        const savedPageUrl = sessionStorage.getItem('currentPageUrl');
+        const currentPageUrl = window.location.href;
+
+        // Only restore if the saved URL matches current URL (same page refresh)
+        if (scrollPosition !== null && savedPageUrl === currentPageUrl) {
+            window.scrollTo(0, parseInt(scrollPosition, 10));
+            sessionStorage.removeItem('scrollPosition');
+            sessionStorage.removeItem('currentPageUrl');
+        } else {
+            // For new pages or different URLs, ensure page starts at top
+            window.scrollTo(0, 0);
+            sessionStorage.removeItem('scrollPosition');
+            sessionStorage.removeItem('currentPageUrl');
+        }
     }
+
+    // Restore immediately on page load (before content renders)
+    restoreScrollPosition();
 
     // Also restore on DOMContentLoaded as backup
     window.addEventListener('DOMContentLoaded', function() {
-        const scrollPosition = sessionStorage.getItem('scrollPosition');
-        if (scrollPosition !== null) {
-            window.scrollTo(0, parseInt(scrollPosition, 10));
-            sessionStorage.removeItem('scrollPosition');
-        }
+        restoreScrollPosition();
     });
 })();
 
