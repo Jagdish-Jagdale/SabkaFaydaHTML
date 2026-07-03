@@ -58,8 +58,8 @@ function updateLoginButton() {
         const profileHTML = `
             <a href="myinformation.html"
                id="header-login-btn"
-               class="nav-link text-white fw-medium ms-lg-4 d-flex align-items-center gap-2"
-               style="font-size: 0.95rem; line-height: 1.2;">
+               class="text-white fw-medium ms-lg-4 d-inline-flex align-items-center gap-2 text-decoration-none"
+               style="font-size: 0.95rem; line-height: 1.2; white-space: nowrap;">
                 <i class="fa-regular fa-circle-user" style="font-size: 1.1rem;"></i>
                 My Profile
             </a>`;
