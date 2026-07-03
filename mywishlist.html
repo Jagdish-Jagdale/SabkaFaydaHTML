@@ -184,7 +184,7 @@
             .then(r => r.text())
             .then(html => {
                 document.getElementById('header-placeholder').innerHTML = html;
-                if (typeof initHeader === 'function') initHeader();
+                if (typeof initHeader === 'function') initHeader();\n                if (typeof updateLoginButton === 'function') updateLoginButton();
             });
 
         fetch('footer.html?v=5')

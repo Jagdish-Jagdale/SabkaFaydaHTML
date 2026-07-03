@@ -226,6 +226,7 @@
             }
         });
     </script>
+    <script src="assets/js/loginmock.js"></script>
     <script src="assets/js/main.js?v=6"></script>
     <script>
         if (typeof loadSidebar === 'function') loadSidebar();
@@ -234,6 +235,7 @@
             .then(html => {
                 document.getElementById('header-placeholder').innerHTML = html;
                 if (typeof initHeader === 'function') initHeader();
+                if (typeof updateLoginButton === 'function') updateLoginButton();
             });
 
         fetch('footer.html?v=5')
