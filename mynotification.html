@@ -202,6 +202,7 @@
     <!-- Header Injection & Loader Script -->
     <script src="assets/js/mockData.js"></script>
     <script src="assets/js/renderNotifications.js"></script>
+    <script src="assets/js/main.js?v=6"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (typeof mockData !== 'undefined' && mockData.notifications) {
@@ -209,23 +210,25 @@
             }
             // updateUIState must run AFTER cards are injected into the DOM
             if (typeof updateUIState === 'function') updateUIState();
-        });
-    </script>
-    <script src="assets/js/main.js?v=6"></script>
-    <script>
-        if (typeof loadSidebar === 'function') loadSidebar();
-        fetch('header.html?v=5')
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById('header-placeholder').innerHTML = html;
-                if (typeof initHeader === 'function') initHeader();\n                if (typeof updateLoginButton === 'function') updateLoginButton();
-            });
 
-        fetch('footer.html?v=5')
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById('footer-placeholder').innerHTML = html;
-            });
+            if (typeof loadSidebar === 'function') loadSidebar();
+
+            // Load header
+            fetch('header.html?v=5')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('header-placeholder').innerHTML = html;
+                    if (typeof initHeader === 'function') initHeader();
+                    if (typeof updateLoginButton === 'function') updateLoginButton();
+                });
+
+            // Load footer
+            fetch('footer.html?v=5')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('footer-placeholder').innerHTML = html;
+                });
+        });
     </script>
 
     <!-- Notification Page Logic -->
