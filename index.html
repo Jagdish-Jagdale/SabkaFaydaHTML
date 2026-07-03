@@ -44,6 +44,204 @@
         .product-card-promo {
             font-size: 0.68rem;
         }
+
+        .home-skeleton-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #f4f7fb;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            padding: 18px;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .home-skeleton-modal.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .home-skeleton-shell {
+            width: min(1180px, 100%);
+        }
+
+        .home-skeleton-line,
+        .home-skeleton-logo,
+        .home-skeleton-search,
+        .home-skeleton-pill,
+        .home-skeleton-hero,
+        .home-skeleton-tile,
+        .home-skeleton-card-img,
+        .home-skeleton-card-text {
+            background: linear-gradient(90deg, #e7edf5 25%, #f7f9fc 50%, #e7edf5 75%);
+            background-size: 200% 100%;
+            animation: homeSkeletonShimmer 1.05s ease-in-out infinite;
+        }
+
+        @keyframes homeSkeletonShimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .home-skeleton-topbar {
+            height: 32px;
+            background: #17202d;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .home-skeleton-nav {
+            height: 76px;
+            background: #0087F6;
+            border-radius: 10px;
+            padding: 16px 18px;
+            display: grid;
+            grid-template-columns: 170px minmax(260px, 1fr) 90px 320px;
+            align-items: center;
+            gap: 22px;
+            margin-bottom: 10px;
+        }
+
+        .home-skeleton-logo {
+            height: 44px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+
+        .home-skeleton-search {
+            height: 46px;
+            border-radius: 8px;
+        }
+
+        .home-skeleton-login {
+            height: 44px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .home-skeleton-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .home-skeleton-line {
+            height: 16px;
+            border-radius: 999px;
+        }
+
+        .home-skeleton-categorybar {
+            height: 40px;
+            background: #bfe2ff;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 18px;
+            align-items: center;
+            padding: 0 18px;
+            margin-bottom: 18px;
+        }
+
+        .home-skeleton-hero {
+            height: 300px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+        }
+
+        .home-skeleton-tiles {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 14px;
+            background: #fff;
+            border: 1px solid #e8eef6;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+
+        .home-skeleton-tile {
+            height: 76px;
+            border-radius: 10px;
+        }
+
+        .home-skeleton-products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .home-skeleton-product {
+            background: #fff;
+            border: 1px solid #e8eef6;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .home-skeleton-card-img {
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .home-skeleton-card-text {
+            height: 14px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+        }
+
+        .home-skeleton-card-text.short {
+            width: 62%;
+        }
+
+        @media (max-width: 991px) {
+            .home-skeleton-nav {
+                grid-template-columns: 120px 1fr 44px;
+                height: 118px;
+            }
+
+            .home-skeleton-login,
+            .home-skeleton-actions {
+                display: none;
+            }
+
+            .home-skeleton-categorybar {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .home-skeleton-hero {
+                height: 220px;
+            }
+
+            .home-skeleton-tiles {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .home-skeleton-products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 575px) {
+            .home-skeleton-modal {
+                padding: 10px;
+            }
+
+            .home-skeleton-categorybar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .home-skeleton-tiles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (min-width: 768px) {
             .product-card-img-wrapper {
                 height: 250px;
@@ -77,6 +275,62 @@
 
 <body
     style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
+
+    <div id="homeSkeletonModal" class="home-skeleton-modal" role="status" aria-live="polite" aria-label="Loading home page">
+        <div class="home-skeleton-shell">
+            <div class="home-skeleton-topbar"></div>
+            <div class="home-skeleton-nav">
+                <div class="home-skeleton-logo"></div>
+                <div class="home-skeleton-search"></div>
+                <div class="home-skeleton-login"></div>
+                <div class="home-skeleton-actions">
+                    <div class="home-skeleton-line"></div>
+                    <div class="home-skeleton-line"></div>
+                    <div class="home-skeleton-line"></div>
+                </div>
+            </div>
+            <div class="home-skeleton-categorybar">
+                <div class="home-skeleton-line"></div>
+                <div class="home-skeleton-line"></div>
+                <div class="home-skeleton-line"></div>
+                <div class="home-skeleton-line"></div>
+                <div class="home-skeleton-line"></div>
+                <div class="home-skeleton-line"></div>
+                <div class="home-skeleton-line"></div>
+            </div>
+            <div class="home-skeleton-hero"></div>
+            <div class="home-skeleton-tiles">
+                <div class="home-skeleton-tile"></div>
+                <div class="home-skeleton-tile"></div>
+                <div class="home-skeleton-tile"></div>
+                <div class="home-skeleton-tile"></div>
+                <div class="home-skeleton-tile"></div>
+                <div class="home-skeleton-tile"></div>
+            </div>
+            <div class="home-skeleton-products">
+                <div class="home-skeleton-product">
+                    <div class="home-skeleton-card-img"></div>
+                    <div class="home-skeleton-card-text"></div>
+                    <div class="home-skeleton-card-text short"></div>
+                </div>
+                <div class="home-skeleton-product">
+                    <div class="home-skeleton-card-img"></div>
+                    <div class="home-skeleton-card-text"></div>
+                    <div class="home-skeleton-card-text short"></div>
+                </div>
+                <div class="home-skeleton-product">
+                    <div class="home-skeleton-card-img"></div>
+                    <div class="home-skeleton-card-text"></div>
+                    <div class="home-skeleton-card-text short"></div>
+                </div>
+                <div class="home-skeleton-product">
+                    <div class="home-skeleton-card-img"></div>
+                    <div class="home-skeleton-card-text"></div>
+                    <div class="home-skeleton-card-text short"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Header Placeholder -->
     <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
@@ -1041,23 +1295,54 @@
 
     <!-- Script to load Header and Footer dynamically -->
     <script>
+        function hideHomeSkeleton() {
+            const skeleton = document.getElementById('homeSkeletonModal');
+            if (!skeleton || skeleton.classList.contains('is-hidden')) return;
+            skeleton.classList.add('is-hidden');
+            setTimeout(function () {
+                if (skeleton && skeleton.parentNode) {
+                    skeleton.parentNode.removeChild(skeleton);
+                }
+            }, 300);
+        }
+
+        const pageLoaded = new Promise(function(resolve) {
+            if (document.readyState === 'complete') {
+                resolve();
+            } else {
+                window.addEventListener('load', resolve, { once: true });
+            }
+        });
+
         document.addEventListener("DOMContentLoaded", function () {
             // Load Header
-            fetch('header.html?v=5')
+            const headerReady = fetch('header.html?v=5')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
                     if (typeof initHeader === 'function') {
                         initHeader();
                     }
+                })
+                .catch(function () {
+                    document.getElementById('header-placeholder').innerHTML = '';
                 });
 
             // Load Footer
-            fetch('footer.html?v=5')
+            const footerReady = fetch('footer.html?v=5')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(function () {
+                    document.getElementById('footer-placeholder').innerHTML = '';
                 });
+
+            Promise.allSettled([headerReady, footerReady, pageLoaded]).then(function () {
+                setTimeout(hideHomeSkeleton, 150);
+            });
+
+            setTimeout(hideHomeSkeleton, 8000);
         });
     </script>
 </body>
