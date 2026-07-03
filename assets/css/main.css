@@ -41,6 +41,70 @@
     border-color: #0087F6 !important;
 }
 
+/* Home page dynamic product cards */
+.product-card-img-wrapper {
+    height: 160px;
+}
+
+.product-card-badges {
+    font-size: 0.5rem;
+}
+
+.product-card-title {
+    font-size: 0.78rem;
+}
+
+.product-card-desc {
+    font-size: 0.68rem;
+}
+
+.product-card-original-price {
+    font-size: 0.68rem;
+}
+
+.product-card-offer-price {
+    font-size: 0.85rem;
+}
+
+.product-card-promo {
+    font-size: 0.68rem;
+}
+
+.home-deferred-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 420px;
+}
+
+@media (min-width: 768px) {
+    .product-card-img-wrapper {
+        height: 250px;
+    }
+
+    .product-card-badges {
+        font-size: 0.6rem;
+    }
+
+    .product-card-title {
+        font-size: 0.95rem;
+    }
+
+    .product-card-desc {
+        font-size: 0.82rem;
+    }
+
+    .product-card-original-price {
+        font-size: 0.78rem;
+    }
+
+    .product-card-offer-price {
+        font-size: 1.05rem;
+    }
+
+    .product-card-promo {
+        font-size: 0.78rem;
+    }
+}
+
 @keyframes seamlessMarquee {
     0% {
         transform: translateX(0);
@@ -2877,8 +2941,6 @@ select.profile-form-control {
 
 
 
-
-
 /* ================================================
    Skeleton Loaders
    ================================================ */
@@ -3246,7 +3308,8 @@ select.profile-form-control {
         width: 100%;
     }
 }
-/* ── OTP Input Shake Animation (login page error) ── */
+
+/* ── OTP Input Shake Animation (login page error) ── */
 @keyframes otp-shake {
     0%   { transform: translateX(0); }
     15%  { transform: translateX(-6px); }
