@@ -3,7 +3,7 @@
 const AUTH_KEY = 'sf_auth_user';
 
 const MOCK_USERS = [
-    { mobile: '8855055280', otp: '123456', name: 'Pradip Babar' }
+    { mobile: '8855055280', otp: '123456', name: 'mash' }
 ];
 
 /* ── Read / Write session ── */
