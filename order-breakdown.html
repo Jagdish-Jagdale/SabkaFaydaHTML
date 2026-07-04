@@ -139,29 +139,17 @@
 
                 <!-- Chips filters -->
                 <div class="d-flex flex-wrap gap-2 mb-3">
-                    <button class="btn btn-outline-primary py-1 px-3 fw-bold rounded-pill active-chip" style="font-size: 0.75rem; border-radius: 20px !important; border: 1px solid #0087F6;" onclick="filterLogs('all', this)" id="chip-all">All (4)</button>
-                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('daily', this)" id="chip-daily">Daily (1)</button>
+                    <button class="btn btn-outline-primary py-1 px-3 fw-bold rounded-pill active-chip" style="font-size: 0.75rem; border-radius: 20px !important; border: 1px solid #0087F6;" onclick="filterLogs('all', this)" id="chip-all">All (14)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('daily', this)" id="chip-daily">Daily (10)</button>
                     <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('weekly', this)" id="chip-weekly">Weekly (0)</button>
-                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('monthly', this)" id="chip-monthly">Monthly (3)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('monthly', this)" id="chip-monthly">Monthly (4)</button>
                 </div>
 
                 <!-- Grid layout of breakdown list + side card -->
                 <div class="row g-3">
                     <!-- Left: Log items list -->
                     <div class="col-lg-8 col-12">
-                        <div class="d-flex flex-column gap-2" id="breakdownLogsList"></div>
-
-                        <!-- Pagination -->
-                        <nav class="d-flex justify-content-center mt-4">
-                            <ul class="pagination pagination-sm shadow-sm" id="logsPagination">
-                                <li class="page-item disabled"><a class="page-link py-1 px-2.5" href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
-                                <li class="page-item active"><a class="page-link py-1 px-2.5" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link py-1 px-2.5" href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
-                            </ul>
-                        </nav>
+                        <div class="d-flex flex-column gap-2" id="breakdownLogsList" style="max-height: 600px; overflow-y: auto; padding-right: 8px;"></div>
                     </div>
 
                     <!-- Right Column: Order Info side card -->
@@ -245,6 +233,16 @@
             .then(html => {
                 document.getElementById('footer-placeholder').innerHTML = html;
             });
+
+        // Set active sidebar link
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const orderBreakdownLink = document.getElementById('link-order-breakdown');
+                if (orderBreakdownLink) {
+                    orderBreakdownLink.classList.add('active');
+                }
+            }, 100);
+        });
     </script>
 
     <!-- Page Logic -->
