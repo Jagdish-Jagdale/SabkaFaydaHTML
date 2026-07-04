@@ -24,21 +24,53 @@
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
 </head>
 
-<body class="bg-white text-dark" style="font-family:'Montserrat',sans-serif;">
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
 
     <!-- Header Placeholder -->
     <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
 
     <!-- Main Content -->
-    <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
-        <div class="container py-5 my-2">
+    <main class="policy-shell container-fluid px-3 px-md-4" style="padding-top: 155px; min-height: 100vh;">
 
-            <!-- Main Blue-Tinted Container Panel -->
-            <div class="policy-container">
+        <!-- Top Banner Image -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=300&fit=crop" alt="Return Policy Banner" 
+                     class="img-fluid w-100" style="border-radius: 12px; max-height: 300px; object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- Second Image Section with Text -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="position-relative rounded-3 overflow-hidden" style="background-color: #1a1a2e;">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=400&fit=crop" 
+                         alt="Return Policy" class="img-fluid w-100" style="height: 250px; object-fit: cover; opacity: 0.8;">
+                    <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center" 
+                         style="background: rgba(0, 0, 0, 0.4);">
+                        <div class="text-center text-white px-4">
+                            <h2 class="fw-bold mb-3" style="font-family: 'Rubik', sans-serif; font-size: 2rem;">
+                                Hassle-Free Returns
+                            </h2>
+                            <p class="mb-4" style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem;">
+                                Easy return and exchange policy for your peace of mind
+                            </p>
+                            <button class="btn btn-primary fw-bold px-4 py-2 rounded-3" style="background-color: #0087F6; border: none;">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Policy Content -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="policy-container bg-white rounded-3 p-4 shadow-sm">
 
                 <!-- Header Title Section -->
                 <h1 class="policy-title text-uppercase mb-2">Return &amp; Exchange Policy</h1>
@@ -206,13 +238,55 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                 </div><!-- /row -->
             </div><!-- /policy-container -->
-
-            <!-- CONTACT US Section -->
-            <div class="text-center">
-                <h2 class="contact-section-title text-uppercase">Contact Us</h2>
             </div>
+        </div>
 
-            <div class="row g-4 justify-content-center">
+        <!-- Vision and Mission Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="vision-mission-section bg-white rounded-3 p-4 shadow-sm">
+                    <div class="row g-4">
+                        <!-- Vision -->
+                        <div class="col-md-6">
+                            <div class="vision-card h-100 p-4 rounded-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="vision-icon bg-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                        <i class="fa-solid fa-eye text-primary fs-4"></i>
+                                    </div>
+                                    <h3 class="text-white fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">Our Vision</h3>
+                                </div>
+                                <p class="text-white mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
+                                    To be India's most trusted and customer-centric e-commerce platform, empowering millions of shoppers with the best deals, quality products, and exceptional service.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Mission -->
+                        <div class="col-md-6">
+                            <div class="mission-card h-100 p-4 rounded-3" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="mission-icon bg-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                        <i class="fa-solid fa-bullseye text-danger fs-4"></i>
+                                    </div>
+                                    <h3 class="text-white fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">Our Mission</h3>
+                                </div>
+                                <p class="text-white mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
+                                    To provide a seamless shopping experience by offering quality products at competitive prices, ensuring customer satisfaction through innovation, trust, and excellence.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT US Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="text-center mb-4">
+                    <h2 class="contact-section-title text-uppercase">Contact Us</h2>
+                </div>
+
+                <div class="row g-4 justify-content-center">
 
                 <!-- Company Details Card -->
                 <div class="col-md-5">
@@ -283,73 +357,56 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
                 </div>
 
             </div><!-- /row contact -->
+            </div>
+        </div>
 
-            <!-- Ready to Shop Banner -->
-            <div class="row mt-5 justify-content-center">
-                <div class="col-md-10">
-                    <!-- Blue Banner -->
-                    <div class="position-relative overflow-hidden text-white px-4 px-md-5 py-4 shadow-sm rounded-top-4 text-center"
-                        style="background: linear-gradient(135deg, #0a46ab 0%, #0d6efd 100%);">
-                        <div class="row align-items-center position-relative" style="z-index:2;">
-                            <div class="col-md-3 d-none d-md-block"></div>
-                            <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                <h3 class="fw-bold mb-2" style="font-family:'Rubik',sans-serif; font-size:2rem;">Ready to Shop?</h3>
-                                <p class="mb-4 opacity-90" style="font-size:0.95rem;">
-                                    Discover quality products at affordable prices.
-                                </p>
-                                <a href="index.html" class="btn btn-light fw-bold px-4 py-2 text-primary rounded-pill" style="font-size:0.9rem;">
-                                    Shop Now <i class="fa-solid fa-chevron-right ms-1" style="font-size:0.75rem;"></i>
-                                </a>
-                            </div>
-                            <div class="col-md-3 text-end d-none d-md-block position-relative">
-                                <img src="assets/img/cartimg.png" alt="Ready to Shop" class="img-fluid" style="max-height:160px; object-fit:contain;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Satisfaction Guarantee Bar -->
-                    <div class="bg-white border border-light-subtle border-top-0 rounded-bottom-4 py-3 px-4 shadow-sm d-flex align-items-center gap-3">
-                        <div class="rounded-circle bg-primary-subtle text-primary d-flex align-items-center justify-content-center flex-shrink-0" style="width:42px; height:42px;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <path d="m9 11 2 2 4-4"></path>
-                            </svg>
-                        </div>
-                        <p class="mb-0 text-secondary fw-semibold" style="font-size:0.85rem; line-height:1.5;">
-                            At SabkaFayda, customer satisfaction remains our highest priority and we continuously strive to deliver the best shopping experience possible.
-                        </p>
-                    </div>
-                </div>
-            </div><!-- /row ready to shop -->
-
-        </div><!-- /container -->
-    </div><!-- /main-content -->
+    </main>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Main JS -->
-    <script src="assets/js/main.js?v=6"></script>
 
-    <!-- Load Header & Footer -->
+    <!-- Auth Context JS -->
+    <script src="assets/js/authcontext.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js?v=7"></script>
+
+    <!-- Script to load Header and Footer dynamically -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Load Header
             fetch('header.html?v=5')
-                .then(r => r.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
-                    if (typeof initHeader === 'function') initHeader();\n                if (typeof updateLoginButton === 'function') updateLoginButton();
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                    if (typeof updateLoginButton === 'function') {
+                        updateLoginButton();
+                    }
                 })
-                .catch(e => console.error('Header load error:', e));
+                .catch(error => console.error('Error loading header:', error));
 
+            // Load Footer
             fetch('footer.html?v=5')
-                .then(r => r.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
                 })
-                .catch(e => console.error('Footer load error:', e));
+                .catch(error => console.error('Error loading footer:', error));
         });
     </script>
 </body>
