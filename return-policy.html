@@ -24,78 +24,54 @@
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
 </head>
 
-<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7f9fa; overflow-x: hidden;">
 
     <!-- Header Placeholder -->
     <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
 
     <!-- Main Content -->
-    <main class="policy-shell container-fluid px-3 px-md-4" style="padding-top: 155px; min-height: 100vh;">
+    <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
+        <div class="container py-4">
 
-        <!-- Top Banner Image -->
+        <!-- Blue Title Section -->
         <div class="row mb-4">
             <div class="col-12">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=300&fit=crop" alt="Return Policy Banner" 
-                     class="img-fluid w-100" style="border-radius: 12px; max-height: 300px; object-fit: cover;">
-            </div>
-        </div>
-
-        <!-- Second Image Section with Text -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="position-relative rounded-3 overflow-hidden" style="background-color: #1a1a2e;">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=400&fit=crop" 
-                         alt="Return Policy" class="img-fluid w-100" style="height: 250px; object-fit: cover; opacity: 0.8;">
-                    <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center" 
-                         style="background: rgba(0, 0, 0, 0.4);">
-                        <div class="text-center text-white px-4">
-                            <h2 class="fw-bold mb-3" style="font-family: 'Rubik', sans-serif; font-size: 2rem;">
-                                Hassle-Free Returns
-                            </h2>
-                            <p class="mb-4" style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem;">
-                                Easy return and exchange policy for your peace of mind
-                            </p>
-                            <button class="btn btn-primary fw-bold px-4 py-2 rounded-3" style="background-color: #0087F6; border: none;">
-                                Learn More
-                            </button>
-                        </div>
-                    </div>
+                <div class="rounded-3 p-4 text-white" style="background: linear-gradient(135deg, #0087F6 0%, #0056b3 100%);">
+                    <h1 class="fw-bold mb-2" style="font-family: 'Rubik', sans-serif; font-size: 2rem;">Return & Exchange Policy</h1>
+                    <p class="mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 1rem; opacity: 0.9;">
+                        At SabkaFayda, customer satisfaction is important to us. To ensure a fair and transparent process, please carefully read our Return & Exchange Policy.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <!-- Policy Content -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="policy-container bg-white rounded-3 p-4 shadow-sm">
-
-                <!-- Header Title Section -->
-                <h1 class="policy-title text-uppercase mb-2">Return &amp; Exchange Policy</h1>
-                <p class="policy-subtitle mb-4">
-                    At SabkaFayda, customer satisfaction is important to us. To ensure a fair and transparent process, please carefully read our Return &amp; Exchange Policy.
-                </p>
+        <!-- Main Blue-Tinted Container Panel -->
+        <div class="policy-container">
 
                 <!-- Grid of Policy Cards -->
                 <div class="row g-4">
 
                     <!-- SECTION 1 -->
                     <div class="col-12 mt-3">
-                        <div class="section-label">Section 1</div>
+                        <h3 class="section-title fw-bold text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.3rem; color: #1a1a2e;">
+                            <i class="fa-solid fa-clock-rotate-left text-primary me-2"></i>Return & Exchange Window
+                        </h3>
                     </div>
 
                     <!-- Card 1: Return & Exchange Window -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-clock-rotate-left"></i>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Return &amp; Exchange Window</h2>
-                                    <p class="card-text">Customers may request a return or exchange within 24 hours of product delivery.
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Return &amp; Exchange Window</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">Customers may request a return or exchange within 24 hours of product delivery.
 Requests submitted after 24 hours from the delivery time will not be accepted.</p>
                                 </div>
                             </div>
@@ -104,14 +80,14 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                     <!-- Card 2: Mandatory Unboxing Video -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-video"></i>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Mandatory Unboxing Video</h2>
-                                    <p class="card-text">A complete and uninterrupted unboxing video is compulsory for all return and exchange requests. Video must show:
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Mandatory Unboxing Video</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">A complete and uninterrupted unboxing video is compulsory for all return and exchange requests. Video must show:
 - Sealed package
 - Shipping label
 - Product being unboxed
@@ -123,20 +99,22 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                     <!-- SECTION 2 -->
                     <div class="col-12 mt-4">
-                        <div class="section-label">Section 2</div>
+                        <h3 class="section-title fw-bold text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.3rem; color: #1a1a2e;">
+                            <i class="fa-solid fa-thumbs-up text-primary me-2"></i>Eligible Reasons
+                        </h3>
                     </div>
 
                     <!-- Card 3: Eligible Reasons -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-thumbs-up"></i>
                                     <span class="icon-badge-green"><i class="fa-solid fa-arrow-right-to-bracket fa-rotate-180" style="font-size:0.6rem;"></i></span>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Eligible Reasons</h2>
-                                    <p class="card-text">Requests may be considered for:
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Eligible Reasons</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">Requests may be considered for:
 - Damaged product
 - Wrong product
 - Missing item
@@ -148,15 +126,15 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                     <!-- Card 4: Non-Eligible Cases -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-thumbs-down"></i>
                                     <span class="icon-badge-red"><i class="fa-solid fa-xmark"></i></span>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Non-Eligible Cases</h2>
-                                    <p class="card-text">Not accepted for:
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Non-Eligible Cases</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">Not accepted for:
 - Change of mind
 - Personal preference
 - Incorrect selection
@@ -170,19 +148,21 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                     <!-- SECTION 3 -->
                     <div class="col-12 mt-4">
-                        <div class="section-label">Section 3</div>
+                        <h3 class="section-title fw-bold text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.3rem; color: #1a1a2e;">
+                            <i class="fa-solid fa-clipboard-list text-primary me-2"></i>Process & Rights
+                        </h3>
                     </div>
 
                     <!-- Card 5: Approval Process -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-clipboard-list"></i>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Approval Process</h2>
-                                    <p class="card-text">All requests subject to verification by our support team. Provide:
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Approval Process</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">All requests subject to verification by our support team. Provide:
 - Unboxing video
 - Product images
 - Order details</p>
@@ -193,14 +173,14 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                     <!-- Card 6: Refund Process -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-comments-dollar"></i>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Refund Process</h2>
-                                    <p class="card-text">Approved refunds processed via original payment or appropriate method. Timelines vary by provider.</p>
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Refund Process</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">Approved refunds processed via original payment or appropriate method. Timelines vary by provider.</p>
                                 </div>
                             </div>
                         </div>
@@ -208,14 +188,14 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                     <!-- Card 7: Exchange Process -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-arrow-right-arrow-left"></i>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Exchange Process</h2>
-                                    <p class="card-text">Approved exchanges subject to product availability. If unavailable, SabkaFayda may offer refund or alternative.</p>
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Exchange Process</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">Approved exchanges subject to product availability. If unavailable, SabkaFayda may offer refund or alternative.</p>
                                 </div>
                             </div>
                         </div>
@@ -223,14 +203,14 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                     <!-- Card 8: Rights Reserved -->
                     <div class="col-md-6">
-                        <div class="policy-card">
+                        <div class="policy-card p-4" style="font-family: 'Montserrat', sans-serif;">
                             <div class="d-flex align-items-start gap-3">
                                 <div class="card-icon-wrapper">
                                     <i class="fa-solid fa-shield-halved"></i>
                                 </div>
                                 <div>
-                                    <h2 class="card-heading">Rights Reserved</h2>
-                                    <p class="card-text">We reserve right to approve, reject, investigate requests. All decisions are final and binding.</p>
+                                    <h2 class="card-heading" style="font-family: 'Rubik', sans-serif; font-size: 1.15rem;">Rights Reserved</h2>
+                                    <p class="card-text" style="font-size: 0.9rem; line-height: 1.6;">We reserve right to approve, reject, investigate requests. All decisions are final and binding.</p>
                                 </div>
                             </div>
                         </div>
@@ -238,58 +218,20 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
 
                 </div><!-- /row -->
             </div><!-- /policy-container -->
-            </div>
+
+        </div><!-- /container -->
+    </div><!-- /main-content -->
+
+    <!-- CONTACT US Section -->
+    <div class="container py-4">
+        <div class="text-center mb-4">
+            <h2 class="contact-section-title text-uppercase">Contact Us</h2>
         </div>
 
-        <!-- Vision and Mission Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="vision-mission-section bg-white rounded-3 p-4 shadow-sm">
-                    <div class="row g-4">
-                        <!-- Vision -->
-                        <div class="col-md-6">
-                            <div class="vision-card h-100 p-4 rounded-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="vision-icon bg-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
-                                        <i class="fa-solid fa-eye text-primary fs-4"></i>
-                                    </div>
-                                    <h3 class="text-white fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">Our Vision</h3>
-                                </div>
-                                <p class="text-white mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
-                                    To be India's most trusted and customer-centric e-commerce platform, empowering millions of shoppers with the best deals, quality products, and exceptional service.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Mission -->
-                        <div class="col-md-6">
-                            <div class="mission-card h-100 p-4 rounded-3" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="mission-icon bg-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
-                                        <i class="fa-solid fa-bullseye text-danger fs-4"></i>
-                                    </div>
-                                    <h3 class="text-white fw-bold mb-0" style="font-family: 'Rubik', sans-serif;">Our Mission</h3>
-                                </div>
-                                <p class="text-white mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
-                                    To provide a seamless shopping experience by offering quality products at competitive prices, ensuring customer satisfaction through innovation, trust, and excellence.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CONTACT US Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="text-center mb-4">
-                    <h2 class="contact-section-title text-uppercase">Contact Us</h2>
-                </div>
-
-                <div class="row g-4 justify-content-center">
+        <div class="row g-4">
 
                 <!-- Company Details Card -->
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <div class="contact-card">
                         <h4 class="card-heading d-flex align-items-center gap-2 mb-3">
                             <i class="fa-solid fa-building text-primary"></i> Company details
@@ -320,7 +262,7 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
                 </div>
 
                 <!-- Contact Details Card -->
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <div class="contact-card">
                         <h4 class="card-heading d-flex align-items-center gap-2 mb-3">
                             <i class="fa-solid fa-phone text-primary"></i> Contact details
@@ -357,56 +299,62 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
                 </div>
 
             </div><!-- /row contact -->
-            </div>
-        </div>
 
-    </main>
+            <!-- Ready to Shop Banner -->
+            <div class="ready-banner ready-banner-mobile text-white p-3 p-md-4 mb-0 shadow-sm text-center position-relative" style="background: url('assets/img/aboutbg.png') no-repeat center center; background-size: cover; border-radius: 0 !important; overflow: hidden;">
+                <!-- Centered Text and Button -->
+                <div class="position-relative py-2 pe-5 pe-md-0" style="z-index: 2; max-width: 600px; margin: 0 auto;">
+                    <h3 class="fw-bold mb-1 banner-title-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.8rem;">Ready to Shop?</h3>
+                    <p class="mb-3 opacity-90 banner-desc-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 1rem;">Discover quality products at affordable prices.</p>
+                    <a href="index.html" class="btn btn-light fw-bold text-primary px-4 py-2 shadow banner-btn-mobile" style="border-radius: 8px; font-family: 'Rubik', sans-serif; font-size: 0.95rem;">
+                        Shop Now <i class="fa-solid fa-chevron-right ms-2 fs-6"></i>
+                    </a>
+                </div>
+                <!-- Cart Graphic at bottom right -->
+                <img src="assets/img/cartimg.png" alt="Shopping Cart" class="position-absolute end-0 bottom-0 d-block banner-img-mobile" style="height: 75%; max-height: 160px; width: auto; z-index: 1;">
+            </div>
+
+            <!-- Customer Satisfaction Note Footer (Attached directly to top banner) -->
+            <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 p-3 p-md-4 bg-white border-start border-end border-bottom mb-5 shadow-sm" style="border-radius: 0 !important; border-top: none !important;">
+                <!-- SVG Shield Check Logo (Outline shield with solid inner check shield) -->
+                <svg class="satisfaction-shield-mobile" width="28" height="32" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <path d="M12 2L4 5.5V13C4 18.5 7.4 23.5 12 26C16.6 23.5 20 18.5 20 13V5.5L12 2Z" stroke="#0066ff" stroke-width="2" stroke-linejoin="round" fill="none"/>
+                    <path d="M12 5.5L6.5 7.8V13C6.5 16.8 8.8 20.3 12 22C15.2 20.3 17.5 16.8 17.5 13V7.8L12 5.5Z" fill="#0066ff"/>
+                    <path d="M9.5 14L11.5 16L14.5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="mb-0 text-secondary text-start satisfaction-text-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; line-height: 1.5; max-width: 800px;">
+                    At SabkaFayda, customer satisfaction remains our highest priority and<br class="d-none d-md-block"> we continuously strive to deliver the best shopping experience possible.
+                </p>
+            </div>
+
+        </div><!-- /container-fluid -->
+    </div><!-- /CONTACT US Section -->
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Auth Context JS -->
-    <script src="assets/js/authcontext.js"></script>
     <!-- Main JS -->
-    <script src="assets/js/main.js?v=7"></script>
+    <script src="assets/js/main.js?v=6"></script>
 
-    <!-- Script to load Header and Footer dynamically -->
+    <!-- Load Header & Footer -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Load Header
             fetch('header.html?v=5')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text();
-                })
+                .then(r => r.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
-                    if (typeof initHeader === 'function') {
-                        initHeader();
-                    }
-                    if (typeof updateLoginButton === 'function') {
-                        updateLoginButton();
-                    }
+                    if (typeof initHeader === 'function') initHeader();\n                if (typeof updateLoginButton === 'function') updateLoginButton();
                 })
-                .catch(error => console.error('Error loading header:', error));
+                .catch(e => console.error('Header load error:', e));
 
-            // Load Footer
             fetch('footer.html?v=5')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text();
-                })
+                .then(r => r.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
                 })
-                .catch(error => console.error('Error loading footer:', error));
+                .catch(e => console.error('Footer load error:', e));
         });
     </script>
 </body>
