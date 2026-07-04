@@ -345,7 +345,9 @@ Requests submitted after 24 hours from the delivery time will not be accepted.</
                 .then(r => r.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
-                    if (typeof initHeader === 'function') initHeader();\n                if (typeof updateLoginButton === 'function') updateLoginButton();
+                    if (typeof initHeader === 'function') initHeader();
+                                if (typeof updateLoginButton === 'function') 
+                                    updateLoginButton();
                 })
                 .catch(e => console.error('Header load error:', e));
 

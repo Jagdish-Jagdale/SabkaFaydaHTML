@@ -499,6 +499,9 @@
                     if (typeof initHeader === 'function') {
                         initHeader();
                     }
+                    if (typeof updateLoginButton === 'function') {
+                        updateLoginButton();
+                    }
                 })
                 .catch(error => console.error('Error loading header:', error));
 
