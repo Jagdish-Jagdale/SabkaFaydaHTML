@@ -1,11 +1,11 @@
 /* Order Breakdown Rendering Logic */
 document.addEventListener('DOMContentLoaded', function() {
-    renderLogs(logsData);
+    renderBreakdownItems(logsData);
     updateChipCounts();
 });
 
-// Render logs to the list
-function renderLogs(data) {
+// Render breakdown items to the list
+function renderBreakdownItems(data) {
     const container = document.getElementById('breakdownLogsList');
     if (!container) return;
 
@@ -16,36 +16,36 @@ function renderLogs(data) {
         return;
     }
 
-    data.forEach(log => {
-        const logItem = document.createElement('div');
-        logItem.className = 'card p-3 shadow-sm border';
-        logItem.style.borderRadius = '8px !important;';
-        logItem.style.borderLeft = `4px solid ${log.color}`;
+    data.forEach(item => {
+        const itemCard = document.createElement('div');
+        itemCard.className = 'card p-3 shadow-sm border';
+        itemCard.style.borderRadius = '8px !important;';
+        itemCard.style.borderLeft = `4px solid ${item.color}`;
         
-        logItem.innerHTML = `
+        itemCard.innerHTML = `
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-3">
                     <div class="rounded-circle d-flex align-items-center justify-content-center text-white" 
-                         style="width: 40px; height: 40px; background-color: ${log.color}; font-size: 0.85rem; font-weight: 600;">
-                        ${log.day}
+                         style="width: 40px; height: 40px; background-color: ${item.color}; font-size: 0.85rem; font-weight: 600;">
+                        ${item.day}
                     </div>
                     <div>
-                        <div class="fw-bold text-dark" style="font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">${log.desc}</div>
-                        <div class="text-muted" style="font-size: 0.75rem;">${log.date}</div>
+                        <div class="fw-bold text-dark" style="font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">${item.desc}</div>
+                        <div class="text-muted" style="font-size: 0.75rem;">${item.date}</div>
                     </div>
                 </div>
                 <div class="text-end">
-                    <div class="fw-bold" style="font-size: 0.95rem; color: ${log.color};">${log.val}</div>
-                    <div class="text-muted" style="font-size: 0.7rem; text-transform: capitalize;">${log.type}</div>
+                    <div class="fw-bold" style="font-size: 0.95rem; color: ${item.color};">${item.val}</div>
+                    <div class="text-muted" style="font-size: 0.7rem; text-transform: capitalize;">${item.type} Released</div>
                 </div>
             </div>
         `;
         
-        container.appendChild(logItem);
+        container.appendChild(itemCard);
     });
 }
 
-// Filter logs by type
+// Filter breakdown items by type
 function filterLogs(type, button) {
     // Update active chip
     document.querySelectorAll('[id^="chip-"]').forEach(chip => {
@@ -58,18 +58,18 @@ function filterLogs(type, button) {
     // Filter data
     let filteredData = logsData;
     if (type !== 'all') {
-        filteredData = logsData.filter(log => log.type === type);
+        filteredData = logsData.filter(item => item.type === type);
     }
 
-    renderLogs(filteredData);
+    renderBreakdownItems(filteredData);
 }
 
 // Update chip counts
 function updateChipCounts() {
     const allCount = logsData.length;
-    const dailyCount = logsData.filter(log => log.type === 'daily').length;
-    const weeklyCount = logsData.filter(log => log.type === 'weekly').length;
-    const monthlyCount = logsData.filter(log => log.type === 'monthly').length;
+    const dailyCount = logsData.filter(item => item.type === 'daily').length;
+    const weeklyCount = logsData.filter(item => item.type === 'weekly').length;
+    const monthlyCount = logsData.filter(item => item.type === 'monthly').length;
 
     document.getElementById('chip-all').textContent = `All (${allCount})`;
     document.getElementById('chip-daily').textContent = `Daily (${dailyCount})`;
@@ -80,12 +80,12 @@ function updateChipCounts() {
 // Search functionality
 document.getElementById('logSearch')?.addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
-    const filteredData = logsData.filter(log => 
-        log.desc.toLowerCase().includes(searchTerm) || 
-        log.date.toLowerCase().includes(searchTerm) ||
-        log.val.toLowerCase().includes(searchTerm)
+    const filteredData = logsData.filter(item => 
+        item.desc.toLowerCase().includes(searchTerm) || 
+        item.date.toLowerCase().includes(searchTerm) ||
+        item.val.toLowerCase().includes(searchTerm)
     );
-    renderLogs(filteredData);
+    renderBreakdownItems(filteredData);
 });
 
 // Sort functionality
@@ -99,7 +99,7 @@ document.getElementById('logSort')?.addEventListener('change', function(e) {
         sortedData.sort((a, b) => a.id - b.id);
     }
     
-    renderLogs(sortedData);
+    renderBreakdownItems(sortedData);
 });
 
 // Download statement function
