@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="bg-primary text-white rounded-3 px-3 py-2 position-relative overflow-hidden mb-2" style="background-color: #0087F6 !important; font-size: 0.85rem;">
                                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="badge bg-dark text-white fw-bold fst-italic px-2 py-0.5" style="font-size: 0.75rem;">OMG!</span>
+                                        <img src="assets/img/omg.png" alt="OMG Deal" style="height: 32px; object-fit: contain;">
                                         <span class="fw-semibold">Buy this product for only <strong class="text-warning">₹${product.upiPrice}</strong> Using UPI</span>
                                     </div>
                                 </div>

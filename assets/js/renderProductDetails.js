@@ -47,10 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 </span>
 
                 <!-- UPI OMG Banner -->
-                <div class="bg-primary text-white rounded-3 p-3 position-relative overflow-hidden mb-4">
-                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div class="rounded-3 overflow-hidden mb-4" style="border: 1px solid #94b9ff;">
+                    <!-- Top Part: Blue bg with white text -->
+                    <div class="p-3 text-white d-flex align-items-center justify-content-between flex-wrap gap-2" style="background-color: #0087F6;">
                         <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-dark text-white fw-bold fst-italic px-2 py-1" style="font-size: 0.85rem; letter-spacing: 0.5px;">OMG!</span>
+                            <img src="assets/img/omg.png" alt="OMG Deal" style="height: 42px; object-fit: contain;">
                             <span class="fw-bold" style="font-size: 0.95rem;">Buy this product for only</span>
                         </div>
                         <div class="d-flex align-items-center gap-2">
@@ -58,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <span class="fw-semibold" style="font-size: 0.85rem;">via UPI</span>
                         </div>
                     </div>
-                    <div class="text-light mt-1.5" style="font-size: 0.72rem; opacity: 0.95;">
+                    <!-- Bottom Part: Light Blue bg with dark text -->
+                    <div class="px-3 py-2 text-center" style="background-color: #C3D5FF; color: #000000; font-size: 0.82rem; font-weight: 500; font-family: 'Mona Sans Variable', sans-serif;">
                         Best Deal is applied on this product - minimum 50% off
                     </div>
                 </div>

@@ -1003,8 +1003,8 @@ input[type=range]::-moz-range-thumb {
 
 
 #mainProductImage {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%;
+    max-height: 90%;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -3323,4 +3323,36 @@ select.profile-form-control {
 
 .otp-shake {
     animation: otp-shake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Custom Clickable cursor pointer utility */
+.cursor-pointer, 
+.tab-btn, 
+.thumbnail-item, 
+.size-btn,
+.details-accordion > div,
+.reviews-section > div,
+button,
+a {
+    cursor: pointer !important;
+}
+
+/* Breadcrumb separator spacing and inline flow layout */
+.breadcrumb {
+    display: block !important;
+    white-space: nowrap !important;
+}
+
+.breadcrumb-item {
+    display: inline !important;
+    float: none !important;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline !important;
+    float: none !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    color: #6c757d !important;
+    content: "/" !important;
 }

@@ -15,6 +15,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Fontsource Mona Sans Variable Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/mona-sans@latest/index.min.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
@@ -43,23 +45,23 @@
         
         <!-- Product View Section -->
         <div class="container pb-5">
-            <!-- Breadcrumbs -->
-            <div class="py-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-secondary">Home & Living</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-secondary">Home Kitchen</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-secondary">Kitchen Tools</a></li>
-                        <li class="breadcrumb-item active text-dark fw-semibold text-truncate" aria-current="page" style="max-width: 250px;">Premium Stainless Steel Polished.......</li>
-                    </ol>
-                </nav>
-            </div>
-
             <div class="row g-4">
                 
                 <!-- Left Column: Product Gallery -->
-                <div class="col-lg-7 sticky-gallery">
+                <div class="col-lg-6 sticky-gallery">
+                    <!-- Breadcrumbs -->
+                    <div class="py-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-secondary">Home & Living</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-secondary">Home Kitchen</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-secondary">Kitchen Tools</a></li>
+                                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">Digital Personal Body Weight Scale loresn piurst (1 Pc)</li>
+                            </ol>
+                        </nav>
+                    </div>
+
                     <div class="d-flex flex-column-reverse flex-md-row gap-3">
                         <!-- Thumbnail list -->
                         <div class="d-flex flex-row flex-md-column gap-2 overflow-auto scrollbar-none flex-shrink-0" id="thumbScroll">
@@ -88,7 +90,7 @@
                 </div>
  
                 <!-- Right Column: Product Information -->
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="product-info-wrapper px-2">
                         
                         <!-- Subtitle -->
@@ -96,7 +98,7 @@
                         
                         <!-- Title -->
                         <h1 class="fs-4 fw-bold text-dark mb-2" style="font-family: 'Montserrat', sans-serif; line-height: 1.3;">
-                            Digital Personal Body Weight Scale loresn piurst (1 Pc).......
+                            Digital Personal Body Weight Scale loresn piurst (1 Pc)
                         </h1>
 
                         <!-- SKU -->
@@ -132,10 +134,11 @@
                         </span>
 
                         <!-- UPI OMG Banner -->
-                        <div class="bg-primary text-white rounded-3 p-3 position-relative overflow-hidden mb-4">
-                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <div class="rounded-3 overflow-hidden mb-4" style="border: 1px solid #94b9ff;">
+                            <!-- Top Part: Blue bg with white text -->
+                            <div class="p-3 text-white d-flex align-items-center justify-content-between flex-wrap gap-2" style="background-color: #0087F6;">
                                 <div class="d-flex align-items-center gap-2">
-                                    <span class="badge bg-dark text-white fw-bold fst-italic px-2 py-1" style="font-size: 0.85rem; letter-spacing: 0.5px;">OMG!</span>
+                                    <img src="assets/img/omg.png" alt="OMG Deal" style="height: 42px; object-fit: contain;">
                                     <span class="fw-bold" style="font-size: 0.95rem;">Buy this product for only</span>
                                 </div>
                                 <div class="d-flex align-items-center gap-2">
@@ -143,7 +146,8 @@
                                     <span class="fw-semibold" style="font-size: 0.85rem;">via UPI</span>
                                 </div>
                             </div>
-                            <div class="text-light mt-1.5" style="font-size: 0.72rem; opacity: 0.95;">
+                            <!-- Bottom Part: Light Blue bg with dark text -->
+                            <div class="px-3 py-2 text-center" style="background-color: #C3D5FF; color: #000000; font-size: 0.82rem; font-weight: 500; font-family: 'Mona Sans Variable', sans-serif;">
                                 Best Deal is applied on this product - minimum 50% off
                             </div>
                         </div>
@@ -165,9 +169,9 @@
                             <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
                                 <!-- Quantity Selector -->
                                 <div class="d-flex align-items-center border rounded-2 bg-white px-2 py-1.5" style="height: 40px; border-color: #cbd5e1 !important;">
-                                    <button class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">-</button>
-                                    <input type="text" class="text-center fw-bold p-0 border-0 bg-transparent" value="1" readonly style="width: 40px;">
-                                    <button class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">+</button>
+                                    <button id="qtyDecreaseBtn" class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">-</button>
+                                    <input id="qtyInput" type="text" class="text-center fw-bold p-0 border-0 bg-transparent" value="1" readonly style="width: 40px;">
+                                    <button id="qtyIncreaseBtn" class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">+</button>
                                 </div>
                                 <!-- Add to Cart Button -->
                                 <button class="btn d-flex align-items-center justify-content-center gap-2 fw-semibold px-4" style="background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; height: 40px; border-radius: 6px;">
@@ -230,104 +234,132 @@
 
                         <!-- All Details Accordion -->
                         <div class="details-accordion mb-4">
-                            <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
+                            <div id="detailsAccordionHeader" class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
                                 <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">All Details</h5>
                                 <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.85rem;">
-                                    <span>Features Descriptions & More</span>
-                                    <i class="fas fa-chevron-up"></i>
+                                    <i id="detailsAccordionIcon" class="fas fa-chevron-up"></i>
                                 </div>
                             </div>
 
-                            <!-- Tab buttons -->
-                            <div class="d-flex mb-3">
-                                <div class="flex-grow-1 text-center py-2 fw-bold border bg-primary text-white border-primary cursor-pointer tab-btn active" style="font-size: 0.95rem;">Description</div>
-                                <div class="flex-grow-1 text-center py-2 fw-bold border bg-light text-secondary cursor-pointer tab-btn" style="font-size: 0.95rem;">Specification</div>
-                            </div>
+                            <div id="detailsAccordionContent">
+                                <!-- Tab buttons -->
+                                <div class="d-flex mb-3">
+                                    <div id="descriptionTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-primary text-white border-primary cursor-pointer tab-btn active" style="font-size: 0.95rem;">Description</div>
+                                    <div id="specificationTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-light text-secondary cursor-pointer tab-btn" style="font-size: 0.95rem;">Specification</div>
+                                </div>
 
-                            <!-- Tab content description -->
-                            <div class="tab-content" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
-                                <p class="mb-2">
-                                    Give your skin the freshness it deserves with Alloes Pharmaceuticals Charcoal Face Wash, a powerful pollution defence and acne-fighting formula. Enriched with activated charcoal, this face wash deeply cleanses clogged pores, removes excess oil, and eliminates impurities caused by dust and pollution.
-                                </p>
-                                <div class="text-center mt-3">
-                                    <a href="#" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1 text-secondary" style="font-size: 0.78rem;">
-                                        <span>see less</span>
-                                        <i class="fas fa-chevron-up"></i>
-                                    </a>
+                                <!-- Tab content description -->
+                                <div id="tabContentDescription" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
+                                    <p class="mb-2" id="descriptionParagraph">
+                                        Give your skin the freshness it deserves with Alloes Pharmaceuticals Charcoal Face Wash, a powerful pollution defence and acne-fighting formula. Enriched with activated charcoal, this face wash deeply cleanses clogged pores, removes excess oil, and eliminates impurities caused by dust and pollution.
+                                    </p>
+                                    <div class="text-center mt-3">
+                                        <a href="#" id="seeMoreLessBtn" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1 text-secondary" style="font-size: 0.78rem;">
+                                            <span id="seeMoreLessText">see less</span>
+                                            <i id="seeMoreLessIcon" class="fas fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Tab content specification -->
+                                <div id="tabContentSpecification" class="d-none" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
+                                    <table class="table table-bordered mb-0" style="font-size: 0.82rem;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-semibold bg-light" style="width: 35%;">Brand</td>
+                                                <td>Alloes Pharmaceuticals</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-semibold bg-light">Type</td>
+                                                <td>Charcoal Face Wash</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-semibold bg-light">Ideal For</td>
+                                                <td>Men & Women</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-semibold bg-light">Benefits</td>
+                                                <td>Deep Cleansing, Acne Fighting, Oil Control</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-semibold bg-light">Pack of</td>
+                                                <td>1 Pc</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Reviews and Ratings Section -->
                         <div class="reviews-section mb-4">
-                            <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
+                            <div id="reviewsAccordionHeader" class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
                                 <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">Reviews & Ratings</h5>
                                 <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.85rem;">
                                     <span>Customer Feedback and Ratings</span>
-                                    <i class="fas fa-chevron-up"></i>
+                                    <i id="reviewsAccordionIcon" class="fas fa-chevron-up"></i>
                                 </div>
                             </div>
 
-                            <!-- Rating header summary -->
-                            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div class="text-success d-flex gap-1" style="font-size: 0.95rem;">
-                                        <i class="fas fa-star text-success"></i>
-                                        <i class="fas fa-star text-success"></i>
-                                        <i class="fas fa-star text-success"></i>
-                                        <i class="fas fa-star text-success"></i>
-                                        <i class="fas fa-star text-success"></i>
-                                    </div>
-                                    <span class="badge bg-success px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Good</span>
-                                </div>
-                                <button class="btn btn-outline-secondary btn-sm fw-semibold" style="font-size: 0.8rem; border-radius: 4px; padding: 6px 12px; border-color: #cbd5e1 !important; color: #475569;">
-                                    Submit Review
-                                </button>
-                            </div>
-
-                            <!-- Review List -->
-                            <div class="review-list d-flex flex-column gap-3">
-                                <!-- Review Item 1 -->
-                                <div class="d-flex gap-3">
-                                    <div class="flex-shrink-0">
-                                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
-                                            <i class="fas fa-user"></i>
+                            <div id="reviewsSectionContent">
+                                <!-- Rating header summary -->
+                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="text-success d-flex gap-1" style="font-size: 0.95rem;">
+                                            <i class="fas fa-star text-success"></i>
+                                            <i class="fas fa-star text-success"></i>
+                                            <i class="fas fa-star text-success"></i>
+                                            <i class="fas fa-star text-success"></i>
+                                            <i class="fas fa-star text-success"></i>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="text-warning mb-1" style="font-size: 0.72rem;">
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="far fa-star text-muted"></i>
-                                        </div>
-                                        <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• 1 year ago</div>
-                                        <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
-                                            This Professional Adjustable Inline Skates is extremely useful and practical.
-                                        </p>
+                                        <span class="badge bg-success px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Good</span>
                                     </div>
                                 </div>
 
-                                <!-- Review Item 2 -->
-                                <div class="d-flex gap-3 mt-2">
-                                    <div class="flex-shrink-0">
-                                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
-                                            <i class="fas fa-user"></i>
+                                <!-- Review List -->
+                                <div class="review-list d-flex flex-column gap-3">
+                                    <!-- Review Item 1 -->
+                                    <div class="d-flex gap-3">
+                                        <div class="flex-shrink-0">
+                                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="text-warning mb-1" style="font-size: 0.72rem;">
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="far fa-star text-muted"></i>
+                                            </div>
+                                            <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• 1 year ago</div>
+                                            <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
+                                                This Professional Adjustable Inline Skates is extremely useful and practical.
+                                            </p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div class="text-warning mb-1" style="font-size: 0.72rem;">
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
-                                            <i class="fas fa-star text-warning"></i>
+
+                                    <!-- Review Item 2 -->
+                                    <div class="d-flex gap-3 mt-2">
+                                        <div class="flex-shrink-0">
+                                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
+                                                <i class="fas fa-user"></i>
+                                            </div>
                                         </div>
-                                        <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• 1 year ago</div>
-                                        <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
-                                            Good product and value for money.
-                                        </p>
+                                        <div>
+                                            <div class="text-warning mb-1" style="font-size: 0.72rem;">
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                                <i class="fas fa-star text-warning"></i>
+                                            </div>
+                                            <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• 1 year ago</div>
+                                            <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
+                                                Good product and value for money.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -419,6 +451,133 @@
                     this.classList.add('active');
                 });
             });
+
+            // Tab switching for Description and Specification
+            const descriptionTabBtn = document.getElementById('descriptionTabBtn');
+            const specificationTabBtn = document.getElementById('specificationTabBtn');
+            const tabContentDescription = document.getElementById('tabContentDescription');
+            const tabContentSpecification = document.getElementById('tabContentSpecification');
+
+            if (descriptionTabBtn && specificationTabBtn && tabContentDescription && tabContentSpecification) {
+                descriptionTabBtn.addEventListener('click', function() {
+                    // Activate Description Tab Button
+                    descriptionTabBtn.classList.remove('bg-light', 'text-secondary');
+                    descriptionTabBtn.classList.add('bg-primary', 'text-white', 'border-primary', 'active');
+                    
+                    // Deactivate Specification Tab Button
+                    specificationTabBtn.classList.remove('bg-primary', 'text-white', 'border-primary', 'active');
+                    specificationTabBtn.classList.add('bg-light', 'text-secondary');
+
+                    // Show/Hide Content
+                    tabContentDescription.classList.remove('d-none');
+                    tabContentSpecification.classList.add('d-none');
+                });
+
+                specificationTabBtn.addEventListener('click', function() {
+                    // Activate Specification Tab Button
+                    specificationTabBtn.classList.remove('bg-light', 'text-secondary');
+                    specificationTabBtn.classList.add('bg-primary', 'text-white', 'border-primary', 'active');
+                    
+                    // Deactivate Description Tab Button
+                    descriptionTabBtn.classList.remove('bg-primary', 'text-white', 'border-primary', 'active');
+                    descriptionTabBtn.classList.add('bg-light', 'text-secondary');
+
+                    // Show/Hide Content
+                    tabContentSpecification.classList.remove('d-none');
+                    tabContentDescription.classList.add('d-none');
+                });
+            }
+
+            // See more / see less toggle for Description
+            const descriptionParagraph = document.getElementById('descriptionParagraph');
+            const seeMoreLessBtn = document.getElementById('seeMoreLessBtn');
+            const seeMoreLessText = document.getElementById('seeMoreLessText');
+            const seeMoreLessIcon = document.getElementById('seeMoreLessIcon');
+
+            if (descriptionParagraph && seeMoreLessBtn && seeMoreLessText && seeMoreLessIcon) {
+                const fullText = descriptionParagraph.textContent.trim();
+                const limit = 145; // Approximately after "acne-fighting formula."
+                const truncatedText = fullText.slice(0, limit) + "...";
+
+                let isCollapsed = true;
+
+                // Set initial truncated text
+                descriptionParagraph.textContent = truncatedText;
+                seeMoreLessText.textContent = "see more";
+                seeMoreLessIcon.className = "fas fa-chevron-down";
+
+                seeMoreLessBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (isCollapsed) {
+                        // Expand
+                        descriptionParagraph.textContent = fullText;
+                        seeMoreLessText.textContent = "see less";
+                        seeMoreLessIcon.className = "fas fa-chevron-up";
+                        isCollapsed = false;
+                    } else {
+                        // Collapse
+                        descriptionParagraph.textContent = truncatedText;
+                        seeMoreLessText.textContent = "see more";
+                        seeMoreLessIcon.className = "fas fa-chevron-down";
+                        isCollapsed = true;
+                    }
+                });
+            }
+
+            // Quantity +/- selector logic
+            const qtyDecreaseBtn = document.getElementById('qtyDecreaseBtn');
+            const qtyIncreaseBtn = document.getElementById('qtyIncreaseBtn');
+            const qtyInput = document.getElementById('qtyInput');
+
+            if (qtyDecreaseBtn && qtyIncreaseBtn && qtyInput) {
+                qtyDecreaseBtn.addEventListener('click', function() {
+                    let currentVal = parseInt(qtyInput.value);
+                    if (!isNaN(currentVal) && currentVal > 1) {
+                        qtyInput.value = currentVal - 1;
+                    }
+                });
+
+                qtyIncreaseBtn.addEventListener('click', function() {
+                    let currentVal = parseInt(qtyInput.value);
+                    if (!isNaN(currentVal)) {
+                        qtyInput.value = currentVal + 1;
+                    }
+                });
+            }
+
+            // Toggle All Details Accordion
+            const detailsAccordionHeader = document.getElementById('detailsAccordionHeader');
+            const detailsAccordionContent = document.getElementById('detailsAccordionContent');
+            const detailsAccordionIcon = document.getElementById('detailsAccordionIcon');
+
+            if (detailsAccordionHeader && detailsAccordionContent && detailsAccordionIcon) {
+                detailsAccordionHeader.addEventListener('click', function() {
+                    if (detailsAccordionContent.classList.contains('d-none')) {
+                        detailsAccordionContent.classList.remove('d-none');
+                        detailsAccordionIcon.className = "fas fa-chevron-up";
+                    } else {
+                        detailsAccordionContent.classList.add('d-none');
+                        detailsAccordionIcon.className = "fas fa-chevron-down";
+                    }
+                });
+            }
+
+            // Toggle Reviews & Ratings Accordion
+            const reviewsAccordionHeader = document.getElementById('reviewsAccordionHeader');
+            const reviewsSectionContent = document.getElementById('reviewsSectionContent');
+            const reviewsAccordionIcon = document.getElementById('reviewsAccordionIcon');
+
+            if (reviewsAccordionHeader && reviewsSectionContent && reviewsAccordionIcon) {
+                reviewsAccordionHeader.addEventListener('click', function() {
+                    if (reviewsSectionContent.classList.contains('d-none')) {
+                        reviewsSectionContent.classList.remove('d-none');
+                        reviewsAccordionIcon.className = "fas fa-chevron-up";
+                    } else {
+                        reviewsSectionContent.classList.add('d-none');
+                        reviewsAccordionIcon.className = "fas fa-chevron-down";
+                    }
+                });
+            }
         });
     </script>
 </body>
