@@ -85,286 +85,28 @@
                         <!-- Main Image -->
                         <div class="flex-grow-1 border border-primary border-3 rounded-3 overflow-hidden bg-white position-relative main-image-wrapper">
                             <img src="assets/img/homescreenimg.png" id="mainProductImage" alt="Digital Personal Body Weight Scale">
+                            <!-- Wishlist Heart Overlay -->
+                            <div id="imageHeartOverlay" class="position-absolute top-0 end-0 m-3 d-none" style="z-index: 5; font-size: 1.6rem; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.25));">
+                                <i class="fas fa-heart text-danger"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
  
                 <!-- Right Column: Product Information -->
                 <div class="col-lg-6">
-                    <div class="product-info-wrapper px-2">
-                        
-                        <!-- Subtitle -->
-                        <span class="text-muted fs-7 mb-1 d-block" style="font-size: 0.85rem; font-weight: 500;">Personal Care Application</span>
-                        
-                        <!-- Title -->
-                        <h1 class="fs-4 fw-bold text-dark mb-2" style="font-family: 'Montserrat', sans-serif; line-height: 1.3;">
-                            Digital Personal Body Weight Scale (1 Pc)
-                        </h1>
-
-                        <!-- SKU -->
-                        <div class="text-secondary mb-3" style="font-size: 0.85rem; font-weight: 500;">
-                            <strong>SKU:</strong> 19517_digital_body_weight_scale_1pc_no2
+                    <!-- Spacer matching left column breadcrumbs height -->
+                    <div class="py-3 d-none d-lg-block">
+                        <div style="height: 21px;"></div>
+                    </div>
+                    <div class="product-info-wrapper px-2" id="product-info-container">
+                        <!-- Loading skeleton placeholder while JS initializes -->
+                        <div class="py-3">
+                            <div class="skeleton-box mb-2" style="height: 14px; width: 30%;"></div>
+                            <div class="skeleton-box mb-3" style="height: 36px; width: 90%;"></div>
+                            <div class="skeleton-box mb-4" style="height: 18px; width: 45%;"></div>
+                            <div class="skeleton-box mb-4" style="height: 28px; width: 60%;"></div>
                         </div>
-
-                        <!-- Status & Rating -->
-                        <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
-                            <span class="badge bg-danger px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Out of Stock</span>
-                            <div class="d-flex align-items-center">
-                                <div class="text-warning me-2" style="font-size: 0.9rem;">
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star text-warning"></i>
-                                    <i class="fas fa-star-half-alt text-warning"></i>
-                                    <i class="far fa-star text-warning"></i>
-                                </div>
-                                <span class="text-muted" style="font-size: 0.82rem; font-weight: 500;">( 2 Reviews)</span>
-                            </div>
-                        </div>
-
-                        <!-- Pricing -->
-                        <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
-                            <span class="text-success fw-bold fs-4">50% off</span>
-                            <span class="text-muted text-decoration-line-through fs-5">799</span>
-                            <span class="text-dark fw-bold fs-3">₹ 499</span>
-                        </div>
-
-                        <!-- Promotion tag -->
-                        <span class="badge bg-transparent text-white border-0 py-2 px-3 fw-bold mb-4 d-inline-block" style="background-image: linear-gradient(to right, #ec4899, #f43f5e); font-size: 0.8rem; border-radius: 4px;">
-                            On Sale Offer
-                        </span>
-
-                        <!-- UPI OMG Banner -->
-                        <div class="rounded-3 overflow-hidden mb-4" style="border: 1px solid #94b9ff;">
-                            <!-- Top Part: Blue bg with white text -->
-                            <div class="p-3 text-white d-flex align-items-center justify-content-between flex-wrap gap-2" style="background-color: #0087F6;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/img/omg.png" alt="OMG Deal" style="height: 42px; object-fit: contain;">
-                                    <span class="fw-bold" style="font-size: 0.95rem;">Buy this product for only</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="fw-bold fs-5 text-warning">₹474</span>
-                                    <span class="fw-semibold" style="font-size: 0.85rem;">via UPI</span>
-                                </div>
-                            </div>
-                            <!-- Bottom Part: Light Blue bg with dark text -->
-                            <div class="px-3 py-2 text-center" style="background-color: #C3D5FF; color: #000000; font-size: 0.82rem; font-weight: 500; font-family: 'Mona Sans Variable', sans-serif;">
-                                Best Deal is applied to this product - minimum 50% off
-                            </div>
-                        </div>
-
-                        <!-- Size Selector -->
-                        <div class="size-section mb-4">
-                            <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">Select Size</h6>
-                            <div class="d-flex gap-2 flex-wrap">
-                                <button class="btn btn-outline-secondary fw-bold d-inline-flex align-items-center justify-content-center size-btn">S</button>
-                                <button class="btn btn-outline-secondary fw-bold d-inline-flex align-items-center justify-content-center size-btn active">M</button>
-                                <button class="btn btn-outline-secondary fw-bold d-inline-flex align-items-center justify-content-center size-btn">L</button>
-                                <button class="btn btn-outline-secondary fw-bold d-inline-flex align-items-center justify-content-center size-btn">XL</button>
-                                <button class="btn btn-outline-secondary fw-bold d-inline-flex align-items-center justify-content-center size-btn">XXL</button>
-                            </div>
-                        </div>
-
-                        <!-- Quantity and Buttons -->
-                        <div class="action-section mb-4">
-                            <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
-                                <!-- Quantity Selector -->
-                                <div class="d-flex align-items-center border rounded-2 bg-white px-2 py-1.5" style="height: 40px; border-color: #cbd5e1 !important;">
-                                    <button id="qtyDecreaseBtn" class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">-</button>
-                                    <input id="qtyInput" type="text" class="text-center fw-bold p-0 border-0 bg-transparent" value="1" readonly style="width: 40px;">
-                                    <button id="qtyIncreaseBtn" class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">+</button>
-                                </div>
-                                <!-- Add to Cart Button -->
-                                <button class="btn d-flex align-items-center justify-content-center gap-2 fw-semibold px-4" style="background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; height: 40px; border-radius: 6px;">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <span>Add to Cart</span>
-                                </button>
-                            </div>
-                            
-                            <!-- Buy Now Button -->
-                            <button class="btn btn-primary w-100 fw-bold py-2.5 mb-3" style="background-color: #0087F6; border: none; border-radius: 6px; font-size: 1rem;">
-                                Buy Now
-                            </button>
-
-                            <!-- Social Links -->
-                            <div class="d-flex gap-4" style="font-size: 0.85rem; font-weight: 500;">
-                                <a href="#" class="text-dark text-decoration-none d-flex align-items-center gap-2 hover-text-primary">
-                                    <i class="fas fa-share-nodes text-muted"></i>
-                                    <span>Share & Earn</span>
-                                </a>
-                                <a href="#" class="text-dark text-decoration-none d-flex align-items-center gap-2 hover-text-primary">
-                                    <i class="far fa-heart text-muted"></i>
-                                    <span>Add to Wishlist</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Trust Badge -->
-                        <div class="d-flex align-items-center gap-2 border-top border-bottom py-3 mb-4" style="border-color: #f1f5f9 !important;">
-                            <i class="fas fa-shield-halved text-warning fs-4"></i>
-                            <div>
-                                <h6 class="fw-bold text-dark mb-1" style="font-size: 0.85rem;">100 % Secure Payment</h6>
-                                <p class="text-muted mb-0" style="font-size: 0.75rem;">All transactions are encrypted</p>
-                            </div>
-                        </div>
-
-                        <!-- Delivery Details -->
-                        <div class="delivery-section mb-4">
-                            <h5 class="fw-bold text-dark mb-3" style="font-size: 1.05rem;">Delivery Details</h5>
-                            <div class="d-flex align-items-center gap-2 mb-3">
-                                <i class="fas fa-truck text-success"></i>
-                                <span class="fw-semibold text-dark" style="font-size: 0.9rem;">Estimated Delivery: 7 Days</span>
-                            </div>
-
-                            <!-- Trust Badges Grid -->
-                            <div class="row text-center bg-white border rounded-3 p-3 g-2" style="border-color: #f1f5f9 !important;">
-                                <div class="col-4 border-end">
-                                    <i class="fas fa-wallet text-secondary mb-2 fs-5"></i>
-                                    <div class="fw-bold text-dark" style="font-size: 0.72rem;">Cash on Delivery</div>
-                                </div>
-                                <div class="col-4 border-end">
-                                    <i class="fas fa-truck-fast text-secondary mb-2 fs-5"></i>
-                                    <div class="fw-bold text-dark" style="font-size: 0.72rem;">Free Shipping</div>
-                                </div>
-                                <div class="col-4">
-                                    <i class="fas fa-rotate-left text-secondary mb-2 fs-5"></i>
-                                    <div class="fw-bold text-dark" style="font-size: 0.72rem;">Return</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- All Details Accordion -->
-                        <div class="details-accordion mb-4">
-                            <div id="detailsAccordionHeader" class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
-                                <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">All Details</h5>
-                                <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.85rem;">
-                                    <i id="detailsAccordionIcon" class="fas fa-chevron-up"></i>
-                                </div>
-                            </div>
-
-                            <div id="detailsAccordionContent">
-                                <!-- Tab buttons -->
-                                <div class="d-flex mb-3">
-                                    <div id="descriptionTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-primary text-white border-primary cursor-pointer tab-btn active" style="font-size: 0.95rem;">Description</div>
-                                    <div id="specificationTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-light text-secondary cursor-pointer tab-btn" style="font-size: 0.95rem;">Specification</div>
-                                </div>
-
-                                <!-- Tab content description -->
-                                <div id="tabContentDescription" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
-                                    <p class="mb-2" id="descriptionParagraph">
-                                        Give your skin the freshness it deserves with Alloes Pharmaceuticals Charcoal Face Wash, a powerful pollution defence and acne-fighting formula. Enriched with activated charcoal, this face wash deeply cleanses clogged pores, removes excess oil, and eliminates impurities caused by dust and pollution.
-                                    </p>
-                                    <div class="text-center mt-3">
-                                        <a href="#" id="seeMoreLessBtn" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1 text-secondary" style="font-size: 0.78rem;">
-                                            <span id="seeMoreLessText">see less</span>
-                                            <i id="seeMoreLessIcon" class="fas fa-chevron-up"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- Tab content specification -->
-                                <div id="tabContentSpecification" class="d-none" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
-                                    <table class="table table-bordered mb-0" style="font-size: 0.82rem;">
-                                        <tbody>
-                                            <tr>
-                                                <td class="fw-semibold bg-light" style="width: 35%;">Brand</td>
-                                                <td>Alloes Pharmaceuticals</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="fw-semibold bg-light">Type</td>
-                                                <td>Charcoal Face Wash</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="fw-semibold bg-light">Ideal For</td>
-                                                <td>Men & Women</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="fw-semibold bg-light">Benefits</td>
-                                                <td>Deep Cleansing, Acne Fighting, Oil Control</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="fw-semibold bg-light">Pack of</td>
-                                                <td>1 Pc</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Reviews and Ratings Section -->
-                        <div class="reviews-section mb-4">
-                            <div id="reviewsAccordionHeader" class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
-                                <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">Reviews & Ratings</h5>
-                                <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.85rem;">
-                                    <span>Customer Feedback and Ratings</span>
-                                    <i id="reviewsAccordionIcon" class="fas fa-chevron-up"></i>
-                                </div>
-                            </div>
-
-                            <div id="reviewsSectionContent">
-                                <!-- Rating header summary -->
-                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="text-success d-flex gap-1" style="font-size: 0.95rem;">
-                                            <i class="fas fa-star text-success"></i>
-                                            <i class="fas fa-star text-success"></i>
-                                            <i class="fas fa-star text-success"></i>
-                                            <i class="fas fa-star text-success"></i>
-                                            <i class="fas fa-star text-success"></i>
-                                        </div>
-                                        <span class="badge bg-success px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Good</span>
-                                    </div>
-                                </div>
-
-                                <!-- Review List -->
-                                <div class="review-list d-flex flex-column gap-3">
-                                    <!-- Review Item 1 -->
-                                    <div class="d-flex gap-3">
-                                        <div class="flex-shrink-0">
-                                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-warning mb-1" style="font-size: 0.72rem;">
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="far fa-star text-muted"></i>
-                                            </div>
-                                            <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• 1 year ago</div>
-                                            <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
-                                                This Professional Adjustable Inline Skates is extremely useful and practical.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Review Item 2 -->
-                                    <div class="d-flex gap-3 mt-2">
-                                        <div class="flex-shrink-0">
-                                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
-                                                <i class="fas fa-user"></i>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="text-warning mb-1" style="font-size: 0.72rem;">
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                            </div>
-                                            <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• 1 year ago</div>
-                                            <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
-                                                Good product and value for money.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -578,7 +320,89 @@
                     }
                 });
             }
+
+            // Toast Trigger
+            function showToast(message, isSuccess = true) {
+                const toastEl = document.getElementById('action-toast');
+                const toastBody = document.getElementById('toast-body-content');
+                if (!toastEl || !toastBody) return;
+                
+                if (isSuccess) {
+                    toastEl.classList.remove('text-bg-danger');
+                    toastEl.classList.add('text-bg-success');
+                    toastBody.innerHTML = `<i class="fa-solid fa-circle-check me-2"></i>${message}`;
+                } else {
+                    toastEl.classList.remove('text-bg-success');
+                    toastEl.classList.add('text-bg-danger');
+                    toastBody.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i>${message}`;
+                }
+
+                const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+                toast.show();
+            }
+
+            // Event Delegation for dynamically rendered Add to Cart & Wishlist buttons
+            document.addEventListener('click', function(e) {
+                // Add to Cart
+                const addToCartBtn = e.target.closest('#addToCartBtn');
+                if (addToCartBtn) {
+                    if (addToCartBtn.classList.contains('go-to-cart')) {
+                        window.location.href = 'mycart.html';
+                        return;
+                    }
+                    
+                    const qtyInput = document.getElementById('qtyInput');
+                    const qty = qtyInput ? qtyInput.value : 1;
+                    const productName = productDetailsData.product.title;
+                    
+                    // Change label to Go to Cart and add a class
+                    addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
+                    addToCartBtn.classList.add('go-to-cart');
+                    
+                    showToast(`"${productName}" (${qty} item${qty > 1 ? 's' : ''}) added to cart successfully!`);
+                }
+
+                // Add to Wishlist
+                const addToWishlistBtn = e.target.closest('#addToWishlistBtn');
+                if (addToWishlistBtn) {
+                    e.preventDefault();
+                    const productName = productDetailsData.product.title;
+                    const imageHeartOverlay = document.getElementById('imageHeartOverlay');
+                    
+                    // Toggle heart icon classes
+                    const icon = addToWishlistBtn.querySelector('i');
+                    if (icon) {
+                        if (icon.classList.contains('far')) {
+                            icon.classList.remove('far', 'text-muted');
+                            icon.classList.add('fas', 'text-danger');
+                            if (imageHeartOverlay) {
+                                imageHeartOverlay.classList.remove('d-none');
+                            }
+                            showToast(`"${productName}" added to your wishlist!`);
+                        } else {
+                            icon.classList.remove('fas', 'text-danger');
+                            icon.classList.add('far', 'text-muted');
+                            if (imageHeartOverlay) {
+                                imageHeartOverlay.classList.add('d-none');
+                            }
+                            showToast(`"${productName}" removed from your wishlist.`);
+                        }
+                    }
+                }
+            });
         });
     </script>
+
+    <!-- Notification Toast System -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100; margin-top: 90px;">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold" id="toast-body-content">
+                    Action successful!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

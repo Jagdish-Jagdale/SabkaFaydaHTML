@@ -80,12 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
                         <!-- Quantity Selector -->
                         <div class="d-flex align-items-center border rounded-2 bg-white px-2 py-1.5" style="height: 40px; border-color: #cbd5e1 !important;">
-                            <button class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">-</button>
-                            <input type="text" class="text-center fw-bold p-0 border-0 bg-transparent" value="1" readonly style="width: 40px;">
-                            <button class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">+</button>
+                            <button id="qtyDecreaseBtn" class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">-</button>
+                            <input id="qtyInput" type="text" class="text-center fw-bold p-0 border-0 bg-transparent" value="1" readonly style="width: 40px;">
+                            <button id="qtyIncreaseBtn" class="btn btn-link text-decoration-none text-dark p-0 px-2 border-0 fw-bold fs-5" style="box-shadow: none;">+</button>
                         </div>
                         <!-- Add to Cart Button -->
-                        <button class="btn d-flex align-items-center justify-content-center gap-2 fw-semibold px-4" style="background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; height: 40px; border-radius: 6px;">
+                        <button id="addToCartBtn" class="btn d-flex align-items-center justify-content-center gap-2 fw-semibold px-4" style="background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; height: 40px; border-radius: 6px;">
                             <i class="fas fa-shopping-cart"></i>
                             <span>Add to Cart</span>
                         </button>
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <i class="fas fa-share-nodes text-muted"></i>
                             <span>Share & Earn</span>
                         </a>
-                        <a href="#" class="text-dark text-decoration-none d-flex align-items-center gap-2 hover-text-primary">
+                        <a href="#" id="addToWishlistBtn" class="text-dark text-decoration-none d-flex align-items-center gap-2 hover-text-primary">
                             <i class="far fa-heart text-muted"></i>
                             <span>Add to Wishlist</span>
                         </a>
@@ -145,85 +145,103 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <!-- All Details Accordion -->
                 <div class="details-accordion mb-4">
-                    <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
+                    <div id="detailsAccordionHeader" class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
                         <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">All Details</h5>
                         <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.85rem;">
                             <span>Features Descriptions & More</span>
-                            <i class="fas fa-chevron-up"></i>
+                            <i id="detailsAccordionIcon" class="fas fa-chevron-up"></i>
                         </div>
                     </div>
 
-                    <!-- Tab buttons -->
-                    <div class="d-flex mb-3">
-                        <div class="flex-grow-1 text-center py-2 fw-bold border bg-primary text-white border-primary cursor-pointer tab-btn active" style="font-size: 0.95rem;">Description</div>
-                        <div class="flex-grow-1 text-center py-2 fw-bold border bg-light text-secondary cursor-pointer tab-btn" style="font-size: 0.95rem;">Specification</div>
-                    </div>
+                    <div id="detailsAccordionContent">
+                        <!-- Tab buttons -->
+                        <div class="d-flex mb-3">
+                            <div id="descriptionTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-primary text-white border-primary cursor-pointer tab-btn active" style="font-size: 0.95rem;">Description</div>
+                            <div id="specificationTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-light text-secondary cursor-pointer tab-btn" style="font-size: 0.95rem;">Specification</div>
+                        </div>
 
-                    <!-- Tab content description -->
-                    <div class="tab-content" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
-                        <p class="mb-2">
-                            ${p.description}
-                        </p>
-                        <div class="text-center mt-3">
-                            <a href="#" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1 text-secondary" style="font-size: 0.78rem;">
-                                <span>see less</span>
-                                <i class="fas fa-chevron-up"></i>
-                            </a>
+                        <!-- Tab content description -->
+                        <div id="tabContentDescription" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
+                            <p class="mb-2" id="descriptionParagraph">
+                                ${p.description}
+                            </p>
+                            <div class="text-center mt-3">
+                                <a href="#" id="seeMoreLessBtn" class="text-decoration-none fw-semibold d-inline-flex align-items-center gap-1 text-secondary" style="font-size: 0.78rem;">
+                                    <span id="seeMoreLessText">see less</span>
+                                    <i id="seeMoreLessIcon" class="fas fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Tab content specification -->
+                        <div id="tabContentSpecification" class="d-none" style="font-size: 0.82rem; color: #475569; line-height: 1.6;">
+                            <table class="table table-bordered mb-0" style="font-size: 0.82rem;">
+                                <tbody>
+                                    ${p.specifications ? p.specifications.map(spec => `
+                                        <tr>
+                                            <td class="fw-semibold bg-light" style="width: 35%;">${spec.name}</td>
+                                            <td>${spec.value}</td>
+                                        </tr>
+                                    `).join('') : ''}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
                 <!-- Reviews and Ratings Section -->
                 <div class="reviews-section mb-4">
-                    <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
+                    <div id="reviewsAccordionHeader" class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
                         <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">Reviews & Ratings</h5>
                         <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.85rem;">
                             <span>Customer Feedback and Ratings</span>
-                            <i class="fas fa-chevron-up"></i>
+                            <i id="reviewsAccordionIcon" class="fas fa-chevron-up"></i>
                         </div>
                     </div>
 
-                    <!-- Rating header summary -->
-                    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-                        <div class="d-flex align-items-center gap-2">
-                            <div class="text-success d-flex gap-1" style="font-size: 0.95rem;">
-                                <i class="fas fa-star text-success"></i>
-                                <i class="fas fa-star text-success"></i>
-                                <i class="fas fa-star text-success"></i>
-                                <i class="fas fa-star text-success"></i>
-                                <i class="fas fa-star text-success"></i>
-                            </div>
-                            <span class="badge bg-success px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Good</span>
-                        </div>
-                        <button class="btn btn-outline-secondary btn-sm fw-semibold" style="font-size: 0.8rem; border-radius: 4px; padding: 6px 12px; border-color: #cbd5e1 !important; color: #475569;">
-                            Submit Review
-                        </button>
-                    </div>
-
-                    <!-- Review List -->
-                    <div class="review-list d-flex flex-column gap-3">
-                        ${productDetailsData.reviews.map(review => {
-                            const reviewStars = Array(review.rating).fill('<i class="fas fa-star text-warning"></i>').join('');
-                            const reviewEmptyStars = Array(5 - review.rating).fill('<i class="far fa-star text-muted"></i>').join('');
-                            return `
-                                <div class="d-flex gap-3">
-                                    <div class="flex-shrink-0">
-                                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
-                                            <i class="fas fa-user"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="text-warning mb-1" style="font-size: 0.72rem;">
-                                            ${reviewStars}${reviewEmptyStars}
-                                        </div>
-                                        <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• ${review.timeAgo}</div>
-                                        <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
-                                            ${review.text}
-                                        </p>
-                                    </div>
+                    <div id="reviewsSectionContent">
+                        <!-- Rating header summary -->
+                        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="text-success d-flex gap-1" style="font-size: 0.95rem;">
+                                    <i class="fas fa-star text-success"></i>
+                                    <i class="fas fa-star text-success"></i>
+                                    <i class="fas fa-star text-success"></i>
+                                    <i class="fas fa-star text-success"></i>
+                                    <i class="fas fa-star text-success"></i>
                                 </div>
-                            `;
-                        }).join('')}
+                                <span class="badge bg-success px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Good</span>
+                            </div>
+                            <button class="btn btn-outline-secondary btn-sm fw-semibold" style="font-size: 0.8rem; border-radius: 4px; padding: 6px 12px; border-color: #cbd5e1 !important; color: #475569;">
+                                Submit Review
+                            </button>
+                        </div>
+
+                        <!-- Review List -->
+                        <div class="review-list d-flex flex-column gap-3">
+                            ${productDetailsData.reviews.map(review => {
+                                const reviewStars = Array(review.rating).fill('<i class="fas fa-star text-warning"></i>').join('');
+                                const reviewEmptyStars = Array(5 - review.rating).fill('<i class="far fa-star text-muted"></i>').join('');
+                                return `
+                                    <div class="d-flex gap-3">
+                                        <div class="flex-shrink-0">
+                                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="text-warning mb-1" style="font-size: 0.72rem;">
+                                                ${reviewStars}${reviewEmptyStars}
+                                            </div>
+                                            <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• ${review.timeAgo}</div>
+                                            <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
+                                                ${review.text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
                     </div>
                 </div>
             `;

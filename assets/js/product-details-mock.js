@@ -22,7 +22,14 @@ const productDetailsData = {
         sizes: ['S', 'M', 'L', 'XL', 'XXL'],
         selectedSize: 'M',
         description: 'Give your skin the freshness it deserves with Alloes Pharmaceuticals Charcoal Face Wash, a powerful pollution defence and acne-fighting formula. Enriched with activated charcoal, this face wash deeply cleanses clogged pores, removes excess oil, and eliminates impurities caused by dust and pollution.',
-        deliveryDays: 7
+        deliveryDays: 7,
+        specifications: [
+            { name: 'Brand', value: 'Alloes Pharmaceuticals' },
+            { name: 'Type', value: 'Charcoal Face Wash' },
+            { name: 'Ideal For', value: 'Men & Women' },
+            { name: 'Benefits', value: 'Deep Cleansing, Acne Fighting, Oil Control' },
+            { name: 'Pack of', value: '1 Pc' }
+        ]
     },
     reviews: [
         {
