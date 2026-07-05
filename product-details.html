@@ -367,12 +367,8 @@
                         specs: productDetailsData.product.specifications ? productDetailsData.product.specifications.map(spec => spec.value) : []
                     };
                     
-                    console.log('Adding to cart:', productForCart, 'Quantity:', qty);
-                    
                     // Add to cart using localStorage
                     addToCart(productForCart, qty);
-                    
-                    console.log('Cart after adding:', getCart());
                     
                     // Update cart count in header
                     updateCartCount();

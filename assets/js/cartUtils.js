@@ -16,24 +16,9 @@ function getCart() {
 // Save cart to localStorage
 function saveCart(cart) {
     try {
-        const cartJson = JSON.stringify(cart);
-        console.log('Attempting to save cart JSON:', cartJson);
-        console.log('JSON length:', cartJson.length);
-        
-        localStorage.setItem(CART_STORAGE_KEY, cartJson);
-        
-        // Verify save
-        const saved = localStorage.getItem(CART_STORAGE_KEY);
-        console.log('Saved data verification:', saved);
-        
-        if (saved !== cartJson) {
-            console.error('Data mismatch after save!');
-        }
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
     } catch (error) {
         console.error('Error saving cart to localStorage:', error);
-        if (error.name === 'QuotaExceededError') {
-            console.error('LocalStorage quota exceeded!');
-        }
     }
 }
 
@@ -41,17 +26,12 @@ function saveCart(cart) {
 function addToCart(product, quantity = 1) {
     const cart = getCart();
     
-    console.log('Current cart before adding:', cart);
-    console.log('Product to add:', product);
-    console.log('Quantity:', quantity);
-    
     // Check if product already exists in cart
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
     
     if (existingItemIndex > -1) {
         // Update quantity if item exists
         cart[existingItemIndex].qty += quantity;
-        console.log('Updated existing item quantity:', cart[existingItemIndex]);
     } else {
         // Add new item to cart - match the structure expected by renderCart.js
         const newItem = {
@@ -65,17 +45,9 @@ function addToCart(product, quantity = 1) {
             specs: product.specs || []
         };
         cart.push(newItem);
-        console.log('Added new item to cart:', newItem);
     }
     
-    console.log('Cart to save:', JSON.stringify(cart));
     saveCart(cart);
-    console.log('Cart saved to localStorage');
-    
-    // Verify it was saved correctly
-    const savedCart = getCart();
-    console.log('Verified saved cart:', savedCart);
-    
     return cart;
 }
 
@@ -118,7 +90,6 @@ function getCartItemCount() {
 // Update cart count in header
 function updateCartCount() {
     const count = getCartItemCount();
-    console.log('Updating cart count to:', count);
     
     // Update mobile cart badge
     const mobileCartBadge = document.querySelector('.mobile-cart-badge');

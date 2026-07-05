@@ -76,11 +76,6 @@
                     <div class="col-lg-8">
                         <div class="bg-white rounded-4 shadow-sm border p-3 cart-main-card">
                             <div id="cartItemsList"></div>
-                            
-                            <!-- Coupon Trigger Area -->
-                            <div class="text-center pt-3">
-                                <a href="#" class="fw-bold text-primary text-decoration-underline" style="font-size: 0.85rem;" data-bs-toggle="modal" data-bs-target="#couponsModal">View Available Coupons/Offers</a>
-                            </div>
                         </div>
                     </div>
 
@@ -161,50 +156,28 @@
     <script src="assets/js/renderCart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            console.log('DOM Content Loaded');
-            
-            // Clear any existing cart data for testing
-            // localStorage.removeItem('sabkaFaydaCart');
-            
             // Load cart from localStorage
             const cartData = getCart();
-            console.log('Cart data loaded in mycart.html:', cartData);
-            console.log('Cart data length:', cartData ? cartData.length : 0);
             
             if (cartData && cartData.length > 0) {
-                console.log('Calling renderCart with data:', cartData);
-                
                 // Ensure cart content is visible and empty state is hidden
                 const cartContentGrid = document.getElementById('cartContentGrid');
                 const emptyCartState = document.getElementById('emptyCartState');
                 
                 if (cartContentGrid) {
                     cartContentGrid.style.display = 'flex';
-                    console.log('cartContentGrid set to display: flex');
                 }
                 if (emptyCartState) {
                     emptyCartState.style.display = 'none';
-                    console.log('emptyCartState set to display: none');
                 }
                 
                 renderCart(cartData);
-                console.log('Cart rendered successfully');
-                
-                // Verify cart items were rendered
-                setTimeout(() => {
-                    const cartItems = document.querySelectorAll('.cart-item');
-                    console.log('Number of cart items rendered:', cartItems.length);
-                    const cartItemsList = document.getElementById('cartItemsList');
-                    console.log('cartItemsList innerHTML length:', cartItemsList ? cartItemsList.innerHTML.length : 0);
-                    console.log('cartItemsList display style:', cartItemsList ? window.getComputedStyle(cartItemsList).display : 'not found');
-                }, 100);
             } else {
                 // Show empty cart state
                 const cartContentGrid = document.getElementById('cartContentGrid');
                 const emptyCartState = document.getElementById('emptyCartState');
                 if (cartContentGrid) cartContentGrid.style.display = 'none';
                 if (emptyCartState) emptyCartState.style.display = 'flex';
-                console.log('Cart is empty, showing empty state');
             }
         });
     </script>
