@@ -173,6 +173,20 @@
             
             if (cartData && cartData.length > 0) {
                 console.log('Calling renderCart with data:', cartData);
+                
+                // Ensure cart content is visible and empty state is hidden
+                const cartContentGrid = document.getElementById('cartContentGrid');
+                const emptyCartState = document.getElementById('emptyCartState');
+                
+                if (cartContentGrid) {
+                    cartContentGrid.style.display = 'flex';
+                    console.log('cartContentGrid set to display: flex');
+                }
+                if (emptyCartState) {
+                    emptyCartState.style.display = 'none';
+                    console.log('emptyCartState set to display: none');
+                }
+                
                 renderCart(cartData);
                 console.log('Cart rendered successfully');
                 
@@ -182,6 +196,7 @@
                     console.log('Number of cart items rendered:', cartItems.length);
                     const cartItemsList = document.getElementById('cartItemsList');
                     console.log('cartItemsList innerHTML length:', cartItemsList ? cartItemsList.innerHTML.length : 0);
+                    console.log('cartItemsList display style:', cartItemsList ? window.getComputedStyle(cartItemsList).display : 'not found');
                 }, 100);
             } else {
                 // Show empty cart state
