@@ -1,12 +1,25 @@
-function renderCart(cartData) {
+function renderCart(cart) {
+    console.log('renderCart function called with cart:', cart);
     const container = document.getElementById('cartItemsList');
-    if (!container) return;
+    if (!container) {
+        console.error('Error: #cartItemsList element not found in the DOM.');
+        return;
+    }
+    
+    if (!cart || cart.length === 0) {
+        console.log('Cart is empty inside renderCart, not rendering any items.');
+        container.innerHTML = '';
+        return;
+    }
 
     let html = '';
-    cartData.forEach(item => {
-        const specsHtml = item.specs.map((s, i) => i === item.specs.length - 1 
-            ? `<span class="text-success fw-bold">${s}</span>` 
-            : `<span>${s}</span><br>`).join('');
+    cart.forEach(item => {
+        console.log('Rendering item:', item);
+        const specsHtml = item.specs && item.specs.length > 0 
+            ? item.specs.map((s, i) => i === item.specs.length - 1 
+                ? `<span class="text-success fw-bold">${s}</span>` 
+                : `<span>${s}</span><br>`).join('')
+            : '';
 
         html += `
         <div class="row align-items-center py-3 border-bottom cart-item" data-price="${item.price.replace(/,/g, '')}" data-original-price="${item.originalPrice.replace(/,/g, '')}" data-id="${item.id}">
@@ -45,4 +58,5 @@ function renderCart(cartData) {
         </div>`;
     });
     container.innerHTML = html;
+    console.log('Cart HTML rendered successfully. Container innerHTML length:', container.innerHTML.length);
 }

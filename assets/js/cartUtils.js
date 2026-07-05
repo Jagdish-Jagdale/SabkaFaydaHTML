@@ -16,9 +16,24 @@ function getCart() {
 // Save cart to localStorage
 function saveCart(cart) {
     try {
-        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+        const cartJson = JSON.stringify(cart);
+        console.log('Attempting to save cart JSON:', cartJson);
+        console.log('JSON length:', cartJson.length);
+        
+        localStorage.setItem(CART_STORAGE_KEY, cartJson);
+        
+        // Verify save
+        const saved = localStorage.getItem(CART_STORAGE_KEY);
+        console.log('Saved data verification:', saved);
+        
+        if (saved !== cartJson) {
+            console.error('Data mismatch after save!');
+        }
     } catch (error) {
         console.error('Error saving cart to localStorage:', error);
+        if (error.name === 'QuotaExceededError') {
+            console.error('LocalStorage quota exceeded!');
+        }
     }
 }
 
@@ -27,6 +42,8 @@ function addToCart(product, quantity = 1) {
     const cart = getCart();
     
     console.log('Current cart before adding:', cart);
+    console.log('Product to add:', product);
+    console.log('Quantity:', quantity);
     
     // Check if product already exists in cart
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
@@ -36,7 +53,7 @@ function addToCart(product, quantity = 1) {
         cart[existingItemIndex].qty += quantity;
         console.log('Updated existing item quantity:', cart[existingItemIndex]);
     } else {
-        // Add new item to cart
+        // Add new item to cart - match the structure expected by renderCart.js
         const newItem = {
             id: product.id,
             productName: product.title,
@@ -51,8 +68,14 @@ function addToCart(product, quantity = 1) {
         console.log('Added new item to cart:', newItem);
     }
     
+    console.log('Cart to save:', JSON.stringify(cart));
     saveCart(cart);
-    console.log('Cart saved to localStorage:', cart);
+    console.log('Cart saved to localStorage');
+    
+    // Verify it was saved correctly
+    const savedCart = getCart();
+    console.log('Verified saved cart:', savedCart);
+    
     return cart;
 }
 
@@ -90,4 +113,24 @@ function clearCart() {
 function getCartItemCount() {
     const cart = getCart();
     return cart.reduce((total, item) => total + item.qty, 0);
+}
+
+// Update cart count in header
+function updateCartCount() {
+    const count = getCartItemCount();
+    console.log('Updating cart count to:', count);
+    
+    // Update mobile cart badge
+    const mobileCartBadge = document.querySelector('.mobile-cart-badge');
+    if (mobileCartBadge) {
+        mobileCartBadge.textContent = count;
+        mobileCartBadge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+    
+    // Update desktop cart badge
+    const desktopCartBadge = document.querySelector('.desktop-cart-badge');
+    if (desktopCartBadge) {
+        desktopCartBadge.textContent = count;
+        desktopCartBadge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
 }

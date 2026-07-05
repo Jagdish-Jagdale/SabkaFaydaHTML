@@ -77,8 +77,8 @@
                 <a class="text-white text-decoration-none d-flex align-items-center" href="mycart.html">
                     <div class="position-relative mt-1">
                         <i class="fas fa-shopping-cart fs-4"></i>
-                        <span class="position-absolute translate-middle badge rounded-pill bg-danger"
-                            style="top: 0px; left: 100%; font-size: 0.60rem; padding: 3px 5px;">2</span>
+                        <span class="position-absolute translate-middle badge rounded-pill bg-danger mobile-cart-badge"
+                            style="top: 0px; left: 100%; font-size: 0.60rem; padding: 3px 5px; display: none;">0</span>
                     </div>
                 </a>
             </div>
@@ -164,10 +164,8 @@
                             style="font-size: 0.95rem;">
                             <div class="position-relative me-2 mt-1">
                                 <i class="fas fa-shopping-cart fs-6"></i>
-                                <span class="position-absolute translate-middle badge rounded-pill bg-danger"
-                                    style="top: 0px; left: 90%; font-size: 0.65rem; padding: 3px 5px;">
-                                    2
-                                </span>
+                                <span class="position-absolute translate-middle badge rounded-pill bg-danger desktop-cart-badge"
+                                    style="top: 0px; left: 90%; font-size: 0.65rem; padding: 3px 5px; display: none;">0</span>
                             </div>
                             <span class="ms-1">Cart</span>
                         </a>
@@ -240,10 +238,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Login Mock JS -->
 <script src="assets/js/authcontext.js"></script>
+<!-- Cart Utils JS -->
+<script src="assets/js/cartUtils.js"></script>
 <!-- Main JS -->
 <script src="assets/js/main.js?v=7"></script>
 <script>
     if (typeof initHeader === 'function') {
         initHeader();
+    }
+    // Update cart count when header loads
+    if (typeof updateCartCount === 'function') {
+        updateCartCount();
     }
 </script>

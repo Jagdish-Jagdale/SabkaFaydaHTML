@@ -374,6 +374,9 @@
                     
                     console.log('Cart after adding:', getCart());
                     
+                    // Update cart count in header
+                    updateCartCount();
+                    
                     // Change label to Go to Cart and add a class
                     addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
                     addToCartBtn.classList.add('go-to-cart');

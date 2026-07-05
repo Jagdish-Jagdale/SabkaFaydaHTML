@@ -161,13 +161,28 @@
     <script src="assets/js/renderCart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM Content Loaded');
+            
+            // Clear any existing cart data for testing
+            // localStorage.removeItem('sabkaFaydaCart');
+            
             // Load cart from localStorage
             const cartData = getCart();
             console.log('Cart data loaded in mycart.html:', cartData);
+            console.log('Cart data length:', cartData ? cartData.length : 0);
             
             if (cartData && cartData.length > 0) {
+                console.log('Calling renderCart with data:', cartData);
                 renderCart(cartData);
                 console.log('Cart rendered successfully');
+                
+                // Verify cart items were rendered
+                setTimeout(() => {
+                    const cartItems = document.querySelectorAll('.cart-item');
+                    console.log('Number of cart items rendered:', cartItems.length);
+                    const cartItemsList = document.getElementById('cartItemsList');
+                    console.log('cartItemsList innerHTML length:', cartItemsList ? cartItemsList.innerHTML.length : 0);
+                }, 100);
             } else {
                 // Show empty cart state
                 const cartContentGrid = document.getElementById('cartContentGrid');
