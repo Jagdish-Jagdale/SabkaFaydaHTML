@@ -1,5 +1,5 @@
 function renderCart(cartData) {
-    const container = document.getElementById('cartContainer');
+    const container = document.getElementById('cartItemsList');
     if (!container) return;
 
     let html = '';

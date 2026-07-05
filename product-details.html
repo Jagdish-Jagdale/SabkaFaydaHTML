@@ -28,6 +28,7 @@
     <!-- Product Details Mock Data -->
     <script src="assets/js/product-details-mock.js"></script>
     <script src="assets/js/renderProductDetails.js"></script>
+    <script src="assets/js/cartUtils.js"></script>
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
@@ -352,8 +353,26 @@
                     }
                     
                     const qtyInput = document.getElementById('qtyInput');
-                    const qty = qtyInput ? qtyInput.value : 1;
+                    const qty = qtyInput ? parseInt(qtyInput.value) : 1;
                     const productName = productDetailsData.product.title;
+                    
+                    // Prepare product object for cart
+                    const productForCart = {
+                        id: productDetailsData.product.sku,
+                        title: productDetailsData.product.title,
+                        image: productDetailsData.product.images[0],
+                        price: productDetailsData.product.price,
+                        originalPrice: '₹' + productDetailsData.product.originalPrice,
+                        discount: productDetailsData.product.discount,
+                        specs: productDetailsData.product.specifications ? productDetailsData.product.specifications.map(spec => spec.value) : []
+                    };
+                    
+                    console.log('Adding to cart:', productForCart, 'Quantity:', qty);
+                    
+                    // Add to cart using localStorage
+                    addToCart(productForCart, qty);
+                    
+                    console.log('Cart after adding:', getCart());
                     
                     // Change label to Go to Cart and add a class
                     addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
