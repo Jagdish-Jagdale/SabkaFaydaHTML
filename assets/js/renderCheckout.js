@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
                                     <div class="d-flex align-items-center gap-2">
                                         <img src="assets/img/omg.png" alt="OMG Deal" style="height: 32px; object-fit: contain;">
-                                        <span class="fw-semibold">Buy this product for only <strong class="text-warning">₹${product.upiPrice}</strong> Using UPI</span>
+                                        <span class="fw-semibold">Buy this product for only <strong class="text-white">₹${product.upiPrice}</strong> Using UPI</span>
                                     </div>
                                 </div>
                             </div>

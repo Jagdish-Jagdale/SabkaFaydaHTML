@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <span class="fw-bold" style="font-size: 0.95rem;">Buy this product for only</span>
                         </div>
                         <div class="d-flex align-items-center gap-2">
-                            <span class="fw-bold fs-5 text-warning">₹${p.upiPrice}</span>
+                            <span class="fw-bold fs-5 text-white">₹${p.upiPrice}</span>
                             <span class="fw-semibold" style="font-size: 0.85rem;">via UPI</span>
                         </div>
                     </div>

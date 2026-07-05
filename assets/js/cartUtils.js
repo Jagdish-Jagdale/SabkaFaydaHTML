@@ -42,7 +42,8 @@ function addToCart(product, quantity = 1) {
             originalPrice: product.originalPrice.replace('₹', '').replace(/,/g, ''),
             discount: product.discount,
             qty: quantity,
-            specs: product.specs || []
+            specs: product.specs || [],
+            size: product.size || ''
         };
         cart.push(newItem);
     }
@@ -79,6 +80,12 @@ function updateCartItemQuantity(productId, quantity) {
 // Clear entire cart
 function clearCart() {
     localStorage.removeItem(CART_STORAGE_KEY);
+}
+
+// Check if product is in cart
+function isProductInCart(productId) {
+    const cart = getCart();
+    return cart.some(item => item.id === productId);
 }
 
 // Get cart item count

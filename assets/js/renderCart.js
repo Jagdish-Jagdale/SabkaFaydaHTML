@@ -14,6 +14,9 @@ function renderCart(cart) {
         const isLastItem = index === cart.length - 1;
         const borderClass = isLastItem ? '' : 'border-bottom';
         
+        // Get size from item.size field or extract from ID for backward compatibility
+        const sizeDisplay = item.size || (item.id.includes('_') ? item.id.split('_').pop() : '');
+        
         const specsHtml = item.specs && item.specs.length > 0 
             ? item.specs.map((s, i) => i === item.specs.length - 1 
                 ? `<span class="text-success fw-bold">${s}</span>` 
@@ -39,6 +42,7 @@ function renderCart(cart) {
                 <div class="text-muted" style="font-size: 0.7rem; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
                     ${specsHtml}
                 </div>
+                ${sizeDisplay ? `<div class="text-muted" style="font-size: 0.65rem; margin-top: 2px;">Size: <span class="fw-bold text-dark">${sizeDisplay}</span></div>` : ''}
             </div>
             <div class="col-auto px-1">
                 <div class="d-flex align-items-center border rounded bg-light" style="width: fit-content;">

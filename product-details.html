@@ -150,6 +150,9 @@
     <!-- Login Mock JS -->
     <script src="assets/js/authcontext.js"></script>
 
+    <!-- Main JS for header functionality -->
+    <script src="assets/js/main.js?v=6"></script>
+
     <!-- Script to load Header/Footer dynamically & interactions -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -173,6 +176,20 @@
                     document.getElementById('footer-placeholder').innerHTML = data;
                 });
 
+            // Check if product is already in cart and update button accordingly
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            if (addToCartBtn && typeof isProductInCart === 'function') {
+                // Get the initially selected size
+                const activeSizeBtn = document.querySelector('.size-btn.active');
+                const selectedSize = activeSizeBtn ? activeSizeBtn.textContent.trim() : '';
+                const productId = selectedSize ? productDetailsData.product.sku + '_' + selectedSize : productDetailsData.product.sku;
+                
+                if (isProductInCart(productId)) {
+                    addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
+                    addToCartBtn.classList.add('go-to-cart');
+                }
+            }
+
             // Thumbnail selector interaction
             const thumbnails = document.querySelectorAll('.thumbnail-item');
             const mainImg = document.getElementById('mainProductImage');
@@ -192,6 +209,21 @@
                 btn.addEventListener('click', function() {
                     sizeBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
+                    
+                    // Update button based on selected size
+                    const addToCartBtn = document.getElementById('addToCartBtn');
+                    if (addToCartBtn && typeof isProductInCart === 'function') {
+                        const selectedSize = this.textContent.trim();
+                        const productId = productDetailsData.product.sku + '_' + selectedSize;
+                        
+                        if (isProductInCart(productId)) {
+                            addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
+                            addToCartBtn.classList.add('go-to-cart');
+                        } else {
+                            addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Add to Cart</span>`;
+                            addToCartBtn.classList.remove('go-to-cart');
+                        }
+                    }
                 });
             });
 
@@ -356,15 +388,20 @@
                     const qty = qtyInput ? parseInt(qtyInput.value) : 1;
                     const productName = productDetailsData.product.title;
                     
+                    // Get selected size
+                    const activeSizeBtn = document.querySelector('.size-btn.active');
+                    const selectedSize = activeSizeBtn ? activeSizeBtn.textContent.trim() : '';
+                    
                     // Prepare product object for cart
                     const productForCart = {
-                        id: productDetailsData.product.sku,
+                        id: selectedSize ? productDetailsData.product.sku + '_' + selectedSize : productDetailsData.product.sku,
                         title: productDetailsData.product.title,
                         image: productDetailsData.product.images[0],
                         price: productDetailsData.product.price,
                         originalPrice: '₹' + productDetailsData.product.originalPrice,
                         discount: productDetailsData.product.discount,
-                        specs: productDetailsData.product.specifications ? productDetailsData.product.specifications.map(spec => spec.value) : []
+                        specs: productDetailsData.product.specifications ? productDetailsData.product.specifications.map(spec => spec.value) : [],
+                        size: selectedSize
                     };
                     
                     // Add to cart using localStorage
