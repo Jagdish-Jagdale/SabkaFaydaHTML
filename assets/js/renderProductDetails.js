@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <!-- Bottom Part: Light Blue bg with dark text -->
                     <div class="px-3 py-2 text-center" style="background-color: #C3D5FF; color: #000000; font-size: 0.82rem; font-weight: 500; font-family: 'Mona Sans Variable', sans-serif;">
-                        Best Deal is applied on this product - minimum 50% off
+                        Best Deal is applied to this product - minimum 50% off
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     <!-- Buy Now Button -->
                     <button class="btn btn-primary w-100 fw-bold py-2.5 mb-3" style="background-color: #0087F6; border: none; border-radius: 6px; font-size: 1rem;">
-                        By Now
+                        Buy Now
                     </button>
 
                     <!-- Social Links -->

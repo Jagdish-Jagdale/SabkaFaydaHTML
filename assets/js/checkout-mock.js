@@ -8,7 +8,7 @@ const checkoutData = {
         {
             id: 1,
             image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
-            title: "Digital Personal Body Weight Scale loresn piurst (1 Pc).......",
+            title: "Digital Personal Body Weight Scale (1 Pc)",
             size: "XL",
             status: "Out of Stock",
             rating: 4,
@@ -24,7 +24,7 @@ const checkoutData = {
         {
             id: 2,
             image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
-            title: "Digital Personal Body Weight Scale loresn piurst (1 Pc).......",
+            title: "Digital Personal Body Weight Scale (1 Pc)",
             size: "XL",
             status: "Out of Stock",
             rating: 4,
@@ -40,7 +40,7 @@ const checkoutData = {
         {
             id: 3,
             image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
-            title: "Digital Personal Body Weight Scale loresn piurst (1 Pc).......",
+            title: "Digital Personal Body Weight Scale (1 Pc)",
             size: "XL",
             status: "Out of Stock",
             rating: 4,

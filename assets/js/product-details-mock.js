@@ -2,7 +2,7 @@
 const productDetailsData = {
     product: {
         subtitle: 'Personal Care Application',
-        title: 'Digital Personal Body Weight Scale loresn piurst (1 Pc).......',
+        title: 'Digital Personal Body Weight Scale (1 Pc)',
         sku: '19517_digital_body_weight_scale_1pc_no2',
         status: 'Out of Stock',
         rating: 3.5,
