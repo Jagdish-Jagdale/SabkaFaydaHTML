@@ -47,20 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 </span>
 
                 <!-- UPI OMG Banner -->
-                <div class="rounded-3 overflow-hidden mb-4" style="border: 1px solid #94b9ff;">
+                <div class="rounded-3 overflow-hidden mb-4" style="border: 1px solid #94b9ff; border-radius: 6px;">
                     <!-- Top Part: Blue bg with white text -->
-                    <div class="p-3 text-white d-flex align-items-center justify-content-between flex-wrap gap-2" style="background-color: #0087F6;">
-                        <div class="d-flex align-items-center gap-2">
-                            <img src="assets/img/omg.png" alt="OMG Deal" style="height: 42px; object-fit: contain;">
-                            <span class="fw-bold" style="font-size: 0.95rem;">Buy this product for only</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="fw-bold fs-5 text-white">₹${p.upiPrice}</span>
-                            <span class="fw-semibold" style="font-size: 0.85rem;">via UPI</span>
-                        </div>
+                    <div class="p-3 text-white d-flex align-items-center gap-2" style="background-color: #0087F6; white-space: nowrap; border-top-left-radius: 6px; border-top-right-radius: 6px;">
+                        <img src="assets/img/omg.png" alt="OMG Deal" style="height: 42px; object-fit: contain;">
+                        <span class="fw-bold" style="font-size: 0.95rem;">Buy this product for only</span>
+                        <span class="fw-bold fs-5 text-white">₹${p.upiPrice}</span>
+                        <span class="fw-semibold" style="font-size: 0.85rem;">via UPI</span>
                     </div>
                     <!-- Bottom Part: Light Blue bg with dark text -->
-                    <div class="px-3 py-2 text-center" style="background-color: #C3D5FF; color: #000000; font-size: 0.82rem; font-weight: 500; font-family: 'Mona Sans Variable', sans-serif;">
+                    <div class="px-3 py-2 text-center" style="background-color: #C3D5FF; color: #000000; font-size: 0.82rem; font-weight: 500; font-family: 'Mona Sans Variable', sans-serif; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
                         Best Deal is applied to this product - minimum 50% off
                     </div>
                 </div>
@@ -128,15 +124,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <!-- Trust Badges Grid -->
                     <div class="row text-center bg-white border rounded-3 p-3 g-2" style="border-color: #f1f5f9 !important;">
-                        <div class="col-4 border-end">
+                        <div class="col-4 border-end cursor-pointer" onclick="openModal('codModal')" style="cursor: pointer;">
                             <i class="fas fa-wallet text-secondary mb-2 fs-5"></i>
                             <div class="fw-bold text-dark" style="font-size: 0.72rem;">Cash on Delivery</div>
                         </div>
-                        <div class="col-4 border-end">
+                        <div class="col-4 border-end cursor-pointer" onclick="openModal('shippingModal')" style="cursor: pointer;">
                             <i class="fas fa-truck-fast text-secondary mb-2 fs-5"></i>
                             <div class="fw-bold text-dark" style="font-size: 0.72rem;">Free Shipping</div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 cursor-pointer" onclick="openModal('returnModal')" style="cursor: pointer;">
                             <i class="fas fa-rotate-left text-secondary mb-2 fs-5"></i>
                             <div class="fw-bold text-dark" style="font-size: 0.72rem;">Return</div>
                         </div>
@@ -155,9 +151,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div id="detailsAccordionContent">
                         <!-- Tab buttons -->
-                        <div class="d-flex mb-3">
-                            <div id="descriptionTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-primary text-white border-primary cursor-pointer tab-btn active" style="font-size: 0.95rem;">Description</div>
-                            <div id="specificationTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-light text-secondary cursor-pointer tab-btn" style="font-size: 0.95rem;">Specification</div>
+                        <div class="d-flex gap-2 mb-3">
+                            <div id="descriptionTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-primary text-white border-primary cursor-pointer tab-btn active" style="font-size: 0.95rem; border-radius: 6px;">Description</div>
+                            <div id="specificationTabBtn" class="flex-grow-1 text-center py-2 fw-bold border bg-light text-secondary cursor-pointer tab-btn" style="font-size: 0.95rem; border-radius: 6px;">Specification</div>
                         </div>
 
                         <!-- Tab content description -->
@@ -212,9 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                                 <span class="badge bg-success px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Good</span>
                             </div>
-                            <button class="btn btn-outline-secondary btn-sm fw-semibold" style="font-size: 0.8rem; border-radius: 4px; padding: 6px 12px; border-color: #cbd5e1 !important; color: #475569;">
-                                Submit Review
-                            </button>
                         </div>
 
                         <!-- Review List -->
@@ -257,6 +250,61 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
+                            <button class="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle opacity-0 product-wishlist-btn" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s;">
+                                <i class="far fa-heart text-danger"></i>
+                            </button>
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
+                                <button class="btn btn-primary flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                    Add to Cart
+                                </button>
+                                <button class="btn btn-warning flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #ffc107; border: none; color: #000;">
+                                    Buy Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body p-2 p-sm-3 d-flex flex-column justify-content-between flex-grow-1">
+                            <div>
+                                <div class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.7rem; letter-spacing: 0.5px;">${product.sponsored ? 'Sponsored' : ''}</div>
+                                <h6 class="product-name text-dark mb-2" style="font-size: 0.82rem; font-weight: 500; line-height: 1.4; height: 3.6em; overflow: hidden;">${product.title}</h6>
+                                <div class="d-flex flex-wrap gap-1 mb-2">
+                                    <span class="custom-badge badge-rating">${product.rating} <i class="fas fa-star"></i> (${product.reviews})</span>
+                                    <span class="custom-badge badge-refer">Refer ${product.refer}</span>
+                                    <span class="custom-badge badge-earn">Earn ${product.earn}</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center flex-wrap gap-2 mt-2">
+                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">${product.originalPrice}</span>
+                                <span class="text-dark fw-bold" style="font-size: 0.95rem;">Rs ${product.price}</span>
+                                <div class="w-100"></div>
+                                <span class="text-primary fw-semibold" style="font-size: 0.72rem;">${product.offer}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    }
+
+    // Render Peoples Products
+    function renderPeoplesProducts() {
+        const peoplesContainer = document.getElementById('peoples-products-container');
+        if (peoplesContainer && productDetailsData.similarProducts) {
+            peoplesContainer.innerHTML = productDetailsData.similarProducts.map(product => `
+                <div class="col">
+                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
+                        <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                            <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
+                            <button class="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle opacity-0 product-wishlist-btn" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s;">
+                                <i class="far fa-heart text-danger"></i>
+                            </button>
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
+                                <button class="btn btn-primary flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                    Add to Cart
+                                </button>
+                                <button class="btn btn-warning flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #ffc107; border: none; color: #000;">
+                                    Buy Now
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body p-2 p-sm-3 d-flex flex-column justify-content-between flex-grow-1">
                             <div>
@@ -284,4 +332,5 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize all renders
     renderProductInfo();
     renderSimilarProducts();
+    renderPeoplesProducts();
 });

@@ -30,6 +30,15 @@
     <script src="assets/js/renderProductDetails.js"></script>
     <script src="assets/js/cartUtils.js"></script>
 
+    <style>
+        .product-card:hover .product-card-overlay {
+            opacity: 1 !important;
+        }
+        .product-card:hover .product-wishlist-btn {
+            opacity: 1 !important;
+        }
+    </style>
+
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
@@ -120,7 +129,7 @@
                     <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Explore Similar Products</h3>
                     <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">There products you may like similarly</p>
                 </div>
-                <a href="#" class="btn btn-primary px-4 rounded-pill d-none d-sm-inline-block" style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px;">View All</a>
+                <a href="#" class="btn btn-primary px-4 d-none d-sm-inline-block" style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px; border-radius: 6px;">View All</a>
             </div>
             
             <div id="similar-products-container" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3"></div>
@@ -133,7 +142,7 @@
                     <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Peoples Looking for these Products</h3>
                     <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">lots of people buying those</p>
                 </div>
-                <a href="#" class="btn btn-primary px-4 rounded-pill d-none d-sm-inline-block" style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px;">View All</a>
+                <a href="#" class="btn btn-primary px-4 d-none d-sm-inline-block" style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px; border-radius: 6px;">View All</a>
             </div>
             
             <div id="peoples-products-container" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3"></div>
@@ -459,5 +468,75 @@
             </div>
         </div>
     </div>
+
+    <!-- Cash on Delivery Modal -->
+    <div class="modal fade" id="codModal" tabindex="-1" aria-labelledby="codModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="codModalLabel">Cash on Delivery</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Pay cash when your order arrives</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>No advance payment required</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Available for most pin codes</li>
+                        <li class="mb-0"><i class="fas fa-check text-success me-2"></i>Easy and secure payment method</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Shipping Modal -->
+    <div class="modal fade" id="shippingModal" tabindex="-1" aria-labelledby="shippingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="shippingModalLabel">Free Shipping</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free shipping on all orders above ₹499</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Fast and reliable delivery</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Track your order in real-time</li>
+                        <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Delivery within 5-7 business days</li>
+                    </ul>
+                    <a href="shipping.html" class="text-primary text-decoration-none fw-semibold">Read more <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return Policy Modal -->
+    <div class="modal fade" id="returnModal" tabindex="-1" aria-labelledby="returnModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="returnModalLabel">Return Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Easy 7-day return policy</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free returns for defective products</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Quick refund processing</li>
+                        <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Hassle-free return process</li>
+                    </ul>
+                    <a href="return-policy.html" class="text-primary text-decoration-none fw-semibold">Read more <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal JavaScript -->
+    <script>
+        function openModal(modalId) {
+            const modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+        }
+    </script>
 </body>
 </html>

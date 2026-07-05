@@ -56,6 +56,16 @@
             }).observe(document.documentElement, { childList: true, subtree: true });
         })();
     </script>
+
+    <style>
+        .product-card:hover .product-card-overlay {
+            opacity: 1 !important;
+        }
+        .product-card:hover .product-wishlist-btn {
+            opacity: 1 !important;
+        }
+    </style>
+
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">

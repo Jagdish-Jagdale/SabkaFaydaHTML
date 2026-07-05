@@ -169,6 +169,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
+                            <button class="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle opacity-0 product-wishlist-btn" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s;">
+                                <i class="far fa-heart text-danger"></i>
+                            </button>
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
+                                <button class="btn btn-primary flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                    Add to Cart
+                                </button>
+                                <button class="btn btn-warning flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #ffc107; border: none; color: #000;">
+                                    Buy Now
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body p-2 p-sm-3 d-flex flex-column justify-content-between flex-grow-1">
                             <div>
@@ -202,6 +213,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
+                            <button class="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle opacity-0 product-wishlist-btn" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s;">
+                                <i class="far fa-heart text-danger"></i>
+                            </button>
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
+                                <button class="btn btn-primary flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                    Add to Cart
+                                </button>
+                                <button class="btn btn-warning flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #ffc107; border: none; color: #000;">
+                                    Buy Now
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body p-2 p-sm-3 d-flex flex-column justify-content-between flex-grow-1">
                             <div>
