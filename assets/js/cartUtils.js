@@ -78,6 +78,7 @@ function addToCart(product, quantity = 1) {
     }
     
     saveCart(cart);
+    if (typeof updateCartCount === 'function') updateCartCount();
     return cart;
 }
 
@@ -86,6 +87,7 @@ function removeFromCart(productId) {
     const cart = getCart();
     const updatedCart = cart.filter(item => item.id !== productId);
     saveCart(updatedCart);
+    if (typeof updateCartCount === 'function') updateCartCount();
     return updatedCart;
 }
 
@@ -103,12 +105,14 @@ function updateCartItemQuantity(productId, quantity) {
         saveCart(cart);
     }
     
+    if (typeof updateCartCount === 'function') updateCartCount();
     return cart;
 }
 
 // Clear entire cart
 function clearCart() {
     localStorage.removeItem(CART_STORAGE_KEY);
+    if (typeof updateCartCount === 'function') updateCartCount();
 }
 
 // Check if product is in cart
