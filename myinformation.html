@@ -71,7 +71,7 @@
                         </div>
                         <div>
                             <p class="mb-0 fw-medium text-secondary" style="font-size:.85rem;">Welcome,</p>
-                            <h2 class="mb-0 fw-bold" style="font-size:1.5rem; color:#1a1a2e;">Rajesh Sharma</h2>
+                            <h2 class="mb-0 fw-bold" id="displayUserName" style="font-size:1.5rem; color:#1a1a2e;">User</h2>
                         </div>
                     </div>
 
@@ -82,14 +82,14 @@
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small text-secondary" for="firstName">First Name <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="firstName"
-                                        placeholder="Enter your first name" value="Rajesh" maxlength="50"
+                                        placeholder="Enter your first name" value="" maxlength="50"
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-firstName"></div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small text-secondary" for="lastName">Last Name <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="lastName"
-                                        placeholder="Enter your last name" value="Sharma" maxlength="50"
+                                        placeholder="Enter your last name" value="" maxlength="50"
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
                                     <div class="invalid-feedback-custom d-none" id="err-lastName"></div>
                                 </div>
@@ -98,8 +98,8 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold small text-secondary" for="gender">Gender</label>
                                 <select class="profile-form-control" id="gender">
-                                    <option value="" disabled>Select your gender</option>
-                                    <option value="male" selected>Male</option>
+                                    <option value="" selected disabled>Select your gender</option>
+                                    <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
                                     <option value="prefer-not">Prefer not to say</option>
@@ -117,7 +117,7 @@
                             <div class="mb-4">
                                 <label class="form-label fw-semibold small text-secondary" for="email">Email Address <span class="text-danger">*</span></label>
                                 <input type="email" class="profile-form-control" id="email"
-                                    placeholder="Enter your email address" value="email@rajeshafayda.com">
+                                    placeholder="Enter your email address" value="">
                                 <div class="invalid-feedback-custom d-none" id="err-email"></div>
                             </div>
 
@@ -289,6 +289,22 @@
                 '<i class="fa-solid fa-circle-check me-2"></i>Profile saved successfully!';
             new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
         }
+
+        /* Populate user data if logged in */
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof getAuthUser === 'function') {
+                const user = getAuthUser();
+                if (user) {
+                    if (user.mobile) {
+                        document.getElementById('mobile').value = user.mobile;
+                    }
+                    if (user.name) {
+                        document.getElementById('displayUserName').textContent = user.name;
+                        document.getElementById('firstName').value = user.name;
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
