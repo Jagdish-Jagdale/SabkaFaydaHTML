@@ -32,6 +32,9 @@
 <body
     style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; overflow-x: hidden;">
 
+    <!-- Toast Container -->
+    <div id="toastContainer" class="position-fixed top-0 end-0 p-3 d-flex flex-column gap-2" style="z-index: 9999; margin-top: 80px;"></div>
+
     <!-- Header Placeholder -->
     <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
 
@@ -214,6 +217,51 @@
         document.addEventListener("DOMContentLoaded", function () {
             // Verify OTP using authcontext.js
 
+            window.showToast = function(message, type) {
+                const container = document.getElementById('toastContainer');
+                if (!container) return;
+                
+                // Remove existing toasts so only one appears at a time
+                container.innerHTML = '';
+                
+                const toastId = 'toast-' + Date.now();
+                let bgColor, iconHtml;
+                if (type === 'success') {
+                    bgColor = '#03a516'; // Green
+                    iconHtml = `<div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                    <i class="fas fa-check" style="color: #03a516; font-size: 16px;"></i>
+                                </div>`;
+                } else {
+                    bgColor = '#e51d0d'; // Red
+                    iconHtml = `<div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;">
+                                    <i class="fas fa-times" style="color: #e51d0d; font-size: 16px;"></i>
+                                </div>`;
+                }
+
+                const toastHtml = `
+                    <div id="${toastId}" class="d-flex align-items-center rounded-3 p-3 shadow" style="background-color: ${bgColor}; color: white; min-width: 260px; opacity: 0; transform: translateY(-20px); transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);">
+                        ${iconHtml}
+                        <div class="fw-bold fs-5 ms-3">${message}</div>
+                    </div>
+                `;
+                
+                container.insertAdjacentHTML('beforeend', toastHtml);
+                const toastEl = document.getElementById(toastId);
+                
+                // Trigger animation
+                setTimeout(() => { 
+                    toastEl.style.opacity = '1'; 
+                    toastEl.style.transform = 'translateY(0)';
+                }, 10);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    toastEl.style.opacity = '0';
+                    toastEl.style.transform = 'translateY(-20px)';
+                    setTimeout(() => toastEl.remove(), 300);
+                }, 3000);
+            };
+
             // Shake animation for OTP inputs
             function shakeOtpInputs() {
                 const inputs = document.querySelectorAll('.otp-input-box');
@@ -371,14 +419,15 @@
                 const result = mockVerifyOtp(mobile, otp);
                 if (result.success) {
                     clearOtpError();
+                    window.showToast('Login Successful', 'success');
                     if (btn) {
                         btn.innerHTML = '<i class="fa-solid fa-circle-check me-2"></i>Logged in! Redirecting…';
                         btn.style.backgroundColor = '#15803d';
                     }
-                    setTimeout(() => { window.location.href = 'index.html'; }, 900);
+                    setTimeout(() => { window.location.href = 'index.html'; }, 1500);
                 } else {
-                    errEl.textContent = 'The OTP you entered is incorrect. Please try again.';
-                    errEl.classList.remove('d-none');
+                    errEl.classList.add('d-none');
+                    window.showToast('Incorrect OTP', 'error');
                     shakeOtpInputs();
                     // Re-enable button
                     if (btn) {
