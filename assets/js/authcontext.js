@@ -64,25 +64,47 @@ function updateLoginButton() {
     const user = getAuthUser();
 
     if (user) {
-        /* ── Logged IN: show "My Profile" ── */
+        /* ── Logged IN: show "My Profile" Dropdown ── */
         const profileHTML = `
-            <a href="myinformation.html"
-               id="header-login-btn"
-               class="text-white fw-medium ms-lg-4 d-inline-flex align-items-center gap-2 text-decoration-none"
-               style="font-size: 0.95rem; line-height: 1.2; white-space: nowrap;">
-                <i class="fa-regular fa-circle-user" style="font-size: 1.1rem;"></i>
-                My Profile
-            </a>`;
+            <div class="dropdown ms-lg-5 d-none d-lg-inline-block" id="header-login-btn">
+                <a href="#"
+                   class="text-white fw-medium d-inline-flex align-items-center gap-2 text-decoration-none dropdown-toggle"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false"
+                   style="font-size: 0.95rem; line-height: 1.2; white-space: nowrap;">
+                    <i class="fa-regular fa-circle-user" style="font-size: 1.1rem;"></i>
+                    My Profile
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow mt-2" style="font-size: 0.9rem; min-width: 220px;">
+                    <li><a class="dropdown-item py-2" href="myorders.html"><i class="fa-solid fa-box me-2 text-secondary" style="width: 20px;"></i>My Orders</a></li>
+                    <li><a class="dropdown-item py-2" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
+                    <li><a class="dropdown-item py-2" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
+                    <li><a class="dropdown-item py-2" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
+                    <li><a class="dropdown-item py-2" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item py-2 text-danger" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
+                </ul>
+            </div>`;
 
         const mobileProfileHTML = `
-            <li class="nav-item d-lg-none mt-2" id="header-login-li-mobile">
+            <li class="nav-item d-lg-none mt-2 dropdown" id="header-login-li-mobile">
                 <hr class="text-white opacity-25 my-2">
-                <a href="myinformation.html"
-                   id="header-login-btn-mobile"
-                   class="btn btn-light w-100 fw-bold text-primary py-2 d-flex align-items-center justify-content-center gap-2"
+                <a href="#"
+                   class="btn btn-light w-100 fw-bold text-primary py-2 d-flex align-items-center justify-content-between dropdown-toggle"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false"
                    style="border-radius: 8px; background-color: #fff; color: #0087F6 !important; border: none;">
-                    <i class="fa-regular fa-circle-user"></i> My Profile
+                    <span><i class="fa-regular fa-circle-user me-2"></i> My Profile</span>
                 </a>
+                <ul class="dropdown-menu w-100 shadow-sm mt-2" style="font-size: 0.95rem; border: none; padding: 0;">
+                    <li><a class="dropdown-item py-2" href="myorders.html"><i class="fa-solid fa-box me-2 text-secondary" style="width: 20px;"></i>My Orders</a></li>
+                    <li><a class="dropdown-item py-2" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
+                    <li><a class="dropdown-item py-2" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
+                    <li><a class="dropdown-item py-2" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
+                    <li><a class="dropdown-item py-2" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
+                    <li><hr class="dropdown-divider m-0"></li>
+                    <li><a class="dropdown-item py-2 text-danger" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
+                </ul>
             </li>`;
 
         if (desktopBtn) {
@@ -97,7 +119,7 @@ function updateLoginButton() {
         const loginHTML = `
             <a href="login.html"
                id="header-login-btn"
-               class="btn btn-light ms-5 d-none d-lg-inline-block fw-bold text-primary"
+               class="btn btn-light ms-lg-5 d-none d-lg-inline-block fw-bold text-primary"
                style="border-radius:6px; font-size:0.9rem; padding:8px 20px; background-color:#fff; color:#0087F6 !important; border:none;">
                 Login
             </a>`;
