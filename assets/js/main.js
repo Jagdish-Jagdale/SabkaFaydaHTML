@@ -1,4 +1,21 @@
 /* Scroll Position Preservation */
+/* Internet Connection Status Check */
+(function() {
+    if (window.location.pathname.endsWith('nointernet.html')) return;
+    
+    function checkConnection() {
+        if (!navigator.onLine) {
+            window.location.href = 'nointernet.html';
+        }
+    }
+    
+    // Check initially
+    checkConnection();
+
+    // Listen for connection changes
+    window.addEventListener('offline', checkConnection);
+})();
+
 (function() {
     // Disable browser's automatic scroll restoration
     if ('scrollRestoration' in history) {
