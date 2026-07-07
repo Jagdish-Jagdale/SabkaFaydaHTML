@@ -119,24 +119,26 @@ function animateCartIcon() {
         // Create tooltip
         const tooltip = document.createElement('div');
         tooltip.className = 'cart-tooltip-anim';
-        tooltip.textContent = "Added!";
+        tooltip.innerHTML = '<i class="fas fa-check-circle me-1"></i> Successfully Added';
         tooltip.style.cssText = `
             position: absolute;
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background: #28a745;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
+            background: #ffffff;
+            color: #0087F6;
+            padding: 6px 12px;
+            border: 1px solid #0087F6;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
             white-space: nowrap;
             z-index: 1000;
             opacity: 1;
             transition: opacity 0.5s ease-out;
             pointer-events: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(0, 135, 246, 0.15);
+            margin-top: 12px;
         `;
         iconContainer.appendChild(tooltip);
         
@@ -165,7 +167,7 @@ function animateCartIcon() {
         setTimeout(() => {
             tooltip.style.opacity = '0';
             setTimeout(() => tooltip.remove(), 500);
-        }, 1500);
+        }, 2500);
     });
 }
 
