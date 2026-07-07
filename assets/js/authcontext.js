@@ -76,13 +76,13 @@ function updateLoginButton() {
                     My Profile
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end shadow mt-2" style="font-size: 0.9rem; min-width: 220px;">
-                    <li><a class="dropdown-item py-2" href="myorders.html"><i class="fa-solid fa-box me-2 text-secondary" style="width: 20px;"></i>My Orders</a></li>
-                    <li><a class="dropdown-item py-2" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
-                    <li><a class="dropdown-item py-2" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
-                    <li><a class="dropdown-item py-2" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
-                    <li><a class="dropdown-item py-2" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="myorders.html"><i class="fa-solid fa-box me-2 text-secondary" style="width: 20px;"></i>My Orders</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item py-2 text-danger" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
+                    <li><a class="dropdown-item py-2 text-danger profile-dropdown-logout" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
                 </ul>
             </div>`;
 
@@ -97,13 +97,13 @@ function updateLoginButton() {
                     <span><i class="fa-regular fa-circle-user me-2"></i> My Profile</span>
                 </a>
                 <ul class="dropdown-menu w-100 shadow-sm mt-2" style="font-size: 0.95rem; border: none; padding: 0;">
-                    <li><a class="dropdown-item py-2" href="myorders.html"><i class="fa-solid fa-box me-2 text-secondary" style="width: 20px;"></i>My Orders</a></li>
-                    <li><a class="dropdown-item py-2" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
-                    <li><a class="dropdown-item py-2" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
-                    <li><a class="dropdown-item py-2" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
-                    <li><a class="dropdown-item py-2" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="myorders.html"><i class="fa-solid fa-box me-2 text-secondary" style="width: 20px;"></i>My Orders</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
                     <li><hr class="dropdown-divider m-0"></li>
-                    <li><a class="dropdown-item py-2 text-danger" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
+                    <li><a class="dropdown-item py-2 text-danger profile-dropdown-logout" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
                 </ul>
             </li>`;
 

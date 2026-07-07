@@ -3334,3 +3334,21 @@ a {
     color: #6c757d !important;
     content: "/" !important;
 }
+
+/* Profile Dropdown Hover Styles */
+.profile-dropdown-item:hover { background-color: #eaf5ff !important; color: #0087f6 !important; }
+.profile-logout-item:hover { background-color: #ffeaea !important; color: #dc3545 !important; }
+
+/* Custom Profile Dropdown Styles */
+.profile-dropdown-item:hover {
+    background-color: #e6f2ff !important;
+    color: #0087F6 !important;
+}
+.profile-dropdown-item:hover i {
+    color: #0087F6 !important;
+}
+
+.profile-dropdown-logout:hover {
+    background-color: #ffe6e6 !important;
+    color: #dc3545 !important;
+}
