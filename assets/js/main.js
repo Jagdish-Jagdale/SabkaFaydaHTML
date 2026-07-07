@@ -145,6 +145,17 @@ function initHeader() {
         loadedCats = true;
     }
 
+    if (typeof updateCartCount === 'undefined') {
+        const cartScript = document.createElement('script');
+        cartScript.src = 'assets/js/cartUtils.js';
+        cartScript.onload = function() {
+            if (typeof updateCartCount === 'function') updateCartCount();
+        };
+        document.head.appendChild(cartScript);
+    } else {
+        if (typeof updateCartCount === 'function') updateCartCount();
+    }
+
     // We no longer block header rendering on products-mock.js
     if (typeof mockProducts === 'undefined') {
         const script = document.createElement('script');
