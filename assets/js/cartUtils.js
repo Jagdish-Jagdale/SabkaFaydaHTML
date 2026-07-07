@@ -120,7 +120,7 @@ function isProductInCart(productId) {
 // Get cart item count
 function getCartItemCount() {
     const cart = getCart();
-    return cart.reduce((total, item) => total + item.qty, 0);
+    return cart.length;
 }
 
 // Update cart count in header
