@@ -6,7 +6,36 @@ const CART_STORAGE_KEY = 'sabkaFaydaCart';
 function getCart() {
     try {
         const cartData = localStorage.getItem(CART_STORAGE_KEY);
-        return cartData ? JSON.parse(cartData) : [];
+        if (!cartData || cartData === '[]') {
+            // Inject mock data if empty for demonstration
+            const mockCart = [
+                {
+                    id: 'prod-101',
+                    productName: 'boAt Airdopes 141 Bluetooth Truly Wireless in Ear Earbuds',
+                    image: 'assets/img/electronicimg.png',
+                    price: '1299',
+                    originalPrice: '4490',
+                    discount: '71% off',
+                    qty: 3,
+                    specs: ['Playback: Upto 42 Hours', 'ASAP Charge'],
+                    size: ''
+                },
+                {
+                    id: 'prod-102',
+                    productName: 'Noise Pulse 2 Max 1.85" Display Smart Watch',
+                    image: 'assets/img/homescreenimg.png',
+                    price: '1999',
+                    originalPrice: '5999',
+                    discount: '66% off',
+                    qty: 8,
+                    specs: ['BT Calling', '100+ Sports Modes'],
+                    size: 'Free Size'
+                }
+            ];
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(mockCart));
+            return mockCart;
+        }
+        return JSON.parse(cartData);
     } catch (error) {
         console.error('Error reading cart from localStorage:', error);
         return [];
@@ -97,18 +126,19 @@ function getCartItemCount() {
 // Update cart count in header
 function updateCartCount() {
     const count = getCartItemCount();
+    const displayCount = count > 10 ? '10+' : count.toString();
     
     // Update mobile cart badge
     const mobileCartBadge = document.querySelector('.mobile-cart-badge');
     if (mobileCartBadge) {
-        mobileCartBadge.textContent = count;
+        mobileCartBadge.textContent = displayCount;
         mobileCartBadge.style.display = count > 0 ? 'inline-block' : 'none';
     }
     
     // Update desktop cart badge
     const desktopCartBadge = document.querySelector('.desktop-cart-badge');
     if (desktopCartBadge) {
-        desktopCartBadge.textContent = count;
+        desktopCartBadge.textContent = displayCount;
         desktopCartBadge.style.display = count > 0 ? 'inline-block' : 'none';
     }
 }
