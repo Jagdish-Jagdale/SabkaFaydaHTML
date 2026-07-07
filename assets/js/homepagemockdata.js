@@ -42,7 +42,10 @@ const homePageMockData = {
                 { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop' },
                 { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop' },
                 { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=200&auto=format&fit=crop' }
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop' }
             ]
         },
         {
@@ -53,7 +56,14 @@ const homePageMockData = {
                 { title: 'Audio Picks', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop' },
                 { title: 'Wearables', subtitle: 'Best seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop' },
                 { title: 'Accessories', subtitle: 'New deals', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Premium Tech', subtitle: 'Limited offer', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=200&auto=format&fit=crop' }
+                { title: 'Premium Tech', subtitle: 'Limited offer', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Home Theater', subtitle: 'Save big', image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Gaming Gear', subtitle: 'Pro setup', image: 'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Cameras', subtitle: 'Capture life', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Wireless Buds', subtitle: 'No strings attached', image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Smart Watches', subtitle: 'Stay connected', image: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Drones', subtitle: 'Sky high', image: 'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Tablets', subtitle: 'Work & Play', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=200&auto=format&fit=crop' }
             ]
         },
         {

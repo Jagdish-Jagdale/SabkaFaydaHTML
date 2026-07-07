@@ -89,13 +89,13 @@ function renderHomePage(data) {
             <div class="container mb-4 position-relative home-deferred-section">
                 <div class="rounded-4 p-2 p-md-3" style="background: linear-gradient(180deg, #AEE7FF 0%, #CEEDFA 100%);">
                     <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif; font-size: 1.1rem;">${section.title}</h3>
+                        <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">${section.title}</h3>
                     </div>
                     <div class="row g-2">
                         <div class="col-lg-3 col-md-4">
                             <div class="rounded-3 p-2 d-flex flex-column" style="background: linear-gradient(180deg, #FFC880 0%, #FFFFFF 100%); min-height: 270px;">
                                 <div class="d-flex gap-2">
-                                    <div class="flex-grow-1">
+                                    <div class="flex-grow-1 pt-2 ps-2">
                                         <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">Electronics Gadgets</h6>
                                         <ul class="text-muted small mb-0 ps-2" style="font-size: 0.75rem; list-style-type: disc; line-height: 1.5;">
                                             <li>Electronics</li>
@@ -112,12 +112,22 @@ function renderHomePage(data) {
                                 <img src="assets/img/electronicimg.png" class="w-100 rounded-3 object-fit-cover " alt="Electronics" style="height: 80px; margin-top:80px!important" ${imgAttrs(31 + sectionIndex * 10)}>
                             </div>
                         </div>
-                        <div class="col-lg-9 col-md-8">
-                            <div class="row g-2">
+                        <div class="col-lg-9 col-md-8 position-relative">
+                            <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 electronics-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;">
+                                <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+                                    <i class="fas fa-chevron-left fs-5"></i>
+                                </div>
+                            </button>
+                            <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 electronics-scroll-right p-0 border-0 bg-transparent" style="margin-right: 0;">
+                                <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-left-radius: 12px; border-bottom-left-radius: 12px; box-shadow: -2px 0 5px rgba(0,0,0,0.1);">
+                                    <i class="fas fa-chevron-right fs-5"></i>
+                                </div>
+                            </button>
+                            <div class="d-grid gap-2 overflow-auto hide-scroll electronics-scroll-container pb-2" style="grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; scroll-behavior: smooth;">
                                 ${section.items.map((item, index) => `
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                    <div class="flex-shrink-0" style="width: 200px;">
                                         <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                            <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 120px;" ${imgAttrs(32 + sectionIndex * 10 + index)}>
+                                            <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 160px;" ${imgAttrs(32 + sectionIndex * 10 + index)}>
                                             <div class="text-center text-white fw-bold p-2" style="background: linear-gradient(135deg, #4285ff, #10c3bd);">
                                                 <div style="font-size: 0.7rem;">${item.title}</div>
                                                 <small class="fw-medium" style="font-size: 0.65rem;">${item.subtitle}</small>
@@ -140,11 +150,21 @@ function renderHomePage(data) {
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">${section.title}</h3>
                     </div>
-                    <div class="row g-3">
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 small-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="small-scroll-${sectionIndex}">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+                            <i class="fas fa-chevron-left fs-5"></i>
+                        </div>
+                    </button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 small-scroll-right p-0 border-0 bg-transparent" style="margin-right: 0;" data-target="small-scroll-${sectionIndex}">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-left-radius: 12px; border-bottom-left-radius: 12px; box-shadow: -2px 0 5px rgba(0,0,0,0.1);">
+                            <i class="fas fa-chevron-right fs-5"></i>
+                        </div>
+                    </button>
+                    <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="small-scroll-${sectionIndex}" style="scroll-behavior: smooth;">
                         ${section.items.map((item, index) => `
-                            <div class="col-lg col-md-4 col-sm-6 col-6">
+                            <div class="flex-shrink-0" style="width: 220px;">
                                 <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 160px;" ${imgAttrs(20 + sectionIndex * 10 + index)}>
+                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 180px;" ${imgAttrs(20 + sectionIndex * 10 + index)}>
                                     <div class="text-center text-white fw-bold p-3" style="background: linear-gradient(135deg, #4285ff, #10c3bd);">
                                         <div>${item.title}</div>
                                         <small class="fw-medium">${item.subtitle}</small>
@@ -161,16 +181,26 @@ function renderHomePage(data) {
     function featuredProductsSection(section, sectionIndex) {
         return `
             <div class="container mb-5 position-relative home-deferred-section">
-                <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(0deg, rgba(94, 219, 250, 0.05) 0%, #DFE9FF 26.18%, #ACF3FF 100%); border: 3px solid #FFC107;">
+                <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(0deg, rgba(94, 219, 250, 0.05) 0%, #DFE9FF 26.18%, #ACF3FF 100%);">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">${section.title}</h3>
                         <a href="#" class="text-decoration-none fw-semibold" style="color: #0087F6; font-size: 0.9rem;">View All</a>
                     </div>
-                    <div class="row g-3">
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 featured-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="featured-scroll-${sectionIndex}">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+                            <i class="fas fa-chevron-left fs-5"></i>
+                        </div>
+                    </button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 featured-scroll-right p-0 border-0 bg-transparent" style="margin-right: 0;" data-target="featured-scroll-${sectionIndex}">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-left-radius: 12px; border-bottom-left-radius: 12px; box-shadow: -2px 0 5px rgba(0,0,0,0.1);">
+                            <i class="fas fa-chevron-right fs-5"></i>
+                        </div>
+                    </button>
+                    <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="featured-scroll-${sectionIndex}" style="scroll-behavior: smooth;">
                         ${section.items.map((item, index) => `
-                            <div class="col-lg col-md-4 col-sm-6 col-6">
+                            <div class="flex-shrink-0" style="width: 220px;">
                                 <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 160px;" ${imgAttrs(20 + sectionIndex * 10 + index)}>
+                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 180px;" ${imgAttrs(20 + sectionIndex * 10 + index)}>
                                     <div class="text-center text-white fw-bold p-3" style="background: #3B95EE;">
                                         <div>${item.title}</div>
                                         <small class="fw-medium">${item.subtitle}</small>
@@ -211,11 +241,21 @@ function renderHomePage(data) {
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">On Sale</h3>
                     </div>
-                    <div class="row g-3">
-                        ${data.productGrid.slice(0, 5).map((item, index) => `
-                            <div class="col-12 col-sm-6 col-md-4 col-lg col-xl" style="flex: 0 0 20%; max-width: 20%;">
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 sale-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="sale-scroll">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+                            <i class="fas fa-chevron-left fs-5"></i>
+                        </div>
+                    </button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 sale-scroll-right p-0 border-0 bg-transparent" style="margin-right: 0;" data-target="sale-scroll">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-left-radius: 12px; border-bottom-left-radius: 12px; box-shadow: -2px 0 5px rgba(0,0,0,0.1);">
+                            <i class="fas fa-chevron-right fs-5"></i>
+                        </div>
+                    </button>
+                    <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="sale-scroll" style="scroll-behavior: smooth;">
+                        ${data.productGrid.map((item, index) => `
+                            <div class="flex-shrink-0" style="width: 220px;">
                                 <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 160px;" ${imgAttrs(50 + index)}>
+                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 180px;" ${imgAttrs(50 + index)}>
                                     <div class="text-center text-white fw-bold p-3" style="background: linear-gradient(180deg, #05970E 0%, #56DF5F 100%);">
                                         <div>${item.title}</div>
                                         <small class="fw-medium">Sale</small>
@@ -307,4 +347,50 @@ function renderHomePage(data) {
         })(),
         `<div class="container mb-5 home-deferred-section"><div class="row g-3">${data.productGrid.map(gridCard).join('')}</div></div>`
     ].join('');
+
+    setTimeout(() => {
+        const leftBtn = root.querySelector('.electronics-scroll-left');
+        const rightBtn = root.querySelector('.electronics-scroll-right');
+        const container = root.querySelector('.electronics-scroll-container');
+        
+        if (container && leftBtn && rightBtn) {
+            const updateButtons = () => {
+                leftBtn.style.display = container.scrollLeft > 0 ? 'block' : 'none';
+                rightBtn.style.display = container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none';
+            };
+            
+            leftBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -220, behavior: 'smooth' });
+            });
+            rightBtn.addEventListener('click', () => {
+                container.scrollBy({ left: 220, behavior: 'smooth' });
+            });
+            
+            container.addEventListener('scroll', updateButtons);
+            window.addEventListener('resize', updateButtons);
+            updateButtons();
+        }
+        
+        const setupScroll = (leftBtnClass, rightBtnClass) => {
+            document.querySelectorAll('.' + leftBtnClass).forEach(btn => {
+                const containerId = btn.getAttribute('data-target');
+                const container = document.getElementById(containerId);
+                const rightBtn = document.querySelector(`[data-target="${containerId}"].${rightBtnClass}`);
+                if(container && rightBtn) {
+                    const update = () => {
+                        btn.style.display = container.scrollLeft > 0 ? 'block' : 'none';
+                        rightBtn.style.display = container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none';
+                    };
+                    btn.onclick = () => container.scrollBy({ left: -240, behavior: 'smooth' });
+                    rightBtn.onclick = () => container.scrollBy({ left: 240, behavior: 'smooth' });
+                    container.addEventListener('scroll', update);
+                    window.addEventListener('resize', update);
+                    update();
+                }
+            });
+        };
+        setupScroll('small-scroll-left', 'small-scroll-right');
+        setupScroll('featured-scroll-left', 'featured-scroll-right');
+        setupScroll('sale-scroll-left', 'sale-scroll-right');
+    }, 100);
 }
