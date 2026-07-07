@@ -95,6 +95,11 @@
 
                         <!-- Address form (collapsed by default) -->
                         <div class="d-none mt-4" id="address-form-wrap">
+                            <div class="d-flex justify-content-end mb-3">
+                                <button type="button" class="btn btn-sm btn-outline-primary fw-semibold" onclick="useCurrentLocation()" id="btn-use-location">
+                                    <i class="fa-solid fa-location-crosshairs me-1"></i>Use Current Location
+                                </button>
+                            </div>
                             <div class="row g-3">
                                 <div class="col-12">
                                     <label class="form-label fw-semibold small text-secondary" for="addr-name">Full Name <span class="text-danger">*</span></label>
@@ -395,6 +400,77 @@
                 errEl.textContent = message;
                 errEl.classList.remove('d-none');
             }
+        }
+
+        function clearErrors() {
+            const fields = ['addr-name', 'addr-phone', 'addr-line1', 'addr-city', 'addr-state', 'addr-pin'];
+            fields.forEach(f => {
+                const el = document.getElementById(f);
+                if (el) el.style.borderColor = '#e2e8f0';
+            });
+            document.querySelectorAll('.invalid-feedback-custom').forEach(el => el.classList.add('d-none'));
+        }
+
+        /* Use Current Location */
+        function useCurrentLocation() {
+            const btn = document.getElementById('btn-use-location');
+            if (!navigator.geolocation) {
+                alert('Geolocation is not supported by your browser.');
+                return;
+            }
+            
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-1"></i>Fetching...';
+            btn.disabled = true;
+
+            navigator.geolocation.getCurrentPosition((position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                
+                // Use OpenStreetMap Nominatim for reverse geocoding
+                fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        btn.innerHTML = originalHTML;
+                        btn.disabled = false;
+                        
+                        if (data && data.address) {
+                            const addr = data.address;
+                            // Extract location details
+                            const city = addr.city || addr.town || addr.village || addr.county || '';
+                            const state = addr.state || '';
+                            const pincode = addr.postcode || '';
+                            
+                            // Construct Address Line 1
+                            const parts = [];
+                            if (addr.road) parts.push(addr.road);
+                            if (addr.suburb) parts.push(addr.suburb);
+                            if (addr.neighbourhood) parts.push(addr.neighbourhood);
+                            const line1 = parts.join(', ');
+
+                            // Populate fields
+                            document.getElementById('addr-city').value = city;
+                            document.getElementById('addr-state').value = state;
+                            document.getElementById('addr-pin').value = pincode;
+                            document.getElementById('addr-line1').value = line1;
+                            
+                            // Clear any previous error highlighting
+                            clearErrors();
+                            
+                        } else {
+                            alert('Could not determine address from your location.');
+                        }
+                    })
+                    .catch(err => {
+                        btn.innerHTML = originalHTML;
+                        btn.disabled = false;
+                        alert('Error fetching address data.');
+                    });
+            }, (error) => {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+                alert('Unable to retrieve your location. Please ensure location services are enabled and you grant permission.');
+            });
         }
     </script>
 </body>
