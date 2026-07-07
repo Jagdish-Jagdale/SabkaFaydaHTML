@@ -52,7 +52,7 @@ function renderWishlist(wishlistData) {
                 <strong style="font-size: 0.75rem; color: #333;">${item.addedDate}</strong>
             </div>
             <div class="order-actions d-flex flex-column justify-content-center align-items-stretch p-2">
-                <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('${item.productName}')">
+                <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('${item.productName}', 1, this)">
                     <i class="fa-solid fa-cart-shopping me-1"></i> Add to Cart
                 </button>
                 <a href="product-details.html" class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap">View Product</a>

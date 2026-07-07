@@ -55,7 +55,7 @@ function saveCart(cart) {
 }
 
 // Add item to cart
-function addToCart(product, quantity = 1) {
+function addToCart(product, quantity = 1, btnElement = null) {
     // Fallback for mock buttons passing only strings
     if (typeof product === 'string') {
         product = {
@@ -94,6 +94,21 @@ function addToCart(product, quantity = 1) {
     
     saveCart(cart);
     if (typeof updateCartCount === 'function') updateCartCount();
+    
+    // Transform button to 'Go to Cart'
+    if (btnElement) {
+        const hasIcon = btnElement.querySelector('i');
+        const iconHtml = hasIcon ? `<i class="fa-solid fa-cart-shopping me-1"></i> ` : '';
+        btnElement.innerHTML = `${iconHtml}Go to Cart`;
+        btnElement.removeAttribute('onclick');
+        btnElement.onclick = function(e) {
+            e.preventDefault();
+            window.location.href = 'mycart.html';
+        };
+        if (btnElement.classList.contains('btn-primary')) {
+            btnElement.classList.replace('btn-primary', 'btn-success');
+        }
+    }
     
     // Trigger animation
     animateCartIcon();
