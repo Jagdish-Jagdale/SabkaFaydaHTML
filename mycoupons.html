@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if (!localStorage.getItem('sf_auth_user')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your Sabka Fayda coupons and exclusive offers.">
+    <title>My Coupons | Sabka Fayda</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=17">
+    
+    <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/js/mockCategories.js" as="script">
+    <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
+</head>
+
+<body class="orders-page">
+    <div id="header-placeholder">
+        <div class="skeleton-box skeleton-header"></div>
+    </div>
+
+    <main class="orders-shell container-fluid px-3 px-md-4">
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <span class="fw-bold fs-5 text-dark">My Coupons</span>
+        </div>
+
+        <div class="row g-4">
+            <aside class="col-lg-3" id="sidebar-placeholder">
+                <div class="skeleton-box skeleton-sidebar d-none d-lg-block"></div>
+            </aside>
+
+            <section class="col-lg-9 col-12 content-card">
+                <div class="bg-white rounded-4 shadow-sm p-5 text-center d-flex flex-column align-items-center justify-content-center" style="min-height: 500px; border: 1px solid #eef2f6;">
+                    <div class="mb-4" style="width: 100px; height: 100px; background-color: #e6f2ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-tags text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <h2 class="fw-bold text-dark mb-3" style="font-family: 'Rubik', sans-serif;">Coupons & Offers</h2>
+                    <h4 class="text-primary mb-3">Coming Soon!</h4>
+                    <p class="text-secondary mb-4" style="max-width: 550px; font-size: 1.05rem; line-height: 1.6;">
+                        We are working hard behind the scenes to bring you an exclusive, fully integrated rewards experience. In the near future, you will find all your personalized discounts, cashback offers, and promotional coupons right here. Stay tuned!
+                    </p>
+                    <a href="index.html" class="btn btn-primary px-4 py-2 fw-semibold rounded-3">
+                        Continue Shopping
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="footer-placeholder">
+        <div class="skeleton-box skeleton-footer"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/authcontext.js"></script>
+    <script src="assets/js/main.js?v=6"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof loadSidebar === 'function') {
+                // Pass the current page so the sidebar script can highlight it
+                loadSidebar('mycoupons.html');
+            }
+
+            fetch('header.html?v=5')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    if (typeof initHeader === 'function') initHeader();
+                    if (typeof updateLoginButton === 'function') updateLoginButton();
+                });
+
+            fetch('footer.html?v=5')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -59,7 +59,7 @@ function updateLoginButton() {
     // Desktop button (inside navbarContent collapse)
     const desktopBtn = document.getElementById('header-login-btn');
     // Mobile button
-    const mobileBtn  = document.getElementById('header-login-btn-mobile');
+    const mobileBtn = document.getElementById('header-login-btn-mobile');
 
     const user = getAuthUser();
 
