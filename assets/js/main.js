@@ -1,19 +1,65 @@
 /* Scroll Position Preservation */
 /* Internet Connection Status Check */
 (function() {
-    if (window.location.pathname.endsWith('nointernet.html')) return;
-    
+    function showOfflineOverlay() {
+        if (document.getElementById('offline-overlay-container')) return;
+        
+        const overlay = document.createElement('div');
+        overlay.id = 'offline-overlay-container';
+        overlay.className = 'vh-100 d-flex align-items-center justify-content-center bg-white text-center m-0 overflow-hidden';
+        overlay.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; z-index:999999;';
+        
+        overlay.innerHTML = `
+            <div class="container px-4">
+                <h1 class="no-internet-title" style="font-size: 1.8rem; font-weight: 700; color: #2c3e50; margin-bottom: 2rem;">No Internet Connection</h1>
+                <img src="assets/img/nointernetimg.png" alt="No Internet" class="no-internet-img" style="max-width: 100%; height: auto; max-height: 250px; margin-bottom: 2rem; object-fit: contain;">
+                <p class="no-internet-text" style="color: #7f8c8d; font-size: 1.05rem; font-weight: 500;">
+                    Make sure wifi or cellular data is turned on and then <a href="#" id="retry-connection-btn" class="try-again-link" style="color: #7b61ff; text-decoration: none; font-weight: 600;">try again.</a>
+                </p>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+
+        document.getElementById('retry-connection-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (navigator.onLine) {
+                hideOfflineOverlay();
+            } else {
+                const btn = this;
+                const origText = btn.innerText;
+                btn.innerText = "Still offline...";
+                setTimeout(() => { btn.innerText = origText; }, 1500);
+            }
+        });
+    }
+
+    function hideOfflineOverlay() {
+        const overlay = document.getElementById('offline-overlay-container');
+        if (overlay) {
+            overlay.remove();
+            document.body.style.overflow = '';
+        }
+    }
+
     function checkConnection() {
         if (!navigator.onLine) {
-            window.location.href = 'nointernet.html';
+            showOfflineOverlay();
+        } else {
+            hideOfflineOverlay();
         }
     }
     
     // Check initially
-    checkConnection();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkConnection);
+    } else {
+        checkConnection();
+    }
 
     // Listen for connection changes
     window.addEventListener('offline', checkConnection);
+    window.addEventListener('online', checkConnection);
 })();
 
 (function() {
