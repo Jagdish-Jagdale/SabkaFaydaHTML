@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <script>
+        if (!localStorage.getItem('sf_auth_user')) {
+            window.location.href = 'login.html';
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="View and manage your Sabka Fayda wallet. Check your balance, redeem earnings, and view transaction history.">
@@ -18,6 +23,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css?v=17">
+    <!-- Preload Logo and Header Data -->
+    <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/js/mockCategories.js" as="script">
+
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">

@@ -60,10 +60,9 @@ function selectCategory(categoryName) {
 
 function initHeader() {
     let loadedCats = false;
-    let loadedProducts = false;
 
     function checkReady() {
-        if (loadedCats && loadedProducts) {
+        if (loadedCats) {
             proceedInitHeader();
         }
     }
@@ -83,19 +82,11 @@ function initHeader() {
         loadedCats = true;
     }
 
+    // We no longer block header rendering on products-mock.js
     if (typeof mockProducts === 'undefined') {
         const script = document.createElement('script');
         script.src = 'assets/js/products-mock.js';
-        script.onload = function() {
-            loadedProducts = true;
-            checkReady();
-        };
-        script.onerror = function() {
-            console.error('Failed to load products-mock.js');
-        };
         document.head.appendChild(script);
-    } else {
-        loadedProducts = true;
     }
 
     checkReady();

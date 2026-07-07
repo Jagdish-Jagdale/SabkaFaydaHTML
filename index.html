@@ -25,6 +25,7 @@
     
     <!-- Preload Logo Image -->
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/js/mockCategories.js" as="script">
     
     <script>
         (function () {
@@ -34,12 +35,13 @@
                 if (!img || img.dataset.homeLoadTuned === 'true') return;
                 img.dataset.homeLoadTuned = 'true';
                 seenImages += 1;
-                img.decoding = 'async';
 
                 if (seenImages <= 10) {
+                    img.decoding = 'sync';
                     img.loading = 'eager';
                     img.fetchPriority = 'high';
                 } else {
+                    img.decoding = 'async';
                     img.loading = 'lazy';
                     img.fetchPriority = 'low';
                 }
