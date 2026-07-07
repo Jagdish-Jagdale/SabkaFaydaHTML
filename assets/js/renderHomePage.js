@@ -158,6 +158,32 @@ function renderHomePage(data) {
         `;
     }
 
+    function featuredProductsSection(section, sectionIndex) {
+        return `
+            <div class="container mb-5 position-relative home-deferred-section">
+                <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(0deg, rgba(94, 219, 250, 0.05) 0%, #DFE9FF 26.18%, #ACF3FF 100%); border: 3px solid #FFC107;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">${section.title}</h3>
+                        <a href="#" class="text-decoration-none fw-semibold" style="color: #0087F6; font-size: 0.9rem;">View All</a>
+                    </div>
+                    <div class="row g-3">
+                        ${section.items.map((item, index) => `
+                            <div class="col-lg col-md-4 col-sm-6 col-6">
+                                <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
+                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 160px;" ${imgAttrs(20 + sectionIndex * 10 + index)}>
+                                    <div class="text-center text-white fw-bold p-3" style="background: #3B95EE;">
+                                        <div>${item.title}</div>
+                                        <small class="fw-medium">${item.subtitle}</small>
+                                    </div>
+                                </a>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
     function doubleBannerSection(banner, index) {
         return `
             <div class="container mb-5 home-deferred-section">
@@ -265,12 +291,14 @@ function renderHomePage(data) {
                         html += doubleBannerSection(data.banners[0], 0);
                     }
                     html += onSaleSection();
+                } else if (section.title === 'Explore Electronics Products') {
+                    html += electronicsSection(section, index);
                     // Use second banner as single banner if it exists and doesn't have both images
                     if (data.banners[1] && (!data.banners[1].leftImage || !data.banners[1].rightImage)) {
                         html += singleBannerSection(data.banners[1], 1);
                     }
-                } else if (section.title === 'Explore Electronics Products') {
-                    html += electronicsSection(section, index);
+                } else if (section.title === 'Featured Products') {
+                    html += featuredProductsSection(section, index);
                 } else {
                     html += smallProductSection(section, index);
                 }

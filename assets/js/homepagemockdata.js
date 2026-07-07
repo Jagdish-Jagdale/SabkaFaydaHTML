@@ -55,6 +55,17 @@ const homePageMockData = {
                 { title: 'Accessories', subtitle: 'New deals', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop' },
                 { title: 'Premium Tech', subtitle: 'Limited offer', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=200&auto=format&fit=crop' }
             ]
+        },
+        {
+            title: 'Featured Products',
+            layout: 'smallRow',
+            items: [
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=200&auto=format&fit=crop' }
+            ]
         }
     ],
     banners: [
