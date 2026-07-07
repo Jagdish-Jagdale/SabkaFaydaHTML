@@ -56,6 +56,18 @@ function saveCart(cart) {
 
 // Add item to cart
 function addToCart(product, quantity = 1) {
+    // Fallback for mock buttons passing only strings
+    if (typeof product === 'string') {
+        product = {
+            id: 'mock_' + Math.random().toString(36).substr(2, 9),
+            title: product,
+            image: 'assets/img/electronicimg.png',
+            price: 999,
+            originalPrice: '1999',
+            discount: '50% off'
+        };
+    }
+
     const cart = getCart();
     
     // Check if product already exists in cart
@@ -82,7 +94,79 @@ function addToCart(product, quantity = 1) {
     
     saveCart(cart);
     if (typeof updateCartCount === 'function') updateCartCount();
+    
+    // Trigger animation
+    animateCartIcon();
+    
     return cart;
+}
+
+// Function to animate cart icon in header
+function animateCartIcon() {
+    const desktopCartBadge = document.querySelector('.desktop-cart-badge');
+    const mobileCartBadge = document.querySelector('.mobile-cart-badge');
+    
+    [desktopCartBadge, mobileCartBadge].forEach(badge => {
+        if (!badge) return;
+        
+        const iconContainer = badge.parentElement;
+        iconContainer.style.position = 'relative';
+        
+        // Remove old tooltip if any
+        let oldTooltip = iconContainer.querySelector('.cart-tooltip-anim');
+        if (oldTooltip) oldTooltip.remove();
+        
+        // Create tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'cart-tooltip-anim';
+        tooltip.textContent = "Added!";
+        tooltip.style.cssText = `
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+            pointer-events: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-top: 8px;
+        `;
+        iconContainer.appendChild(tooltip);
+        
+        // Add bounce animation class if not exists
+        let style = document.getElementById('cart-anim-style');
+        if (!style) {
+            style = document.createElement('style');
+            style.id = 'cart-anim-style';
+            style.textContent = `
+                @keyframes cartBounce {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.3); }
+                    100% { transform: scale(1); }
+                }
+                .cart-anim-bounce {
+                    animation: cartBounce 0.4s ease-out;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        iconContainer.classList.remove('cart-anim-bounce');
+        void iconContainer.offsetWidth; // reflow
+        iconContainer.classList.add('cart-anim-bounce');
+        
+        setTimeout(() => {
+            tooltip.style.opacity = '0';
+            setTimeout(() => tooltip.remove(), 500);
+        }, 1500);
+    });
 }
 
 // Remove item from cart
