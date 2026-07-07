@@ -6,8 +6,11 @@ const CART_STORAGE_KEY = 'sabkaFaydaCart';
 function getCart() {
     try {
         const cartData = localStorage.getItem(CART_STORAGE_KEY);
-        if (!cartData || cartData === '[]') {
-            // Inject mock data if empty for demonstration
+        const mockInjected = localStorage.getItem('sf_mock_injected');
+        
+        if ((!cartData || cartData === '[]') && !mockInjected) {
+            // Inject mock data if empty for demonstration, but only once
+            localStorage.setItem('sf_mock_injected', 'true');
             const mockCart = [
                 {
                     id: 'prod-101',
