@@ -215,6 +215,12 @@
     <!-- Script to load Header and Footer dynamically -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Redirect to home if already logged in
+            if (typeof isLoggedIn === 'function' && isLoggedIn()) {
+                window.location.replace('index.html');
+                return;
+            }
+            
             // Verify OTP using authcontext.js
 
             window.showToast = function(message, type) {
@@ -321,13 +327,15 @@
             let resendInterval;
             function startResendTimer() {
                 let timeLeft = 30;
-                const timerEl = document.getElementById('resendTimer');
                 const resendContainer = document.getElementById('resendContainer');
+                
+                // Reconstruct the HTML because it gets replaced with a link when timer ends
+                resendContainer.innerHTML = 'Resend OTP in <span id="resendTimer" class="fw-bold text-dark">00:30</span>';
+                const timerEl = document.getElementById('resendTimer');
                 
                 if (resendInterval) clearInterval(resendInterval);
                 
                 resendContainer.classList.remove('d-none');
-                timerEl.textContent = '00:30';
                 
                 resendInterval = setInterval(() => {
                     timeLeft--;
