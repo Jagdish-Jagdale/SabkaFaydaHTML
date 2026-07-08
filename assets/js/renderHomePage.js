@@ -98,32 +98,33 @@ function renderHomePage(data) {
         return `
             <div class="container mb-4 position-relative home-deferred-section">
                 <div class="rounded-4 p-2 p-md-3" style="background: linear-gradient(180deg, #AEE7FF 0%, #CEEDFA 100%);">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">${section.title}</h3>
+                    <div class="d-flex justify-content-end mb-2">
                         <a href="#" class="text-decoration-none fw-bold" style="color: #008B8B; font-size: 0.95rem; border-bottom: 2px solid #008B8B; padding-bottom: 2px;">View All</a>
                     </div>
                     <div class="row g-2">
-                        <div class="col-lg-3 col-md-4">
-                            <div class="rounded-3 p-2 d-flex flex-column" style="background: linear-gradient(180deg, #FFC880 0%, #FFFFFF 100%); min-height: 270px;">
-                                <div class="d-flex gap-2">
-                                    <div class="flex-grow-1 pt-2 ps-2">
-                                        <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">Electronics Gadgets</h6>
-                                        <ul class="text-muted small mb-0 ps-2" style="font-size: 0.75rem; list-style-type: disc; line-height: 1.5;">
-                                            <li>Electronics</li>
-                                            <li>Audio & Accessories</li>
-                                            <li>Home Appliances</li>
-                                            <li>Lighting & Smart Home</li>
-                                            <li>Personal Care</li>
-                                            <li>Home & Garden</li>
-                                            <li>Wearables</li>
-                                        </ul>
-                                    </div>
-                                    <img src="assets/img/homescreenimg.png" class="rounded-3 object-fit-contain flex-shrink-0" alt="Home Screen" style="width: 160px; height: 160px;" ${imgAttrs(30 + sectionIndex * 10)}>
+                        <div class="col-lg-4 col-md-5">
+                            <div class="rounded-3 p-4 d-flex flex-column position-relative overflow-hidden shadow-sm" style="background: linear-gradient(135deg, #FFCF87 0%, #FFE9C2 100%); height: 100%; min-height: 380px;">
+                                <div class="position-relative z-2" style="width: 55%;">
+                                    <h4 class="fw-bolder text-dark mb-3" style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; line-height: 1.2;">
+                                        ${section.title}
+                                    </h4>
+                                    <ul class="text-dark fw-medium mb-0 ps-3" style="font-size: 0.85rem; list-style-type: disc; line-height: 1.8;">
+                                        <li>Electronics</li>
+                                        <li>Audio & Accessories</li>
+                                        <li>Home Appliances</li>
+                                        <li>Lighting & Smart Home</li>
+                                        <li>Personal Care</li>
+                                        <li>Home & Garden</li>
+                                        <li>Wearables</li>
+                                    </ul>
                                 </div>
-                                <img src="assets/img/electronicimg.png" class="w-100 rounded-3 object-fit-cover " alt="Electronics" style="height: 80px; margin-top:80px!important" ${imgAttrs(31 + sectionIndex * 10)}>
+                                <img src="assets/img/homescreenimg.png" class="position-absolute top-0 end-0 z-1 pe-2 pt-2" alt="Woman" style="width: 45%; height: auto; max-width: 180px; object-fit: contain;" ${imgAttrs(30 + sectionIndex * 10)}>
+                                <div class="mt-auto z-2 w-100 text-center position-absolute bottom-0 start-0 pe-none">
+                                    <img src="assets/img/electronicimg.png" class="w-100 object-fit-contain" alt="Electronics" style="max-height: 140px; transform: scale(1.1) translateY(5px); transform-origin: bottom center;" ${imgAttrs(31 + sectionIndex * 10)}>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-9 col-md-8 position-relative">
+                        <div class="col-lg-8 col-md-7 position-relative">
                             <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 electronics-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;">
                                 <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
                                     <i class="fas fa-chevron-left fs-5"></i>
