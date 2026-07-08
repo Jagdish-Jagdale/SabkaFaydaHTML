@@ -298,9 +298,9 @@ function renderHomePage(data) {
                             </div>
                         </div>
                         <div class="d-flex gap-1 p-2 align-items-center product-card-badges" style="background-color: #dbdbdb; font-weight: 600;">
-                            <span class="px-1 py-1 rounded bg-white text-dark border text-center" style="flex: 1;">${product.badge}</span>
-                            <span class="px-1 py-1 rounded text-white text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); flex: 1;">Refer 17</span>
-                            <span class="px-1 py-1 rounded text-dark border text-center" style="background-color: #fff9e6; flex: 1;">Earn 67</span>
+                            <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #F8D7FF; flex: 1;">${product.badge}</span>
+                            <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #CBF1C4; flex: 1;">Refer 17</span>
+                            <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #FBEED5; flex: 1;">Earn 67</span>
                         </div>
                     </div>
                     <div class="px-1 pb-1">
