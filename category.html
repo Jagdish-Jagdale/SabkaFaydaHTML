@@ -40,53 +40,10 @@
     <!-- Main Content -->
     <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
         
-        <!-- Categories Bar like Home Page -->
-        <div class="container mb-4 mt-2">
-            <div class="rounded shadow-sm py-3 py-md-4 px-3 px-md-5 category-section-bg" style="border: 1px solid #eaeaea;">
-                <div class="d-flex justify-content-between justify-content-md-center justify-content-lg-between align-items-start flex-nowrap icon-category-scroll overflow-auto w-100 px-1 px-md-0" style="gap: 10px;">
-                    <a href="#" onclick="handleTopCategoryClick(event, null, this)" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item top-category-btn">
-                        <img src="assets/img/f6a3531d25c91b762c556b205d1ab4311e7f1cad.png" alt="For You" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">For You</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, 'menuFashion', this)" data-sidebar-target="menuFashion" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item top-category-btn">
-                        <img src="assets/img/17d9cf86f77963084917e236b3476c79d44da9d4.png" alt="Fashion & Lifestyle" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">Fashion & Lifestyle</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, 'menuElectronics', this)" data-sidebar-target="menuElectronics" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item top-category-btn">
-                        <img src="assets/img/5a9a7882b4ce8bd4d6ec186cabbd89c39873031d.png" alt="Electronics" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">Electronics</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, 'menuHome', this)" data-sidebar-target="menuHome" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item top-category-btn">
-                        <img src="assets/img/49518ef2fad5561a0a3ecc6464a6e66adb806089.png" alt="Home & Living" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">Home & Living</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, 'menuKids', this)" data-sidebar-target="menuKids" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item top-category-btn">
-                        <img src="assets/img/3f1343f9b0707ada3f4ffd9192cf53dab12b7984.png" alt="kids & Toys" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">kids & Toys</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, 'menuPersonal', this)" data-sidebar-target="menuPersonal" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-md-flex top-category-btn">
-                        <img src="assets/img/4fb99229018727c624d87bcca8e826f53a077ad8.png" alt="Personal Care" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">Personal Care</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, null, this)" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-md-flex top-category-btn">
-                        <img src="assets/img/b84f8d1c8308b81255dc347d4561545b0c03f019.png" alt="Retail & Gifts" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">Retail & Gifts</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, null, this)" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-lg-flex top-category-btn">
-                        <img src="assets/img/63e1ee7740ba6f820ad1907f5613d6e4b29fec86.png" alt="Animal & pet" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">Animal & pet</span>
-                    </a>
-                    <a href="#" onclick="handleTopCategoryClick(event, null, this)" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item d-none d-lg-flex top-category-btn">
-                        <img src="assets/img/c1632a7344a0e80972ea60a118230e4f012c2900.png" alt="Automobile" class="cat-icon-img mb-1 mb-md-2" loading="eager">
-                        <span class="text-dark fw-bold text-center cat-icon-text">Automobile</span>
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <!-- Banner Section -->
         <div class="container mb-4">
-            <img src="assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png" class="category-banner-img w-100" alt="Exclusive Savings Festival Banner">
+            <img src="assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png" id="categoryBannerImage" class="category-banner-img w-100" alt="Exclusive Savings Festival Banner">
         </div>
 
         <!-- Breadcrumbs removed from here -->
@@ -313,10 +270,14 @@
                 <div class="col-lg-9 col-md-8">
                     
                     <!-- Breadcrumbs aligned with sorting bar -->
-                    <div class="mb-3" style="font-size: 0.82rem; font-family: 'Montserrat', sans-serif;">
+                    <div class="mb-3" id="breadcrumb-container" style="font-size: 0.82rem; font-family: 'Montserrat', sans-serif;">
                         <a href="index.html" class="text-decoration-none text-secondary">Home</a>
                         <span class="text-secondary mx-1">/</span>
-                        <span class="text-secondary fw-semibold">Fashion & Lifestyle</span>
+                        <a href="category.html?category=All%20Category" class="text-decoration-none text-secondary">Category</a>
+                        <span class="text-secondary mx-1">/</span>
+                        <span class="text-secondary fw-semibold" id="breadcrumb-category" style="cursor: pointer;" onclick="updateCategoryUI(this.textContent)">Fashion & Lifestyle</span>
+                        <span class="text-secondary mx-1 d-none" id="breadcrumb-separator">/</span>
+                        <span class="text-secondary fw-semibold d-none" id="breadcrumb-subcategory"></span>
                     </div>
 
                     <!-- Sorting Bar (using Bootstrap nav-underline) -->
@@ -407,9 +368,18 @@
             updateTrack();
         });
 
-        // Toggle Accordion-like Category Menu
         function toggleCategoryMenu(e, menuId) {
             e.preventDefault();
+            
+            // Extract category name and update UI
+            const triggerSpan = e.currentTarget.querySelector('span');
+            if (triggerSpan) {
+                const categoryName = triggerSpan.textContent.trim();
+                // Reset subcategory highlights
+                document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+                updateCategoryUI(categoryName, null);
+            }
+            
             const subMenus = document.querySelectorAll('.category-submenu');
             
             subMenus.forEach(menu => {
@@ -420,17 +390,23 @@
                 if (menu.id === menuId) {
                     if (menu.style.display === 'none' || menu.style.display === '') {
                         menu.style.display = 'block';
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
+                        if (icon) {
+                            icon.classList.remove('fa-chevron-down');
+                            icon.classList.add('fa-chevron-up');
+                        }
                     } else {
                         menu.style.display = 'none';
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
+                        if (icon) {
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        }
                     }
                 } else {
                     menu.style.display = 'none';
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
                 }
             });
             
@@ -439,6 +415,12 @@
 
         function handleTopCategoryClick(e, menuId, el) {
             e.preventDefault();
+            
+            // Extract category name and update UI
+            if (el) {
+                const categoryName = el.querySelector('.cat-icon-text').textContent.trim();
+                updateCategoryUI(categoryName);
+            }
             
             // Expand the sidebar if applicable
             if (menuId) {
@@ -705,28 +687,99 @@
             element.classList.remove('text-secondary');
         }
 
-        // Update breadcrumb and page title from URL category parameter
+        function updateCategoryUI(category, subcategory) {
+            if (!category) return;
+            
+            // Clear any subcategory highlights if we are resetting to main category level
+            if (!subcategory) {
+                document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+            }
+            
+            const breadcrumbCategory = document.getElementById('breadcrumb-category');
+            const breadcrumbSeparator = document.getElementById('breadcrumb-separator');
+            const breadcrumbSubcategory = document.getElementById('breadcrumb-subcategory');
+
+            if (breadcrumbCategory) {
+                breadcrumbCategory.textContent = category;
+                if (subcategory) {
+                    breadcrumbCategory.classList.remove('fw-semibold', 'text-secondary');
+                    breadcrumbCategory.style.color = '#0d8dfb'; // Highlight parent
+                } else {
+                    breadcrumbCategory.classList.add('fw-semibold', 'text-secondary');
+                    breadcrumbCategory.style.color = '';
+                }
+            }
+            
+            if (breadcrumbSeparator && breadcrumbSubcategory) {
+                if (subcategory) {
+                    breadcrumbSeparator.classList.remove('d-none');
+                    breadcrumbSubcategory.classList.remove('d-none');
+                    breadcrumbSubcategory.textContent = subcategory;
+                } else {
+                    breadcrumbSeparator.classList.add('d-none');
+                    breadcrumbSubcategory.classList.add('d-none');
+                    breadcrumbSubcategory.textContent = '';
+                }
+            }
+
+            if (subcategory) {
+                document.title = subcategory + " | " + category + " | Sabka Fayda";
+            } else {
+                document.title = category + " | Sabka Fayda";
+            }
+
+            // Change banner based on category
+            const bannerMap = {
+                'Electronics': 'assets/img/electronicimg.png',
+                'Fashion & Lifestyle': 'assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png',
+                'Home & Living': 'assets/img/aboutusbanner.png',
+                'For You': 'assets/img/sabkafaydastoriesimg.png',
+                'default': 'assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png'
+            };
+            const bannerImg = document.getElementById('categoryBannerImage');
+            if (bannerImg) {
+                bannerImg.src = bannerMap[category] || bannerMap['default'];
+            }
+            
+            if (category === 'All Category' && !subcategory) {
+                // Highlight All Category link
+                const allCatLink = document.querySelector('a[href*="All%20Category"]');
+                if (allCatLink) {
+                    const span = allCatLink.querySelector('span');
+                    if (span) {
+                        span.style.color = '#0d8dfb';
+                        span.style.fontWeight = '700';
+                    }
+                }
+            }
+        }
+
+        // Update UI from URL on load
         window.addEventListener('DOMContentLoaded', () => {
+            // Attach click handlers to subcategories
+            document.querySelectorAll('.subcategory-item a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const subcat = e.target.textContent.trim();
+                    const parentMenu = e.target.closest('.category-submenu');
+                    let parentCategory = "";
+                    if (parentMenu) {
+                        const trigger = parentMenu.closest('li').querySelector('.category-menu-trigger span');
+                        if (trigger) parentCategory = trigger.textContent.trim();
+                    }
+                    
+                    // Highlight selected subcategory
+                    document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+                    e.target.style.color = '#0d8dfb';
+                    
+                    updateCategoryUI(parentCategory, subcat);
+                });
+            });
+
             const params = new URLSearchParams(window.location.search);
             const category = params.get('category');
             if (category) {
-                const breadcrumbCategory = document.getElementById('breadcrumb-category');
-                if (breadcrumbCategory) {
-                    breadcrumbCategory.textContent = category;
-                }
-                document.title = category + " | Sabka Fayda";
-
-                if (category === 'All Category') {
-                    // Highlight All Category link
-                    const allCatLink = document.querySelector('a[href*="All%20Category"]');
-                    if (allCatLink) {
-                        const span = allCatLink.querySelector('span');
-                        if (span) {
-                            span.style.color = '#0d8dfb';
-                            span.style.fontWeight = '700';
-                        }
-                    }
-                }
+                updateCategoryUI(category, null);
             }
         });
     </script>
