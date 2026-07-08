@@ -1707,8 +1707,11 @@ select.profile-form-control {
     border: 1px solid #e8eef8;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 93, 255, 0.05);
-    overflow: hidden;
     padding: 24px;
+}
+
+.offcanvas-lg {
+    overflow: visible;
 }
 
 .orders-sidebar {
@@ -3412,6 +3415,14 @@ a {
     font-weight: 500;
 }
 
+@media (min-width: 992px) {
+
+    .orders-page .offcanvas-lg,
+    .orders-page .offcanvas-body {
+        overflow: visible !important;
+    }
+}
+
 .try-again-link {
     color: #7b61ff;
     text-decoration: none;
@@ -3421,115 +3432,4 @@ a {
 
 .try-again-link:hover {
     text-decoration: underline;
-}
-
-/* --- Custom Scrolling for Dashboard Pages (Desktop Only) --- */
-@media (min-width: 992px) {
-    /* Prevent body scroll */
-    body.orders-page {
-        overflow: hidden;
-    }
-
-    /* Shell takes full viewport height */
-    .orders-shell {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding-top: 140px; /* Adjust for fixed header */
-        padding-bottom: 20px;
-    }
-
-    .orders-shell > .row {
-        flex: 1;
-        overflow: hidden;
-        margin-bottom: 0;
-    }
-
-    /* Sidebar internally scrollable */
-    #sidebar-placeholder {
-        height: 100%;
-        overflow-y: auto;
-    }
-
-    #sidebar-placeholder::-webkit-scrollbar {
-        width: 4px;
-    }
-    #sidebar-placeholder::-webkit-scrollbar-thumb {
-        background-color: transparent;
-    }
-    #sidebar-placeholder:hover::-webkit-scrollbar-thumb {
-        background-color: #cbd5e1;
-    }
-
-    /* Main Content Card */
-    .content-card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-
-    /* Lists that should scroll */
-    #ordersContainer,
-    #walletHistoryContainer,
-    #wishlistItemsList,
-    #notificationsList,
-    .orders-list {
-        flex: 1;
-        overflow-y: auto;
-        padding-right: 8px;
-    }
-
-    /* Cart Specific Layout */
-    #cartContentGrid {
-        flex: 1;
-        overflow: hidden;
-        display: flex;
-        margin-bottom: 0;
-    }
-
-    #cartContentGrid > .col-lg-8,
-    #cartContentGrid > .col-lg-4 {
-        height: 100%;
-    }
-
-    .cart-main-card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-
-    #cartItemsList {
-        flex: 1;
-        overflow-y: auto;
-        padding-right: 8px;
-    }
-
-    /* Custom Scrollbar for lists */
-    #cartItemsList::-webkit-scrollbar,
-    #ordersContainer::-webkit-scrollbar,
-    #walletHistoryContainer::-webkit-scrollbar,
-    #wishlistItemsList::-webkit-scrollbar,
-    #notificationsList::-webkit-scrollbar,
-    .orders-list::-webkit-scrollbar {
-        width: 6px;
-    }
-    #cartItemsList::-webkit-scrollbar-thumb,
-    #ordersContainer::-webkit-scrollbar-thumb,
-    #walletHistoryContainer::-webkit-scrollbar-thumb,
-    #wishlistItemsList::-webkit-scrollbar-thumb,
-    #notificationsList::-webkit-scrollbar-thumb,
-    .orders-list::-webkit-scrollbar-thumb {
-        background-color: #cbd5e1;
-        border-radius: 4px;
-    }
-
-    /* Price Details Panel - Fills height but no internal scroll unless necessary */
-    #cartContentGrid > .col-lg-4 > .position-sticky {
-        position: relative !important;
-        top: 0 !important;
-        height: 100%;
-        overflow-y: auto;
-    }
 }
