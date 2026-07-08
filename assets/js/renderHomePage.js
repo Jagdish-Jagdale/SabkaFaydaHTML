@@ -26,6 +26,18 @@ function renderHomePage(data) {
                         ${data.heroSlides.map((_, index) => `<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" ${index === 0 ? 'aria-current="true"' : ''}></button>`).join('')}
                     </div>
                     <div class="carousel-inner">${slides}</div>
+                    <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width: 5%; justify-content: flex-start; margin-left: 0;">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow" style="width: 40px; height: 80px; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
+                            <i class="fas fa-chevron-left fs-4"></i>
+                        </div>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="width: 5%; justify-content: flex-end; margin-right: 0;">
+                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow" style="width: 40px; height: 80px; border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+                            <i class="fas fa-chevron-right fs-4"></i>
+                        </div>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         `;
@@ -205,9 +217,9 @@ function renderHomePage(data) {
     function scrollingBannerSection(banner, index) {
         return `
             <div class="container mb-5 position-relative home-deferred-section">
-                <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="banner-scroll-${index}" style="scroll-behavior: smooth;">
+                <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="banner-scroll-${index}" style="scroll-behavior: smooth; scroll-snap-type: x mandatory;">
                     ${banner.images.map((img, i) => `
-                        <div class="flex-shrink-0" style="width: calc(50% - 8px); min-width: 300px;">
+                        <div class="flex-shrink-0" style="width: calc(50% - 8px); min-width: 300px; scroll-snap-align: start;">
                             <a href="#"><img src="${img}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Offer banner" style="height: 240px;" ${imgAttrs(40 + index * 10 + i)}></a>
                         </div>
                     `).join('')}
@@ -385,18 +397,29 @@ function renderHomePage(data) {
         setupScroll('sale-scroll-left', 'sale-scroll-right');
         
         // Auto-slide for banner scroll
-        const autoSlideScroll = (containerId, step, delay) => {
+        const autoSlideScroll = (containerId, delay) => {
             const container = document.getElementById(containerId);
             if (container) {
                 setInterval(() => {
-                    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                    const scrollLeft = container.scrollLeft;
+                    const containerWidth = container.clientWidth;
+                    const scrollWidth = container.scrollWidth;
+                    
+                    // calculate exact item width including gap
+                    const firstItem = container.querySelector('.flex-shrink-0');
+                    if (!firstItem) return;
+                    const itemWidth = firstItem.offsetWidth + 16; // 16px for gap-3
+                    
+                    if (scrollLeft + containerWidth >= scrollWidth - 10) {
                         container.scrollTo({ left: 0, behavior: 'smooth' });
                     } else {
-                        container.scrollBy({ left: step, behavior: 'smooth' });
+                        // snap to the next item
+                        const nextScroll = Math.ceil((scrollLeft + 10) / itemWidth) * itemWidth;
+                        container.scrollTo({ left: nextScroll, behavior: 'smooth' });
                     }
                 }, delay);
             }
         };
-        autoSlideScroll('banner-scroll-0', 316, 3000);
+        autoSlideScroll('banner-scroll-0', 3000);
     }, 100);
 }
