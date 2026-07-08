@@ -277,8 +277,26 @@ function renderHomePage(data) {
         `;
     }
 
-    
     function gridCard(product, index) {
+        const productId = product.id || 'home-prod-' + index;
+        const productJson = encodeURIComponent(JSON.stringify({
+            id: productId,
+            title: product.title,
+            image: product.image,
+            price: product.price,
+            originalPrice: product.oldPrice || '',
+            discount: product.offer || ''
+        }));
+        
+        let inCart = false;
+        if (typeof isProductInCart === 'function') {
+            inCart = isProductInCart(productId);
+        }
+
+        const addToCartBtn = inCart 
+            ? `<button class="btn btn-success flex-grow-1 py-1.5" onclick="event.preventDefault(); window.location.href='mycart.html';" style="font-size: 0.7rem; border-radius: 4px; border: none;">Go to Cart</button>`
+            : `<button class="btn btn-primary flex-grow-1 py-1.5 add-to-cart-btn text-white" data-product="${productJson}" style="font-size: 0.7rem; border-radius: 4px; background-color: #0D8BF1; border: none;">Add to Cart</button>`;
+
         return `
             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 product-card">
@@ -289,10 +307,8 @@ function renderHomePage(data) {
                                 <i class="far fa-heart text-danger"></i>
                             </button>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
-                                <button class="btn btn-primary flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #0087F6; border: none;">
-                                    Add to Cart
-                                </button>
-                                <button class="btn btn-warning flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #ffc107; border: none; color: #000;">
+                                ${addToCartBtn}
+                                <button class="btn flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #F9C108; border: none; color: #000;">
                                     Buy Now
                                 </button>
                             </div>
@@ -392,5 +408,22 @@ function renderHomePage(data) {
         setupScroll('small-scroll-left', 'small-scroll-right');
         setupScroll('featured-scroll-left', 'featured-scroll-right');
         setupScroll('sale-scroll-left', 'sale-scroll-right');
+
+        // Add to Cart logic
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof addToCart === 'function') {
+                    try {
+                        const product = JSON.parse(decodeURIComponent(this.getAttribute('data-product')));
+                        addToCart(product, 1, this);
+                        this.style.backgroundColor = ''; // let the btn-success class take over
+                    } catch (err) {
+                        console.error('Error adding to cart', err);
+                    }
+                }
+            });
+        });
     }, 100);
 }
