@@ -1245,7 +1245,7 @@ input[type=range]::-moz-range-thumb {
 /* Sidebar */
 .sidebar-card {
     position: sticky;
-    top: 155px;
+    top: 185px;
     height: fit-content;
     max-height: calc(100vh - 170px);
     overflow-y: auto;
@@ -1697,7 +1697,7 @@ select.profile-form-control {
 
 .orders-shell {
     max-width: 1200px;
-    padding-top: 155px;
+    padding-top: 185px;
     padding-bottom: 64px;
 }
 
@@ -1718,7 +1718,7 @@ select.profile-form-control {
     border: 1px solid #eef2f6;
     border-radius: 16px;
     position: sticky;
-    top: 195px;
+    top: 185px;
     height: fit-content;
     overflow: visible;
     min-height: auto !important;
@@ -2382,7 +2382,7 @@ select.profile-form-control {
 
 @media (max-width: 991px) {
     .orders-shell {
-        padding-top: 135px;
+        padding-top: 130px;
     }
 
     .orders-sidebar {
