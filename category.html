@@ -44,6 +44,33 @@
                 max-width: 79%;
             }
         }
+        
+        .product-action-overlay {
+            visibility: hidden;
+        }
+        
+        .product-card:hover .product-action-overlay {
+            opacity: 1 !important;
+            visibility: visible;
+        }
+        
+        .product-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important;
+        }
+
+        @keyframes heartPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        .wishlist-animating i {
+            animation: heartPulse 0.3s ease;
+        }
     </style>
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
@@ -495,6 +522,38 @@
             renderPagination();
         }
 
+        function toggleWishlist(btn, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const icon = btn.querySelector('i');
+            if (icon.classList.contains('fa-regular')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                btn.classList.add('wishlist-animating');
+                setTimeout(() => btn.classList.remove('wishlist-animating'), 300);
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+            }
+        }
+
+        function generateStarsHtml(rating) {
+            let starsHtml = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    starsHtml += '<i class="fa-solid fa-star" style="color: #ffb800; font-size: 0.75rem; margin-right: 2px;"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    starsHtml += '<i class="fa-solid fa-star-half-stroke" style="color: #ffb800; font-size: 0.75rem; margin-right: 2px;"></i>';
+                } else {
+                    starsHtml += '<i class="fa-regular fa-star" style="color: #ffb800; font-size: 0.75rem; margin-right: 2px;"></i>';
+                }
+            }
+            return starsHtml;
+        }
+
         // Render products dynamically from the mock data array
         function renderProducts(productsToRender) {
             const grid = document.getElementById('productsGrid');
@@ -519,37 +578,49 @@
                 col.className = 'col';
                 col.innerHTML = `
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;" data-price="${product.price}">
-                        <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 80%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                        <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 90%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.name}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 95%; max-height: 95%; object-fit: contain;">
+                            
+                            <!-- Hover Actions Overlay -->
+                            <div class="product-action-overlay position-absolute w-100 h-100 top-0 start-0" style="opacity: 0; transition: all 0.2s ease; z-index: 10; pointer-events: none;">
+                                <!-- Wishlist (Top Right) -->
+                                <button class="btn bg-transparent border-0 position-absolute" style="top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #dc3545; font-size: 1.25rem;" onclick="toggleWishlist(this, event)"><i class="fa-regular fa-heart"></i></button>
+                                
+                                <!-- Cart & Buy Now (Bottom) -->
+                                <div class="position-absolute w-100 d-flex justify-content-between gap-1 px-2" style="bottom: 8px; pointer-events: auto;">
+                                    <button class="btn btn-primary btn-sm rounded-2 shadow-sm flex-grow-1" style="font-size: 0.7rem; padding: 0.25rem 0; font-weight: 600;"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
+                                    <button class="btn btn-warning btn-sm rounded-2 shadow-sm text-white flex-grow-1" style="font-size: 0.7rem; padding: 0.25rem 0; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Buy</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1">
+                        <a href="product-details.html" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
                             <div>
                                 <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
                                     <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer}</span>
                                     <span class="custom-badge badge-earn" style="font-size: 0.65rem; padding: 2px 6px;">Earn ${product.earn}</span>
                                 </div>
                                 
-                                <h6 class="product-name text-dark mb-1" style="font-size: 0.9rem; font-weight: 500; line-height: 1.3; height: 2.6em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${product.name}</h6>
+                                <h6 class="product-name text-dark mb-2" style="font-size: 0.9rem; font-weight: 500; line-height: 1.3; height: 2.6em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${product.name}</h6>
                                 
-                                <div class="d-flex align-items-center mb-1" style="font-size: 0.8rem;">
-                                    <span class="bg-success text-white px-2 rounded-1 d-flex align-items-center me-2" style="font-size: 0.75rem; font-weight: 600; padding-top: 2px; padding-bottom: 2px;">
-                                        ${product.rating} <i class="fas fa-star ms-1" style="font-size: 0.6rem;"></i>
-                                    </span>
-                                    <span class="text-muted">(${product.reviews || '54,294'})</span>
+                                <div class="d-flex align-items-center mb-1 text-nowrap overflow-hidden">
+                                    <div class="d-flex align-items-center me-1">
+                                        ${generateStarsHtml(product.rating)}
+                                    </div>
+                                    <span class="text-muted text-truncate" style="font-size: 0.7rem; font-weight: 500;">(${product.reviews || '2'} Reviews)</span>
                                 </div>
                             </div>
                             
                             <div class="mt-auto pt-1">
                                 <div class="d-flex align-items-baseline flex-nowrap gap-2 mb-1 overflow-hidden">
-                                    <span class="text-muted text-decoration-line-through" style="font-size: 0.85rem;">₹${product.originalPrice}</span>
+                                    <span class="text-muted text-decoration-line-through text-truncate" style="font-size: 0.85rem; max-width: 35%;">₹${product.originalPrice}</span>
                                     <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹${product.price}</span>
-                                    <span class="text-success fw-semibold" style="font-size: 0.85rem;">${product.discountText || '47% off'}</span>
+                                    <span class="text-success fw-semibold text-truncate" style="font-size: 0.8rem;">${product.discountText || '47% off'}</span>
                                 </div>
                                 <div class="text-success fw-semibold" style="font-size: 0.75rem;">
                                     Rs ${product.price} with UPI offer
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 `;
                 grid.appendChild(col);
