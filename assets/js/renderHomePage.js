@@ -21,23 +21,11 @@ function renderHomePage(data) {
 
         return `
             <div class="container mb-4 position-relative">
-                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                     <div class="carousel-indicators">
                         ${data.heroSlides.map((_, index) => `<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" ${index === 0 ? 'aria-current="true"' : ''}></button>`).join('')}
                     </div>
                     <div class="carousel-inner">${slides}</div>
-                    <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width: 5%; justify-content: flex-start; margin-left: 0;">
-                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow" style="width: 40px; height: 80px; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
-                            <i class="fas fa-chevron-left fs-4"></i>
-                        </div>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="width: 5%; justify-content: flex-end; margin-right: 0;">
-                        <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow" style="width: 40px; height: 80px; border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
-                            <i class="fas fa-chevron-right fs-4"></i>
-                        </div>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         `;
@@ -217,16 +205,6 @@ function renderHomePage(data) {
     function scrollingBannerSection(banner, index) {
         return `
             <div class="container mb-5 position-relative home-deferred-section">
-                <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 banner-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="banner-scroll-${index}">
-                    <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
-                        <i class="fas fa-chevron-left fs-5"></i>
-                    </div>
-                </button>
-                <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 banner-scroll-right p-0 border-0 bg-transparent" style="margin-right: 0;" data-target="banner-scroll-${index}">
-                    <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-left-radius: 12px; border-bottom-left-radius: 12px; box-shadow: -2px 0 5px rgba(0,0,0,0.1);">
-                        <i class="fas fa-chevron-right fs-5"></i>
-                    </div>
-                </button>
                 <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="banner-scroll-${index}" style="scroll-behavior: smooth;">
                     ${banner.images.map((img, i) => `
                         <div class="flex-shrink-0" style="width: calc(50% - 8px); min-width: 300px;">
@@ -405,6 +383,20 @@ function renderHomePage(data) {
         setupScroll('small-scroll-left', 'small-scroll-right');
         setupScroll('featured-scroll-left', 'featured-scroll-right');
         setupScroll('sale-scroll-left', 'sale-scroll-right');
-        setupScroll('banner-scroll-left', 'banner-scroll-right');
+        
+        // Auto-slide for banner scroll
+        const autoSlideScroll = (containerId, step, delay) => {
+            const container = document.getElementById(containerId);
+            if (container) {
+                setInterval(() => {
+                    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                        container.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        container.scrollBy({ left: step, behavior: 'smooth' });
+                    }
+                }, delay);
+            }
+        };
+        autoSlideScroll('banner-scroll-0', 316, 3000);
     }, 100);
 }
