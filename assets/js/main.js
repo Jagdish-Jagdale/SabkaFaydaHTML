@@ -557,3 +557,44 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
+
+// Global handler for wishlist buttons
+document.addEventListener('click', function(e) {
+    const wishlistBtn = e.target.closest('.product-wishlist-btn');
+    if (wishlistBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const icon = wishlistBtn.querySelector('i');
+        let isAdding = false;
+        if (icon) {
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far', 'text-muted');
+                icon.classList.add('fas', 'text-danger');
+                isAdding = true;
+            } else {
+                icon.classList.remove('fas', 'text-danger');
+                icon.classList.add('far', 'text-muted');
+            }
+        }
+
+        if (isAdding) {
+            // Create floating text animation
+            const floatingText = document.createElement('div');
+            floatingText.className = 'floating-wishlist-msg';
+            floatingText.innerHTML = '<i class="fas fa-heart"></i> Product added to wishlist';
+            
+            // Append to body and position near the button
+            const rect = wishlistBtn.getBoundingClientRect();
+            // Position above the button, centered
+            floatingText.style.left = (rect.left - 60) + 'px';
+            floatingText.style.top = (rect.top - 35) + 'px';
+            
+            document.body.appendChild(floatingText);
+            
+            setTimeout(() => {
+                floatingText.remove();
+            }, 1500);
+        }
+    }
+});

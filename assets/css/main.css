@@ -3433,3 +3433,57 @@ a {
 .try-again-link:hover {
     text-decoration: underline;
 }
+
+/* Wishlist Icon Styles */
+.product-wishlist-btn {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.product-wishlist-btn:hover {
+    background-color: #ffffff !important;
+    color: #ff4d4d !important;
+}
+
+.product-wishlist-btn i {
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.product-wishlist-btn:hover i {
+    transform: scale(1.2);
+}
+
+/* Floating Animation */
+@keyframes wishlistFloatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0) scale(1.1);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(-15px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-25px) scale(0.9);
+    }
+}
+
+.floating-wishlist-msg {
+    position: fixed;
+    background: linear-gradient(135deg, #ff4d4d, #ff2a2a);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    pointer-events: none;
+    animation: wishlistFloatUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    white-space: nowrap;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+}
