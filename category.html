@@ -134,8 +134,14 @@
                         <ul class="list-unstyled mb-0">
                             <!-- All Categories -->
                             <li class="mb-3">
-                                <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
+                                <a href="category.html?category=All%20Category" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
                                     <span>All Category</span>
+                                </a>
+                            </li>
+                            <!-- For You -->
+                            <li class="mb-3">
+                                <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
+                                    <span>For You</span>
                                 </a>
                             </li>
                             <!-- Category 1 -->
@@ -178,7 +184,7 @@
                             <!-- Category 4 -->
                             <li class="mb-3">
                                 <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, 'menuKids')">
-                                    <span>Kids & Toys</span>
+                                    <span>kids & Toys</span>
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuKids" style="display: none;">
@@ -187,15 +193,33 @@
                                 </ul>
                             </li>
                             <!-- Category 5 -->
-                            <li>
+                            <li class="mb-3">
                                 <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, 'menuPersonal')">
-                                    <span>Personal Care & Beauty</span>
+                                    <span>Personal Care</span>
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuPersonal" style="display: none;">
                                     <li class="mb-2 position-relative subcategory-item"><a href="#" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Skincare</a></li>
                                     <li class="mb-2 position-relative subcategory-item"><a href="#" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Cosmetics</a></li>
                                 </ul>
+                            </li>
+                            <!-- Retail & Gifts -->
+                            <li class="mb-3">
+                                <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
+                                    <span>Retail & Gifts</span>
+                                </a>
+                            </li>
+                            <!-- Animal & pet -->
+                            <li class="mb-3">
+                                <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
+                                    <span>Animal & pet</span>
+                                </a>
+                            </li>
+                            <!-- Automobile -->
+                            <li>
+                                <a href="#" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
+                                    <span>Automobile</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -502,6 +526,19 @@
             const grid = document.getElementById('productsGrid');
             if (!grid) return;
             grid.innerHTML = '';
+
+            if (productsToRender.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-12 w-100 d-flex flex-column align-items-center justify-content-center py-5 text-center" style="min-height: 400px;">
+                        <div class="text-secondary mb-3">
+                            <i class="fas fa-search fa-4x" style="color: #cbd5e0;"></i>
+                        </div>
+                        <h4 class="fw-bold" style="color: #4a5568;">No Products Found</h4>
+                        <p class="text-muted" style="font-size: 0.95rem;">We couldn't find any products matching your selected filters.<br>Try adjusting your criteria to see more options.</p>
+                    </div>
+                `;
+                return;
+            }
             
             productsToRender.forEach(product => {
                 const col = document.createElement('div');
@@ -667,6 +704,31 @@
             element.classList.add('active');
             element.classList.remove('text-secondary');
         }
+
+        // Update breadcrumb and page title from URL category parameter
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const category = params.get('category');
+            if (category) {
+                const breadcrumbCategory = document.getElementById('breadcrumb-category');
+                if (breadcrumbCategory) {
+                    breadcrumbCategory.textContent = category;
+                }
+                document.title = category + " | Sabka Fayda";
+
+                if (category === 'All Category') {
+                    // Highlight All Category link
+                    const allCatLink = document.querySelector('a[href*="All%20Category"]');
+                    if (allCatLink) {
+                        const span = allCatLink.querySelector('span');
+                        if (span) {
+                            span.style.color = '#0d8dfb';
+                            span.style.fontWeight = '700';
+                        }
+                    }
+                }
+            }
+        });
     </script>
 </body>
 
