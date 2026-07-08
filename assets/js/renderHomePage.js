@@ -1,4 +1,14 @@
 function renderHomePage(data) {
+    if (!window.hasImgErrorListener) {
+        window.addEventListener('error', function(e) {
+            if (e.target && e.target.tagName === 'IMG') {
+                e.target.onerror = null;
+                e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
+            }
+        }, true);
+        window.hasImgErrorListener = true;
+    }
+
     const root = document.getElementById('homeContent');
     if (!root || !data) return;
 
@@ -294,8 +304,8 @@ function renderHomePage(data) {
         }
 
         const addToCartBtn = inCart 
-            ? `<button class="btn btn-success flex-grow-1 py-1.5" onclick="event.preventDefault(); window.location.href='mycart.html';" style="font-size: 0.7rem; border-radius: 4px; border: none;">Go to Cart</button>`
-            : `<button class="btn btn-primary flex-grow-1 py-1.5 add-to-cart-btn text-white" data-product="${productJson}" style="font-size: 0.7rem; border-radius: 4px; background-color: #0D8BF1; border: none;">Add to Cart</button>`;
+            ? `<button class="btn btn-success flex-grow-1 py-1.5 d-flex align-items-center justify-content-center" onclick="event.preventDefault(); window.location.href='mycart.html';" style="font-size: 0.7rem; border-radius: 4px; border: none;"><img src="assets/img/sflogo.png" style="height: 12px; margin-right: 4px; object-fit: contain;"> Go to Cart</button>`
+            : `<button class="btn btn-primary flex-grow-1 py-1.5 add-to-cart-btn text-white d-flex align-items-center justify-content-center" data-product="${productJson}" style="font-size: 0.7rem; border-radius: 4px; background-color: #0D8BF1; border: none;"><img src="assets/img/sflogo.png" style="height: 12px; margin-right: 4px; object-fit: contain;"> Add to Cart</button>`;
 
         return `
             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
@@ -308,8 +318,8 @@ function renderHomePage(data) {
                             </button>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
                                 ${addToCartBtn}
-                                <button class="btn flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #F9C108; border: none; color: #000;">
-                                    Buy Now
+                                <button class="btn flex-grow-1 py-1.5 d-flex align-items-center justify-content-center fw-bold" style="font-size: 0.7rem; border-radius: 4px; background-color: #FF9F00; border: none; color: #ffffff;">
+                                    <img src="assets/img/sflogo.png" style="height: 12px; margin-right: 4px; object-fit: contain;"> Buy Now
                                 </button>
                             </div>
                         </div>
