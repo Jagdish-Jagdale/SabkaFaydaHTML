@@ -1702,11 +1702,8 @@ select.profile-form-control {
     border: 1px solid #e8eef8;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 93, 255, 0.05);
+    overflow: hidden;
     padding: 24px;
-}
-
-.offcanvas-lg {
-    overflow: visible;
 }
 
 .orders-sidebar {
@@ -3360,12 +3357,89 @@ a {
 .no-internet-title { font-size: 1.8rem; font-weight: 700; color: #2c3e50; margin-bottom: 2rem; }
 .no-internet-img { max-width: 100%; height: auto; max-height: 250px; margin-bottom: 2rem; object-fit: contain; }
 .no-internet-text { color: #7f8c8d; font-size: 1.05rem; font-weight: 500; }
-
-@media (min-width: 992px) {
-    .orders-page .offcanvas-lg, 
-    .orders-page .offcanvas-body {
-        overflow: visible !important;
-    }
-}
 .try-again-link { color: #7b61ff; text-decoration: none; font-weight: 600; cursor: pointer; }
 .try-again-link:hover { text-decoration: underline; }
+
+/* ================================================
+   STABLE DASHBOARD LAYOUT (DESKTOP ONLY)
+   ================================================ */
+@media (min-width: 992px) {
+    /* Prevent the entire page from scrolling */
+    body.orders-page {
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    /* Make the shell fill the viewport */
+    .orders-shell {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding-top: 195px;
+        padding-bottom: 24px;
+    }
+    
+    /* The main row takes remaining space */
+    .orders-shell > .row {
+        flex: 1;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+    
+    /* Sidebar becomes internally scrollable */
+    .orders-sidebar {
+        height: 100%;
+        overflow-y: auto;
+        top: 0 !important; 
+        position: relative !important;
+    }
+    
+    /* The content wrapper becomes a flex column container */
+    .content-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; 
+    }
+    
+    /* The inner lists are scrollable */
+    #cartItemsList,
+    #ordersContainer,
+    #walletHistoryContainer,
+    #wishlistItemsList,
+    #notificationsList {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 12px;
+        padding-bottom: 20px;
+    }
+
+    /* Cart Specific Fixes */
+    #cartContentGrid {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        margin-bottom: 0;
+    }
+    
+    #cartContentGrid > .col-lg-8,
+    #cartContentGrid > .col-lg-4 {
+        height: 100%;
+    }
+    
+    .cart-main-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    /* Price Details Panel - Fills height and scrolls internally */
+    #cartContentGrid > .col-lg-4 > .position-sticky {
+        position: relative !important;
+        top: 0 !important;
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
