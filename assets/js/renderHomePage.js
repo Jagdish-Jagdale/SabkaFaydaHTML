@@ -99,7 +99,7 @@ function renderHomePage(data) {
             <div class="container mb-4 position-relative home-deferred-section">
                 <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(180deg, #AEE7FF 0%, #CEEDFA 100%);">
                     <div class="d-flex justify-content-end mb-2">
-                        <a href="#" class="text-decoration-none fw-bold" style="color: #0066CC; font-size: 0.95rem; border-bottom: 2px solid #0066CC; padding-bottom: 2px;">View All</a>
+                        <a href="category.html" class="text-decoration-none fw-bold" style="color: #0066CC; font-size: 0.95rem; border-bottom: 2px solid #0066CC; padding-bottom: 2px;">View All</a>
                     </div>
                     <div class="row g-4">
                         <div class="col-lg-4 col-md-5">
@@ -183,7 +183,7 @@ function renderHomePage(data) {
                 <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">${section.title}</h3>
-                        <a href="#" class="text-decoration-none fw-bold" style="color: #0066CC; font-size: 0.95rem; border-bottom: 2px solid #0066CC; padding-bottom: 2px;">View All</a>
+                        <a href="category.html" class="text-decoration-none fw-bold" style="color: #0066CC; font-size: 0.95rem; border-bottom: 2px solid #0066CC; padding-bottom: 2px;">View All</a>
                     </div>
                     <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 small-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="small-scroll-${sectionIndex}">
                         <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
@@ -213,7 +213,7 @@ function renderHomePage(data) {
                 <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(0deg, rgba(94, 219, 250, 0.05) 0%, #DFE9FF 26.18%, #ACF3FF 100%);">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">${section.title}</h3>
-                        <a href="#" class="text-decoration-none fw-bold" style="color: #0066CC; font-size: 0.95rem; border-bottom: 2px solid #0066CC; padding-bottom: 2px;">View All</a>
+                        <a href="category.html" class="text-decoration-none fw-bold" style="color: #0066CC; font-size: 0.95rem; border-bottom: 2px solid #0066CC; padding-bottom: 2px;">View All</a>
                     </div>
                     <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 featured-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="featured-scroll-${sectionIndex}">
                         <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
@@ -271,7 +271,7 @@ function renderHomePage(data) {
                 <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(180deg, #d4edda 0%, #a8e6cf 50%, #88d8b0 100%);">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h3 class="mb-0 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">On Sale</h3>
-                        <a href="#" class="text-decoration-none fw-bold" style="color: #00A36C; font-size: 0.95rem; border-bottom: 2px solid #00A36C; padding-bottom: 2px;">View All</a>
+                        <a href="category.html" class="text-decoration-none fw-bold" style="color: #00A36C; font-size: 0.95rem; border-bottom: 2px solid #00A36C; padding-bottom: 2px;">View All</a>
                     </div>
                     <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 sale-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="sale-scroll">
                         <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
