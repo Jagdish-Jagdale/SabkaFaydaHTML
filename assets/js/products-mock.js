@@ -10,7 +10,7 @@ const mockProducts = [
         earn: 68,
         price: 240,
         originalPrice: 800,
-        discountText: "70 % Off on all Jewelry"
+        discountText: "70% Off"
     },
     {
         id: 2,
