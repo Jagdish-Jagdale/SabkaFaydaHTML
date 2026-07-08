@@ -101,14 +101,14 @@ function renderHomePage(data) {
                     <div class="d-flex justify-content-end mb-2">
                         <a href="#" class="text-decoration-none fw-bold" style="color: #008B8B; font-size: 0.95rem; border-bottom: 2px solid #008B8B; padding-bottom: 2px;">View All</a>
                     </div>
-                    <div class="row g-2">
+                    <div class="row g-4">
                         <div class="col-lg-4 col-md-5">
                             <div class="rounded-3 p-4 d-flex flex-column position-relative overflow-hidden shadow-sm" style="background: linear-gradient(135deg, #FFCF87 0%, #FFE9C2 100%); height: 100%; min-height: 380px;">
-                                <div class="position-relative z-2" style="width: 55%;">
-                                    <h4 class="fw-bolder text-dark mb-3" style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; line-height: 1.2;">
+                                <div class="position-relative z-2" style="width: 60%;">
+                                    <h4 class="fw-bolder text-dark mb-3" style="font-family: 'Rubik', sans-serif; font-size: 1.8rem; line-height: 1.2;">
                                         ${section.title}
                                     </h4>
-                                    <ul class="text-dark fw-medium mb-0 ps-3" style="font-size: 0.85rem; list-style-type: disc; line-height: 1.8;">
+                                    <ul class="text-dark fw-medium mb-0 ps-3" style="font-size: 0.95rem; list-style-type: disc; line-height: 1.8;">
                                         <li>Electronics</li>
                                         <li>Audio & Accessories</li>
                                         <li>Home Appliances</li>
@@ -118,9 +118,9 @@ function renderHomePage(data) {
                                         <li>Wearables</li>
                                     </ul>
                                 </div>
-                                <img src="assets/img/homescreenimg.png" class="position-absolute top-0 end-0 z-1 pe-2 pt-2" alt="Woman" style="width: 45%; height: auto; max-width: 180px; object-fit: contain;" ${imgAttrs(30 + sectionIndex * 10)}>
+                                <img src="assets/img/homescreenimg.png" class="position-absolute top-0 end-0 z-1 pe-2 pt-2" alt="Woman" style="width: 50%; height: auto; max-width: 220px; object-fit: contain;" ${imgAttrs(30 + sectionIndex * 10)}>
                                 <div class="mt-auto z-2 w-100 text-center position-absolute bottom-0 start-0 pe-none">
-                                    <img src="assets/img/electronicimg.png" class="w-100 object-fit-contain" alt="Electronics" style="max-height: 140px; transform: scale(1.1) translateY(5px); transform-origin: bottom center;" ${imgAttrs(31 + sectionIndex * 10)}>
+                                    <img src="assets/img/electronicimg.png" class="w-100 object-fit-contain" alt="Electronics" style="max-height: 170px; transform: scale(1.15) translateY(5px); transform-origin: bottom center;" ${imgAttrs(31 + sectionIndex * 10)}>
                                 </div>
                             </div>
                         </div>
@@ -135,16 +135,10 @@ function renderHomePage(data) {
                                     <i class="fas fa-chevron-right fs-5"></i>
                                 </div>
                             </button>
-                            <div class="d-grid gap-2 overflow-auto hide-scroll electronics-scroll-container pb-2" style="grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; scroll-behavior: smooth;">
+                            <div class="d-grid gap-3 overflow-auto hide-scroll electronics-scroll-container pb-2" style="grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; scroll-behavior: smooth;">
                                 ${section.items.map((item, index) => `
                                     <div class="flex-shrink-0" style="width: 200px;">
-                                        <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                            <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 160px;" ${imgAttrs(32 + sectionIndex * 10 + index)}>
-                                            <div class="text-center text-white fw-bold p-2" style="background: linear-gradient(135deg, #4285ff, #10c3bd);">
-                                                <div style="font-size: 0.7rem;">${item.title}</div>
-                                                <small class="fw-medium" style="font-size: 0.65rem;">${item.subtitle}</small>
-                                            </div>
-                                        </a>
+                                        ${smallCardTemplate(item, sectionIndex, index)}
                                     </div>
                                 `).join('')}
                             </div>
@@ -152,6 +146,31 @@ function renderHomePage(data) {
                     </div>
                 </div>
             </div>
+        `;
+    }
+
+    function smallCardTemplate(item, sectionIndex, index) {
+        const oldPrice = item.oldPrice || 80000;
+        const price = item.price || 60000;
+        const upiOffer = item.upiOffer || 5000;
+        const discount = Math.round(((oldPrice - price) / oldPrice) * 100);
+        return `
+            <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background-color: #0087F6;">
+                <div class="p-2 flex-grow-1">
+                    <div class="bg-white rounded-2 mb-2 w-100 d-flex align-items-center justify-content-center overflow-hidden" style="height: 125px;">
+                        <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.title}" ${imgAttrs(20 + sectionIndex * 10 + index)}>
+                    </div>
+                    <div class="text-white fw-bold text-truncate mb-1" style="font-size: 0.85rem;">${item.title}</div>
+                    <div class="d-flex align-items-baseline mb-1">
+                        <span class="text-white-50 text-decoration-line-through fw-normal me-2" style="font-size: 0.75rem;">${oldPrice}</span>
+                        <span class="text-white fw-bold" style="font-size: 0.95rem;">Rs ${price}</span>
+                    </div>
+                    <div class="text-white fw-medium" style="font-size: 0.7rem;">Rs ${upiOffer} with UPI offer</div>
+                </div>
+                <div class="text-dark fw-bold text-center py-1 w-100 mt-auto" style="font-size: 0.8rem; background: linear-gradient(to bottom, #ffffff, #e0e0e0);">
+                    Up to ${discount} % off
+                </div>
+            </a>
         `;
     }
 
@@ -176,13 +195,7 @@ function renderHomePage(data) {
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="small-scroll-${sectionIndex}" style="scroll-behavior: smooth;">
                         ${section.items.map((item, index) => `
                             <div class="flex-shrink-0" style="width: 220px;">
-                                <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 180px;" ${imgAttrs(20 + sectionIndex * 10 + index)}>
-                                    <div class="text-center text-white fw-bold p-3" style="background: linear-gradient(135deg, #4285ff, #10c3bd);">
-                                        <div>${item.title}</div>
-                                        <small class="fw-medium">${item.subtitle}</small>
-                                    </div>
-                                </a>
+                                ${smallCardTemplate(item, sectionIndex, index)}
                             </div>
                         `).join('')}
                     </div>
@@ -212,13 +225,7 @@ function renderHomePage(data) {
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="featured-scroll-${sectionIndex}" style="scroll-behavior: smooth;">
                         ${section.items.map((item, index) => `
                             <div class="flex-shrink-0" style="width: 220px;">
-                                <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 180px;" ${imgAttrs(20 + sectionIndex * 10 + index)}>
-                                    <div class="text-center text-white fw-bold p-3" style="background: #3B95EE;">
-                                        <div>${item.title}</div>
-                                        <small class="fw-medium">${item.subtitle}</small>
-                                    </div>
-                                </a>
+                                ${smallCardTemplate(item, sectionIndex, index)}
                             </div>
                         `).join('')}
                     </div>
