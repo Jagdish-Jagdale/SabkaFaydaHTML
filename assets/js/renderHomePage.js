@@ -338,7 +338,7 @@ function renderHomePage(data) {
                             <span class="text-secondary text-truncate product-card-desc">${product.desc}</span>
                         </div>
                         <div class="d-flex align-items-center flex-wrap gap-2">
-                            <span class="text-muted text-decoration-line-through product-card-original-price">Rs ${product.oldPrice}</span>
+                            <span class="text-muted text-decoration-line-through product-card-original-price">₹ ${product.oldPrice}</span>
                             <span class="fw-bold text-dark product-card-offer-price">${product.price}</span>
                             <span class="product-card-promo" style="color: #7b8de6;">${product.offer}</span>
                         </div>

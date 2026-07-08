@@ -27,9 +27,9 @@ const homePageMockData = {
         items: [
             { title: 'Min. 70% Off', desc: 'Structured style', image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=200&auto=format&fit=crop', alt: 'Shirt' },
             { title: 'Up to 80% Off', desc: 'Fun playtime', image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=200&auto=format&fit=crop', alt: 'Toy Car' },
-            { title: 'From Rs 6,299/M*', desc: 'Intel Core Ultra PCs', image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=200&auto=format&fit=crop', alt: 'Laptop' },
+            { title: 'From ₹ 6,299/M*', desc: 'Intel Core Ultra PCs', image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=200&auto=format&fit=crop', alt: 'Laptop' },
             { title: 'Min. 60% Off', desc: 'Sports shoes', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop', alt: 'Shoes' },
-            { title: 'From Rs 499', desc: 'Audio picks', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=200&auto=format&fit=crop', alt: 'Headphones' },
+            { title: 'From ₹ 499', desc: 'Audio picks', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=200&auto=format&fit=crop', alt: 'Headphones' },
             { title: 'Up to 55% Off', desc: 'Home decor', image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=200&auto=format&fit=crop', alt: 'Home Decor' }
         ]
     },
@@ -95,13 +95,13 @@ const homePageMockData = {
         }
     ],
     productGrid: [
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: '4.5★(209)', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: '4.5★(209)', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: '4.5★(209)', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: 'Rs 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop' }
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: '4.5★(209)', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: '4.5★(209)', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=300&auto=format&fit=crop' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=300&auto=format&fit=crop' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: '4.5★(209)', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop' }
     ]
 };

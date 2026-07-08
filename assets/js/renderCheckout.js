@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <!-- Pricing -->
                             <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
                                 <span class="text-success fw-bold" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif;">${product.discount}</span>
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.95rem;">Rs ${product.originalPrice}</span>
+                                <span class="text-muted text-decoration-line-through" style="font-size: 0.95rem;">₹ ${product.originalPrice}</span>
                                 <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹ ${product.price}</span>
                             </div>
                             <!-- UPI OMC Banner -->
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="alert alert-success border-0 py-2.5 px-3 mb-4 d-flex align-items-center gap-2" style="background-color: #f0fdf4; color: #166534; font-size: 0.8rem; border-radius: 6px;">
                     <i class="fas fa-tags text-success fs-6"></i>
-                    <span class="fw-medium">You saved total ${ps.savings} Rs with this order</span>
+                    <span class="fw-medium">You saved total ${ps.savings} ₹ with this order</span>
                 </div>
                 <div class="d-flex align-items-center gap-3 bg-light rounded-3 p-3 border mb-3" style="border-color: #eef2f5 !important; font-size: 0.8rem;">
                     <i class="fas fa-shield-halved text-success fs-3"></i>
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="border-top pt-3 d-none d-lg-block">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.75rem;">Rs ${ps.productPrice - ps.discount}</span>
+                            <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.75rem;">₹ ${ps.productPrice - ps.discount}</span>
                             <span class="fw-bold text-dark" style="font-size: 1.25rem;">₹ ${ps.subTotal}</span>
                         </div>
                         <button class="btn btn-primary px-5 py-2.5 fw-bold" style="background-color: #0087F6; border: none; font-size: 0.95rem; border-radius: 6px;">
@@ -192,8 +192,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="d-flex align-items-center flex-wrap gap-2 mt-2">
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">Rs ${product.originalPrice}</span>
-                                <span class="text-dark fw-bold" style="font-size: 0.95rem;">Rs ${product.price}</span>
+                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">₹ ${product.originalPrice}</span>
+                                <span class="text-dark fw-bold" style="font-size: 0.95rem;">₹ ${product.price}</span>
                                 <div class="w-100"></div>
                                 <span class="text-primary fw-semibold" style="font-size: 0.72rem;">${product.offer}</span>
                             </div>
@@ -236,8 +236,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="d-flex align-items-center flex-wrap gap-2 mt-2">
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">Rs ${product.originalPrice}</span>
-                                <span class="text-dark fw-bold" style="font-size: 0.95rem;">Rs ${product.price}</span>
+                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">₹ ${product.originalPrice}</span>
+                                <span class="text-dark fw-bold" style="font-size: 0.95rem;">₹ ${product.price}</span>
                                 <div class="w-100"></div>
                                 <span class="text-primary fw-semibold" style="font-size: 0.72rem;">${product.offer}</span>
                             </div>
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const ps = checkoutData.priceSummary;
             mobileFooterContainer.innerHTML = `
                 <div>
-                    <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.72rem;">Rs ${ps.productPrice - ps.discount}</span>
+                    <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.72rem;">₹ ${ps.productPrice - ps.discount}</span>
                     <span class="fw-bold text-dark" style="font-size: 1.15rem;">₹ ${ps.subTotal}</span>
                 </div>
                 <button class="btn btn-primary px-4 py-2 fw-bold" style="background-color: #0087F6; border: none; font-size: 0.9rem; border-radius: 6px;">
