@@ -3423,75 +3423,113 @@ a {
     text-decoration: underline;
 }
 
-/* Make the shell fill the viewport */
-.orders-shell {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-top: 195px;
-    padding-bottom: 24px;
-}
+/* --- Custom Scrolling for Dashboard Pages (Desktop Only) --- */
+@media (min-width: 992px) {
+    /* Prevent body scroll */
+    body.orders-page {
+        overflow: hidden;
+    }
 
-/* The main row takes remaining space */
-.orders-shell>.row {
-    flex: 1;
-    overflow: hidden;
-    margin-bottom: 0;
-}
+    /* Shell takes full viewport height */
+    .orders-shell {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding-top: 140px; /* Adjust for fixed header */
+        padding-bottom: 20px;
+    }
 
-/* Sidebar becomes internally scrollable */
-.orders-sidebar {
-    height: 100%;
-    overflow-y: auto;
-    top: 0 !important;
-    position: relative !important;
-}
+    .orders-shell > .row {
+        flex: 1;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
 
-/* The content wrapper becomes a flex column container */
-.content-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
+    /* Sidebar internally scrollable */
+    #sidebar-placeholder {
+        height: 100%;
+        overflow-y: auto;
+    }
 
-/* The inner lists are scrollable */
-#cartItemsList,
-#ordersContainer,
-#walletHistoryContainer,
-#wishlistItemsList,
-#notificationsList {
-    flex: 1;
-    overflow-y: auto;
-    padding-right: 12px;
-    padding-bottom: 20px;
-}
+    #sidebar-placeholder::-webkit-scrollbar {
+        width: 4px;
+    }
+    #sidebar-placeholder::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+    #sidebar-placeholder:hover::-webkit-scrollbar-thumb {
+        background-color: #cbd5e1;
+    }
 
-/* Cart Specific Fixes */
-#cartContentGrid {
-    flex: 1;
-    overflow: hidden;
-    display: flex;
-    margin-bottom: 0;
-}
+    /* Main Content Card */
+    .content-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
 
-#cartContentGrid>.col-lg-8,
-#cartContentGrid>.col-lg-4 {
-    height: 100%;
-}
+    /* Lists that should scroll */
+    #ordersContainer,
+    #walletHistoryContainer,
+    #wishlistItemsList,
+    #notificationsList,
+    .orders-list {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 8px;
+    }
 
-.cart-main-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
+    /* Cart Specific Layout */
+    #cartContentGrid {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        margin-bottom: 0;
+    }
 
-/* Price Details Panel - Fills height and scrolls internally */
-#cartContentGrid>.col-lg-4>.position-sticky {
-    position: relative !important;
-    top: 0 !important;
-    height: 100%;
-    overflow-y: auto;
-}
+    #cartContentGrid > .col-lg-8,
+    #cartContentGrid > .col-lg-4 {
+        height: 100%;
+    }
+
+    .cart-main-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    #cartItemsList {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 8px;
+    }
+
+    /* Custom Scrollbar for lists */
+    #cartItemsList::-webkit-scrollbar,
+    #ordersContainer::-webkit-scrollbar,
+    #walletHistoryContainer::-webkit-scrollbar,
+    #wishlistItemsList::-webkit-scrollbar,
+    #notificationsList::-webkit-scrollbar,
+    .orders-list::-webkit-scrollbar {
+        width: 6px;
+    }
+    #cartItemsList::-webkit-scrollbar-thumb,
+    #ordersContainer::-webkit-scrollbar-thumb,
+    #walletHistoryContainer::-webkit-scrollbar-thumb,
+    #wishlistItemsList::-webkit-scrollbar-thumb,
+    #notificationsList::-webkit-scrollbar-thumb,
+    .orders-list::-webkit-scrollbar-thumb {
+        background-color: #cbd5e1;
+        border-radius: 4px;
+    }
+
+    /* Price Details Panel - Fills height but no internal scroll unless necessary */
+    #cartContentGrid > .col-lg-4 > .position-sticky {
+        position: relative !important;
+        top: 0 !important;
+        height: 100%;
+        overflow-y: auto;
+    }
 }
