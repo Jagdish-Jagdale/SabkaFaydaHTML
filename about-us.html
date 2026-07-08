@@ -26,199 +26,7 @@
     <link rel="preload" href="assets/js/mockCategories.js" as="script">
 
     
-    <style>
-        .brand-banner {
-            background: linear-gradient(135deg, #0056b3 0%, #0087F6 100%);
-            position: relative;
-            overflow: hidden;
-            border-radius: 0px;
-        }
-
-        .brand-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .why-card {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid #eaeaea;
-            border-radius: 16px;
-        }
-
-        .why-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 135, 246, 0.08);
-            border-color: #0087F6;
-        }
-
-        .icon-circle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #e6f3ff;
-            color: #0087F6;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .why-card:hover .icon-circle {
-            background-color: #0087F6;
-            color: #ffffff;
-            transform: rotateY(360deg);
-        }
-
-        .stat-icon {
-            font-size: 2rem;
-            color: #0087F6;
-        }
-
-        .info-card {
-            background-color: #ffffff;
-            border: 1px solid #eaeaea;
-            border-radius: 16px;
-            height: 100%;
-            transition: transform 0.2s ease;
-        }
-
-        .info-card:hover {
-            transform: scale(1.01);
-        }
-
-        .info-item-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #e6f3ff;
-            color: #0087F6;
-            font-size: 1.25rem;
-        }
-
-        .ready-banner {
-            background: linear-gradient(135deg, #0b1120 0%, #0056b3 100%);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ready-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .divider-line {
-            width: 1px;
-            background-color: rgba(255, 255, 255, 0.3);
-            height: 80px;
-        }
-
-        @media (max-width: 767px) {
-            .divider-line {
-                width: 80%;
-                height: 1px;
-                margin: 20px auto;
-            }
-        }
-
-        .stat-col {
-            border-right: 1.5px solid rgba(0, 86, 179, 0.2);
-        }
-
-        @media (max-width: 991px) {
-            .stat-col:nth-child(even) {
-                border-right: none;
-            }
-            .stat-col:nth-child(1), .stat-col:nth-child(2) {
-                border-bottom: 1.5px solid rgba(0, 86, 179, 0.15);
-            }
-        }
-
-        @media (min-width: 992px) {
-            .stat-col:last-child {
-                border-right: none;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .stat-val-mobile {
-                font-size: 1.15rem !important;
-            }
-            .stat-lbl-mobile {
-                font-size: 0.75rem !important;
-                line-height: 1.2 !important;
-            }
-            .stat-icon-mobile {
-                font-size: 1.6rem !important;
-            }
-            .stat-col-mobile {
-                padding: 10px 5px !important;
-            }
-            .stat-col-mobile:nth-child(odd) {
-                border-right: 1.5px solid rgba(0, 86, 179, 0.15) !important;
-            }
-            .stat-col-mobile:nth-child(even) {
-                border-right: none !important;
-            }
-            .stat-col-mobile:nth-child(1), .stat-col-mobile:nth-child(2) {
-                border-bottom: 1.5px solid rgba(0, 86, 179, 0.12) !important;
-            }
-            .satisfaction-text-mobile {
-                font-size: 0.78rem !important;
-                line-height: 1.4 !important;
-            }
-            .ready-banner-mobile {
-                padding: 1.25rem 1rem !important;
-            }
-            .banner-title-mobile {
-                font-size: 1.35rem !important;
-            }
-            .banner-desc-mobile {
-                font-size: 0.82rem !important;
-                margin-bottom: 0.75rem !important;
-            }
-            .banner-btn-mobile {
-                font-size: 0.8rem !important;
-                padding: 0.35rem 1.2rem !important;
-            }
-            .banner-img-mobile {
-                height: 80% !important;
-                max-height: 110px !important;
-            }
-            .satisfaction-shield-mobile {
-                width: 22px !important;
-                height: 25px !important;
-            }
-            .welcome-title-mobile {
-                font-size: 1.45rem !important;
-                white-space: nowrap;
-            }
-            .welcome-desc-mobile p {
-                font-size: 0.85rem !important;
-                line-height: 1.6 !important;
-            }
-            .shop-title-mobile {
-                font-size: 1.45rem !important;
-                white-space: nowrap;
-            }
-        }
-    </style>
+    
 
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
@@ -241,14 +49,14 @@
                 <div class="row align-items-center">
                     <!-- Column 1: About Us info -->
                     <div class="col-md-4 text-center text-md-start mb-3 mb-md-0 border-end border-white-50 pe-md-4">
-                        <span class="badge bg-white bg-opacity-25 text-white mb-2 px-3 py-2 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1.5px; border-radius: 4px; font-family: 'Montserrat', sans-serif;">About Us</span>
-                        <h1 class="fw-bold mb-1" style="font-family: 'Rubik', sans-serif; font-size: 2.5rem; letter-spacing: -0.5px;">Sabka Fayda</h1>
-                        <p class="small mb-0 opacity-80" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda.</p>
+                        <span class="font-montserrat badge bg-white bg-opacity-25 text-white mb-2 px-3 py-2 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1.5px; border-radius: 4px; ">About Us</span>
+                        <h1 class="font-rubik fw-bold mb-1" style=" font-size: 2.5rem; letter-spacing: -0.5px;">Sabka Fayda</h1>
+                        <p class="font-montserrat small mb-0 opacity-80" style=" font-size: 0.85rem;">Sabka Saath, Sabka Vishwas, Sabka Fayda.</p>
                     </div>
 
                     <!-- Column 2: Mission Statement -->
                     <div class="col-md-4 text-center text-md-start mb-3 mb-md-0 border-end border-white-50 px-md-4">
-                        <p class="mb-0 fw-medium" style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem; line-height: 1.6;">
+                        <p class="font-montserrat mb-0 fw-medium" style=" font-size: 0.9rem; line-height: 1.6;">
                             At <strong class="text-white">Sabka Fayda</strong>, we believe in delivering quality products at the best value. Our mission is to make shopping simple, reliable, and beneficial for everyone.
                         </p>
                     </div>
@@ -259,8 +67,8 @@
                             <!-- Logo image from sf.png -->
                             <img src="assets/img/sf.png" alt="Sabka Fayda Logo" style="height: 65px; object-fit: contain;">
                             <div>
-                                <h3 class="fw-bold mb-0 text-white" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem;">Sabka Fayda</h3>
-                                <p class="small mb-0 opacity-80" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; white-space: nowrap;">Fayda Sabka, Bharosa Hamara</p>
+                                <h3 class="font-rubik fw-bold mb-0 text-white" style=" font-size: 1.4rem;">Sabka Fayda</h3>
+                                <p class="font-montserrat small mb-0 opacity-80" style=" font-size: 0.75rem; white-space: nowrap;">Fayda Sabka, Bharosa Hamara</p>
                             </div>
                         </div>
                     </div>
@@ -277,8 +85,8 @@
                                 <i class="fa-solid fa-shield-halved"></i>
                             </div>
                             <div>
-                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Quality You Can Trust</h6>
-                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">Carefully selected products for your satisfaction.</p>
+                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 0.92rem;  color: #0056b3 !important;">Quality You Can Trust</h6>
+                                <p class="font-montserrat text-secondary small mb-0" style="font-size: 0.8rem;  line-height: 1.3;">Carefully selected products for your satisfaction.</p>
                             </div>
                         </div>
                     </div>
@@ -289,8 +97,8 @@
                                 <i class="fa-solid fa-medal"></i>
                             </div>
                             <div>
-                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Best Value</h6>
-                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">Top quality at honest prices.</p>
+                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 0.92rem;  color: #0056b3 !important;">Best Value</h6>
+                                <p class="font-montserrat text-secondary small mb-0" style="font-size: 0.8rem;  line-height: 1.3;">Top quality at honest prices.</p>
                             </div>
                         </div>
                     </div>
@@ -301,8 +109,8 @@
                                 <i class="fa-solid fa-truck"></i>
                             </div>
                             <div>
-                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Fast & Reliable Delivery</h6>
-                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">On-time delivery, every time.</p>
+                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 0.92rem;  color: #0056b3 !important;">Fast & Reliable Delivery</h6>
+                                <p class="font-montserrat text-secondary small mb-0" style="font-size: 0.8rem;  line-height: 1.3;">On-time delivery, every time.</p>
                             </div>
                         </div>
                     </div>
@@ -313,8 +121,8 @@
                                 <i class="fa-solid fa-headphones"></i>
                             </div>
                             <div>
-                                <h6 class="fw-bold mb-1 text-primary" style="font-size: 0.92rem; font-family: 'Rubik', sans-serif; color: #0056b3 !important;">Customer First</h6>
-                                <p class="text-secondary small mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.3;">We're here to help, always.</p>
+                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 0.92rem;  color: #0056b3 !important;">Customer First</h6>
+                                <p class="font-montserrat text-secondary small mb-0" style="font-size: 0.8rem;  line-height: 1.3;">We're here to help, always.</p>
                             </div>
                         </div>
                     </div>
@@ -327,8 +135,8 @@
                     <img src="assets/img/aboutusbanner.png" alt="Welcome to Sabka Fayda Banner Graphic" class="img-fluid rounded-4 shadow-sm" style="max-height: 420px; object-fit: contain;">
                 </div>
                 <div class="col-lg-7">
-                    <h2 class="fw-bold mb-4 welcome-title-mobile" style="font-family: 'Rubik', sans-serif; font-size: 2.25rem;">Welcome to <span style="color: #0087F6;">SabkaFayda</span></h2>
-                    <div class="text-secondary welcome-desc-mobile" style="font-family: 'Montserrat', sans-serif; line-height: 1.8; font-size: 1.05rem;">
+                    <h2 class="font-rubik fw-bold mb-4 welcome-title-mobile" style=" font-size: 2.25rem;">Welcome to <span style="color: #0087F6;">SabkaFayda</span></h2>
+                    <div class="font-montserrat text-secondary welcome-desc-mobile" style=" line-height: 1.8; font-size: 1.05rem;">
                         <p class="mb-4">SabkaFayda is your trusted online shopping destination offering quality products at affordable prices across multiple categories.</p>
                         <p class="mb-4">Our platform is operated by <strong>TEAMMUNITY BUSINESS PRIVATE LIMITED</strong>, committed to providing a seamless, secure, and value-driven experience.</p>
                         <p class="mb-0">Our mission is to make online shopping simple, affordable, and accessible for everyone by connecting customers with a wide range of products at competitive prices.</p>
@@ -345,7 +153,7 @@
                 <!-- Title with Left & Right Blue Lines -->
                 <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
                     <div style="width: 40px; height: 2px; background-color: #0087F6; opacity: 0.7;"></div>
-                    <h2 class="fw-bold mb-0 text-dark shop-title-mobile" style="font-family: 'Rubik', sans-serif; font-size: 2rem; letter-spacing: -0.5px;">Why Shop With Us?</h2>
+                    <h2 class="font-rubik fw-bold mb-0 text-dark shop-title-mobile" style=" font-size: 2rem; letter-spacing: -0.5px;">Why Shop With Us?</h2>
                     <div style="width: 40px; height: 2px; background-color: #0087F6; opacity: 0.7;"></div>
                 </div>
                 
@@ -359,8 +167,8 @@
                                     <i class="fa-solid fa-bag-shopping"></i>
                                 </div>
                             </div>
-                            <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Wide Range of Products</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Explore a variety of products across multiple categories.</p>
+                            <h6 class="font-rubik fw-bold mb-2 text-dark" style=" font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Wide Range of Products</h6>
+                            <p class="font-montserrat text-secondary mb-0" style="font-size: 0.8rem;  line-height: 1.4;">Explore a variety of products across multiple categories.</p>
                         </div>
                     </div>
                     <!-- Card 2 -->
@@ -371,8 +179,8 @@
                                     <i class="fa-solid fa-tag"></i>
                                 </div>
                             </div>
-                            <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Affordable Pricing</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Best quality products at prices that fit your budget.</p>
+                            <h6 class="font-rubik fw-bold mb-2 text-dark" style=" font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Affordable Pricing</h6>
+                            <p class="font-montserrat text-secondary mb-0" style="font-size: 0.8rem;  line-height: 1.4;">Best quality products at prices that fit your budget.</p>
                         </div>
                     </div>
                     <!-- Card 3 -->
@@ -383,8 +191,8 @@
                                     <i class="fa-solid fa-shield-halved"></i>
                                 </div>
                             </div>
-                            <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Secure Payment Options</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Safe and secure payments with trusted gateways.</p>
+                            <h6 class="font-rubik fw-bold mb-2 text-dark" style=" font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Secure Payment Options</h6>
+                            <p class="font-montserrat text-secondary mb-0" style="font-size: 0.8rem;  line-height: 1.4;">Safe and secure payments with trusted gateways.</p>
                         </div>
                     </div>
                     <!-- Card 4 -->
@@ -395,8 +203,8 @@
                                     <i class="fa-solid fa-truck"></i>
                                 </div>
                             </div>
-                            <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Fast & Efficient Delivery</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Quick processing and on-time delivery at your doorstep.</p>
+                            <h6 class="font-rubik fw-bold mb-2 text-dark" style=" font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Fast & Efficient Delivery</h6>
+                            <p class="font-montserrat text-secondary mb-0" style="font-size: 0.8rem;  line-height: 1.4;">Quick processing and on-time delivery at your doorstep.</p>
                         </div>
                     </div>
                     <!-- Card 5 -->
@@ -407,8 +215,8 @@
                                     <i class="fa-solid fa-wallet"></i>
                                 </div>
                             </div>
-                            <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Cash on Delivery Available</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">Pay conveniently when your order is delivered.</p>
+                            <h6 class="font-rubik fw-bold mb-2 text-dark" style=" font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Cash on Delivery Available</h6>
+                            <p class="font-montserrat text-secondary mb-0" style="font-size: 0.8rem;  line-height: 1.4;">Pay conveniently when your order is delivered.</p>
                         </div>
                     </div>
                     <!-- Card 6 -->
@@ -419,8 +227,8 @@
                                     <i class="fa-solid fa-headphones"></i>
                                 </div>
                             </div>
-                            <h6 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Reliable Customer Support</h6>
-                            <p class="text-secondary mb-0" style="font-size: 0.8rem; font-family: 'Montserrat', sans-serif; line-height: 1.4;">We're here to help you, before and after your purchase.</p>
+                            <h6 class="font-rubik fw-bold mb-2 text-dark" style=" font-size: 0.95rem; line-height: 1.3; min-height: 38px;">Reliable Customer Support</h6>
+                            <p class="font-montserrat text-secondary mb-0" style="font-size: 0.8rem;  line-height: 1.4;">We're here to help you, before and after your purchase.</p>
                         </div>
                     </div>
                 </div>
@@ -434,8 +242,8 @@
                         <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
                             <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-users"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">10,000+</h4>
-                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Happy Customers</p>
+                                <h4 class="font-rubik fw-bold mb-0 text-dark stat-val-mobile" style=" font-size: 1.4rem; line-height: 1.1;">10,000+</h4>
+                                <p class="font-montserrat text-secondary small mb-0 stat-lbl-mobile" style=" font-size: 0.75rem;">Happy Customers</p>
                             </div>
                         </div>
                     </div>
@@ -444,8 +252,8 @@
                         <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
                             <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-box-open"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">500+</h4>
-                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Products Available</p>
+                                <h4 class="font-rubik fw-bold mb-0 text-dark stat-val-mobile" style=" font-size: 1.4rem; line-height: 1.1;">500+</h4>
+                                <p class="font-montserrat text-secondary small mb-0 stat-lbl-mobile" style=" font-size: 0.75rem;">Products Available</p>
                             </div>
                         </div>
                     </div>
@@ -454,8 +262,8 @@
                         <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
                             <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-shield-halved"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">100%</h4>
-                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Secure Payments</p>
+                                <h4 class="font-rubik fw-bold mb-0 text-dark stat-val-mobile" style=" font-size: 1.4rem; line-height: 1.1;">100%</h4>
+                                <p class="font-montserrat text-secondary small mb-0 stat-lbl-mobile" style=" font-size: 0.75rem;">Secure Payments</p>
                             </div>
                         </div>
                     </div>
@@ -464,8 +272,8 @@
                         <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 py-1 py-md-2">
                             <div class="text-primary fs-2 stat-icon-mobile"><i class="fa-solid fa-wallet"></i></div>
                             <div class="text-start">
-                                <h4 class="fw-bold mb-0 text-dark stat-val-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.1;">COD</h4>
-                                <p class="text-secondary small mb-0 stat-lbl-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Available Across India</p>
+                                <h4 class="font-rubik fw-bold mb-0 text-dark stat-val-mobile" style=" font-size: 1.4rem; line-height: 1.1;">COD</h4>
+                                <p class="font-montserrat text-secondary small mb-0 stat-lbl-mobile" style=" font-size: 0.75rem;">Available Across India</p>
                             </div>
                         </div>
                     </div>
@@ -481,34 +289,34 @@
                         <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
                             <div class="text-primary fs-4"><i class="fa-solid fa-building"></i></div>
                             <div>
-                                <h4 class="fw-bold mb-1" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.2;">Company Details</h4>
+                                <h4 class="font-rubik fw-bold mb-1" style=" font-size: 1.4rem; line-height: 1.2;">Company Details</h4>
                                 <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
                             </div>
                         </div>
                         
                         <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
-                            <!-- Legal Name Row -->
+                            <!-- Company Name Row -->
                             <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
                                 <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-briefcase"></i></div>
                                 <div>
-                                    <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem; font-family: 'Rubik', sans-serif;">Legal Name</h6>
-                                    <p class="text-secondary mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif;">TEAMMUNITY BUSINESS PRIVATE LIMITED</p>
+                                    <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem; ">Company Name</h6>
+                                    <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem; ">TEAMMUNITY BUSINESS PRIVATE LIMITED</p>
                                 </div>
                             </div>
                             <!-- GSTIN Row -->
                             <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
                                 <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-receipt"></i></div>
                                 <div>
-                                    <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem; font-family: 'Rubik', sans-serif;">GSTIN</h6>
-                                    <p class="text-secondary mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif;">27AALCT8650K1ZN</p>
+                                    <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem; ">GSTIN</h6>
+                                    <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem; ">27AALCT8650K1ZN</p>
                                 </div>
                             </div>
                             <!-- Address Row -->
                             <div class="d-flex align-items-start gap-3">
                                 <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-location-dot"></i></div>
                                 <div>
-                                    <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem; font-family: 'Rubik', sans-serif;">Address</h6>
-                                    <p class="text-secondary mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif; line-height: 1.5;">
+                                    <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem; ">Address</h6>
+                                    <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem;  line-height: 1.5;">
                                         Plot No. 19 & 20, Sector F1, Parvati Co-Op Industrial Estate,
                                         Yadrav, Ichalkaranji, Kolhapur, Maharashtra – 416148
                                     </p>
@@ -525,7 +333,7 @@
                         <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
                             <div class="text-primary fs-4"><i class="fa-solid fa-phone"></i></div>
                             <div>
-                                <h4 class="fw-bold mb-1" style="font-family: 'Rubik', sans-serif; font-size: 1.4rem; line-height: 1.2;">Contact Us</h4>
+                                <h4 class="font-rubik fw-bold mb-1" style=" font-size: 1.4rem; line-height: 1.2;">Contact Us</h4>
                                 <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
                             </div>
                         </div>
@@ -537,8 +345,8 @@
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-1 text-primary" style="font-size: 1rem; font-family: 'Rubik', sans-serif;">Email</h6>
-                                    <p class="mb-0"><a href="mailto:support@sabkafayda.com" class="text-decoration-none text-dark fw-medium" style="font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">support@sabkafayda.com</a></p>
+                                    <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem; ">Email</h6>
+                                    <p class="mb-0"><a href="mailto:support@sabkafayda.com" class="font-montserrat text-decoration-none text-dark fw-medium" style="font-size: 0.9rem; ">support@sabkafayda.com</a></p>
                                 </div>
                             </div>
                         </div>
@@ -550,8 +358,8 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-1 text-primary" style="font-size: 1rem; font-family: 'Rubik', sans-serif;">Phone</h6>
-                                    <p class="mb-0"><a href="tel:+918329606969" class="text-decoration-none text-dark fw-medium" style="font-size: 0.9rem; font-family: 'Montserrat', sans-serif;">+91 832 960 6969</a></p>
+                                    <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem; ">Phone</h6>
+                                    <p class="mb-0"><a href="tel:+918329606969" class="font-montserrat text-decoration-none text-dark fw-medium" style="font-size: 0.9rem; ">+91 832 960 6969</a></p>
                                 </div>
                             </div>
                         </div>
@@ -563,9 +371,9 @@
             <div class="ready-banner ready-banner-mobile text-white p-3 p-md-4 mb-0 shadow-sm text-center position-relative" style="background: url('assets/img/aboutbg.png') no-repeat center center; background-size: cover; border-radius: 0 !important; overflow: hidden;">
                 <!-- Centered Text and Button -->
                 <div class="position-relative py-2 pe-5 pe-md-0" style="z-index: 2; max-width: 600px; margin: 0 auto;">
-                    <h3 class="fw-bold mb-1 banner-title-mobile" style="font-family: 'Rubik', sans-serif; font-size: 1.8rem;">Ready to Shop?</h3>
-                    <p class="mb-3 opacity-90 banner-desc-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 1rem;">Discover quality products at affordable prices.</p>
-                    <a href="index.html" class="btn btn-light fw-bold text-primary px-4 py-2 shadow banner-btn-mobile" style="border-radius: 8px; font-family: 'Rubik', sans-serif; font-size: 0.95rem;">
+                    <h3 class="font-rubik fw-bold mb-1 banner-title-mobile" style=" font-size: 1.8rem;">Ready to Shop?</h3>
+                    <p class="font-montserrat mb-3 opacity-90 banner-desc-mobile" style=" font-size: 1rem;">Discover quality products at affordable prices.</p>
+                    <a href="index.html" class="font-rubik btn btn-light fw-bold text-primary px-4 py-2 shadow banner-btn-mobile" style="border-radius: 8px;  font-size: 0.95rem;">
                         Shop Now <i class="fa-solid fa-chevron-right ms-2 fs-6"></i>
                     </a>
                 </div>
@@ -581,7 +389,7 @@
                     <path d="M12 5.5L6.5 7.8V13C6.5 16.8 8.8 20.3 12 22C15.2 20.3 17.5 16.8 17.5 13V7.8L12 5.5Z" fill="#0066ff"/>
                     <path d="M9.5 14L11.5 16L14.5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <p class="mb-0 text-secondary text-start satisfaction-text-mobile" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; line-height: 1.5; max-width: 800px;">
+                <p class="font-montserrat mb-0 text-secondary text-start satisfaction-text-mobile" style=" font-size: 0.95rem; font-weight: 600; line-height: 1.5; max-width: 800px;">
                     At SabkaFayda, customer satisfaction remains our highest priority and<br class="d-none d-md-block"> we continuously strive to deliver the best shopping experience possible.
                 </p>
             </div>
