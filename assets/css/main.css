@@ -236,8 +236,10 @@
     border: 1px solid #e4e4e4 !important;
     padding: 6px 0 !important;
     background: #fff !important;
-    scrollbar-width: none; /* Hide default scrollbar on Firefox */
-    -ms-overflow-style: none; /* Hide default scrollbar on IE/Edge */
+    scrollbar-width: none;
+    /* Hide default scrollbar on Firefox */
+    -ms-overflow-style: none;
+    /* Hide default scrollbar on IE/Edge */
 }
 
 /* Hide scrollbar on Chrome/Safari */
@@ -1247,10 +1249,13 @@ input[type=range]::-moz-range-thumb {
     height: fit-content;
     max-height: calc(100vh - 170px);
     overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
 .sidebar-card::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 .sidebar-section-title {
@@ -2318,11 +2323,11 @@ select.profile-form-control {
     transform: translateY(-2px);
 }
 
-.wallet-history-card > div {
+.wallet-history-card>div {
     padding: 18px 20px;
 }
 
-.wallet-history-card > div:not(:first-child) {
+.wallet-history-card>div:not(:first-child) {
     border-left: 1px solid #f1f5f9;
 }
 
@@ -2332,7 +2337,7 @@ select.profile-form-control {
         align-items: flex-start;
     }
 
-    .wallet-history-card > div:not(:first-child) {
+    .wallet-history-card>div:not(:first-child) {
         border-left: 0;
         border-top: 1px solid #f1f5f9;
         width: 100%;
@@ -2977,6 +2982,7 @@ select.profile-form-control {
     border-radius: 0;
     margin-top: 0px;
 }
+
 /* ================================================
    Text Truncation (Line Clamping)
    ================================================ */
@@ -3266,7 +3272,7 @@ select.profile-form-control {
         grid-template-columns: 1fr !important;
     }
 
-    .notification-page .notification-card > .d-flex {
+    .notification-page .notification-card>.d-flex {
         align-items: flex-start;
     }
 
@@ -3289,14 +3295,37 @@ select.profile-form-control {
 
 /* ── OTP Input Shake Animation (login page error) ── */
 @keyframes otp-shake {
-    0%   { transform: translateX(0); }
-    15%  { transform: translateX(-6px); }
-    30%  { transform: translateX(6px); }
-    45%  { transform: translateX(-5px); }
-    60%  { transform: translateX(5px); }
-    75%  { transform: translateX(-3px); }
-    90%  { transform: translateX(3px); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateX(0);
+    }
+
+    15% {
+        transform: translateX(-6px);
+    }
+
+    30% {
+        transform: translateX(6px);
+    }
+
+    45% {
+        transform: translateX(-5px);
+    }
+
+    60% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-3px);
+    }
+
+    90% {
+        transform: translateX(3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .otp-shake {
@@ -3304,12 +3333,12 @@ select.profile-form-control {
 }
 
 /* Custom Clickable cursor pointer utility */
-.cursor-pointer, 
-.tab-btn, 
-.thumbnail-item, 
+.cursor-pointer,
+.tab-btn,
+.thumbnail-item,
 .size-btn,
-.details-accordion > div,
-.reviews-section > div,
+.details-accordion>div,
+.reviews-section>div,
 button,
 a {
     cursor: pointer !important;
@@ -3326,7 +3355,7 @@ a {
     float: none !important;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
     display: inline !important;
     float: none !important;
     padding-left: 6px !important;
@@ -3336,14 +3365,22 @@ a {
 }
 
 /* Profile Dropdown Hover Styles */
-.profile-dropdown-item:hover { background-color: #eaf5ff !important; color: #0087f6 !important; }
-.profile-logout-item:hover { background-color: #ffeaea !important; color: #dc3545 !important; }
+.profile-dropdown-item:hover {
+    background-color: #eaf5ff !important;
+    color: #0087f6 !important;
+}
+
+.profile-logout-item:hover {
+    background-color: #ffeaea !important;
+    color: #dc3545 !important;
+}
 
 /* Custom Profile Dropdown Styles */
 .profile-dropdown-item:hover {
     background-color: #e6f2ff !important;
     color: #0087F6 !important;
 }
+
 .profile-dropdown-item:hover i {
     color: #0087F6 !important;
 }
@@ -3354,92 +3391,107 @@ a {
 }
 
 /* No Internet Page Styles */
-.no-internet-title { font-size: 1.8rem; font-weight: 700; color: #2c3e50; margin-bottom: 2rem; }
-.no-internet-img { max-width: 100%; height: auto; max-height: 250px; margin-bottom: 2rem; object-fit: contain; }
-.no-internet-text { color: #7f8c8d; font-size: 1.05rem; font-weight: 500; }
-.try-again-link { color: #7b61ff; text-decoration: none; font-weight: 600; cursor: pointer; }
-.try-again-link:hover { text-decoration: underline; }
-
-/* ================================================
-   STABLE DASHBOARD LAYOUT (DESKTOP ONLY)
-   ================================================ */
-@media (min-width: 992px) {
-    /* Prevent the entire page from scrolling */
-    body.orders-page {
-        height: 100vh;
-        overflow: hidden;
-    }
-    
-    /* Make the shell fill the viewport */
-    .orders-shell {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding-top: 195px;
-        padding-bottom: 24px;
-    }
-    
-    /* The main row takes remaining space */
-    .orders-shell > .row {
-        flex: 1;
-        overflow: hidden;
-        margin-bottom: 0;
-    }
-    
-    /* Sidebar becomes internally scrollable */
-    .orders-sidebar {
-        height: 100%;
-        overflow-y: auto;
-        top: 0 !important; 
-        position: relative !important;
-    }
-    
-    /* The content wrapper becomes a flex column container */
-    .content-card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden; 
-    }
-    
-    /* The inner lists are scrollable */
-    #cartItemsList,
-    #ordersContainer,
-    #walletHistoryContainer,
-    #wishlistItemsList,
-    #notificationsList {
-        flex: 1;
-        overflow-y: auto;
-        padding-right: 12px;
-        padding-bottom: 20px;
-    }
-
-    /* Cart Specific Fixes */
-    #cartContentGrid {
-        flex: 1;
-        overflow: hidden;
-        display: flex;
-        margin-bottom: 0;
-    }
-    
-    #cartContentGrid > .col-lg-8,
-    #cartContentGrid > .col-lg-4 {
-        height: 100%;
-    }
-    
-    .cart-main-card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-    
-    /* Price Details Panel - Fills height and scrolls internally */
-    #cartContentGrid > .col-lg-4 > .position-sticky {
-        position: relative !important;
-        top: 0 !important;
-        height: 100%;
-        overflow-y: auto;
-    }
+.no-internet-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2rem;
 }
 
+.no-internet-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    margin-bottom: 2rem;
+    object-fit: contain;
+}
+
+.no-internet-text {
+    color: #7f8c8d;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.try-again-link {
+    color: #7b61ff;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.try-again-link:hover {
+    text-decoration: underline;
+}
+
+/* Make the shell fill the viewport */
+.orders-shell {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 195px;
+    padding-bottom: 24px;
+}
+
+/* The main row takes remaining space */
+.orders-shell>.row {
+    flex: 1;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+/* Sidebar becomes internally scrollable */
+.orders-sidebar {
+    height: 100%;
+    overflow-y: auto;
+    top: 0 !important;
+    position: relative !important;
+}
+
+/* The content wrapper becomes a flex column container */
+.content-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* The inner lists are scrollable */
+#cartItemsList,
+#ordersContainer,
+#walletHistoryContainer,
+#wishlistItemsList,
+#notificationsList {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 12px;
+    padding-bottom: 20px;
+}
+
+/* Cart Specific Fixes */
+#cartContentGrid {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 0;
+}
+
+#cartContentGrid>.col-lg-8,
+#cartContentGrid>.col-lg-4 {
+    height: 100%;
+}
+
+.cart-main-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Price Details Panel - Fills height and scrolls internally */
+#cartContentGrid>.col-lg-4>.position-sticky {
+    position: relative !important;
+    top: 0 !important;
+    height: 100%;
+    overflow-y: auto;
+}
+}
