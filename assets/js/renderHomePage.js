@@ -324,8 +324,8 @@ function renderHomePage(data) {
                     <div class="rounded-2 overflow-hidden mb-2">
                         <div class="position-relative product-card-img-wrapper">
                             <img src="${product.image}" class="w-100 h-100 object-fit-cover" alt="${product.title}" ${imgAttrs(50 + index)}>
-                            <button class="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle opacity-0 product-wishlist-btn" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s;">
-                                <i class="far fa-heart text-danger"></i>
+                            <button class="btn bg-transparent border-0 position-absolute opacity-0 product-wishlist-btn" style="top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s; color: #dc3545; font-size: 1.25rem; z-index: 5;">
+                                <i class="far fa-heart"></i>
                             </button>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
                                 ${addToCartBtn}

@@ -579,22 +579,47 @@ document.addEventListener('click', function(e) {
         }
 
         if (isAdding) {
-            // Create floating text animation
-            const floatingText = document.createElement('div');
-            floatingText.className = 'floating-wishlist-msg';
-            floatingText.innerHTML = '<i class="fas fa-heart"></i> Product added to wishlist';
-            
-            // Append to body and position near the button
-            const rect = wishlistBtn.getBoundingClientRect();
-            // Position above the button, centered
-            floatingText.style.left = (rect.left - 60) + 'px';
-            floatingText.style.top = (rect.top - 35) + 'px';
-            
-            document.body.appendChild(floatingText);
-            
-            setTimeout(() => {
-                floatingText.remove();
-            }, 1500);
+            showGlobalWishlistToast('added');
+        } else {
+            showGlobalWishlistToast('removed');
         }
     }
 });
+
+window.showGlobalWishlistToast = function(action) {
+    let toast = document.getElementById('wishlistToast');
+    if (!toast) {
+        const toastHTML = `
+        <div id="wishlistToast" class="position-fixed top-0 end-0 mt-5 me-4" style="z-index: 1060; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, transform 0.3s ease; transform: translateY(-20px);">
+            <div class="bg-danger text-white px-4 py-2 rounded-pill shadow-lg d-flex align-items-center" style="font-size: 0.9rem; font-weight: 600;">
+                <i class="fa-solid fa-heart me-2"></i> Product added to wishlist
+            </div>
+        </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', toastHTML);
+        toast = document.getElementById('wishlistToast');
+    }
+    
+    const toastContent = toast.querySelector('div');
+    if (action === 'added') {
+        toastContent.className = 'bg-danger text-white px-4 py-2 rounded-pill shadow-lg d-flex align-items-center';
+        toastContent.innerHTML = '<i class="fa-solid fa-heart me-2"></i> Product added to wishlist';
+    } else {
+        toastContent.className = 'bg-secondary text-white px-4 py-2 rounded-pill shadow-lg d-flex align-items-center';
+        toastContent.innerHTML = '<i class="fa-regular fa-heart me-2"></i> Product removed from wishlist';
+    }
+    
+    toast.style.visibility = 'visible';
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    
+    if (window.wishlistToastTimeout) {
+        clearTimeout(window.wishlistToastTimeout);
+    }
+    
+    window.wishlistToastTimeout = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-20px)';
+        setTimeout(() => { toast.style.visibility = 'hidden'; }, 300);
+    }, 2500);
+};

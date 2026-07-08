@@ -349,7 +349,7 @@
                     
                     if (timeLeft <= 0) {
                         clearInterval(resendInterval);
-                        resendContainer.innerHTML = '<a href="#" onclick="handleSendOtp(); return false;" class="text-primary fw-bold">Resend OTP</a>';
+                        resendContainer.innerHTML = '<a href="javascript:void(0)" onclick="handleSendOtp(); return false;" class="text-primary fw-bold">Resend OTP</a>';
                     }
                 }, 1000);
             }
