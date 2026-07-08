@@ -3436,16 +3436,16 @@ a {
 
 /* Wishlist Icon Styles */
 .product-wishlist-btn {
-    background-color: transparent !important;
+    background-color: #ffffff !important;
     border: none !important;
 }
 
 .product-wishlist-btn:hover {
     background-color: #ffffff !important;
-    color: #ff4d4d !important;
 }
 
 .product-wishlist-btn i {
+    color: #dc3545 !important;
     transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
