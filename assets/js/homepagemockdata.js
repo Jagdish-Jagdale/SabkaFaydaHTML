@@ -88,7 +88,10 @@ const homePageMockData = {
             ]
         },
         {
-            image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop'
+            images: [
+                'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1200&auto=format&fit=crop'
+            ]
         }
     ],
     productGrid: [

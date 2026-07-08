@@ -214,27 +214,32 @@ function renderHomePage(data) {
         `;
     }
 
-    function scrollingBannerSection(banner, index) {
+    function bannerCarouselSection(banner, index, itemsPerSlide = 1) {
+        if (!banner || !banner.images) return '';
+        let slidesHtml = '';
+        for (let i = 0; i < banner.images.length; i += itemsPerSlide) {
+            const chunk = banner.images.slice(i, i + itemsPerSlide);
+            const cols = chunk.map((img, j) => `
+                <div class="${itemsPerSlide === 2 ? 'col-md-6 col-12' : 'col-12'}">
+                    <a href="#"><img src="${img}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Offer banner" style="height: 240px;" ${imgAttrs(40 + index * 10 + i + j)}></a>
+                </div>
+            `).join('');
+            
+            slidesHtml += `
+                <div class="carousel-item ${i === 0 ? 'active' : ''}" data-bs-interval="2000">
+                    <div class="row g-3">
+                        ${cols}
+                    </div>
+                </div>
+            `;
+        }
         return `
-            <div class="container mb-5 position-relative home-deferred-section">
-                <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="banner-scroll-${index}" style="scroll-behavior: smooth; scroll-snap-type: x mandatory;">
-                    ${banner.images.map((img, i) => `
-                        <div class="flex-shrink-0" style="width: calc(50% - 8px); min-width: 300px; scroll-snap-align: start;">
-                            <a href="#"><img src="${img}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Offer banner" style="height: 240px;" ${imgAttrs(40 + index * 10 + i)}></a>
-                        </div>
-                    `).join('')}
+            <div class="container mb-5 home-deferred-section">
+                <div id="bannerCarousel-${index}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                    <div class="carousel-inner">${slidesHtml}</div>
                 </div>
             </div>
         `;
-    }
-
-   
-
-    function bannerSection(banner, index) {
-        if (banner.images) {
-            return scrollingBannerSection(banner, index);
-        }
-        return singleBannerSection(banner, index);
     }
 
     function onSaleSection() {
@@ -271,13 +276,7 @@ function renderHomePage(data) {
             </div>
         `;
     }
- function singleBannerSection(banner, index) {
-        return `
-            <div class="container mb-5 home-deferred-section">
-                <img src="${banner.image}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Featured banner" style="height: 260px;" ${imgAttrs(44 + index)}>
-            </div>
-        `;
-    }
+
     
     function gridCard(product, index) {
         return `
@@ -329,16 +328,14 @@ function renderHomePage(data) {
             data.productSections.forEach((section, index) => {
                 if (index === 0) {
                     html += smallProductSection(section, index);
-                    // Use first banner as scrolling banner if it has images array
-                    if (data.banners[0] && data.banners[0].images) {
-                        html += scrollingBannerSection(data.banners[0], 0);
+                    if (data.banners[0]) {
+                        html += bannerCarouselSection(data.banners[0], 0, 2);
                     }
                     html += onSaleSection();
                 } else if (section.title === 'Explore Electronics Products') {
                     html += electronicsSection(section, index);
-                    // Use second banner as single banner if it exists and doesn't have both images
-                    if (data.banners[1] && (!data.banners[1].leftImage || !data.banners[1].rightImage)) {
-                        html += singleBannerSection(data.banners[1], 1);
+                    if (data.banners[1]) {
+                        html += bannerCarouselSection(data.banners[1], 1, 1);
                     }
                 } else if (section.title === 'Featured Products') {
                     html += featuredProductsSection(section, index);
@@ -395,31 +392,5 @@ function renderHomePage(data) {
         setupScroll('small-scroll-left', 'small-scroll-right');
         setupScroll('featured-scroll-left', 'featured-scroll-right');
         setupScroll('sale-scroll-left', 'sale-scroll-right');
-        
-        // Auto-slide for banner scroll
-        const autoSlideScroll = (containerId, delay) => {
-            const container = document.getElementById(containerId);
-            if (container) {
-                setInterval(() => {
-                    const scrollLeft = container.scrollLeft;
-                    const containerWidth = container.clientWidth;
-                    const scrollWidth = container.scrollWidth;
-                    
-                    // calculate exact item width including gap
-                    const firstItem = container.querySelector('.flex-shrink-0');
-                    if (!firstItem) return;
-                    const itemWidth = firstItem.offsetWidth + 16; // 16px for gap-3
-                    
-                    if (scrollLeft + containerWidth >= scrollWidth - 10) {
-                        container.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        // snap to the next item
-                        const nextScroll = Math.ceil((scrollLeft + 10) / itemWidth) * itemWidth;
-                        container.scrollTo({ left: nextScroll, behavior: 'smooth' });
-                    }
-                }, delay);
-            }
-        };
-        autoSlideScroll('banner-scroll-0', 2000);
     }, 100);
 }
