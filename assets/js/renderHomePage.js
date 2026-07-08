@@ -71,20 +71,31 @@ function renderHomePage(data) {
     }
 
     function keepShoppingSection() {
+        let keepShoppingTitle = data.keepShopping.title;
+        if (typeof getAuthUser === 'function') {
+            const user = getAuthUser();
+            if (user && user.name) {
+                const firstName = user.name.split(' ')[0];
+                // Capitalize first letter of name
+                const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+                keepShoppingTitle = keepShoppingTitle.replace('User Name', capitalizedFirstName);
+            }
+        }
+
         return `
             <div class="container mb-5">
                 <div class="rounded-4 p-3 p-md-4" style="background: conic-gradient(from 4.22deg at 110.99% 41.84%, #FDFAFF -29.77deg, #FAEDFF 17.05deg, #E3A3F9 167.23deg, #F59EEC 169.47deg, #FDFAFF 330.23deg, #FAEDFF 377.05deg), linear-gradient(180deg, rgba(137, 198, 255, 0.2) -38.12%, rgba(255, 255, 255, 0.2) 88.77%);">
-                    <h3 class="text-dark fw-bold keep-shopping-title mb-3" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">${data.keepShopping.title}</h3>
+                    <h3 class="text-dark fw-bold keep-shopping-title mb-3" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">${keepShoppingTitle}</h3>
                     <div class="bg-white rounded-0 p-2 p-md-3 shadow-sm d-inline-block" style="max-width: 100%; width: 100%;">
                         <div class="d-flex justify-content-between gap-2 gap-md-3 flex-nowrap hide-scroll">
                             ${data.keepShopping.items.map((item, index) => `
-                                <a href="#" class="card border-0 text-center keep-shopping-small-box text-decoration-none">
+                                <a href="#" class="border-0 text-center keep-shopping-small-box text-decoration-none bg-transparent d-block" style="min-width: 120px; max-width: 140px;">
                                     <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img" style="overflow: hidden;">
                                         <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1" style="font-size: 0.5rem; border-radius: 4px;">AD</div>
                                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.alt}" ${imgAttrs(index + 10)}>
                                     </div>
-                                    <h6 class="fw-bold mb-1 text-dark">${item.title}</h6>
-                                    <p class="text-secondary mb-0">${item.desc}</p>
+                                    <h6 class="fw-bold mb-1 text-dark text-truncate w-100" style="font-size: 0.9rem;">${item.desc}</h6>
+                                    <p class="text-secondary mb-0 text-truncate w-100" style="font-size: 0.75rem;">${item.title}</p>
                                 </a>
                             `).join('')}
                         </div>

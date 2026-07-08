@@ -25,7 +25,7 @@ const homePageMockData = {
     keepShopping: {
         title: 'keep Shopping User Name',
         items: [
-            { title: 'Min. 70% Off', desc: 'Structured style', image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=200&auto=format&fit=crop', alt: 'Shirt' },
+            { title: 'Min. 70% Off', desc: 'Structured style with extra long text to test truncation', image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=200&auto=format&fit=crop', alt: 'Shirt' },
             { title: 'Up to 80% Off', desc: 'Fun playtime', image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=200&auto=format&fit=crop', alt: 'Toy Car' },
             { title: 'From ₹ 6,299/M*', desc: 'Intel Core Ultra PCs', image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=200&auto=format&fit=crop', alt: 'Laptop' },
             { title: 'Min. 60% Off', desc: 'Sports shoes', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop', alt: 'Shoes' },
