@@ -374,7 +374,13 @@ function renderHomePage(data) {
             });
             return html;
         })(),
-        `<div class="container mb-5 home-deferred-section"><div class="row g-3">${data.productGrid.map(gridCard).join('')}</div></div>`
+        `<div class="container mb-5 home-deferred-section">
+            <h3 class="mb-4 text-dark fw-bold keep-shopping-title" style="font-family: 'Rubik', sans-serif;">Explore Our Range</h3>
+            <div class="row g-3">${data.productGrid.map(gridCard).join('')}</div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn text-white px-4 py-2 shadow-sm fw-bold" style="background-color: #0087F6; border-radius: 8px;">Explore More</a>
+            </div>
+        </div>`
     ].join('');
 
     setTimeout(() => {
