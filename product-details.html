@@ -441,14 +441,14 @@
                             if (imageHeartOverlay) {
                                 imageHeartOverlay.classList.remove('d-none');
                             }
-                            showToast(`"${productName}" added to your wishlist!`);
+                            window.showGlobalWishlistToast('added', `"${productName}" added to your wishlist!`);
                         } else {
                             icon.classList.remove('fas', 'text-danger');
                             icon.classList.add('far', 'text-muted');
                             if (imageHeartOverlay) {
                                 imageHeartOverlay.classList.add('d-none');
                             }
-                            showToast(`"${productName}" removed from your wishlist.`);
+                            window.showGlobalWishlistToast('removed', `"${productName}" removed from your wishlist.`);
                         }
                     }
                 }
