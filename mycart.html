@@ -248,7 +248,7 @@
             const originalPriceEl = cartItem.querySelector('.style-original-price');
             
             currentPriceEl.textContent = `₹${(price * currentQty).toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
-            originalPriceEl.textContent = `₹${(originalPrice * currentQty).toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+            originalPriceEl.textContent = `Rs ${(originalPrice * currentQty).toLocaleString('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 
             // Update localStorage
             updateCartItemQuantity(itemId, currentQty);

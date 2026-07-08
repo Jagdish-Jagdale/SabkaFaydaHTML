@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <!-- Pricing -->
                 <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
                     <span class="text-success fw-bold fs-4">${p.discount}</span>
-                    <span class="text-muted text-decoration-line-through fs-5">${p.originalPrice}</span>
+                    <span class="text-muted text-decoration-line-through fs-5">Rs ${p.originalPrice}</span>
                     <span class="text-dark fw-bold fs-3">₹ ${p.price}</span>
                 </div>
 
@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="d-flex align-items-center flex-wrap gap-2 mt-2">
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">${product.originalPrice}</span>
+                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">Rs ${product.originalPrice}</span>
                                 <span class="text-dark fw-bold" style="font-size: 0.95rem;">Rs ${product.price}</span>
                                 <div class="w-100"></div>
                                 <span class="text-primary fw-semibold" style="font-size: 0.72rem;">${product.offer}</span>
@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="d-flex align-items-center flex-wrap gap-2 mt-2">
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">${product.originalPrice}</span>
+                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">Rs ${product.originalPrice}</span>
                                 <span class="text-dark fw-bold" style="font-size: 0.95rem;">Rs ${product.price}</span>
                                 <div class="w-100"></div>
                                 <span class="text-primary fw-semibold" style="font-size: 0.72rem;">${product.offer}</span>

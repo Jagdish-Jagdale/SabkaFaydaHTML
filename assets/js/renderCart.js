@@ -53,7 +53,7 @@ function renderCart(cart) {
             </div>
             <div class="col-auto text-end px-2 d-flex flex-column align-items-end" style="min-width: 90px;">
                 <h6 class="fw-bold text-dark mb-0 item-current-price" style="font-size: 0.9rem;">₹${item.price}</h6>
-                <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.7rem;">₹${item.originalPrice}</span>
+                <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.7rem;">Rs ${item.originalPrice}</span>
                 <span class="badge bg-success bg-opacity-10 text-success px-1 py-0.5" style="font-size: 0.6rem;">${item.discount}</span>
             </div>
             <div class="col-auto text-center ps-2">
