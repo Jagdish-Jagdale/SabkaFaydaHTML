@@ -49,7 +49,7 @@ const homePageMockData = {
             ]
         },
         {
-            title: 'Explore Electronics Products',
+            title: 'Electronic Gadgets',
             layout: 'smallRow',
             items: [
                 { title: 'Smart Gadgets', subtitle: 'Top deals', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop' },

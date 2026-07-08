@@ -362,7 +362,7 @@ function renderHomePage(data) {
                         html += bannerCarouselSection(data.banners[0], 0, 2);
                     }
                     html += onSaleSection();
-                } else if (section.title === 'Explore Electronics Products') {
+                } else if (section.title === 'Electronic Gadgets') {
                     html += electronicsSection(section, index);
                     if (data.banners[1]) {
                         html += bannerCarouselSection(data.banners[1], 1, 1);
