@@ -80,8 +80,12 @@ const homePageMockData = {
     ],
     banners: [
         {
-            leftImage: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop',
-            rightImage: 'assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png'
+            images: [
+                'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop',
+                'assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png',
+                'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop'
+            ]
         },
         {
             image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop'

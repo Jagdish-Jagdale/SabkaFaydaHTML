@@ -214,12 +214,25 @@ function renderHomePage(data) {
         `;
     }
 
-    function doubleBannerSection(banner, index) {
+    function scrollingBannerSection(banner, index) {
         return `
-            <div class="container mb-5 home-deferred-section">
-                <div class="row g-3">
-                    <div class="col-md-6"><img src="${banner.leftImage}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Offer banner" style="height: 240px;" ${imgAttrs(40 + index)}></div>
-                    <div class="col-md-6"><img src="${banner.rightImage}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Offer banner" style="height: 240px;" ${imgAttrs(42 + index)}></div>
+            <div class="container mb-5 position-relative home-deferred-section">
+                <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 banner-scroll-left p-0 border-0 bg-transparent" style="margin-left: 0; display: none;" data-target="banner-scroll-${index}">
+                    <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+                        <i class="fas fa-chevron-left fs-5"></i>
+                    </div>
+                </button>
+                <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 banner-scroll-right p-0 border-0 bg-transparent" style="margin-right: 0;" data-target="banner-scroll-${index}">
+                    <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 80px; border-top-left-radius: 12px; border-bottom-left-radius: 12px; box-shadow: -2px 0 5px rgba(0,0,0,0.1);">
+                        <i class="fas fa-chevron-right fs-5"></i>
+                    </div>
+                </button>
+                <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="banner-scroll-${index}" style="scroll-behavior: smooth;">
+                    ${banner.images.map((img, i) => `
+                        <div class="flex-shrink-0" style="width: calc(50% - 8px); min-width: 300px;">
+                            <a href="#"><img src="${img}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Offer banner" style="height: 240px;" ${imgAttrs(40 + index * 10 + i)}></a>
+                        </div>
+                    `).join('')}
                 </div>
             </div>
         `;
@@ -228,8 +241,8 @@ function renderHomePage(data) {
    
 
     function bannerSection(banner, index) {
-        if (banner.leftImage && banner.rightImage) {
-            return doubleBannerSection(banner, index);
+        if (banner.images) {
+            return scrollingBannerSection(banner, index);
         }
         return singleBannerSection(banner, index);
     }
@@ -326,9 +339,9 @@ function renderHomePage(data) {
             data.productSections.forEach((section, index) => {
                 if (index === 0) {
                     html += smallProductSection(section, index);
-                    // Use first banner as double banner if it has left and right images
-                    if (data.banners[0] && data.banners[0].leftImage && data.banners[0].rightImage) {
-                        html += doubleBannerSection(data.banners[0], 0);
+                    // Use first banner as scrolling banner if it has images array
+                    if (data.banners[0] && data.banners[0].images) {
+                        html += scrollingBannerSection(data.banners[0], 0);
                     }
                     html += onSaleSection();
                 } else if (section.title === 'Explore Electronics Products') {
@@ -392,5 +405,6 @@ function renderHomePage(data) {
         setupScroll('small-scroll-left', 'small-scroll-right');
         setupScroll('featured-scroll-left', 'featured-scroll-right');
         setupScroll('sale-scroll-left', 'sale-scroll-right');
+        setupScroll('banner-scroll-left', 'banner-scroll-right');
     }, 100);
 }
