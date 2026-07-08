@@ -1697,7 +1697,7 @@ select.profile-form-control {
 
 .orders-shell {
     max-width: 1200px;
-    padding-top: 195px;
+    padding-top: 155px;
     padding-bottom: 64px;
 }
 
@@ -2382,7 +2382,7 @@ select.profile-form-control {
 
 @media (max-width: 991px) {
     .orders-shell {
-        padding-top: 170px;
+        padding-top: 135px;
     }
 
     .orders-sidebar {
