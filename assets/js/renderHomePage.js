@@ -21,7 +21,7 @@ function renderHomePage(data) {
 
         return `
             <div class="container mb-4 position-relative">
-                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
                     <div class="carousel-indicators">
                         ${data.heroSlides.map((_, index) => `<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" ${index === 0 ? 'aria-current="true"' : ''}></button>`).join('')}
                     </div>
@@ -420,6 +420,6 @@ function renderHomePage(data) {
                 }, delay);
             }
         };
-        autoSlideScroll('banner-scroll-0', 3000);
+        autoSlideScroll('banner-scroll-0', 2000);
     }, 100);
 }
