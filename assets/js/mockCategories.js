@@ -1,15 +1,15 @@
 const mockCategories = {
     searchCategories: [
-        { name: "All Categories", value: "All Category" },
-        { name: "Home & Living", value: "Home & Living" },
+        { name: "Select category", value: "" },
+        { name: "For You", value: "For You" },
+        { name: "Fashion & Lifestyle", value: "Fashion & Lifestyle" },
         { name: "Electronics", value: "Electronics" },
-        { name: "Toys and Games", value: "Toys and Games" },
-        { name: "Gifts and Retail", value: "Gifts and Retail" },
-        { name: "Health & Beauty", value: "Health & Beauty" },
-        { name: "Business & Office", value: "Business & Office" },
-        { name: "Automobile", value: "Automobile" },
-        { name: "Animal & Pet", value: "Animal & Pet" },
-        { name: "Lifestyle & Fashion", value: "Lifestyle & Fashion" }
+        { name: "Home & Living", value: "Home & Living" },
+        { name: "kids & Toys", value: "kids & Toys" },
+        { name: "Personal Care", value: "Personal Care" },
+        { name: "Retail & Gifts", value: "Retail & Gifts" },
+        { name: "Animal & pet", value: "Animal & pet" },
+        { name: "Automobile", value: "Automobile" }
     ],
     barCategories: [
         { name: "Best sellers", link: "category.html?category=For%20You&subcategory=Best%20seller" },

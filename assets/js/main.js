@@ -104,18 +104,20 @@
 
 /* header.js */
 function selectCategory(categoryName) {
+    if (categoryName) {
+        window.location.href = `category.html?category=${encodeURIComponent(categoryName)}`;
+        return;
+    }
+
     const textSpan = document.getElementById('selectedCategoryText');
     if (textSpan) {
-        textSpan.textContent = categoryName;
+        textSpan.textContent = 'Select category';
     }
     
     const dropdownItems = document.querySelectorAll('.custom-dropdown-item');
     dropdownItems.forEach(item => {
         item.classList.remove('active');
-        const itemText = item.textContent.trim();
-        if (itemText === categoryName || 
-            (categoryName === 'All Category' && itemText === 'All Categories') ||
-            itemText.startsWith(categoryName)) {
+        if (item.textContent.trim() === 'Select category') {
             item.classList.add('active');
         }
     });
@@ -132,7 +134,7 @@ function initHeader() {
 
     if (typeof mockCategories === 'undefined') {
         const script = document.createElement('script');
-        script.src = 'assets/js/mockCategories.js';
+        script.src = 'assets/js/mockCategories.js?v=2';
         script.onload = function() {
             loadedCats = true;
             checkReady();
