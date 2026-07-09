@@ -62,11 +62,17 @@ function renderHomePage(data) {
                     max-height: 120px !important;
                     transform: scale(1) translateY(0) !important;
                 }
+                .banner-carousel-img {
+                    height: 150px !important;
+                }
             }
             .electronics-gadgets-img {
                 max-height: 170px;
                 transform: scale(1.15) translateY(5px);
                 transform-origin: bottom center;
+            }
+            .banner-carousel-img {
+                height: 240px;
             }
         `;
         document.head.appendChild(style);
@@ -308,7 +314,7 @@ function renderHomePage(data) {
             const chunk = banner.images.slice(i, i + itemsPerSlide);
             const cols = chunk.map((img, j) => `
                 <div class="${itemsPerSlide === 2 ? 'col-md-6 col-12' : 'col-12'}">
-                    <a href="#"><img src="${img}" class="w-100 rounded-3 shadow-sm object-fit-cover" alt="Offer banner" style="height: 240px;" ${imgAttrs(40 + index * 10 + i + j)}></a>
+                    <a href="#"><img src="${img}" class="w-100 rounded-3 shadow-sm object-fit-cover banner-carousel-img" alt="Offer banner" ${imgAttrs(40 + index * 10 + i + j)}></a>
                 </div>
             `).join('');
             
