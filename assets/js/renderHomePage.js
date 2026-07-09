@@ -301,7 +301,7 @@ function renderHomePage(data) {
         `;
     }
 
-    function bannerCarouselSection(banner, index, itemsPerSlide = 1) {
+    function bannerCarouselSection(banner, index, itemsPerSlide = 1, displayClass = '', idSuffix = '') {
         if (!banner || !banner.images) return '';
         let slidesHtml = '';
         for (let i = 0; i < banner.images.length; i += itemsPerSlide) {
@@ -321,8 +321,8 @@ function renderHomePage(data) {
             `;
         }
         return `
-            <div class="container mb-5 home-deferred-section">
-                <div id="bannerCarousel-${index}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="container mb-5 home-deferred-section ${displayClass}">
+                <div id="bannerCarousel-${index}${idSuffix}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
                     <div class="carousel-inner">${slidesHtml}</div>
                 </div>
             </div>
@@ -436,7 +436,8 @@ function renderHomePage(data) {
                 if (index === 0) {
                     html += smallProductSection(section, index);
                     if (data.banners[0]) {
-                        html += bannerCarouselSection(data.banners[0], 0, 2);
+                        html += bannerCarouselSection(data.banners[0], 0, 2, 'd-none d-md-block', '-desktop');
+                        html += bannerCarouselSection(data.banners[0], 0, 1, 'd-block d-md-none', '-mobile');
                     }
                     html += onSaleSection();
                 } else if (section.title === 'Electronic Gadgets') {
