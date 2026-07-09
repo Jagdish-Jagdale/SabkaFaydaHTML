@@ -20,7 +20,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css?v=20">
+    <link rel="stylesheet" href="assets/css/main.css?v=21">
 
     <!-- Preload Logo Image -->
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
@@ -28,15 +28,42 @@
 
     <!-- Product Details Mock Data -->
     <script src="assets/js/product-details-mock.js"></script>
-    <script src="assets/js/renderProductDetails.js?v=3"></script>
+    <script src="assets/js/renderProductDetails.js?v=9"></script>
     <script src="assets/js/cartUtils.js"></script>
 
     <style>
+        .card-icon-wishlist i, .card-icon-share i {
+            color: #6c757d !important;
+            transition: color 0.3s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .card-icon-wishlist:hover i {
+            color: #dc3545 !important;
+            transform: scale(1.2);
+        }
+        .card-icon-share:hover i {
+            color: #4b70f5 !important;
+            transform: scale(1.2);
+        }
         .product-card:hover .product-card-overlay {
             opacity: 1 !important;
         }
         .product-card:hover .product-wishlist-btn {
             opacity: 1 !important;
+        }
+        .product-card:hover .product-floating-actions {
+            opacity: 1 !important;
+        }
+        .large-card-wishlist-btn {
+            transition: color 0.3s ease;
+        }
+        .large-card-wishlist-btn:hover {
+            color: #dc3545 !important;
+        }
+        .large-card-share-btn {
+            transition: color 0.3s ease;
+        }
+        .large-card-share-btn:hover {
+            color: #4b70f5 !important;
         }
     </style>
 
@@ -98,12 +125,12 @@
                             <img src="assets/img/homescreenimg.png" id="mainProductImage" alt="Digital Personal Body Weight Scale">
                             
                             <!-- Share Icon (Always visible) -->
-                            <div class="position-absolute" style="top: 60px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div class="position-absolute large-card-share-btn" style="top: 60px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                 <i class="fa-regular fa-paper-plane"></i>
                             </div>
 
                             <!-- Top Right Wishlist Icon -->
-                            <div id="topRightWishlistBtn" class="position-absolute" style="top: 15px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div id="topRightWishlistBtn" class="position-absolute large-card-wishlist-btn" style="top: 15px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                 <i class="far fa-heart"></i>
                             </div>
                         </div>

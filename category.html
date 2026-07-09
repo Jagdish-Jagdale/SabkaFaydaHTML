@@ -18,7 +18,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css?v=15">
+    <link rel="stylesheet" href="assets/css/main.css?v=21">
     <!-- Preload Logo and Header Data -->
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
     <link rel="preload" href="assets/js/mockCategories.js" as="script">
@@ -46,6 +46,19 @@
                 flex: 0 0 79%;
                 max-width: 79%;
             }
+        }
+
+        .card-icon-wishlist i, .card-icon-share i {
+            color: #6c757d !important;
+            transition: color 0.3s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .card-icon-wishlist:hover i {
+            color: #dc3545 !important;
+            transform: scale(1.2);
+        }
+        .card-icon-share:hover i {
+            color: #4b70f5 !important;
+            transform: scale(1.2);
         }
 
         .product-action-overlay {
@@ -762,10 +775,10 @@
                             
                             <div class="product-action-overlay position-absolute w-100 h-100 top-0 start-0" style="opacity: 0; transition: all 0.2s ease; z-index: 10; pointer-events: none;">
                                 <!-- Wishlist (Top Right) -->
-                                <button class="btn border-0 position-absolute product-wishlist-btn" style="background-color: transparent !important; top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #dc3545; font-size: 1.25rem;"><i class="fa-regular fa-heart"></i></button>
+                                <button class="btn border-0 position-absolute product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="background-color: transparent !important; top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;"><i class="fa-regular fa-heart"></i></button>
                                 
                                 <!-- Share (Below Wishlist) -->
-                                <button class="btn bg-transparent border-0 position-absolute" style="top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #4b70f5; font-size: 1.1rem;" onclick="event.stopPropagation();"><i class="fa-regular fa-paper-plane"></i></button>
+                                <button class="btn bg-transparent border-0 position-absolute card-icon-share" title="Share" style="top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;" onclick="event.stopPropagation();"><i class="fa-regular fa-paper-plane"></i></button>
                                 
                                 <!-- Cart & Buy Now (Bottom) -->
                                 <div class="position-absolute w-100 d-flex justify-content-between gap-1 px-2" style="bottom: 8px; pointer-events: auto;" onclick="event.stopPropagation();">

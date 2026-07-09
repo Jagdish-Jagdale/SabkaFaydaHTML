@@ -250,12 +250,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
-                            <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2 opacity-0 product-wishlist-btn" style="transition: opacity 0.3s; z-index: 2;">
-                                <button class="btn btn-light rounded-circle shadow-sm" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                                    <i class="far fa-heart text-danger"></i>
+                            <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2 opacity-0 product-floating-actions" style="transition: opacity 0.3s; z-index: 2;">
+                                <button class="btn bg-white rounded-circle shadow-sm product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                    <i class="far fa-heart" style="font-size: 0.85rem;"></i>
                                 </button>
-                                <button class="btn btn-light rounded-circle shadow-sm" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fa-regular fa-paper-plane text-secondary"></i>
+                                <button class="btn bg-white rounded-circle shadow-sm card-icon-share" title="Share" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-regular fa-paper-plane" style="font-size: 0.85rem;"></i>
                                 </button>
                             </div>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
@@ -299,12 +299,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
-                            <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2 opacity-0 product-wishlist-btn" style="transition: opacity 0.3s; z-index: 2;">
-                                <button class="btn btn-light rounded-circle shadow-sm" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                                    <i class="far fa-heart text-danger"></i>
+                            <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2 opacity-0 product-floating-actions" style="transition: opacity 0.3s; z-index: 2;">
+                                <button class="btn bg-white rounded-circle shadow-sm product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                    <i class="far fa-heart" style="font-size: 0.85rem;"></i>
                                 </button>
-                                <button class="btn btn-light rounded-circle shadow-sm" style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fa-regular fa-paper-plane text-secondary"></i>
+                                <button class="btn bg-white rounded-circle shadow-sm card-icon-share" title="Share" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-regular fa-paper-plane" style="font-size: 0.85rem;"></i>
                                 </button>
                             </div>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">

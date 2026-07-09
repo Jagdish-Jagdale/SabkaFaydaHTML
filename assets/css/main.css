@@ -1,4 +1,16 @@
 /* header.css */
+
+/* Small Card Icon Hover Effects */
+.card-icon-wishlist i, .card-icon-share i {
+    color: #6c757d !important;
+    transition: color 0.3s ease;
+}
+.card-icon-wishlist:hover i {
+    color: #dc3545 !important;
+}
+.card-icon-share:hover i {
+    color: #4b70f5 !important;
+}
 :root {
     --bs-primary: #0087F6 !important;
     --bs-primary-rgb: 0, 135, 246 !important;

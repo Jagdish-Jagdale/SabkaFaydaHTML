@@ -21,8 +21,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Main CSS -->
-    <link class="main-stylesheet" rel="stylesheet" href="assets/css/main.css?v=15">
-    
+    <link class="main-stylesheet" rel="stylesheet" href="assets/css/main.css?v=21">
+    <style>
+        .card-icon-wishlist i, .card-icon-share i {
+            color: #6c757d !important;
+            transition: color 0.3s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .card-icon-wishlist:hover i {
+            color: #dc3545 !important;
+            transform: scale(1.2);
+        }
+        .card-icon-share:hover i {
+            color: #4b70f5 !important;
+            transform: scale(1.2);
+        }
+    </style>
     <!-- Preload Logo Image -->
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
     <link rel="preload" href="assets/js/mockCategories.js" as="script">
@@ -98,10 +111,10 @@
 
     <!-- Home Page Data & Renderer -->
     <script src="assets/js/homepagemockdata.js?v=2"></script>
-    <script src="assets/js/renderHomePage.js?v=5"></script>
+    <script src="assets/js/renderHomePage.js?v=6"></script>
 
     <!-- Main JS -->
-    <script src="assets/js/main.js?v=7"></script>
+    <script src="assets/js/main.js?v=8"></script>
 
     <!-- Script to load Header and Footer dynamically -->
     <script>
