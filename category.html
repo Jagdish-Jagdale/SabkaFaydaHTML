@@ -1342,7 +1342,44 @@
             const params = new URLSearchParams(window.location.search);
             const category = params.get('category');
             if (category) {
-                updateCategoryUI(category, params.get('subcategory'));
+                let subcategory = params.get('subcategory');
+                
+                // Auto-open menu and select first subcategory if not provided
+                document.querySelectorAll('.category-menu-trigger span').forEach(span => {
+                    if (span.textContent.trim() === category) {
+                        const triggerLink = span.closest('.category-menu-trigger');
+                        const li = triggerLink.closest('li');
+                        const submenu = li.querySelector('.category-submenu');
+                        
+                        if (submenu) {
+                            // Open the dropdown menu
+                            submenu.style.display = 'block';
+                            const icon = triggerLink.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('fa-chevron-down');
+                                icon.classList.add('fa-chevron-up');
+                            }
+                            
+                            // Highlight the matching or first subcategory
+                            document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+                            if (!subcategory) {
+                                const firstSubItem = submenu.querySelector('.subcategory-item a');
+                                if (firstSubItem) {
+                                    subcategory = firstSubItem.textContent.trim();
+                                    firstSubItem.style.color = '#0d8dfb';
+                                }
+                            } else {
+                                submenu.querySelectorAll('.subcategory-item a').forEach(a => {
+                                    if (a.textContent.trim() === subcategory) {
+                                        a.style.color = '#0d8dfb';
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+
+                updateCategoryUI(category, subcategory);
             }
 
             // Apply Product Status from URL
