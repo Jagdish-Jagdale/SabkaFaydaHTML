@@ -27,12 +27,19 @@ function renderHomePage(data) {
             .horizontal-scroll-card-electronics {
                 width: 200px;
             }
+            .electronics-grid-container {
+                grid-template-rows: repeat(2, 1fr);
+                grid-auto-flow: column;
+            }
+            .keep-shopping-small-img {
+                height: 120px;
+            }
             @media (max-width: 767px) {
                 .horizontal-scroll-card, .horizontal-scroll-card-electronics {
                     width: 155px;
                 }
                 .horizontal-scroll-card .card-img-container {
-                    height: 100px !important;
+                    height: 140px !important;
                 }
                 .horizontal-scroll-card .card-title-text {
                     font-size: 0.75rem !important;
@@ -52,7 +59,7 @@ function renderHomePage(data) {
                     padding-bottom: 2px !important;
                 }
                 .on-sale-card-img {
-                    height: 120px !important;
+                    height: 160px !important;
                 }
                 .on-sale-card-title {
                     font-size: 0.8rem !important;
@@ -64,6 +71,12 @@ function renderHomePage(data) {
                 }
                 .banner-carousel-img {
                     height: 150px !important;
+                }
+                .electronics-grid-container {
+                    grid-template-rows: 1fr !important;
+                }
+                .keep-shopping-small-img {
+                    height: 140px !important;
                 }
             }
             .electronics-gadgets-img {
@@ -208,7 +221,7 @@ function renderHomePage(data) {
                                     <i class="fas fa-chevron-right fs-5"></i>
                                 </div>
                             </button>
-                            <div class="d-grid gap-3 overflow-auto hide-scroll electronics-scroll-container pb-2" style="grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; scroll-behavior: smooth;">
+                            <div class="d-grid gap-3 overflow-auto hide-scroll electronics-scroll-container pb-2 electronics-grid-container" style="scroll-behavior: smooth;">
                                 ${section.items.map((item, index) => `
                                     <div class="flex-shrink-0 horizontal-scroll-card-electronics">
                                         ${smallCardTemplate(item, sectionIndex, index)}
