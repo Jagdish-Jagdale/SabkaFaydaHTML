@@ -859,6 +859,37 @@
                 document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
             }
 
+            // Update URL
+            if (!fromProductStatus) {
+                const url = new URL(window.location);
+                let changed = false;
+                if (category === 'All Category') {
+                    if (url.searchParams.has('category')) {
+                        url.searchParams.delete('category');
+                        changed = true;
+                    }
+                } else {
+                    if (url.searchParams.get('category') !== category) {
+                        url.searchParams.set('category', category);
+                        changed = true;
+                    }
+                }
+                if (subcategory) {
+                    if (url.searchParams.get('subcategory') !== subcategory) {
+                        url.searchParams.set('subcategory', subcategory);
+                        changed = true;
+                    }
+                } else {
+                    if (url.searchParams.has('subcategory')) {
+                        url.searchParams.delete('subcategory');
+                        changed = true;
+                    }
+                }
+                if (changed) {
+                    window.history.pushState({}, '', url);
+                }
+            }
+
             // Uncheck product status if a category is chosen
             if (!fromProductStatus) {
                 document.querySelectorAll('input[name="productStatus"]').forEach(radio => {
@@ -1005,6 +1036,49 @@
                 }});
             }
 
+            // Update URL for filters
+            const url = new URL(window.location);
+            let urlChanged = false;
+            
+            // Sync status
+            if (checkedStatus) {
+                const label = checkedStatus.nextElementSibling.textContent.trim();
+                if (url.searchParams.get('status') !== label) {
+                    url.searchParams.set('status', label);
+                    urlChanged = true;
+                }
+            } else {
+                if (url.searchParams.has('status')) {
+                    url.searchParams.delete('status');
+                    urlChanged = true;
+                }
+            }
+
+            // Sync price
+            if (minVal > 1 || maxVal < absoluteMax) {
+                if (url.searchParams.get('minPrice') !== String(minVal)) {
+                    url.searchParams.set('minPrice', minVal);
+                    urlChanged = true;
+                }
+                if (url.searchParams.get('maxPrice') !== String(maxVal)) {
+                    url.searchParams.set('maxPrice', maxVal);
+                    urlChanged = true;
+                }
+            } else {
+                if (url.searchParams.has('minPrice')) {
+                    url.searchParams.delete('minPrice');
+                    urlChanged = true;
+                }
+                if (url.searchParams.has('maxPrice')) {
+                    url.searchParams.delete('maxPrice');
+                    urlChanged = true;
+                }
+            }
+            
+            if (urlChanged) {
+                window.history.replaceState({}, '', url);
+            }
+
             // Display logic
             const maxVisible = 2;
             let displayTags = tags;
@@ -1112,7 +1186,36 @@
             const params = new URLSearchParams(window.location.search);
             const category = params.get('category');
             if (category) {
-                updateCategoryUI(category, null);
+                updateCategoryUI(category, params.get('subcategory'));
+            }
+
+            // Apply Product Status from URL
+            const statusParams = params.get('status');
+            if (statusParams) {
+                document.querySelectorAll('input[name="productStatus"]').forEach(radio => {
+                    if (radio.nextElementSibling.textContent.trim() === statusParams) {
+                        radio.checked = true;
+                    }
+                });
+            }
+
+            // Apply Price Range from URL
+            const minPriceParam = params.get('minPrice');
+            const maxPriceParam = params.get('maxPrice');
+            if (minPriceParam || maxPriceParam) {
+                const minSlider = document.getElementById('priceRangeMin');
+                const maxSlider = document.getElementById('priceRangeMax');
+                if (minSlider && minPriceParam) {
+                    minSlider.value = minPriceParam;
+                    const minInput = document.getElementById('minPriceInput');
+                    if (minInput) minInput.value = minPriceParam;
+                }
+                if (maxSlider && maxPriceParam) {
+                    maxSlider.value = maxPriceParam;
+                    const maxInput = document.getElementById('maxPriceInput');
+                    if (maxInput) maxInput.value = maxPriceParam;
+                }
+                updateTrack();
             }
 
             // When product status is chosen, unchoose category (set to 'All Category')
@@ -1129,11 +1232,15 @@
             document.querySelectorAll('input[name="customerReview"]').forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     updateSelectedFilters();
+                    filterProducts();
                 });
             });
 
             // Initialize Selected Filters
             updateSelectedFilters();
+            
+            // Apply initial filtering on load
+            filterProducts();
         });
     </script>
     
