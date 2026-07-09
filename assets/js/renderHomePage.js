@@ -58,6 +58,15 @@ function renderHomePage(data) {
                     font-size: 0.8rem !important;
                     padding: 8px !important;
                 }
+                .electronics-gadgets-img {
+                    max-height: 120px !important;
+                    transform: scale(1) translateY(0) !important;
+                }
+            }
+            .electronics-gadgets-img {
+                max-height: 170px;
+                transform: scale(1.15) translateY(5px);
+                transform-origin: bottom center;
             }
         `;
         document.head.appendChild(style);
@@ -178,7 +187,7 @@ function renderHomePage(data) {
                                 </div>
                                 <img src="assets/img/homescreenimg.png" class="position-absolute top-0 end-0 z-1 pe-2 pt-2" alt="Woman" style="width: 50%; height: auto; max-width: 220px; object-fit: contain;" ${imgAttrs(30 + sectionIndex * 10)}>
                                 <div class="mt-auto z-2 w-100 text-center position-absolute bottom-0 start-0 pe-none">
-                                    <img src="assets/img/electronicimg.png" class="w-100 object-fit-contain" alt="Electronics" style="max-height: 170px; transform: scale(1.15) translateY(5px); transform-origin: bottom center;" ${imgAttrs(31 + sectionIndex * 10)}>
+                                    <img src="assets/img/electronicimg.png" class="w-100 object-fit-contain electronics-gadgets-img" alt="Electronics" ${imgAttrs(31 + sectionIndex * 10)}>
                                 </div>
                             </div>
                         </div>
@@ -220,10 +229,10 @@ function renderHomePage(data) {
                     </div>
                     <div class="text-white fw-bold text-truncate mb-1 card-title-text" style="font-size: 0.85rem;">${item.title}</div>
                     <div class="d-flex align-items-baseline mb-1 flex-wrap">
-                        <span class="text-white-50 text-decoration-line-through fw-normal me-2 card-old-price-text" style="font-size: 0.75rem;">${oldPrice}</span>
-                        <span class="text-white fw-bold card-price-text" style="font-size: 0.95rem;">Rs ${price}</span>
+                        <span class="text-white-50 text-decoration-line-through fw-normal me-2 card-old-price-text" style="font-size: 0.75rem;">₹ ${oldPrice}</span>
+                        <span class="text-white fw-bold card-price-text" style="font-size: 0.95rem;">₹ ${price}</span>
                     </div>
-                    <div class="text-white fw-medium card-upi-text" style="font-size: 0.7rem;">Rs ${upiOffer} with UPI offer</div>
+                    <div class="text-white fw-medium card-upi-text" style="font-size: 0.7rem;">₹ ${upiOffer} with UPI offer</div>
                 </div>
                 <div class="text-dark fw-bold text-center py-1 w-100 mt-auto card-discount-text" style="font-size: 0.8rem; background: linear-gradient(to bottom, #ffffff, #e0e0e0);">
                     Up to ${discount} % off
