@@ -105,6 +105,30 @@ function renderHomePage(data) {
                     transform: translateX(-50%) !important;
                 }
             }
+            .custom-indicators {
+                position: static !important;
+                margin-top: 20px !important;
+                margin-bottom: 0 !important;
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+            }
+            .custom-indicators [data-bs-target] {
+                width: 6px !important;
+                height: 6px !important;
+                border-radius: 50% !important;
+                background-color: #d3d3d3 !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                opacity: 1 !important;
+                transition: all 0.3s ease !important;
+            }
+            .custom-indicators .active {
+                width: 18px !important;
+                border-radius: 10px !important;
+                background-color: #808080 !important;
+            }
         `;
         document.head.appendChild(style);
     }
@@ -125,10 +149,10 @@ function renderHomePage(data) {
         return `
             <div class="container mb-4 position-relative">
                 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-                    <div class="carousel-indicators">
+                    <div class="carousel-inner">${slides}</div>
+                    <div class="carousel-indicators custom-indicators">
                         ${data.heroSlides.map((_, index) => `<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" ${index === 0 ? 'aria-current="true"' : ''}></button>`).join('')}
                     </div>
-                    <div class="carousel-inner">${slides}</div>
                     <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width: 5%; justify-content: flex-start; margin-left: 0;">
                         <div class="bg-white text-dark d-flex align-items-center justify-content-center shadow" style="width: 40px; height: 80px; border-top-right-radius: 8px; border-bottom-right-radius: 8px;">
                             <i class="fas fa-chevron-left fs-4"></i>
@@ -370,6 +394,9 @@ function renderHomePage(data) {
             <div class="container mb-5 home-deferred-section ${displayClass}">
                 <div id="bannerCarousel-${index}${idSuffix}" class="carousel slide banner-multi-carousel" data-bs-ride="carousel" data-bs-interval="2000">
                     <div class="carousel-inner">${slidesHtml}</div>
+                    <div class="carousel-indicators custom-indicators">
+                        ${banner.images.map((_, i) => `<button type="button" data-bs-target="#bannerCarousel-${index}${idSuffix}" data-bs-slide-to="${i}" class="${i === 0 ? 'active' : ''}" ${i === 0 ? 'aria-current="true"' : ''}></button>`).join('')}
+                    </div>
                 </div>
             </div>
         `;
