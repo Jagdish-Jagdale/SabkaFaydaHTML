@@ -87,6 +87,24 @@ function renderHomePage(data) {
             .banner-carousel-img {
                 height: 240px;
             }
+            @media (min-width: 768px) {
+                .banner-multi-carousel .carousel-item-next.carousel-item-start,
+                .banner-multi-carousel .carousel-item-prev.carousel-item-end {
+                    transform: translateX(0) !important;
+                }
+                .banner-multi-carousel .carousel-item.active.carousel-item-start {
+                    transform: translateX(-50%) !important;
+                }
+                .banner-multi-carousel .carousel-item.active.carousel-item-end {
+                    transform: translateX(50%) !important;
+                }
+                .banner-multi-carousel .carousel-item-next {
+                    transform: translateX(50%) !important;
+                }
+                .banner-multi-carousel .carousel-item-prev {
+                    transform: translateX(-50%) !important;
+                }
+            }
         `;
         document.head.appendChild(style);
     }
@@ -97,7 +115,7 @@ function renderHomePage(data) {
                 <div class="d-flex align-items-center justify-content-center hero-slide-bg position-relative"
                     style="background: url('${slide.image}') no-repeat center center; background-size: cover; color: white;">
                     <div class="position-absolute bottom-0 start-0 mb-4 ms-4 ms-md-5 z-3">
-                        <a href="${slide.ctaLink}" class="btn btn-light fw-bold text-dark shadow hero-btn px-4 py-2 px-md-5 py-md-3 text-decoration-none"
+                        <a href="${slide.ctaLink}" class="btn btn-light fw-bold text-dark shadow hero-btn px-4 py-2 px-md-5 py-md-3 text-decoration-none d-none d-md-inline-block"
                             style="border-radius: 8px;">${slide.ctaText} <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
@@ -132,7 +150,7 @@ function renderHomePage(data) {
         return `
             <div class="container mb-5">
                 <div class="rounded shadow-sm py-3 py-md-4 px-3 px-md-5 category-section-bg" style="border: 1px solid #eaeaea;">
-                    <div class="d-flex justify-content-between justify-content-md-center justify-content-lg-between align-items-start flex-nowrap icon-category-scroll overflow-auto w-100 px-1 px-md-0" style="gap: 10px;">
+                    <div class="d-flex justify-content-between align-items-start flex-nowrap hide-scroll icon-category-scroll overflow-auto w-100 px-1 px-md-0" style="gap: 15px 10px;">
                         ${data.categories.map((cat, index) => `
                             <a href="${cat.link}" class="d-flex flex-column align-items-center text-decoration-none icon-cat-link cat-item ${cat.className || ''}">
                                 <img src="${cat.image}" alt="${cat.title}" class="cat-icon-img mb-1 mb-md-2" ${imgAttrs(index)}>
@@ -164,7 +182,7 @@ function renderHomePage(data) {
                     <div class="bg-white rounded-0 p-2 p-md-3 shadow-sm d-inline-block" style="max-width: 100%; width: 100%;">
                         <div class="d-flex justify-content-between gap-2 gap-md-3 flex-nowrap hide-scroll">
                             ${data.keepShopping.items.map((item, index) => `
-                                <a href="#" class="border-0 text-center keep-shopping-small-box text-decoration-none bg-transparent d-block" style="min-width: 120px; max-width: 140px;">
+                                <a href="product-details.html" class="border-0 text-center keep-shopping-small-box text-decoration-none bg-transparent d-block" style="min-width: 120px; max-width: 140px;">
                                     <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img" style="overflow: hidden;">
                                         <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1" style="font-size: 0.5rem; border-radius: 4px;">AD</div>
                                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.alt}" ${imgAttrs(index + 10)}>
@@ -224,7 +242,7 @@ function renderHomePage(data) {
                             <div class="d-grid gap-3 overflow-auto hide-scroll electronics-scroll-container pb-2 electronics-grid-container" style="scroll-behavior: smooth;">
                                 ${section.items.map((item, index) => `
                                     <div class="flex-shrink-0 horizontal-scroll-card-electronics">
-                                        ${smallCardTemplate(item, sectionIndex, index)}
+                                        ${smallCardTemplate(item, sectionIndex, index, true)}
                                     </div>
                                 `).join('')}
                             </div>
@@ -235,17 +253,23 @@ function renderHomePage(data) {
         `;
     }
 
-    function smallCardTemplate(item, sectionIndex, index) {
+    function smallCardTemplate(item, sectionIndex, index, hasImagePadding = false) {
         const oldPrice = item.oldPrice || 80000;
         const price = item.price || 60000;
         const upiOffer = item.upiOffer || 5000;
         const discount = Math.round(((oldPrice - price) / oldPrice) * 100);
+        
+        const imagePaddingClass = hasImagePadding ? 'p-2 pb-0' : '';
+        const imageRoundedClass = hasImagePadding ? 'rounded-2' : '';
+
         return `
-            <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background-color: #0087F6;">
-                <div class="p-2 flex-grow-1">
-                    <div class="bg-white rounded-2 mb-2 w-100 d-flex align-items-center justify-content-center overflow-hidden card-img-container" style="height: 125px;">
+            <a href="product-details.html" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background-color: #0087F6;">
+                <div class="${imagePaddingClass}">
+                    <div class="bg-white ${imageRoundedClass} mb-2 w-100 d-flex align-items-center justify-content-center overflow-hidden card-img-container" style="height: 180px;">
                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.title}" ${imgAttrs(20 + sectionIndex * 10 + index)}>
                     </div>
+                </div>
+                <div class="p-2 pt-0 flex-grow-1">
                     <div class="text-white fw-bold text-truncate mb-1 card-title-text" style="font-size: 0.85rem;">${item.title}</div>
                     <div class="d-flex align-items-baseline mb-1 flex-wrap">
                         <span class="text-white-50 text-decoration-line-through fw-normal me-2 card-old-price-text" style="font-size: 0.75rem;">₹ ${oldPrice}</span>
@@ -323,8 +347,11 @@ function renderHomePage(data) {
     function bannerCarouselSection(banner, index, itemsPerSlide = 1, displayClass = '', idSuffix = '') {
         if (!banner || !banner.images) return '';
         let slidesHtml = '';
-        for (let i = 0; i < banner.images.length; i += itemsPerSlide) {
-            const chunk = banner.images.slice(i, i + itemsPerSlide);
+        for (let i = 0; i < banner.images.length; i++) {
+            let chunk = [];
+            for (let j = 0; j < itemsPerSlide; j++) {
+                chunk.push(banner.images[(i + j) % banner.images.length]);
+            }
             const cols = chunk.map((img, j) => `
                 <div class="${itemsPerSlide === 2 ? 'col-md-6 col-12' : 'col-12'}">
                     <a href="#"><img src="${img}" class="w-100 rounded-3 shadow-sm object-fit-cover banner-carousel-img" alt="Offer banner" ${imgAttrs(40 + index * 10 + i + j)}></a>
@@ -341,7 +368,7 @@ function renderHomePage(data) {
         }
         return `
             <div class="container mb-5 home-deferred-section ${displayClass}">
-                <div id="bannerCarousel-${index}${idSuffix}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                <div id="bannerCarousel-${index}${idSuffix}" class="carousel slide banner-multi-carousel" data-bs-ride="carousel" data-bs-interval="2000">
                     <div class="carousel-inner">${slidesHtml}</div>
                 </div>
             </div>
@@ -369,7 +396,7 @@ function renderHomePage(data) {
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="sale-scroll" style="scroll-behavior: smooth;">
                         ${data.productGrid.map((item, index) => `
                             <div class="flex-shrink-0 horizontal-scroll-card">
-                                <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
+                                <a href="product-details.html" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
                                     <img src="${item.image}" class="w-100 object-fit-cover on-sale-card-img" alt="${item.title}" style="height: 180px;" ${imgAttrs(50 + index)}>
                                     <div class="text-center text-white fw-bold p-3 on-sale-card-title" style="background: linear-gradient(180deg, #05970E 0%, #56DF5F 100%);">
                                         <div class="text-truncate">${item.title}</div>
