@@ -15,11 +15,11 @@ const mockCategories = {
         { name: "Best sellers", link: "category.html?category=For%20You&subcategory=Best%20seller" },
         { name: "Featured Products", link: "category.html?status=Featured" },
         { name: "Under 50 Rs", link: "category.html?category=For%20You&subcategory=Under%2050%20Rs" },
-        { name: "Electronics", link: "#" },
-        { name: "Beauty & Personal Care", link: "#" },
-        { name: "Gifts", link: "#" },
-        { name: "Car & Bikes", link: "#" },
-        { name: "Toys and Games", link: "#" },
+        { name: "Electronics", link: "category.html?category=Electronics" },
+        { name: "Beauty & Personal Care", link: "category.html?category=Personal%20Care" },
+        { name: "Gifts", link: "category.html?category=Retail%20%26%20Gifts" },
+        { name: "Car & Bikes", link: "category.html?category=Automobile" },
+        { name: "Toys and Games", link: "category.html?category=kids%20%26%20Toys" },
         { name: "Download App", link: "https://play.google.com/store/apps/details?id=com.sabkafayda.app" }
     ],
     cascadingData: {

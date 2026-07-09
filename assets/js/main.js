@@ -282,10 +282,12 @@ function proceedInitHeader() {
 
         // Build L1 list
         catL1List.innerHTML = subs.map(function(sub, i) {
+            const linkHref = 'category.html?category=' + encodeURIComponent(catName) + '&subcategory=' + encodeURIComponent(sub.name);
             return '<li class="cat-l1-item" data-idx="' + i + '">' +
+                '<a href="' + linkHref + '" class="text-decoration-none text-dark d-flex align-items-center justify-content-between w-100">' +
                 '<span>' + sub.name + '</span>' +
                 '<i class="fas fa-chevron-right cat-chevron"></i>' +
-                '</li>';
+                '</a></li>';
         }).join('');
 
         catL1Box.style.display = 'block';
@@ -302,14 +304,17 @@ function proceedInitHeader() {
                 var items = subs[idx].items;
 
                 catL2List.innerHTML = items.map(function(it) {
-                    return '<li><a href="#" class="cat-l2-item">' + it + '</a></li>';
+                    const linkHref = 'category.html?category=' + encodeURIComponent(catName) + '&subcategory=' + encodeURIComponent(it);
+                    return '<li><a href="' + linkHref + '" class="cat-l2-item">' + it + '</a></li>';
                 }).join('');
 
                 catL2Box.style.left = (leftPos + catL1Box.offsetWidth + catFlyoutGap) + 'px';
                 catL2Box.style.display = 'block';
 
                 catL2List.querySelectorAll('a').forEach(function(a) {
-                    a.addEventListener('click', function(e) { e.preventDefault(); });
+                    a.addEventListener('click', function(e) { 
+                        if (this.getAttribute('href') === '#') e.preventDefault(); 
+                    });
                 });
             });
             item.addEventListener('mouseleave', function() {
@@ -325,7 +330,9 @@ function proceedInitHeader() {
         currentLinks.forEach(function(link) {
             link.addEventListener('mouseenter', function() { showCatL1(this); });
             link.addEventListener('mouseleave', scheduleCatHide);
-            link.addEventListener('click', function(e) { e.preventDefault(); });
+            link.addEventListener('click', function(e) { 
+                if (this.getAttribute('href') === '#') e.preventDefault(); 
+            });
         });
         catBarCont.addEventListener('mouseleave', scheduleCatHide);
         catL1Box.addEventListener('mouseenter', cancelCatHide);
