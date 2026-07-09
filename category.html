@@ -29,47 +29,63 @@
                 flex: 0 0 23%;
                 max-width: 23%;
             }
+
             .custom-main-col {
                 flex: 0 0 77%;
                 max-width: 77%;
             }
         }
+
         @media (min-width: 1400px) {
             .custom-sidebar-col {
                 flex: 0 0 21%;
                 max-width: 21%;
             }
+
             .custom-main-col {
                 flex: 0 0 79%;
                 max-width: 79%;
             }
         }
-        
+
         .product-action-overlay {
             visibility: hidden;
         }
-        
+
         .product-card:hover .product-action-overlay {
             opacity: 1 !important;
             visibility: visible;
         }
-        
+
         .product-card {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
+
         .product-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
         }
 
         @keyframes heartPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
+
         .wishlist-animating i {
             animation: heartPulse 0.3s ease;
+        }
+
+        #categoriesBarContainer {
+            display: none !important;
         }
     </style>
     <!-- Preload Dynamic Components -->
@@ -81,23 +97,20 @@
 <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden;">
 
     <!-- Header Placeholder -->
-    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+    <div id="header-placeholder">
+        <div class="skeleton-box skeleton-header"></div>
+    </div>
 
     <!-- Main Content -->
-    <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
-        
+    <div class="main-content" style="padding-top: 115px; min-height: 100vh;">
 
-        <!-- Banner Section -->
-        <div class="container mb-4">
-            <img src="assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png" id="categoryBannerImage" class="category-banner-img w-100" alt="Exclusive Savings Festival Banner">
-        </div>
-
-        <!-- Breadcrumbs removed from here -->
 
         <!-- Mobile Filters (Category, Sort By) -->
-        <div class="container d-flex d-md-none justify-content-between gap-3 mb-3">
+        <div class="container-fluid px-3 px-xl-4 d-flex d-md-none justify-content-between gap-3 mb-3">
             <div class="dropdown flex-fill">
-                <button class="btn btn-light w-100 d-flex justify-content-between align-items-center py-2 px-3 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f1f3f5; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #1a1a1a;">
+                <button class="btn btn-light w-100 d-flex justify-content-between align-items-center py-2 px-3 border-0"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="background-color: #f1f3f5; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #1a1a1a;">
                     <span>Category</span>
                     <i class="fas fa-chevron-down ms-2" style="font-size: 0.8rem; color: #1a1a1a;"></i>
                 </button>
@@ -110,11 +123,14 @@
                 </ul>
             </div>
             <div class="dropdown flex-fill">
-                <button class="btn btn-light w-100 d-flex justify-content-between align-items-center py-2 px-3 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f1f3f5; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #1a1a1a;">
+                <button class="btn btn-light w-100 d-flex justify-content-between align-items-center py-2 px-3 border-0"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="background-color: #f1f3f5; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #1a1a1a;">
                     <span>Sort By</span>
                     <i class="fas fa-chevron-down ms-2" style="font-size: 0.8rem; color: #1a1a1a;"></i>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end w-100 shadow-sm border-0 mt-1" style="border-radius: 8px; font-size: 0.85rem;">
+                <ul class="dropdown-menu dropdown-menu-end w-100 shadow-sm border-0 mt-1"
+                    style="border-radius: 8px; font-size: 0.85rem;">
                     <li><a class="dropdown-item active" href="javascript:void(0)">Most selling</a></li>
                     <li><a class="dropdown-item" href="javascript:void(0)">Newest First</a></li>
                     <li><a class="dropdown-item" href="javascript:void(0)">Price Low to High</a></li>
@@ -124,20 +140,29 @@
         </div>
 
         <!-- Split Layout Content -->
-        <div class="container pb-5">
+        <div class="container-fluid px-3 px-xl-4 pb-5">
 
             <div class="row">
-                
+
                 <!-- Left Sidebar Filters -->
-                <div class="col-md-3 mb-4 filter-sidebar-col d-none d-md-block custom-sidebar-col">
-                    
+                <div class="col-md-3 mb-4 filter-sidebar-col d-none d-md-block custom-sidebar-col"
+                    style="padding-top: 0 !important; margin-top: 0 !important;"><img
+                        src="assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png"
+                        class="category-banner-img w-100 object-fit-cover rounded-3 mb-4"
+                        style="display: block !important; margin-top: 0 !important;" alt="Small Category Banner">
+
                     <!-- Selected Filters Card -->
-                    <div class="bg-white border rounded-3 p-3 mb-4 shadow-sm d-none" style="border-color: #e2e8f0 !important;" id="selectedFiltersCard">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="fs-6 fw-bold text-dark mb-0" style="font-family: 'Inter', sans-serif;">Selected Filters</h5>
-                            <a href="javascript:void(0)" id="clearAllFiltersBtn" class="text-danger text-decoration-none d-none" style="font-size: 0.8rem; font-weight: 500;" onclick="clearAllFilters()">Clear All</a>
+                    <div class="bg-white border rounded-3 py-2 px-3 mb-3 shadow-sm"
+                        style="border-color: #e2e8f0 !important;" id="selectedFiltersCard">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="fw-bold text-dark mb-0"
+                                style="font-family: 'Inter', sans-serif; font-size: 0.95rem;">Selected Filters</h6>
+                            <a href="javascript:void(0)" id="clearAllFiltersBtn"
+                                class="text-danger text-decoration-none d-none"
+                                style="font-size: 0.75rem; font-weight: 500;" onclick="clearAllFilters()">Clear All</a>
                         </div>
-                        <div id="selectedFiltersContainer" class="d-flex flex-wrap gap-2 mt-2">
+                        <div id="selectedFiltersContainer" class="d-flex flex-wrap gap-1 mt-2"
+                            style="min-height: 35px;">
                             <!-- Dynamic filter tags will be injected here -->
                         </div>
                     </div>
@@ -148,90 +173,152 @@
                         <ul class="list-unstyled mb-0">
                             <!-- All Categories -->
                             <li class="mb-3">
-                                <a href="category.html?category=All%20Category" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
+                                <a href="category.html?category=All%20Category"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
                                     <span>All Category</span>
                                 </a>
                             </li>
                             <!-- For You -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, null)">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, null)">
                                     <span>For You</span>
                                 </a>
                             </li>
                             <!-- Category 1 -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, 'menuFashion')">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, 'menuFashion')">
                                     <span>Fashion & Lifestyle</span>
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
-                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuFashion" style="display: none;">
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">T-Shirts</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Shirts</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Jeans</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Watches</a></li>
+                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuFashion"
+                                    style="display: none;">
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">T-Shirts</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Shirts</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Jeans</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Watches</a></li>
                                 </ul>
                             </li>
                             <!-- Category 2 -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, 'menuElectronics')">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, 'menuElectronics')">
                                     <span>Electronics</span>
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
-                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuElectronics" style="display: none;">
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Mobiles</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Laptops</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Headphones</a></li>
+                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuElectronics"
+                                    style="display: none;">
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Mobiles</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Laptops</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Headphones</a></li>
                                 </ul>
                             </li>
                             <!-- Category 3 -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, 'menuHome')">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, 'menuHome')">
                                     <span>Home & Living</span>
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
-                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuHome" style="display: none;">
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Bed Sheets</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Curtains</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Kitchenware</a></li>
+                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuHome"
+                                    style="display: none;">
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Bed
+                                            Sheets</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Curtains</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Kitchenware</a></li>
                                 </ul>
                             </li>
                             <!-- Category 4 -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, 'menuKids')">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, 'menuKids')">
                                     <span>kids & Toys</span>
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
-                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuKids" style="display: none;">
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Soft Toys</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Board Games</a></li>
+                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuKids"
+                                    style="display: none;">
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Soft Toys</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Board Games</a></li>
                                 </ul>
                             </li>
                             <!-- Category 5 -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, 'menuPersonal')">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, 'menuPersonal')">
                                     <span>Personal Care</span>
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
-                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuPersonal" style="display: none;">
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Skincare</a></li>
-                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)" class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Cosmetics</a></li>
+                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuPersonal"
+                                    style="display: none;">
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Skincare</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Cosmetics</a></li>
                                 </ul>
                             </li>
                             <!-- Retail & Gifts -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, null)">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, null)">
                                     <span>Retail & Gifts</span>
                                 </a>
                             </li>
                             <!-- Animal & pet -->
                             <li class="mb-3">
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, null)">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, null)">
                                     <span>Animal & pet</span>
                                 </a>
                             </li>
                             <!-- Automobile -->
                             <li>
-                                <a href="javascript:void(0)" class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger" style="color: #4a5568; font-size: 0.9rem; font-weight: 500;" onclick="toggleCategoryMenu(event, null)">
+                                <a href="javascript:void(0)"
+                                    class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+                                    style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+                                    onclick="toggleCategoryMenu(event, null)">
                                     <span>Automobile</span>
                                 </a>
                             </li>
@@ -240,19 +327,28 @@
 
                     <!-- Price Filter Card -->
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
-                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Filter By Price</h5>
+                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Filter By
+                            Price</h5>
                         <div class="px-1">
                             <div class="range-slider-container">
                                 <div class="slider-track"></div>
-                                <input type="range" class="custom-range-slider" min="1" max="100000" step="1" value="1" id="priceRangeMin" oninput="updateMinRange(this.value)">
-                                <input type="range" class="custom-range-slider" min="1" max="100000" step="1" value="100000" id="priceRangeMax" oninput="updateMaxRange(this.value)">
+                                <input type="range" class="custom-range-slider" min="1" max="100000" step="1" value="1"
+                                    id="priceRangeMin" oninput="updateMinRange(this.value)">
+                                <input type="range" class="custom-range-slider" min="1" max="100000" step="1"
+                                    value="100000" id="priceRangeMax" oninput="updateMaxRange(this.value)">
                             </div>
                             <div class="d-flex align-items-center gap-2 mt-3">
-                                <div class="flex-fill border rounded px-3 py-2 text-center" style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
-                                    <input type="text" id="minPriceInput" value="1" readonly class="border-0 bg-transparent text-center fw-bold w-100" style="outline: none; color: #2d3748;">
+                                <div class="flex-fill border rounded px-3 py-2 text-center"
+                                    style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
+                                    <input type="text" id="minPriceInput" value="1" readonly
+                                        class="border-0 bg-transparent text-center fw-bold w-100"
+                                        style="outline: none; color: #2d3748;">
                                 </div>
-                                <div class="flex-fill border rounded px-3 py-2 text-center" style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
-                                    <input type="text" id="maxPriceInput" value="100000" readonly class="border-0 bg-transparent text-center fw-bold w-100" style="outline: none; color: #2d3748;">
+                                <div class="flex-fill border rounded px-3 py-2 text-center"
+                                    style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
+                                    <input type="text" id="maxPriceInput" value="100000" readonly
+                                        class="border-0 bg-transparent text-center fw-bold w-100"
+                                        style="outline: none; color: #2d3748;">
                                 </div>
                             </div>
                         </div>
@@ -260,46 +356,61 @@
 
                     <!-- Products Status Filter Card -->
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
-                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Products Status</h5>
+                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Products
+                            Status</h5>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusFeatured">
-                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusFeatured">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+                                id="statusFeatured">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+                                for="statusFeatured">
                                 Featured
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTodaysDeal">
-                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTodaysDeal">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+                                id="statusTodaysDeal">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+                                for="statusTodaysDeal">
                                 Today's Deal
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusOnSale">
-                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusOnSale">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+                                id="statusOnSale">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+                                for="statusOnSale">
                                 On Sale
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTopFaydaPoints">
-                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTopFaydaPoints">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+                                id="statusTopFaydaPoints">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+                                for="statusTopFaydaPoints">
                                 Top Fayda Points
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTopRefer">
-                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTopRefer">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+                                id="statusTopRefer">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+                                for="statusTopRefer">
                                 Top Refer
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusHotDeal">
-                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusHotDeal">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+                                id="statusHotDeal">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+                                for="statusHotDeal">
                                 Hot Deal
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTopSale">
-                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTopSale">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+                                id="statusTopSale">
+                            <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+                                for="statusTopSale">
                                 Top Sale
                             </label>
                         </div>
@@ -307,7 +418,8 @@
 
                     <!-- Customer Reviews Filter Card -->
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
-                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Customer Reviews</h5>
+                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Customer
+                            Reviews</h5>
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="radio" name="customerReview" id="review4">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review4">
@@ -336,51 +448,76 @@
                 </div>
 
                 <!-- Right Side Main Products Grid -->
-                <div class="col-md-9 custom-main-col">
-                    
+                <div class="col-md-9 custom-main-col" style="padding-top: 0 !important; margin-top: 0 !important;"><img
+                        src="assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png" id="categoryBannerImage"
+                        class="category-banner-img w-100 object-fit-cover rounded-3 mb-4"
+                        style="display: block !important; margin-top: 0 !important;"
+                        alt="Exclusive Savings Festival Banner">
+
                     <!-- Breadcrumbs aligned with sorting bar -->
-                    <div class="mb-3" id="breadcrumb-container" style="font-size: 0.82rem; font-family: 'Montserrat', sans-serif;">
+                    <div class="mb-3" id="breadcrumb-container"
+                        style="font-size: 0.82rem; font-family: 'Montserrat', sans-serif;">
                         <a href="index.html" class="text-decoration-none text-secondary">Home</a>
                         <span class="text-secondary mx-1">/</span>
-                        <a href="category.html?category=All%20Category" class="text-decoration-none text-secondary">Category</a>
+                        <a href="category.html?category=All%20Category"
+                            class="text-decoration-none text-secondary">Category</a>
                         <span class="text-secondary mx-1">/</span>
-                        <span class="text-secondary fw-semibold" id="breadcrumb-category" style="cursor: pointer;" onclick="updateCategoryUI(this.textContent)">Fashion & Lifestyle</span>
+                        <span class="text-secondary fw-semibold" id="breadcrumb-category" style="cursor: pointer;"
+                            onclick="updateCategoryUI(this.textContent)">Fashion & Lifestyle</span>
                         <span class="text-secondary mx-1 d-none" id="breadcrumb-separator">/</span>
                         <span class="text-secondary fw-semibold d-none" id="breadcrumb-subcategory"></span>
                     </div>
 
                     <!-- Sorting Bar (using Bootstrap nav-underline) -->
-                    <ul class="nav nav-underline border-bottom pb-2 mb-4 d-none d-md-flex align-items-center gap-4" style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">
+                    <ul class="nav nav-underline border-bottom pb-2 mb-4 d-none d-md-flex align-items-center gap-4"
+                        style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">
                         <li class="nav-item">
                             <span class="fw-semibold text-secondary me-2">Sort By</span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active p-0 pb-2 cursor-pointer" style="cursor: pointer;" onclick="setSortActive(this)">Most selling</a>
+                            <a class="nav-link active p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+                                onclick="setSortActive(this)">Most selling</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;" onclick="setSortActive(this)">Newest First</a>
+                            <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+                                onclick="setSortActive(this)">Newest First</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;" onclick="setSortActive(this)">Price Low to Hight</a>
+                            <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+                                onclick="setSortActive(this)">Price Low to Hight</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;" onclick="setSortActive(this)">Price High to Low</a>
+                            <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+                                onclick="setSortActive(this)">Price High to Low</a>
                         </li>
                     </ul>
 
                     <!-- Products Grid Container -->
-                    <div class="bg-white border rounded-3 p-3 shadow-sm" style="min-height: 600px; border-color: #eef2f5 !important;">
-                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2" id="productsGrid">
+                    <div class="bg-white border rounded-3 p-3 shadow-sm"
+                        style="min-height: 600px; border-color: #eef2f5 !important;">
+                        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2"
+                            id="productsGrid">
                             <!-- Products will be generated dynamically from assets/js/products-mock.js -->
                         </div>
 
                         <!-- Pagination (Mobile & Desktop) -->
-                        <div id="productPagination" class="d-flex justify-content-center align-items-center gap-2 mt-5 pb-3 w-100" style="font-family: 'Roboto', sans-serif; width: 100% !important;">
-                            <a href="javascript:void(0)" class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold" style="width: 36px; height: 36px; background-color: #0087F6; color: #fff; font-size: 0.95rem; flex-shrink: 0;">1</a>
-                            <a href="javascript:void(0)" class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold" style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">2</a>
-                            <a href="javascript:void(0)" class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold" style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">3</a>
-                            <a href="javascript:void(0)" class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold" style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">4</a>
-                            <a href="javascript:void(0)" class="text-decoration-none fw-bold ms-3" style="color: #4b70f5; font-size: 1rem; flex-shrink: 0;">Next</a>
+                        <div id="productPagination"
+                            class="d-flex justify-content-center align-items-center gap-2 mt-5 pb-3 w-100"
+                            style="font-family: 'Roboto', sans-serif; width: 100% !important;">
+                            <a href="javascript:void(0)"
+                                class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+                                style="width: 36px; height: 36px; background-color: #0087F6; color: #fff; font-size: 0.95rem; flex-shrink: 0;">1</a>
+                            <a href="javascript:void(0)"
+                                class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+                                style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">2</a>
+                            <a href="javascript:void(0)"
+                                class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+                                style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">3</a>
+                            <a href="javascript:void(0)"
+                                class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+                                style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">4</a>
+                            <a href="javascript:void(0)" class="text-decoration-none fw-bold ms-3"
+                                style="color: #4b70f5; font-size: 1rem; flex-shrink: 0;">Next</a>
                         </div>
                     </div>
 
@@ -392,7 +529,9 @@
     </div>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+    <div id="footer-placeholder">
+        <div class="skeleton-box skeleton-footer"></div>
+    </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -429,30 +568,30 @@
             if (typeof mockProducts !== 'undefined') {
                 filteredProductsList = [...mockProducts];
             }
-            
+
             // Render first page
             displayProducts();
-            
+
             // Initialize slider track gradient
             updateTrack();
         });
 
         function toggleCategoryMenu(e, menuId) {
             e.preventDefault();
-            
+
             // Extract category name
             const triggerSpan = e.currentTarget.querySelector('span');
             const categoryName = triggerSpan ? triggerSpan.textContent.trim() : "";
-            
+
             if (menuId) {
                 // Category HAS subcategories: Just toggle the submenu, DO NOT activate the category
                 const subMenus = document.querySelectorAll('.category-submenu');
-                
+
                 subMenus.forEach(menu => {
                     const parentLi = menu.closest('li');
                     const trigger = parentLi.querySelector('.category-menu-trigger');
                     const icon = trigger.querySelector('i');
-                    
+
                     if (menu.id === menuId) {
                         if (menu.style.display === 'none' || menu.style.display === '') {
                             menu.style.display = 'block';
@@ -486,13 +625,13 @@
 
         function handleTopCategoryClick(e, menuId, el) {
             e.preventDefault();
-            
+
             // Extract category name and update UI
             if (el) {
                 const categoryName = el.querySelector('.cat-icon-text').textContent.trim();
                 updateCategoryUI(categoryName);
             }
-            
+
             // Expand the sidebar if applicable
             if (menuId) {
                 const targetMenu = document.getElementById(menuId);
@@ -502,7 +641,7 @@
                         const parentLi = menu.closest('li');
                         const trigger = parentLi.querySelector('.category-menu-trigger');
                         const icon = trigger.querySelector('i');
-                        
+
                         if (menu.id === menuId) {
                             menu.style.display = 'block';
                             icon.classList.remove('fa-chevron-down');
@@ -515,9 +654,9 @@
                     });
                 }
             }
-            
+
             activateCategoryByMenuId(menuId);
-            
+
             // Allow clicked top category without menuId to just become active
             if (!menuId && el) {
                 document.querySelectorAll('.top-category-btn').forEach(btn => {
@@ -540,7 +679,7 @@
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             const pageProducts = filteredProductsList.slice(startIndex, endIndex);
-            
+
             renderProducts(pageProducts);
             renderPagination();
         }
@@ -549,7 +688,7 @@
             let starsHtml = '';
             const fullStars = Math.floor(rating);
             const hasHalfStar = rating % 1 !== 0;
-            
+
             for (let i = 1; i <= 5; i++) {
                 if (i <= fullStars) {
                     starsHtml += '<i class="fa-solid fa-star" style="color: #ffb800; font-size: 0.75rem; margin-right: 2px;"></i>';
@@ -580,7 +719,7 @@
                 `;
                 return;
             }
-            
+
             productsToRender.forEach(product => {
                 const col = document.createElement('div');
                 col.className = 'col';
@@ -641,9 +780,9 @@
         function renderPagination() {
             const paginationContainer = document.getElementById('productPagination');
             if (!paginationContainer) return;
-            
+
             const totalPages = Math.ceil(filteredProductsList.length / itemsPerPage);
-            
+
             if (totalPages <= 1) {
                 paginationContainer.style.setProperty('display', 'none', 'important');
                 return;
@@ -651,9 +790,9 @@
                 paginationContainer.style.display = 'flex';
                 paginationContainer.style.gap = '8px'; // Add gap between items
             }
-            
+
             paginationContainer.innerHTML = '';
-            
+
             // PREVIOUS Button
             const prevLink = document.createElement('a');
             prevLink.href = '#';
@@ -674,15 +813,15 @@
                 prevLink.style.pointerEvents = 'none';
             }
             paginationContainer.appendChild(prevLink);
-            
+
             // Calculate sliding window for page numbers (show up to 10 pages)
             let startPage = Math.max(1, currentPage - 4);
             let endPage = Math.min(totalPages, startPage + 9);
-            
+
             if (endPage - startPage < 9) {
                 startPage = Math.max(1, endPage - 9);
             }
-            
+
             // Page Numbers
             for (let i = startPage; i <= endPage; i++) {
                 const pageLink = document.createElement('a');
@@ -693,7 +832,7 @@
                 pageLink.style.fontSize = '0.95rem';
                 pageLink.style.flexShrink = '0';
                 pageLink.textContent = i;
-                
+
                 if (i === currentPage) {
                     pageLink.style.backgroundColor = '#4b70f5';
                     pageLink.style.color = '#fff';
@@ -701,17 +840,17 @@
                     pageLink.style.backgroundColor = 'transparent';
                     pageLink.style.color = '#1a1a1a';
                 }
-                
+
                 pageLink.addEventListener('click', function (e) {
                     e.preventDefault();
                     currentPage = i;
                     displayProducts();
                     window.scrollTo({ top: 300, behavior: 'smooth' });
                 });
-                
+
                 paginationContainer.appendChild(pageLink);
             }
-            
+
             // NEXT Button
             const nextLink = document.createElement('a');
             nextLink.href = '#';
@@ -752,13 +891,13 @@
         function filterProducts() {
             const minVal = parseInt(document.getElementById('priceRangeMin').value);
             const maxVal = parseInt(document.getElementById('priceRangeMax').value);
-            
+
             if (typeof mockProducts !== 'undefined') {
                 filteredProductsList = mockProducts.filter(product => {
                     return product.price >= minVal && product.price <= maxVal;
                 });
             }
-            
+
             currentPage = 1;
             displayProducts();
             if (typeof updateSelectedFilters === 'function') updateSelectedFilters();
@@ -769,7 +908,7 @@
             const minSlider = document.getElementById('priceRangeMin');
             const maxSlider = document.getElementById('priceRangeMax');
             const minInput = document.getElementById('minPriceInput');
-            
+
             if (parseInt(val) >= parseInt(maxSlider.value)) {
                 minSlider.value = parseInt(maxSlider.value) - 10;
                 val = minSlider.value;
@@ -784,7 +923,7 @@
             const minSlider = document.getElementById('priceRangeMin');
             const maxSlider = document.getElementById('priceRangeMax');
             const maxInput = document.getElementById('maxPriceInput');
-            
+
             if (parseInt(val) <= parseInt(minSlider.value)) {
                 maxSlider.value = parseInt(minSlider.value) + 10;
                 val = maxSlider.value;
@@ -807,7 +946,7 @@
 
         function updateCategoryUI(category, subcategory, fromProductStatus = false) {
             if (!category) return;
-            
+
             // Clear any subcategory highlights if we are resetting to main category level
             if (!subcategory) {
                 document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
@@ -821,13 +960,18 @@
                     radio.checked = false;
                 });
             }
-            
+
             const breadcrumbCategory = document.getElementById('breadcrumb-category');
             const breadcrumbSeparator = document.getElementById('breadcrumb-separator');
             const breadcrumbSubcategory = document.getElementById('breadcrumb-subcategory');
 
             if (breadcrumbCategory) {
-                breadcrumbCategory.textContent = category;
+                breadcrumbCategory.dataset.fullCategory = category;
+                let displayCat = category;
+                if (displayCat.length > 25 && displayCat.includes(' ')) {
+                    displayCat = displayCat.split(' ')[0] + '.....';
+                }
+                breadcrumbCategory.textContent = displayCat;
                 if (subcategory) {
                     breadcrumbCategory.classList.remove('fw-semibold', 'text-secondary');
                     breadcrumbCategory.style.color = '#0d8dfb'; // Highlight parent
@@ -836,7 +980,7 @@
                     breadcrumbCategory.style.color = '';
                 }
             }
-            
+
             if (breadcrumbSeparator && breadcrumbSubcategory) {
                 if (subcategory) {
                     breadcrumbSeparator.classList.remove('d-none');
@@ -867,7 +1011,7 @@
             if (bannerImg) {
                 bannerImg.src = bannerMap[category] || bannerMap['default'];
             }
-            
+
             // Highlight sidebar category text
             document.querySelectorAll('.category-menu-trigger span').forEach(span => {
                 if (span.textContent.trim() === category) {
@@ -878,7 +1022,7 @@
                     span.style.fontWeight = '500';
                 }
             });
-            
+
             if (category === 'All Category' && !subcategory) {
                 // Highlight All Category link
                 const allCatLink = document.querySelector('a[href*="All%20Category"]');
@@ -905,42 +1049,48 @@
             const container = document.getElementById('selectedFiltersContainer');
             if (!container) return;
             container.innerHTML = '';
-            
+
             let tags = [];
-            
+
             // Category
             const breadcrumbCategory = document.getElementById('breadcrumb-category');
             const breadcrumbSubcategory = document.getElementById('breadcrumb-subcategory');
-            let categoryName = breadcrumbCategory ? breadcrumbCategory.textContent.trim() : 'All Category';
+            let categoryName = breadcrumbCategory ? (breadcrumbCategory.dataset.fullCategory || breadcrumbCategory.textContent.trim()) : 'All Category';
             let subCategoryName = breadcrumbSubcategory && !breadcrumbSubcategory.classList.contains('d-none') ? breadcrumbSubcategory.textContent.trim() : '';
-            
+
             if (categoryName !== 'All Category') {
                 let name = subCategoryName ? subCategoryName : categoryName;
-                tags.push({text: name, onRemove: () => {
-                    updateCategoryUI('All Category', null);
-                }});
+                tags.push({
+                    text: name, onRemove: () => {
+                        updateCategoryUI('All Category', null);
+                    }
+                });
             }
 
             // Product Status
             const checkedStatus = document.querySelector('input[name="productStatus"]:checked');
             if (checkedStatus) {
                 const label = checkedStatus.nextElementSibling.textContent.trim();
-                tags.push({text: label, onRemove: () => {
-                    checkedStatus.checked = false;
-                    updateSelectedFilters();
-                }});
+                tags.push({
+                    text: label, onRemove: () => {
+                        checkedStatus.checked = false;
+                        updateSelectedFilters();
+                    }
+                });
             }
 
             // Customer Reviews
             const checkedReview = document.querySelector('input[name="customerReview"]:checked');
             if (checkedReview) {
                 const label = checkedReview.nextElementSibling.textContent.trim();
-                tags.push({text: label, onRemove: () => {
-                    checkedReview.checked = false;
-                    updateSelectedFilters();
-                }});
+                tags.push({
+                    text: label, onRemove: () => {
+                        checkedReview.checked = false;
+                        updateSelectedFilters();
+                    }
+                });
             }
-            
+
             // Price Range
             const minSlider = document.getElementById('priceRangeMin');
             const maxSlider = document.getElementById('priceRangeMax');
@@ -949,22 +1099,24 @@
             const absoluteMax = maxSlider ? parseInt(maxSlider.max) : 100000;
 
             if (minVal > 1 || maxVal < absoluteMax) {
-                tags.push({text: `₹${minVal} - ₹${maxVal}`, onRemove: () => {
-                    if (minSlider) minSlider.value = 1;
-                    if (maxSlider) maxSlider.value = absoluteMax;
-                    const minInput = document.getElementById('minPriceInput');
-                    const maxInput = document.getElementById('maxPriceInput');
-                    if (minInput) minInput.value = 1;
-                    if (maxInput) maxInput.value = absoluteMax;
-                    updateTrack();
-                    filterProducts();
-                }});
+                tags.push({
+                    text: `₹${minVal} - ₹${maxVal}`, onRemove: () => {
+                        if (minSlider) minSlider.value = 1;
+                        if (maxSlider) maxSlider.value = absoluteMax;
+                        const minInput = document.getElementById('minPriceInput');
+                        const maxInput = document.getElementById('maxPriceInput');
+                        if (minInput) minInput.value = 1;
+                        if (maxInput) maxInput.value = absoluteMax;
+                        updateTrack();
+                        filterProducts();
+                    }
+                });
             }
 
             // Update URL for filters
             const url = new URL(window.location);
             let urlChanged = false;
-            
+
             // Sync category
             if (categoryName !== 'All Category') {
                 if (url.searchParams.get('category') !== categoryName) {
@@ -1027,7 +1179,7 @@
                     urlChanged = true;
                 }
             }
-            
+
             if (urlChanged) {
                 window.history.replaceState({}, '', url);
             }
@@ -1035,51 +1187,52 @@
             // Display logic
             const maxVisible = 2;
             let displayTags = tags;
-            
+
             if (tags.length > maxVisible && !isFiltersExpanded) {
                 displayTags = tags.slice(0, maxVisible);
             }
-            
-            displayTags.forEach(t => {
-                const tag = document.createElement('div');
-                tag.className = 'bg-light border rounded px-2 py-1 d-flex align-items-center gap-2 mb-1';
-                tag.style.fontSize = '0.8rem';
-                tag.style.color = '#4a5568';
-                
-                const textSpan = document.createElement('span');
-                textSpan.textContent = t.text.replace('and up', '').trim();
-                
-                const closeBtn = document.createElement('i');
-                closeBtn.className = 'fas fa-times cursor-pointer';
-                closeBtn.style.cursor = 'pointer';
-                closeBtn.onclick = t.onRemove;
-                
-                tag.appendChild(textSpan);
-                tag.appendChild(closeBtn);
-                container.appendChild(tag);
-            });
-            
-            if (tags.length > maxVisible) {
-                const toggleBtn = document.createElement('a');
-                toggleBtn.href = "javascript:void(0)";
-                toggleBtn.className = "text-primary text-decoration-none d-block w-100 mt-1";
-                toggleBtn.style.fontSize = "0.8rem";
-                toggleBtn.style.fontWeight = "600";
-                toggleBtn.textContent = isFiltersExpanded ? "SHOW LESS" : "SHOW MORE";
-                toggleBtn.onclick = toggleFiltersExpand;
-                container.appendChild(toggleBtn);
-            }
-            
-            // Hide the card and clear button entirely if no tags
-            const card = document.getElementById('selectedFiltersCard');
-            const clearBtn = document.getElementById('clearAllFiltersBtn');
-            if (card) {
-                if (tags.length > 0) {
-                    card.classList.remove('d-none');
-                } else {
-                    card.classList.add('d-none');
+
+            if (tags.length === 0) {
+                const placeholder = document.createElement('span');
+                placeholder.textContent = 'No filters applied';
+                placeholder.className = 'text-muted';
+                placeholder.style.fontSize = '0.85rem';
+                placeholder.style.fontStyle = 'italic';
+                container.appendChild(placeholder);
+            } else {
+                displayTags.forEach(t => {
+                    const tag = document.createElement('div');
+                    tag.className = 'bg-light border rounded px-2 py-1 d-flex align-items-center gap-2 mb-1';
+                    tag.style.fontSize = '0.8rem';
+                    tag.style.color = '#4a5568';
+
+                    const textSpan = document.createElement('span');
+                    textSpan.textContent = t.text.replace('and up', '').trim();
+
+                    const closeBtn = document.createElement('i');
+                    closeBtn.className = 'fas fa-times cursor-pointer';
+                    closeBtn.style.cursor = 'pointer';
+                    closeBtn.onclick = t.onRemove;
+
+                    tag.appendChild(textSpan);
+                    tag.appendChild(closeBtn);
+                    container.appendChild(tag);
+                });
+
+                if (tags.length > maxVisible) {
+                    const toggleBtn = document.createElement('a');
+                    toggleBtn.href = "javascript:void(0)";
+                    toggleBtn.className = "text-primary text-decoration-none d-block w-100 mt-1";
+                    toggleBtn.style.fontSize = "0.8rem";
+                    toggleBtn.style.fontWeight = "600";
+                    toggleBtn.textContent = isFiltersExpanded ? "SHOW LESS" : "SHOW MORE";
+                    toggleBtn.onclick = toggleFiltersExpand;
+                    container.appendChild(toggleBtn);
                 }
             }
+
+            // Hide the clear button entirely if no tags
+            const clearBtn = document.getElementById('clearAllFiltersBtn');
             if (clearBtn) {
                 if (tags.length > 0) {
                     clearBtn.classList.remove('d-none');
@@ -1092,17 +1245,17 @@
         function clearAllFilters() {
             // Clear Category
             updateCategoryUI('All Category', null);
-            
+
             // Clear Product Status
             document.querySelectorAll('input[name="productStatus"]').forEach(radio => radio.checked = false);
-            
+
             // Clear Customer Reviews
             document.querySelectorAll('input[name="customerReview"]').forEach(radio => radio.checked = false);
-            
+
             // Clear Price Range
             const minSlider = document.getElementById('priceRangeMin');
             const maxSlider = document.getElementById('priceRangeMax');
-            if(minSlider && maxSlider) {
+            if (minSlider && maxSlider) {
                 minSlider.value = 1;
                 maxSlider.value = maxSlider.max;
                 document.getElementById('minPriceInput').value = 1;
@@ -1110,7 +1263,7 @@
                 updateTrack();
                 filterProducts();
             }
-            
+
             updateSelectedFilters();
         }
 
@@ -1127,11 +1280,11 @@
                         const trigger = parentMenu.closest('li').querySelector('.category-menu-trigger span');
                         if (trigger) parentCategory = trigger.textContent.trim();
                     }
-                    
+
                     // Highlight selected subcategory
                     document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
                     e.target.style.color = '#0d8dfb';
-                    
+
                     updateCategoryUI(parentCategory, subcat);
                 });
             });
@@ -1191,7 +1344,7 @@
 
             // Initialize Selected Filters
             updateSelectedFilters();
-            
+
             // Apply initial filtering on load
             filterProducts();
         });
