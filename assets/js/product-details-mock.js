@@ -1,7 +1,9 @@
 /* Product Details Mock Data */
 const productDetailsData = {
     product: {
-        subtitle: 'Personal Care Application',
+        subtitle: 'Fashion & Lifestyle',
+        category: 'Fashion & Lifestyle',
+        subcategory: 'T-Shirts',
         title: 'Digital Personal Body Weight Scale (1 Pc)',
         sku: '19517_digital_body_weight_scale_1pc_no2',
         status: 'Out of Stock',

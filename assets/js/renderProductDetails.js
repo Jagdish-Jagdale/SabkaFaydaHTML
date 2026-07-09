@@ -21,6 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const productInfoContainer = document.getElementById('product-info-container');
         if (productInfoContainer && productDetailsData.product) {
             const p = productDetailsData.product;
+            
+            // Dynamically update View All links
+            if (p.category) {
+                const viewAllLink = `category.html?category=${encodeURIComponent(p.category)}${p.subcategory ? '&subcategory=' + encodeURIComponent(p.subcategory) : ''}`;
+                const similarViewAll = document.getElementById('similar-products-view-all');
+                if (similarViewAll) similarViewAll.href = viewAllLink;
+                
+                const peoplesViewAll = document.getElementById('peoples-products-view-all');
+                if (peoplesViewAll) peoplesViewAll.href = viewAllLink;
+            }
+
             const stars = Array(Math.floor(p.rating)).fill('<i class="fas fa-star text-warning"></i>').join('');
             const halfStar = p.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt text-warning"></i>' : '';
             const emptyStars = Array(5 - Math.ceil(p.rating)).fill('<i class="far fa-star text-warning"></i>').join('');
@@ -275,11 +286,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
-                                <button class="btn btn-primary flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #0087F6; border: none;">
-                                    Add to Cart
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;">
+                                    <i class="fa-solid fa-cart-shopping" style="font-size: 0.8rem;"></i> Add to Cart
                                 </button>
-                                <button class="btn btn-warning flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #ffc107; border: none; color: #000;">
-                                    Buy Now
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                    <i class="fa-solid fa-bolt" style="font-size: 0.8rem;"></i> Buy Now
                                 </button>
                             </div>
                         </div>
@@ -335,11 +346,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
-                                <button class="btn btn-primary flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #0087F6; border: none;">
-                                    Add to Cart
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;">
+                                    <i class="fa-solid fa-cart-shopping" style="font-size: 0.8rem;"></i> Add to Cart
                                 </button>
-                                <button class="btn btn-warning flex-grow-1 py-1.5" style="font-size: 0.7rem; border-radius: 4px; background-color: #ffc107; border: none; color: #000;">
-                                    Buy Now
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                    <i class="fa-solid fa-bolt" style="font-size: 0.8rem;"></i> Buy Now
                                 </button>
                             </div>
                         </div>
