@@ -634,19 +634,19 @@
                 col.className = 'col';
                 col.innerHTML = `
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;" data-price="${product.price}">
-                        <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 90%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                        <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 90%; border-top-left-radius: 8px; border-top-right-radius: 8px; cursor: pointer;" onclick="window.location.href='product-details.html';">
                             <img src="${product.image}" alt="${product.name}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 95%; max-height: 95%; object-fit: contain;">
                             
                             <!-- Hover Actions Overlay -->
                             <div class="product-action-overlay position-absolute w-100 h-100 top-0 start-0" style="opacity: 0; transition: all 0.2s ease; z-index: 10; pointer-events: none;">
                                 <!-- Wishlist (Top Right) -->
-                                <button class="btn bg-transparent border-0 position-absolute" style="top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #dc3545; font-size: 1.25rem;" onclick="toggleWishlist(this, event)"><i class="fa-regular fa-heart"></i></button>
+                                <button class="btn bg-transparent border-0 position-absolute" style="top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #dc3545; font-size: 1.25rem;" onclick="event.stopPropagation(); toggleWishlist(this, event);"><i class="fa-regular fa-heart"></i></button>
                                 
                                 <!-- Share (Below Wishlist) -->
-                                <button class="btn bg-transparent border-0 position-absolute" style="top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #4a5568; font-size: 1.1rem;" onclick="event.stopPropagation();"><i class="fa-solid fa-share-nodes"></i></button>
+                                <button class="btn bg-transparent border-0 position-absolute" style="top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #4b70f5; font-size: 1.1rem;" onclick="event.stopPropagation();"><i class="fa-regular fa-paper-plane"></i></button>
                                 
                                 <!-- Cart & Buy Now (Bottom) -->
-                                <div class="position-absolute w-100 d-flex justify-content-between gap-1 px-2" style="bottom: 8px; pointer-events: auto;">
+                                <div class="position-absolute w-100 d-flex justify-content-between gap-1 px-2" style="bottom: 8px; pointer-events: auto;" onclick="event.stopPropagation();">
                                     <button class="btn btn-success btn-sm rounded-2 shadow-sm flex-grow-1" style="font-size: 0.7rem; padding: 0.25rem 0; font-weight: 600;"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
                                     <button class="btn btn-primary btn-sm rounded-2 shadow-sm text-white flex-grow-1" style="font-size: 0.7rem; padding: 0.25rem 0; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Buy</button>
                                 </div>

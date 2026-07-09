@@ -333,12 +333,15 @@ function renderHomePage(data) {
             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 product-card">
                     <div class="rounded-2 overflow-hidden mb-2">
-                        <div class="position-relative product-card-img-wrapper">
+                        <div class="position-relative product-card-img-wrapper" style="cursor: pointer;" onclick="window.location.href='product-details.html';">
                             <img src="${product.image}" class="w-100 h-100 object-fit-cover" alt="${product.title}" ${imgAttrs(50 + index)}>
-                            <button class="btn bg-transparent border-0 position-absolute opacity-0 product-wishlist-btn" style="top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s; color: #dc3545; font-size: 1.25rem; z-index: 5;">
+                            <button class="btn border-0 position-absolute opacity-0 product-wishlist-btn" style="background-color: transparent !important; top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: #dc3545; font-size: 1.25rem; z-index: 5;" onclick="event.stopPropagation();">
                                 <i class="far fa-heart"></i>
                             </button>
-                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
+                            <button class="btn border-0 position-absolute opacity-0 product-share-btn" style="background-color: transparent !important; top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: #4b70f5; font-size: 1.1rem; z-index: 5;" onclick="event.stopPropagation();">
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </button>
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;" onclick="event.stopPropagation();">
                                 ${addToCartBtn}
                                 <button class="btn btn-primary flex-grow-1 py-2 d-flex align-items-center justify-content-center fw-bold" style="font-size: 0.7rem; border-radius: 4px; border: none; color: #ffffff;">
                                     <i class="fas fa-bolt me-1"></i> Buy Now
@@ -351,7 +354,7 @@ function renderHomePage(data) {
                             <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #FBEED5; flex: 1;">Earn 67</span>
                         </div>
                     </div>
-                    <div class="px-1 pb-1">
+                    <div class="px-1 pb-1" style="cursor: pointer;" onclick="window.location.href='product-details.html';">
                         <div class="d-flex align-items-center mb-1 text-truncate">
                             <span class="fw-bold text-dark me-2 product-card-title">${product.title}</span>
                             <span class="text-secondary text-truncate product-card-desc">${product.desc}</span>
