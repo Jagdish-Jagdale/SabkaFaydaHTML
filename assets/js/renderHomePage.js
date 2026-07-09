@@ -16,6 +16,53 @@ function renderHomePage(data) {
         return index < 10 ? 'loading="eager" fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
     }
 
+    // Add responsive styling for horizontal scroll cards
+    if (!document.getElementById('horizontal-scroll-card-styles')) {
+        const style = document.createElement('style');
+        style.id = 'horizontal-scroll-card-styles';
+        style.innerHTML = `
+            .horizontal-scroll-card {
+                width: 220px;
+            }
+            .horizontal-scroll-card-electronics {
+                width: 200px;
+            }
+            @media (max-width: 767px) {
+                .horizontal-scroll-card, .horizontal-scroll-card-electronics {
+                    width: 155px;
+                }
+                .horizontal-scroll-card .card-img-container {
+                    height: 100px !important;
+                }
+                .horizontal-scroll-card .card-title-text {
+                    font-size: 0.75rem !important;
+                }
+                .horizontal-scroll-card .card-price-text {
+                    font-size: 0.85rem !important;
+                }
+                .horizontal-scroll-card .card-old-price-text {
+                    font-size: 0.65rem !important;
+                }
+                .horizontal-scroll-card .card-upi-text {
+                    font-size: 0.6rem !important;
+                }
+                .horizontal-scroll-card .card-discount-text {
+                    font-size: 0.7rem !important;
+                    padding-top: 2px !important;
+                    padding-bottom: 2px !important;
+                }
+                .on-sale-card-img {
+                    height: 120px !important;
+                }
+                .on-sale-card-title {
+                    font-size: 0.8rem !important;
+                    padding: 8px !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     function heroSection() {
         const slides = data.heroSlides.map((slide, index) => `
             <div class="carousel-item ${index === 0 ? 'active' : ''}">
@@ -148,7 +195,7 @@ function renderHomePage(data) {
                             </button>
                             <div class="d-grid gap-3 overflow-auto hide-scroll electronics-scroll-container pb-2" style="grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; scroll-behavior: smooth;">
                                 ${section.items.map((item, index) => `
-                                    <div class="flex-shrink-0" style="width: 200px;">
+                                    <div class="flex-shrink-0 horizontal-scroll-card-electronics">
                                         ${smallCardTemplate(item, sectionIndex, index)}
                                     </div>
                                 `).join('')}
@@ -168,17 +215,17 @@ function renderHomePage(data) {
         return `
             <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background-color: #0087F6;">
                 <div class="p-2 flex-grow-1">
-                    <div class="bg-white rounded-2 mb-2 w-100 d-flex align-items-center justify-content-center overflow-hidden" style="height: 125px;">
+                    <div class="bg-white rounded-2 mb-2 w-100 d-flex align-items-center justify-content-center overflow-hidden card-img-container" style="height: 125px;">
                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.title}" ${imgAttrs(20 + sectionIndex * 10 + index)}>
                     </div>
-                    <div class="text-white fw-bold text-truncate mb-1" style="font-size: 0.85rem;">${item.title}</div>
-                    <div class="d-flex align-items-baseline mb-1">
-                        <span class="text-white-50 text-decoration-line-through fw-normal me-2" style="font-size: 0.75rem;">${oldPrice}</span>
-                        <span class="text-white fw-bold" style="font-size: 0.95rem;">Rs ${price}</span>
+                    <div class="text-white fw-bold text-truncate mb-1 card-title-text" style="font-size: 0.85rem;">${item.title}</div>
+                    <div class="d-flex align-items-baseline mb-1 flex-wrap">
+                        <span class="text-white-50 text-decoration-line-through fw-normal me-2 card-old-price-text" style="font-size: 0.75rem;">${oldPrice}</span>
+                        <span class="text-white fw-bold card-price-text" style="font-size: 0.95rem;">Rs ${price}</span>
                     </div>
-                    <div class="text-white fw-medium" style="font-size: 0.7rem;">Rs ${upiOffer} with UPI offer</div>
+                    <div class="text-white fw-medium card-upi-text" style="font-size: 0.7rem;">Rs ${upiOffer} with UPI offer</div>
                 </div>
-                <div class="text-dark fw-bold text-center py-1 w-100 mt-auto" style="font-size: 0.8rem; background: linear-gradient(to bottom, #ffffff, #e0e0e0);">
+                <div class="text-dark fw-bold text-center py-1 w-100 mt-auto card-discount-text" style="font-size: 0.8rem; background: linear-gradient(to bottom, #ffffff, #e0e0e0);">
                     Up to ${discount} % off
                 </div>
             </a>
@@ -205,7 +252,7 @@ function renderHomePage(data) {
                     </button>
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="small-scroll-${sectionIndex}" style="scroll-behavior: smooth;">
                         ${section.items.map((item, index) => `
-                            <div class="flex-shrink-0" style="width: 220px;">
+                            <div class="flex-shrink-0 horizontal-scroll-card">
                                 ${smallCardTemplate(item, sectionIndex, index)}
                             </div>
                         `).join('')}
@@ -235,7 +282,7 @@ function renderHomePage(data) {
                     </button>
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="featured-scroll-${sectionIndex}" style="scroll-behavior: smooth;">
                         ${section.items.map((item, index) => `
-                            <div class="flex-shrink-0" style="width: 220px;">
+                            <div class="flex-shrink-0 horizontal-scroll-card">
                                 ${smallCardTemplate(item, sectionIndex, index)}
                             </div>
                         `).join('')}
@@ -293,11 +340,11 @@ function renderHomePage(data) {
                     </button>
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="sale-scroll" style="scroll-behavior: smooth;">
                         ${data.productGrid.map((item, index) => `
-                            <div class="flex-shrink-0" style="width: 220px;">
+                            <div class="flex-shrink-0 horizontal-scroll-card">
                                 <a href="#" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                    <img src="${item.image}" class="w-100 object-fit-cover" alt="${item.title}" style="height: 180px;" ${imgAttrs(50 + index)}>
-                                    <div class="text-center text-white fw-bold p-3" style="background: linear-gradient(180deg, #05970E 0%, #56DF5F 100%);">
-                                        <div>${item.title}</div>
+                                    <img src="${item.image}" class="w-100 object-fit-cover on-sale-card-img" alt="${item.title}" style="height: 180px;" ${imgAttrs(50 + index)}>
+                                    <div class="text-center text-white fw-bold p-3 on-sale-card-title" style="background: linear-gradient(180deg, #05970E 0%, #56DF5F 100%);">
+                                        <div class="text-truncate">${item.title}</div>
                                         <small class="fw-medium">Sale</small>
                                     </div>
                                 </a>
@@ -412,8 +459,13 @@ function renderHomePage(data) {
         
         if (container && leftBtn && rightBtn) {
             const updateButtons = () => {
-                leftBtn.style.display = container.scrollLeft > 0 ? 'block' : 'none';
-                rightBtn.style.display = container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none';
+                if (window.innerWidth < 768) {
+                    leftBtn.style.display = 'none';
+                    rightBtn.style.display = 'none';
+                } else {
+                    leftBtn.style.display = container.scrollLeft > 0 ? 'block' : 'none';
+                    rightBtn.style.display = container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none';
+                }
             };
             
             leftBtn.addEventListener('click', () => {
@@ -435,8 +487,13 @@ function renderHomePage(data) {
                 const rightBtn = document.querySelector(`[data-target="${containerId}"].${rightBtnClass}`);
                 if(container && rightBtn) {
                     const update = () => {
-                        btn.style.display = container.scrollLeft > 0 ? 'block' : 'none';
-                        rightBtn.style.display = container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none';
+                        if (window.innerWidth < 768) {
+                            btn.style.display = 'none';
+                            rightBtn.style.display = 'none';
+                        } else {
+                            btn.style.display = container.scrollLeft > 0 ? 'block' : 'none';
+                            rightBtn.style.display = container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none';
+                        }
                     };
                     btn.onclick = () => container.scrollBy({ left: -240, behavior: 'smooth' });
                     rightBtn.onclick = () => container.scrollBy({ left: 240, behavior: 'smooth' });
