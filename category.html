@@ -642,6 +642,9 @@
                                 <!-- Wishlist (Top Right) -->
                                 <button class="btn bg-transparent border-0 position-absolute" style="top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #dc3545; font-size: 1.25rem;" onclick="toggleWishlist(this, event)"><i class="fa-regular fa-heart"></i></button>
                                 
+                                <!-- Share (Below Wishlist) -->
+                                <button class="btn bg-transparent border-0 position-absolute" style="top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #4a5568; font-size: 1.1rem;" onclick="event.stopPropagation();"><i class="fa-solid fa-share-nodes"></i></button>
+                                
                                 <!-- Cart & Buy Now (Bottom) -->
                                 <div class="position-absolute w-100 d-flex justify-content-between gap-1 px-2" style="bottom: 8px; pointer-events: auto;">
                                     <button class="btn btn-success btn-sm rounded-2 shadow-sm flex-grow-1" style="font-size: 0.7rem; padding: 0.25rem 0; font-weight: 600;"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
@@ -961,7 +964,7 @@
             let subCategoryName = breadcrumbSubcategory && !breadcrumbSubcategory.classList.contains('d-none') ? breadcrumbSubcategory.textContent.trim() : '';
             
             if (categoryName !== 'All Category') {
-                let name = subCategoryName ? `${categoryName} > ${subCategoryName}` : categoryName;
+                let name = subCategoryName ? subCategoryName : categoryName;
                 tags.push({text: name, onRemove: () => {
                     updateCategoryUI('All Category', null);
                 }});

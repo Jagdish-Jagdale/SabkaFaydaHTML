@@ -12,15 +12,15 @@ const homePageMockData = {
         }
     ],
     categories: [
-        { title: 'For You', image: 'assets/img/f6a3531d25c91b762c556b205d1ab4311e7f1cad.png', link: 'category.html' },
-        { title: 'Fashion & Lifestyle', image: 'assets/img/17d9cf86f77963084917e236b3476c79d44da9d4.png', link: '#' },
-        { title: 'Electronics', image: 'assets/img/5a9a7882b4ce8bd4d6ec186cabbd89c39873031d.png', link: '#' },
-        { title: 'Home & Living', image: 'assets/img/49518ef2fad5561a0a3ecc6464a6e66adb806089.png', link: '#' },
-        { title: 'kids & Toys', image: 'assets/img/3f1343f9b0707ada3f4ffd9192cf53dab12b7984.png', link: '#' },
-        { title: 'Personal Care', image: 'assets/img/4fb99229018727c624d87bcca8e826f53a077ad8.png', link: '#', className: 'd-none d-md-flex' },
-        { title: 'Retail & Gifts', image: 'assets/img/b84f8d1c8308b81255dc347d4561545b0c03f019.png', link: '#', className: 'd-none d-md-flex' },
-        { title: 'Animal & pet', image: 'assets/img/63e1ee7740ba6f820ad1907f5613d6e4b29fec86.png', link: '#', className: 'd-none d-lg-flex' },
-        { title: 'Automobile', image: 'assets/img/c1632a7344a0e80972ea60a118230e4f012c2900.png', link: '#', className: 'd-none d-lg-flex' }
+        { title: 'For You', image: 'assets/img/f6a3531d25c91b762c556b205d1ab4311e7f1cad.png', link: 'category.html?category=For%20You' },
+        { title: 'Fashion & Lifestyle', image: 'assets/img/17d9cf86f77963084917e236b3476c79d44da9d4.png', link: 'category.html?category=Fashion%20%26%20Lifestyle' },
+        { title: 'Electronics', image: 'assets/img/5a9a7882b4ce8bd4d6ec186cabbd89c39873031d.png', link: 'category.html?category=Electronics' },
+        { title: 'Home & Living', image: 'assets/img/49518ef2fad5561a0a3ecc6464a6e66adb806089.png', link: 'category.html?category=Home%20%26%20Living' },
+        { title: 'kids & Toys', image: 'assets/img/3f1343f9b0707ada3f4ffd9192cf53dab12b7984.png', link: 'category.html?category=kids%20%26%20Toys' },
+        { title: 'Personal Care', image: 'assets/img/4fb99229018727c624d87bcca8e826f53a077ad8.png', link: 'category.html?category=Personal%20Care', className: 'd-none d-md-flex' },
+        { title: 'Retail & Gifts', image: 'assets/img/b84f8d1c8308b81255dc347d4561545b0c03f019.png', link: 'category.html?category=Retail%20%26%20Gifts', className: 'd-none d-md-flex' },
+        { title: 'Animal & pet', image: 'assets/img/63e1ee7740ba6f820ad1907f5613d6e4b29fec86.png', link: 'category.html?category=Animal%20%26%20pet', className: 'd-none d-lg-flex' },
+        { title: 'Automobile', image: 'assets/img/c1632a7344a0e80972ea60a118230e4f012c2900.png', link: 'category.html?category=Automobile', className: 'd-none d-lg-flex' }
     ],
     keepShopping: {
         title: 'keep Shopping User Name',
