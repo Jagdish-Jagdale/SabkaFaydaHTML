@@ -545,54 +545,6 @@
             renderPagination();
         }
 
-        function toggleWishlist(btn, event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const icon = btn.querySelector('i');
-            if (icon.classList.contains('fa-regular')) {
-                icon.classList.remove('fa-regular');
-                icon.classList.add('fa-solid');
-                btn.classList.add('wishlist-animating');
-                setTimeout(() => btn.classList.remove('wishlist-animating'), 300);
-                
-                showWishlistToast('added');
-            } else {
-                icon.classList.remove('fa-solid');
-                icon.classList.add('fa-regular');
-                
-                showWishlistToast('removed');
-            }
-        }
-        
-        function showWishlistToast(action) {
-            const toast = document.getElementById('wishlistToast');
-            if (!toast) return;
-            
-            const toastContent = toast.querySelector('div');
-            if (action === 'added') {
-                toastContent.className = 'bg-danger text-white px-4 py-2 rounded-pill shadow-lg d-flex align-items-center';
-                toastContent.innerHTML = '<i class="fa-solid fa-heart me-2"></i> Product added to wishlist';
-            } else {
-                toastContent.className = 'bg-secondary text-white px-4 py-2 rounded-pill shadow-lg d-flex align-items-center';
-                toastContent.innerHTML = '<i class="fa-regular fa-heart me-2"></i> Product removed from wishlist';
-            }
-            
-            toast.style.visibility = 'visible';
-            toast.style.opacity = '1';
-            toast.style.transform = 'translateY(0)';
-            
-            // Clear any existing timeout so they don't overlap if clicked quickly
-            if (window.wishlistToastTimeout) {
-                clearTimeout(window.wishlistToastTimeout);
-            }
-            
-            window.wishlistToastTimeout = setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transform = 'translateY(-20px)';
-                setTimeout(() => { toast.style.visibility = 'hidden'; }, 300);
-            }, 2500);
-        }
-
         function generateStarsHtml(rating) {
             let starsHtml = '';
             const fullStars = Math.floor(rating);
@@ -634,13 +586,12 @@
                 col.className = 'col';
                 col.innerHTML = `
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;" data-price="${product.price}">
-                        <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 90%; border-top-left-radius: 8px; border-top-right-radius: 8px; cursor: pointer;" onclick="window.location.href='product-details.html';">
+                        <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 90%; border-top-left-radius: 8px; border-top-right-radius: 8px; cursor: pointer;" onclick="if(!event.target.closest('.btn')){ window.location.href='product-details.html'; }">
                             <img src="${product.image}" alt="${product.name}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 95%; max-height: 95%; object-fit: contain;">
                             
-                            <!-- Hover Actions Overlay -->
                             <div class="product-action-overlay position-absolute w-100 h-100 top-0 start-0" style="opacity: 0; transition: all 0.2s ease; z-index: 10; pointer-events: none;">
                                 <!-- Wishlist (Top Right) -->
-                                <button class="btn bg-transparent border-0 position-absolute" style="top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #dc3545; font-size: 1.25rem;" onclick="event.stopPropagation(); toggleWishlist(this, event);"><i class="fa-regular fa-heart"></i></button>
+                                <button class="btn border-0 position-absolute product-wishlist-btn" style="background-color: transparent !important; top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #dc3545; font-size: 1.25rem;"><i class="fa-regular fa-heart"></i></button>
                                 
                                 <!-- Share (Below Wishlist) -->
                                 <button class="btn bg-transparent border-0 position-absolute" style="top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; color: #4b70f5; font-size: 1.1rem;" onclick="event.stopPropagation();"><i class="fa-regular fa-paper-plane"></i></button>
@@ -1245,13 +1196,6 @@
             filterProducts();
         });
     </script>
-    
-    <!-- Wishlist Toast Notification -->
-    <div id="wishlistToast" class="position-fixed top-0 end-0 mt-5 me-4" style="z-index: 1060; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, transform 0.3s ease; transform: translateY(-20px);">
-        <div class="bg-danger text-white px-4 py-2 rounded-pill shadow-lg d-flex align-items-center" style="font-size: 0.9rem; font-weight: 600;">
-            <i class="fa-solid fa-heart me-2"></i> Product added to wishlist
-        </div>
-    </div>
 </body>
 
 </html>

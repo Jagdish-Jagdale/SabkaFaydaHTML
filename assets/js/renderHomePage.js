@@ -333,9 +333,9 @@ function renderHomePage(data) {
             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 product-card">
                     <div class="rounded-2 overflow-hidden mb-2">
-                        <div class="position-relative product-card-img-wrapper" style="cursor: pointer;" onclick="window.location.href='product-details.html';">
+                        <div class="position-relative product-card-img-wrapper" style="cursor: pointer;" onclick="if(!event.target.closest('.btn')){ window.location.href='product-details.html'; }">
                             <img src="${product.image}" class="w-100 h-100 object-fit-cover" alt="${product.title}" ${imgAttrs(50 + index)}>
-                            <button class="btn border-0 position-absolute opacity-0 product-wishlist-btn" style="background-color: transparent !important; top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: #dc3545; font-size: 1.25rem; z-index: 5;" onclick="event.stopPropagation();">
+                            <button class="btn border-0 position-absolute opacity-0 product-wishlist-btn" style="background-color: transparent !important; top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: #dc3545; font-size: 1.25rem; z-index: 5;">
                                 <i class="far fa-heart"></i>
                             </button>
                             <button class="btn border-0 position-absolute opacity-0 product-share-btn" style="background-color: transparent !important; top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: #4b70f5; font-size: 1.1rem; z-index: 5;" onclick="event.stopPropagation();">
