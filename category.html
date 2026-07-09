@@ -87,6 +87,10 @@
         #categoriesBarContainer {
             display: none !important;
         }
+
+        .category-banner-img {
+            max-height: 180px;
+        }
     </style>
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
@@ -102,7 +106,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content" style="padding-top: 115px; min-height: 100vh;">
+    <div class="main-content" style="padding-top: 140px; min-height: 100vh;">
 
 
         <!-- Mobile Filters (Category, Sort By) -->
@@ -152,7 +156,7 @@
                         style="display: block !important; margin-top: 0 !important;" alt="Small Category Banner">
 
                     <!-- Selected Filters Card -->
-                    <div class="bg-white border rounded-3 py-2 px-3 mb-3 shadow-sm"
+                    <div class="bg-white border rounded-3 py-3 px-4 mb-3 shadow-sm"
                         style="border-color: #e2e8f0 !important;" id="selectedFiltersCard">
                         <div class="d-flex justify-content-between align-items-center">
                             <h6 class="fw-bold text-dark mb-0"
@@ -184,9 +188,19 @@
                                 <a href="javascript:void(0)"
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
-                                    onclick="toggleCategoryMenu(event, null)">
+                                    onclick="toggleCategoryMenu(event, 'menuForYou')">
                                     <span>For You</span>
+                                    <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
                                 </a>
+                                <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuForYou"
+                                    style="display: none;">
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Best seller</a></li>
+                                    <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+                                            class="text-decoration-none"
+                                            style="color: #718096; font-size: 0.85rem;">Under 50 Rs</a></li>
+                                </ul>
                             </li>
                             <!-- Category 1 -->
                             <li class="mb-3">
@@ -623,6 +637,24 @@
             }
         }
 
+        function closeAllCategoryMenus() {
+            const subMenus = document.querySelectorAll('.category-submenu');
+            subMenus.forEach(menu => {
+                menu.style.display = 'none';
+                const parentLi = menu.closest('li');
+                if (parentLi) {
+                    const trigger = parentLi.querySelector('.category-menu-trigger');
+                    if (trigger) {
+                        const icon = trigger.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    }
+                }
+            });
+        }
+
         function handleTopCategoryClick(e, menuId, el) {
             e.preventDefault();
 
@@ -1014,7 +1046,7 @@
 
             // Highlight sidebar category text
             document.querySelectorAll('.category-menu-trigger span').forEach(span => {
-                if (span.textContent.trim() === category) {
+                if (!fromProductStatus && span.textContent.trim() === category) {
                     span.style.color = '#0d8dfb';
                     span.style.fontWeight = '700';
                 } else {
@@ -1023,14 +1055,17 @@
                 }
             });
 
-            if (category === 'All Category' && !subcategory) {
-                // Highlight All Category link
-                const allCatLink = document.querySelector('a[href*="All%20Category"]');
-                if (allCatLink) {
-                    const span = allCatLink.querySelector('span');
-                    if (span) {
+            // Handle All Category link highlight separately
+            const allCatLink = document.querySelector('a[href*="All%20Category"]');
+            if (allCatLink) {
+                const span = allCatLink.querySelector('span');
+                if (span) {
+                    if (!fromProductStatus && category === 'All Category' && !subcategory) {
                         span.style.color = '#0d8dfb';
                         span.style.fontWeight = '700';
+                    } else {
+                        span.style.color = '#4a5568';
+                        span.style.fontWeight = '500';
                     }
                 }
             }
@@ -1058,6 +1093,19 @@
             let categoryName = breadcrumbCategory ? (breadcrumbCategory.dataset.fullCategory || breadcrumbCategory.textContent.trim()) : 'All Category';
             let subCategoryName = breadcrumbSubcategory && !breadcrumbSubcategory.classList.contains('d-none') ? breadcrumbSubcategory.textContent.trim() : '';
 
+            // If no category and no product status, highlight 'All Category'
+            const isProductStatusChecked = document.querySelector('input[name="productStatus"]:checked');
+            if (categoryName === 'All Category' && !isProductStatusChecked) {
+                const allCatLink = document.querySelector('a[href*="All%20Category"]');
+                if (allCatLink) {
+                    const span = allCatLink.querySelector('span');
+                    if (span) {
+                        span.style.color = '#0d8dfb';
+                        span.style.fontWeight = '700';
+                    }
+                }
+            }
+
             if (categoryName !== 'All Category') {
                 let name = subCategoryName ? subCategoryName : categoryName;
                 tags.push({
@@ -1075,6 +1123,7 @@
                     text: label, onRemove: () => {
                         checkedStatus.checked = false;
                         updateSelectedFilters();
+                        filterProducts();
                     }
                 });
             }
@@ -1087,6 +1136,7 @@
                     text: label, onRemove: () => {
                         checkedReview.checked = false;
                         updateSelectedFilters();
+                        filterProducts();
                     }
                 });
             }
@@ -1324,13 +1374,15 @@
                 updateTrack();
             }
 
-            // When product status is chosen, unchoose category (set to 'All Category')
+            // When product status is chosen
             document.querySelectorAll('input[name="productStatus"]').forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     if (e.target.checked) {
+                        closeAllCategoryMenus();
                         updateCategoryUI('All Category', null, true);
                     }
                     updateSelectedFilters();
+                    filterProducts();
                 });
             });
 

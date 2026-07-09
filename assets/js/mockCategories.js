@@ -12,15 +12,15 @@ const mockCategories = {
         { name: "Lifestyle & Fashion", value: "Lifestyle & Fashion" }
     ],
     barCategories: [
-        { name: "Best sellers", link: "#" },
-        { name: "Featured Products", link: "#" },
-        { name: "Under 50 Rs", link: "#" },
+        { name: "Best sellers", link: "category.html?category=For%20You&subcategory=Best%20seller" },
+        { name: "Featured Products", link: "category.html?status=Featured" },
+        { name: "Under 50 Rs", link: "category.html?category=For%20You&subcategory=Under%2050%20Rs" },
         { name: "Electronics", link: "#" },
         { name: "Beauty & Personal Care", link: "#" },
         { name: "Gifts", link: "#" },
         { name: "Car & Bikes", link: "#" },
         { name: "Toys and Games", link: "#" },
-        { name: "Download App", link: "#" }
+        { name: "Download App", link: "https://play.google.com/store/apps/details?id=com.sabkafayda.app" }
     ],
     cascadingData: {
         'Best sellers': [
