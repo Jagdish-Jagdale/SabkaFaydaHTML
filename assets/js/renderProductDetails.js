@@ -1,5 +1,21 @@
 /* Render Product Details Page */
 document.addEventListener("DOMContentLoaded", function () {
+    function generateCardStarsHtml(rating) {
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 !== 0;
+        let html = '';
+        for (let i = 0; i < 5; i++) {
+            if (i < fullStars) {
+                html += '<i class="fas fa-star" style="color: #ffc107; font-size: 0.85rem;"></i>';
+            } else if (i === fullStars && hasHalfStar) {
+                html += '<i class="fas fa-star-half-alt" style="color: #ffc107; font-size: 0.85rem;"></i>';
+            } else {
+                html += '<i class="far fa-star" style="color: #ffc107; font-size: 0.85rem;"></i>';
+            }
+        }
+        return html;
+    }
+
     // Render Product Info
     function renderProductInfo() {
         const productInfoContainer = document.getElementById('product-info-container');
@@ -267,23 +283,34 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                         </div>
-                        <div class="card-body p-2 p-sm-3 d-flex flex-column justify-content-between flex-grow-1">
+                        <a href="product-details.html" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
                             <div>
-                                <div class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.7rem; letter-spacing: 0.5px;">${product.sponsored ? 'Sponsored' : ''}</div>
-                                <h6 class="product-name text-dark mb-2" style="font-size: 0.82rem; font-weight: 500; line-height: 1.4; height: 3.6em; overflow: hidden;">${product.title}</h6>
-                                <div class="d-flex flex-wrap gap-1 mb-2">
-                                    <span class="custom-badge badge-rating">${product.rating} <i class="fas fa-star"></i> (${product.reviews})</span>
-                                    <span class="custom-badge badge-refer">Refer ${product.refer}</span>
-                                    <span class="custom-badge badge-earn">Earn ${product.earn}</span>
+                                <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
+                                    <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer !== undefined ? product.refer : 12}</span>
+                                    <span class="custom-badge badge-earn" style="font-size: 0.65rem; padding: 2px 6px;">Earn ${product.earn !== undefined ? product.earn : 48}</span>
+                                </div>
+                                
+                                <h6 class="product-name text-dark mb-2" style="font-size: 0.9rem; font-weight: 500; line-height: 1.3; height: 2.6em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${product.title}</h6>
+                                
+                                <div class="d-flex align-items-center mb-1 text-nowrap overflow-hidden" ${product.reviews === 0 ? 'style="visibility: hidden;"' : ''}>
+                                    <div class="d-flex align-items-center me-1">
+                                        ${generateCardStarsHtml(product.rating !== undefined ? product.rating : 4.5)}
+                                    </div>
+                                    <span class="text-muted text-truncate" style="font-size: 0.7rem; font-weight: 500;">(${product.reviews !== undefined ? product.reviews : 312} Reviews)</span>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center flex-wrap gap-2 mt-2">
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">₹${product.originalPrice}</span>
-                                <span class="text-dark fw-bold" style="font-size: 0.95rem;">₹${product.price}</span>
-                                <div class="w-100"></div>
-                                <span class="text-primary fw-semibold" style="font-size: 0.72rem;">${product.offer}</span>
+                            
+                            <div class="mt-auto pt-1">
+                                <div class="d-flex align-items-baseline flex-nowrap gap-2 mb-1 overflow-hidden">
+                                    <span class="text-muted text-decoration-line-through text-truncate" style="font-size: 0.85rem; max-width: 35%;">₹${product.originalPrice || 600}</span>
+                                    <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹${product.price}</span>
+                                    <span class="text-success fw-semibold text-truncate" style="font-size: 0.8rem;">${product.offer || '68 % Off'}</span>
+                                </div>
+                                <div class="text-success fw-semibold" style="font-size: 0.75rem;">
+                                    Rs ${product.price} with UPI offer
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             `).join('');
@@ -316,23 +343,34 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                         </div>
-                        <div class="card-body p-2 p-sm-3 d-flex flex-column justify-content-between flex-grow-1">
+                        <a href="product-details.html" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
                             <div>
-                                <div class="text-muted text-uppercase fw-bold mb-1" style="font-size: 0.7rem; letter-spacing: 0.5px;">${product.sponsored ? 'Sponsored' : ''}</div>
-                                <h6 class="product-name text-dark mb-2" style="font-size: 0.82rem; font-weight: 500; line-height: 1.4; height: 3.6em; overflow: hidden;">${product.title}</h6>
-                                <div class="d-flex flex-wrap gap-1 mb-2">
-                                    <span class="custom-badge badge-rating">${product.rating} <i class="fas fa-star"></i> (${product.reviews})</span>
-                                    <span class="custom-badge badge-refer">Refer ${product.refer}</span>
-                                    <span class="custom-badge badge-earn">Earn ${product.earn}</span>
+                                <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
+                                    <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer !== undefined ? product.refer : 12}</span>
+                                    <span class="custom-badge badge-earn" style="font-size: 0.65rem; padding: 2px 6px;">Earn ${product.earn !== undefined ? product.earn : 48}</span>
+                                </div>
+                                
+                                <h6 class="product-name text-dark mb-2" style="font-size: 0.9rem; font-weight: 500; line-height: 1.3; height: 2.6em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${product.title}</h6>
+                                
+                                <div class="d-flex align-items-center mb-1 text-nowrap overflow-hidden" ${product.reviews === 0 ? 'style="visibility: hidden;"' : ''}>
+                                    <div class="d-flex align-items-center me-1">
+                                        ${generateCardStarsHtml(product.rating !== undefined ? product.rating : 4.5)}
+                                    </div>
+                                    <span class="text-muted text-truncate" style="font-size: 0.7rem; font-weight: 500;">(${product.reviews !== undefined ? product.reviews : 312} Reviews)</span>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center flex-wrap gap-2 mt-2">
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.75rem;">₹${product.originalPrice}</span>
-                                <span class="text-dark fw-bold" style="font-size: 0.95rem;">₹${product.price}</span>
-                                <div class="w-100"></div>
-                                <span class="text-primary fw-semibold" style="font-size: 0.72rem;">${product.offer}</span>
+                            
+                            <div class="mt-auto pt-1">
+                                <div class="d-flex align-items-baseline flex-nowrap gap-2 mb-1 overflow-hidden">
+                                    <span class="text-muted text-decoration-line-through text-truncate" style="font-size: 0.85rem; max-width: 35%;">₹${product.originalPrice || 600}</span>
+                                    <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹${product.price}</span>
+                                    <span class="text-success fw-semibold text-truncate" style="font-size: 0.8rem;">${product.offer || '68 % Off'}</span>
+                                </div>
+                                <div class="text-success fw-semibold" style="font-size: 0.75rem;">
+                                    Rs ${product.price} with UPI offer
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             `).join('');

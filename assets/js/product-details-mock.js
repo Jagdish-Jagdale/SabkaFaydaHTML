@@ -53,7 +53,19 @@ const productDetailsData = {
             earn: 68,
             originalPrice: 1000,
             price: 500,
-            offer: '70 % Off on all Jewellry',
+            offer: '50% off',
+            sponsored: true
+        },
+        {
+            image: 'assets/img/homescreenimg.png',
+            title: 'Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic',
+            rating: 0,
+            reviews: 0,
+            refer: 16,
+            earn: 68,
+            originalPrice: 1000,
+            price: 500,
+            offer: '50% off',
             sponsored: true
         },
         {
@@ -65,7 +77,7 @@ const productDetailsData = {
             earn: 68,
             originalPrice: 1000,
             price: 500,
-            offer: '70 % Off on all Jewellry',
+            offer: '50% off',
             sponsored: true
         },
         {
@@ -77,7 +89,7 @@ const productDetailsData = {
             earn: 68,
             originalPrice: 1000,
             price: 500,
-            offer: '70 % Off on all Jewellry',
+            offer: '50% off',
             sponsored: true
         },
         {
@@ -89,19 +101,7 @@ const productDetailsData = {
             earn: 68,
             originalPrice: 1000,
             price: 500,
-            offer: '70 % Off on all Jewellry',
-            sponsored: true
-        },
-        {
-            image: 'assets/img/homescreenimg.png',
-            title: 'Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic',
-            rating: 4.5,
-            reviews: 209,
-            refer: 16,
-            earn: 68,
-            originalPrice: 1000,
-            price: 500,
-            offer: '70 % Off on all Jewellry',
+            offer: '50% off',
             sponsored: true
         }
     ]
