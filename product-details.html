@@ -20,7 +20,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css?v=15">
+    <link rel="stylesheet" href="assets/css/main.css?v=20">
 
     <!-- Preload Logo Image -->
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
@@ -28,7 +28,7 @@
 
     <!-- Product Details Mock Data -->
     <script src="assets/js/product-details-mock.js"></script>
-    <script src="assets/js/renderProductDetails.js"></script>
+    <script src="assets/js/renderProductDetails.js?v=3"></script>
     <script src="assets/js/cartUtils.js"></script>
 
     <style>
@@ -76,35 +76,35 @@
                     <div class="d-flex flex-column-reverse flex-md-row gap-3">
                         <!-- Thumbnail list -->
                         <div class="d-flex flex-row flex-md-column gap-2 overflow-auto scrollbar-none flex-shrink-0" id="thumbScroll">
-                            <div class="thumbnail-item active border rounded-3 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 80px; flex-shrink: 0;">
+                            <div class="thumbnail-item active border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Side View">
                             </div>
-                            <div class="thumbnail-item border rounded-3 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 80px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Angle View">
                             </div>
-                            <div class="thumbnail-item border rounded-3 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 80px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Detail View">
                             </div>
-                            <div class="thumbnail-item border rounded-3 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 80px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Scale Detail">
                             </div>
-                            <div class="thumbnail-item border rounded-3 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 80px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Box View">
                             </div>
                         </div>
  
                         <!-- Main Image -->
-                        <div class="flex-grow-1 border border-primary border-3 rounded-3 overflow-hidden bg-white position-relative main-image-wrapper">
+                        <div class="flex-grow-1 rounded-4 overflow-hidden bg-white position-relative main-image-wrapper" style="border: 18px solid #dff2ff !important; border-radius: 12px !important;">
                             <img src="assets/img/homescreenimg.png" id="mainProductImage" alt="Digital Personal Body Weight Scale">
                             
                             <!-- Share Icon (Always visible) -->
-                            <div class="position-absolute" style="top: 60px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #4b70f5; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div class="position-absolute" style="top: 60px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                 <i class="fa-regular fa-paper-plane"></i>
                             </div>
 
-                            <!-- Wishlist Heart Overlay -->
-                            <div id="imageHeartOverlay" class="position-absolute top-0 end-0 m-3 d-none" style="z-index: 5; font-size: 1.6rem; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.25));">
-                                <i class="fas fa-heart text-danger"></i>
+                            <!-- Top Right Wishlist Icon -->
+                            <div id="topRightWishlistBtn" class="position-absolute" style="top: 15px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="far fa-heart"></i>
                             </div>
                         </div>
                     </div>
@@ -433,27 +433,25 @@
 
                 // Add to Wishlist
                 const addToWishlistBtn = e.target.closest('#addToWishlistBtn');
-                if (addToWishlistBtn) {
+                const topRightWishlistBtn = e.target.closest('#topRightWishlistBtn');
+                if (addToWishlistBtn || topRightWishlistBtn) {
                     e.preventDefault();
                     const productName = productDetailsData.product.title;
-                    const imageHeartOverlay = document.getElementById('imageHeartOverlay');
                     
-                    // Toggle heart icon classes
-                    const icon = addToWishlistBtn.querySelector('i');
-                    if (icon) {
-                        if (icon.classList.contains('far')) {
-                            icon.classList.remove('far', 'text-muted');
-                            icon.classList.add('fas', 'text-danger');
-                            if (imageHeartOverlay) {
-                                imageHeartOverlay.classList.remove('d-none');
-                            }
+                    const topIcon = document.querySelector('#topRightWishlistBtn i');
+                    const bottomIcon = document.querySelector('#addToWishlistBtn i');
+                    
+                    const clickedIcon = (addToWishlistBtn || topRightWishlistBtn).querySelector('i');
+                    if (clickedIcon) {
+                        if (clickedIcon.classList.contains('far')) {
+                            // Add to wishlist
+                            if (topIcon) { topIcon.classList.remove('far'); topIcon.classList.add('fas', 'text-danger'); }
+                            if (bottomIcon) { bottomIcon.classList.remove('far', 'text-muted'); bottomIcon.classList.add('fas', 'text-danger'); }
                             window.showGlobalWishlistToast('added', `"${productName}" added to your wishlist!`);
                         } else {
-                            icon.classList.remove('fas', 'text-danger');
-                            icon.classList.add('far', 'text-muted');
-                            if (imageHeartOverlay) {
-                                imageHeartOverlay.classList.add('d-none');
-                            }
+                            // Remove from wishlist
+                            if (topIcon) { topIcon.classList.remove('fas', 'text-danger'); topIcon.classList.add('far'); }
+                            if (bottomIcon) { bottomIcon.classList.remove('fas', 'text-danger'); bottomIcon.classList.add('far', 'text-muted'); }
                             window.showGlobalWishlistToast('removed', `"${productName}" removed from your wishlist.`);
                         }
                     }
