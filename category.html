@@ -233,15 +233,15 @@
                         <div class="px-1">
                             <div class="range-slider-container">
                                 <div class="slider-track"></div>
-                                <input type="range" class="custom-range-slider" min="100" max="1000" step="10" value="100" id="priceRangeMin" oninput="updateMinRange(this.value)">
-                                <input type="range" class="custom-range-slider" min="100" max="1000" step="10" value="1000" id="priceRangeMax" oninput="updateMaxRange(this.value)">
+                                <input type="range" class="custom-range-slider" min="1" max="10000" step="10" value="1" id="priceRangeMin" oninput="updateMinRange(this.value)">
+                                <input type="range" class="custom-range-slider" min="1" max="10000" step="10" value="10000" id="priceRangeMax" oninput="updateMaxRange(this.value)">
                             </div>
                             <div class="d-flex align-items-center gap-2 mt-3">
                                 <div class="flex-fill border rounded px-3 py-2 text-center" style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
-                                    <input type="text" id="minPriceInput" value="100" readonly class="border-0 bg-transparent text-center fw-bold w-100" style="outline: none; color: #2d3748;">
+                                    <input type="text" id="minPriceInput" value="1" readonly class="border-0 bg-transparent text-center fw-bold w-100" style="outline: none; color: #2d3748;">
                                 </div>
                                 <div class="flex-fill border rounded px-3 py-2 text-center" style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
-                                    <input type="text" id="maxPriceInput" value="1000" readonly class="border-0 bg-transparent text-center fw-bold w-100" style="outline: none; color: #2d3748;">
+                                    <input type="text" id="maxPriceInput" value="10000" readonly class="border-0 bg-transparent text-center fw-bold w-100" style="outline: none; color: #2d3748;">
                                 </div>
                             </div>
                         </div>
@@ -251,43 +251,43 @@
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
                         <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Products Status</h5>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="checkbox" id="statusFeatured">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusFeatured">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusFeatured">
                                 Featured
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="checkbox" id="statusTodaysDeal">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTodaysDeal">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTodaysDeal">
                                 Today's Deal
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="checkbox" id="statusOnSale">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusOnSale">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusOnSale">
                                 On Sale
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="checkbox" id="statusTopFaydaPoints">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTopFaydaPoints">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTopFaydaPoints">
                                 Top Fayda Points
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="checkbox" id="statusTopRefer">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTopRefer">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTopRefer">
                                 Top Refer
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input rounded-circle" type="checkbox" id="statusHotDeal">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusHotDeal">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusHotDeal">
                                 Hot Deal
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input rounded-circle" type="checkbox" id="statusTopSale">
+                            <input class="form-check-input rounded-circle" type="radio" name="productStatus" id="statusTopSale">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="statusTopSale">
                                 Top Sale
                             </label>
@@ -298,25 +298,25 @@
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
                         <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Customer Reviews</h5>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="review4">
+                            <input class="form-check-input" type="radio" name="customerReview" id="review4">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review4">
                                 <span class="text-warning">★★★★☆</span> and up
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="review3">
+                            <input class="form-check-input" type="radio" name="customerReview" id="review3">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review3">
                                 <span class="text-warning">★★★☆☆</span> and up
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="review2">
+                            <input class="form-check-input" type="radio" name="customerReview" id="review2">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review2">
                                 <span class="text-warning">★★☆☆☆</span> and up
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="review1">
+                            <input class="form-check-input" type="radio" name="customerReview" id="review1">
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review1">
                                 <span class="text-warning">★☆☆☆☆</span> and up
                             </label>
