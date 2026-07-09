@@ -859,36 +859,7 @@
                 document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
             }
 
-            // Update URL
-            if (!fromProductStatus) {
-                const url = new URL(window.location);
-                let changed = false;
-                if (category === 'All Category') {
-                    if (url.searchParams.has('category')) {
-                        url.searchParams.delete('category');
-                        changed = true;
-                    }
-                } else {
-                    if (url.searchParams.get('category') !== category) {
-                        url.searchParams.set('category', category);
-                        changed = true;
-                    }
-                }
-                if (subcategory) {
-                    if (url.searchParams.get('subcategory') !== subcategory) {
-                        url.searchParams.set('subcategory', subcategory);
-                        changed = true;
-                    }
-                } else {
-                    if (url.searchParams.has('subcategory')) {
-                        url.searchParams.delete('subcategory');
-                        changed = true;
-                    }
-                }
-                if (changed) {
-                    window.history.pushState({}, '', url);
-                }
-            }
+            // URL logic removed. It is handled entirely by updateSelectedFilters now.
 
             // Uncheck product status if a category is chosen
             if (!fromProductStatus) {
@@ -1040,6 +1011,34 @@
             const url = new URL(window.location);
             let urlChanged = false;
             
+            // Sync category
+            if (categoryName !== 'All Category') {
+                if (url.searchParams.get('category') !== categoryName) {
+                    url.searchParams.set('category', categoryName);
+                    urlChanged = true;
+                }
+                if (subCategoryName) {
+                    if (url.searchParams.get('subcategory') !== subCategoryName) {
+                        url.searchParams.set('subcategory', subCategoryName);
+                        urlChanged = true;
+                    }
+                } else {
+                    if (url.searchParams.has('subcategory')) {
+                        url.searchParams.delete('subcategory');
+                        urlChanged = true;
+                    }
+                }
+            } else {
+                if (url.searchParams.has('category')) {
+                    url.searchParams.delete('category');
+                    urlChanged = true;
+                }
+                if (url.searchParams.has('subcategory')) {
+                    url.searchParams.delete('subcategory');
+                    urlChanged = true;
+                }
+            }
+
             // Sync status
             if (checkedStatus) {
                 const label = checkedStatus.nextElementSibling.textContent.trim();
