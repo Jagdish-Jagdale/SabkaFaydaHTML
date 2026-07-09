@@ -131,6 +131,17 @@
                 <!-- Left Sidebar Filters -->
                 <div class="col-md-3 mb-4 filter-sidebar-col d-none d-md-block custom-sidebar-col">
                     
+                    <!-- Selected Filters Card -->
+                    <div class="bg-white border rounded-3 p-3 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;" id="selectedFiltersCard">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fs-6 fw-bold text-dark mb-0" style="font-family: 'Inter', sans-serif;">Selected Filters</h5>
+                            <a href="javascript:void(0)" class="text-danger text-decoration-none" style="font-size: 0.8rem; font-weight: 500;" onclick="clearAllFilters()">Clear All</a>
+                        </div>
+                        <div id="selectedFiltersContainer" class="d-flex flex-wrap gap-2 mt-2">
+                            <!-- Dynamic filter tags will be injected here -->
+                        </div>
+                    </div>
+
                     <!-- Category Filter Card -->
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
                         <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Category</h5>
@@ -796,6 +807,7 @@
             
             currentPage = 1;
             displayProducts();
+            if (typeof updateSelectedFilters === 'function') updateSelectedFilters();
         }
 
         // Update min slider and check collision with max
@@ -922,6 +934,105 @@
                     }
                 }
             }
+
+            if (typeof updateSelectedFilters === 'function') updateSelectedFilters();
+        }
+
+        function addFilterTag(text, onRemove) {
+            const container = document.getElementById('selectedFiltersContainer');
+            if (!container) return;
+            const tag = document.createElement('div');
+            tag.className = 'bg-light border rounded px-2 py-1 d-flex align-items-center gap-2';
+            tag.style.fontSize = '0.8rem';
+            tag.style.color = '#4a5568';
+            
+            const textSpan = document.createElement('span');
+            textSpan.textContent = text.replace('and up', '').trim();
+            
+            const closeBtn = document.createElement('i');
+            closeBtn.className = 'fas fa-times cursor-pointer';
+            closeBtn.style.cursor = 'pointer';
+            closeBtn.onclick = onRemove;
+            
+            tag.appendChild(textSpan);
+            tag.appendChild(closeBtn);
+            container.appendChild(tag);
+        }
+
+        function updateSelectedFilters() {
+            const container = document.getElementById('selectedFiltersContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            // Category
+            const breadcrumbCategory = document.getElementById('breadcrumb-category');
+            const breadcrumbSubcategory = document.getElementById('breadcrumb-subcategory');
+            let categoryName = breadcrumbCategory ? breadcrumbCategory.textContent : 'All Category';
+            let subCategoryName = breadcrumbSubcategory && !breadcrumbSubcategory.classList.contains('d-none') ? breadcrumbSubcategory.textContent : '';
+            
+            if (categoryName !== 'All Category') {
+                let name = subCategoryName ? `${categoryName} > ${subCategoryName}` : categoryName;
+                addFilterTag(name, () => {
+                    updateCategoryUI('All Category', null);
+                });
+            }
+
+            // Product Status
+            const checkedStatus = document.querySelector('input[name="productStatus"]:checked');
+            if (checkedStatus) {
+                const label = checkedStatus.nextElementSibling.textContent.trim();
+                addFilterTag(label, () => {
+                    checkedStatus.checked = false;
+                    updateSelectedFilters();
+                });
+            }
+
+            // Customer Reviews
+            const checkedReview = document.querySelector('input[name="customerReview"]:checked');
+            if (checkedReview) {
+                const label = checkedReview.nextElementSibling.textContent.trim();
+                addFilterTag(label, () => {
+                    checkedReview.checked = false;
+                    updateSelectedFilters();
+                });
+            }
+            
+            // Price Range
+            const minVal = document.getElementById('priceRangeMin') ? parseInt(document.getElementById('priceRangeMin').value) : 1;
+            const maxVal = document.getElementById('priceRangeMax') ? parseInt(document.getElementById('priceRangeMax').value) : 100000;
+            if (minVal > 1 || maxVal < 100000) {
+                addFilterTag(`₹${minVal} - ₹${maxVal}`, () => {
+                    document.getElementById('priceRangeMin').value = 1;
+                    document.getElementById('priceRangeMax').value = 100000;
+                    document.getElementById('minPriceInput').value = 1;
+                    document.getElementById('maxPriceInput').value = 100000;
+                    updateTrack();
+                    filterProducts();
+                });
+            }
+        }
+
+        function clearAllFilters() {
+            // Clear Category
+            updateCategoryUI('All Category', null);
+            
+            // Clear Product Status
+            document.querySelectorAll('input[name="productStatus"]').forEach(radio => radio.checked = false);
+            
+            // Clear Customer Reviews
+            document.querySelectorAll('input[name="customerReview"]').forEach(radio => radio.checked = false);
+            
+            // Clear Price Range
+            if(document.getElementById('priceRangeMin')) {
+                document.getElementById('priceRangeMin').value = 1;
+                document.getElementById('priceRangeMax').value = 100000;
+                document.getElementById('minPriceInput').value = 1;
+                document.getElementById('maxPriceInput').value = 100000;
+                updateTrack();
+                filterProducts();
+            }
+            
+            updateSelectedFilters();
         }
 
         // Update UI from URL on load
@@ -958,8 +1069,19 @@
                     if (e.target.checked) {
                         updateCategoryUI('All Category', null, true);
                     }
+                    updateSelectedFilters();
                 });
             });
+
+            // When customer review is chosen
+            document.querySelectorAll('input[name="customerReview"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    updateSelectedFilters();
+                });
+            });
+
+            // Initialize Selected Filters
+            updateSelectedFilters();
         });
     </script>
     
