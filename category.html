@@ -132,10 +132,10 @@
                 <div class="col-md-3 mb-4 filter-sidebar-col d-none d-md-block custom-sidebar-col">
                     
                     <!-- Selected Filters Card -->
-                    <div class="bg-white border rounded-3 p-3 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;" id="selectedFiltersCard">
+                    <div class="bg-white border rounded-3 p-3 mb-4 shadow-sm d-none" style="border-color: #e2e8f0 !important;" id="selectedFiltersCard">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <h5 class="fs-6 fw-bold text-dark mb-0" style="font-family: 'Inter', sans-serif;">Selected Filters</h5>
-                            <a href="javascript:void(0)" class="text-danger text-decoration-none" style="font-size: 0.8rem; font-weight: 500;" onclick="clearAllFilters()">Clear All</a>
+                            <a href="javascript:void(0)" id="clearAllFiltersBtn" class="text-danger text-decoration-none d-none" style="font-size: 0.8rem; font-weight: 500;" onclick="clearAllFilters()">Clear All</a>
                         </div>
                         <div id="selectedFiltersContainer" class="d-flex flex-wrap gap-2 mt-2">
                             <!-- Dynamic filter tags will be injected here -->
@@ -244,8 +244,8 @@
                         <div class="px-1">
                             <div class="range-slider-container">
                                 <div class="slider-track"></div>
-                                <input type="range" class="custom-range-slider" min="1" max="100000" step="10" value="1" id="priceRangeMin" oninput="updateMinRange(this.value)">
-                                <input type="range" class="custom-range-slider" min="1" max="100000" step="10" value="100000" id="priceRangeMax" oninput="updateMaxRange(this.value)">
+                                <input type="range" class="custom-range-slider" min="1" max="100000" step="1" value="1" id="priceRangeMin" oninput="updateMinRange(this.value)">
+                                <input type="range" class="custom-range-slider" min="1" max="100000" step="1" value="100000" id="priceRangeMax" oninput="updateMaxRange(this.value)">
                             </div>
                             <div class="d-flex align-items-center gap-2 mt-3">
                                 <div class="flex-fill border rounded px-3 py-2 text-center" style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
@@ -788,8 +788,8 @@
             if (minSlider && maxSlider && track) {
                 const minVal = parseInt(minSlider.value);
                 const maxVal = parseInt(maxSlider.value);
-                const minPercent = ((minVal - 100) / (1000 - 100)) * 100;
-                const maxPercent = ((maxVal - 100) / (1000 - 100)) * 100;
+                const minPercent = ((minVal - 1) / (100000 - 1)) * 100;
+                const maxPercent = ((maxVal - 1) / (100000 - 1)) * 100;
                 track.style.background = `linear-gradient(to right, #e2e8f0 ${minPercent}%, #0087F6 ${minPercent}%, #0087F6 ${maxPercent}%, #e2e8f0 ${maxPercent}%)`;
             }
         }
@@ -938,25 +938,11 @@
             if (typeof updateSelectedFilters === 'function') updateSelectedFilters();
         }
 
-        function addFilterTag(text, onRemove) {
-            const container = document.getElementById('selectedFiltersContainer');
-            if (!container) return;
-            const tag = document.createElement('div');
-            tag.className = 'bg-light border rounded px-2 py-1 d-flex align-items-center gap-2';
-            tag.style.fontSize = '0.8rem';
-            tag.style.color = '#4a5568';
-            
-            const textSpan = document.createElement('span');
-            textSpan.textContent = text.replace('and up', '').trim();
-            
-            const closeBtn = document.createElement('i');
-            closeBtn.className = 'fas fa-times cursor-pointer';
-            closeBtn.style.cursor = 'pointer';
-            closeBtn.onclick = onRemove;
-            
-            tag.appendChild(textSpan);
-            tag.appendChild(closeBtn);
-            container.appendChild(tag);
+        let isFiltersExpanded = false;
+
+        function toggleFiltersExpand() {
+            isFiltersExpanded = !isFiltersExpanded;
+            updateSelectedFilters();
         }
 
         function updateSelectedFilters() {
@@ -964,51 +950,115 @@
             if (!container) return;
             container.innerHTML = '';
             
+            let tags = [];
+            
             // Category
             const breadcrumbCategory = document.getElementById('breadcrumb-category');
             const breadcrumbSubcategory = document.getElementById('breadcrumb-subcategory');
-            let categoryName = breadcrumbCategory ? breadcrumbCategory.textContent : 'All Category';
-            let subCategoryName = breadcrumbSubcategory && !breadcrumbSubcategory.classList.contains('d-none') ? breadcrumbSubcategory.textContent : '';
+            let categoryName = breadcrumbCategory ? breadcrumbCategory.textContent.trim() : 'All Category';
+            let subCategoryName = breadcrumbSubcategory && !breadcrumbSubcategory.classList.contains('d-none') ? breadcrumbSubcategory.textContent.trim() : '';
             
             if (categoryName !== 'All Category') {
                 let name = subCategoryName ? `${categoryName} > ${subCategoryName}` : categoryName;
-                addFilterTag(name, () => {
+                tags.push({text: name, onRemove: () => {
                     updateCategoryUI('All Category', null);
-                });
+                }});
             }
 
             // Product Status
             const checkedStatus = document.querySelector('input[name="productStatus"]:checked');
             if (checkedStatus) {
                 const label = checkedStatus.nextElementSibling.textContent.trim();
-                addFilterTag(label, () => {
+                tags.push({text: label, onRemove: () => {
                     checkedStatus.checked = false;
                     updateSelectedFilters();
-                });
+                }});
             }
 
             // Customer Reviews
             const checkedReview = document.querySelector('input[name="customerReview"]:checked');
             if (checkedReview) {
                 const label = checkedReview.nextElementSibling.textContent.trim();
-                addFilterTag(label, () => {
+                tags.push({text: label, onRemove: () => {
                     checkedReview.checked = false;
                     updateSelectedFilters();
-                });
+                }});
             }
             
             // Price Range
-            const minVal = document.getElementById('priceRangeMin') ? parseInt(document.getElementById('priceRangeMin').value) : 1;
-            const maxVal = document.getElementById('priceRangeMax') ? parseInt(document.getElementById('priceRangeMax').value) : 100000;
-            if (minVal > 1 || maxVal < 100000) {
-                addFilterTag(`₹${minVal} - ₹${maxVal}`, () => {
-                    document.getElementById('priceRangeMin').value = 1;
-                    document.getElementById('priceRangeMax').value = 100000;
-                    document.getElementById('minPriceInput').value = 1;
-                    document.getElementById('maxPriceInput').value = 100000;
+            const minSlider = document.getElementById('priceRangeMin');
+            const maxSlider = document.getElementById('priceRangeMax');
+            const minVal = minSlider ? parseInt(minSlider.value) : 1;
+            const maxVal = maxSlider ? parseInt(maxSlider.value) : 100000;
+            const absoluteMax = maxSlider ? parseInt(maxSlider.max) : 100000;
+
+            if (minVal > 1 || maxVal < absoluteMax) {
+                tags.push({text: `₹${minVal} - ₹${maxVal}`, onRemove: () => {
+                    if (minSlider) minSlider.value = 1;
+                    if (maxSlider) maxSlider.value = absoluteMax;
+                    const minInput = document.getElementById('minPriceInput');
+                    const maxInput = document.getElementById('maxPriceInput');
+                    if (minInput) minInput.value = 1;
+                    if (maxInput) maxInput.value = absoluteMax;
                     updateTrack();
                     filterProducts();
-                });
+                }});
+            }
+
+            // Display logic
+            const maxVisible = 2;
+            let displayTags = tags;
+            
+            if (tags.length > maxVisible && !isFiltersExpanded) {
+                displayTags = tags.slice(0, maxVisible);
+            }
+            
+            displayTags.forEach(t => {
+                const tag = document.createElement('div');
+                tag.className = 'bg-light border rounded px-2 py-1 d-flex align-items-center gap-2 mb-1';
+                tag.style.fontSize = '0.8rem';
+                tag.style.color = '#4a5568';
+                
+                const textSpan = document.createElement('span');
+                textSpan.textContent = t.text.replace('and up', '').trim();
+                
+                const closeBtn = document.createElement('i');
+                closeBtn.className = 'fas fa-times cursor-pointer';
+                closeBtn.style.cursor = 'pointer';
+                closeBtn.onclick = t.onRemove;
+                
+                tag.appendChild(textSpan);
+                tag.appendChild(closeBtn);
+                container.appendChild(tag);
+            });
+            
+            if (tags.length > maxVisible) {
+                const toggleBtn = document.createElement('a');
+                toggleBtn.href = "javascript:void(0)";
+                toggleBtn.className = "text-primary text-decoration-none d-block w-100 mt-1";
+                toggleBtn.style.fontSize = "0.8rem";
+                toggleBtn.style.fontWeight = "600";
+                toggleBtn.textContent = isFiltersExpanded ? "SHOW LESS" : "SHOW MORE";
+                toggleBtn.onclick = toggleFiltersExpand;
+                container.appendChild(toggleBtn);
+            }
+            
+            // Hide the card and clear button entirely if no tags
+            const card = document.getElementById('selectedFiltersCard');
+            const clearBtn = document.getElementById('clearAllFiltersBtn');
+            if (card) {
+                if (tags.length > 0) {
+                    card.classList.remove('d-none');
+                } else {
+                    card.classList.add('d-none');
+                }
+            }
+            if (clearBtn) {
+                if (tags.length > 0) {
+                    clearBtn.classList.remove('d-none');
+                } else {
+                    clearBtn.classList.add('d-none');
+                }
             }
         }
 
@@ -1023,11 +1073,13 @@
             document.querySelectorAll('input[name="customerReview"]').forEach(radio => radio.checked = false);
             
             // Clear Price Range
-            if(document.getElementById('priceRangeMin')) {
-                document.getElementById('priceRangeMin').value = 1;
-                document.getElementById('priceRangeMax').value = 100000;
+            const minSlider = document.getElementById('priceRangeMin');
+            const maxSlider = document.getElementById('priceRangeMax');
+            if(minSlider && maxSlider) {
+                minSlider.value = 1;
+                maxSlider.value = maxSlider.max;
                 document.getElementById('minPriceInput').value = 1;
-                document.getElementById('maxPriceInput').value = 100000;
+                document.getElementById('maxPriceInput').value = maxSlider.max;
                 updateTrack();
                 filterProducts();
             }
