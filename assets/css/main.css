@@ -672,6 +672,14 @@
     .explore-products-title {
         font-size: 1.25rem !important;
     }
+
+    #homeContent > .container {
+        margin-bottom: 15px !important;
+    }
+
+    #homeContent .custom-indicators {
+        margin-top: 10px !important;
+    }
 }
 
 .fashion-banner-img {

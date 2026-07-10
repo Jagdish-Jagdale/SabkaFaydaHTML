@@ -92,6 +92,12 @@ function renderHomePage(data) {
                 .keep-shopping-small-img {
                     height: 140px !important;
                 }
+                #homeContent > .container {
+                    margin-bottom: 15px !important;
+                }
+                .custom-indicators {
+                    margin-top: 10px !important;
+                }
             }
             .electronics-gadgets-img {
                 max-height: 170px;
