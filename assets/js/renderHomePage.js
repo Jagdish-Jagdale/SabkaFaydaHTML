@@ -203,14 +203,21 @@ function renderHomePage(data) {
 
     function keepShoppingSection() {
         let keepShoppingTitle = data.keepShopping.title;
+        let isUserLoggedIn = false;
+        
         if (typeof getAuthUser === 'function') {
             const user = getAuthUser();
             if (user && user.name) {
+                isUserLoggedIn = true;
                 const firstName = user.name.split(' ')[0];
                 // Capitalize first letter of name
                 const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
                 keepShoppingTitle = keepShoppingTitle.replace('User Name', capitalizedFirstName);
             }
+        }
+        
+        if (!isUserLoggedIn) {
+            keepShoppingTitle = keepShoppingTitle.replace(' User Name', '').replace('User Name', '');
         }
 
         return `

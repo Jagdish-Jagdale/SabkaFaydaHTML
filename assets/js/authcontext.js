@@ -75,7 +75,7 @@ function updateLoginButton() {
                     <i class="fa-regular fa-circle-user" style="font-size: 1.1rem;"></i>
                     My Profile
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end shadow mt-2" style="font-size: 0.9rem; min-width: 220px;">
+                <ul class="dropdown-menu shadow mt-2" style="font-size: 0.9rem; min-width: 220px;">
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="myorders.html"><i class="fa-solid fa-box me-2 text-secondary" style="width: 20px;"></i>My Orders</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
