@@ -80,6 +80,7 @@ function updateLoginButton() {
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="mywishlist.html"><i class="fa-solid fa-heart me-2 text-secondary" style="width: 20px;"></i>My Wishlist</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item py-2 text-danger profile-dropdown-logout" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
@@ -101,6 +102,7 @@ function updateLoginButton() {
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="myinformation.html"><i class="fa-solid fa-user me-2 text-secondary" style="width: 20px;"></i>My Information</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="myaddress.html"><i class="fa-solid fa-location-dot me-2 text-secondary" style="width: 20px;"></i>My Address</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="mynotification.html"><i class="fa-solid fa-bell me-2 text-secondary" style="width: 20px;"></i>My Notification</a></li>
+                    <li><a class="dropdown-item py-2 profile-dropdown-item" href="mywishlist.html"><i class="fa-solid fa-heart me-2 text-secondary" style="width: 20px;"></i>My Wishlist</a></li>
                     <li><a class="dropdown-item py-2 profile-dropdown-item" href="#"><i class="fa-solid fa-tags me-2 text-secondary" style="width: 20px;"></i>My Coupons</a></li>
                     <li><hr class="dropdown-divider m-0"></li>
                     <li><a class="dropdown-item py-2 text-danger profile-dropdown-logout" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket me-2" style="width: 20px;"></i>Logout</a></li>
