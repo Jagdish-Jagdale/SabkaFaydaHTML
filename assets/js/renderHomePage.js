@@ -238,7 +238,6 @@ function renderHomePage(data) {
                             ${data.keepShopping.items.map((item, index) => `
                                 <a href="product-details.html" class="border-0 text-center keep-shopping-small-box text-decoration-none bg-transparent d-block" style="min-width: 120px; max-width: 140px;">
                                     <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img" style="overflow: hidden;">
-                                        <div class="position-absolute top-0 end-0 m-2 badge bg-dark opacity-50 px-2 py-1" style="font-size: 0.5rem; border-radius: 4px;">AD</div>
                                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.alt}" ${imgAttrs(index + 10)}>
                                     </div>
                                     <h6 class="fw-bold mb-1 text-dark text-truncate w-100" style="font-size: 0.9rem;">${item.desc}</h6>
