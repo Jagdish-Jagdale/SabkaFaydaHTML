@@ -90,7 +90,7 @@ function renderHomePage(data) {
                     grid-template-rows: 1fr !important;
                 }
                 .keep-shopping-small-img {
-                    height: 140px !important;
+                    height: 110px !important;
                 }
                 #homeContent > .container {
                     margin-bottom: 15px !important;
