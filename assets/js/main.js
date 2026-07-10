@@ -545,7 +545,7 @@ function loadSidebar() {
                     if (cleanHref === cleanPath + currentHash || (currentHash === '' && cleanHref === cleanPath)) {
                         matchedLink = link;
                     }
-                    if ((cleanPath === 'order-details' || cleanPath === 'order-breakdown') && cleanHref === 'orders') {
+                    if ((cleanPath === 'order-details' || cleanPath === 'order-breakdown') && cleanHref === 'myorders') {
                         matchedLink = link;
                     }
                 });
