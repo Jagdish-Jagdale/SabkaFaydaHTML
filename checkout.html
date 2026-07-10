@@ -31,10 +31,12 @@
         .product-card:hover .product-card-overlay {
             opacity: 1 !important;
         }
+
         .product-card:hover .product-wishlist-btn,
         .product-card:hover .product-share-btn {
             opacity: 1 !important;
         }
+
         #categoriesBarContainer {
             display: none !important;
         }
@@ -49,7 +51,9 @@
 <body style="font-family: 'Roboto', sans-serif; background-color: #f7f9fa; overflow-x: hidden;">
 
     <!-- Header Placeholder -->
-    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+    <div id="header-placeholder">
+        <div class="skeleton-box skeleton-header"></div>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
@@ -62,7 +66,8 @@
                 <div class="col-lg-8">
 
                     <!-- Delivery Section -->
-                    <div id="delivery-address-container" class="bg-white rounded-3 p-3 mb-4 shadow-sm" style="border: 1px solid #eef2f5;"></div>
+                    <div id="delivery-address-container" class="bg-white rounded-3 p-3 mb-4 shadow-sm"
+                        style="border: 1px solid #eef2f5;"></div>
 
                     <!-- Product Items Container -->
                     <div id="products-container"></div>
@@ -71,8 +76,10 @@
 
                 <!-- Right Column: Price summary card that sticks on scroll -->
                 <div class="col-lg-4">
-                    <div id="price-summary-container" class="bg-white rounded-3 p-3 shadow-sm border d-flex flex-column justify-content-between"
-                        style="border-color: #eef2f5 !important; background-color: #ffffff; position: sticky; top: 175px; align-self: start;"></div>
+                    <div id="price-summary-container"
+                        class="bg-white rounded-3 p-3 shadow-sm border d-flex flex-column justify-content-between"
+                        style="border-color: #eef2f5 !important; background-color: #ffffff; position: sticky; top: 175px; align-self: start;">
+                    </div>
                 </div>
 
             </div>
@@ -87,12 +94,10 @@
                         <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">There products you may
                             like similarly</p>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-primary px-4 rounded-3 d-none d-sm-inline-block"
-                        style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px;">View
-                        All</a>
                 </div>
 
-                <div id="similar-products-container" class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-2 g-md-3"></div>
+                <div id="similar-products-container" class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-2 g-md-3">
+                </div>
             </div>
 
             <!-- Peoples Looking for these Products Section (Full Width, 5 Cards in a Row) -->
@@ -105,12 +110,13 @@
                         <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">lots of people buying
                             those</p>
                     </div>
-                    <a href="javascript:void(0)" class="btn btn-primary px-4 rounded-3 d-none d-sm-inline-block"
+                    <a href="category.html" class="btn btn-primary px-4 rounded-3 d-none d-sm-inline-block"
                         style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px;">View
                         All</a>
                 </div>
 
-                <div id="peoples-products-container" class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-2 g-md-3"></div>
+                <div id="peoples-products-container" class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-2 g-md-3">
+                </div>
             </div>
 
         </div>
@@ -121,49 +127,67 @@
             color: #dc3545 !important;
             cursor: pointer;
         }
+
         .hover-border-primary:hover {
             border-color: #0d6efd !important;
             cursor: pointer;
         }
+
         .hover-text-primary:hover {
             color: #0d6efd !important;
         }
     </style>
 
     <!-- Change Address Modal -->
-    <div class="modal fade" id="changeAddressModal" tabindex="-1" aria-labelledby="changeAddressModalLabel" aria-hidden="true">
+    <div class="modal fade" id="changeAddressModal" tabindex="-1" aria-labelledby="changeAddressModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4">
                 <div class="modal-header border-bottom-0 pb-0 mt-2">
-                    <h5 class="modal-title fw-bold" id="changeAddressModalLabel" style="font-family: 'Montserrat', sans-serif;">Saved Addresses</h5>
+                    <h5 class="modal-title fw-bold" id="changeAddressModalLabel"
+                        style="font-family: 'Montserrat', sans-serif;">Saved Addresses</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body pt-3 pb-4">
                     <!-- Address 1 (Selected) -->
-                    <div class="bg-light border border-primary rounded-3 p-3 mb-3 position-relative" style="background-color: #f8fafc !important;">
+                    <div class="bg-light border border-primary rounded-3 p-3 mb-3 position-relative"
+                        style="background-color: #f8fafc !important;">
                         <!-- Top Right Icons -->
                         <div class="position-absolute d-flex gap-1" style="top: 12px; right: 12px;">
-                            <button class="btn border-0 p-1 text-primary" title="Edit Address" data-bs-toggle="modal" data-bs-target="#addressFormModal"><i class="far fa-edit"></i></button>
-                            <button class="btn border-0 p-1 text-primary" title="Selected"><i class="fas fa-check-circle fs-5"></i></button>
+                            <button class="btn border-0 p-1 text-primary" title="Edit Address" data-bs-toggle="modal"
+                                data-bs-target="#addressFormModal"><i class="far fa-edit"></i></button>
+                            <button class="btn border-0 p-1 text-primary" title="Selected"><i
+                                    class="fas fa-check-circle fs-5"></i></button>
                         </div>
                         <h6 class="fw-bold mb-1">Home</h6>
-                        <p class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.5; padding-right: 50px;">
-                            janta mark mankarna plot infront of society petrol pump behind zahoor hospital gawlipura, akola, Maharashtra<br>India - 444001
+                        <p class="text-secondary mb-0"
+                            style="font-size: 0.9rem; line-height: 1.5; padding-right: 50px;">
+                            janta mark mankarna plot infront of society petrol pump behind zahoor hospital gawlipura,
+                            akola, Maharashtra<br>India - 444001
                         </p>
                     </div>
                     <!-- Address 2 -->
-                    <div class="bg-white border rounded-3 p-3 mb-3 position-relative hover-border-primary" style="border-color: #e2e8f0 !important;" onclick="document.querySelectorAll('.fa-check-circle').forEach(icon => { icon.classList.replace('fa-check-circle', 'fa-circle'); icon.parentElement.classList.replace('text-primary', 'text-secondary'); icon.parentElement.parentElement.parentElement.classList.remove('border-primary', 'bg-light'); icon.parentElement.parentElement.parentElement.classList.add('bg-white'); }); this.classList.remove('bg-white'); this.classList.add('border-primary', 'bg-light'); this.querySelector('.fa-circle').classList.replace('fa-circle', 'fa-check-circle'); this.querySelector('.fa-check-circle').parentElement.classList.replace('text-secondary', 'text-primary'); setTimeout(() => bootstrap.Modal.getInstance(document.getElementById('changeAddressModal')).hide(), 400);">
+                    <div class="bg-white border rounded-3 p-3 mb-3 position-relative hover-border-primary"
+                        style="border-color: #e2e8f0 !important;"
+                        onclick="document.querySelectorAll('.fa-check-circle').forEach(icon => { icon.classList.replace('fa-check-circle', 'fa-circle'); icon.parentElement.classList.replace('text-primary', 'text-secondary'); icon.parentElement.parentElement.parentElement.classList.remove('border-primary', 'bg-light'); icon.parentElement.parentElement.parentElement.classList.add('bg-white'); }); this.classList.remove('bg-white'); this.classList.add('border-primary', 'bg-light'); this.querySelector('.fa-circle').classList.replace('fa-circle', 'fa-check-circle'); this.querySelector('.fa-check-circle').parentElement.classList.replace('text-secondary', 'text-primary'); setTimeout(() => bootstrap.Modal.getInstance(document.getElementById('changeAddressModal')).hide(), 400);">
                         <!-- Top Right Icons -->
                         <div class="position-absolute d-flex gap-1" style="top: 12px; right: 12px;">
-                            <button class="btn border-0 p-1 text-secondary hover-text-primary" title="Edit Address" onclick="event.stopPropagation();" data-bs-toggle="modal" data-bs-target="#addressFormModal"><i class="far fa-edit"></i></button>
-                            <button class="btn border-0 p-1 text-secondary" title="Select"><i class="far fa-circle fs-5"></i></button>
+                            <button class="btn border-0 p-1 text-secondary hover-text-primary" title="Edit Address"
+                                onclick="event.stopPropagation();" data-bs-toggle="modal"
+                                data-bs-target="#addressFormModal"><i class="far fa-edit"></i></button>
+                            <button class="btn border-0 p-1 text-secondary" title="Select"><i
+                                    class="far fa-circle fs-5"></i></button>
                         </div>
                         <h6 class="fw-bold mb-1">Work</h6>
-                        <p class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.5; padding-right: 50px;">
-                            102 Business Park, MIDC Phase 2, Near Tech Hub<br>Andheri East, Mumbai, Maharashtra<br>India - 400093
+                        <p class="text-secondary mb-0"
+                            style="font-size: 0.9rem; line-height: 1.5; padding-right: 50px;">
+                            102 Business Park, MIDC Phase 2, Near Tech Hub<br>Andheri East, Mumbai, Maharashtra<br>India
+                            - 400093
                         </p>
                     </div>
-                    <button class="btn btn-outline-primary w-100 fw-bold py-2 mt-2" style="border-style: dashed; border-width: 1.5px; border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#addressFormModal">
+                    <button class="btn btn-outline-primary w-100 fw-bold py-2 mt-2"
+                        style="border-style: dashed; border-width: 1.5px; border-radius: 8px;" data-bs-toggle="modal"
+                        data-bs-target="#addressFormModal">
                         <i class="fas fa-plus me-2"></i> Add New Address
                     </button>
                 </div>
@@ -172,49 +196,68 @@
     </div>
 
     <!-- Address Form Modal (Add / Edit) -->
-    <div class="modal fade" id="addressFormModal" tabindex="-1" aria-labelledby="addressFormModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addressFormModal" tabindex="-1" aria-labelledby="addressFormModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 550px;">
             <div class="modal-content border-0 shadow-lg rounded-4">
                 <div class="modal-header border-bottom-0 pb-0 mt-2">
-                    <h5 class="modal-title fw-bold" id="addressFormModalLabel" style="font-family: 'Montserrat', sans-serif;">My Address</h5>
+                    <h5 class="modal-title fw-bold" id="addressFormModalLabel"
+                        style="font-family: 'Montserrat', sans-serif;">My Address</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body pt-3 pb-4 px-4">
                     <!-- Form fields -->
                     <div class="row g-3">
                         <div class="col-12">
-                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">Full Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Enter full name" minlength="3" maxlength="99" required>
+                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">Full
+                                Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter full name" minlength="3"
+                                maxlength="99" required>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">Phone <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Enter 10-digit mobile number" maxlength="10" pattern="^[9876]\d{9}$" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">Phone
+                                <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter 10-digit mobile number"
+                                maxlength="10" pattern="^[9876]\d{9}$"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">Address <span class="text-danger">*</span></label>
-                            <textarea class="form-control" rows="2" placeholder="Enter house / flat / block no., street, area" maxlength="199" required></textarea>
+                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">Address
+                                <span class="text-danger">*</span></label>
+                            <textarea class="form-control" rows="2"
+                                placeholder="Enter house / flat / block no., street, area" maxlength="199"
+                                required></textarea>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">Alternate Address</label>
-                            <textarea class="form-control" rows="2" placeholder="Enter alternate address / landmark (optional)"></textarea>
+                            <label class="form-label text-secondary fw-semibold mb-1"
+                                style="font-size: 0.9rem;">Alternate Address</label>
+                            <textarea class="form-control" rows="2"
+                                placeholder="Enter alternate address / landmark (optional)"></textarea>
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">City <span class="text-danger">*</span></label>
+                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">City
+                                <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" placeholder="Enter your city">
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">State <span class="text-danger">*</span></label>
+                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">State
+                                <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" placeholder="Enter your state">
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">PIN Code <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Enter 8-digit PIN code" minlength="8" maxlength="8" pattern="^(?!00000000)\d{8}$" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                            <label class="form-label text-secondary fw-semibold mb-1" style="font-size: 0.9rem;">PIN
+                                Code <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Enter 8-digit PIN code" minlength="8"
+                                maxlength="8" pattern="^(?!00000000)\d{8}$"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                         </div>
                         <div class="col-12 mt-4 d-flex justify-content-end gap-2">
-                            <button class="btn btn-outline-secondary px-4 fw-bold" style="border-radius: 6px;" data-bs-toggle="modal" data-bs-target="#changeAddressModal">
+                            <button class="btn btn-outline-secondary px-4 fw-bold" style="border-radius: 6px;"
+                                data-bs-toggle="modal" data-bs-target="#changeAddressModal">
                                 Cancel
                             </button>
-                            <button class="btn btn-primary px-4 fw-bold" style="border-radius: 6px; background-color: #0087F6; border: none;">
+                            <button class="btn btn-primary px-4 fw-bold"
+                                style="border-radius: 6px; background-color: #0087F6; border: none;">
                                 <i class="fas fa-save me-1"></i> Save
                             </button>
                         </div>
@@ -225,12 +268,126 @@
     </div>
 
     <!-- Mobile Sticky Footer Bar for Checkout -->
-    <div id="mobile-footer-container" class="fixed-bottom bg-white border-top p-3 d-block d-lg-none" style="z-index: 1020;">
+    <div id="mobile-footer-container" class="fixed-bottom bg-white border-top p-3 d-block d-lg-none"
+        style="z-index: 1020;">
         <div class="container d-flex justify-content-between align-items-center"></div>
     </div>
 
+    <!-- ✅ Payment Success Modal (COD) -->
+    <div class="modal fade" id="paymentSuccessModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+        data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 440px;">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <!-- Green top bar -->
+                <div
+                    style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); padding: 36px 24px 28px; text-align: center; position: relative;">
+                    <div
+                        style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; border: 3px solid rgba(255,255,255,0.4);">
+                        <i class="fas fa-check" style="font-size: 2.2rem; color: #ffffff;"></i>
+                    </div>
+                    <h4
+                        style="color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 700; margin: 0 0 6px;">
+                        Order Placed!</h4>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0;">Your order has been placed
+                        successfully.</p>
+                </div>
+                <div class="modal-body px-4 py-4">
+                    <!-- Order Info -->
+                    <div
+                        style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px; margin-bottom: 20px;">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span style="font-size: 0.82rem; color: #6b7280; font-weight: 500;">Order ID</span>
+                            <span
+                                style="font-size: 0.82rem; color: #111827; font-weight: 700;">#SBF-20260710-4872</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span style="font-size: 0.82rem; color: #6b7280; font-weight: 500;">Payment Method</span>
+                            <span style="font-size: 0.82rem; color: #16a34a; font-weight: 700;"><i
+                                    class="fas fa-money-bill-wave me-1"></i>Cash on Delivery</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span style="font-size: 0.82rem; color: #6b7280; font-weight: 500;">Amount</span>
+                            <span style="font-size: 0.82rem; color: #111827; font-weight: 700;">₹ 24,000</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span style="font-size: 0.82rem; color: #6b7280; font-weight: 500;">Estimated
+                                Delivery</span>
+                            <span style="font-size: 0.82rem; color: #0087F6; font-weight: 700;">May 15, Friday
+                                2026</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.82rem; color: #6b7280; text-align: center; margin-bottom: 20px;">
+                        <i class="fas fa-envelope me-1 text-primary"></i> A confirmation SMS will be sent to your
+                        registered number.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="index.html" class="btn flex-grow-1 fw-bold py-2"
+                            style="border: 1.5px solid #0087F6; color: #0087F6; border-radius: 8px; font-size: 0.88rem;">
+                            <i class="fas fa-home me-1"></i> Continue Shopping
+                        </a>
+                        <a href="myorders.html" class="btn flex-grow-1 fw-bold py-2"
+                            style="background-color: #16a34a; border: none; color: #ffffff; border-radius: 8px; font-size: 0.88rem;">
+                            <i class="fas fa-box me-1"></i> Track Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ❌ Payment Failed Modal (Pay Online) -->
+    <div class="modal fade" id="paymentFailedModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+        data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 440px;">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <!-- Red top bar -->
+                <div
+                    style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); padding: 36px 24px 28px; text-align: center;">
+                    <div
+                        style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; border: 3px solid rgba(255,255,255,0.4);">
+                        <i class="fas fa-times" style="font-size: 2.2rem; color: #ffffff;"></i>
+                    </div>
+                    <h4
+                        style="color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 700; margin: 0 0 6px;">
+                        Payment Failed</h4>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0;">We could not process your
+                        payment. Please try again.</p>
+                </div>
+                <div class="modal-body px-4 py-4">
+                    <!-- Error Info -->
+                    <div
+                        style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 16px; margin-bottom: 20px;">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fas fa-exclamation-circle text-danger mt-1" style="font-size: 1.2rem;"></i>
+                            <div>
+                                <p style="font-size: 0.85rem; color: #991b1b; font-weight: 600; margin-bottom: 4px;">
+                                    Transaction Declined</p>
+                                <p style="font-size: 0.8rem; color: #6b7280; margin: 0;">Your bank or payment provider
+                                    declined the transaction. Your account has not been charged.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button class="btn flex-grow-1 fw-bold py-2" data-bs-dismiss="modal"
+                            style="border: 1.5px solid #6b7280; color: #374141; border-radius: 8px; font-size: 0.88rem;">
+                            <i class="fas fa-arrow-left me-1"></i> Go Back
+                        </button>
+                        <button class="btn flex-grow-1 fw-bold py-2"
+                            onclick="bootstrap.Modal.getInstance(document.getElementById('paymentFailedModal')).hide();"
+                            style="background-color: #dc2626; border: none; color: #ffffff; border-radius: 8px; font-size: 0.88rem;">
+                            <i class="fas fa-redo me-1"></i> Retry Payment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+    <div id="footer-placeholder">
+        <div class="skeleton-box skeleton-footer"></div>
+    </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -262,6 +419,23 @@
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
                 });
+
+            // Continue Button Logic
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('button');
+                if (!btn) return;
+                const isContinueBtn = btn.textContent.trim() === 'Continue' || btn.closest('[id="price-summary-container"]');
+                if (!isContinueBtn) return;
+
+                const selectedPayment = document.querySelector('input[name="payment_method"]:checked');
+                if (!selectedPayment) return;
+
+                if (selectedPayment.value === 'cod') {
+                    new bootstrap.Modal(document.getElementById('paymentSuccessModal')).show();
+                } else if (selectedPayment.value === 'online') {
+                    new bootstrap.Modal(document.getElementById('paymentFailedModal')).show();
+                }
+            });
         });
     </script>
 </body>
