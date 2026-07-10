@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (similarViewAll) similarViewAll.href = viewAllLink;
                 
                 const peoplesViewAll = document.getElementById('peoples-products-view-all');
-                if (peoplesViewAll) peoplesViewAll.href = viewAllLink;
+                if (peoplesViewAll) peoplesViewAll.href = 'category.html?category=All%20Category';
             }
 
             const stars = Array(Math.floor(p.rating)).fill('<i class="fas fa-star text-warning"></i>').join('');
