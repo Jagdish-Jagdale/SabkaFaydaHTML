@@ -226,8 +226,12 @@ function proceedInitHeader() {
     // Populate categories bar scroll list
     const categoryScroll = document.getElementById('headerCategoryScroll');
     if (categoryScroll && typeof mockCategories !== 'undefined' && mockCategories.barCategories) {
+        const catDropData = mockCategories.cascadingData || {};
         categoryScroll.innerHTML = mockCategories.barCategories.map(cat => {
-            return `<a href="${cat.link || '#'}" class="text-dark text-decoration-none category-link">${cat.name}</a>`;
+            const hasSubcategories = catDropData[cat.name] && catDropData[cat.name].length > 0;
+            const linkAttr = hasSubcategories ? '' : `href="${cat.link || '#'}"`;
+            const cursorStyle = hasSubcategories ? 'cursor: default !important;' : 'cursor: pointer !important;';
+            return `<a ${linkAttr} style="${cursorStyle}" class="text-dark text-decoration-none category-link">${cat.name}</a>`;
         }).join('');
     }
 
