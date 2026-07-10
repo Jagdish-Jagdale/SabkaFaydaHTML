@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <span class="text-muted text-decoration-line-through" style="font-size: 0.95rem;">₹ ${product.originalPrice}</span>
                                 <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹ ${product.price}</span>
                             </div>
+                            <!-- UPI Offer Banner -->
+                            <div class="d-inline-flex align-items-center gap-2 rounded-2 ps-1 pe-3 py-2 mb-2" style="background-color: #3aa0f3; color: #ffffff; font-size: 0.85rem; font-weight: 600;">
+                                <img src="assets/img/omg.png" alt="OMG" style="height: 26px; width: auto; object-fit: contain;">
+                                Buy this product for only <strong style="font-size: 0.95rem; margin: 0 1px;">₹${product.upiPrice}</strong> via UPI
+                            </div>
 
                             <!-- Delivery timeline -->
                             <div class="text-secondary" style="font-size: 0.82rem; font-weight: 500;">
