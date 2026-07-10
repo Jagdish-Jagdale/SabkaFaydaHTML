@@ -2637,7 +2637,7 @@ select.profile-form-control {
     top: 0;
     left: 0;
     height: 100%;
-    background: #0087F6;
+    background: #16a34a;
     z-index: 2;
     transition: width 0.3s ease;
 }
@@ -2670,15 +2670,21 @@ select.profile-form-control {
     transition: all 0.3s ease;
 }
 
+.timeline-step.completed .timeline-circle {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: #ffffff;
+}
+
 .timeline-step.step-blue.completed .timeline-circle {
-    background: #0087F6;
-    border-color: #0087F6;
+    background: #16a34a;
+    border-color: #16a34a;
     color: #fff;
 }
 
 .timeline-step.step-green.completed .timeline-circle {
-    background: #198754;
-    border-color: #198754;
+    background: #16a34a;
+    border-color: #16a34a;
     color: #fff;
 }
 

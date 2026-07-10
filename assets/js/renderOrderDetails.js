@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const progressPercent = (completedCount / orderDetailsData.timeline.length) * 100;
             
             timelineContainer.innerHTML = `
-                <div class="timeline-track-wrap mb-4">
+                <div class="timeline-track-wrap mb-2" style="margin-top: 4px;">
                     <div class="timeline-line">
                         <div class="timeline-line-active" style="width: ${progressPercent}%;"></div>
                     </div>
@@ -73,12 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         `).join('')}
                     </div>
                 </div>
-                <div class="alert alert-success d-flex align-items-center justify-content-between p-3 rounded-3 mb-0" role="alert" style="background-color: #eafcf1; border: 1px solid #d1f7df;">
+                <div class="alert alert-success d-flex flex-column gap-1 p-3 rounded-3 mb-0" role="alert" style="background-color: #eafcf1; border: 1px solid #d1f7df;">
                     <div class="d-flex align-items-center gap-2">
                         <i class="fa-solid fa-circle-check text-success fs-5"></i>
                         <span class="text-success-emphasis fw-medium small">Your order has been delivered successfully</span>
                     </div>
-                    <span class="text-success fw-bold small">Delivered on ${orderDetailsData.timeline[orderDetailsData.timeline.length - 1].time}</span>
+                    <span class="text-success fw-bold small ms-4">Delivered on ${orderDetailsData.timeline[orderDetailsData.timeline.length - 1].time}</span>
                 </div>
             `;
         }
