@@ -52,6 +52,8 @@ function renderOrders(ordersData) {
                 ${actionsHtml}
             </div>
         </article>`;
+    });
+    
     html += `
         <div id="no-orders-message" class="text-center py-5" style="display: none; background: #fff; border-radius: 12px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);">
             <i class="fa-solid fa-box-open text-secondary opacity-50 mb-3" style="font-size: 4rem;"></i>
