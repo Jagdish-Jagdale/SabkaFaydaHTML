@@ -99,6 +99,9 @@
 
     <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
 
+    <!-- Include Floating WhatsApp -->
+    <div id="whatsapp-float-placeholder"></div>
+
     <!-- ═══ SHARE MODAL ═══ -->
     <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -251,6 +254,13 @@
             .then(r => r.text())
             .then(html => {
                 document.getElementById('footer-placeholder').innerHTML = html;
+            });
+
+        // Load Floating WhatsApp
+        fetch('whatsapp-float.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('whatsapp-float-placeholder').innerHTML = html;
             });
     </script>
 

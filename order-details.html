@@ -179,6 +179,9 @@
         <div class="skeleton-box skeleton-footer"></div>
     </div>
 
+    <!-- Include Floating WhatsApp -->
+    <div id="whatsapp-float-placeholder"></div>
+
     <!-- Unboxing Video Required Modal -->
     <div class="modal fade" id="unboxingVideoModal" tabindex="-1" aria-labelledby="unboxingVideoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -404,6 +407,13 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
+                });
+
+            // Load Floating WhatsApp
+            fetch('whatsapp-float.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('whatsapp-float-placeholder').innerHTML = data;
                 });
         });
     </script>

@@ -155,6 +155,16 @@
                 .catch(function () {
                     document.getElementById('footer-placeholder').innerHTML = '';
                 });
+
+            // Load Floating WhatsApp
+            fetch('whatsapp-float.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('whatsapp-float-placeholder').innerHTML = data;
+                })
+                .catch(function () {
+                    document.getElementById('whatsapp-float-placeholder').innerHTML = '';
+                });
         });
     </script>
 </body>
