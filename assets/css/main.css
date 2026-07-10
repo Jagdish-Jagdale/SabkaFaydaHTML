@@ -1,16 +1,20 @@
 /* header.css */
 
 /* Small Card Icon Hover Effects */
-.card-icon-wishlist i, .card-icon-share i {
+.card-icon-wishlist i,
+.card-icon-share i {
     color: #6c757d !important;
     transition: color 0.3s ease;
 }
+
 .card-icon-wishlist:hover i {
     color: #dc3545 !important;
 }
+
 .card-icon-share:hover i {
     color: #4b70f5 !important;
 }
+
 :root {
     --bs-primary: #0087F6 !important;
     --bs-primary-rgb: 0, 135, 246 !important;
@@ -583,7 +587,7 @@
     }
 
     .keep-shopping-small-img {
-        height: 110px !important;
+        height: 120px !important;
     }
 
     .keep-shopping-small-box h6 {
@@ -672,11 +676,11 @@
         font-size: 1.25rem !important;
     }
 
-    #homeContent > .container {
+    #homeContent>.container {
         margin-bottom: 15px !important;
     }
 
-    #homeContent > .container:first-child {
+    #homeContent>.container:first-child {
         margin-top: 12px !important;
     }
 
@@ -832,6 +836,7 @@ body {
         top: 6px !important;
         right: 6px !important;
     }
+
     .product-share-btn {
         display: none !important;
     }
@@ -3812,6 +3817,7 @@ a {
 }
 
 @media (max-width: 767.98px) {
+
     .mobile-bottom-toast,
     .global-wishlist-toast {
         top: auto !important;
@@ -3824,10 +3830,11 @@ a {
         width: max-content;
         max-width: 90vw;
     }
-    
+
     .global-wishlist-toast {
         transform: translateX(-50%) translateY(20px) !important;
     }
+
     .global-wishlist-toast.show {
         transform: translateX(-50%) translateY(0) !important;
     }
