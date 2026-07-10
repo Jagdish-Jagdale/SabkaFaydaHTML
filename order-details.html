@@ -106,16 +106,10 @@
                 <!-- Row 3: Order Tracking History -->
                 <div id="tracking-history-container" class="details-card mb-4"></div>
 
-                <!-- Row 4: Return/Replace window, Support actions, More actions -->
+                <!-- Row 4: Need Help & More Actions -->
                 <div class="row g-4">
-                    <!-- Return/Replace -->
-                    <div class="col-lg-4 col-md-6">
-                        <div id="return-info-container"
-                            class="details-card h-100 d-flex flex-column justify-content-between"></div>
-                    </div>
-
                     <!-- Need Help? -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6 col-md-12">
                         <div class="details-card h-100 d-flex flex-column justify-content-between">
                             <div>
                                 <h5 class="details-card-title"><i class="fa-regular fa-circle-question"></i> Need Help?
@@ -128,18 +122,18 @@
                                 <div class="d-flex gap-2">
                                     <button
                                         class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1"
-                                        style="border-radius: 8px; font-size: 0.78rem;">
-                                        <i class="fa-solid fa-phone"></i> Contact Support
+                                        style="border-radius: 8px; font-size: 0.78rem;" onclick="window.location.href='contact-us.html'">
+                                        <i class="fa-solid fa-phone"></i> Contact
                                     </button>
                                     <button
                                         class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1"
-                                        style="border-radius: 8px; font-size: 0.78rem;">
-                                        <i class="fa-solid fa-comments"></i> Chat Support
+                                        style="border-radius: 8px; font-size: 0.78rem;" onclick="window.open('https://wa.me/7666912745', '_blank')">
+                                        <i class="fa-solid fa-headset"></i> Support
                                     </button>
                                 </div>
                                 <button
                                     class="btn btn-outline-danger w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1"
-                                    style="border-radius: 8px; font-size: 0.78rem;">
+                                    style="border-radius: 8px; font-size: 0.78rem;" onclick="window.open('https://wa.me/7666912745', '_blank')">
                                     <i class="fa-solid fa-circle-exclamation"></i> Raise Complaint
                                 </button>
                             </div>
@@ -147,7 +141,7 @@
                     </div>
 
                     <!-- More Actions -->
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-6 col-md-12">
                         <div class="details-card h-100 d-flex flex-column justify-content-between">
                             <div>
                                 <h5 class="details-card-title"><i class="fa-solid fa-ellipsis"></i> More Actions</h5>
@@ -158,9 +152,9 @@
                             <div class="d-flex flex-column gap-2">
                                 <div class="d-flex gap-2">
                                     <button
-                                        class="btn btn-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1"
-                                        style="border-radius: 8px; font-size: 0.78rem;">
-                                        <i class="fa-solid fa-rotate-right"></i> Buy Again
+                                        class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1"
+                                        style="border-radius: 8px; font-size: 0.78rem;" data-bs-toggle="modal" data-bs-target="#unboxingVideoModal">
+                                        <i class="fa-solid fa-box-open"></i> Return Product
                                     </button>
                                     <button
                                         class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1"

@@ -276,5 +276,4 @@ document.addEventListener("DOMContentLoaded", function () {
     renderDeliveryAddress();
     renderPaymentInfo();
     renderTrackingHistory();
-    renderReturnInfo();
 });
