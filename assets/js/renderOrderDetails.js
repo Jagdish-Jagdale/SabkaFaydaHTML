@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="fw-bold text-success mb-0">${ri.returnWindowOpen}</p>
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" style="border-radius: 8px; font-size: 0.78rem;">
+                    <button class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" style="border-radius: 8px; font-size: 0.78rem;" data-bs-toggle="modal" data-bs-target="#unboxingVideoModal">
                         <i class="fa-solid fa-box-open"></i> Return Product
                     </button>
                     <button class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" style="border-radius: 8px; font-size: 0.78rem;">

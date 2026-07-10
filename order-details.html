@@ -185,10 +185,210 @@
         <div class="skeleton-box skeleton-footer"></div>
     </div>
 
+    <!-- Unboxing Video Required Modal -->
+    <div class="modal fade" id="unboxingVideoModal" tabindex="-1" aria-labelledby="unboxingVideoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="unboxingVideoModalLabel">Unboxing Video Required</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <div class="text-center mb-3">
+                        <div class="d-inline-flex justify-content-center align-items-center rounded-circle bg-warning bg-opacity-10 mb-3" style="width: 100px; height: 100px;">
+                            <i class="fa-solid fa-video text-warning fs-1"></i>
+                        </div>
+                        <h6 class="fw-bold mb-2">Important: Unboxing Video Required</h6>
+                        <p class="text-secondary small mb-0">To process your return, an unboxing video showing the product condition and packaging is mandatory. We will contact you to collect this video after your request is submitted.</p>
+                    </div>
+                    <div class="rounded-3 p-3 mb-3" style="background: #f8fbff; border: 1px solid #e4edf8;">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fa-solid fa-circle-info text-primary"></i>
+                            <span class="fw-semibold small">Guidelines for Unboxing Video</span>
+                        </div>
+                        <ul class="small text-secondary mb-0 ps-3" style="font-size: 0.75rem; line-height: 1.5;">
+                            <li>Must be clear</li>
+                            <li>Show all product accessories</li>
+                            <li>Show the invoice and return product</li>
+                            <li>Show all product packaging</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-outline-secondary px-4 py-2 fw-semibold" data-bs-dismiss="modal" style="border-radius: 8px;">Cancel</button>
+                    <button type="button" class="btn btn-primary px-4 py-2 fw-semibold" style="border-radius: 8px;" onclick="proceedToReturnForm()">Confirm & Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return Product Request Modal -->
+    <div class="modal fade" id="returnProductModal" tabindex="-1" aria-labelledby="returnProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="returnProductModalLabel">Return Product Request for Order #SF20260001254</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-4">
+                    <h6 class="fw-bold mb-4">Select Items to Return/Replace</h6>
+                    <div class="row g-4">
+                        <!-- Left Column -->
+                        <div class="col-md-6">
+                            <!-- Product Details -->
+                            <div class="d-flex gap-3 mb-4 p-3 rounded-3" style="background: #f8fbff; border: 1px solid #e4edf8;">
+                                <div class="flex-shrink-0" style="width: 80px; height: 80px; border: 1px solid #eef2f6; border-radius: 8px; overflow: hidden; padding: 4px;">
+                                    <img src="assets/img/product1.jpg" alt="Product" class="w-100 h-100 object-fit-contain">
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">Samsung Galaxy M35 5G</h6>
+                                    <p class="text-secondary mb-0" style="font-size: 0.75rem; line-height: 1.4;">
+                                        Color: Moonlight Blue<br>
+                                        Storage: 128GB | RAM: 8GB<br>
+                                        Seller: Sobka Fayda Fayta<br>
+                                        Price: ₹15,999.00
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Additional Comments -->
+                            <div class="mb-4">
+                                <label class="fw-semibold small mb-2">Additional Comments (Optional)</label>
+                                <textarea class="form-control form-control-sm" rows="3" placeholder="Enter additional comments here..." style="border-radius: 8px; font-size: 0.85rem; resize: none;"></textarea>
+                            </div>
+
+                            <!-- Upload Evidence Photos -->
+                            <div class="mb-4">
+                                <label class="fw-semibold small mb-2">Upload Evidence Photos</label>
+                                <p class="text-secondary small mb-2">(e.g., damaged product, wrong item)</p>
+                                <div class="border-2 border-dashed rounded-3 p-4 text-center position-relative" style="border-color: #e2e8f0; background: #f8fbff;">
+                                    <i class="fa-solid fa-cloud-arrow-up text-primary fs-4 mb-2"></i>
+                                    <p class="text-secondary small mb-0">Drag-and-drop here... | Add Media</p>
+                                    <input type="file" class="position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer" multiple accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="col-md-6">
+                            <!-- Contextual Help -->
+                            <div class="rounded-3 p-3 mb-4" style="background: #f8fbff; border: 1px solid #e4edf8;">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-circle-info text-primary"></i>
+                                    <span class="fw-semibold small">Return Policy</span>
+                                </div>
+                                <p class="text-secondary small mb-1 fw-semibold">Return Timeline:</p>
+                                <p class="text-secondary small mb-0">7-day return window</p>
+                            </div>
+
+                            <!-- Reason for Return -->
+                            <div class="mb-4">
+                                <label class="fw-semibold small mb-2">Reason for Return/Replacement <span class="text-danger">*</span></label>
+                                <select class="form-select" style="border-radius: 8px; font-size: 0.85rem; padding: 0.6rem 0.75rem;">
+                                    <option value="">Select a reason...</option>
+                                    <option value="damaged">Product damaged on delivery</option>
+                                    <option value="wrong">Wrong product received</option>
+                                    <option value="performance">Product performance not good</option>
+                                    <option value="mind">Changed my mind</option>
+                                    <option value="product-received">Product product received</option>
+                                    <option value="performance-cheemind">Product performance cheemind</option>
+                                    <option value="other">Other reasons</option>
+                                </select>
+                            </div>
+
+                            <!-- Choose Action -->
+                            <div class="mb-4">
+                                <label class="fw-semibold small mb-2">Choose Action</label>
+                                <div class="rounded-3 p-3" style="background: #f8fbff; border: 1px solid #e4edf8;">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="radio" name="returnAction" id="refundAction" checked style="cursor: pointer;">
+                                        <label class="form-check-label small" for="refundAction" style="cursor: pointer;">
+                                            Request Refund to Original Payment Method (Prepaid UPI)
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" name="returnAction" id="replacementAction" style="cursor: pointer;">
+                                        <label class="form-check-label small" for="replacementAction" style="cursor: pointer;">
+                                            Request Replacement
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons at bottom right -->
+                    <div class="d-flex gap-2 mt-4 justify-content-end">
+                        <button type="button" class="btn btn-outline-secondary px-4 py-2 fw-semibold" data-bs-dismiss="modal" style="border-radius: 8px;">Cancel</button>
+                        <button type="button" class="btn btn-primary px-4 py-2 fw-semibold" style="border-radius: 8px;" onclick="submitReturnRequest()">Submit Request</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return Request Confirmation Modal -->
+    <div class="modal fade" id="returnConfirmationModal" tabindex="-1" aria-labelledby="returnConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3 text-center">
+                    <div class="d-inline-flex justify-content-center align-items-center rounded-circle bg-success bg-opacity-10 mb-3" style="width: 100px; height: 100px;">
+                        <i class="fa-solid fa-circle-check text-success fs-1"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Return Request Submitted!</h5>
+                    <p class="text-secondary small mb-3">Your return request has been successfully submitted. Our team will review your request and get back to you within 24-48 hours.</p>
+                    <div class="rounded-3 p-3 mb-3" style="background: #f8fbff; border: 1px solid #e4edf8;">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-secondary small">Request ID</span>
+                            <span class="fw-bold small text-primary">#RET2026001254</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="text-secondary small">Status</span>
+                            <span class="badge bg-warning text-dark small">Pending Review</span>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-0">You can track your return status from the order details page.</p>
+                </div>
+                <div class="modal-footer border-0 pt-0 justify-content-center">
+                    <button type="button" class="btn btn-primary px-5 py-2 fw-semibold" data-bs-dismiss="modal" style="border-radius: 8px;">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/authcontext.js"></script>
     <script src="assets/js/main.js?v=6"></script>
     <script>
+        // Proceed to Return Form Function
+        function proceedToReturnForm() {
+            // Close the unboxing video modal
+            const unboxingModal = bootstrap.Modal.getInstance(document.getElementById('unboxingVideoModal'));
+            if (unboxingModal) {
+                unboxingModal.hide();
+            }
+            
+            // Show the return request modal
+            const returnModal = new bootstrap.Modal(document.getElementById('returnProductModal'));
+            returnModal.show();
+        }
+
+        // Submit Return Request Function
+        function submitReturnRequest() {
+            // Close the return request modal
+            const returnModal = bootstrap.Modal.getInstance(document.getElementById('returnProductModal'));
+            if (returnModal) {
+                returnModal.hide();
+            }
+            
+            // Show the confirmation modal
+            const confirmationModal = new bootstrap.Modal(document.getElementById('returnConfirmationModal'));
+            confirmationModal.show();
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
             if (typeof loadSidebar === 'function') loadSidebar();
 
