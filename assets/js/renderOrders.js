@@ -44,6 +44,7 @@ function renderOrders(ordersData) {
             </div>
             <div class="order-status-panel">
                 <span class="status-pill ${order.statusClass}">${order.status} <i class="fa-solid ${order.statusIcon}"></i></span>
+                ${order.status.toLowerCase() === 'delivered' ? '<i class="fa-solid fa-download text-success ms-2 cursor-pointer" style="cursor: pointer;" title="Download Invoice"></i>' : ''}
                 <p>${order.statusDateLabel}</p>
                 <strong>${order.statusDate}</strong>
                 <div class="d-flex align-items-center gap-1"><span>Total Amount:</span> <b class="m-0">&#8377;${order.totalAmount}</b></div>
