@@ -55,11 +55,11 @@ function renderHomePage(data) {
                 .horizontal-scroll-card .card-img-container {
                     height: 140px !important;
                 }
-                .horizontal-scroll-card .card-title-text {
-                    font-size: 0.75rem !important;
+                .card-title-text {
+                    font-size: 0.82rem !important;
                 }
-                .horizontal-scroll-card .card-price-text {
-                    font-size: 0.85rem !important;
+                .card-price-text {
+                    font-size: 0.92rem !important;
                 }
                 .horizontal-scroll-card .card-old-price-text {
                     font-size: 0.65rem !important;
@@ -326,8 +326,8 @@ function renderHomePage(data) {
                 <div class="p-2 pt-0 flex-grow-1">
                     <div class="text-white fw-bold text-truncate mb-1 card-title-text" style="font-size: 0.85rem;">${item.title}</div>
                     <div class="d-flex align-items-baseline mb-1 flex-wrap">
-                        <span class="text-white-50 text-decoration-line-through fw-normal me-2 card-old-price-text" style="font-size: 0.75rem;">₹ ${oldPrice}</span>
                         <span class="text-white fw-bold card-price-text" style="font-size: 0.95rem;">₹ ${price}</span>
+                        <span class="text-white-50 text-decoration-line-through fw-normal ms-2 card-old-price-text" style="font-size: 0.75rem;">₹ ${oldPrice}</span>
                     </div>
                     <div class="text-white fw-medium card-upi-text" style="font-size: 0.7rem;">₹ ${upiOffer} with UPI offer</div>
                 </div>

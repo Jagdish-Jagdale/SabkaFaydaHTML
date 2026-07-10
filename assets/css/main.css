@@ -687,6 +687,14 @@
     #homeContent .custom-indicators {
         margin-top: 10px !important;
     }
+
+    #homeContent .card-title-text {
+        font-size: 0.82rem !important;
+    }
+
+    #homeContent .card-price-text {
+        font-size: 0.92rem !important;
+    }
 }
 
 .fashion-banner-img {
