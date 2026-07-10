@@ -307,10 +307,11 @@ function renderHomePage(data) {
     }
 
     function smallCardTemplate(item, sectionIndex, index, hasImagePadding = false, bgColor = '#0087F6') {
-        const oldPrice = item.oldPrice || 80000;
-        const price = item.price || 60000;
-        const upiOffer = item.upiOffer || 5000;
-        const discount = Math.round(((oldPrice - price) / oldPrice) * 100);
+        // Strip any ₹ symbol and spaces, then parse as numbers
+        const rawOldPrice = parseFloat(String(item.oldPrice || '').replace(/[₹,\s]/g, '')) || 80000;
+        const rawPrice    = parseFloat(String(item.price    || '').replace(/[₹,\s]/g, '')) || 60000;
+        const upiOffer    = item.upiOffer || 5000;
+        const discount    = Math.round(((rawOldPrice - rawPrice) / rawOldPrice) * 100);
         
         const imagePaddingClass = hasImagePadding ? 'p-2 pb-0' : '';
         const imageRoundedClass = hasImagePadding ? 'rounded-2' : '';
@@ -325,13 +326,13 @@ function renderHomePage(data) {
                 <div class="p-2 pt-0 flex-grow-1">
                     <div class="text-white fw-bold text-truncate mb-1 card-title-text" style="font-size: 0.85rem;">${item.title}</div>
                     <div class="d-flex align-items-baseline mb-1 flex-wrap">
-                        <span class="text-white fw-bold card-price-text" style="font-size: 0.95rem;">₹ ${price}</span>
-                        <span class="text-white-50 text-decoration-line-through fw-normal ms-2 card-old-price-text" style="font-size: 0.75rem;">₹ ${oldPrice}</span>
+                        <span class="text-white fw-bold card-price-text" style="font-size: 0.95rem;">₹${rawPrice}</span>
+                        <span class="text-white-50 text-decoration-line-through fw-normal ms-2 card-old-price-text" style="font-size: 0.75rem;">₹${rawOldPrice}</span>
                     </div>
-                    <div class="text-white fw-medium card-upi-text" style="font-size: 0.7rem;">₹ ${upiOffer} with UPI offer</div>
+                    <div class="text-white fw-medium card-upi-text" style="font-size: 0.7rem;">₹${upiOffer} with UPI offer</div>
                 </div>
                 <div class="text-dark fw-bold text-center py-1 w-100 mt-auto card-discount-text" style="font-size: 0.8rem; background: linear-gradient(to bottom, #ffffff, #e0e0e0);">
-                    Up to ${discount} % off
+                    Up to ${discount}% off
                 </div>
             </a>
         `;
