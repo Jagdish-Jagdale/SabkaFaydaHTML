@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     
                     <!-- Buy Now Button -->
-                    <button class="btn btn-primary w-100 fw-bold py-2.5 mb-3" style="background-color: #0087F6; border: none; border-radius: 6px; font-size: 1rem;">
+                    <button class="btn btn-primary w-100 fw-bold py-2.5 mb-3" style="background-color: #0087F6; border: none; border-radius: 6px; font-size: 1rem;" onclick="window.location.href='checkout.html'">
                         Buy Now
                     </button>
 
@@ -286,10 +286,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
-                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;">
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;" data-product="${encodeURIComponent(JSON.stringify({id: product.id || 'sim_' + Math.random().toString(36).substr(2, 9), title: product.title, image: product.image, price: product.price, originalPrice: product.originalPrice || '', discount: product.offer || ''}))}" onclick="event.preventDefault(); event.stopPropagation(); if(typeof addToCart === 'function') { const p = JSON.parse(decodeURIComponent(this.getAttribute('data-product'))); addToCart(p, 1, this); this.style.backgroundColor = ''; }">
                                     <i class="fa-solid fa-cart-shopping" style="font-size: 0.8rem;"></i> Add to Cart
                                 </button>
-                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #0087F6; border: none;" onclick="window.location.href='checkout.html'">
                                     <i class="fa-solid fa-bolt" style="font-size: 0.8rem;"></i> Buy Now
                                 </button>
                             </div>
@@ -346,10 +346,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                             <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
-                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;">
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;" data-product="${encodeURIComponent(JSON.stringify({id: product.id || 'sim_' + Math.random().toString(36).substr(2, 9), title: product.title, image: product.image, price: product.price, originalPrice: product.originalPrice || '', discount: product.offer || ''}))}" onclick="event.preventDefault(); event.stopPropagation(); if(typeof addToCart === 'function') { const p = JSON.parse(decodeURIComponent(this.getAttribute('data-product'))); addToCart(p, 1, this); this.style.backgroundColor = ''; }">
                                     <i class="fa-solid fa-cart-shopping" style="font-size: 0.8rem;"></i> Add to Cart
                                 </button>
-                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #0087F6; border: none;">
+                                <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #0087F6; border: none;" onclick="window.location.href='checkout.html'">
                                     <i class="fa-solid fa-bolt" style="font-size: 0.8rem;"></i> Buy Now
                                 </button>
                             </div>

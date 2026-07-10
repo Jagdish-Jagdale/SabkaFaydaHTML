@@ -112,8 +112,46 @@ function addToCart(product, quantity = 1, btnElement = null) {
     
     // Trigger animation
     animateCartIcon();
+    showCartToast();
     
     return cart;
+}
+
+// Function to show toast notification when product is added
+function showCartToast() {
+    let toastContainer = document.getElementById('cart-toast-container');
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'cart-toast-container';
+        toastContainer.className = 'position-fixed top-0 end-0 p-3';
+        toastContainer.style.zIndex = '9999';
+        toastContainer.style.marginTop = '90px';
+        document.body.appendChild(toastContainer);
+    }
+
+    const toastId = 'cart-toast-' + Date.now();
+    const toastHtml = `
+        <div id="${toastId}" class="toast align-items-center text-bg-success border-0 mb-2 shadow" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fw-semibold">
+                    <i class="fa-solid fa-circle-check me-2"></i>Product added to cart!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    `;
+    
+    toastContainer.insertAdjacentHTML('beforeend', toastHtml);
+    const toastEl = document.getElementById(toastId);
+    
+    if (typeof bootstrap !== 'undefined' && bootstrap.Toast) {
+        const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+        toast.show();
+        
+        toastEl.addEventListener('hidden.bs.toast', () => {
+            toastEl.remove();
+        });
+    }
 }
 
 // Function to animate cart icon in header

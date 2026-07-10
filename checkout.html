@@ -115,6 +115,61 @@
         </div>
     </div>
 
+    <style>
+        .hover-text-danger:hover {
+            color: #dc3545 !important;
+            cursor: pointer;
+        }
+        .hover-border-primary:hover {
+            border-color: #0d6efd !important;
+            cursor: pointer;
+        }
+        .hover-text-primary:hover {
+            color: #0d6efd !important;
+        }
+    </style>
+
+    <!-- Change Address Modal -->
+    <div class="modal fade" id="changeAddressModal" tabindex="-1" aria-labelledby="changeAddressModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-bottom-0 pb-0 mt-2">
+                    <h5 class="modal-title fw-bold" id="changeAddressModalLabel" style="font-family: 'Montserrat', sans-serif;">Saved Addresses</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3 pb-4">
+                    <!-- Address 1 (Selected) -->
+                    <div class="bg-light border border-primary rounded-3 p-3 mb-3 position-relative" style="background-color: #f8fafc !important;">
+                        <!-- Top Right Icons -->
+                        <div class="position-absolute d-flex gap-1" style="top: 12px; right: 12px;">
+                            <button class="btn border-0 p-1 text-primary" title="Edit Address"><i class="far fa-edit"></i></button>
+                            <button class="btn border-0 p-1 text-primary" title="Selected"><i class="fas fa-check-circle fs-5"></i></button>
+                        </div>
+                        <h6 class="fw-bold mb-1">Home</h6>
+                        <p class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.5; padding-right: 50px;">
+                            janta mark mankarna plot infront of society petrol pump behind zahoor hospital gawlipura, akola, Maharashtra<br>India - 444001
+                        </p>
+                    </div>
+                    <!-- Address 2 -->
+                    <div class="bg-white border rounded-3 p-3 mb-3 position-relative hover-border-primary" style="border-color: #e2e8f0 !important;" onclick="document.querySelectorAll('.fa-check-circle').forEach(icon => { icon.classList.replace('fa-check-circle', 'fa-circle'); icon.parentElement.classList.replace('text-primary', 'text-secondary'); icon.parentElement.parentElement.parentElement.classList.remove('border-primary', 'bg-light'); icon.parentElement.parentElement.parentElement.classList.add('bg-white'); }); this.classList.remove('bg-white'); this.classList.add('border-primary', 'bg-light'); this.querySelector('.fa-circle').classList.replace('fa-circle', 'fa-check-circle'); this.querySelector('.fa-check-circle').parentElement.classList.replace('text-secondary', 'text-primary'); setTimeout(() => bootstrap.Modal.getInstance(document.getElementById('changeAddressModal')).hide(), 400);">
+                        <!-- Top Right Icons -->
+                        <div class="position-absolute d-flex gap-1" style="top: 12px; right: 12px;">
+                            <button class="btn border-0 p-1 text-secondary hover-text-primary" title="Edit Address" onclick="event.stopPropagation();"><i class="far fa-edit"></i></button>
+                            <button class="btn border-0 p-1 text-secondary" title="Select"><i class="far fa-circle fs-5"></i></button>
+                        </div>
+                        <h6 class="fw-bold mb-1">Work</h6>
+                        <p class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.5; padding-right: 50px;">
+                            102 Business Park, MIDC Phase 2, Near Tech Hub<br>Andheri East, Mumbai, Maharashtra<br>India - 400093
+                        </p>
+                    </div>
+                    <button class="btn btn-outline-primary w-100 fw-bold py-2 mt-2" style="border-style: dashed; border-width: 1.5px; border-radius: 8px;">
+                        <i class="fas fa-plus me-2"></i> Add New Address
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Mobile Sticky Footer Bar for Checkout -->
     <div id="mobile-footer-container" class="fixed-bottom bg-white border-top p-3 d-block d-lg-none" style="z-index: 1020;">
         <div class="container d-flex justify-content-between align-items-center"></div>

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             deliveryContainer.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="fw-bold text-dark mb-0" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif;">Deliver to :</h5>
-                    <button class="btn btn-outline-primary btn-sm px-3 fw-semibold" style="border-radius: 4px; font-size: 0.85rem; border-color: #bfdbfe; color: #0087F6;">Change</button>
+                    <button class="btn btn-outline-primary btn-sm px-3 fw-semibold" style="border-radius: 4px; font-size: 0.85rem; border-color: #bfdbfe; color: #0087F6;" data-bs-toggle="modal" data-bs-target="#changeAddressModal">Change</button>
                 </div>
                 <p class="text-secondary mb-0" style="font-size: 0.9rem; line-height: 1.6; font-weight: 500; max-width: 600px;">
                     ${checkoutData.delivery.address}<br>
@@ -22,7 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const productsContainer = document.getElementById('products-container');
         if (productsContainer && checkoutData.products) {
             productsContainer.innerHTML = checkoutData.products.map(product => `
-                <div class="bg-white rounded-3 p-3 mb-4 shadow-sm" style="border: 1px solid #eef2f5;">
+                <div class="bg-white rounded-3 p-3 mb-4 shadow-sm position-relative" style="border: 1px solid #eef2f5;">
+                    <!-- Delete Icon -->
+                    <button class="btn border-0 position-absolute text-muted hover-text-danger" style="top: 12px; right: 12px; padding: 4px; background: transparent; z-index: 2;" title="Remove Item">
+                        <i class="far fa-trash-can" style="font-size: 1.1rem;"></i>
+                    </button>
                     <div class="row g-3">
                         <!-- Product Image Column -->
                         <div class="col-md-3 d-flex flex-column align-items-center">
@@ -89,18 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                 Delivery at <span class="text-dark fw-semibold">${product.deliveryDate}</span>
                             </div>
                         </div>
-                    </div>
-                    <!-- Card Action Buttons -->
-                    <div class="d-flex gap-2 mt-4 pt-3 border-top" style="border-color: #f1f5f9 !important;">
-                        <button class="btn btn-light flex-fill fw-bold py-2 border text-secondary" style="background-color: #f8fafc; border-color: #cbd5e1 !important; font-size: 0.85rem; border-radius: 6px;">
-                            <i class="far fa-heart me-1"></i> Add to Wish list
-                        </button>
-                        <button class="btn btn-light flex-fill fw-bold py-2 border text-secondary" style="background-color: #f8fafc; border-color: #cbd5e1 !important; font-size: 0.85rem; border-radius: 6px;">
-                            <i class="far fa-trash-can me-1"></i> Remove
-                        </button>
-                        <button class="btn btn-primary flex-fill fw-bold py-2" style="background-color: #0087F6; border: none; font-size: 0.85rem; border-radius: 6px;">
-                            Buy Now
-                        </button>
                     </div>
                 </div>
             `).join('');
