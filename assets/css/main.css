@@ -811,6 +811,20 @@ body {
     transform: translate(-50%, -50%) scale(1.05);
 }
 
+@media (max-width: 767.98px) {
+    .product-wishlist-btn {
+        opacity: 1 !important;
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 0.95rem !important;
+        top: 6px !important;
+        right: 6px !important;
+    }
+    .product-share-btn {
+        display: none !important;
+    }
+}
+
 .product-name {
     display: block !important;
     height: 2.8em !important;
