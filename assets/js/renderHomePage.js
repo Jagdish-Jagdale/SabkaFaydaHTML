@@ -491,7 +491,7 @@ function renderHomePage(data) {
                             <button class="btn border-0 position-absolute opacity-0 product-share-btn card-icon-share" title="Share" style="background-color: #ffffff !important; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.15); top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; font-size: 1.1rem; z-index: 5;" onclick="event.stopPropagation();">
                                 <i class="fa-regular fa-paper-plane"></i>
                             </button>
-                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;" onclick="event.stopPropagation();">
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-none d-md-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;" onclick="event.stopPropagation();">
                                 ${addToCartBtn}
                                 <button class="btn btn-primary flex-grow-1 py-2 d-flex align-items-center justify-content-center fw-bold" style="font-size: 0.7rem; border-radius: 4px; border: none; color: #ffffff;">
                                     <i class="fas fa-bolt me-1"></i> Buy Now

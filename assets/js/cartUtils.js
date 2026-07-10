@@ -123,7 +123,7 @@ function showCartToast() {
     if (!toastContainer) {
         toastContainer = document.createElement('div');
         toastContainer.id = 'cart-toast-container';
-        toastContainer.className = 'position-fixed top-0 end-0 p-3';
+        toastContainer.className = 'position-fixed top-0 end-0 p-3 mobile-bottom-toast';
         toastContainer.style.zIndex = '9999';
         toastContainer.style.marginTop = '90px';
         document.body.appendChild(toastContainer);

@@ -281,11 +281,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <button class="btn bg-white rounded-circle shadow-sm product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
                                     <i class="far fa-heart" style="font-size: 0.85rem;"></i>
                                 </button>
-                                <button class="btn bg-white rounded-circle shadow-sm card-icon-share" title="Share" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                <button class="btn bg-white rounded-circle shadow-sm product-share-btn card-icon-share" title="Share" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
                                     <i class="fa-regular fa-paper-plane" style="font-size: 0.85rem;"></i>
                                 </button>
                             </div>
-                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-none d-md-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
                                 <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;" data-product="${encodeURIComponent(JSON.stringify({id: product.id || 'sim_' + Math.random().toString(36).substr(2, 9), title: product.title, image: product.image, price: product.price, originalPrice: product.originalPrice || '', discount: product.offer || ''}))}" onclick="event.preventDefault(); event.stopPropagation(); if(typeof addToCart === 'function') { const p = JSON.parse(decodeURIComponent(this.getAttribute('data-product'))); addToCart(p, 1, this); this.style.backgroundColor = ''; }">
                                     <i class="fa-solid fa-cart-shopping" style="font-size: 0.8rem;"></i> Add to Cart
                                 </button>
@@ -341,11 +341,11 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <button class="btn bg-white rounded-circle shadow-sm product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
                                     <i class="far fa-heart" style="font-size: 0.85rem;"></i>
                                 </button>
-                                <button class="btn bg-white rounded-circle shadow-sm card-icon-share" title="Share" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                <button class="btn bg-white rounded-circle shadow-sm product-share-btn card-icon-share" title="Share" style="width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;">
                                     <i class="fa-regular fa-paper-plane" style="font-size: 0.85rem;"></i>
                                 </button>
                             </div>
-                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
+                            <div class="product-card-overlay position-absolute bottom-0 start-0 end-0 p-2 d-none d-md-flex gap-2 opacity-0" style="background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: opacity 0.3s;">
                                 <button class="btn flex-grow-1 py-1 text-white d-flex align-items-center justify-content-center gap-1" style="font-size: 0.75rem; border-radius: 4px; background-color: #198754; border: none;" data-product="${encodeURIComponent(JSON.stringify({id: product.id || 'sim_' + Math.random().toString(36).substr(2, 9), title: product.title, image: product.image, price: product.price, originalPrice: product.originalPrice || '', discount: product.offer || ''}))}" onclick="event.preventDefault(); event.stopPropagation(); if(typeof addToCart === 'function') { const p = JSON.parse(decodeURIComponent(this.getAttribute('data-product'))); addToCart(p, 1, this); this.style.backgroundColor = ''; }">
                                     <i class="fa-solid fa-cart-shopping" style="font-size: 0.8rem;"></i> Add to Cart
                                 </button>

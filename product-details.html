@@ -53,6 +53,11 @@
         .product-card:hover .product-floating-actions {
             opacity: 1 !important;
         }
+        @media (max-width: 767.98px) {
+            .product-floating-actions {
+                opacity: 1 !important;
+            }
+        }
         .large-card-wishlist-btn {
             transition: color 0.3s ease;
         }
@@ -487,7 +492,7 @@
     </script>
 
     <!-- Notification Toast System -->
-    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100; margin-top: 90px;">
+    <div class="toast-container position-fixed top-0 end-0 p-3 mobile-bottom-toast" style="z-index: 1100; margin-top: 90px;">
         <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body fw-semibold" id="toast-body-content">
