@@ -514,7 +514,6 @@
 @media (max-width: 767px) {
     .hero-slide-bg {
         height: 200px !important;
-        margin-top: 10px !important;
     }
 
     .hero-title {
@@ -675,6 +674,10 @@
 
     #homeContent > .container {
         margin-bottom: 15px !important;
+    }
+
+    #homeContent > .container:first-child {
+        margin-top: 12px !important;
     }
 
     #homeContent .custom-indicators {

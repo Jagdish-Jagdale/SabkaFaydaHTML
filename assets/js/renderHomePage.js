@@ -95,6 +95,9 @@ function renderHomePage(data) {
                 #homeContent > .container {
                     margin-bottom: 15px !important;
                 }
+                #homeContent > .container:first-child {
+                    margin-top: 12px !important;
+                }
                 .custom-indicators {
                     margin-top: 10px !important;
                 }
