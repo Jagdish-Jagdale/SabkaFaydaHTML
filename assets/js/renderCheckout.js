@@ -137,6 +137,22 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="text-dark fw-bold">Trusted Checkout Protection</span>
                     </div>
                 </div>
+                <div class="border-top pt-3 mb-3">
+                    <h6 class="fw-bold mb-2 text-dark" style="font-size: 0.95rem;">Payment Method</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <label class="d-flex align-items-center cursor-pointer payment-option online-payment m-0 pb-1">
+                            <input type="radio" name="payment_method" value="online" class="form-check-input mt-0 me-2" checked onchange="document.getElementById('cod-hint').classList.add('d-none');">
+                            <span class="fw-semibold text-dark" style="font-size: 0.9rem;">Pay Online</span>
+                        </label>
+                        <label class="d-flex align-items-center cursor-pointer payment-option cod-payment m-0 pt-1">
+                            <input type="radio" name="payment_method" value="cod" class="form-check-input mt-0 me-2" onchange="document.getElementById('cod-hint').classList.remove('d-none');">
+                            <span class="fw-semibold text-dark" style="font-size: 0.9rem;">Cash on Delivery</span>
+                        </label>
+                    </div>
+                    <div id="cod-hint" class="text-muted mt-2 d-none" style="font-size: 0.8rem; line-height: 1.4; font-weight: 500;">
+                        <i class="fas fa-info-circle me-1"></i> A small handling fee of ₹29 applies for Cash on Delivery. Save this extra charge by securely paying online!
+                    </div>
+                </div>
                 <div class="border-top pt-3 d-none d-lg-block">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
