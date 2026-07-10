@@ -52,7 +52,13 @@ function renderOrders(ordersData) {
                 ${actionsHtml}
             </div>
         </article>`;
-    });
+    html += `
+        <div id="no-orders-message" class="text-center py-5" style="display: none; background: #fff; border-radius: 12px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);">
+            <i class="fa-solid fa-box-open text-secondary opacity-50 mb-3" style="font-size: 4rem;"></i>
+            <h4 class="text-secondary fw-bold">No orders found</h4>
+            <p class="text-muted mb-0">You have no orders in this category.</p>
+        </div>
+    `;
     container.innerHTML = html;
     
     // Setup filters after rendering the orders
@@ -90,22 +96,30 @@ function setupOrderFilters() {
             this.classList.add('active');
             
             const filterText = this.textContent.split(' (')[0].trim().toLowerCase();
+            let visibleCount = 0;
             
             orderCards.forEach(card => {
                 if (filterText === 'all') {
                     card.style.display = '';
+                    visibleCount++;
                 } else {
                     const statusPill = card.querySelector('.status-pill');
                     if (statusPill) {
                         const statusText = statusPill.textContent.trim().toLowerCase();
                         if (statusText.includes(filterText)) {
                             card.style.display = '';
+                            visibleCount++;
                         } else {
                             card.style.display = 'none';
                         }
                     }
                 }
             });
+            
+            const noOrdersMsg = document.getElementById('no-orders-message');
+            if (noOrdersMsg) {
+                noOrdersMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
         };
     });
 }
