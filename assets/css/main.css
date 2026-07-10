@@ -948,7 +948,7 @@ input[type=range]::-moz-range-thumb {
 /* Mobile specific style adjustments */
 @media (max-width: 991px) {
     .main-content {
-        padding-top: 175px !important;
+        padding-top: 160px !important;
     }
 
     header {

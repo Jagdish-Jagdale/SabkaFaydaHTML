@@ -307,7 +307,7 @@ function renderHomePage(data) {
         `;
     }
 
-    function smallCardTemplate(item, sectionIndex, index, hasImagePadding = false) {
+    function smallCardTemplate(item, sectionIndex, index, hasImagePadding = false, bgColor = '#0087F6') {
         const oldPrice = item.oldPrice || 80000;
         const price = item.price || 60000;
         const upiOffer = item.upiOffer || 5000;
@@ -317,7 +317,7 @@ function renderHomePage(data) {
         const imageRoundedClass = hasImagePadding ? 'rounded-2' : '';
 
         return `
-            <a href="product-details.html" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background-color: #0087F6;">
+            <a href="product-details.html" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background: ${bgColor};">
                 <div class="${imagePaddingClass}">
                     <div class="bg-white ${imageRoundedClass} mb-2 w-100 d-flex align-items-center justify-content-center overflow-hidden card-img-container" style="height: 180px;">
                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.title}" ${imgAttrs(20 + sectionIndex * 10 + index)}>
@@ -338,7 +338,7 @@ function renderHomePage(data) {
         `;
     }
 
-    function smallProductSection(section, sectionIndex) {
+    function smallProductSection(section, sectionIndex, cardBgColor = '#0087F6') {
         return `
             <div class="container mb-5 position-relative home-deferred-section">
                 <div class="rounded-4 p-3 p-md-4" style="background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);">
@@ -359,7 +359,7 @@ function renderHomePage(data) {
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="small-scroll-${sectionIndex}" style="scroll-behavior: smooth;">
                         ${section.items.map((item, index) => `
                             <div class="flex-shrink-0 horizontal-scroll-card">
-                                ${smallCardTemplate(item, sectionIndex, index)}
+                                ${smallCardTemplate(item, sectionIndex, index, false, cardBgColor)}
                             </div>
                         `).join('')}
                     </div>
@@ -453,13 +453,7 @@ function renderHomePage(data) {
                     <div class="d-flex gap-3 overflow-auto hide-scroll pb-2" id="sale-scroll" style="scroll-behavior: smooth;">
                         ${data.productGrid.map((item, index) => `
                             <div class="flex-shrink-0 horizontal-scroll-card">
-                                <a href="product-details.html" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white text-decoration-none">
-                                    <img src="${item.image}" class="w-100 object-fit-cover on-sale-card-img" alt="${item.title}" style="height: 180px;" ${imgAttrs(50 + index)}>
-                                    <div class="text-center text-white fw-bold p-3 on-sale-card-title" style="background: linear-gradient(180deg, #05970E 0%, #56DF5F 100%);">
-                                        <div class="text-truncate">${item.title}</div>
-                                        <small class="fw-medium">Sale</small>
-                                    </div>
-                                </a>
+                                ${smallCardTemplate(item, 99, index, false, 'linear-gradient(180deg, #05970E 0%, #56DF5F 100%)')}
                             </div>
                         `).join('')}
                     </div>
@@ -537,7 +531,7 @@ function renderHomePage(data) {
             let html = '';
             data.productSections.forEach((section, index) => {
                 if (index === 0) {
-                    html += smallProductSection(section, index);
+                    html += smallProductSection(section, index, 'linear-gradient(90deg, #4588FF 14.42%, #00C9C1 100%)');
                     if (data.banners[0]) {
                         html += bannerCarouselSection(data.banners[0], 0, 2, 'd-none d-md-block', '-desktop');
                         html += bannerCarouselSection(data.banners[0], 0, 1, 'd-block d-md-none', '-mobile');
