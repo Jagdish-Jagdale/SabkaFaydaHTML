@@ -7,7 +7,7 @@ function renderWishlist(wishlistData) {
     if (!wishlistData || wishlistData.length === 0) {
         // Show empty state
         if (emptyState) {
-            emptyState.classList.remove('d-none');
+            emptyState.style.display = 'block';
         }
         container.innerHTML = '';
         return;
@@ -15,7 +15,7 @@ function renderWishlist(wishlistData) {
 
     // Hide empty state and show items
     if (emptyState) {
-        emptyState.classList.add('d-none');
+        emptyState.style.display = 'none';
     }
 
     let html = '';

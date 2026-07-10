@@ -143,11 +143,10 @@
                 </div>
 
                 <!-- Empty State (Hidden initially) -->
-                <div class="flex-column align-items-center justify-content-center py-5 px-3 bg-white rounded-4 border text-center shadow-sm"
-                    id="emptyState" style="display: none;">
-                    <i class="fa-solid fa-bell-slash mb-3 text-primary opacity-25" style="font-size: 4rem;"></i>
-                    <h4 class="fw-bold text-dark mb-2">No notifications found</h4>
-                    <p class="text-muted mb-4">You're all caught up! There are no alerts matching your filters.</p>
+                <div id="emptyState" class="text-center py-5" style="display: none; background: #fff; border-radius: 12px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);">
+                    <i class="fa-solid fa-bell-slash text-secondary opacity-50 mb-3" style="font-size: 4rem;"></i>
+                    <h4 class="text-secondary fw-bold mb-2">No notifications found</h4>
+                    <p class="text-muted mb-0">You're all caught up! There are no alerts matching your filters.</p>
                 </div>
 
                 <!-- Notifications List -->
@@ -428,7 +427,7 @@
                 // Re-append sorted elements to the container
                 cardsArray.forEach(card => listContainer.appendChild(card));
             } else {
-                emptyState.style.display = 'flex';
+                emptyState.style.display = 'block';
             }
         }
 

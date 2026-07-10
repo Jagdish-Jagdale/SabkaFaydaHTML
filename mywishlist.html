@@ -130,21 +130,19 @@
                 <!-- Filter Chips Row -->
                 <div class="orders-filter-row mb-3" id="filterChipsContainer">
                     <button class="orders-filter-chip active" data-filter="all" id="chip-all">All (5)</button>
-                    <button class="orders-filter-chip" data-filter="in-stock" id="chip-in-stock">In Stock (2)</button>
-                    <button class="orders-filter-chip" data-filter="low-stock" id="chip-low-stock">Low Stock
+                    <button class="orders-filter-chip" data-filter="delivered" id="chip-in-stock">In Stock (2)</button>
+                    <button class="orders-filter-chip" data-filter="out-delivery" id="chip-low-stock">Low Stock
                         (2)</button>
-                    <button class="orders-filter-chip" data-filter="out-of-stock" id="chip-out-of-stock">Out of Stock
+                    <button class="orders-filter-chip" data-filter="cancelled" id="chip-out-of-stock">Out of Stock
                         (1)</button>
                 </div>
 
                 <!-- Empty State (Hidden initially) -->
-                <div class="flex-column align-items-center justify-content-center py-5 px-3 bg-white rounded-4 border text-center shadow-sm"
-                    id="emptyWishlistState" style="display: none;">
-                    <i class="fa-solid fa-heart-crack mb-3 text-primary opacity-25" style="font-size: 4rem;"></i>
-                    <h4 class="fw-bold text-dark mb-2">Your wishlist is empty</h4>
+                <div id="emptyWishlistState" class="text-center py-5" style="display: none; background: #fff; border-radius: 12px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);">
+                    <i class="fa-solid fa-heart-crack text-secondary opacity-50 mb-3" style="font-size: 4rem;"></i>
+                    <h4 class="text-secondary fw-bold mb-2">Your wishlist is empty</h4>
                     <p class="text-muted mb-4">Explore items and save your favorite products to view them here.</p>
-                    <a href="category.html" class="btn btn-primary px-4 py-2 fw-bold"
-                        style="border-radius: 8px;">Explore Products</a>
+                    <a href="category.html" class="btn btn-primary px-4 py-2 fw-bold" style="border-radius: 8px;">Explore Products</a>
                 </div>
 
                 <!-- Wishlist Items List (populated by renderWishlist.js) -->
@@ -183,6 +181,8 @@
             if (typeof mockData !== 'undefined' && mockData.wishlist) {
                 renderWishlist(mockData.wishlist);
             }
+            if (typeof updateUIState === 'function') updateUIState();
+
             if (typeof loadSidebar === 'function') loadSidebar();
 
             // Load header
@@ -346,10 +346,9 @@
                     }
                 });
 
-                // Re-append sorted elements to the container
                 itemsArray.forEach(item => itemsListContainer.appendChild(item));
             } else {
-                emptyState.style.display = 'flex';
+                emptyState.style.display = 'block';
             }
         }
 
@@ -367,9 +366,9 @@
                 const status = item.getAttribute('data-status');
                 totalVal += price;
 
-                if (status === 'in-stock') inStockCount++;
-                else if (status === 'low-stock') lowStockCount++;
-                else if (status === 'out-of-stock') outOfStockCount++;
+                if (status === 'delivered') inStockCount++;
+                else if (status === 'out-delivery') lowStockCount++;
+                else if (status === 'cancelled') outOfStockCount++;
             });
 
             // Update stats cards
@@ -384,14 +383,11 @@
 
             // If zero items overall, show empty state
             if (items.length === 0) {
-                emptyState.style.display = 'flex';
+                emptyState.style.display = 'block';
             } else {
                 applyFiltersAndSorting();
             }
         }
-
-        // Initial setup
-        updateUIState();
     </script>
 </body>
 

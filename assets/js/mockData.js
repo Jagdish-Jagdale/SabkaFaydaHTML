@@ -139,8 +139,8 @@ const mockData = {
             image: 'assets/img/boat_speaker.png',
             addedDate: '20 Jun 2026, 10:20 AM',
             orderDate: '20 Jun 2026',
-            status: 'OUT OF STOCK',
-            statusClass: 'cancelled'
+            status: 'IN STOCK',
+            statusClass: 'delivered'
         }
     ],
     cart: [
@@ -228,20 +228,7 @@ const mockData = {
             iconStatClass: 'stat-green',
             primaryAction: 'View More'
         },
-        {
-            id: 'N002',
-            title: 'Limited-Time Offer: Up to 50% Off Electronics!',
-            desc: "Don't miss out on deals for premium audio and phone accessories.",
-            date: '28 Jun 2026, 09:15 PM',
-            dateISO: '2026-06-28T21:15:00',
-            timestamp: 1782680100000,
-            timeAgo: '3 Hours Ago',
-            category: 'promotions',
-            status: 'read',
-            iconClass: 'fa-percent',
-            iconStatClass: 'stat-orange',
-            primaryAction: 'View Offer'
-        },
+
         {
             id: 'N003',
             title: 'Cashback Credited! ₹179.17 added to your Wallet',
