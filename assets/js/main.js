@@ -634,3 +634,43 @@ window.showGlobalWishlistToast = function(action, customMessage = null) {
         toast.classList.remove('show');
     }, 3000);
 };
+
+// Smart Header Scroll Behavior
+(function() {
+    let lastScrollY = window.scrollY || window.pageYOffset;
+    const threshold = 5;
+    
+    window.addEventListener('scroll', function() {
+        const currentScrollY = window.scrollY || window.pageYOffset;
+        
+        // Always show header at the very top
+        if (currentScrollY <= 10) {
+            const header = document.querySelector('header');
+            if (header) header.classList.remove('header-hidden');
+            lastScrollY = currentScrollY;
+            return;
+        }
+        
+        // Ignore tiny scrolls
+        if (Math.abs(currentScrollY - lastScrollY) < threshold) {
+            return;
+        }
+        
+        if (window.innerWidth < 992) {
+            const header = document.querySelector('header');
+            if (header) {
+                if (currentScrollY > lastScrollY && currentScrollY > 150) {
+                    header.classList.add('header-hidden');
+                } else {
+                    header.classList.remove('header-hidden');
+                }
+            }
+        } else {
+            // Reset state on desktop
+            const header = document.querySelector('header');
+            if (header) header.classList.remove('header-hidden');
+        }
+        
+        lastScrollY = currentScrollY;
+    }, { passive: true });
+})();

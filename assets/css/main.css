@@ -950,6 +950,14 @@ input[type=range]::-moz-range-thumb {
     .main-content {
         padding-top: 175px !important;
     }
+
+    header {
+        transition: transform 0.3s ease-in-out !important;
+    }
+
+    header.header-hidden {
+        transform: translateY(-100%) !important;
+    }
 }
 
 @media (max-width: 576px) {
