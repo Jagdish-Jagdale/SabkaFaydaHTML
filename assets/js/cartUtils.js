@@ -105,8 +105,8 @@ function addToCart(product, quantity = 1, btnElement = null) {
             e.preventDefault();
             window.location.href = 'mycart.html';
         };
-        if (btnElement.classList.contains('btn-primary')) {
-            btnElement.classList.replace('btn-primary', 'btn-success');
+        if (btnElement.classList.contains('btn-success')) {
+            // Keep existing green button style intact (e.g. checkout page)
         }
     }
     
