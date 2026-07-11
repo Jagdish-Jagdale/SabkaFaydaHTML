@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h6 class="fw-bold text-dark mb-2" style="font-size: 0.95rem;">Select Size</h6>
                     <div class="d-flex gap-2 flex-wrap">
                         ${p.sizes.map(size => `
-                            <button class="btn btn-outline-secondary fw-bold d-inline-flex align-items-center justify-content-center size-btn ${size === p.selectedSize ? 'active' : ''}">${size}</button>
+                            <button class="btn btn-outline-secondary fw-bold d-inline-flex align-items-center justify-content-center size-btn ${size === p.selectedSize ? 'active' : ''}" style="font-size: 0.85rem;">${size}</button>
                         `).join('')}
                     </div>
                 </div>
