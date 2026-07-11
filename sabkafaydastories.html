@@ -234,6 +234,29 @@
             max-width: 100% !important;
             display: block !important;
         }
+
+        /* Hide scrollbars for reel carousels */
+        .reel-cards-scroll {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        .reel-cards-scroll::-webkit-scrollbar {
+            display: none !important;
+        }
+        
+        /* Carousel Navigation Buttons Hover */
+        .carousel-control-btn {
+            opacity: 0.9;
+        }
+        .carousel-control-btn:hover {
+            background-color: #0087F6 !important;
+            opacity: 1 !important;
+            transform: translateY(-50%) scale(1.1) !important;
+            box-shadow: 0 4px 15px rgba(0, 135, 246, 0.4) !important;
+        }
+        .carousel-control-btn:hover i {
+            color: white !important;
+        }
     </style>
 </head>
 
@@ -311,7 +334,7 @@
                 </div>
             </div>
 
-            <!-- Product Reel, Customer Review, Influencer Reel Section -->
+                        <!-- Product Reel, Customer Review, Influencer Reel Section -->
             <div class="row mb-5">
                 <div class="col-12">
                     <!-- Tab Navigation -->
@@ -339,8 +362,14 @@
                     <div class="tab-content">
                         <!-- Product Reel Tab -->
                         <div class="tab-pane fade show active" id="product-reel">
-                            <div class="bg-white rounded-3 p-4 shadow-sm">
-                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scrollbar-width: thin; scrollbar-color: #ccc transparent;">
+                            <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
+                                <!-- Left Navigation Arrow -->
+                                <button class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                    style="width: 40px; height: 40px; background: white; z-index: 10; left: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; opacity: 0; pointer-events: none; border: 1px solid #ddd !important;">
+                                    <i class="fa-solid fa-chevron-left text-dark"></i>
+                                </button>
+                                
+                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
                                     <!-- Reel Card 1 -->
                                     <div class="reel-card-wrapper">
                                         <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
@@ -349,10 +378,8 @@
                                             data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
                                             data-views="326" data-likes="11" data-index="0">
                                             <div class="position-relative" style="height: 340px;">
-                                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop"
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-
-                                                
                                             </div>
                                             <div class="p-3">
                                                 <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
@@ -371,8 +398,8 @@
                                             data-title="Shop on Sabka Fayda"
                                             data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
                                             data-views="326" data-likes="11" data-index="1">
-                                            <div class="position-relative" style="height: 320px;">
-                                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop"
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
@@ -392,10 +419,9 @@
                                             data-title="Shop on Sabka Fayda"
                                             data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
                                             data-views="326" data-likes="11" data-index="2">
-                                            <div class="position-relative" style="height: 320px;">
-                                                <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop"
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-                                                
                                             </div>
                                             <div class="p-3">
                                                 <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
@@ -414,8 +440,8 @@
                                             data-title="Shop on Sabka Fayda"
                                             data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
                                             data-views="326" data-likes="11" data-index="3">
-                                            <div class="position-relative" style="height: 320px;">
-                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop"
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
@@ -435,10 +461,9 @@
                                             data-title="Shop on Sabka Fayda"
                                             data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
                                             data-views="326" data-likes="11" data-index="4">
-                                            <div class="position-relative" style="height: 320px;">
-                                                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop"
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-                                                
                                             </div>
                                             <div class="p-3">
                                                 <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
@@ -450,275 +475,583 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- /reel-cards-scroll -->
-                            </div><!-- /bg-white -->
-                        </div><!-- /product-reel tab-pane -->
-                        <!-- /Product Reel tab-pane -->
-
-                            <!-- Customer Review Tab -->
-                            <div class="tab-pane fade" id="customer-review">
-                                <div class="bg-white rounded-3 p-4 shadow-sm">
-                                    <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scrollbar-width: thin; scrollbar-color: #ccc transparent;">
-                                        <!-- Review Card 1 -->
-                                        <div class="reel-card-wrapper">
-                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                data-title="Shop on Sabka Fayda"
-                                                data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                data-views="326" data-likes="11" data-index="0">
-                                                <div class="position-relative" style="height: 320px;">
-                                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
-                                                        alt="Customer Review" class="w-100 h-100"
-                                                        style="object-fit: cover;">
-                                                </div>
-                                                <div class="p-3">
-                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                        style="font-size: 0.75rem;">
-                                                        <span><i
-                                                                class="fa-solid fa-eye me-1 text-primary"></i>5.2K</span>
-                                                        <span><i
-                                                                class="fa-solid fa-heart me-1 text-danger"></i>890</span>
-                                                    </div>
+                                    <!-- Reel Card 6 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="5">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Review Card 2 -->
-                                        <div class="reel-card-wrapper">
-                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                data-title="Shop on Sabka Fayda"
-                                                data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                data-views="326" data-likes="11" data-index="1">
-                                                <div class="position-relative" style="height: 320px;">
-                                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
-                                                        alt="Customer Review" class="w-100 h-100"
-                                                        style="object-fit: cover;">
-                                                </div>
-                                                <div class="p-3">
-                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                        style="font-size: 0.75rem;">
-                                                        <span><i
-                                                                class="fa-solid fa-eye me-1 text-primary"></i>3.8K</span>
-                                                        <span><i
-                                                                class="fa-solid fa-heart me-1 text-danger"></i>654</span>
-                                                    </div>
+                                    </div>
+                                    <!-- Reel Card 7 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="6">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Review Card 3 -->
-                                        <div class="reel-card-wrapper">
-                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                data-title="Shop on Sabka Fayda"
-                                                data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                data-views="326" data-likes="11" data-index="2">
-                                                <div class="position-relative" style="height: 320px;">
-                                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
-                                                        alt="Customer Review" class="w-100 h-100"
-                                                        style="object-fit: cover;">
-                                                    
-                                                </div>
-                                                <div class="p-3">
-                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                        style="font-size: 0.75rem;">
-                                                        <span><i
-                                                                class="fa-solid fa-eye me-1 text-primary"></i>7.1K</span>
-                                                        <span><i
-                                                                class="fa-solid fa-heart me-1 text-danger"></i>1.2K</span>
-                                                    </div>
+                                    </div>
+                                    <!-- Reel Card 8 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="7">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Review Card 4 -->
-                                        <div class="reel-card-wrapper">
-                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                data-title="Shop on Sabka Fayda"
-                                                data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                data-views="326" data-likes="11" data-index="3">
-                                                <div class="position-relative" style="height: 320px;">
-                                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
-                                                        alt="Customer Review" class="w-100 h-100"
-                                                        style="object-fit: cover;">
-                                                </div>
-                                                <div class="p-3">
-                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                        style="font-size: 0.75rem;">
-                                                        <span><i
-                                                                class="fa-solid fa-eye me-1 text-primary"></i>4.5K</span>
-                                                        <span><i
-                                                                class="fa-solid fa-heart me-1 text-danger"></i>720</span>
-                                                    </div>
+                                    </div>
+                                    <!-- Reel Card 9 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="8">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Review Card 5 -->
-                                        <div class="reel-card-wrapper">
-                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                data-title="Shop on Sabka Fayda"
-                                                data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                data-views="326" data-likes="11" data-index="4">
-                                                <div class="position-relative" style="height: 320px;">
-                                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
-                                                        alt="Customer Review" class="w-100 h-100"
-                                                        style="object-fit: cover;">
-                                                    
-                                                </div>
-                                                <div class="p-3">
-                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                        style="font-size: 0.75rem;">
-                                                        <span><i
-                                                                class="fa-solid fa-eye me-1 text-primary"></i>6.3K</span>
-                                                        <span><i
-                                                                class="fa-solid fa-heart me-1 text-danger"></i>980</span>
-                                                    </div>
-                                                </div>
+                                    </div>
+                                    <!-- Reel Card 10 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="9">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
-                                        </div>
-                                    </div><!-- /reel-cards-scroll -->
-                                </div><!-- /bg-white -->
-                            </div><!-- /customer-review tab-pane -->
-                            <!-- /Customer Review tab-pane -->
-
-                                <!-- Influencer Reel Tab -->
-                                <div class="tab-pane fade" id="influencer-reel">
-                                    <div class="bg-white rounded-3 p-4 shadow-sm">
-                                        <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scrollbar-width: thin; scrollbar-color: #ccc transparent;">
-                                            <!-- Influencer Card 1 -->
-                                            <div class="reel-card-wrapper">
-                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                    data-title="Shop on Sabka Fayda"
-                                                    data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                    data-views="326" data-likes="11" data-index="0">
-                                                    <div class="position-relative" style="height: 320px;">
-                                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
-                                                            alt="Influencer Reel" class="w-100 h-100"
-                                                            style="object-fit: cover;">
-                                                        
-                                                    </div>
-                                                    <div class="p-3">
-                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                            style="font-size: 0.75rem;">
-                                                            <span><i
-                                                                    class="fa-solid fa-eye me-1 text-primary"></i>25.4K</span>
-                                                            <span><i
-                                                                    class="fa-solid fa-heart me-1 text-danger"></i>5.6K</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Influencer Card 2 -->
-                                            <div class="reel-card-wrapper">
-                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                    data-title="Shop on Sabka Fayda"
-                                                    data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                    data-views="326" data-likes="11" data-index="1">
-                                                    <div class="position-relative" style="height: 320px;">
-                                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
-                                                            alt="Influencer Reel" class="w-100 h-100"
-                                                            style="object-fit: cover;">
-                                                    </div>
-                                                    <div class="p-3">
-                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                            style="font-size: 0.75rem;">
-                                                            <span><i
-                                                                    class="fa-solid fa-eye me-1 text-primary"></i>18.9K</span>
-                                                            <span><i
-                                                                    class="fa-solid fa-heart me-1 text-danger"></i>4.2K</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Influencer Card 3 -->
-                                            <div class="reel-card-wrapper">
-                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                    data-title="Shop on Sabka Fayda"
-                                                    data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                    data-views="326" data-likes="11" data-index="2">
-                                                    <div class="position-relative" style="height: 320px;">
-                                                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop"
-                                                            alt="Influencer Reel" class="w-100 h-100"
-                                                            style="object-fit: cover;">
-                                                        
-                                                    </div>
-                                                    <div class="p-3">
-                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                            style="font-size: 0.75rem;">
-                                                            <span><i
-                                                                    class="fa-solid fa-eye me-1 text-primary"></i>32.1K</span>
-                                                            <span><i
-                                                                    class="fa-solid fa-heart me-1 text-danger"></i>7.8K</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Influencer Card 4 -->
-                                            <div class="reel-card-wrapper">
-                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                    data-title="Shop on Sabka Fayda"
-                                                    data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                    data-views="326" data-likes="11" data-index="3">
-                                                    <div class="position-relative" style="height: 320px;">
-                                                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop"
-                                                            alt="Influencer Reel" class="w-100 h-100"
-                                                            style="object-fit: cover;">
-                                                    </div>
-                                                    <div class="p-3">
-                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                            style="font-size: 0.75rem;">
-                                                            <span><i
-                                                                    class="fa-solid fa-eye me-1 text-primary"></i>21.7K</span>
-                                                            <span><i
-                                                                    class="fa-solid fa-heart me-1 text-danger"></i>4.9K</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Influencer Card 5 -->
-                                            <div class="reel-card-wrapper">
-                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
-                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                                    data-title="Shop on Sabka Fayda"
-                                                    data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
-                                                    data-views="326" data-likes="11" data-index="4">
-                                                    <div class="position-relative" style="height: 320px;">
-                                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop"
-                                                            alt="Influencer Reel" class="w-100 h-100"
-                                                            style="object-fit: cover;">
-                                                        
-                                                    </div>
-                                                    <div class="p-3">
-                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
-                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
-                                                            style="font-size: 0.75rem;">
-                                                            <span><i
-                                                                    class="fa-solid fa-eye me-1 text-primary"></i>28.3K</span>
-                                                            <span><i
-                                                                    class="fa-solid fa-heart me-1 text-danger"></i>6.2K</span>
-                                                        </div>
-                                                    </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                       </div><!-- /tab-content -->
-                </div><!-- /col-12 -->
-            </div><!-- /row Product Reel section -->
+                                
+                                <!-- Right Navigation Arrow -->
+                                <button class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                    style="width: 40px; height: 40px; background: white; z-index: 10; right: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; border: 1px solid #ddd !important;">
+                                    <i class="fa-solid fa-chevron-right text-dark"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Customer Reviews Tab -->
+                        <div class="tab-pane fade" id="customer-review">
+                            <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
+                                <!-- Left Navigation Arrow -->
+                                <button class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                    style="width: 40px; height: 40px; background: white; z-index: 10; left: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; opacity: 0; pointer-events: none; border: 1px solid #ddd !important;">
+                                    <i class="fa-solid fa-chevron-left text-dark"></i>
+                                </button>
+                                
+                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
+                                    <!-- Reel Card 1 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="0">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 2 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="1">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 3 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="2">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 4 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="3">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 5 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="4">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 6 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="5">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 7 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="6">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 8 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="7">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 9 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="8">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 10 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="9">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Navigation Arrow -->
+                                <button class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                    style="width: 40px; height: 40px; background: white; z-index: 10; right: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; border: 1px solid #ddd !important;">
+                                    <i class="fa-solid fa-chevron-right text-dark"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Influencer Reel Tab -->
+                        <div class="tab-pane fade" id="influencer-reel">
+                            <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
+                                <!-- Left Navigation Arrow -->
+                                <button class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                    style="width: 40px; height: 40px; background: white; z-index: 10; left: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; opacity: 0; pointer-events: none; border: 1px solid #ddd !important;">
+                                    <i class="fa-solid fa-chevron-left text-dark"></i>
+                                </button>
+                                
+                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
+                                    <!-- Reel Card 1 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="0">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 2 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="1">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 3 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="2">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 4 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="3">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 5 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="4">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 6 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="5">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 7 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="6">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 8 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="7">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 9 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="8">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 10 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Shop on Sabka Fayda"
+                                            data-video="https://www.youtube.com/embed/Avc5bGyr-bw?autoplay=1"
+                                            data-views="326" data-likes="11" data-index="9">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
+                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>11</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Navigation Arrow -->
+                                <button class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                    style="width: 40px; height: 40px; background: white; z-index: 10; right: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; border: 1px solid #ddd !important;">
+                                    <i class="fa-solid fa-chevron-right text-dark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div><!-- /container 1 -->
 
         <div class="container px-3 px-md-4" style="max-width: 1200px;">
@@ -1077,6 +1410,29 @@
             text-overflow: ellipsis !important;
             max-width: 100% !important;
             display: block !important;
+        }
+
+        /* Hide scrollbars for reel carousels */
+        .reel-cards-scroll {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        .reel-cards-scroll::-webkit-scrollbar {
+            display: none !important;
+        }
+        
+        /* Carousel Navigation Buttons Hover */
+        .carousel-control-btn {
+            opacity: 0.9;
+        }
+        .carousel-control-btn:hover {
+            background-color: #0087F6 !important;
+            opacity: 1 !important;
+            transform: translateY(-50%) scale(1.1) !important;
+            box-shadow: 0 4px 15px rgba(0, 135, 246, 0.4) !important;
+        }
+        .carousel-control-btn:hover i {
+            color: white !important;
         }
     </style>
 
