@@ -49,6 +49,11 @@ const seoData = {
             description: "Complete your purchase on SabkaFayda. Review your items, enter delivery details, and choose payment options for a smooth checkout experience.",
             keywords: "SabkaFayda checkout, secure checkout, payment options, delivery details, online payment"
         },
+        'faq.html': {
+            title: "FAQ | Sabka Fayda",
+            description: "Find answers to frequently asked questions about SabkaFayda. Get help with orders, payments, returns, shipping, and more from our comprehensive FAQ section.",
+            keywords: "SabkaFayda FAQ, frequently asked questions, help center, customer support, order help, payment help, return policy, shipping information"
+        },
         'product-details.html': {
             // Dynamic SEO for product details - will be updated based on product
             title: "Product Details | Sabka Fayda",
