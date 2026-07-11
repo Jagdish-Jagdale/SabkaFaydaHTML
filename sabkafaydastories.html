@@ -1851,6 +1851,64 @@
                     this.style.transform = 'translateY(-50%) scale(1)';
                 });
             });
+            
+            // Carousel Arrow Navigation
+            const tabs = document.querySelectorAll('.tab-pane');
+            tabs.forEach(tab => {
+                const scrollContainer = tab.querySelector('.reel-cards-scroll');
+                const leftArrow = tab.querySelector('.left-arrow');
+                const rightArrow = tab.querySelector('.right-arrow');
+                
+                if (scrollContainer && leftArrow && rightArrow) {
+                    // Update arrows visibility based on scroll position
+                    function updateArrows() {
+                        const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                        const currentScroll = scrollContainer.scrollLeft;
+                        
+                        if (currentScroll <= 5) {
+                            leftArrow.style.opacity = '0';
+                            leftArrow.style.pointerEvents = 'none';
+                        } else {
+                            leftArrow.style.opacity = '1';
+                            leftArrow.style.pointerEvents = 'auto';
+                        }
+                        
+                        if (currentScroll >= maxScroll - 5) {
+                            rightArrow.style.opacity = '0';
+                            rightArrow.style.pointerEvents = 'none';
+                        } else {
+                            rightArrow.style.opacity = '1';
+                            rightArrow.style.pointerEvents = 'auto';
+                        }
+                    }
+                    
+                    scrollContainer.addEventListener('scroll', updateArrows);
+                    
+                    leftArrow.addEventListener('click', () => {
+                        scrollContainer.scrollBy({ left: -260, behavior: 'smooth' });
+                    });
+                    
+                    rightArrow.addEventListener('click', () => {
+                        scrollContainer.scrollBy({ left: 260, behavior: 'smooth' });
+                    });
+                    
+                    // Initial check
+                    setTimeout(updateArrows, 150);
+                    
+                    // Also check on window resize
+                    window.addEventListener('resize', updateArrows);
+                    
+                    // Observe active tab changes
+                    const observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            if (mutation.attributeName === 'class' && tab.classList.contains('active')) {
+                                setTimeout(updateArrows, 150);
+                            }
+                        });
+                    });
+                    observer.observe(tab, { attributes: true });
+                }
+            });
         });
     </script>
 
