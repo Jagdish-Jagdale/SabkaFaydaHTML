@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover Sabka Fayda stories - latest updates, offers, and exciting content from your favorite shopping destination.">
+    <meta name="description"
+        content="Discover Sabka Fayda stories - latest updates, offers, and exciting content from your favorite shopping destination.">
     <meta name="keywords" content="Sabka Fayda stories, shopping stories, offers, updates, deals, discounts">
     <title>Sabka Fayda Stories | Sabka Fayda</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -13,7 +14,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
@@ -26,537 +29,936 @@
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
+
+    <style>
+        /* Global mobile font scaling */
+        @media (max-width: 767px) {
+            body {
+                font-size: 0.82rem !important;
+            }
+            h1, .h1 {
+                font-size: 1.6rem !important;
+            }
+            h2, .h2 {
+                font-size: 1.3rem !important;
+            }
+            h3, .h3 {
+                font-size: 1.1rem !important;
+            }
+            h4, .h4 {
+                font-size: 0.95rem !important;
+            }
+            h5, .h5 {
+                font-size: 0.8rem !important;
+            }
+            p, span, li, a {
+                font-size: 0.78rem !important;
+            }
+            
+            /* Tighter gap inside testimonials */
+            .top-stories-card .d-flex {
+                gap: 0.75rem !important;
+            }
+            .top-stories-card .d-flex p {
+                font-size: 0.78rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Hide testimonial vertical dividers */
+            .testimonial-divider {
+                display: none !important;
+            }
+            
+            /* Smaller avatars in customer feedback */
+            .top-stories-card .rounded-circle {
+                width: 44px !important;
+                height: 44px !important;
+            }
+            .top-stories-card .rounded-circle svg {
+                width: 44px !important;
+                height: 44px !important;
+            }
+        }
+
+        /* Card responsiveness */
+        .reel-card-wrapper {
+            flex: 0 0 135px !important;
+            min-width: 135px !important;
+            max-width: 135px !important;
+        }
+        @media (min-width: 992px) {
+            .reel-card-wrapper {
+                flex: 0 0 calc(20% - 10px) !important;
+                min-width: calc(20% - 10px) !important;
+                max-width: calc(20% - 10px) !important;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            .reel-card-wrapper {
+                flex: 0 0 170px !important;
+                min-width: 170px !important;
+                max-width: 170px !important;
+            }
+        }
+
+        /* Adjust inline heights inside cards for mobile */
+        @media (max-width: 767px) {
+            .reel-card .position-relative[style*="height"] {
+                height: 190px !important;
+            }
+            .reel-card .p-3 {
+                padding: 0.5rem 0.6rem !important;
+            }
+            .reel-card h5 {
+                font-size: 0.72rem !important;
+                margin-bottom: 2px !important;
+            }
+            .reel-card .d-flex {
+                font-size: 0.6rem !important;
+            }
+            
+            /* Make tab navigation buttons smaller on mobile */
+            .reel-tab-btn {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                padding-left: 0.4rem !important;
+                padding-right: 0.4rem !important;
+                font-size: 0.72rem !important;
+            }
+            .reel-tab-btn i {
+                margin-right: 0.2rem !important;
+            }
+        }
+        
+        /* Vision & Mission responsive padding */
+        .vision-mission-card {
+            padding: 1.25rem !important;
+        }
+        @media (min-width: 768px) {
+            .vision-mission-card {
+                padding: 3rem !important;
+            }
+        }
+
+        /* Top Stories responsive padding */
+        .top-stories-card {
+            padding: 20px 16px !important;
+        }
+        @media (min-width: 768px) {
+            .top-stories-card {
+                padding: 40px 48px !important;
+            }
+        }
+
+        /* Tighter details on mobile for company info */
+        @media (max-width: 767px) {
+            .info-card {
+                padding: 0.85rem !important;
+            }
+            .info-card h4 {
+                font-size: 1rem !important;
+            }
+            .info-card .p-3 {
+                padding: 0.65rem !important;
+            }
+            .info-card h6 {
+                font-size: 0.78rem !important;
+            }
+            .info-card p, .info-card a {
+                font-size: 0.72rem !important;
+            }
+        }
+    </style>
 </head>
 
-<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
+<body
+    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f3; overflow-x: hidden;">
 
     <!-- Header Placeholder -->
-    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+    <div id="header-placeholder">
+        <div class="skeleton-box skeleton-header"></div>
+    </div>
 
     <!-- Main Content -->
     <main class="main-content" style="padding-top: 135px; min-height: 100vh;">
-        <div class="container" style="max-width: 1200px;">
+        <div class="container px-3 px-md-4" style="max-width: 1200px;">
 
-        <!-- Top Banner Image -->
-        <div class="row">
-            <div class="col-12">
-                <img src="assets/img/storieshead.png" alt="Sabka Fayda Stories Banner"
-                     class="img-fluid w-100" style="border-radius: 12px; max-height: 350px; object-fit: cover;">
+            <!-- Top Banner Image -->
+            <div class="row">
+                <div class="col-12">
+                    <img src="assets/img/storieshead.png" alt="Sabka Fayda Stories Banner" class="img-fluid w-100"
+                        style="border-radius: 12px; max-height: 350px; object-fit: cover;">
+                </div>
             </div>
-        </div>
 
-        <!-- Vision & Mission Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="bg-white rounded-4 p-5 shadow-sm">
-                    <div class="text-center mb-4">
-                        <h2 class="fw-bold text-dark" style="font-family: 'Rubik', sans-serif; font-size: 2rem;">
-                            OUR VISION & MISSION
-                        </h2>
-                    </div>
-                    <div class="row g-4">
-                        <!-- Vision -->
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start mb-4">
-                                <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 50px; height: 50px;">
-                                    <i class="fa-solid fa-eye text-primary fs-4"></i>
-                                </div>
-                                <div>
-                                    <h3 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.25rem;">OUR VISION</h3>
-                                    <p class="text-secondary mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
-                                        To become the leading and most trusted community-driven e-commerce platform in India, where every story leads to a great deal.
-                                    </p>
+            <!-- Vision & Mission Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="bg-white rounded-4 vision-mission-card shadow-sm">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold text-dark" style="font-family: 'Rubik', sans-serif; font-size: 2rem;">
+                                OUR VISION & MISSION
+                            </h2>
+                        </div>
+                        <div class="row g-4">
+                            <!-- Vision -->
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-4">
+                                    <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0"
+                                        style="width: 50px; height: 50px;">
+                                        <i class="fa-solid fa-eye text-primary fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-2 text-dark"
+                                            style="font-family: 'Rubik', sans-serif; font-size: 1.25rem;">OUR VISION
+                                        </h3>
+                                        <p class="text-secondary mb-0"
+                                            style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
+                                            To become the leading and most trusted community-driven e-commerce platform
+                                            in India, where every story leads to a great deal.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Mission -->
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start mb-4">
-                                <div class="bg-danger bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 50px; height: 50px;">
-                                    <i class="fa-solid fa-bullseye text-danger fs-4"></i>
-                                </div>
-                                <div>
-                                    <h3 class="fw-bold mb-2 text-dark" style="font-family: 'Rubik', sans-serif; font-size: 1.25rem;">OUR MISSION</h3>
-                                    <p class="text-secondary mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
-                                        To connect genuine users, real-life experiences, and premium products, creating a marketplace built on trust, transparency, and maximum benefit for all.
-                                    </p>
+                            <!-- Mission -->
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-4">
+                                    <div class="bg-danger bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0"
+                                        style="width: 50px; height: 50px;">
+                                        <i class="fa-solid fa-bullseye text-danger fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-2 text-dark"
+                                            style="font-family: 'Rubik', sans-serif; font-size: 1.25rem;">OUR MISSION
+                                        </h3>
+                                        <p class="text-secondary mb-0"
+                                            style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6;">
+                                            To connect genuine users, real-life experiences, and premium products,
+                                            creating a marketplace built on trust, transparency, and maximum benefit for
+                                            all.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Product Reel, Customer Review, Influencer Reel Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <!-- Tab Navigation -->
-                <div class="bg-white rounded-4 p-2 shadow-sm mb-4">
-                    <div class="d-flex gap-2">
-                        <button class="reel-tab-btn flex-grow-1 py-3 px-4 rounded-3 fw-semibold border-0 transition-all active" 
+            <!-- Product Reel, Customer Review, Influencer Reel Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <!-- Tab Navigation -->
+                    <div class="bg-white rounded-4 p-2 shadow-sm mb-4">
+                        <div class="d-flex gap-2">
+                            <button
+                                class="reel-tab-btn flex-grow-1 py-3 px-4 rounded-3 fw-semibold border-0 transition-all active"
                                 data-tab="product-reel" style="background-color: #0087F6; color: white;">
-                            <i class="fa-solid fa-box-open me-2"></i>Product Reel
-                        </button>
-                        <button class="reel-tab-btn flex-grow-1 py-3 px-4 rounded-3 fw-semibold border-0 transition-all" 
+                                <i class="fa-solid fa-box-open me-2"></i>Product Reel
+                            </button>
+                            <button
+                                class="reel-tab-btn flex-grow-1 py-3 px-4 rounded-3 fw-semibold border-0 transition-all"
                                 data-tab="customer-review" style="background-color: #f8f9fa; color: #333;">
-                            <i class="fa-solid fa-star me-2"></i>Customer Reviews
-                        </button>
-                        <button class="reel-tab-btn flex-grow-1 py-3 px-4 rounded-3 fw-semibold border-0 transition-all" 
+                                <i class="fa-solid fa-star me-2"></i>Customer Reviews
+                            </button>
+                            <button
+                                class="reel-tab-btn flex-grow-1 py-3 px-4 rounded-3 fw-semibold border-0 transition-all"
                                 data-tab="influencer-reel" style="background-color: #f8f9fa; color: #333;">
-                            <i class="fa-solid fa-video me-2"></i>Influencer Reel
-                        </button>
+                                <i class="fa-solid fa-video me-2"></i>Influencer Reel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Product Reel Tab -->
+                        <div class="tab-pane fade show active" id="product-reel">
+                            <div class="bg-white rounded-3 p-4 shadow-sm">
+                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scrollbar-width: thin; scrollbar-color: #ccc transparent;">
+                                    <!-- Reel Card 1 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="New Product Launch"
+                                            data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                            data-views="12.5K" data-likes="2.3K" data-index="0">
+                                            <div class="position-relative" style="height: 340px;">
+                                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+
+                                                <div class="position-absolute top-2 end-2">
+                                                    <span class="badge bg-danger" style="font-size: 0.7rem;">NEW</span>
+                                                </div>
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">New
+                                                    Product Launch</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>12.5K</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>2.3K</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 2 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Best Deals"
+                                            data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                            data-views="8.7K" data-likes="1.8K" data-index="1">
+                                            <div class="position-relative" style="height: 320px;">
+                                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Best
+                                                    Deals</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>8.7K</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>1.8K</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 3 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Fashion"
+                                            data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                            data-views="15.2K" data-likes="3.1K" data-index="2">
+                                            <div class="position-relative" style="height: 320px;">
+                                                <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                <div class="position-absolute top-2 end-2">
+                                                    <span class="badge bg-warning text-dark"
+                                                        style="font-size: 0.7rem;">TRENDING</span>
+                                                </div>
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Fashion
+                                                </h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>15.2K</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>3.1K</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 4 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Electronics"
+                                            data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                            data-views="9.4K" data-likes="1.5K" data-index="3">
+                                            <div class="position-relative" style="height: 320px;">
+                                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                    Electronics</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>9.4K</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>1.5K</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Reel Card 5 -->
+                                    <div class="reel-card-wrapper">
+                                        <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                            style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                            data-title="Home Decor"
+                                            data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                            data-views="11.8K" data-likes="2.1K" data-index="4">
+                                            <div class="position-relative" style="height: 320px;">
+                                                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop"
+                                                    alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                <div class="position-absolute top-2 end-2">
+                                                    <span class="badge bg-primary" style="font-size: 0.7rem;">HOT</span>
+                                                </div>
+                                            </div>
+                                            <div class="p-3">
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Home
+                                                    Decor</h5>
+                                                <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                    style="font-size: 0.75rem;">
+                                                    <span><i class="fa-solid fa-eye me-1 text-primary"></i>11.8K</span>
+                                                    <span><i class="fa-solid fa-heart me-1 text-danger"></i>2.1K</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /reel-cards-scroll -->
+                            </div><!-- /bg-white -->
+                        </div><!-- /product-reel tab-pane -->
+                        <!-- /Product Reel tab-pane -->
+
+                            <!-- Customer Review Tab -->
+                            <div class="tab-pane fade" id="customer-review">
+                                <div class="bg-white rounded-3 p-4 shadow-sm">
+                                    <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scrollbar-width: thin; scrollbar-color: #ccc transparent;">
+                                        <!-- Review Card 1 -->
+                                        <div class="reel-card-wrapper">
+                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                data-title="Amazing Quality!"
+                                                data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                data-views="5.2K" data-likes="890" data-index="0">
+                                                <div class="position-relative" style="height: 320px;">
+                                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+                                                        alt="Customer Review" class="w-100 h-100"
+                                                        style="object-fit: cover;">
+                                                </div>
+                                                <div class="p-3">
+                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                        Amazing Quality!</h5>
+                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                        style="font-size: 0.75rem;">
+                                                        <span><i
+                                                                class="fa-solid fa-eye me-1 text-primary"></i>5.2K</span>
+                                                        <span><i
+                                                                class="fa-solid fa-heart me-1 text-danger"></i>890</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Review Card 2 -->
+                                        <div class="reel-card-wrapper">
+                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                data-title="Great Service"
+                                                data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                data-views="3.8K" data-likes="654" data-index="1">
+                                                <div class="position-relative" style="height: 320px;">
+                                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                                                        alt="Customer Review" class="w-100 h-100"
+                                                        style="object-fit: cover;">
+                                                </div>
+                                                <div class="p-3">
+                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Great
+                                                        Service</h5>
+                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                        style="font-size: 0.75rem;">
+                                                        <span><i
+                                                                class="fa-solid fa-eye me-1 text-primary"></i>3.8K</span>
+                                                        <span><i
+                                                                class="fa-solid fa-heart me-1 text-danger"></i>654</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Review Card 3 -->
+                                        <div class="reel-card-wrapper">
+                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                data-title="Highly Recommended"
+                                                data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                data-views="7.1K" data-likes="1.2K" data-index="2">
+                                                <div class="position-relative" style="height: 320px;">
+                                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
+                                                        alt="Customer Review" class="w-100 h-100"
+                                                        style="object-fit: cover;">
+                                                    <div class="position-absolute top-2 end-2">
+                                                        <span class="badge bg-success"
+                                                            style="font-size: 0.7rem;">VERIFIED</span>
+                                                    </div>
+                                                </div>
+                                                <div class="p-3">
+                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                        Highly Recommended</h5>
+                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                        style="font-size: 0.75rem;">
+                                                        <span><i
+                                                                class="fa-solid fa-eye me-1 text-primary"></i>7.1K</span>
+                                                        <span><i
+                                                                class="fa-solid fa-heart me-1 text-danger"></i>1.2K</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Review Card 4 -->
+                                        <div class="reel-card-wrapper">
+                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                data-title="Fast Delivery"
+                                                data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                data-views="4.5K" data-likes="720" data-index="3">
+                                                <div class="position-relative" style="height: 320px;">
+                                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+                                                        alt="Customer Review" class="w-100 h-100"
+                                                        style="object-fit: cover;">
+                                                </div>
+                                                <div class="p-3">
+                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Fast
+                                                        Delivery</h5>
+                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                        style="font-size: 0.75rem;">
+                                                        <span><i
+                                                                class="fa-solid fa-eye me-1 text-primary"></i>4.5K</span>
+                                                        <span><i
+                                                                class="fa-solid fa-heart me-1 text-danger"></i>720</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Review Card 5 -->
+                                        <div class="reel-card-wrapper">
+                                            <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                data-title="Excellent Support"
+                                                data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                data-views="6.3K" data-likes="980" data-index="4">
+                                                <div class="position-relative" style="height: 320px;">
+                                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
+                                                        alt="Customer Review" class="w-100 h-100"
+                                                        style="object-fit: cover;">
+                                                    <div class="position-absolute top-2 end-2">
+                                                        <span class="badge bg-info text-dark"
+                                                            style="font-size: 0.7rem;">TOP</span>
+                                                    </div>
+                                                </div>
+                                                <div class="p-3">
+                                                    <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                        Excellent Support</h5>
+                                                    <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                        style="font-size: 0.75rem;">
+                                                        <span><i
+                                                                class="fa-solid fa-eye me-1 text-primary"></i>6.3K</span>
+                                                        <span><i
+                                                                class="fa-solid fa-heart me-1 text-danger"></i>980</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- /reel-cards-scroll -->
+                                </div><!-- /bg-white -->
+                            </div><!-- /customer-review tab-pane -->
+                            <!-- /Customer Review tab-pane -->
+
+                                <!-- Influencer Reel Tab -->
+                                <div class="tab-pane fade" id="influencer-reel">
+                                    <div class="bg-white rounded-3 p-4 shadow-sm">
+                                        <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scrollbar-width: thin; scrollbar-color: #ccc transparent;">
+                                            <!-- Influencer Card 1 -->
+                                            <div class="reel-card-wrapper">
+                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                    data-title="Summer Essentials"
+                                                    data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                    data-views="25.4K" data-likes="5.6K" data-index="0">
+                                                    <div class="position-relative" style="height: 320px;">
+                                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
+                                                            alt="Influencer Reel" class="w-100 h-100"
+                                                            style="object-fit: cover;">
+                                                        <div class="position-absolute top-2 end-2">
+                                                            <span class="badge bg-primary"
+                                                                style="font-size: 0.7rem;">TOP RATED</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="p-3">
+                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                            Summer Essentials</h5>
+                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                            style="font-size: 0.75rem;">
+                                                            <span><i
+                                                                    class="fa-solid fa-eye me-1 text-primary"></i>25.4K</span>
+                                                            <span><i
+                                                                    class="fa-solid fa-heart me-1 text-danger"></i>5.6K</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Influencer Card 2 -->
+                                            <div class="reel-card-wrapper">
+                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                    data-title="Tech Gadgets"
+                                                    data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                    data-views="18.9K" data-likes="4.2K" data-index="1">
+                                                    <div class="position-relative" style="height: 320px;">
+                                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
+                                                            alt="Influencer Reel" class="w-100 h-100"
+                                                            style="object-fit: cover;">
+                                                    </div>
+                                                    <div class="p-3">
+                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                            Tech Gadgets</h5>
+                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                            style="font-size: 0.75rem;">
+                                                            <span><i
+                                                                    class="fa-solid fa-eye me-1 text-primary"></i>18.9K</span>
+                                                            <span><i
+                                                                    class="fa-solid fa-heart me-1 text-danger"></i>4.2K</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Influencer Card 3 -->
+                                            <div class="reel-card-wrapper">
+                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                    data-title="Beauty Tips"
+                                                    data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                    data-views="32.1K" data-likes="7.8K" data-index="2">
+                                                    <div class="position-relative" style="height: 320px;">
+                                                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop"
+                                                            alt="Influencer Reel" class="w-100 h-100"
+                                                            style="object-fit: cover;">
+                                                        <div class="position-absolute top-2 end-2">
+                                                            <span class="badge bg-info text-dark"
+                                                                style="font-size: 0.7rem;">POPULAR</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="p-3">
+                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                            Beauty Tips</h5>
+                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                            style="font-size: 0.75rem;">
+                                                            <span><i
+                                                                    class="fa-solid fa-eye me-1 text-primary"></i>32.1K</span>
+                                                            <span><i
+                                                                    class="fa-solid fa-heart me-1 text-danger"></i>7.8K</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Influencer Card 4 -->
+                                            <div class="reel-card-wrapper">
+                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                    data-title="Lifestyle"
+                                                    data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                    data-views="21.7K" data-likes="4.9K" data-index="3">
+                                                    <div class="position-relative" style="height: 320px;">
+                                                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop"
+                                                            alt="Influencer Reel" class="w-100 h-100"
+                                                            style="object-fit: cover;">
+                                                    </div>
+                                                    <div class="p-3">
+                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                            Lifestyle</h5>
+                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                            style="font-size: 0.75rem;">
+                                                            <span><i
+                                                                    class="fa-solid fa-eye me-1 text-primary"></i>21.7K</span>
+                                                            <span><i
+                                                                    class="fa-solid fa-heart me-1 text-danger"></i>4.9K</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Influencer Card 5 -->
+                                            <div class="reel-card-wrapper">
+                                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
+                                                    style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                                                    data-title="Fashion Trends"
+                                                    data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1"
+                                                    data-views="28.3K" data-likes="6.2K" data-index="4">
+                                                    <div class="position-relative" style="height: 320px;">
+                                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop"
+                                                            alt="Influencer Reel" class="w-100 h-100"
+                                                            style="object-fit: cover;">
+                                                        <div class="position-absolute top-2 end-2">
+                                                            <span class="badge bg-warning text-dark"
+                                                                style="font-size: 0.7rem;">FEATURED</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="p-3">
+                                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">
+                                                            Fashion Trends</h5>
+                                                        <div class="d-flex align-items-center justify-content-between text-muted small"
+                                                            style="font-size: 0.75rem;">
+                                                            <span><i
+                                                                    class="fa-solid fa-eye me-1 text-primary"></i>28.3K</span>
+                                                            <span><i
+                                                                    class="fa-solid fa-heart me-1 text-danger"></i>6.2K</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                       </div><!-- /tab-content -->
+                </div><!-- /col-12 -->
+            </div><!-- /row Product Reel section -->
+        </div><!-- /container 1 -->
+
+        <div class="container px-3 px-md-4" style="max-width: 1200px;">
+
+        <!-- TOP STORIES & CUSTOMER FEEDBACK Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="bg-white rounded-4 top-stories-card shadow-sm">
+
+                    <!-- Section Title -->
+                    <h2 class="fw-bold text-center mb-4"
+                        style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; letter-spacing: 0.5px; color: #111;">
+                        TOP STORIES &amp; CUSTOMER FEEDBACK
+                    </h2>
+
+                    <!-- Testimonials Row -->
+                    <div class="d-flex flex-column flex-md-row align-items-stretch gap-4">
+
+                        <!-- Testimonial 1 -->
+                        <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
+                            style="background: #f7f9fc; border-left: 4px solid #0087F6;">
+                            <!-- Avatar -->
+                            <div class="flex-shrink-0">
+                                <div class="rounded-circle overflow-hidden"
+                                    style="width: 62px; height: 62px; background: #dde8f5;">
+                                    <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62" height="62">
+                                        <circle cx="31" cy="31" r="31" fill="#c8d8ee"/>
+                                        <ellipse cx="31" cy="26" rx="11" ry="12" fill="#8aadd4"/>
+                                        <ellipse cx="31" cy="58" rx="20" ry="16" fill="#8aadd4"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Text -->
+                            <div>
+                                <p class="mb-2 text-secondary"
+                                    style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
+                                    "Sabka Fayda has been a game-changer! Their platform makes finding the best deals so easy."
+                                </p>
+                                <p class="mb-0 fw-bold text-dark"
+                                    style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
+                                    Priya S. <span class="text-muted fw-normal">(Mumbai)</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="testimonial-divider" style="width: 1px; background: #e0e7ef; flex-shrink: 0;"></div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
+                            style="background: #f7f9fc; border-left: 4px solid #0087F6;">
+                            <!-- Avatar -->
+                            <div class="flex-shrink-0">
+                                <div class="rounded-circle overflow-hidden"
+                                    style="width: 62px; height: 62px; background: #dde8f5;">
+                                    <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62" height="62">
+                                        <circle cx="31" cy="31" r="31" fill="#bfd0e8"/>
+                                        <ellipse cx="31" cy="25" rx="10" ry="11" fill="#7a9fc8"/>
+                                        <ellipse cx="31" cy="57" rx="20" ry="16" fill="#7a9fc8"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Text -->
+                            <div>
+                                <p class="mb-2 text-secondary"
+                                    style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
+                                    "The unboxing reels are my favorite! It's great to see real product quality before buying."
+                                </p>
+                                <p class="mb-0 fw-bold text-dark"
+                                    style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
+                                    Rahul K. <span class="text-muted fw-normal">(Kolhapur)</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="testimonial-divider" style="width: 1px; background: #e0e7ef; flex-shrink: 0;"></div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
+                            style="background: #f7f9fc; border-left: 4px solid #0087F6;">
+                            <!-- Avatar -->
+                            <div class="flex-shrink-0">
+                                <div class="rounded-circle overflow-hidden"
+                                    style="width: 62px; height: 62px; background: #dde8f5;">
+                                    <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62" height="62">
+                                        <circle cx="31" cy="31" r="31" fill="#c4d5e9"/>
+                                        <ellipse cx="31" cy="26" rx="11" ry="12" fill="#6b96c4"/>
+                                        <ellipse cx="31" cy="58" rx="20" ry="16" fill="#6b96c4"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Text -->
+                            <div>
+                                <p class="mb-2 text-secondary"
+                                    style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
+                                    "Trusted reviews and amazing prices. Sabka Fayda lives up to its name!"
+                                </p>
+                                <p class="mb-0 fw-bold text-dark"
+                                    style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
+                                    Aisha M. <span class="text-muted fw-normal">(Pune)</span>
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- END TOP STORIES & CUSTOMER FEEDBACK -->
 
-                <!-- Tab Content -->
-                <div class="tab-content">
-                    <!-- Product Reel Tab -->
-                    <div class="tab-pane fade show active" id="product-reel">
-                        <div class="bg-white rounded-3 p-4 shadow-sm">
-                            <div class="row g-3">
-                            <!-- Reel Card 1 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="New Product Launch" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="12.5K" data-likes="2.3K" data-index="0">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop"
-                                             alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-danger" style="font-size: 0.7rem;">NEW</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">New Product Launch</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>12.5K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>2.3K</span>
-                                        </div>
-                                    </div>
-                                </div>
+        <!-- Company Details & Contact Us -->
+        <div class="row mb-4 g-4">
+            <!-- Company Details -->
+            <div class="col-lg-6">
+                <div class="info-card p-3 shadow-sm">
+                    <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
+                        <div class="text-primary fs-4"><i class="fa-solid fa-building"></i></div>
+                        <div>
+                            <h4 class="font-rubik fw-bold mb-1" style="font-size: 1.4rem; line-height: 1.2;">Company Details</h4>
+                            <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                    <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
+                        <!-- Legal Name -->
+                        <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
+                            <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-briefcase"></i></div>
+                            <div>
+                                <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Legal Name</h6>
+                                <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem;">TEAMMUNITY BUSINESS PRIVATE LIMITED</p>
                             </div>
-                            <!-- Reel Card 2 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Best Deals" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="8.7K" data-likes="1.8K" data-index="1">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop"
-                                             alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Best Deals</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>8.7K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>1.8K</span>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <!-- GSTIN -->
+                        <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
+                            <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-receipt"></i></div>
+                            <div>
+                                <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">GSTIN</h6>
+                                <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem;">27AALCT8650K1ZN</p>
                             </div>
-                            <!-- Reel Card 3 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Fashion" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="15.2K" data-likes="3.1K" data-index="2">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop"
-                                             alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-warning text-dark" style="font-size: 0.7rem;">TRENDING</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Fashion</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>15.2K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>3.1K</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Reel Card 4 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Electronics" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="9.4K" data-likes="1.5K" data-index="3">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop"
-                                             alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Electronics</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>9.4K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>1.5K</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Reel Card 5 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Home Decor" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="11.8K" data-likes="2.1K" data-index="4">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop"
-                                             alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-primary" style="font-size: 0.7rem;">HOT</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Home Decor</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>11.8K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>2.1K</span>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <!-- Address -->
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Address</h6>
+                                <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.5;">
+                                    Plot No. 19 &amp; 20, Sector F1, Parvati Co-Op Industrial Estate,
+                                    Yadrav, Ichalkaranji, Kolhapur, Maharashtra – 416148
+                                </p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Customer Review Tab -->
-                    <div class="tab-pane fade" id="customer-review">
-                        <div class="bg-white rounded-3 p-4 shadow-sm">
-                            <div class="row g-3">
-                            <!-- Review Card 1 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Amazing Quality!" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="5.2K" data-likes="890" data-index="0">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
-                                             alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Amazing Quality!</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>5.2K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>890</span>
-                                        </div>
-                                    </div>
-                                </div>
+            <!-- Contact Us -->
+            <div class="col-lg-6">
+                <div class="info-card p-3 shadow-sm">
+                    <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
+                        <div class="text-primary fs-4"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h4 class="font-rubik fw-bold mb-1" style="font-size: 1.4rem; line-height: 1.2;">Contact Us</h4>
+                            <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="p-3 border border-light-subtle rounded-4 mb-3" style="background-color: #fdfdfd;">
+                        <div class="d-flex align-items-center gap-3">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-envelope"></i>
                             </div>
-                            <!-- Review Card 2 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Great Service" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="3.8K" data-likes="654" data-index="1">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
-                                             alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Great Service</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>3.8K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>654</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Review Card 3 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Highly Recommended" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="7.1K" data-likes="1.2K" data-index="2">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
-                                             alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-success" style="font-size: 0.7rem;">VERIFIED</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Highly Recommended</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>7.1K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>1.2K</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Review Card 4 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Fast Delivery" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="4.5K" data-likes="720" data-index="3">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
-                                             alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Fast Delivery</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>4.5K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>720</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Review Card 5 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Excellent Support" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="6.3K" data-likes="980" data-index="4">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
-                                             alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-info text-dark" style="font-size: 0.7rem;">TOP</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Excellent Support</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>6.3K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>980</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div>
+                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem;">Email</h6>
+                                <p class="mb-0"><a href="mailto:support@sabkafayda.com" class="font-montserrat text-decoration-none text-dark fw-medium" style="font-size: 0.9rem;">support@sabkafayda.com</a></p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Influencer Reel Tab -->
-                    <div class="tab-pane fade" id="influencer-reel">
-                        <div class="bg-white rounded-3 p-4 shadow-sm">
-                            <div class="row g-3">
-                            <!-- Influencer Card 1 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Summer Essentials" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="25.4K" data-likes="5.6K" data-index="0">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
-                                             alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-primary" style="font-size: 0.7rem;">TOP RATED</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Summer Essentials</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>25.4K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>5.6K</span>
-                                        </div>
-                                    </div>
-                                </div>
+                    <!-- Phone -->
+                    <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
+                        <div class="d-flex align-items-center gap-3">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-phone"></i>
                             </div>
-                            <!-- Influencer Card 2 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Tech Gadgets" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="18.9K" data-likes="4.2K" data-index="1">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
-                                             alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Tech Gadgets</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>18.9K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>4.2K</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Influencer Card 3 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Beauty Tips" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="32.1K" data-likes="7.8K" data-index="2">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop"
-                                             alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-info text-dark" style="font-size: 0.7rem;">POPULAR</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Beauty Tips</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>32.1K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>7.8K</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Influencer Card 4 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Lifestyle" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="21.7K" data-likes="4.9K" data-index="3">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop"
-                                             alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Lifestyle</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>21.7K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>4.9K</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Influencer Card 5 -->
-                            <div class="col-6 col-md-2-4" style="flex: 0 0 20%; max-width: 20%;">
-                                <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer" style="transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                                     data-title="Fashion Trends" data-video="https://www.youtube.com/embed/Fp3xUVhfsqI?autoplay=1" data-views="28.3K" data-likes="6.2K" data-index="4">
-                                    <div class="position-relative" style="height: 260px;">
-                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop"
-                                             alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
-                                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-                                             style="background: rgba(0,0,0,0.3);">
-                                            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-circle d-flex align-items-center justify-content-center"
-                                                 style="width: 60px; height: 60px;">
-                                                <i class="fa-solid fa-play text-white fs-3 ms-1"></i>
-                                            </div>
-                                        </div>
-                                        <div class="position-absolute top-2 end-2">
-                                            <span class="badge bg-warning text-dark" style="font-size: 0.7rem;">FEATURED</span>
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Fashion Trends</h5>
-                                        <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.75rem;">
-                                            <span><i class="fa-solid fa-eye me-1 text-primary"></i>28.3K</span>
-                                            <span><i class="fa-solid fa-heart me-1 text-danger"></i>6.2K</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div>
+                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem;">Phone</h6>
+                                <p class="mb-0"><a href="tel:+918329606969" class="font-montserrat text-decoration-none text-dark fw-medium" style="font-size: 0.9rem;">+91 832 960 6969</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- END Company Details & Contact Us -->
 
+        <!-- Ready to Shop Banner -->
+        <div class="ready-banner ready-banner-mobile text-white p-3 p-md-4 mb-0 shadow-sm text-center position-relative" style="background: url('assets/img/aboutbg.png') no-repeat center center; background-size: cover; border-radius: 0 !important; overflow: hidden;">
+            <div class="position-relative py-2 pe-5 pe-md-0" style="z-index: 2; max-width: 600px; margin: 0 auto;">
+                <h3 class="font-rubik fw-bold mb-1 banner-title-mobile" style="font-size: 1.8rem;">Ready to Shop?</h3>
+                <p class="font-montserrat mb-3 opacity-90 banner-desc-mobile" style="font-size: 1rem;">Discover quality products at affordable prices.</p>
+                <a href="index.html" class="font-rubik btn btn-light fw-bold text-primary px-4 py-2 shadow banner-btn-mobile" style="border-radius: 8px; font-size: 0.95rem;">
+                    Shop Now <i class="fa-solid fa-chevron-right ms-2 fs-6"></i>
+                </a>
+            </div>
+            <img src="assets/img/cartimg.png" alt="Shopping Cart" class="position-absolute end-0 bottom-0 d-block banner-img-mobile" style="height: 75%; max-height: 160px; width: auto; z-index: 1;">
         </div>
+
+        <!-- Customer Satisfaction Note -->
+        <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 p-3 p-md-4 bg-white border-start border-end border-bottom mb-5 shadow-sm" style="border-radius: 0 !important; border-top: none !important;">
+            <svg class="satisfaction-shield-mobile" width="28" height="32" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                <path d="M12 2L4 5.5V13C4 18.5 7.4 23.5 12 26C16.6 23.5 20 18.5 20 13V5.5L12 2Z" stroke="#0066ff" stroke-width="2" stroke-linejoin="round" fill="none"/>
+                <path d="M12 5.5L6.5 7.8V13C6.5 16.8 8.8 20.3 12 22C15.2 20.3 17.5 16.8 17.5 13V7.8L12 5.5Z" fill="#0066ff"/>
+                <path d="M9.5 14L11.5 16L14.5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="font-montserrat mb-0 text-secondary text-start satisfaction-text-mobile" style="font-size: 0.95rem; font-weight: 600; line-height: 1.5; max-width: 800px;">
+                At SabkaFayda, customer satisfaction remains our highest priority and<br class="d-none d-md-block"> we continuously strive to deliver the best shopping experience possible.
+            </p>
+        </div>
+        </div><!-- /.inner-container -->
+
     </main>
 
+
     <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+        data-bs-keyboard="false">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content bg-transparent overflow-hidden" style="border: none; box-shadow: none;">
                 <div class="modal-body p-0 position-relative">
-                    <div class="position-relative d-flex justify-content-center align-items-center" style="height: 85vh; background: #000; overflow: hidden;">
-                        <iframe id="modalVideo" class="w-100 h-100" style="border: none; object-fit: contain; max-height: 85vh;"
-                                src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+                    <div class="position-relative d-flex justify-content-center align-items-center"
+                        style="height: 85vh; background: #000; overflow: hidden;">
+                        <iframe id="modalVideo" class="w-100 h-100"
+                            style="border: none; object-fit: contain; max-height: 85vh;" src=""
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
 
                         <!-- Close Button -->
-                        <button type="button" class="position-absolute d-flex align-items-center justify-content-center border-0 text-white rounded-circle"
-                                data-bs-dismiss="modal" aria-label="Close"
-                                style="z-index: 30; width: 35px; height: 35px; top: 20px; right: 20px; transition: all 0.3s ease; background: rgba(0, 0, 0, 0.6);">
+                        <button type="button"
+                            class="position-absolute d-flex align-items-center justify-content-center border-0 text-white rounded-circle"
+                            data-bs-dismiss="modal" aria-label="Close"
+                            style="z-index: 30; width: 35px; height: 35px; top: 20px; right: 20px; transition: all 0.3s ease; background: rgba(0, 0, 0, 0.6);">
                             <i class="fa-solid fa-xmark fs-5"></i>
                         </button>
 
                         <!-- Left Navigation Arrow -->
-                        <button class="nav-arrow-btn d-flex align-items-center justify-content-center border-0 text-white rounded-circle position-absolute"
-                                style="width: 35px; height: 35px; transition: all 0.3s ease; z-index: 20; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6);" id="prevReelBtn">
+                        <button
+                            class="nav-arrow-btn d-flex align-items-center justify-content-center border-0 text-white rounded-circle position-absolute"
+                            style="width: 35px; height: 35px; transition: all 0.3s ease; z-index: 20; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6);"
+                            id="prevReelBtn">
                             <i class="fa-solid fa-chevron-left fs-5"></i>
                         </button>
 
                         <!-- Right Navigation Arrow -->
-                        <button class="nav-arrow-btn d-flex align-items-center justify-content-center border-0 text-white rounded-circle position-absolute"
-                                style="width: 35px; height: 35px; transition: all 0.3s ease; z-index: 20; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6);" id="nextReelBtn">
+                        <button
+                            class="nav-arrow-btn d-flex align-items-center justify-content-center border-0 text-white rounded-circle position-absolute"
+                            style="width: 35px; height: 35px; transition: all 0.3s ease; z-index: 20; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6);"
+                            id="nextReelBtn">
                             <i class="fa-solid fa-chevron-right fs-5"></i>
                         </button>
 
                         <!-- Bottom Info Overlay -->
-                        <div class="position-absolute bottom-0 start-0 end-0 p-4" style="z-index: 10; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
-                            <h5 class="text-white fw-bold mb-2" id="videoModalTitle" style="font-size: 1.1rem;">Reel Title</h5>
+                        <div class="position-absolute bottom-0 start-0 end-0 p-4"
+                            style="z-index: 10; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                            <h5 class="text-white fw-bold mb-2" id="videoModalTitle" style="font-size: 1.1rem;">Reel
+                                Title</h5>
                             <div class="d-flex align-items-center gap-4">
-                                <span class="text-white small"><i class="fa-solid fa-eye me-1"></i><span id="modalViews">0</span> views</span>
-                                <span class="text-white small"><i class="fa-solid fa-heart me-1"></i><span id="modalLikes">0</span> likes</span>
+                                <span class="text-white small"><i class="fa-solid fa-eye me-1"></i><span
+                                        id="modalViews">0</span> views</span>
+                                <span class="text-white small"><i class="fa-solid fa-heart me-1"></i><span
+                                        id="modalLikes">0</span> likes</span>
                             </div>
                         </div>
                     </div>
@@ -566,7 +968,9 @@
     </div>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+    <div id="footer-placeholder">
+        <div class="skeleton-box skeleton-footer"></div>
+    </div>
 
     <!-- Include Floating WhatsApp -->
     <div id="whatsapp-float-placeholder"></div>
@@ -584,12 +988,12 @@
 
     <!-- Tab Switching Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tabButtons = document.querySelectorAll('.reel-tab-btn');
             const tabPanes = document.querySelectorAll('.tab-pane');
 
             tabButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const targetTab = this.getAttribute('data-tab');
 
                     // Update button styles
@@ -611,11 +1015,11 @@
             // Add hover effect to reel cards
             const reelCards = document.querySelectorAll('.reel-card');
             reelCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
+                card.addEventListener('mouseenter', function () {
                     this.style.transform = 'translateY(-5px)';
                     this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
                 });
-                card.addEventListener('mouseleave', function() {
+                card.addEventListener('mouseleave', function () {
                     this.style.transform = 'translateY(0)';
                     this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
                 });
@@ -629,7 +1033,7 @@
             const modalLikes = document.getElementById('modalLikes');
             const prevReelBtn = document.getElementById('prevReelBtn');
             const nextReelBtn = document.getElementById('nextReelBtn');
-            
+
             let currentReels = [];
             let currentIndex = 0;
 
@@ -641,10 +1045,10 @@
 
             // Open modal with reel data
             reelCards.forEach(card => {
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function () {
                     currentReels = getCurrentReels();
                     currentIndex = parseInt(this.getAttribute('data-index'));
-                    
+
                     const title = this.getAttribute('data-title');
                     const video = this.getAttribute('data-video');
                     const views = this.getAttribute('data-views');
@@ -660,7 +1064,7 @@
             });
 
             // Previous reel (up arrow)
-            prevReelBtn.addEventListener('click', function() {
+            prevReelBtn.addEventListener('click', function () {
                 if (currentIndex > 0) {
                     currentIndex--;
                     loadReel(currentIndex);
@@ -668,7 +1072,7 @@
             });
 
             // Next reel (down arrow)
-            nextReelBtn.addEventListener('click', function() {
+            nextReelBtn.addEventListener('click', function () {
                 if (currentIndex < currentReels.length - 1) {
                     currentIndex++;
                     loadReel(currentIndex);
@@ -692,18 +1096,18 @@
             }
 
             // Stop video when modal closes
-            document.getElementById('videoModal').addEventListener('hidden.bs.modal', function() {
+            document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
                 modalVideo.src = '';
             });
 
             // Add hover effects to navigation buttons
             const navBtns = document.querySelectorAll('.nav-arrow-btn');
             navBtns.forEach(btn => {
-                btn.addEventListener('mouseenter', function() {
+                btn.addEventListener('mouseenter', function () {
                     this.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
                     this.style.transform = 'translateY(-50%) scale(1.1)';
                 });
-                btn.addEventListener('mouseleave', function() {
+                btn.addEventListener('mouseleave', function () {
                     this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                     this.style.transform = 'translateY(-50%) scale(1)';
                 });
