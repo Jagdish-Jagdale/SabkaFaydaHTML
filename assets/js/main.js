@@ -696,14 +696,16 @@ window.showGlobalWishlistToast = function(action, customMessage = null) {
         }
         // Product Details Page - Special handling
         else if (path.includes('product-details') || currentPage === 'product-details.html') {
-            // Try to extract product name from URL slug first
-            const productSlug = pathSegments[pathSegments.length - 1].replace('.html', '');
+            // Try to extract product name from URL query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const productParam = urlParams.get('product');
             
-            if (productSlug && productSlug !== 'product-details' && seoData.products[productSlug]) {
-                // Use product-specific SEO from mock data
-                title = seoData.products[productSlug].title;
-                description = seoData.products[productSlug].description;
-                keywords = seoData.products[productSlug].keywords;
+            if (productParam) {
+                // Use product name from query parameter
+                const productName = decodeURIComponent(productParam);
+                title = `${productName} | Sabka Fayda`;
+                description = `Buy ${productName} at the best price on Sabka Fayda. Check product details, specifications, reviews, and enjoy secure payment with fast delivery.`;
+                keywords = `${productName}, buy online, best price, product details, Sabka Fayda, online shopping, secure payment`;
             } else if (typeof productDetailsData !== 'undefined' && productDetailsData.product) {
                 // Fallback: Generate from product details mock data
                 const productName = productDetailsData.product.title;

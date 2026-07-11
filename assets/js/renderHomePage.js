@@ -236,7 +236,7 @@ function renderHomePage(data) {
                     <div class="bg-white rounded-0 p-2 p-md-3 shadow-sm d-inline-block" style="max-width: 100%; width: 100%;">
                         <div class="d-flex justify-content-between gap-2 gap-md-3 flex-nowrap hide-scroll">
                             ${data.keepShopping.items.map((item, index) => `
-                                <a href="product-details.html" class="border-0 text-center keep-shopping-small-box text-decoration-none bg-transparent d-block" style="min-width: 120px; max-width: 140px;">
+                                <a href="product-details.html?product=${encodeURIComponent(item.title)}" class="border-0 text-center keep-shopping-small-box text-decoration-none bg-transparent d-block" style="min-width: 120px; max-width: 140px;">
                                     <div class="position-relative bg-light rounded-4 mb-1 mb-md-2 keep-shopping-small-img" style="overflow: hidden;">
                                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.alt}" ${imgAttrs(index + 10)}>
                                     </div>
@@ -317,7 +317,7 @@ function renderHomePage(data) {
         const imageRoundedClass = hasImagePadding ? 'rounded-2' : '';
 
         return `
-            <a href="product-details.html" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background: ${bgColor};">
+            <a href="product-details.html?product=${encodeURIComponent(item.title)}" class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 text-decoration-none d-flex flex-column" style="background: ${bgColor};">
                 <div class="${imagePaddingClass}">
                     <div class="bg-white ${imageRoundedClass} mb-2 w-100 d-flex align-items-center justify-content-center overflow-hidden card-img-container" style="height: 180px;">
                         <img src="${item.image}" class="w-100 h-100 object-fit-cover" alt="${item.title}" ${imgAttrs(20 + sectionIndex * 10 + index)}>
@@ -486,7 +486,7 @@ function renderHomePage(data) {
             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100 bg-white p-2 product-card">
                     <div class="rounded-2 overflow-hidden mb-2">
-                        <div class="position-relative product-card-img-wrapper" style="cursor: pointer;" onclick="if(!event.target.closest('.btn')){ window.location.href='product-details.html'; }">
+                        <div class="position-relative product-card-img-wrapper" style="cursor: pointer;" onclick="if(!event.target.closest('.btn')){ window.location.href='product-details.html?product=${encodeURIComponent(product.title)}'; }">
                             <img src="${product.image}" class="w-100 h-100 object-fit-cover" alt="${product.title}" ${imgAttrs(50 + index)}>
                             <button class="btn border-0 position-absolute opacity-0 product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="background-color: #ffffff !important; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.15); top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; font-size: 1.25rem; z-index: 5;">
                                 <i class="far fa-heart"></i>
@@ -507,7 +507,7 @@ function renderHomePage(data) {
                             <span class="px-1 py-1 rounded text-dark text-center" style="background-color: #FBEED5; flex: 1;">Earn 67</span>
                         </div>
                     </div>
-                    <div class="px-1 pb-1" style="cursor: pointer;" onclick="window.location.href='product-details.html';">
+                    <div class="px-1 pb-1" style="cursor: pointer;" onclick="window.location.href='product-details.html?product=${encodeURIComponent(product.title)}';">
                         <div class="d-flex align-items-center mb-1 text-truncate">
                             <span class="fw-bold text-dark me-2 product-card-title">${product.title}</span>
                             <span class="text-secondary text-truncate product-card-desc">${product.desc}</span>

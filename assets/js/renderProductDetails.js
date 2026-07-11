@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                         </div>
-                        <a href="product-details.html" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
+                        <a href="product-details.html?product=${encodeURIComponent(product.title)}" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
                             <div>
                                 <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
                                     <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer !== undefined ? product.refer : 12}</span>
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                         </div>
-                        <a href="product-details.html" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
+                        <a href="product-details.html?product=${encodeURIComponent(product.title)}" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
                             <div>
                                 <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
                                     <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer !== undefined ? product.refer : 12}</span>

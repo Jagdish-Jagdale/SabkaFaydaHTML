@@ -55,7 +55,7 @@ function renderWishlist(wishlistData) {
                 <button class="btn btn-primary w-100 fw-bold py-2 text-nowrap" style="box-shadow: 0 4px 10px rgba(0, 93, 255, 0.15);" onclick="addToCart('${item.productName}', 1, this)">
                     <i class="fa-solid fa-cart-shopping me-1"></i> Add to Cart
                 </button>
-                <a href="product-details.html" class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap">View Product</a>
+                <a href="product-details.html?product=${encodeURIComponent(item.productName)}" class="btn btn-outline-primary w-100 fw-bold py-2 text-nowrap">View Product</a>
                 <button class="btn btn-outline-danger w-100 fw-bold py-2 text-nowrap" onclick="removeWishlistItem(this)">Remove Item</button>
             </div>
         </article>`;
