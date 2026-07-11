@@ -59,7 +59,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="main-content" style="padding-top: 155px;">
+    <div class="main-content" style="padding-top: 135px;">
         <!-- FAQ Header -->
         <section class="bg-primary text-white py-4 mb-4 rounded-bottom-4">
             <div class="container">
@@ -293,6 +293,16 @@
                 const response = await fetch(url);
                 const html = await response.text();
                 document.getElementById(targetId).innerHTML = html;
+                
+                // Initialize header after loading
+                if (targetId === 'header-placeholder' && typeof initHeader === 'function') {
+                    initHeader();
+                }
+                
+                // Update cart count after header loads
+                if (targetId === 'header-placeholder' && typeof updateCartCount === 'function') {
+                    updateCartCount();
+                }
             } catch (error) {
                 console.error(`Error loading ${url}:`, error);
             }
