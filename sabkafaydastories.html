@@ -25,7 +25,6 @@
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
     <link rel="preload" href="assets/js/mockCategories.js" as="script">
 
-
     <!-- Preload Dynamic Components -->
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
@@ -36,44 +35,60 @@
             body {
                 font-size: 0.82rem !important;
             }
-            h1, .h1 {
+
+            h1,
+            .h1 {
                 font-size: 1.6rem !important;
             }
-            h2, .h2 {
+
+            h2,
+            .h2 {
                 font-size: 1.3rem !important;
             }
-            h3, .h3 {
+
+            h3,
+            .h3 {
                 font-size: 1.1rem !important;
             }
-            h4, .h4 {
+
+            h4,
+            .h4 {
                 font-size: 0.95rem !important;
             }
-            h5, .h5 {
+
+            h5,
+            .h5 {
                 font-size: 0.8rem !important;
             }
-            p, span, li, a {
+
+            p,
+            span,
+            li,
+            a {
                 font-size: 0.78rem !important;
             }
-            
+
             /* Tighter gap inside testimonials */
             .top-stories-card .d-flex {
                 gap: 0.75rem !important;
             }
+
             .top-stories-card .d-flex p {
                 font-size: 0.78rem !important;
                 line-height: 1.5 !important;
             }
-            
+
             /* Hide testimonial vertical dividers */
             .testimonial-divider {
                 display: none !important;
             }
-            
+
             /* Smaller avatars in customer feedback */
             .top-stories-card .rounded-circle {
                 width: 44px !important;
                 height: 44px !important;
             }
+
             .top-stories-card .rounded-circle svg {
                 width: 44px !important;
                 height: 44px !important;
@@ -86,6 +101,7 @@
             min-width: 135px !important;
             max-width: 135px !important;
         }
+
         @media (min-width: 992px) {
             .reel-card-wrapper {
                 flex: 0 0 calc(16.66% - 10px) !important;
@@ -93,6 +109,7 @@
                 max-width: calc(16.66% - 10px) !important;
             }
         }
+
         @media (min-width: 768px) and (max-width: 991px) {
             .reel-card-wrapper {
                 flex: 0 0 170px !important;
@@ -106,17 +123,20 @@
             .reel-card .position-relative[style*="height"] {
                 height: 190px !important;
             }
+
             .reel-card .p-3 {
                 padding: 0.5rem 0.6rem !important;
             }
+
             .reel-card h5 {
                 font-size: 0.72rem !important;
                 margin-bottom: 2px !important;
             }
+
             .reel-card .d-flex {
                 font-size: 0.6rem !important;
             }
-            
+
             /* Make tab navigation buttons smaller on mobile */
             .reel-tab-btn {
                 padding-top: 0.5rem !important;
@@ -125,15 +145,17 @@
                 padding-right: 0.4rem !important;
                 font-size: 0.72rem !important;
             }
+
             .reel-tab-btn i {
                 margin-right: 0.2rem !important;
             }
         }
-        
+
         /* Vision & Mission responsive padding */
         .vision-mission-card {
             padding: 1.25rem !important;
         }
+
         @media (min-width: 768px) {
             .vision-mission-card {
                 padding: 3rem !important;
@@ -144,6 +166,7 @@
         .top-stories-card {
             padding: 20px 16px !important;
         }
+
         @media (min-width: 768px) {
             .top-stories-card {
                 padding: 40px 48px !important;
@@ -155,16 +178,21 @@
             .info-card {
                 padding: 0.85rem !important;
             }
+
             .info-card h4 {
                 font-size: 1rem !important;
             }
+
             .info-card .p-3 {
                 padding: 0.65rem !important;
             }
+
             .info-card h6 {
                 font-size: 0.78rem !important;
             }
-            .info-card p, .info-card a {
+
+            .info-card p,
+            .info-card a {
                 font-size: 0.72rem !important;
             }
         }
@@ -173,11 +201,13 @@
         .stories-banner {
             height: 200px !important;
         }
+
         @media (min-width: 768px) {
             .stories-banner {
                 height: 350px !important;
             }
         }
+
         @media (min-width: 1200px) {
             .stories-banner {
                 height: 540px !important;
@@ -186,24 +216,29 @@
 
         /* Reel Modal Custom Size */
         .reel-modal-dialog {
-            max-width: 420px !important; /* Perfect width for 9:16 aspect ratio on desktop */
+            max-width: 420px !important;
+            /* Perfect width for 9:16 aspect ratio on desktop */
             width: 100% !important;
             margin: auto;
         }
+
         .reel-modal-dialog .modal-content {
             border: none !important;
             box-shadow: none !important;
             background: transparent !important;
         }
+
         .reel-modal-dialog .video-wrapper {
             position: relative;
             width: 100%;
-            height: 80vh; /* Tall 9:16 container on desktop */
+            height: 80vh;
+            /* Tall 9:16 container on desktop */
             background: #000;
             border-radius: 16px;
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.15);
         }
+
         @media (max-width: 767px) {
             .reel-modal-dialog {
                 max-width: 100% !important;
@@ -213,13 +248,16 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+
             .reel-modal-dialog .modal-content {
                 height: 100% !important;
                 width: 100% !important;
                 border-radius: 0 !important;
             }
+
             .reel-modal-dialog .video-wrapper {
-                height: 100vh !important; /* 90-100vh on mobile */
+                height: 100vh !important;
+                /* 90-100vh on mobile */
                 width: 100% !important;
                 border-radius: 0 !important;
                 border: none !important;
@@ -240,20 +278,23 @@
             scrollbar-width: none !important;
             -ms-overflow-style: none !important;
         }
+
         .reel-cards-scroll::-webkit-scrollbar {
             display: none !important;
         }
-        
+
         /* Carousel Navigation Buttons Hover */
         .carousel-control-btn {
             opacity: 0.9;
         }
+
         .carousel-control-btn:hover {
             background-color: #0087F6 !important;
             opacity: 1 !important;
             transform: translateY(-50%) scale(1.1) !important;
             box-shadow: 0 4px 15px rgba(0, 135, 246, 0.4) !important;
         }
+
         .carousel-control-btn:hover i {
             color: white !important;
         }
@@ -275,8 +316,8 @@
             <!-- Top Banner Image -->
             <div class="row mb-4">
                 <div class="col-12">
-                    <img src="assets/img/storieshead.png" alt="Sabka Fayda Stories Banner" class="img-fluid w-100 stories-banner"
-                        style="border-radius: 12px; object-fit: cover;">
+                    <img src="assets/img/storieshead.png" alt="Sabka Fayda Stories Banner"
+                        class="img-fluid w-100 stories-banner" style="border-radius: 12px; object-fit: cover;">
                 </div>
             </div>
 
@@ -334,7 +375,7 @@
                 </div>
             </div>
 
-                                    <!-- Product Reel, Customer Review, Influencer Reel Section -->
+            <!-- Product Reel, Customer Review, Influencer Reel Section -->
             <div class="row mb-5">
                 <div class="col-12">
                     <!-- Tab Navigation -->
@@ -364,12 +405,14 @@
                         <div class="tab-pane fade show active" id="product-reel">
                             <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
                                 <!-- Left Navigation Arrow -->
-                                <button class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                <button
+                                    class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
                                     style="width: 40px; height: 40px; background: white; z-index: 10; left: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; opacity: 0; pointer-events: none; border: 1px solid #ddd !important;">
                                     <i class="fa-solid fa-chevron-left text-dark"></i>
                                 </button>
-                                
-                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
+
+                                <div class="reel-cards-scroll"
+                                    style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
                                     <!-- Reel Card 1 -->
                                     <div class="reel-card-wrapper">
                                         <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
@@ -382,7 +425,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -403,7 +447,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -424,7 +469,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -445,7 +491,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -466,7 +513,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -487,7 +535,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -508,7 +557,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -529,7 +579,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -550,7 +601,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -571,7 +623,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -592,7 +645,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -613,7 +667,8 @@
                                                     alt="Product Reel" class="w-100 h-100" style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -623,9 +678,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Right Navigation Arrow -->
-                                <button class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                <button
+                                    class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
                                     style="width: 40px; height: 40px; background: white; z-index: 10; right: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; border: 1px solid #ddd !important;">
                                     <i class="fa-solid fa-chevron-right text-dark"></i>
                                 </button>
@@ -636,12 +692,14 @@
                         <div class="tab-pane fade" id="customer-review">
                             <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
                                 <!-- Left Navigation Arrow -->
-                                <button class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                <button
+                                    class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
                                     style="width: 40px; height: 40px; background: white; z-index: 10; left: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; opacity: 0; pointer-events: none; border: 1px solid #ddd !important;">
                                     <i class="fa-solid fa-chevron-left text-dark"></i>
                                 </button>
-                                
-                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
+
+                                <div class="reel-cards-scroll"
+                                    style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
                                     <!-- Reel Card 1 -->
                                     <div class="reel-card-wrapper">
                                         <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
@@ -651,10 +709,12 @@
                                             data-views="326" data-likes="11" data-index="0">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -672,10 +732,12 @@
                                             data-views="326" data-likes="11" data-index="1">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -693,10 +755,12 @@
                                             data-views="326" data-likes="11" data-index="2">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -714,10 +778,12 @@
                                             data-views="326" data-likes="11" data-index="3">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -735,10 +801,12 @@
                                             data-views="326" data-likes="11" data-index="4">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -756,10 +824,12 @@
                                             data-views="326" data-likes="11" data-index="5">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -777,10 +847,12 @@
                                             data-views="326" data-likes="11" data-index="6">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -798,10 +870,12 @@
                                             data-views="326" data-likes="11" data-index="7">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -819,10 +893,12 @@
                                             data-views="326" data-likes="11" data-index="8">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -840,10 +916,12 @@
                                             data-views="326" data-likes="11" data-index="9">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -861,10 +939,12 @@
                                             data-views="326" data-likes="11" data-index="10">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -882,10 +962,12 @@
                                             data-views="326" data-likes="11" data-index="11">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Customer Review" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Customer Review" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -895,9 +977,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Right Navigation Arrow -->
-                                <button class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                <button
+                                    class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
                                     style="width: 40px; height: 40px; background: white; z-index: 10; right: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; border: 1px solid #ddd !important;">
                                     <i class="fa-solid fa-chevron-right text-dark"></i>
                                 </button>
@@ -908,12 +991,14 @@
                         <div class="tab-pane fade" id="influencer-reel">
                             <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
                                 <!-- Left Navigation Arrow -->
-                                <button class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                <button
+                                    class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
                                     style="width: 40px; height: 40px; background: white; z-index: 10; left: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; opacity: 0; pointer-events: none; border: 1px solid #ddd !important;">
                                     <i class="fa-solid fa-chevron-left text-dark"></i>
                                 </button>
-                                
-                                <div class="reel-cards-scroll" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
+
+                                <div class="reel-cards-scroll"
+                                    style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-behavior: smooth;">
                                     <!-- Reel Card 1 -->
                                     <div class="reel-card-wrapper">
                                         <div class="reel-card bg-white rounded-2 shadow overflow-hidden h-100 cursor-pointer"
@@ -923,10 +1008,12 @@
                                             data-views="326" data-likes="11" data-index="0">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -944,10 +1031,12 @@
                                             data-views="326" data-likes="11" data-index="1">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -965,10 +1054,12 @@
                                             data-views="326" data-likes="11" data-index="2">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -986,10 +1077,12 @@
                                             data-views="326" data-likes="11" data-index="3">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1007,10 +1100,12 @@
                                             data-views="326" data-likes="11" data-index="4">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1028,10 +1123,12 @@
                                             data-views="326" data-likes="11" data-index="5">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1049,10 +1146,12 @@
                                             data-views="326" data-likes="11" data-index="6">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1070,10 +1169,12 @@
                                             data-views="326" data-likes="11" data-index="7">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1091,10 +1192,12 @@
                                             data-views="326" data-likes="11" data-index="8">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1112,10 +1215,12 @@
                                             data-views="326" data-likes="11" data-index="9">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1133,10 +1238,12 @@
                                             data-views="326" data-likes="11" data-index="10">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1154,10 +1261,12 @@
                                             data-views="326" data-likes="11" data-index="11">
                                             <div class="position-relative" style="height: 340px;">
                                                 <img src="https://img.youtube.com/vi/Avc5bGyr-bw/hqdefault.jpg"
-                                                    alt="Influencer Reel" class="w-100 h-100" style="object-fit: cover;">
+                                                    alt="Influencer Reel" class="w-100 h-100"
+                                                    style="object-fit: cover;">
                                             </div>
                                             <div class="p-3">
-                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on Sabka Fayda</h5>
+                                                <h5 class="fw-bold mb-1 text-dark" style="font-size: 0.85rem;">Shop on
+                                                    Sabka Fayda</h5>
                                                 <div class="d-flex align-items-center justify-content-between text-muted small"
                                                     style="font-size: 0.75rem;">
                                                     <span><i class="fa-solid fa-eye me-1 text-primary"></i>326</span>
@@ -1167,9 +1276,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Right Navigation Arrow -->
-                                <button class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute" 
+                                <button
+                                    class="carousel-control-btn right-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
                                     style="width: 40px; height: 40px; background: white; z-index: 10; right: 10px; top: 50%; transform: translateY(-50%); transition: all 0.2s ease; border: 1px solid #ddd !important;">
                                     <i class="fa-solid fa-chevron-right text-dark"></i>
                                 </button>
@@ -1182,219 +1292,260 @@
 
         <div class="container px-3 px-md-4" style="max-width: 1200px;">
 
-        <!-- TOP STORIES & CUSTOMER FEEDBACK Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="bg-white rounded-4 top-stories-card shadow-sm">
+            <!-- TOP STORIES & CUSTOMER FEEDBACK Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="bg-white rounded-4 top-stories-card shadow-sm">
 
-                    <!-- Section Title -->
-                    <h2 class="fw-bold text-center mb-4"
-                        style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; letter-spacing: 0.5px; color: #111;">
-                        TOP STORIES &amp; CUSTOMER FEEDBACK
-                    </h2>
+                        <!-- Section Title -->
+                        <h2 class="fw-bold text-center mb-4"
+                            style="font-family: 'Rubik', sans-serif; font-size: 1.6rem; letter-spacing: 0.5px; color: #111;">
+                            TOP STORIES &amp; CUSTOMER FEEDBACK
+                        </h2>
 
-                    <!-- Testimonials Row -->
-                    <div class="d-flex flex-column flex-md-row align-items-stretch gap-4">
+                        <!-- Testimonials Row -->
+                        <div class="d-flex flex-column flex-md-row align-items-stretch gap-4">
 
-                        <!-- Testimonial 1 -->
-                        <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
-                            style="background: #f7f9fc; border-left: 4px solid #0087F6;">
-                            <!-- Avatar -->
-                            <div class="flex-shrink-0">
-                                <div class="rounded-circle overflow-hidden"
-                                    style="width: 62px; height: 62px; background: #dde8f5;">
-                                    <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62" height="62">
-                                        <circle cx="31" cy="31" r="31" fill="#c8d8ee"/>
-                                        <ellipse cx="31" cy="26" rx="11" ry="12" fill="#8aadd4"/>
-                                        <ellipse cx="31" cy="58" rx="20" ry="16" fill="#8aadd4"/>
-                                    </svg>
+                            <!-- Testimonial 1 -->
+                            <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
+                                style="background: #f7f9fc; border-left: 4px solid #0087F6;">
+                                <!-- Avatar -->
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle overflow-hidden"
+                                        style="width: 62px; height: 62px; background: #dde8f5;">
+                                        <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62"
+                                            height="62">
+                                            <circle cx="31" cy="31" r="31" fill="#c8d8ee" />
+                                            <ellipse cx="31" cy="26" rx="11" ry="12" fill="#8aadd4" />
+                                            <ellipse cx="31" cy="58" rx="20" ry="16" fill="#8aadd4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- Text -->
+                                <div>
+                                    <p class="mb-2 text-secondary"
+                                        style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
+                                        "Sabka Fayda has been a game-changer! Their platform makes finding the best
+                                        deals so easy."
+                                    </p>
+                                    <p class="mb-0 fw-bold text-dark"
+                                        style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
+                                        Priya S. <span class="text-muted fw-normal">(Mumbai)</span>
+                                    </p>
                                 </div>
                             </div>
-                            <!-- Text -->
-                            <div>
-                                <p class="mb-2 text-secondary"
-                                    style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
-                                    "Sabka Fayda has been a game-changer! Their platform makes finding the best deals so easy."
-                                </p>
-                                <p class="mb-0 fw-bold text-dark"
-                                    style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
-                                    Priya S. <span class="text-muted fw-normal">(Mumbai)</span>
-                                </p>
+
+                            <!-- Divider -->
+                            <div class="testimonial-divider" style="width: 1px; background: #e0e7ef; flex-shrink: 0;">
                             </div>
-                        </div>
 
-                        <!-- Divider -->
-                        <div class="testimonial-divider" style="width: 1px; background: #e0e7ef; flex-shrink: 0;"></div>
-
-                        <!-- Testimonial 2 -->
-                        <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
-                            style="background: #f7f9fc; border-left: 4px solid #0087F6;">
-                            <!-- Avatar -->
-                            <div class="flex-shrink-0">
-                                <div class="rounded-circle overflow-hidden"
-                                    style="width: 62px; height: 62px; background: #dde8f5;">
-                                    <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62" height="62">
-                                        <circle cx="31" cy="31" r="31" fill="#bfd0e8"/>
-                                        <ellipse cx="31" cy="25" rx="10" ry="11" fill="#7a9fc8"/>
-                                        <ellipse cx="31" cy="57" rx="20" ry="16" fill="#7a9fc8"/>
-                                    </svg>
+                            <!-- Testimonial 2 -->
+                            <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
+                                style="background: #f7f9fc; border-left: 4px solid #0087F6;">
+                                <!-- Avatar -->
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle overflow-hidden"
+                                        style="width: 62px; height: 62px; background: #dde8f5;">
+                                        <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62"
+                                            height="62">
+                                            <circle cx="31" cy="31" r="31" fill="#bfd0e8" />
+                                            <ellipse cx="31" cy="25" rx="10" ry="11" fill="#7a9fc8" />
+                                            <ellipse cx="31" cy="57" rx="20" ry="16" fill="#7a9fc8" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- Text -->
+                                <div>
+                                    <p class="mb-2 text-secondary"
+                                        style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
+                                        "The unboxing reels are my favorite! It's great to see real product quality
+                                        before buying."
+                                    </p>
+                                    <p class="mb-0 fw-bold text-dark"
+                                        style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
+                                        Rahul K. <span class="text-muted fw-normal">(Kolhapur)</span>
+                                    </p>
                                 </div>
                             </div>
-                            <!-- Text -->
-                            <div>
-                                <p class="mb-2 text-secondary"
-                                    style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
-                                    "The unboxing reels are my favorite! It's great to see real product quality before buying."
-                                </p>
-                                <p class="mb-0 fw-bold text-dark"
-                                    style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
-                                    Rahul K. <span class="text-muted fw-normal">(Kolhapur)</span>
-                                </p>
+
+                            <!-- Divider -->
+                            <div class="testimonial-divider" style="width: 1px; background: #e0e7ef; flex-shrink: 0;">
                             </div>
-                        </div>
 
-                        <!-- Divider -->
-                        <div class="testimonial-divider" style="width: 1px; background: #e0e7ef; flex-shrink: 0;"></div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
-                            style="background: #f7f9fc; border-left: 4px solid #0087F6;">
-                            <!-- Avatar -->
-                            <div class="flex-shrink-0">
-                                <div class="rounded-circle overflow-hidden"
-                                    style="width: 62px; height: 62px; background: #dde8f5;">
-                                    <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62" height="62">
-                                        <circle cx="31" cy="31" r="31" fill="#c4d5e9"/>
-                                        <ellipse cx="31" cy="26" rx="11" ry="12" fill="#6b96c4"/>
-                                        <ellipse cx="31" cy="58" rx="20" ry="16" fill="#6b96c4"/>
-                                    </svg>
+                            <!-- Testimonial 3 -->
+                            <div class="d-flex align-items-start gap-3 flex-fill p-3 rounded-3"
+                                style="background: #f7f9fc; border-left: 4px solid #0087F6;">
+                                <!-- Avatar -->
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle overflow-hidden"
+                                        style="width: 62px; height: 62px; background: #dde8f5;">
+                                        <svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" width="62"
+                                            height="62">
+                                            <circle cx="31" cy="31" r="31" fill="#c4d5e9" />
+                                            <ellipse cx="31" cy="26" rx="11" ry="12" fill="#6b96c4" />
+                                            <ellipse cx="31" cy="58" rx="20" ry="16" fill="#6b96c4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- Text -->
+                                <div>
+                                    <p class="mb-2 text-secondary"
+                                        style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
+                                        "Trusted reviews and amazing prices. Sabka Fayda lives up to its name!"
+                                    </p>
+                                    <p class="mb-0 fw-bold text-dark"
+                                        style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
+                                        Aisha M. <span class="text-muted fw-normal">(Pune)</span>
+                                    </p>
                                 </div>
                             </div>
-                            <!-- Text -->
-                            <div>
-                                <p class="mb-2 text-secondary"
-                                    style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; line-height: 1.65; font-style: italic;">
-                                    "Trusted reviews and amazing prices. Sabka Fayda lives up to its name!"
-                                </p>
-                                <p class="mb-0 fw-bold text-dark"
-                                    style="font-family: 'Rubik', sans-serif; font-size: 0.88rem;">
-                                    Aisha M. <span class="text-muted fw-normal">(Pune)</span>
-                                </p>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END TOP STORIES & CUSTOMER FEEDBACK -->
-
-        <!-- Company Details & Contact Us -->
-        <div class="row mb-4 g-4">
-            <!-- Company Details -->
-            <div class="col-lg-6">
-                <div class="info-card p-3 shadow-sm">
-                    <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
-                        <div class="text-primary fs-4"><i class="fa-solid fa-building"></i></div>
-                        <div>
-                            <h4 class="font-rubik fw-bold mb-1" style="font-size: 1.4rem; line-height: 1.2;">Company Details</h4>
-                            <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
-                        </div>
-                    </div>
-                    <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
-                        <!-- Legal Name -->
-                        <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
-                            <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-briefcase"></i></div>
-                            <div>
-                                <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Legal Name</h6>
-                                <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem;">TEAMMUNITY BUSINESS PRIVATE LIMITED</p>
-                            </div>
-                        </div>
-                        <!-- GSTIN -->
-                        <div class="d-flex align-items-start gap-3 pb-2 mb-2" style="border-bottom: 1px dashed #e2e8f0;">
-                            <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-receipt"></i></div>
-                            <div>
-                                <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">GSTIN</h6>
-                                <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem;">27AALCT8650K1ZN</p>
-                            </div>
-                        </div>
-                        <!-- Address -->
-                        <div class="d-flex align-items-start gap-3">
-                            <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i class="fa-solid fa-location-dot"></i></div>
-                            <div>
-                                <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Address</h6>
-                                <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem; line-height: 1.5;">
-                                    Plot No. 19 &amp; 20, Sector F1, Parvati Co-Op Industrial Estate,
-                                    Yadrav, Ichalkaranji, Kolhapur, Maharashtra – 416148
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- END TOP STORIES & CUSTOMER FEEDBACK -->
 
-            <!-- Contact Us -->
-            <div class="col-lg-6">
-                <div class="info-card p-3 shadow-sm">
-                    <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
-                        <div class="text-primary fs-4"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <h4 class="font-rubik fw-bold mb-1" style="font-size: 1.4rem; line-height: 1.2;">Contact Us</h4>
-                            <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;"></div>
-                        </div>
-                    </div>
-                    <!-- Email -->
-                    <div class="p-3 border border-light-subtle rounded-4 mb-3" style="background-color: #fdfdfd;">
-                        <div class="d-flex align-items-center gap-3">
-                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
+            <!-- Company Details & Contact Us -->
+            <div class="row mb-4 g-4">
+                <!-- Company Details -->
+                <div class="col-lg-6">
+                    <div class="info-card p-3 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
+                            <div class="text-primary fs-4"><i class="fa-solid fa-building"></i></div>
                             <div>
-                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem;">Email</h6>
-                                <p class="mb-0"><a href="mailto:support@sabkafayda.com" class="font-montserrat text-decoration-none text-dark fw-medium" style="font-size: 0.9rem;">support@sabkafayda.com</a></p>
+                                <h4 class="font-rubik fw-bold mb-1" style="font-size: 1.4rem; line-height: 1.2;">Company
+                                    Details</h4>
+                                <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Phone -->
-                    <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
-                        <div class="d-flex align-items-center gap-3">
-                            <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
-                                <i class="fa-solid fa-phone"></i>
+                        <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
+                            <!-- Legal Name -->
+                            <div class="d-flex align-items-start gap-3 pb-2 mb-2"
+                                style="border-bottom: 1px dashed #e2e8f0;">
+                                <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i
+                                        class="fa-solid fa-briefcase"></i></div>
+                                <div>
+                                    <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Legal Name
+                                    </h6>
+                                    <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem;">
+                                        TEAMMUNITY BUSINESS PRIVATE LIMITED</p>
+                                </div>
                             </div>
+                            <!-- GSTIN -->
+                            <div class="d-flex align-items-start gap-3 pb-2 mb-2"
+                                style="border-bottom: 1px dashed #e2e8f0;">
+                                <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i
+                                        class="fa-solid fa-receipt"></i></div>
+                                <div>
+                                    <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">GSTIN</h6>
+                                    <p class="font-montserrat text-secondary mb-0" style="font-size: 0.85rem;">
+                                        27AALCT8650K1ZN</p>
+                                </div>
+                            </div>
+                            <!-- Address -->
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="text-primary fs-5 mt-1" style="width: 24px; text-align: center;"><i
+                                        class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h6 class="font-rubik fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Address
+                                    </h6>
+                                    <p class="font-montserrat text-secondary mb-0"
+                                        style="font-size: 0.85rem; line-height: 1.5;">
+                                        Plot No. 19 &amp; 20, Sector F1, Parvati Co-Op Industrial Estate,
+                                        Yadrav, Ichalkaranji, Kolhapur, Maharashtra – 416148
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Us -->
+                <div class="col-lg-6">
+                    <div class="info-card p-3 shadow-sm">
+                        <div class="d-flex align-items-center gap-3 mt-2 ms-3 mb-3" style="color: #0b1120;">
+                            <div class="text-primary fs-4"><i class="fa-solid fa-phone"></i></div>
                             <div>
-                                <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem;">Phone</h6>
-                                <p class="mb-0"><a href="tel:+918329606969" class="font-montserrat text-decoration-none text-dark fw-medium" style="font-size: 0.9rem;">+91 832 960 6969</a></p>
+                                <h4 class="font-rubik fw-bold mb-1" style="font-size: 1.4rem; line-height: 1.2;">Contact
+                                    Us</h4>
+                                <div style="width: 35px; height: 3px; background-color: #0056b3; border-radius: 2px;">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="p-3 border border-light-subtle rounded-4 mb-3" style="background-color: #fdfdfd;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem;">Email</h6>
+                                    <p class="mb-0"><a href="mailto:support@sabkafayda.com"
+                                            class="font-montserrat text-decoration-none text-dark fw-medium"
+                                            style="font-size: 0.9rem;">support@sabkafayda.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="p-3 border border-light-subtle rounded-4" style="background-color: #fdfdfd;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    style="width: 50px; height: 50px; border-radius: 50%; background-color: #e8f2ff; display: flex; align-items: center; justify-content: center; color: #0056b3; font-size: 1.25rem; flex-shrink: 0;">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h6 class="font-rubik fw-bold mb-1 text-primary" style="font-size: 1rem;">Phone</h6>
+                                    <p class="mb-0"><a href="tel:+918329606969"
+                                            class="font-montserrat text-decoration-none text-dark fw-medium"
+                                            style="font-size: 0.9rem;">+91 832 960 6969</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- END Company Details & Contact Us -->
+            <!-- END Company Details & Contact Us -->
 
-        <!-- Ready to Shop Banner -->
-        <div class="ready-banner ready-banner-mobile text-white p-3 p-md-4 mb-0 shadow-sm text-center position-relative" style="background: url('assets/img/aboutbg.png') no-repeat center center; background-size: cover; border-radius: 0 !important; overflow: hidden;">
-            <div class="position-relative py-2 pe-5 pe-md-0" style="z-index: 2; max-width: 600px; margin: 0 auto;">
-                <h3 class="font-rubik fw-bold mb-1 banner-title-mobile" style="font-size: 1.8rem;">Ready to Shop?</h3>
-                <p class="font-montserrat mb-3 opacity-90 banner-desc-mobile" style="font-size: 1rem;">Discover quality products at affordable prices.</p>
-                <a href="index.html" class="font-rubik btn btn-light fw-bold text-primary px-4 py-2 shadow banner-btn-mobile" style="border-radius: 8px; font-size: 0.95rem;">
-                    Shop Now <i class="fa-solid fa-chevron-right ms-2 fs-6"></i>
-                </a>
+            <!-- Ready to Shop Banner -->
+            <div class="ready-banner ready-banner-mobile text-white p-3 p-md-4 mb-0 shadow-sm text-center position-relative"
+                style="background: url('assets/img/aboutbg.png') no-repeat center center; background-size: cover; border-radius: 0 !important; overflow: hidden;">
+                <div class="position-relative py-2 pe-5 pe-md-0" style="z-index: 2; max-width: 600px; margin: 0 auto;">
+                    <h3 class="font-rubik fw-bold mb-1 banner-title-mobile" style="font-size: 1.8rem;">Ready to Shop?
+                    </h3>
+                    <p class="font-montserrat mb-3 opacity-90 banner-desc-mobile" style="font-size: 1rem;">Discover
+                        quality products at affordable prices.</p>
+                    <a href="index.html"
+                        class="font-rubik btn btn-light fw-bold text-primary px-4 py-2 shadow banner-btn-mobile"
+                        style="border-radius: 8px; font-size: 0.95rem;">
+                        Shop Now <i class="fa-solid fa-chevron-right ms-2 fs-6"></i>
+                    </a>
+                </div>
+                <img src="assets/img/cartimg.png" alt="Shopping Cart"
+                    class="position-absolute end-0 bottom-0 d-block banner-img-mobile"
+                    style="height: 75%; max-height: 160px; width: auto; z-index: 1;">
             </div>
-            <img src="assets/img/cartimg.png" alt="Shopping Cart" class="position-absolute end-0 bottom-0 d-block banner-img-mobile" style="height: 75%; max-height: 160px; width: auto; z-index: 1;">
-        </div>
 
-        <!-- Customer Satisfaction Note -->
-        <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 p-3 p-md-4 bg-white border-start border-end border-bottom mb-5 shadow-sm" style="border-radius: 0 !important; border-top: none !important;">
-            <svg class="satisfaction-shield-mobile" width="28" height="32" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
-                <path d="M12 2L4 5.5V13C4 18.5 7.4 23.5 12 26C16.6 23.5 20 18.5 20 13V5.5L12 2Z" stroke="#0066ff" stroke-width="2" stroke-linejoin="round" fill="none"/>
-                <path d="M12 5.5L6.5 7.8V13C6.5 16.8 8.8 20.3 12 22C15.2 20.3 17.5 16.8 17.5 13V7.8L12 5.5Z" fill="#0066ff"/>
-                <path d="M9.5 14L11.5 16L14.5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <p class="font-montserrat mb-0 text-secondary text-start satisfaction-text-mobile" style="font-size: 0.95rem; font-weight: 600; line-height: 1.5; max-width: 800px;">
-                At SabkaFayda, customer satisfaction remains our highest priority and<br class="d-none d-md-block"> we continuously strive to deliver the best shopping experience possible.
-            </p>
-        </div>
+            <!-- Customer Satisfaction Note -->
+            <div class="d-flex align-items-center justify-content-center gap-2 gap-md-3 p-3 p-md-4 bg-white border-start border-end border-bottom mb-5 shadow-sm"
+                style="border-radius: 0 !important; border-top: none !important;">
+                <svg class="satisfaction-shield-mobile" width="28" height="32" viewBox="0 0 24 28" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <path d="M12 2L4 5.5V13C4 18.5 7.4 23.5 12 26C16.6 23.5 20 18.5 20 13V5.5L12 2Z" stroke="#0066ff"
+                        stroke-width="2" stroke-linejoin="round" fill="none" />
+                    <path d="M12 5.5L6.5 7.8V13C6.5 16.8 8.8 20.3 12 22C15.2 20.3 17.5 16.8 17.5 13V7.8L12 5.5Z"
+                        fill="#0066ff" />
+                    <path d="M9.5 14L11.5 16L14.5 12" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <p class="font-montserrat mb-0 text-secondary text-start satisfaction-text-mobile"
+                    style="font-size: 0.95rem; font-weight: 600; line-height: 1.5; max-width: 800px;">
+                    At SabkaFayda, customer satisfaction remains our highest priority and<br class="d-none d-md-block">
+                    we continuously strive to deliver the best shopping experience possible.
+                </p>
+            </div>
         </div><!-- /.inner-container -->
 
     </main>
@@ -1407,8 +1558,7 @@
             <div class="modal-content bg-transparent overflow-hidden" style="border: none; box-shadow: none;">
                 <div class="modal-body p-0 position-relative">
                     <div class="video-wrapper position-relative d-flex justify-content-center align-items-center">
-                        <iframe id="modalVideo" class="w-100 h-100"
-                            style="border: none;" src=""
+                        <iframe id="modalVideo" class="w-100 h-100" style="border: none;" src=""
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
 
@@ -1476,11 +1626,13 @@
         .stories-banner {
             height: 200px !important;
         }
+
         @media (min-width: 768px) {
             .stories-banner {
                 height: 350px !important;
             }
         }
+
         @media (min-width: 1200px) {
             .stories-banner {
                 height: 540px !important;
@@ -1489,24 +1641,29 @@
 
         /* Reel Modal Custom Size */
         .reel-modal-dialog {
-            max-width: 420px !important; /* Perfect width for 9:16 aspect ratio on desktop */
+            max-width: 420px !important;
+            /* Perfect width for 9:16 aspect ratio on desktop */
             width: 100% !important;
             margin: auto;
         }
+
         .reel-modal-dialog .modal-content {
             border: none !important;
             box-shadow: none !important;
             background: transparent !important;
         }
+
         .reel-modal-dialog .video-wrapper {
             position: relative;
             width: 100%;
-            height: 80vh; /* Tall 9:16 container on desktop */
+            height: 80vh;
+            /* Tall 9:16 container on desktop */
             background: #000;
             border-radius: 16px;
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.15);
         }
+
         @media (max-width: 767px) {
             .reel-modal-dialog {
                 max-width: 100% !important;
@@ -1516,13 +1673,16 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+
             .reel-modal-dialog .modal-content {
                 height: 100% !important;
                 width: 100% !important;
                 border-radius: 0 !important;
             }
+
             .reel-modal-dialog .video-wrapper {
-                height: 100vh !important; /* 90-100vh on mobile */
+                height: 100vh !important;
+                /* 90-100vh on mobile */
                 width: 100% !important;
                 border-radius: 0 !important;
                 border: none !important;
@@ -1543,20 +1703,23 @@
             scrollbar-width: none !important;
             -ms-overflow-style: none !important;
         }
+
         .reel-cards-scroll::-webkit-scrollbar {
             display: none !important;
         }
-        
+
         /* Carousel Navigation Buttons Hover */
         .carousel-control-btn {
             opacity: 0.9;
         }
+
         .carousel-control-btn:hover {
             background-color: #0087F6 !important;
             opacity: 1 !important;
             transform: translateY(-50%) scale(1.1) !important;
             box-shadow: 0 4px 15px rgba(0, 135, 246, 0.4) !important;
         }
+
         .carousel-control-btn:hover i {
             color: white !important;
         }
