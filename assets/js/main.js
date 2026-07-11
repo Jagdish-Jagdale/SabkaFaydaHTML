@@ -692,13 +692,8 @@ window.showGlobalWishlistToast = function(action, customMessage = null) {
             currentPage = currentPage + '.html';
         }
         
-        if (seoData.pages[currentPage]) {
-            title = seoData.pages[currentPage].title;
-            description = seoData.pages[currentPage].description;
-            keywords = seoData.pages[currentPage].keywords;
-        }
-        // Product Details Page - Special handling
-        else if (path.includes('product-details') || currentPage === 'product-details.html') {
+        // Product Details Page - Special handling (Checked first to avoid matching generic 'product-details.html' page-wide metadata)
+        if (path.includes('product-details') || currentPage === 'product-details.html') {
             const urlParams = new URLSearchParams(window.location.search);
             const productParam = urlParams.get('product');
             
@@ -736,6 +731,12 @@ window.showGlobalWishlistToast = function(action, customMessage = null) {
                     }
                 }
             }
+        }
+        // General page-specific SEO
+        else if (seoData.pages[currentPage]) {
+            title = seoData.pages[currentPage].title;
+            description = seoData.pages[currentPage].description;
+            keywords = seoData.pages[currentPage].keywords;
         }
         // Category Page (extract category name from URL)
         else if (pathSegments.length > 0 && !pathSegments[0].includes('.html')) {

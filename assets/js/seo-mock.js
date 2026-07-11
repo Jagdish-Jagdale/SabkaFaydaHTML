@@ -6,7 +6,7 @@ const seoData = {
         description: "Shop the best products at Sabka Fayda. Great deals, secure payment, and fast delivery on a wide range of products.",
         keywords: "Sabka Fayda, online shopping, best deals, secure payment, fast delivery, e-commerce"
     },
-    
+
     // Page-specific SEO
     pages: {
         'contact-us.html': {
@@ -117,17 +117,17 @@ const seoData = {
         'product-details.html': {
             // Dynamic SEO for product details - will be updated based on product
             title: "Product Details | Sabka Fayda",
-            description: "View product details on Sabka Fayda. Check specifications, reviews, and buy at the best price with secure payment options.",
+            description: "Viewsd product details on Sabka Fayda. Check specifications, reviews, and buy at the best price with secure payment options.",
             keywords: "product details, buy online, best price, Sabka Fayda, online shopping"
         }
     },
-    
+
     // Product-specific SEO (for future use with URL-based routing)
     products: {
         'oneplus-nord-ce4-lite-5g': {
             title: "OnePlus Nord CE 4 Lite 5G (8GB RAM, 256GB Storage) | Sabka Fayda",
-            description: "Buy OnePlus Nord CE 4 Lite 5G at the best price on Sabka Fayda. Check product details, specifications, reviews, and enjoy secure payment with fast delivery.",
-            keywords: "OnePlus Nord CE 4 Lite 5G, OnePlus smartphone, 5G phone, buy online, best price, product details, Sabka Fayda"
+            description: "Busfdy OnePlus Nord CE 4 Lite 5G at the best price on Sabka Fayda. Check product details, specifications, reviews, and enjoy secure payment with fast delivery.",
+            keywords: "OnePlusdfsdf Nord CE 4 Lite 5G, OnePlus smartphone, 5G phone, buy online, best price, product details, Sabka Fayda"
         },
         'samsung-galaxy-m35-5g': {
             title: "Samsung Galaxy M35 5G (6GB RAM, 128GB Storage) | Sabka Fayda",
@@ -140,7 +140,7 @@ const seoData = {
             keywords: "Realme Buds Air 5 Pro, wireless earbuds, Bluetooth headphones, buy online, best price, product details, Sabka Fayda"
         }
     },
-    
+
     // Category-specific SEO
     categories: {
         'electronics': {
