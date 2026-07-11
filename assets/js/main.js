@@ -674,3 +674,96 @@ window.showGlobalWishlistToast = function(action, customMessage = null) {
         lastScrollY = currentScrollY;
     }, { passive: true });
 })();
+
+/* Dynamic Meta Tags Generation Based on URL */
+(function() {
+    function generateDynamicMetaTags() {
+        const path = window.location.pathname;
+        const pathSegments = path.split('/').filter(segment => segment.length > 0);
+        
+        // Default SEO data
+        let title = seoData.default.title;
+        let description = seoData.default.description;
+        let keywords = seoData.default.keywords;
+
+        // Check if page-specific SEO data exists
+        const currentPage = pathSegments[pathSegments.length - 1] || pathSegments[0];
+        
+        if (seoData.pages[currentPage]) {
+            title = seoData.pages[currentPage].title;
+            description = seoData.pages[currentPage].description;
+            keywords = seoData.pages[currentPage].keywords;
+        }
+        // Product Details Page - Special handling
+        else if (path.includes('product-details') || currentPage === 'product-details.html') {
+            // Try to extract product name from URL slug first
+            const productSlug = pathSegments[pathSegments.length - 1].replace('.html', '');
+            
+            if (productSlug && productSlug !== 'product-details' && seoData.products[productSlug]) {
+                // Use product-specific SEO from mock data
+                title = seoData.products[productSlug].title;
+                description = seoData.products[productSlug].description;
+                keywords = seoData.products[productSlug].keywords;
+            } else if (typeof productDetailsData !== 'undefined' && productDetailsData.product) {
+                // Fallback: Generate from product details mock data
+                const productName = productDetailsData.product.title;
+                title = `${productName} | Sabka Fayda`;
+                description = `Buy ${productName} at the best price on Sabka Fayda. Check product details, specifications, reviews, and enjoy secure payment with fast delivery.`;
+                keywords = `${productName}, buy online, best price, product details, Sabka Fayda, online shopping, secure payment`;
+            } else {
+                // Use default product-details page SEO
+                title = seoData.pages['product-details.html'].title;
+                description = seoData.pages['product-details.html'].description;
+                keywords = seoData.pages['product-details.html'].keywords;
+            }
+        }
+        // Category Page (extract category name from URL)
+        else if (pathSegments.length > 0 && !pathSegments[0].includes('.html')) {
+            const categorySlug = pathSegments[0];
+            
+            if (seoData.categories[categorySlug]) {
+                title = seoData.categories[categorySlug].title;
+                description = seoData.categories[categorySlug].description;
+                keywords = seoData.categories[categorySlug].keywords;
+            } else {
+                // Generate from category slug if not in mock data
+                const categoryName = categorySlug
+                    .split('-')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+                
+                title = `${categoryName} | Sabka Fayda`;
+                description = `Browse ${categoryName.toLowerCase()} products on SabkaFayda. Discover the best deals and quality products in ${categoryName.toLowerCase()} category.`;
+                keywords = `${categoryName}, ${categoryName.toLowerCase()} products, buy ${categoryName.toLowerCase()}, Sabka Fayda, online shopping`;
+            }
+        }
+
+        // Update document title
+        document.title = title;
+
+        // Update or create meta description
+        let metaDescription = document.querySelector('meta[name="description"]');
+        if (!metaDescription) {
+            metaDescription = document.createElement('meta');
+            metaDescription.name = 'description';
+            document.head.appendChild(metaDescription);
+        }
+        metaDescription.setAttribute('content', description);
+
+        // Update or create meta keywords
+        let metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (!metaKeywords) {
+            metaKeywords = document.createElement('meta');
+            metaKeywords.name = 'keywords';
+            document.head.appendChild(metaKeywords);
+        }
+        metaKeywords.setAttribute('content', keywords);
+    }
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', generateDynamicMetaTags);
+    } else {
+        generateDynamicMetaTags();
+    }
+})();

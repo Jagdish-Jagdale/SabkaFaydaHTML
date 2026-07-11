@@ -2,8 +2,8 @@ const mockData = {
     orders: [
         {
             id: 'SF2026001254',
-            productName: 'Samsung Galaxy M35 5G',
-            productDesc: '8GB RAM | 128GB Storage',
+            productName: 'OnePlus Nord CE 4 Lite 5G',
+            productDesc: '8GB RAM | 256GB Storage',
             qty: 1,
             image: 'assets/img/electronicimg.png',
             orderDate: '13 Jun 2026',
@@ -14,7 +14,7 @@ const mockData = {
             statusClass: 'delivered',
             statusDateLabel: 'Delivered on',
             statusDate: '14 Jun 2026, 02:45 PM',
-            totalAmount: '15,990',
+            totalAmount: '19,999',
             actions: [
                 { label: 'Buy Again', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' },
@@ -23,8 +23,8 @@ const mockData = {
         },
         {
             id: 'SF2026001255',
-            productName: 'boAt Airdopes 311 Pro',
-            productDesc: 'Wireless Earbuds (Black)',
+            productName: 'Realme Buds Air 5 Pro',
+            productDesc: 'Wireless Earbuds (White)',
             qty: 1,
             image: 'assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png',
             orderDate: '13 Jun 2026',
@@ -35,7 +35,7 @@ const mockData = {
             statusClass: 'transit',
             statusDateLabel: 'Expected Delivery',
             statusDate: '18 Jun 2026',
-            totalAmount: '999',
+            totalAmount: '1,299',
             actions: [
                 { label: 'Track Order', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
@@ -43,8 +43,8 @@ const mockData = {
         },
         {
             id: 'SF2026001256',
-            productName: 'AGARO Waffle Maker',
-            productDesc: '750W (Black)',
+            productName: 'Prestige Electric Kettle',
+            productDesc: '1.5L (Silver)',
             qty: 1,
             image: 'assets/img/homescreenimg.png',
             orderDate: '13 Jun 2026',
@@ -55,7 +55,7 @@ const mockData = {
             statusClass: 'shipped',
             statusDateLabel: 'Shipped on',
             statusDate: '13 Jun 2026, 11:05 AM',
-            totalAmount: '1,299',
+            totalAmount: '899',
             actions: [
                 { label: 'Track Order', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
@@ -63,8 +63,8 @@ const mockData = {
         },
         {
             id: 'SF2026001257',
-            productName: 'Campus Men\'s Sneakers',
-            productDesc: 'Size - 8, Black',
+            productName: 'Puma Men\'s Running Shoes',
+            productDesc: 'Size - 9, Red',
             qty: 1,
             image: 'assets/img/4fb99229018727c624d87bcca8e826f53a077ad8.png',
             orderDate: '11 Jun 2026',
@@ -75,7 +75,7 @@ const mockData = {
             statusClass: 'out-delivery',
             statusDateLabel: 'Expected Delivery',
             statusDate: '14 Jun 2026',
-            totalAmount: '1,599',
+            totalAmount: '2,499',
             actions: [
                 { label: 'Track Order', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
@@ -83,8 +83,8 @@ const mockData = {
         },
         {
             id: 'SF2026001258',
-            productName: 'Allen Solly Men\'s Shirt',
-            productDesc: 'Size - M, Blue',
+            productName: 'Peter England Men\'s T-Shirt',
+            productDesc: 'Size - L, Grey',
             qty: 1,
             image: 'assets/img/a044e058df3531fb5b172a6bc3128b5e27a6fbe8.png',
             orderDate: '10 Jun 2026',
@@ -95,7 +95,7 @@ const mockData = {
             statusClass: 'cancelled',
             statusDateLabel: 'Cancelled on',
             statusDate: '10 Jun 2026, 05:20 PM',
-            totalAmount: '1,049',
+            totalAmount: '799',
             actions: [
                 { label: 'Reorder', btnClass: 'btn-outline-primary' }
             ]
@@ -104,8 +104,8 @@ const mockData = {
     wishlist: [
         {
             id: 'W001',
-            productName: 'Apple iPhone 15 Pro, 256GB, Blue Titanium',
-            price: '1,24,900',
+            productName: 'Samsung Galaxy S24 Ultra, 512GB, Titanium Black',
+            price: '1,34,999',
             image: 'assets/img/iphone15_blue.png',
             addedDate: '28 Jun 2026, 11:30 AM',
             orderDate: '28 Jun 2026',
@@ -114,8 +114,8 @@ const mockData = {
         },
         {
             id: 'W002',
-            productName: 'Sony WH-1000XM5 Black',
-            price: '26,990',
+            productName: 'Bose QuietComfort Ultra',
+            price: '29,990',
             image: 'assets/img/sony_headphones.png',
             addedDate: '25 Jun 2026, 09:15 AM',
             orderDate: '25 Jun 2026',
@@ -124,8 +124,8 @@ const mockData = {
         },
         {
             id: 'W003',
-            productName: 'Nike Air Max 270 React',
-            price: '12,495',
+            productName: 'Adidas Ultraboost 22',
+            price: '14,995',
             image: 'assets/img/nike_shoes.png',
             addedDate: '22 Jun 2026, 04:45 PM',
             orderDate: '22 Jun 2026',
@@ -134,8 +134,8 @@ const mockData = {
         },
         {
             id: 'W004',
-            productName: 'boAt Stone 1200 14W',
-            price: '3,999',
+            productName: 'JBL Flip 6 Portable Speaker',
+            price: '4,499',
             image: 'assets/img/boat_speaker.png',
             addedDate: '20 Jun 2026, 10:20 AM',
             orderDate: '20 Jun 2026',
@@ -146,35 +146,35 @@ const mockData = {
     cart: [
         {
             id: 'C001',
-            productName: 'Samsung Galaxy M35 5G',
-            specs: ['Spec: Exynos 1380, 6000mAh Battery', '6GB RAM, 128GB Storage'],
+            productName: 'Vivo V30 Pro 5G',
+            specs: ['Spec: Snapdragon 7 Gen 3, 5000mAh Battery', '8GB RAM, 256GB Storage'],
             status: 'In Stock',
             qty: 1,
-            price: '15,990',
-            originalPrice: '17,990',
-            discount: '11% Off',
+            price: '42,990',
+            originalPrice: '46,990',
+            discount: '9% Off',
             image: 'assets/img/electronicimg.png'
         },
         {
             id: 'C002',
-            productName: 'boAt Airdopes 311 Pro',
-            specs: ['Spec: Dual Mics, ENx Tech', 'BT 5.3, IPX4 Water Resistant'],
+            productName: 'Oppo Enco X2',
+            specs: ['Spec: Dual Drivers, LHDC 5.0', 'BT 5.3, IP54 Water Resistant'],
             status: 'In Stock',
             qty: 1,
-            price: '2,500',
-            originalPrice: '2,799',
-            discount: '11% Off',
+            price: '3,499',
+            originalPrice: '3,999',
+            discount: '13% Off',
             image: 'assets/img/sony_headphones.png'
         },
         {
             id: 'C003',
-            productName: 'AGARO Waffle Maker',
-            specs: ['Spec: 750W, Non-Stick', 'Cool Touch Handle'],
+            productName: 'Philips Air Fryer',
+            specs: ['Spec: 1400W, Rapid Air Technology', 'Digital Display'],
             status: 'In Stock',
             qty: 1,
-            price: '2,290',
-            originalPrice: '2,590',
-            discount: '12% Off',
+            price: '6,490',
+            originalPrice: '7,990',
+            discount: '19% Off',
             image: 'assets/img/homescreenimg.png'
         }
     ],
@@ -216,8 +216,8 @@ const mockData = {
     notifications: [
         {
             id: 'N001',
-            title: 'Order SF#2026001254 - boAt Airdopes 311 Pro, Out for Delivery',
-            desc: 'Your boAt Airdopes 311 Pro has reached the local hub, out for delivery to your shipping address.',
+            title: 'Order SF#2026001254 - Realme Buds Air 5 Pro, Out for Delivery',
+            desc: 'Your Realme Buds Air 5 Pro has reached the local hub, out for delivery to your shipping address.',
             date: '28 Jun 2026, 11:30 AM',
             dateISO: '2026-06-28T11:30:00',
             timestamp: 1782631800000,
@@ -246,7 +246,7 @@ const mockData = {
         {
             id: 'N004',
             title: 'Your Order #SF2026001258 was Cancelled',
-            desc: 'As per your request, the Allen Solly Men\'s Shirt order has been cancelled and refund initiated.',
+            desc: 'As per your request, the Peter England Men\'s T-Shirt order has been cancelled and refund initiated.',
             date: '10 Jun 2026, 05:20 PM',
             dateISO: '2026-06-10T17:20:00',
             timestamp: 1781077800000,
@@ -260,7 +260,7 @@ const mockData = {
         {
             id: 'N005',
             title: 'Your Order #SF2026001257 is Out for Delivery',
-            desc: 'Campus Men\'s Sneakers is on the way! Expected delivery today by 8 PM.',
+            desc: 'Puma Men\'s Running Shoes is on the way! Expected delivery today by 8 PM.',
             date: '11 Jun 2026, 04:40 PM',
             dateISO: '2026-06-11T16:40:00',
             timestamp: 1781158800000,
