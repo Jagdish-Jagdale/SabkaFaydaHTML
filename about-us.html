@@ -41,7 +41,7 @@
     <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
 
     <!-- Main Content -->
-    <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
+    <div class="main-content" style="padding-top: 135px; min-height: 100vh;">
         <div class="container py-4">
 
             <!-- Brand Banner Section -->
@@ -419,6 +419,12 @@
                     document.getElementById('header-placeholder').innerHTML = data;
                     if (typeof initHeader === 'function') {
                         initHeader();
+                    }
+                    if (typeof updateLoginButton === 'function') {
+                        updateLoginButton();
+                    }
+                    if (typeof updateCartCount === 'function') {
+                        updateCartCount();
                     }
                 })
                 .catch(error => console.error('Error loading header:', error));

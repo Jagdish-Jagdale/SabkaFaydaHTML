@@ -299,6 +299,11 @@
                     initHeader();
                 }
                 
+                // Update login button after header loads
+                if (targetId === 'header-placeholder' && typeof updateLoginButton === 'function') {
+                    updateLoginButton();
+                }
+                
                 // Update cart count after header loads
                 if (targetId === 'header-placeholder' && typeof updateCartCount === 'function') {
                     updateCartCount();
