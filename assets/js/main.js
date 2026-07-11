@@ -687,7 +687,10 @@ window.showGlobalWishlistToast = function(action, customMessage = null) {
         let keywords = seoData.default.keywords;
 
         // Check if page-specific SEO data exists
-        const currentPage = pathSegments[pathSegments.length - 1] || pathSegments[0];
+        let currentPage = pathSegments[pathSegments.length - 1] || 'index.html';
+        if (!currentPage.includes('.')) {
+            currentPage = currentPage + '.html';
+        }
         
         if (seoData.pages[currentPage]) {
             title = seoData.pages[currentPage].title;

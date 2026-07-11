@@ -54,6 +54,66 @@ const seoData = {
             description: "Find answers to frequently asked questions about SabkaFayda. Get help with orders, payments, returns, shipping, and more from our comprehensive FAQ section.",
             keywords: "SabkaFayda FAQ, frequently asked questions, help center, customer support, order help, payment help, return policy, shipping information"
         },
+        'category.html': {
+            title: "Shop by Category | Sabka Fayda",
+            description: "Explore a wide range of categories on Sabka Fayda. Find best deals on electronics, fashion, home essentials, and more.",
+            keywords: "categories, electronics, fashion, home essentials, online shopping, Sabka Fayda"
+        },
+        'login.html': {
+            title: "Login & Signup | Sabka Fayda",
+            description: "Log in or sign up for a Sabka Fayda account. Access your orders, wishlist, and personalized shopping experience.",
+            keywords: "login, signup, sign in, register, user account, Sabka Fayda"
+        },
+        'mycart.html': {
+            title: "My Cart | Sabka Fayda",
+            description: "Review and manage items in your shopping cart. Secure checkout and quick delivery options available on Sabka Fayda.",
+            keywords: "shopping cart, cart, checkout, buy online, Sabka Fayda"
+        },
+        'myaddress.html': {
+            title: "My Addresses | Sabka Fayda",
+            description: "Manage your shipping and billing addresses on Sabka Fayda for a faster checkout experience.",
+            keywords: "manage address, shipping address, billing address, profile settings, Sabka Fayda"
+        },
+        'mycoupons.html': {
+            title: "My Coupons | Sabka Fayda",
+            description: "View and apply your available discount coupons to save big on your purchases at Sabka Fayda.",
+            keywords: "coupons, discount coupons, promo codes, savings, offers, Sabka Fayda"
+        },
+        'myinformation.html': {
+            title: "My Profile Information | Sabka Fayda",
+            description: "View and update your personal profile details, account settings, and security preferences on Sabka Fayda.",
+            keywords: "profile info, personal details, account settings, user profile, Sabka Fayda"
+        },
+        'mynotification.html': {
+            title: "Notifications | Sabka Fayda",
+            description: "Stay updated with the latest alerts, offers, order updates, and personalized announcements from Sabka Fayda.",
+            keywords: "notifications, alerts, updates, offer news, Sabka Fayda"
+        },
+        'myorders.html': {
+            title: "My Orders | Sabka Fayda",
+            description: "Track your active orders, view purchase history, and manage returns easily on Sabka Fayda.",
+            keywords: "order history, track order, purchase history, order status, Sabka Fayda"
+        },
+        'mywallet.html': {
+            title: "My Wallet | Sabka Fayda",
+            description: "Manage your Sabka Fayda wallet balance, transactions, refunds, and cashback rewards.",
+            keywords: "wallet, digital wallet, transaction history, cashback, refunds, Sabka Fayda"
+        },
+        'order-breakdown.html': {
+            title: "Order Breakdown | Sabka Fayda",
+            description: "Review your detailed order breakdown, prices, taxes, discounts, and delivery charges before placing your order.",
+            keywords: "order summary, billing breakdown, price details, checkout overview, Sabka Fayda"
+        },
+        'order-details.html': {
+            title: "Order Details | Sabka Fayda",
+            description: "Check the detailed tracking, status, items, and billing details for your specific Sabka Fayda order.",
+            keywords: "order details, tracking information, invoice, billing history, Sabka Fayda"
+        },
+        'sabkafaydastories.html': {
+            title: "Sabka Fayda Stories | Sabka Fayda",
+            description: "Explore genuine product stories, unboxing videos, customer reviews, and influencer reels on Sabka Fayda.",
+            keywords: "Sabka Fayda stories, customer feedback, unboxing videos, influencer reels, genuine reviews"
+        },
         'product-details.html': {
             // Dynamic SEO for product details - will be updated based on product
             title: "Product Details | Sabka Fayda",
