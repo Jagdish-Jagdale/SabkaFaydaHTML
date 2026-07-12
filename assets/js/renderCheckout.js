@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <!-- Product Details Column -->
                         <div class="col-8 col-md-9">
-                            <h5 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.05rem; line-height: 1.4;">
+                            <h5 class="checkout-product-title fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.05rem; line-height: 1.4;">
                                 ${product.title}
                             </h5>
                             <!-- Size label -->
@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                             <!-- Status & Rating -->
                             <div class="d-flex align-items-center gap-3 mb-2 flex-wrap">
-                                <span class="badge bg-danger px-2.5 py-1.5 fw-semibold" style="font-size: 0.75rem; border-radius: 4px;">${product.status}</span>
                                 <div class="d-flex align-items-center">
                                     <div class="text-warning me-2" style="font-size: 0.85rem;">
                                         ${Array(Math.floor(product.rating)).fill('<i class="fas fa-star text-warning"></i>').join('')}
@@ -55,13 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             <!-- Pricing -->
                             <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
                                 <span class="text-success fw-bold" style="font-size: 1.1rem; font-family: 'Montserrat', sans-serif;">${product.discount}</span>
-                                <span class="text-muted text-decoration-line-through" style="font-size: 0.95rem;">₹ ${product.originalPrice}</span>
-                                <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹ ${product.price}</span>
+                                <span class="text-muted text-decoration-line-through" style="font-size: 0.95rem;">₹${product.originalPrice}</span>
+                                <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹${product.price}</span>
                             </div>
                             <!-- UPI Offer Banner -->
-                            <div class="d-inline-flex align-items-center gap-2 rounded-2 ps-1 pe-3 py-2 mb-2" style="background-color: #3aa0f3; color: #ffffff; font-size: 0.85rem; font-weight: 600;">
-                                <img src="assets/img/omg.png" alt="OMG" style="height: 26px; width: auto; object-fit: contain;">
-                                Buy this product for only <strong style="font-size: 0.95rem; margin: 0 1px;">₹${product.upiPrice}</strong> via UPI
+                            <div class="upi-offer-banner d-inline-flex align-items-center gap-2 rounded-2 ps-1 pe-3 py-2 mb-2" style="background-color: #3aa0f3; color: #ffffff; font-weight: 600;">
+                                <img src="assets/img/omg.png" alt="OMG" class="upi-omg-img">
+                                <span>Buy this product for only <strong class="upi-price-strong">₹${product.upiPrice}</strong> via UPI</span>
                             </div>
 
                             <!-- Delivery timeline -->
@@ -132,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="border-top pt-3 d-none d-lg-block">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.75rem;">₹ ${ps.productPrice - ps.discount}</span>
+                            <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.75rem;">₹ ${ps.productPrice}</span>
                             <span class="fw-bold text-dark" style="font-size: 1.25rem;">₹ ${ps.subTotal}</span>
                         </div>
                         <button class="btn btn-primary px-5 py-2.5 fw-bold" style="background-color: #0087F6; border: none; font-size: 0.95rem; border-radius: 6px;">
@@ -149,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const similarContainer = document.getElementById('similar-products-container');
         if (similarContainer && checkoutData.similarProducts) {
             similarContainer.innerHTML = checkoutData.similarProducts.map(product => `
-                <div class="col">
+                <div class="flex-shrink-0" style="width: 180px;">
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
@@ -206,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const peoplesContainer = document.getElementById('peoples-products-container');
         if (peoplesContainer && checkoutData.similarProducts) {
             peoplesContainer.innerHTML = checkoutData.similarProducts.map(product => `
-                <div class="col">
+                <div class="flex-shrink-0" style="width: 180px;">
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
@@ -265,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const ps = checkoutData.priceSummary;
             mobileFooterContainer.innerHTML = `
                 <div>
-                    <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.72rem;">₹ ${ps.productPrice - ps.discount}</span>
+                    <span class="text-muted text-decoration-line-through d-block" style="font-size: 0.72rem;">₹ ${ps.productPrice}</span>
                     <span class="fw-bold text-dark" style="font-size: 1.15rem;">₹ ${ps.subTotal}</span>
                 </div>
                 <button class="btn btn-primary px-4 py-2 fw-bold" style="background-color: #0087F6; border: none; font-size: 0.9rem; border-radius: 6px;">
@@ -282,4 +281,37 @@ document.addEventListener("DOMContentLoaded", function () {
     renderSimilarProducts();
     renderPeoplesProducts();
     renderMobileFooter();
+    
+    // Setup carousel scroll helpers
+    function setupCarouselScroll(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        const parent = container.parentElement;
+        const leftBtn = parent.querySelector('.carousel-left');
+        const rightBtn = parent.querySelector('.carousel-right');
+        
+        if (!leftBtn || !rightBtn) return;
+        
+        const updateButtons = () => {
+            leftBtn.style.setProperty('display', container.scrollLeft > 5 ? 'block' : 'none', 'important');
+            rightBtn.style.setProperty('display', container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none', 'important');
+        };
+        
+        leftBtn.onclick = (e) => {
+            e.preventDefault();
+            container.scrollBy({ left: -220, behavior: 'smooth' });
+        };
+        
+        rightBtn.onclick = (e) => {
+            e.preventDefault();
+            container.scrollBy({ left: 220, behavior: 'smooth' });
+        };
+        
+        container.addEventListener('scroll', updateButtons);
+        setTimeout(updateButtons, 200);
+    }
+    
+    setupCarouselScroll('similar-products-container');
+    setupCarouselScroll('peoples-products-container');
 });

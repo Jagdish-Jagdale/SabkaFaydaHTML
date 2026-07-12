@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const p = orderDetailsData.product;
             productContainer.innerHTML = `
                 <h5 class="details-card-title"><i class="fa-solid fa-mobile-screen-button"></i> Product Details</h5>
-                <div class="d-flex gap-3 mb-3">
+                <div class="d-flex gap-3 mb-3 cursor-pointer" style="cursor: pointer;" onclick="window.location.href='product-details.html?id=${p.id || 1}'">
                     <div class="flex-shrink-0" style="width: 75px; height: 75px; border: 1px solid #eef2f6; border-radius: 8px; overflow: hidden; padding: 4px;">
                         <img src="${p.image}" alt="${p.name}" class="w-100 h-100 object-fit-contain">
                     </div>
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-primary flex-grow-1 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.78rem;">Buy Again</button>
+                    <button class="btn btn-primary flex-grow-1 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.78rem;" onclick="window.location.href='checkout.html'">Buy Again</button>
                     <button class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" style="border-radius: 8px; font-size: 0.78rem;">
                         <i class="fa-regular fa-star"></i> Rate Product
                     </button>

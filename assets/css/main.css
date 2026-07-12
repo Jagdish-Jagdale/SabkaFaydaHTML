@@ -2562,6 +2562,24 @@ select.profile-form-control {
     margin: 0;
 }
 
+/* UPI Offer Banner */
+.upi-offer-banner {
+    font-size: 0.85rem;
+}
+.upi-omg-img {
+    height: 26px;
+    width: auto;
+    object-fit: contain;
+}
+.upi-price-strong {
+    font-size: 0.95rem;
+    margin: 0 1px;
+}
+
+.checkout-product-title {
+    /* Base styles */
+}
+
 /* Timeline */
 .timeline-track-wrap {
     position: relative;
@@ -2847,6 +2865,32 @@ select.profile-form-control {
     .banner-stat-info h6 {
         font-size: 0.78rem !important;
         line-height: 1.2 !important;
+    }
+
+    .upi-offer-banner {
+        font-size: 0.72rem !important;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+        padding-left: 4px !important;
+        padding-right: 8px !important;
+        gap: 6px !important;
+        border-radius: 6px !important;
+        max-width: 100%;
+        white-space: nowrap !important;
+    }
+    .upi-omg-img {
+        height: 18px !important;
+    }
+    .upi-price-strong {
+        font-size: 0.82rem !important;
+    }
+
+    .checkout-product-title {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        font-size: 0.9rem !important;
     }
 }
 
@@ -4056,6 +4100,42 @@ a {
         font-size: 0.8rem;
         width: 16px;
         text-align: center;
+    }
+}
+
+/* ================================================
+   Checkout Page Carousel Responsive Card Sizing
+   ================================================ */
+#similar-products-container > .flex-shrink-0,
+#peoples-products-container > .flex-shrink-0 {
+    width: 180px; /* default fallback */
+}
+
+@media (min-width: 1200px) {
+    #similar-products-container > .flex-shrink-0,
+    #peoples-products-container > .flex-shrink-0 {
+        width: calc((100% - 64px) / 5) !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #similar-products-container > .flex-shrink-0,
+    #peoples-products-container > .flex-shrink-0 {
+        width: calc((100% - 48px) / 4) !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    #similar-products-container > .flex-shrink-0,
+    #peoples-products-container > .flex-shrink-0 {
+        width: calc((100% - 32px) / 3) !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #similar-products-container > .flex-shrink-0,
+    #peoples-products-container > .flex-shrink-0 {
+        width: calc((100% - 16px) / 2) !important;
     }
 }
 

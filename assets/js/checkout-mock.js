@@ -127,6 +127,45 @@ const checkoutData = {
             price: 500,
             offer: "70 % Off on all Jewellry",
             sponsored: true
+        },
+        {
+            id: 6,
+            image: "assets/img/product1.jpg",
+            title: "Samsung Galaxy M35 5G (Moonlight Blue, 128GB)",
+            rating: 4.3,
+            reviews: 512,
+            refer: 20,
+            earn: 90,
+            originalPrice: 20000,
+            price: 15999,
+            offer: "Flat 10% Off on Cards",
+            sponsored: false
+        },
+        {
+            id: 7,
+            image: "assets/img/orderstatus.png",
+            title: "Realme Buds Air 5 Pro (Wireless Earbuds, White)",
+            rating: 4.6,
+            reviews: 340,
+            refer: 12,
+            earn: 45,
+            originalPrice: 4999,
+            price: 2499,
+            offer: "Instant ₹500 Discount",
+            sponsored: true
+        },
+        {
+            id: 8,
+            image: "assets/img/product1.jpg",
+            title: "OnePlus Nord CE 4 Lite 5G (Super Silver, 128GB)",
+            rating: 4.2,
+            reviews: 180,
+            refer: 15,
+            earn: 70,
+            originalPrice: 19999,
+            price: 16999,
+            offer: "No Cost EMI Available",
+            sponsored: false
         }
     ]
 };
