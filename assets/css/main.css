@@ -1519,8 +1519,8 @@ select.profile-form-control {
 }
 
 .contact-card {
-    background-color: #f8fafc;
-    border: 1px solid #eef2f7;
+    background-color: #f1f3f5;
+    border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 24px;
     height: 100%;
@@ -3667,6 +3667,11 @@ a {
         padding: 1.25rem 1rem !important;
     }
 
+    .ready-banner-mobile div.position-relative {
+        padding-right: 95px !important;
+        text-align: left !important;
+    }
+
     .banner-title-mobile {
         font-size: 1.35rem !important;
     }
@@ -4147,39 +4152,39 @@ a {
 /* Global mobile font scaling */
 @media (max-width: 767px) {
     .main-content {
-        font-size: 0.82rem !important;
+        font-size: 0.78rem !important;
     }
 
     .main-content h1,
     .main-content .h1 {
-        font-size: 1.6rem !important;
+        font-size: 1.4rem !important;
     }
 
     .main-content h2,
     .main-content .h2 {
-        font-size: 1.3rem !important;
+        font-size: 1.15rem !important;
     }
 
     .main-content h3,
     .main-content .h3 {
-        font-size: 1.1rem !important;
+        font-size: 0.95rem !important;
     }
 
     .main-content h4,
     .main-content .h4 {
-        font-size: 0.95rem !important;
+        font-size: 0.85rem !important;
     }
 
     .main-content h5,
     .main-content .h5 {
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
     }
 
     .main-content p,
     .main-content span,
     .main-content li,
     .main-content a {
-        font-size: 0.78rem !important;
+        font-size: 0.74rem !important;
     }
 
     /* Tighter gap inside testimonials */

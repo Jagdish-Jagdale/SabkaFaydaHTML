@@ -37,10 +37,13 @@
     style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; overflow-x: hidden;">
 
     <!-- Toast Container -->
-    <div id="toastContainer" class="position-fixed top-0 end-0 p-3 d-flex flex-column gap-2" style="z-index: 9999; margin-top: 80px;"></div>
+    <div id="toastContainer" class="position-fixed top-0 end-0 p-3 d-flex flex-column gap-2"
+        style="z-index: 9999; margin-top: 80px;"></div>
 
     <!-- Header Placeholder -->
-    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+    <div id="header-placeholder">
+        <div class="skeleton-box skeleton-header"></div>
+    </div>
 
     <!-- Main Content -->
     <div class="container position-relative d-flex flex-column justify-content-center main-content-container"
@@ -92,8 +95,8 @@
             <div class="col-lg-5 d-flex flex-column align-items-center">
 
                 <div class="w-100 mx-auto d-flex justify-content-center" style="max-width: 420px;">
-                    <img src="assets/img/sflogo.png" alt="Sabka Fayda User Authentication Login Logo"
-                        height="72" class="top-login-logo">
+                    <img src="assets/img/sflogo.png" alt="Sabka Fayda User Authentication Login Logo" height="72"
+                        class="top-login-logo">
                 </div>
 
                 <div class="rounded-3 p-5 mx-auto w-100 text-center mt-5 login-card"
@@ -102,9 +105,10 @@
                         style="font-weight: 500; font-size: 2rem; font-family: 'Rubik', sans-serif;">Login with
                         Mobile</h3>
                     <p class="mb-2 text-secondary login-subtext text-lg-nowrap"
-                        style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">OTP sent on your WhatsApp </p>
+                        style="font-size: 0.95rem; font-family: 'Montserrat', sans-serif;">OTP sent on your WhatsApp
+                    </p>
 
-                    <img src="assets/img/WhatsApp_icon.png" alt="WhatsApp Icon" height="70" class="mb-5 whatsapp-icon">
+                    <img src="assets/img/WhatsApp_icon.png" alt="WhatsApp Icon" height="1" class="mb-5 whatsapp-icon">
 
                     <div id="mobileFormSection" class="mobile-form-section">
                         <div class="text-start mb-5 position-relative">
@@ -139,7 +143,8 @@
                                     ">
                             </div>
                             <div id="mobileError" class="position-absolute mt-1 d-none"
-                                style="font-size: 0.95rem; color: #FB0000; left: 0; margin-left: 62px;">Please enter a valid mobile number</div>
+                                style="font-size: 0.95rem; color: #FB0000; left: 0; margin-left: 62px;">Please enter a
+                                valid mobile number</div>
                         </div>
 
                         <button class="text-white fw-semibold w-100 border-0 mt-2 py-3 rounded-3 login-btn"
@@ -188,11 +193,11 @@
                         <button class="text-white fw-semibold w-100 border-0 mt-2 py-3 rounded-3 login-btn"
                             style="background-color: #0b1120; font-size: 1.1rem; transition: background-color 0.3s;"
                             onmouseover="this.style.backgroundColor='#000000'"
-                            onmouseout="this.style.backgroundColor='#0b1120'"
-                            onclick="handleVerifyOtp()">Verify & Login</button>
+                            onmouseout="this.style.backgroundColor='#0b1120'" onclick="handleVerifyOtp()">Verify &
+                            Login</button>
 
                         <!-- OTP Error Alert -->
-                        
+
 
                         <div class="mt-4 text-secondary" style="font-size: 0.95rem;" id="resendContainer">
                             Resend OTP in <span id="resendTimer">00:30</span>
@@ -206,7 +211,9 @@
     </div>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+    <div id="footer-placeholder">
+        <div class="skeleton-box skeleton-footer"></div>
+    </div>
 
     <!-- Include Floating WhatsApp -->
     <div id="whatsapp-float-placeholder"></div>
@@ -227,16 +234,16 @@
                 window.location.replace('index.html');
                 return;
             }
-            
+
             // Verify OTP using authcontext.js
 
-            window.showToast = function(message, type) {
+            window.showToast = function (message, type) {
                 const container = document.getElementById('toastContainer');
                 if (!container) return;
-                
+
                 // Remove existing toasts so only one appears at a time
                 container.innerHTML = '';
-                
+
                 const toastId = 'toast-' + Date.now();
                 let bgColor, iconHtml;
                 if (type === 'success') {
@@ -257,16 +264,16 @@
                         <div class="fw-bold fs-5 ms-3">${message}</div>
                     </div>
                 `;
-                
+
                 container.insertAdjacentHTML('beforeend', toastHtml);
                 const toastEl = document.getElementById(toastId);
-                
+
                 // Trigger animation
-                setTimeout(() => { 
-                    toastEl.style.opacity = '1'; 
+                setTimeout(() => {
+                    toastEl.style.opacity = '1';
                     toastEl.style.transform = 'translateY(0)';
                 }, 10);
-                
+
                 // Remove after 3 seconds
                 setTimeout(() => {
                     toastEl.style.opacity = '0';
@@ -283,7 +290,7 @@
                     void i.offsetWidth; // reflow to restart animation
                     i.classList.add('otp-shake');
                     i.style.borderColor = '#dc2626';
-                    i.style.background  = '#fff5f5';
+                    i.style.background = '#fff5f5';
                 });
                 setTimeout(() => {
                     inputs.forEach(i => i.classList.remove('otp-shake'));
@@ -296,14 +303,14 @@
                 errEl.classList.add('d-none');
                 inputs.forEach(i => {
                     i.style.borderColor = '#e0e0e0';
-                    i.style.background  = '#fff';
+                    i.style.background = '#fff';
                 });
             }
 
             // Clear error when user starts typing again
             document.querySelectorAll('.otp-input-box').forEach(input => {
                 input.addEventListener('keydown', clearOtpError);
-                
+
                 // Trigger verify and login when enter key is pressed on any OTP box
                 input.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter') {
@@ -335,21 +342,21 @@
             function startResendTimer() {
                 let timeLeft = 30;
                 const resendContainer = document.getElementById('resendContainer');
-                
+
                 // Reconstruct the HTML because it gets replaced with a link when timer ends
                 resendContainer.innerHTML = 'Resend OTP in <span id="resendTimer" class="fw-bold text-dark">00:30</span>';
                 const timerEl = document.getElementById('resendTimer');
-                
+
                 if (resendInterval) clearInterval(resendInterval);
-                
+
                 resendContainer.classList.remove('d-none');
-                
+
                 resendInterval = setInterval(() => {
                     timeLeft--;
                     const minutes = Math.floor(timeLeft / 60);
                     const seconds = timeLeft % 60;
                     timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                    
+
                     if (timeLeft <= 0) {
                         clearInterval(resendInterval);
                         resendContainer.innerHTML = '<a href="javascript:void(0)" onclick="handleSendOtp(); return false;" class="text-primary fw-bold">Resend OTP</a>';
@@ -361,7 +368,7 @@
                 const mobile = document.getElementById('mobileInput').value.trim();
                 const btn = document.querySelector('#mobileFormSection .login-btn');
                 const otpBtn = document.querySelector('#otpFormSection .login-btn');
-                
+
                 if (!/^[6-9]\d{9}$/.test(mobile)) {
                     document.getElementById('mobileError').classList.remove('d-none');
                     return;
@@ -379,7 +386,7 @@
                         document.getElementById('mobileFormSection').classList.add('d-none');
                         document.getElementById('otpFormSection').classList.remove('d-none');
                         document.getElementById('displayMobileNo').textContent = mobile;
-                        
+
                         // Reset button state for new OTP
                         clearOtpError();
                         if (otpBtn) {
@@ -387,20 +394,20 @@
                             otpBtn.innerHTML = 'Verify & Login';
                             otpBtn.style.backgroundColor = '#0b1120';
                         }
-                        
+
                         // Clear OTP inputs
                         document.querySelectorAll('.otp-input-box').forEach(input => {
                             input.value = '';
                             input.style.borderColor = '#e0e0e0';
                             input.style.background = '#fff';
                         });
-                        
+
                         // Focus first OTP input
                         const firstOtpInput = document.querySelector('.otp-input-box');
                         if (firstOtpInput) {
                             firstOtpInput.focus();
                         }
-                        
+
                         startResendTimer();
                     }
                     // Re-enable button
@@ -412,11 +419,11 @@
             };
 
             window.handleVerifyOtp = function () {
-                const mobile  = document.getElementById('mobileInput').value.trim();
-                const inputs  = document.querySelectorAll('.otp-input-box');
-                const otp     = Array.from(inputs).map(i => i.value.trim()).join('');
-                const errEl   = document.getElementById('otpError');
-                const btn     = document.querySelector('#otpFormSection .login-btn');
+                const mobile = document.getElementById('mobileInput').value.trim();
+                const inputs = document.querySelectorAll('.otp-input-box');
+                const otp = Array.from(inputs).map(i => i.value.trim()).join('');
+                const errEl = document.getElementById('otpError');
+                const btn = document.querySelector('#otpFormSection .login-btn');
 
                 if (otp.length < 6) {
                     errEl.textContent = 'Please enter all 6 digits of your OTP before continuing.';
