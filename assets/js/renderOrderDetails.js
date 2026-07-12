@@ -18,28 +18,28 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="d-flex align-items-center flex-wrap gap-2 banner-stats-container">
                         <div class="banner-stat-card">
-                            <div class="banner-stat-icon text-warning"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                            <div class="banner-stat-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
                             <div class="banner-stat-info">
                                 <p>Order Value</p>
                                 <h6>&#8377;${oi.orderValue.toLocaleString()}</h6>
                             </div>
                         </div>
                         <div class="banner-stat-card">
-                            <div class="banner-stat-icon text-info"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="banner-stat-icon"><i class="fa-regular fa-credit-card"></i></div>
                             <div class="banner-stat-info">
                                 <p>Payment Type</p>
                                 <h6>${oi.paymentType}</h6>
                             </div>
                         </div>
                         <div class="banner-stat-card">
-                            <div class="banner-stat-icon text-success"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="banner-stat-icon"><i class="fa-regular fa-circle-check"></i></div>
                             <div class="banner-stat-info">
                                 <p>Order Status</p>
                                 <h6>${oi.orderStatus}</h6>
                             </div>
                         </div>
                         <div class="banner-stat-card">
-                            <div class="banner-stat-icon text-warning"><i class="fa-solid fa-star"></i></div>
+                            <div class="banner-stat-icon"><i class="fa-regular fa-star"></i></div>
                             <div class="banner-stat-info">
                                 <p>Reward Points</p>
                                 <h6>${oi.rewardPoints}</h6>
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="d-flex align-items-center gap-2">
                         <i class="fa-solid fa-circle-check text-success fs-5"></i>
                         <span class="text-success-emphasis fw-medium small">Your order has been delivered successfully</span>
-                        <i class="fa-solid fa-download text-success ms-auto cursor-pointer" style="cursor: pointer;"></i>
+                        <i class="fa-solid fa-download text-success ms-auto cursor-pointer d-none d-md-block" style="cursor: pointer;" onclick="showToast('Downloading invoice...');"></i>
                     </div>
                     <span class="text-success fw-bold small ms-4">Delivered on ${orderDetailsData.timeline[orderDetailsData.timeline.length - 1].time}</span>
                 </div>
