@@ -2299,6 +2299,14 @@ select.profile-form-control {
         padding-right: 15px !important;
     }
 
+    /* Allow stat card amount digits to wrap on mobile instead of being truncated */
+    .orders-stat-card h2 {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        font-size: 0.95rem !important;
+    }
+
     #sidebar-placeholder {
         display: contents !important;
     }
@@ -3751,3 +3759,132 @@ a {
         font-size: 32px !important;
     }
 }
+
+/* Mobile Wishlist Card Overrides */
+@media (max-width: 767.98px) {
+    .wishlist-item {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-areas:
+            "product product"
+            "info status"
+            "actions actions" !important;
+        gap: 8px !important;
+        padding: 12px !important;
+        position: relative !important;
+        border-radius: 14px !important;
+    }
+
+    .wishlist-item .order-product {
+        grid-area: product;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 12px !important;
+        align-items: center !important;
+        border: none !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+    .wishlist-item .order-product-img {
+        width: 65px !important;
+        height: 65px !important;
+        flex-shrink: 0 !important;
+        border: 1px solid #f1f5f9 !important;
+        border-radius: 6px !important;
+        padding: 2px !important;
+    }
+
+    .wishlist-item .order-product-img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+    }
+
+    .wishlist-item .order-info-column {
+        grid-area: info;
+        border: none !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .wishlist-item .order-status-panel {
+        grid-area: status;
+        border: none !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        text-align: right !important;
+    }
+
+    .wishlist-item .order-status-panel .status-pill {
+        display: none !important;
+    }
+
+    .wishlist-item .order-actions {
+        grid-area: actions;
+        border: none !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0 !important;
+    }
+
+    .wishlist-item .order-actions .btn-add-to-cart {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .wishlist-item .order-actions .btn-view-product,
+    .wishlist-item .order-actions .btn-remove-item {
+        display: none !important;
+    }
+
+    /* Spacing and smaller font sizes for wishlist card contents */
+    .wishlist-item .product-title {
+        font-size: 0.8rem !important;
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
+        line-height: 1.3 !important;
+    }
+
+    .wishlist-item .order-product b {
+        font-size: 0.92rem !important;
+    }
+
+    .wishlist-item .order-meta span {
+        font-size: 0.6rem !important;
+    }
+
+    .wishlist-item .order-meta strong {
+        font-size: 0.7rem !important;
+    }
+
+    .wishlist-item .order-meta i {
+        font-size: 0.8rem !important;
+    }
+
+    .wishlist-item .order-status-panel span {
+        font-size: 0.6rem !important;
+    }
+
+    .wishlist-item .order-status-panel strong {
+        font-size: 0.7rem !important;
+    }
+
+    /* Smaller mobile top-right delete button */
+    .wishlist-item .wishlist-delete-btn {
+        margin: 4px !important;
+        padding: 4px !important;
+    }
+
+    .wishlist-item .wishlist-delete-btn i {
+        font-size: 0.9rem !important;
+    }
+}
