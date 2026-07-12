@@ -159,13 +159,11 @@ function renderHomePage(data) {
     function heroSection() {
         const slides = data.heroSlides.map((slide, index) => `
             <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                <div class="d-flex align-items-center justify-content-center hero-slide-bg position-relative"
-                    style="background: url('${slide.image}') no-repeat center center; background-size: cover; color: white;">
-                    <div class="position-absolute bottom-0 start-0 mb-4 ms-4 ms-md-5 z-3">
-                        <a href="${slide.ctaLink}" class="btn btn-light fw-bold text-dark shadow hero-btn px-4 py-2 px-md-5 py-md-3 text-decoration-none d-none d-md-inline-block"
-                            style="border-radius: 8px;">${slide.ctaText} <i class="fas fa-arrow-right ms-2"></i></a>
+                <a href="${slide.ctaLink}" class="d-block text-decoration-none">
+                    <div class="d-flex align-items-center justify-content-center hero-slide-bg position-relative"
+                        style="background: url('${slide.image}') no-repeat center center; background-size: cover; color: white;">
                     </div>
-                </div>
+                </a>
             </div>
         `).join('');
 
