@@ -3861,6 +3861,18 @@ a {
     }
 }
 
+/* Electronics Gadgets Bottom Image */
+.electronics-gadgets-img {
+    width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .electronics-gadgets-img {
+        width: 60%;
+        display: inline-block;
+    }
+}
+
 /* View All Arrow Button */
 .view-all-arrow-btn {
     display: inline-flex;
