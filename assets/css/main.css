@@ -1,5 +1,10 @@
 /* header.css */
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* Small Card Icon Hover Effects */
 .card-icon-wishlist i,
 .card-icon-share i {
