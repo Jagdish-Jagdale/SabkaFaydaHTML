@@ -356,6 +356,89 @@
         </div>
     </div>
 
+    <!-- Product Review Modal -->
+    <div class="modal fade" id="productReviewModal" tabindex="-1" aria-labelledby="productReviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="productReviewModalLabel">Write a Product Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <div class="row g-4">
+                        <!-- Left Column: Product Info, Stars, and Photos -->
+                        <div class="col-md-6">
+                            <!-- Product Info Card -->
+                            <div class="p-3 mb-4 rounded-3 d-flex gap-3 align-items-center" style="background: #f8fbff; border: 1px solid #e4edf8;">
+                                <div class="flex-shrink-0" style="width: 70px; height: 70px; border: 1px solid #eef2f6; border-radius: 8px; overflow: hidden; padding: 4px; background: #fff;">
+                                    <img id="reviewProductImage" src="assets/img/electronicimg.png" alt="Product" class="w-100 h-100 object-fit-contain">
+                                </div>
+                                <div style="min-width: 0;">
+                                    <span class="text-muted small d-block mb-1 fw-medium">Product for Review</span>
+                                    <h6 class="fw-bold mb-1" id="reviewProductName" style="font-size: 0.95rem; color: #1a1a2e; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; max-height: 2.6em;">Samsung Galaxy M35 5G</h6>
+                                    <p class="text-secondary mb-0" id="reviewProductSpecs" style="font-size: 0.72rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; max-height: 2.6em;">
+                                        Color: Moonlight Blue | Storage: 128GB | RAM: 8GB | Seller: Sabka Fayda Retail
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Star Rating Selection -->
+                            <div class="mb-4">
+                                <label class="fw-semibold small d-block mb-1 text-dark">Your Rating for this Product</label>
+                                <div class="star-rating d-flex gap-2 fs-3 text-secondary my-2" id="reviewStarRating">
+                                    <i class="fa-regular fa-star cursor-pointer star-item" data-value="1" style="cursor: pointer; transition: color 0.2s, transform 0.2s;"></i>
+                                    <i class="fa-regular fa-star cursor-pointer star-item" data-value="2" style="cursor: pointer; transition: color 0.2s, transform 0.2s;"></i>
+                                    <i class="fa-regular fa-star cursor-pointer star-item" data-value="3" style="cursor: pointer; transition: color 0.2s, transform 0.2s;"></i>
+                                    <i class="fa-regular fa-star cursor-pointer star-item" data-value="4" style="cursor: pointer; transition: color 0.2s, transform 0.2s;"></i>
+                                    <i class="fa-regular fa-star cursor-pointer star-item" data-value="5" style="cursor: pointer; transition: color 0.2s, transform 0.2s;"></i>
+                                </div>
+                                <input type="hidden" id="selectedRating" value="0">
+                                <div class="text-danger small mt-1 d-none" id="ratingErrorMsg">Please select a star rating.</div>
+                            </div>
+
+                            <!-- File Upload Input (Drag & Drop) -->
+                            <div class="mb-0">
+                                <label class="fw-semibold small d-block mb-2 text-dark">Photos & Video</label>
+                                <div class="drag-drop-area rounded-3 p-3 text-center cursor-pointer position-relative" id="dragDropContainer" style="border: 2px dashed #cbd5e1; background-color: #f8fafc; transition: all 0.2s;">
+                                    <i class="fa-solid fa-cloud-arrow-up text-secondary fs-4 mb-2"></i>
+                                    <div class="small text-secondary mb-2" id="dragDropText">Drag-and-drop here a....</div>
+                                    <button type="button" class="btn btn-primary btn-sm fw-semibold" id="selectMediaBtn" style="border-radius: 6px; padding: 5px 14px; background-color: #0087F6; border-color: #0087F6;">Add Media</button>
+                                    <input type="file" id="mediaFileInput" accept="image/*,video/*" multiple class="d-none">
+                                </div>
+                                <!-- Uploaded Preview Grid -->
+                                <div class="d-flex flex-wrap gap-2 mt-3" id="mediaPreviewContainer"></div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Review Text and Summary Title -->
+                        <div class="col-md-6 d-flex flex-column justify-content-between">
+                            <!-- Review Textarea -->
+                            <div class="mb-4 flex-grow-1 d-flex flex-column">
+                                <label class="fw-semibold small d-block mb-2 text-dark">Write Your Review (minimum 50 characters)</label>
+                                <textarea class="form-control form-control-sm p-3 flex-grow-1" id="reviewTextarea" rows="4" placeholder="Share your thoughts on performance, camera quality, battery life, and more." style="border-radius: 8px; font-size: 0.82rem; resize: none; min-height: 120px;"></textarea>
+                                <div class="d-flex justify-content-between align-items-center mt-1">
+                                    <div class="text-danger small d-none m-0" id="reviewTextErrorMsg">Your review must be at least 50 characters.</div>
+                                    <span class="text-muted ms-auto" style="font-size: 0.75rem;" id="reviewCharCounter">0 characters</span>
+                                </div>
+                            </div>
+
+                            <!-- Review Summary Input -->
+                            <div class="mb-0">
+                                <label class="fw-semibold small d-block mb-2 text-dark">Review Summary</label>
+                                <input type="text" class="form-control form-control-sm py-2 px-3" id="reviewSummaryInput" placeholder="Review Title - Good, not great" style="border-radius: 8px; font-size: 0.85rem;">
+                                <div class="text-danger small mt-1 d-none" id="summaryErrorMsg">Please enter a review summary title.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0 justify-content-end gap-2 px-4 mb-2">
+                    <button type="button" class="btn btn-outline-secondary px-4 py-2 fw-semibold" data-bs-dismiss="modal" style="border-radius: 8px; font-size: 0.85rem;">Cancel</button>
+                    <button type="button" class="btn btn-primary px-4 py-2 fw-semibold" id="submitReviewBtn" style="border-radius: 8px; background-color: #0087F6; border-color: #0087F6; font-size: 0.85rem;" onclick="submitProductReview()">Submit Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/authcontext.js"></script>
     <script src="assets/js/main.js?v=6"></script>
@@ -384,6 +467,64 @@
             // Show the confirmation modal
             const confirmationModal = new bootstrap.Modal(document.getElementById('returnConfirmationModal'));
             confirmationModal.show();
+        }
+
+        // Submit Product Review Function
+        function submitProductReview() {
+            const rating = document.getElementById('selectedRating').value;
+            const reviewText = document.getElementById('reviewTextarea').value;
+            const summary = document.getElementById('reviewSummaryInput').value;
+            
+            let isValid = true;
+            
+            if (rating === '0') {
+                document.getElementById('ratingErrorMsg').classList.remove('d-none');
+                isValid = false;
+            } else {
+                document.getElementById('ratingErrorMsg').classList.add('d-none');
+            }
+            
+            if (reviewText.trim().length < 50) {
+                document.getElementById('reviewTextErrorMsg').classList.remove('d-none');
+                isValid = false;
+            } else {
+                document.getElementById('reviewTextErrorMsg').classList.add('d-none');
+            }
+            
+            if (summary.trim() === '') {
+                document.getElementById('summaryErrorMsg').classList.remove('d-none');
+                isValid = false;
+            } else {
+                document.getElementById('summaryErrorMsg').classList.add('d-none');
+            }
+            
+            if (isValid) {
+                // Show success toast
+                if (typeof showToast === 'function') {
+                    showToast('Review submitted successfully! Thank you.');
+                } else {
+                    alert('Review submitted successfully! Thank you.');
+                }
+                
+                // Close modal
+                const modalEl = document.getElementById('productReviewModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) {
+                    modal.hide();
+                }
+                
+                // Clear fields
+                document.getElementById('selectedRating').value = '0';
+                const stars = document.querySelectorAll('#reviewStarRating .star-item');
+                stars.forEach(s => {
+                    s.classList.remove('fa-solid', 'text-warning');
+                    s.classList.add('fa-regular');
+                });
+                document.getElementById('reviewTextarea').value = '';
+                document.getElementById('reviewCharCounter').textContent = '0 characters';
+                document.getElementById('reviewSummaryInput').value = '';
+                document.getElementById('mediaPreviewContainer').innerHTML = '';
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -415,6 +556,163 @@
                 .then(data => {
                     document.getElementById('whatsapp-float-placeholder').innerHTML = data;
                 });
+
+            // Star Rating Logic
+            const starContainer = document.getElementById('reviewStarRating');
+            if (starContainer) {
+                const stars = starContainer.querySelectorAll('.star-item');
+                const ratingInput = document.getElementById('selectedRating');
+
+                stars.forEach(star => {
+                    star.addEventListener('click', function() {
+                        const val = parseInt(this.getAttribute('data-value'));
+                        ratingInput.value = val;
+                        document.getElementById('ratingErrorMsg').classList.add('d-none');
+                        
+                        stars.forEach((s, idx) => {
+                            if (idx < val) {
+                                s.classList.remove('fa-regular');
+                                s.classList.add('fa-solid', 'text-warning');
+                            } else {
+                                s.classList.remove('fa-solid', 'text-warning');
+                                s.classList.add('fa-regular');
+                            }
+                        });
+                    });
+
+                    star.addEventListener('mouseover', function() {
+                        const val = parseInt(this.getAttribute('data-value'));
+                        stars.forEach((s, idx) => {
+                            if (idx < val) {
+                                s.classList.remove('fa-regular');
+                                s.classList.add('fa-solid', 'text-warning');
+                            } else {
+                                s.classList.remove('fa-solid', 'text-warning');
+                                s.classList.add('fa-regular');
+                            }
+                        });
+                    });
+                });
+
+                starContainer.addEventListener('mouseleave', function() {
+                    const currentVal = parseInt(ratingInput.value);
+                    stars.forEach((s, idx) => {
+                        if (idx < currentVal) {
+                            s.classList.remove('fa-regular');
+                            s.classList.add('fa-solid', 'text-warning');
+                        } else {
+                            s.classList.remove('fa-solid', 'text-warning');
+                            s.classList.add('fa-regular');
+                        }
+                    });
+                });
+            }
+
+            // Character Counter for Textarea
+            const textarea = document.getElementById('reviewTextarea');
+            const counter = document.getElementById('reviewCharCounter');
+            if (textarea && counter) {
+                textarea.addEventListener('input', function() {
+                    const length = this.value.length;
+                    counter.textContent = length + ' characters';
+                    if (length >= 50) {
+                        document.getElementById('reviewTextErrorMsg').classList.add('d-none');
+                    }
+                });
+            }
+
+            // Media File Upload & Drag-and-Drop
+            const dragDropContainer = document.getElementById('dragDropContainer');
+            const fileInput = document.getElementById('mediaFileInput');
+            const previewContainer = document.getElementById('mediaPreviewContainer');
+            const selectMediaBtn = document.getElementById('selectMediaBtn');
+            let uploadedFiles = [];
+
+            if (dragDropContainer && fileInput && previewContainer) {
+                selectMediaBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    fileInput.click();
+                });
+
+                dragDropContainer.addEventListener('click', () => {
+                    fileInput.click();
+                });
+
+                dragDropContainer.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dragDropContainer.style.borderColor = '#0087F6';
+                    dragDropContainer.style.backgroundColor = '#f1f5f9';
+                });
+
+                dragDropContainer.style.cursor = 'pointer';
+
+                dragDropContainer.addEventListener('dragleave', () => {
+                    dragDropContainer.style.borderColor = '#cbd5e1';
+                    dragDropContainer.style.backgroundColor = '#f8fafc';
+                });
+
+                dragDropContainer.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dragDropContainer.style.borderColor = '#cbd5e1';
+                    dragDropContainer.style.backgroundColor = '#f8fafc';
+                    
+                    if (e.dataTransfer.files.length > 0) {
+                        handleFiles(e.dataTransfer.files);
+                    }
+                });
+
+                fileInput.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        handleFiles(this.files);
+                    }
+                });
+
+                function handleFiles(files) {
+                    Array.from(files).forEach(file => {
+                        uploadedFiles.push(file);
+                        const fileReader = new FileReader();
+                        fileReader.onload = function(e) {
+                            const wrapper = document.createElement('div');
+                            wrapper.className = 'position-relative border rounded overflow-hidden';
+                            wrapper.style.width = '70px';
+                            wrapper.style.height = '70px';
+                            
+                            let previewEl;
+                            if (file.type.startsWith('image/')) {
+                                previewEl = document.createElement('img');
+                                previewEl.src = e.target.result;
+                                previewEl.className = 'w-100 h-100 object-fit-cover';
+                            } else {
+                                previewEl = document.createElement('div');
+                                previewEl.className = 'w-100 h-100 d-flex flex-column align-items-center justify-content-center bg-light text-secondary';
+                                previewEl.innerHTML = '<i class="fa-solid fa-file-video fs-4 text-secondary mb-1"></i><span style="font-size:0.55rem;">Video</span>';
+                            }
+                            
+                            const deleteBtn = document.createElement('span');
+                            deleteBtn.className = 'position-absolute top-0 end-0 bg-danger text-white rounded-circle d-flex align-items-center justify-content-center cursor-pointer';
+                            deleteBtn.style.width = '16px';
+                            deleteBtn.style.height = '16px';
+                            deleteBtn.style.fontSize = '9px';
+                            deleteBtn.style.marginTop = '2px';
+                            deleteBtn.style.marginRight = '2px';
+                            deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                            deleteBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                const index = uploadedFiles.indexOf(file);
+                                if (index > -1) {
+                                    uploadedFiles.splice(index, 1);
+                                }
+                                wrapper.remove();
+                            });
+                            
+                            wrapper.appendChild(previewEl);
+                            wrapper.appendChild(deleteBtn);
+                            previewContainer.appendChild(wrapper);
+                        };
+                        fileReader.readAsDataURL(file);
+                    });
+                }
+            }
         });
     </script>
 </body>

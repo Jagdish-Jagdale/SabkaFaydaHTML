@@ -13,6 +13,39 @@ window.downloadInvoice = function(orderId) {
     document.body.appendChild(iframe);
 };
 
+window.openReviewModal = function() {
+    const p = orderDetailsData.product;
+    if (p) {
+        document.getElementById('reviewProductImage').src = p.image;
+        document.getElementById('reviewProductName').textContent = p.name;
+        document.getElementById('reviewProductSpecs').innerHTML = `
+            Color: ${p.color} | Storage: ${p.storage} | Seller: ${p.seller}
+        `;
+    }
+    
+    // Clear validation states
+    document.getElementById('ratingErrorMsg').classList.add('d-none');
+    document.getElementById('reviewTextErrorMsg').classList.add('d-none');
+    document.getElementById('summaryErrorMsg').classList.add('d-none');
+    
+    // Clear input fields
+    document.getElementById('selectedRating').value = '0';
+    const stars = document.querySelectorAll('#reviewStarRating .star-item');
+    stars.forEach(s => {
+        s.classList.remove('fa-solid', 'text-warning');
+        s.classList.add('fa-regular');
+    });
+    document.getElementById('reviewTextarea').value = '';
+    document.getElementById('reviewCharCounter').textContent = '0 characters';
+    document.getElementById('reviewSummaryInput').value = '';
+    document.getElementById('mediaPreviewContainer').innerHTML = '';
+
+    // Open Modal
+    const modalEl = document.getElementById('productReviewModal');
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+};
+
 /* Render Order Details Page */
 document.addEventListener("DOMContentLoaded", function () {
     // Render Order Info Banner
@@ -159,12 +192,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="flex-shrink-0" style="width: 75px; height: 75px; border: 1px solid #eef2f6; border-radius: 8px; overflow: hidden; padding: 4px;">
                         <img src="${p.image}" alt="${p.name}" class="w-100 h-100 object-fit-contain">
                     </div>
-                    <div>
-                        <h6 class="fw-bold mb-1" style="font-size: 0.85rem; color: #1a1a2e;">${p.name}</h6>
-                        <p class="text-secondary mb-1" style="font-size: 0.72rem; line-height: 1.3;">
-                            Color: ${p.color}<br>
-                            Storage: ${p.storage}<br>
-                            Seller: ${p.seller}
+                    <div style="min-width: 0;">
+                        <h6 class="fw-bold mb-1" style="font-size: 0.85rem; color: #1a1a2e; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; max-height: 2.6em;">${p.name}</h6>
+                        <p class="text-secondary mb-1" style="font-size: 0.72rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 2.6em;">
+                            Color: ${p.color} | Storage: ${p.storage} | Seller: ${p.seller}
                         </p>
                         <div class="d-flex align-items-center gap-2 mt-2">
                             <span class="fw-bold text-dark" style="font-size: 0.85rem;">&#8377;${p.price.toLocaleString()}</span>
@@ -173,8 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-primary flex-grow-1 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.78rem;" onclick="window.location.href='checkout.html'">Buy Again</button>
-                    <button class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" style="border-radius: 8px; font-size: 0.78rem;">
+                    <button class="btn btn-primary flex-grow-1 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.75rem; white-space: nowrap;" onclick="window.location.href='checkout.html'">Buy Again</button>
+                    <button class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" onclick="openReviewModal();" style="border-radius: 8px; font-size: 0.75rem; white-space: nowrap;">
                         <i class="fa-regular fa-star"></i> Rate Product
                     </button>
                 </div>
@@ -194,9 +225,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="text-secondary mb-3"><i class="fa-solid fa-phone me-1 opacity-75"></i> ${da.phone}</p>
                     <p class="text-secondary mb-0">${da.address.replace(/,/g, ',<br>')}</p>
                 </div>
-                <button class="btn btn-outline-primary w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" style="border-radius: 8px; font-size: 0.78rem;">
-                    <i class="fa-solid fa-pen-to-square"></i> Change Address
-                </button>
             `;
         }
     }
