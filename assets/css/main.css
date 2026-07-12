@@ -2292,7 +2292,7 @@ select.profile-form-control {
     }
 
     #sidebar-placeholder {
-        display: none !important;
+        display: contents !important;
     }
 
     /* Attached mobile toggle row */
