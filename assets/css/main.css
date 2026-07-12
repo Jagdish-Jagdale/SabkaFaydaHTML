@@ -3874,10 +3874,13 @@ a {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
     z-index: 9999 !important;
-    transition: all 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     text-decoration: none !important;
+    overflow: hidden !important;
 }
 
 @media (hover: hover) {
@@ -3890,11 +3893,23 @@ a {
 
 .whatsapp-icon {
     font-size: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
 }
 
 @media (max-width: 768px) {
     .whatsapp-float {
         bottom: 20px !important;
         right: 20px !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    .whatsapp-icon {
+        font-size: 32px !important;
     }
 }
