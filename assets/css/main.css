@@ -394,6 +394,12 @@ html, body {
 
 
 /* login.css */
+.login-whatsapp-icon {
+    height: 65px !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+
 @media (max-width: 991px) {
     .main-content-container {
         padding-top: 150px !important;
@@ -411,8 +417,8 @@ html, body {
         padding-bottom: 75px !important;
     }
 
-    .whatsapp-icon {
-        height: 55px !important;
+    .login-whatsapp-icon {
+        height: 50px !important;
     }
 
     .mobile-form-section {
