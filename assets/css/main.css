@@ -3861,6 +3861,30 @@ a {
     }
 }
 
+/* View All Arrow Button */
+.view-all-arrow-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: #0087F6;
+    color: #ffffff;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 135, 246, 0.35);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-all-arrow-btn:hover,
+.view-all-arrow-btn:focus {
+    background-color: #0075d9;
+    color: #ffffff;
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 135, 246, 0.45);
+}
+
 /* Floating WhatsApp Button */
 .whatsapp-float {
     position: fixed !important;
