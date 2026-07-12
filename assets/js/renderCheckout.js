@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (similarContainer && checkoutData.similarProducts) {
             similarContainer.innerHTML = checkoutData.similarProducts.map(product => `
                 <div class="flex-shrink-0" style="width: 180px;">
-                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
+                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px; cursor: pointer;" onclick="if(!event.target.closest('button')) window.location.href='product-details.html?id=${product.id}'">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
                             <button class="btn border-0 position-absolute opacity-0 product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="background-color: #ffffff !important; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.15); top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 5;">
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (peoplesContainer && checkoutData.similarProducts) {
             peoplesContainer.innerHTML = checkoutData.similarProducts.map(product => `
                 <div class="flex-shrink-0" style="width: 180px;">
-                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
+                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px; cursor: pointer;" onclick="if(!event.target.closest('button')) window.location.href='product-details.html?id=${product.id}'">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
                             <button class="btn border-0 position-absolute opacity-0 product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="background-color: #ffffff !important; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.15); top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 5;">
@@ -294,9 +294,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!leftBtn || !rightBtn) return;
         
         const updateButtons = () => {
+            if (window.innerWidth < 992) {
+                leftBtn.style.setProperty('display', 'none', 'important');
+                rightBtn.style.setProperty('display', 'none', 'important');
+                return;
+            }
             leftBtn.style.setProperty('display', container.scrollLeft > 5 ? 'block' : 'none', 'important');
             rightBtn.style.setProperty('display', container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none', 'important');
         };
+        
+        window.addEventListener('resize', updateButtons);
         
         leftBtn.onclick = (e) => {
             e.preventDefault();

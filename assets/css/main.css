@@ -4125,17 +4125,17 @@ a {
     }
 }
 
-@media (min-width: 576px) and (max-width: 991.98px) {
-    #similar-products-container > .flex-shrink-0,
-    #peoples-products-container > .flex-shrink-0 {
-        width: calc((100% - 32px) / 3) !important;
+@media (max-width: 991.98px) {
+    /* Hide scroll arrows on small screens */
+    .carousel-left,
+    .carousel-right {
+        display: none !important;
     }
-}
 
-@media (max-width: 575.98px) {
+    /* Increase card width on small screens to prevent squeezing */
     #similar-products-container > .flex-shrink-0,
     #peoples-products-container > .flex-shrink-0 {
-        width: calc((100% - 16px) / 2) !important;
+        width: 185px !important;
     }
 }
 
