@@ -359,62 +359,6 @@ html, body {
     height: 4px;
 }
 
-.sf-chat-widget {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 1200;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 52px;
-    padding: 8px 10px 8px 16px;
-    color: #fff;
-    background: #128c7e;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 999px;
-    box-shadow: 0 10px 28px rgba(18, 140, 126, 0.32);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-}
-
-.sf-chat-widget:hover,
-.sf-chat-widget:focus {
-    color: #fff;
-    background: #0f7a6e;
-    box-shadow: 0 12px 32px rgba(18, 140, 126, 0.42);
-    transform: translateY(-2px);
-}
-
-.sf-chat-widget__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: #25d366;
-    border-radius: 50%;
-    font-size: 1.35rem;
-}
-
-@media (max-width: 575px) {
-    .sf-chat-widget {
-        right: 14px;
-        bottom: 14px;
-        min-height: 48px;
-        padding: 7px 8px 7px 12px;
-        font-size: 0.8rem;
-    }
-
-    .sf-chat-widget__icon {
-        width: 34px;
-        height: 34px;
-        font-size: 1.25rem;
-    }
-}
 
 /* home.css */
 .icon-cat-link {
@@ -447,21 +391,7 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
-.special-banner-top {
-    height: 90px !important;
-}
 
-.special-banner-bottom {
-    height: 220px !important;
-}
-
-@media (min-width: 768px) {
-
-    .special-banner-top,
-    .special-banner-bottom {
-        height: 247px !important;
-    }
-}
 
 /* login.css */
 @media (max-width: 991px) {
@@ -644,23 +574,7 @@ html, body {
         height: 140px !important;
     }
 
-    .fashion-banner-img {
-        height: 120px !important;
-    }
 
-    .fashion-banner-title {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 3rem !important;
-        letter-spacing: -2px;
-    }
-
-    .fashion-banner-subtitle {
-        font-family: 'Rubik', sans-serif;
-        color: #f0c14b;
-        font-size: 1.8rem !important;
-        margin-top: -10px !important;
-        margin-left: 10px !important;
-    }
 
     /* Grid layout for Featured products */
     .featured-grid {
@@ -881,15 +795,7 @@ body {
     gap: 2px;
 }
 
-.badge-rating {
-    background-color: #faf0ff;
-    color: #b05ad6;
-    border: 1px solid #f3e5f5;
-}
 
-.badge-rating i {
-    color: #ffb400;
-}
 
 .badge-refer {
     background-color: #e6fffa;
@@ -1397,36 +1303,7 @@ input[type=range]::-moz-range-thumb {
     color: #0087F6;
 }
 
-.welcome-banner-art {
-    position: absolute;
-    right: 24px;
-    bottom: 0;
-    height: 90px;
-    opacity: 0.85;
-    object-fit: contain;
-}
 
-/* Profile Tabs */
-.profile-tab {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #888;
-    padding: 14px 18px 12px;
-    cursor: pointer;
-    border-bottom: 2.5px solid transparent;
-    margin-bottom: -2px;
-    transition: color 0.18s, border-color 0.18s;
-    text-decoration: none;
-}
-
-.profile-tab.active {
-    color: #0087F6;
-    border-bottom-color: #0087F6;
-}
-
-.profile-tab:hover:not(.active) {
-    color: #0087F6;
-}
 
 /* Form Controls */
 .profile-form-control {
@@ -1526,23 +1403,7 @@ select.profile-form-control {
 }
 
 /* Mini footer */
-.profile-mini-footer {
-    background: #f5f9ff;
-    border-top: 1px solid #dde9f8;
-}
 
-.phone-icon-circle {
-    width: 38px;
-    height: 38px;
-    background: #0087F6;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 1rem;
-    flex-shrink: 0;
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -1576,30 +1437,7 @@ select.profile-form-control {
     }
 }
 
-.policy-title {
-    font-family: 'Rubik', sans-serif;
-    color: #0b3c75;
-    font-weight: 700;
-    font-size: 1.7rem;
-    letter-spacing: -0.5px;
-}
 
-.policy-subtitle {
-    color: #495057;
-    font-size: 0.85rem;
-    line-height: 1.5;
-}
-
-.section-label {
-    font-family: 'Rubik', sans-serif;
-    font-weight: 700;
-    color: #0b3c75;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
 
 .policy-card {
     background-color: #ffffff;
@@ -2917,28 +2755,7 @@ select.profile-form-control {
 }
 
 /* Pagination indicator dots */
-.dot-pagination {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-}
 
-.dot-pagination .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #dbeafe;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.dot-pagination .dot.active {
-    background-color: #0087F6;
-    transform: scale(1.2);
-    width: 24px;
-    border-radius: 4px;
-}
 
 /* ================================================
    Cart Page Styles (mycart.html)
@@ -3547,20 +3364,7 @@ a {
     }
 }
 
-.floating-wishlist-msg {
-    position: fixed;
-    background: linear-gradient(135deg, #ff4d4d, #ff2a2a);
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    pointer-events: none;
-    animation: wishlistFloatUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    white-space: nowrap;
-    z-index: 9999;
-    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
-}
+
 
 /* --- Migrated from about-us.html --- */
 .brand-banner {
@@ -3581,36 +3385,7 @@ a {
     pointer-events: none;
 }
 
-.why-card {
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 1px solid #eaeaea;
-    border-radius: 16px;
-}
 
-.why-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 135, 246, 0.08);
-    border-color: #0087F6;
-}
-
-.icon-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e6f3ff;
-    color: #0087F6;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.why-card:hover .icon-circle {
-    background-color: #0087F6;
-    color: #ffffff;
-    transform: rotateY(360deg);
-}
 
 .stat-icon {
     font-size: 2rem;
@@ -3640,17 +3415,7 @@ a {
     border-color: #0087F6 !important;
 }
 
-.info-item-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e6f3ff;
-    color: #0087F6;
-    font-size: 1.25rem;
-}
+
 
 .ready-banner {
     background: linear-gradient(135deg, #0b1120 0%, #0056b3 100%);
@@ -3670,19 +3435,7 @@ a {
     pointer-events: none;
 }
 
-.divider-line {
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
-    height: 80px;
-}
 
-@media (max-width: 767px) {
-    .divider-line {
-        width: 80%;
-        height: 1px;
-        margin: 20px auto;
-    }
-}
 
 .stat-col {
     border-right: 1.5px solid rgba(0, 86, 179, 0.2);
