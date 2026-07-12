@@ -9,67 +9,61 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- Main CSS -->
 <link rel="stylesheet" href="assets/css/main.css?v=15">
-<!-- Preload Logo and Header Data -->
+<!-- Preload -->
 <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
 <link rel="preload" href="assets/js/mockCategories.js" as="script">
 
-
-<footer
-    style="background-color: #0d6efd; color: white; padding: 50px 0 20px 0; margin-top: 0; font-size: 0.85rem; font-family: 'Montserrat', sans-serif;">
+<footer style="background-color: #0d6efd; color: white; padding: 50px 0 20px 0; margin-top: 0; font-size: 0.85rem; font-family: 'Montserrat', sans-serif;">
     <div class="container" style="max-width: 1200px;">
-        <div class="row">
-            <!-- Column 1: About -->
-            <div class="col-6 col-lg-3 col-md-6 mb-4">
+
+        <!-- ===== DESKTOP LAYOUT (md and above) ===== -->
+        <div class="row d-none d-md-flex">
+            <!-- Column 1: About & Logo -->
+            <div class="col-lg-3 col-md-6 mb-4">
                 <h6 class="fw-bold mb-4 footer-heading" style="font-size: 1rem;">About</h6>
                 <ul class="list-unstyled">
                     <li class="mb-3"><a href="about-us.html" class="text-white text-decoration-none">About Us</a></li>
                     <li class="mb-3"><a href="contact-us.html" class="text-white text-decoration-none">Contact Us</a></li>
                     <li class="mb-4"><a href="sabkafaydastories.html" class="text-white text-decoration-none">Stories</a></li>
                 </ul>
-                <!-- Desktop only: logo below About -->
-                <div class="d-none d-md-block">
-                    <img src="assets/img/sflogo.png" alt="Sabka Fayda Footer Brand Logo" height="36" class="mb-2">
-                    <div class="fw-semibold text-white mt-1" style="font-size: 0.85rem; letter-spacing: 0.5px;">E-Commerce Platform</div>
-                </div>
+                <img src="assets/img/sflogo.png" alt="Sabka Fayda Footer Brand Logo" height="36" class="mb-2">
+                <div class="fw-semibold text-white mt-1" style="font-size: 0.85rem; letter-spacing: 0.5px;">E-Commerce Platform</div>
             </div>
 
             <!-- Column 2: Help & Socials -->
-            <div class="col-6 col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4">
                 <h6 class="fw-bold mb-4 footer-heading" style="font-size: 1rem;">Help</h6>
                 <ul class="list-unstyled">
                     <li class="mb-3"><a href="javascript:void(0)" class="text-white text-decoration-none">Shipping</a></li>
                     <li class="mb-4"><a href="faq.html" class="text-white text-decoration-none">FAQ</a></li>
                 </ul>
-                <!-- Desktop only: Follow Us -->
-                <div class="d-none d-md-block">
-                    <p class="mb-3">Follow Us :</p>
-                    <div class="d-flex gap-3">
-                        <a href="https://www.facebook.com/SabkaFaydaApp/" target="_blank"
-                            class="text-white d-inline-flex justify-content-center align-items-center"
-                            style="width: 28px; height: 28px; background-color: #3b5998; border-radius: 4px; text-decoration: none;">
-                            <i class="fa-brands fa-facebook-f" style="font-size: 16px;"></i>
-                        </a>
-                        <a href="https://www.instagram.com/sabkafayda_app/" target="_blank"
-                            class="text-white d-inline-flex justify-content-center align-items-center"
-                            style="width: 28px; height: 28px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); border-radius: 4px; text-decoration: none;">
-                            <i class="fa-brands fa-instagram" style="font-size: 16px;"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sabka-fayda-teamunity-bussiness-pvt-ltd-07554a3a4/"
-                            target="_blank" class="text-white d-inline-flex justify-content-center align-items-center"
-                            style="width: 28px; height: 28px; background-color: #007bb5; border-radius: 4px; text-decoration: none;">
-                            <i class="fa-brands fa-linkedin-in" style="font-size: 16px;"></i>
-                        </a>
-                        <a href="https://x.com/sabkafayda1s" target="_blank"
-                            class="text-white d-inline-flex justify-content-center align-items-center"
-                            style="width: 28px; height: 28px; background-color: #55acee; border-radius: 4px; text-decoration: none;">
-                            <i class="fa-brands fa-twitter" style="font-size: 16px;"></i>
-                        </a>
-                    </div>
+                <p class="mb-3">Follow Us :</p>
+                <div class="d-flex gap-3">
+                    <a href="https://www.facebook.com/SabkaFaydaApp/" target="_blank"
+                        class="text-white d-inline-flex justify-content-center align-items-center"
+                        style="width: 28px; height: 28px; background-color: #3b5998; border-radius: 4px; text-decoration: none;">
+                        <i class="fa-brands fa-facebook-f" style="font-size: 16px;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sabkafayda_app/" target="_blank"
+                        class="text-white d-inline-flex justify-content-center align-items-center"
+                        style="width: 28px; height: 28px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); border-radius: 4px; text-decoration: none;">
+                        <i class="fa-brands fa-instagram" style="font-size: 16px;"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sabka-fayda-teamunity-bussiness-pvt-ltd-07554a3a4/"
+                        target="_blank" class="text-white d-inline-flex justify-content-center align-items-center"
+                        style="width: 28px; height: 28px; background-color: #007bb5; border-radius: 4px; text-decoration: none;">
+                        <i class="fa-brands fa-linkedin-in" style="font-size: 16px;"></i>
+                    </a>
+                    <a href="https://x.com/sabkafayda1s" target="_blank"
+                        class="text-white d-inline-flex justify-content-center align-items-center"
+                        style="width: 28px; height: 28px; background-color: #55acee; border-radius: 4px; text-decoration: none;">
+                        <i class="fa-brands fa-twitter" style="font-size: 16px;"></i>
+                    </a>
                 </div>
             </div>
 
-            <!-- Column 3: Policy & App (desktop) -->
-            <div class="col-6 col-lg-3 col-md-6 mb-4">
+            <!-- Column 3: Policy & Google Play -->
+            <div class="col-lg-3 col-md-6 mb-4">
                 <h6 class="fw-bold mb-4 footer-heading" style="font-size: 1rem;">Policy</h6>
                 <ul class="list-unstyled">
                     <li class="mb-3"><a href="return-policy.html" class="text-white text-decoration-none">Return and Cancellation</a></li>
@@ -77,23 +71,20 @@
                     <li class="mb-3"><a href="javascript:void(0)" class="text-white text-decoration-none">Cookies Policy</a></li>
                     <li class="mb-4"><a href="javascript:void(0)" class="text-white text-decoration-none">Terms and Conditions</a></li>
                 </ul>
-                <!-- Desktop only: Google Play -->
-                <div class="d-none d-md-flex flex-column gap-3">
-                    <a href="https://play.google.com/store/apps/details?id=com.sabkafayda.app&hl=hi" target="_blank"
-                        class="d-inline-flex align-items-center border border-white rounded px-3 py-1 text-white text-decoration-none"
-                        style="background-color: transparent;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
-                            alt="Download Sabka Fayda Mobile App from Google Play Store" height="24" class="me-2">
-                        <div class="text-start">
-                            <div style="font-size: 0.65rem; line-height: 1; letter-spacing: 0.5px;">GET IT ON</div>
-                            <div class="fw-semibold" style="font-size: 1.05rem; line-height: 1.2;">Google Play</div>
-                        </div>
-                    </a>
-                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.sabkafayda.app&hl=hi" target="_blank"
+                    class="d-inline-flex align-items-center border border-white rounded px-3 py-1 text-white text-decoration-none"
+                    style="background-color: transparent;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
+                        alt="Download Sabka Fayda Mobile App from Google Play Store" height="24" class="me-2">
+                    <div class="text-start">
+                        <div style="font-size: 0.65rem; line-height: 1; letter-spacing: 0.5px;">GET IT ON</div>
+                        <div class="fw-semibold" style="font-size: 1.05rem; line-height: 1.2;">Google Play</div>
+                    </div>
+                </a>
             </div>
 
             <!-- Column 4: Contact Us -->
-            <div class="col-6 col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4">
                 <h6 class="fw-bold mb-4 footer-heading" style="font-size: 1rem;">Contact Us</h6>
                 <ul class="list-unstyled">
                     <li class="mb-4 d-flex align-items-start">
@@ -110,61 +101,122 @@
                     </li>
                     <li class="mb-4 d-flex align-items-start">
                         <i class="fa-solid fa-location-dot me-3 mt-1"></i>
-                        <span style="line-height: 1.6;">Plot No. 19/20, Sector F T, Parvati
-                            Industrial Estate, Yadrav, Sub District Shirol, Dist. Kolhapur, Maharashtra,
-                            India, 416146</span>
+                        <span style="line-height: 1.6;">Plot No. 19/20, Sector F T, Parvati Industrial Estate, Yadrav, Sub District Shirol, Dist. Kolhapur, Maharashtra, India, 416146</span>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <!-- Mobile only: Logo + Follow Us | Google Play bottom row -->
-        <div class="row d-md-none mt-2 align-items-start">
-            <!-- Logo + Follow Us -->
-            <div class="col-6 mb-4">
-                <img src="assets/img/sflogo.png" alt="Sabka Fayda Footer Brand Logo" height="36" class="mb-2">
-                <div class="fw-semibold text-white mt-1 mb-3" style="font-size: 0.75rem; letter-spacing: 0.5px;">E-Commerce Platform</div>
-                <p class="mb-2" style="font-size: 0.85rem;">Follow Us :</p>
-                <div class="d-flex gap-2 flex-wrap">
-                    <a href="https://www.facebook.com/SabkaFaydaApp/" target="_blank"
-                        class="text-white d-inline-flex justify-content-center align-items-center"
-                        style="width: 28px; height: 28px; background-color: #3b5998; border-radius: 4px; text-decoration: none;">
-                        <i class="fa-brands fa-facebook-f" style="font-size: 14px;"></i>
-                    </a>
-                    <a href="https://www.instagram.com/sabkafayda_app/" target="_blank"
-                        class="text-white d-inline-flex justify-content-center align-items-center"
-                        style="width: 28px; height: 28px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); border-radius: 4px; text-decoration: none;">
-                        <i class="fa-brands fa-instagram" style="font-size: 14px;"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sabka-fayda-teamunity-bussiness-pvt-ltd-07554a3a4/"
-                        target="_blank" class="text-white d-inline-flex justify-content-center align-items-center"
-                        style="width: 28px; height: 28px; background-color: #007bb5; border-radius: 4px; text-decoration: none;">
-                        <i class="fa-brands fa-linkedin-in" style="font-size: 14px;"></i>
-                    </a>
-                    <a href="https://x.com/sabkafayda1s" target="_blank"
-                        class="text-white d-inline-flex justify-content-center align-items-center"
-                        style="width: 28px; height: 28px; background-color: #55acee; border-radius: 4px; text-decoration: none;">
-                        <i class="fa-brands fa-twitter" style="font-size: 14px;"></i>
+        <!-- ===== MOBILE LAYOUT (below md) ===== -->
+        <div class="d-md-none">
+
+            <!-- Row 1: About | Help -->
+            <div class="row mb-3">
+                <div class="col-6">
+                    <h6 class="fw-bold mb-3 footer-heading" style="font-size: 0.95rem;">About</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about-us.html" class="text-white text-decoration-none" style="font-size: 0.82rem;">About Us</a></li>
+                        <li class="mb-2"><a href="contact-us.html" class="text-white text-decoration-none" style="font-size: 0.82rem;">Contact Us</a></li>
+                        <li class="mb-2"><a href="sabkafaydastories.html" class="text-white text-decoration-none" style="font-size: 0.82rem;">Stories</a></li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <h6 class="fw-bold mb-3 footer-heading" style="font-size: 0.95rem;">Help</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="javascript:void(0)" class="text-white text-decoration-none" style="font-size: 0.82rem;">Shipping</a></li>
+                        <li class="mb-2"><a href="faq.html" class="text-white text-decoration-none" style="font-size: 0.82rem;">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 2: Policy (full width) -->
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h6 class="fw-bold mb-3 footer-heading" style="font-size: 0.95rem;">Policy</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="return-policy.html" class="text-white text-decoration-none" style="font-size: 0.82rem;">Return and Cancellation</a></li>
+                        <li class="mb-2"><a href="privacy-policy.html" class="text-white text-decoration-none" style="font-size: 0.82rem;">Privacy and Security Policy</a></li>
+                        <li class="mb-2"><a href="javascript:void(0)" class="text-white text-decoration-none" style="font-size: 0.82rem;">Cookies Policy</a></li>
+                        <li class="mb-2"><a href="javascript:void(0)" class="text-white text-decoration-none" style="font-size: 0.82rem;">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 3: Contact Us (full width) -->
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h6 class="fw-bold mb-3 footer-heading" style="font-size: 0.95rem;">Contact Us</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fa-solid fa-phone me-3 mt-1" style="font-size: 0.85rem;"></i>
+                            <span style="font-size: 0.82rem;">+91 832 960 6969</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fa-solid fa-file-invoice me-3" style="font-size: 0.85rem;"></i>
+                            <span style="font-size: 0.82rem;">GSTIN: 27AALCT8650K1ZN</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fa-solid fa-envelope me-3" style="font-size: 0.85rem;"></i>
+                            <span style="font-size: 0.82rem;">support@sabkafayda.com</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fa-solid fa-location-dot me-3 mt-1" style="font-size: 0.85rem;"></i>
+                            <span style="font-size: 0.82rem; line-height: 1.6;">Plot No. 19/20, Sector F T, Parvati Industrial Estate, Yadrav, Sub District Shirol, Dist. Kolhapur, Maharashtra, India, 416146</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 4: Logo + Follow Us | Download App -->
+            <div class="row align-items-start mt-2">
+                <!-- Logo + Follow Us -->
+                <div class="col-6">
+                    <img src="assets/img/sflogo.png" alt="Sabka Fayda Footer Brand Logo" height="36" class="mb-2">
+                    <div class="fw-semibold text-white mb-3" style="font-size: 0.75rem; letter-spacing: 0.5px;">E-Commerce Platform</div>
+                    <p class="mb-2" style="font-size: 0.82rem;">Follow Us :</p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <a href="https://www.facebook.com/SabkaFaydaApp/" target="_blank"
+                            class="text-white d-inline-flex justify-content-center align-items-center"
+                            style="width: 28px; height: 28px; background-color: #3b5998; border-radius: 4px; text-decoration: none;">
+                            <i class="fa-brands fa-facebook-f" style="font-size: 14px;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sabkafayda_app/" target="_blank"
+                            class="text-white d-inline-flex justify-content-center align-items-center"
+                            style="width: 28px; height: 28px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); border-radius: 4px; text-decoration: none;">
+                            <i class="fa-brands fa-instagram" style="font-size: 14px;"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sabka-fayda-teamunity-bussiness-pvt-ltd-07554a3a4/"
+                            target="_blank" class="text-white d-inline-flex justify-content-center align-items-center"
+                            style="width: 28px; height: 28px; background-color: #007bb5; border-radius: 4px; text-decoration: none;">
+                            <i class="fa-brands fa-linkedin-in" style="font-size: 14px;"></i>
+                        </a>
+                        <a href="https://x.com/sabkafayda1s" target="_blank"
+                            class="text-white d-inline-flex justify-content-center align-items-center"
+                            style="width: 28px; height: 28px; background-color: #55acee; border-radius: 4px; text-decoration: none;">
+                            <i class="fa-brands fa-twitter" style="font-size: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Download App -->
+                <div class="col-6 d-flex flex-column justify-content-start">
+                    <p class="fw-semibold mb-2" style="font-size: 0.85rem;">Download the App</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.sabkafayda.app&hl=hi" target="_blank"
+                        class="d-inline-flex align-items-center border border-white rounded px-2 py-1 text-white text-decoration-none"
+                        style="background-color: transparent; max-width: 150px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
+                            alt="Download Sabka Fayda Mobile App from Google Play Store" height="20" class="me-2">
+                        <div class="text-start">
+                            <div style="font-size: 0.5rem; line-height: 1; letter-spacing: 0.5px;">GET IT ON</div>
+                            <div class="fw-semibold" style="font-size: 0.85rem; line-height: 1.2;">Google Play</div>
+                        </div>
                     </a>
                 </div>
             </div>
-            <!-- Google Play -->
-            <div class="col-6 mb-4 d-flex flex-column justify-content-start">
-                <p class="fw-semibold mb-2" style="font-size: 0.85rem;">Download the App</p>
-                <a href="https://play.google.com/store/apps/details?id=com.sabkafayda.app&hl=hi" target="_blank"
-                    class="d-inline-flex align-items-center border border-white rounded px-2 py-1 text-white text-decoration-none"
-                    style="background-color: transparent; max-width: 150px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
-                        alt="Download Sabka Fayda Mobile App from Google Play Store" height="20" class="me-2">
-                    <div class="text-start">
-                        <div style="font-size: 0.5rem; line-height: 1; letter-spacing: 0.5px;">GET IT ON</div>
-                        <div class="fw-semibold" style="font-size: 0.85rem; line-height: 1.2;">Google Play</div>
-                    </div>
-                </a>
-            </div>
-        </div>
 
-        <div class="text-center mt-2 pt-3" style="font-size: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+        </div>
+        <!-- ===== END MOBILE LAYOUT ===== -->
+
+        <div class="text-center mt-3 pt-3" style="font-size: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
             @2026 All Rights Reserved by SabkaFayda
         </div>
     </div>
