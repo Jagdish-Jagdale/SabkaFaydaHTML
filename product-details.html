@@ -20,7 +20,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/main.css?v=22">
+    <link rel="stylesheet" href="assets/css/main.css?v=57">
 
     <!-- Preload Logo Image -->
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
@@ -30,7 +30,7 @@
     <script src="assets/js/product-details-mock.js?v=4"></script>
     <!-- SEO Mock Data -->
     <script src="assets/js/seo-mock.js"></script>
-    <script src="assets/js/renderProductDetails.js?v=14"></script>
+    <script src="assets/js/renderProductDetails.js?v=15"></script>
     <script src="assets/js/cartUtils.js"></script>
 
     <style>
@@ -72,6 +72,14 @@
         .large-card-share-btn:hover {
             color: #4b70f5 !important;
         }
+
+        @media (min-width: 992px) {
+            .sticky-gallery {
+                position: sticky !important;
+                top: 160px !important;
+                align-self: start !important;
+            }
+        }
     </style>
 
     <!-- Preload Dynamic Components -->
@@ -80,7 +88,7 @@
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
 </head>
 
-<body style="font-family: 'Roboto', sans-serif; overflow-x: hidden;">
+<body style="font-family: 'Roboto', sans-serif;">
 
     <!-- Header Placeholder -->
     <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
@@ -163,29 +171,57 @@
         </div>
 
     <!-- Explore Similar Products Section -->
-        <div class="container pb-5">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Explore Similar Products</h3>
-                    <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">There products you may like similarly</p>
+        <div class="container pb-4">
+            <div class="bg-white rounded-3 p-4 shadow-sm" style="border: 1px solid #eef2f5;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Explore Similar Products</h3>
+                        <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">There products you may like similarly</p>
+                    </div>
+                    <a id="similar-products-view-all" href="category.html?category=Fashion%20%26%20Lifestyle&subcategory=T-Shirts" class="view-all-arrow-btn text-decoration-none" style="background-color: #0087F6;"><i class="fas fa-arrow-right"></i></a>
                 </div>
-                <a id="similar-products-view-all" href="category.html?category=Fashion%20%26%20Lifestyle&subcategory=T-Shirts" class="btn btn-primary px-4 d-none d-sm-inline-block" style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px; border-radius: 6px;">View All</a>
+                
+                <div class="position-relative">
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 carousel-left p-0 border-0 bg-transparent" style="display: none; left: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                            <i class="fas fa-chevron-left fs-6"></i>
+                        </div>
+                    </button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 carousel-right p-0 border-0 bg-transparent" style="right: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                            <i class="fas fa-chevron-right fs-6"></i>
+                        </div>
+                    </button>
+                    <div id="similar-products-container" class="d-flex gap-3 overflow-auto hide-scroll pb-2" style="scroll-behavior: smooth;"></div>
+                </div>
             </div>
-            
-            <div id="similar-products-container" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3"></div>
         </div>
 
         <!-- Peoples Looking for these Products Section -->
-        <div class="container pb-5">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Peoples Looking for these Products</h3>
-                    <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">lots of people buying those</p>
+        <div class="container pb-4">
+            <div class="bg-white rounded-3 p-4 shadow-sm" style="border: 1px solid #eef2f5;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Peoples Looking for these Products</h3>
+                        <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">lots of people buying those</p>
+                    </div>
+                    <a id="peoples-products-view-all" href="category.html?category=All%20Category" class="view-all-arrow-btn text-decoration-none" style="background-color: #0087F6;"><i class="fas fa-arrow-right"></i></a>
                 </div>
-                <a id="peoples-products-view-all" href="category.html?category=All%20Category" class="btn btn-primary px-4 d-none d-sm-inline-block" style="background-color: #0087F6; border: none; font-size: 0.85rem; font-weight: 600; padding: 8px 24px; border-radius: 6px;">View All</a>
+                
+                <div class="position-relative">
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 carousel-left p-0 border-0 bg-transparent" style="display: none; left: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                            <i class="fas fa-chevron-left fs-6"></i>
+                        </div>
+                    </button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 carousel-right p-0 border-0 bg-transparent" style="right: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                            <i class="fas fa-chevron-right fs-6"></i>
+                        </div>
+                    </button>
+                    <div id="peoples-products-container" class="d-flex gap-3 overflow-auto hide-scroll pb-2" style="scroll-behavior: smooth;"></div>
+                </div>
             </div>
-            
-            <div id="peoples-products-container" class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-2 g-md-3"></div>
         </div>
 
     </div>

@@ -273,8 +273,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const similarContainer = document.getElementById('similar-products-container');
         if (similarContainer && productDetailsData.similarProducts) {
             similarContainer.innerHTML = productDetailsData.similarProducts.map(product => `
-                <div class="col">
-                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
+                <div class="flex-shrink-0" style="width: 180px;">
+                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px; cursor: pointer;" onclick="if(!event.target.closest('button')) window.location.href='product-details.html?product=${encodeURIComponent(product.title)}'">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
                             <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2 opacity-0 product-floating-actions" style="transition: opacity 0.3s; z-index: 2;">
@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                         </div>
-                        <a href="product-details.html?product=${encodeURIComponent(product.title)}" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
+                        <div class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none">
                             <div>
                                 <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
                                     <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer !== undefined ? product.refer : 12}</span>
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     Rs ${product.price} with UPI offer
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -333,8 +333,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const peoplesContainer = document.getElementById('peoples-products-container');
         if (peoplesContainer && productDetailsData.similarProducts) {
             peoplesContainer.innerHTML = productDetailsData.similarProducts.map(product => `
-                <div class="col">
-                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;">
+                <div class="flex-shrink-0" style="width: 180px;">
+                    <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px; cursor: pointer;" onclick="if(!event.target.closest('button')) window.location.href='product-details.html?product=${encodeURIComponent(product.title)}'">
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 100%; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                             <img src="${product.image}" alt="${product.title}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 85%; max-height: 85%; object-fit: contain;">
                             <div class="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2 opacity-0 product-floating-actions" style="transition: opacity 0.3s; z-index: 2;">
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </button>
                             </div>
                         </div>
-                        <a href="product-details.html?product=${encodeURIComponent(product.title)}" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
+                        <div class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none">
                             <div>
                                 <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
                                     <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer !== undefined ? product.refer : 12}</span>
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     Rs ${product.price} with UPI offer
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -392,4 +392,44 @@ document.addEventListener("DOMContentLoaded", function () {
     renderProductInfo();
     renderSimilarProducts();
     renderPeoplesProducts();
+
+    // Setup carousel scroll helpers
+    function setupCarouselScroll(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        const parent = container.parentElement;
+        const leftBtn = parent.querySelector('.carousel-left');
+        const rightBtn = parent.querySelector('.carousel-right');
+        
+        if (!leftBtn || !rightBtn) return;
+        
+        const updateButtons = () => {
+            if (window.innerWidth < 992) {
+                leftBtn.style.setProperty('display', 'none', 'important');
+                rightBtn.style.setProperty('display', 'none', 'important');
+                return;
+            }
+            leftBtn.style.setProperty('display', container.scrollLeft > 5 ? 'block' : 'none', 'important');
+            rightBtn.style.setProperty('display', container.scrollLeft < (container.scrollWidth - container.clientWidth - 5) ? 'block' : 'none', 'important');
+        };
+        
+        window.addEventListener('resize', updateButtons);
+        
+        leftBtn.onclick = (e) => {
+            e.preventDefault();
+            container.scrollBy({ left: -220, behavior: 'smooth' });
+        };
+        
+        rightBtn.onclick = (e) => {
+            e.preventDefault();
+            container.scrollBy({ left: 220, behavior: 'smooth' });
+        };
+        
+        container.addEventListener('scroll', updateButtons);
+        setTimeout(updateButtons, 200);
+    }
+    
+    setupCarouselScroll('similar-products-container');
+    setupCarouselScroll('peoples-products-container');
 });

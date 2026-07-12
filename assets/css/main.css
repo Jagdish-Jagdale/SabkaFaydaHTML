@@ -2,7 +2,7 @@
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* Small Card Icon Hover Effects */
@@ -994,7 +994,7 @@ input[type=range]::-moz-range-thumb {
 @media (min-width: 992px) {
     .sticky-gallery {
         position: sticky;
-        top: 175px;
+        top: 160px;
         align-self: start;
     }
 }
