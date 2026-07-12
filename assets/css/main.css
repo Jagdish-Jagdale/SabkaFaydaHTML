@@ -4138,4 +4138,258 @@ a {
         width: 185px !important;
     }
 }
-
+
+
+/* ================================================
+   Stories Page (sabkafaydastories.html) Custom Styles
+   ================================================ */
+
+/* Global mobile font scaling */
+@media (max-width: 767px) {
+    .main-content {
+        font-size: 0.82rem !important;
+    }
+
+    .main-content h1,
+    .main-content .h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .main-content h2,
+    .main-content .h2 {
+        font-size: 1.3rem !important;
+    }
+
+    .main-content h3,
+    .main-content .h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .main-content h4,
+    .main-content .h4 {
+        font-size: 0.95rem !important;
+    }
+
+    .main-content h5,
+    .main-content .h5 {
+        font-size: 0.8rem !important;
+    }
+
+    .main-content p,
+    .main-content span,
+    .main-content li,
+    .main-content a {
+        font-size: 0.78rem !important;
+    }
+
+    /* Tighter gap inside testimonials */
+    .top-stories-card .d-flex {
+        gap: 0.75rem !important;
+    }
+
+    .top-stories-card .d-flex p {
+        font-size: 0.78rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Hide testimonial vertical dividers */
+    .testimonial-divider {
+        display: none !important;
+    }
+
+    /* Smaller avatars in customer feedback */
+    .top-stories-card .rounded-circle {
+        width: 44px !important;
+        height: 44px !important;
+    }
+
+    .top-stories-card .rounded-circle svg {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+/* Card responsiveness */
+.reel-card-wrapper {
+    flex: 0 0 135px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+}
+
+@media (min-width: 992px) {
+    .reel-card-wrapper {
+        flex: 0 0 calc(25% - 10px) !important;
+        min-width: calc(25% - 10px) !important;
+        max-width: calc(25% - 10px) !important;
+    }
+    .reel-card .position-relative {
+        height: 400px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .reel-card-wrapper {
+        flex: 0 0 170px !important;
+        min-width: 170px !important;
+        max-width: 170px !important;
+    }
+}
+
+/* Adjust inline heights inside cards for mobile */
+@media (max-width: 767px) {
+    .reel-card .position-relative[style*="height"] {
+        height: 190px !important;
+    }
+
+    .reel-card .p-3 {
+        padding: 0.5rem 0.6rem !important;
+    }
+
+    .reel-card h5 {
+        font-size: 0.72rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    .reel-card .d-flex {
+        font-size: 0.6rem !important;
+    }
+
+    /* Make tab navigation buttons smaller on mobile */
+    .reel-tab-btn {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 0.4rem !important;
+        padding-right: 0.4rem !important;
+        font-size: 0.72rem !important;
+    }
+
+    .reel-tab-btn i {
+        margin-right: 0.2rem !important;
+    }
+}
+
+/* Tighter details on mobile for company info */
+@media (max-width: 767px) {
+    .info-card {
+        padding: 0.85rem !important;
+    }
+
+    .info-card h4 {
+        font-size: 1rem !important;
+    }
+
+    .info-card .p-3 {
+        padding: 0.65rem !important;
+    }
+
+    .info-card h6 {
+        font-size: 0.78rem !important;
+    }
+
+    .info-card p,
+    .info-card a {
+        font-size: 0.72rem !important;
+    }
+}
+
+/* Stories Banner responsiveness */
+.stories-banner {
+    height: 200px !important;
+}
+
+@media (min-width: 768px) {
+    .stories-banner {
+        height: 350px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .stories-banner {
+        height: 540px !important;
+    }
+}
+
+/* Reel Modal Custom Size */
+.reel-modal-dialog {
+    max-width: 420px !important;
+    /* Perfect width for 9:16 aspect ratio on desktop */
+    width: 100% !important;
+    margin: auto;
+}
+
+.reel-modal-dialog .modal-content {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.reel-modal-dialog .video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    /* Tall 9:16 container on desktop */
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 767px) {
+    .reel-modal-dialog {
+        max-width: 100% !important;
+        margin: 0 !important;
+        height: 100vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .reel-modal-dialog .modal-content {
+        height: 100% !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+    }
+
+    .reel-modal-dialog .video-wrapper {
+        height: 100vh !important;
+        /* 90-100vh on mobile */
+        width: 100% !important;
+        border-radius: 0 !important;
+        border: none !important;
+    }
+}
+
+/* Truncate reel card title to a single line with ellipsis */
+.reel-card h5 {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+
+/* Hide scrollbars for reel carousels */
+.reel-cards-scroll {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.reel-cards-scroll::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Carousel Navigation Buttons Hover */
+.carousel-control-btn {
+    opacity: 0.9;
+}
+
+.carousel-control-btn:hover {
+    background-color: #0087F6 !important;
+    opacity: 1 !important;
+    transform: translateY(-50%) scale(1.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 135, 246, 0.4) !important;
+}
+
+.carousel-control-btn:hover i {
+    color: white !important;
+}
