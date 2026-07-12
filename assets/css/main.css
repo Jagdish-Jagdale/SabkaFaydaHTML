@@ -1686,12 +1686,20 @@ select.profile-form-control {
     font-weight: 700;
 }
 
+.orders-stat-card > div {
+    min-width: 0;
+    flex: 1;
+}
+
 .orders-stat-card h2 {
     color: #1f2937;
     font-size: 1.05rem;
     font-weight: 800;
     line-height: 1.25;
     margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .orders-stat-card span:not(.orders-stat-icon) {
@@ -2361,7 +2369,8 @@ select.profile-form-control {
 
 @media (max-width: 575px) {
     .orders-summary-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
     }
 
     .orders-toolbar {
@@ -2389,7 +2398,8 @@ select.profile-form-control {
 
 @media (max-width: 575px) {
     .orders-summary-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
     }
 
     .orders-toolbar {
@@ -3189,7 +3199,8 @@ select.profile-form-control {
 
 @media (max-width: 767px) {
     .notification-page .orders-summary-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
     }
 
     .notification-page .orders-toolbar {
