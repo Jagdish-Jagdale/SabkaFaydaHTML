@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Invoice | Sabka Fayda</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .invoice-card {
+            border: 1.5px solid #dbeafe;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 16px;
+            height: 100%;
+        }
+
+        .invoice-card h5 {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            color: #111;
+            font-size: 1rem;
+            border-bottom: 2px solid #0087F6;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .invoice-detail-item {
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .invoice-detail-item strong {
+            font-weight: 600;
+            color: #444;
+            display: inline-block;
+            width: 110px;
+        }
+
+        .table-invoice {
+            font-size: 0.82rem;
+            border-collapse: collapse;
+        }
+
+        .table-invoice th {
+            background-color: #0087F6 !important;
+            color: #fff !important;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px;
+            font-size: 0.75rem;
+            border: 1px solid #0076d6;
+        }
+
+        .table-invoice td {
+            padding: 10px;
+            vertical-align: middle;
+            border: 1px solid #dee2e6;
+        }
+
+        .footer-section-title {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: #0b3c75;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-section-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            font-size: 0.72rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .footer-section-list li {
+            position: relative;
+            padding-left: 10px;
+            margin-bottom: 4px;
+        }
+
+        .footer-section-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0087F6;
+        }
+
+        .support-info-item {
+            font-size: 0.72rem;
+            margin-bottom: 4px;
+            color: #555;
+        }
+
+        .support-info-item strong {
+            display: inline-block;
+            width: 80px;
+            color: #333;
+        }
+
+        /* Print formatting */
+        @media print {
+            body {
+                background-color: #fff;
+                font-size: 12pt;
+            }
+
+            .container {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .invoice-card {
+                border: 1px solid #ccc !important;
+            }
+
+            .table-invoice th {
+                background-color: #0087F6 !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .d-print-none {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container py-4" style="max-width: 1000px;">
+
+        <!-- Print Button for Browser -->
+        <div class="text-end mb-3 d-print-none">
+            <button onclick="window.print();" class="btn btn-primary fw-bold shadow-sm"
+                style="border-radius: 8px; background-color: #0087F6; border-color: #0087F6;">
+                <i class="fa-solid fa-print me-2"></i> Print Invoice
+            </button>
+            <button onclick="window.close();" class="btn btn-outline-secondary fw-bold ms-2"
+                style="border-radius: 8px;">
+                Close Window
+            </button>
+        </div>
+
+        <!-- TAX INVOICE CONTAINER -->
+        <div class="bg-white p-4 shadow-sm border rounded" id="invoice-page-container">
+
+            <!-- Header Banner -->
+            <div class="d-flex align-items-center justify-content-between p-3 mb-4 rounded text-white"
+                style="background: linear-gradient(135deg, #0087F6 0%, #0056b3 100%);">
+                <div class="d-flex align-items-center">
+                    <img src="assets/img/sflogo.png" alt="Sabka Fayda Logo" height="42"
+                        style="filter: brightness(0) invert(1);">
+                </div>
+                <h2 class="fw-bold m-0"
+                    style="font-family: 'Rubik', sans-serif; font-size: 1.8rem; letter-spacing: 1px;">TAX INVOICE</h2>
+            </div>
+
+            <!-- Row 1: Sold By & Invoice Details -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="invoice-card">
+                        <h5>Sold By</h5>
+                        <div class="invoice-detail-item"><strong>Company Name:</strong>Teammunity Business Pvt Ltd</div>
+                        <div class="invoice-detail-item"><strong>Contact us:</strong>+91 832 960 6969</div>
+                        <div class="invoice-detail-item"><strong>GSTIN:</strong>27AALCT8650K1ZN</div>
+                        <div class="invoice-detail-item"><strong>Address:</strong>Plot No. 19/20, Sector F T, Parvati
+                            Industrial Estate, Yadrav, Sub District Shirol, Dist. Kolhapur, Maharashtra, India, 416146
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="invoice-card">
+                        <h5>Invoice Details</h5>
+                        <div class="invoice-detail-item"><strong>Invoice No:</strong><span
+                                id="invoiceNo">#63826479595</span></div>
+                        <div class="invoice-detail-item"><strong>Invoice Date:</strong><span id="invoiceDate">01 Jun
+                                2026</span></div>
+                        <div class="invoice-detail-item"><strong>Order ID:</strong><span id="orderId">#5875</span></div>
+                        <div class="invoice-detail-item"><strong>Order Date:</strong><span id="orderDate">01 Jun
+                                2026</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Bill To & Ship To -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="invoice-card">
+                        <h5>Bill To</h5>
+                        <div class="invoice-detail-item fw-bold text-dark" id="billToName">Ranjan Kumar</div>
+                        <div class="invoice-detail-item text-muted" style="font-size:0.8rem;" id="billToAddress">
+                            Silver Star Appartment, Flat no.B-302, Plot no. 50,63,64,65 Sector-18, Kamothe, .PANVEL
+                            410209 Maharashtra
+                        </div>
+                        <div class="invoice-detail-item mt-2"><strong>Phone:</strong><span
+                                id="billToPhone">9769902936</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="invoice-card">
+                        <h5>Ship To</h5>
+                        <div class="invoice-detail-item fw-bold text-dark" id="shipToName">Ranjan Kumar</div>
+                        <div class="invoice-detail-item text-muted" style="font-size:0.8rem;" id="shipToAddress">
+                            Silver Star Appartment, Flat no.B-302, Plot no. 50,63,64,65 Sector-18, Kamothe, .PANVEL
+                            410209 Maharashtra
+                        </div>
+                        <div class="invoice-detail-item mt-2"><strong>Phone:</strong><span
+                                id="shipToPhone">9769902936</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="table-responsive mb-4">
+                <table class="table table-bordered table-invoice w-100 text-center m-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">#</th>
+                            <th style="width: 35%; text-align: left;">Product</th>
+                            <th style="width: 10%;">HSN Code</th>
+                            <th style="width: 6%;">Qty</th>
+                            <th style="width: 9%;">Rate (₹)</th>
+                            <th style="width: 9%;">Discount (₹)</th>
+                            <th style="width: 10%;">Taxable Value (₹)</th>
+                            <th style="width: 6%;">GST %</th>
+                            <th style="width: 10%;">GST Amount (₹)</th>
+                            <th style="width: 10%;">Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceItemsTable">
+                        <!-- Filled Dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Amount in Words & Summary -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="invoice-card">
+                        <h5>Amount in Words</h5>
+                        <div class="fw-bold text-dark mt-2" style="font-size: 0.9rem;" id="amountInWords">
+                            Loading...
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="invoice-card">
+                        <h5>Summary</h5>
+                        <div class="d-flex justify-content-between invoice-detail-item">
+                            <span>Subtotal:</span>
+                            <strong style="width: auto;" id="subtotalVal">₹0.00</strong>
+                        </div>
+                        <div class="d-flex justify-content-between invoice-detail-item">
+                            <span>Shipping:</span>
+                            <strong style="width: auto;" id="shippingVal">₹0.00</strong>
+                        </div>
+                        <hr class="my-2">
+                        <div class="d-flex justify-content-between invoice-detail-item fw-bold text-dark"
+                            style="font-size: 0.95rem;">
+                            <span>Grand Total:</span>
+                            <strong style="width: auto; color: #0087F6;" id="totalVal">₹0.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Details (Return Policy, Customer Support, Bank Details) -->
+            <div class="row g-4 pt-3 border-top mb-4">
+                <!-- Return Policy -->
+                <div class="col-md-4">
+                    <div class="footer-section-title">
+                        <i class="fa-solid fa-rotate-left text-primary"></i> Return Policy
+                    </div>
+                    <ul class="footer-section-list">
+                        <li>Easy returns on eligible products.</li>
+                        <li>Initiate return within 7 days of delivery.</li>
+                        <li>Product must be unused and in original packaging.</li>
+                        <li>For more details, visit our website.</li>
+                    </ul>
+                </div>
+
+                <!-- Customer Support -->
+                <div class="col-md-4">
+                    <div class="footer-section-title">
+                        <i class="fa-solid fa-headset text-primary"></i> Customer Support
+                    </div>
+                    <div class="support-info-item"><strong>Website:</strong>www.sabkafayda.com</div>
+                    <div class="support-info-item"><strong>Email:</strong>support@sabkafayda.com</div>
+                    <div class="support-info-item"><strong>Phone:</strong>+91 832 960 6969</div>
+                    <div class="support-info-item"><strong>WhatsApp:</strong>+91 832 960 6969</div>
+                </div>
+
+                <!-- Bank Details -->
+                <div class="col-md-4">
+                    <div class="footer-section-title">
+                        <i class="fa-solid fa-building-columns text-primary"></i> Bank Details
+                    </div>
+                    <div class="support-info-item"><strong>Bank Name:</strong>HDFC Bank</div>
+                    <div class="support-info-item"><strong>A/C Holder:</strong>Sabka Fayda Pvt. Ltd.</div>
+                    <div class="support-info-item"><strong>A/C Number:</strong>50200012345678</div>
+                    <div class="support-info-item"><strong>IFSC:</strong>HDFC0001234</div>
+                </div>
+            </div>
+
+            <!-- Authorized Signatory & Bottom Brand Info -->
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between pt-3 border-top">
+                <div class="text-center text-md-start mb-3 mb-md-0">
+                    <div class="mb-1">
+                        <!-- Clean signature SVG -->
+                        <svg width="150" height="42" viewBox="0 0 150 42" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 25 C 25 10, 42 5, 55 25 C 65 35, 75 15, 85 10 C 95 5, 105 28, 115 28 C 125 28, 135 15, 145 10"
+                                stroke="#0c3c86" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                            <path d="M35 22 L 125 22" stroke="#0c3c86" stroke-width="1.5" stroke-linecap="round"
+                                fill="none" />
+                        </svg>
+                    </div>
+                    <div class="small fw-bold text-muted">Authorized Signatory</div>
+                    <div class="small text-secondary" style="font-size:0.75rem;">Sabka Fayda Private Limited</div>
+                </div>
+
+                <div class="text-center mb-3 mb-md-0 px-2">
+                    <span class="text-secondary small fw-semibold">
+                        <i class="fa-solid fa-heart text-danger me-1"></i> Thank you for shopping with Sabka Fayda!<br>
+                        We appreciate your trust in us.
+                    </span>
+                </div>
+
+                <div class="d-flex align-items-center gap-2 border rounded p-2 bg-light shadow-sm"
+                    style="max-width: 250px;">
+                    <div class="rounded-circle bg-primary-subtle text-primary d-flex align-items-center justify-content-center flex-shrink-0"
+                        style="width:36px; height:36px;">
+                        <i class="fa-solid fa-shield-halved" style="font-size:1.15rem;"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold" style="font-size:0.75rem; color:#111;">100% Secure Shopping</div>
+                        <div class="text-secondary" style="font-size:0.65rem;">Quality Products • Fast Delivery • Easy
+                            Shopping</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Load Mock Data -->
+    <script src="assets/js/mockData.js"></script>
+    <script src="assets/js/order-details-mock.js"></script>
+
+    <!-- Dynamic Renderer Script -->
+    <script>
+        // Number to Words Converter (Indian Currency format)
+        function convertNumberToWords(amount) {
+            const words = {
+                0: '', 1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine',
+                10: 'Ten', 11: 'Eleven', 12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen', 16: 'Sixteen',
+                17: 'Seventeen', 18: 'Eighteen', 19: 'Nineteen', 20: 'Twenty', 30: 'Thirty', 40: 'Forty', 50: 'Fifty',
+                60: 'Sixty', 70: 'Seventy', 80: 'Eighty', 90: 'Ninety'
+            };
+
+            amount = Math.round(amount);
+            if (amount === 0) return 'Zero Rupees Only';
+
+            function getBelowHundred(num) {
+                if (num < 20) return words[num];
+                const tens = Math.floor(num / 10) * 10;
+                const ones = num % 10;
+                return words[tens] + (ones ? ' ' + words[ones] : '');
+            }
+
+            function getBelowThousand(num) {
+                const hundreds = Math.floor(num / 100);
+                const remainder = num % 100;
+                return (hundreds ? words[hundreds] + ' Hundred' : '') + (hundreds && remainder ? ' and ' : '') + getBelowHundred(remainder);
+            }
+
+            let wordStr = '';
+
+            // Crores
+            const crores = Math.floor(amount / 10000000);
+            let remainder = amount % 10000000;
+            if (crores > 0) {
+                wordStr += getBelowThousand(crores) + ' Crore ';
+            }
+
+            // Lakhs
+            const lakhs = Math.floor(remainder / 100000);
+            remainder = remainder % 100000;
+            if (lakhs > 0) {
+                wordStr += getBelowThousand(lakhs) + ' Lakh ';
+            }
+
+            // Thousands
+            const thousands = Math.floor(remainder / 1000);
+            remainder = remainder % 1000;
+            if (thousands > 0) {
+                wordStr += getBelowThousand(thousands) + ' Thousand ';
+            }
+
+            // Hundreds
+            if (remainder > 0) {
+                wordStr += getBelowThousand(remainder);
+            }
+
+            return wordStr.trim() + ' Rupees Only';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get order ID from URL params
+            const params = new URLSearchParams(window.location.search);
+            const orderIdParam = params.get('id');
+
+            // Default Mockup items (used if orderId doesn't exist)
+            const defaultItems = [
+                { name: "Transparent Umbrella for Rainy Season", sku: "SF-UMB-001", hsn: "6601", qty: 1, rate: 199.00, discount: 0.00 },
+                { name: "LED Acrylic Writing Board with USB Power", sku: "SF-LED-001", hsn: "9405", qty: 2, rate: 283.00, discount: 0.00 },
+                { name: "5 Layer Modular Drawer Storage System", sku: "SF-STR-001", hsn: "3924", qty: 1, rate: 897.00, discount: 50.00 }
+            ];
+
+            let order = null;
+
+            // Find matching order in mockData.orders
+            if (orderIdParam && typeof mockData !== 'undefined' && mockData.orders) {
+                order = mockData.orders.find(o => o.id === orderIdParam);
+            }
+
+            // Populate page
+            if (order) {
+                // Parse price
+                const cleanPrice = parseFloat(order.totalAmount.replace(/,/g, ''));
+
+                // Update Invoice Details
+                document.getElementById('invoiceNo').textContent = '#INV' + order.id.replace(/[^\d]/g, '');
+                document.getElementById('invoiceDate').textContent = order.orderDate;
+                document.getElementById('orderId').textContent = '#' + order.id;
+                document.getElementById('orderDate').textContent = order.orderDate;
+
+                // Update Address details (use mock order details address or fallback)
+                let name = 'Rajesh Sharma';
+                let address = 'Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115';
+                let phone = '+91 9876543210';
+
+                // Check if mock order details match this order id
+                if (typeof orderDetailsData !== 'undefined' && orderDetailsData.orderInfo && orderDetailsData.orderInfo.orderNumber === order.id) {
+                    name = orderDetailsData.deliveryAddress.name;
+                    address = orderDetailsData.deliveryAddress.address;
+                    phone = orderDetailsData.deliveryAddress.phone;
+                }
+
+                document.getElementById('billToName').textContent = name;
+                document.getElementById('billToAddress').textContent = address;
+                document.getElementById('billToPhone').textContent = phone;
+                document.getElementById('shipToName').textContent = name;
+                document.getElementById('shipToAddress').textContent = address;
+                document.getElementById('shipToPhone').textContent = phone;
+
+                // Render Table Items
+                const tableBody = document.getElementById('invoiceItemsTable');
+
+                // Calculate item taxable value & GST
+                // Assuming 18% GST is included in the total price
+                const rate = cleanPrice / order.qty;
+                const total = cleanPrice;
+                const taxable = total / 1.18;
+                const gstAmt = total - taxable;
+
+                tableBody.innerHTML = `
+                    <tr>
+                        <td>1</td>
+                        <td class="text-start">
+                            <span class="fw-semibold text-dark">${order.productName}</span><br>
+                            <span class="text-muted small">${order.productDesc}</span>
+                        </td>
+                        <td>8517</td>
+                        <td>${order.qty}</td>
+                        <td>${(rate / 1.18).toFixed(2)}</td>
+                        <td>0.00</td>
+                        <td>${taxable.toFixed(2)}</td>
+                        <td>18%</td>
+                        <td>${gstAmt.toFixed(2)}</td>
+                        <td class="fw-semibold">${total.toFixed(2)}</td>
+                    </tr>
+                `;
+
+                // Update Summary
+                document.getElementById('subtotalVal').textContent = '₹' + taxable.toFixed(2);
+                document.getElementById('shippingVal').textContent = '₹0.00 (Free)';
+                document.getElementById('totalVal').textContent = '₹' + total.toFixed(2);
+                document.getElementById('amountInWords').textContent = convertNumberToWords(total);
+
+            } else {
+                // FALLBACK TO DEFAULT MOCKUP FROM SCREENSHOT
+                document.getElementById('invoiceNo').textContent = '#63826479595';
+                document.getElementById('invoiceDate').textContent = '01 Jun 2026';
+                document.getElementById('orderId').textContent = '#5875';
+                document.getElementById('orderDate').textContent = '01 Jun 2026';
+
+                document.getElementById('billToName').textContent = 'Ranjan Kumar';
+                document.getElementById('billToAddress').textContent = 'Silver Star Appartment, Flat no.B-302, Plot no. 50,63,64,65 Sector-18, Kamothe, .PANVEL 410209 Maharashtra';
+                document.getElementById('billToPhone').textContent = '9769902936';
+                document.getElementById('shipToName').textContent = 'Ranjan Kumar';
+                document.getElementById('shipToAddress').textContent = 'Silver Star Appartment, Flat no.B-302, Plot no. 50,63,64,65 Sector-18, Kamothe, .PANVEL 410209 Maharashtra';
+                document.getElementById('shipToPhone').textContent = '9769902936';
+
+                let grandTotal = 0;
+                let subTotal = 0;
+
+                const tableBody = document.getElementById('invoiceItemsTable');
+                tableBody.innerHTML = defaultItems.map((item, idx) => {
+                    const lineRate = item.rate;
+                    const lineTotal = (item.rate * item.qty) - item.discount;
+                    const lineTaxable = lineTotal / 1.18;
+                    const lineGst = lineTotal - lineTaxable;
+
+                    grandTotal += lineTotal;
+                    subTotal += lineTaxable;
+
+                    return `
+                        <tr>
+                            <td>${idx + 1}</td>
+                            <td class="text-start">
+                                <span class="fw-semibold text-dark">${item.name}</span><br>
+                                <span class="text-muted small">SKU: ${item.sku}</span>
+                            </td>
+                            <td>${item.hsn}</td>
+                            <td>${item.qty}</td>
+                            <td>${(lineRate / 1.18).toFixed(2)}</td>
+                            <td>${item.discount.toFixed(2)}</td>
+                            <td>${lineTaxable.toFixed(2)}</td>
+                            <td>18%</td>
+                            <td>${lineGst.toFixed(2)}</td>
+                            <td class="fw-semibold">${lineTotal.toFixed(2)}</td>
+                        </tr>
+                    `;
+                }).join('');
+
+                // Update Summary
+                document.getElementById('subtotalVal').textContent = '₹' + subTotal.toFixed(2);
+                document.getElementById('shippingVal').textContent = '₹0.00 (Free)';
+                document.getElementById('totalVal').textContent = '₹' + grandTotal.toFixed(2);
+                document.getElementById('amountInWords').textContent = convertNumberToWords(grandTotal);
+            }
+
+            // Direct PDF Download Logic
+            if (params.get('download') === 'true') {
+                setTimeout(() => {
+                    const element = document.getElementById('invoice-page-container');
+                    const opt = {
+                        margin: 0.25,
+                        filename: 'Invoice_' + (order ? order.id : '63826479595') + '.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2, useCORS: true, logging: false },
+                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    };
+
+                    // Generate and download the PDF
+                    html2pdf().set(opt).from(element).save().then(() => {
+                        // Close tab after download initiates
+                        setTimeout(() => {
+                            window.close();
+                        }, 800);
+                    }).catch(err => {
+                        console.error('PDF Download Error:', err);
+                    });
+                }, 500);
+            }
+        });
+    </script>
+</body>
+
+</html>

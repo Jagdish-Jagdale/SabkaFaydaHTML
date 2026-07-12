@@ -1,3 +1,18 @@
+window.downloadInvoice = function(orderId) {
+    let iframe = document.getElementById('invoice-download-iframe');
+    if (iframe) {
+        iframe.remove();
+    }
+    iframe = document.createElement('iframe');
+    iframe.id = 'invoice-download-iframe';
+    iframe.style.position = 'absolute';
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.style.border = '0';
+    iframe.src = 'invoice.html?id=' + orderId + '&download=true';
+    document.body.appendChild(iframe);
+};
+
 /* Render Order Details Page */
 document.addEventListener("DOMContentLoaded", function () {
     // Render Order Info Banner
@@ -77,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="d-flex align-items-center gap-2">
                         <i class="fa-solid fa-circle-check text-success fs-5"></i>
                         <span class="text-success-emphasis fw-medium small">Your order has been delivered successfully</span>
-                        <i class="fa-solid fa-download text-success ms-auto cursor-pointer d-none d-md-block" style="cursor: pointer;" onclick="showToast('Downloading invoice...');"></i>
+                        <i class="fa-solid fa-download text-success ms-auto cursor-pointer d-none d-md-block" style="cursor: pointer;" onclick="downloadInvoice('${orderDetailsData.orderInfo.orderNumber}');"></i>
                     </div>
                     <span class="text-success fw-bold small ms-4">Delivered on ${orderDetailsData.timeline[orderDetailsData.timeline.length - 1].time}</span>
                 </div>
@@ -126,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </tbody>
                     </table>
                 </div>
-                <button class="btn btn-outline-primary w-100 mt-3 d-flex align-items-center justify-content-center gap-2 py-2 fw-bold" style="border-radius: 8px; font-size: 0.8rem;">
+                <button class="btn btn-outline-primary w-100 mt-3 d-flex align-items-center justify-content-center gap-2 py-2 fw-bold" onclick="downloadInvoice('${oi.orderNumber}');" style="border-radius: 8px; font-size: 0.8rem;">
                     <i class="fa-solid fa-download"></i> Download Invoice
                 </button>
             `;
