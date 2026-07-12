@@ -104,9 +104,12 @@
 
         @media (min-width: 992px) {
             .reel-card-wrapper {
-                flex: 0 0 calc(20% - 10px) !important;
-                min-width: calc(20% - 10px) !important;
-                max-width: calc(20% - 10px) !important;
+                flex: 0 0 calc(25% - 10px) !important;
+                min-width: calc(25% - 10px) !important;
+                max-width: calc(25% - 10px) !important;
+            }
+            .reel-card .position-relative {
+                height: 400px !important;
             }
         }
 
@@ -378,9 +381,9 @@
             <!-- Product Reel, Customer Review, Influencer Reel Section -->
             <div class="row mb-5">
                 <div class="col-12">
-                    <!-- Tab Navigation -->
-                    <div class="bg-white rounded-4 p-2 shadow-sm mb-4">
-                        <div class="d-flex gap-2">
+                    <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
+                        <!-- Tab Navigation -->
+                        <div class="d-flex gap-2 mb-4">
                             <button
                                 class="reel-tab-btn flex-grow-1 py-3 px-4 rounded-3 fw-semibold border-0 transition-all active"
                                 data-tab="product-reel" style="background-color: #0087F6; color: white;">
@@ -397,13 +400,11 @@
                                 <i class="fa-solid fa-video me-2"></i>Influencer Reel
                             </button>
                         </div>
-                    </div>
 
-                    <!-- Tab Content -->
-                    <div class="tab-content">
-                        <!-- Product Reel Tab -->
-                        <div class="tab-pane fade show active" id="product-reel">
-                            <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <!-- Product Reel Tab -->
+                            <div class="tab-pane fade show active" id="product-reel">
                                 <!-- Left Navigation Arrow -->
                                 <button
                                     class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
@@ -686,11 +687,9 @@
                                     <i class="fa-solid fa-chevron-right text-dark"></i>
                                 </button>
                             </div>
-                        </div>
 
                         <!-- Customer Reviews Tab -->
                         <div class="tab-pane fade" id="customer-review">
-                            <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
                                 <!-- Left Navigation Arrow -->
                                 <button
                                     class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
@@ -985,11 +984,9 @@
                                     <i class="fa-solid fa-chevron-right text-dark"></i>
                                 </button>
                             </div>
-                        </div>
 
                         <!-- Influencer Reel Tab -->
                         <div class="tab-pane fade" id="influencer-reel">
-                            <div class="bg-white rounded-3 p-4 shadow-sm position-relative">
                                 <!-- Left Navigation Arrow -->
                                 <button
                                     class="carousel-control-btn left-arrow border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center position-absolute"
@@ -1851,20 +1848,20 @@
                     this.style.transform = 'translateY(-50%) scale(1)';
                 });
             });
-            
+
             // Carousel Arrow Navigation
             const tabs = document.querySelectorAll('.tab-pane');
             tabs.forEach(tab => {
                 const scrollContainer = tab.querySelector('.reel-cards-scroll');
                 const leftArrow = tab.querySelector('.left-arrow');
                 const rightArrow = tab.querySelector('.right-arrow');
-                
+
                 if (scrollContainer && leftArrow && rightArrow) {
                     // Update arrows visibility based on scroll position
                     function updateArrows() {
                         const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
                         const currentScroll = scrollContainer.scrollLeft;
-                        
+
                         if (currentScroll <= 5) {
                             leftArrow.style.opacity = '0';
                             leftArrow.style.pointerEvents = 'none';
@@ -1872,7 +1869,7 @@
                             leftArrow.style.opacity = '1';
                             leftArrow.style.pointerEvents = 'auto';
                         }
-                        
+
                         if (currentScroll >= maxScroll - 5) {
                             rightArrow.style.opacity = '0';
                             rightArrow.style.pointerEvents = 'none';
@@ -1881,23 +1878,23 @@
                             rightArrow.style.pointerEvents = 'auto';
                         }
                     }
-                    
+
                     scrollContainer.addEventListener('scroll', updateArrows);
-                    
+
                     leftArrow.addEventListener('click', () => {
-                        scrollContainer.scrollBy({ left: -260, behavior: 'smooth' });
+                        scrollContainer.scrollBy({ left: -310, behavior: 'smooth' });
                     });
-                    
+
                     rightArrow.addEventListener('click', () => {
-                        scrollContainer.scrollBy({ left: 260, behavior: 'smooth' });
+                        scrollContainer.scrollBy({ left: 310, behavior: 'smooth' });
                     });
-                    
+
                     // Initial check
                     setTimeout(updateArrows, 150);
-                    
+
                     // Also check on window resize
                     window.addEventListener('resize', updateArrows);
-                    
+
                     // Observe active tab changes
                     const observer = new MutationObserver((mutations) => {
                         mutations.forEach((mutation) => {
