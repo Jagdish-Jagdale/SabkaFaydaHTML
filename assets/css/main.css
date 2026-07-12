@@ -2286,7 +2286,32 @@ select.profile-form-control {
 
 @media (max-width: 991px) {
     .orders-shell {
-        padding-top: 130px;
+        padding-top: 150px !important;
+    }
+
+    /* Attached mobile toggle row */
+    .orders-shell > .d-lg-none.d-flex {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        border-bottom: none !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        border-color: #e8eef8 !important;
+        box-shadow: none !important;
+    }
+
+    /* Attached row grid container */
+    .orders-shell > .row {
+        margin-top: 0 !important;
+    }
+
+    /* Attached content card */
+    .orders-shell .content-card {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        border-top: none !important;
+        box-shadow: 0 8px 32px rgba(0, 93, 255, 0.05) !important;
+        border-color: #e8eef8 !important;
     }
 
     .orders-sidebar {
