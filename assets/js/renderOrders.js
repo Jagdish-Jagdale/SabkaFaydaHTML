@@ -120,9 +120,11 @@ function renderOrders(ordersData) {
                 <div class="mobile-order-img-wrapper flex-shrink-0">
                     <img src="${order.image}" alt="${order.productName}" class="mobile-order-img">
                 </div>
-                <div class="mobile-order-info flex-grow-1">
+                <div class="mobile-order-info flex-grow-1" style="min-width: 0;">
                     <h4 class="mobile-product-title mb-1">${order.productName}</h4>
+                    <p class="mobile-product-desc mb-1">${order.productDesc}</p>
                     <span class="mobile-product-price">&#8377;${order.totalAmount}</span>
+                    <span class="mobile-product-qty d-block" style="font-size: 0.68rem; color: #6b7280; margin-top: 2px; font-weight: 500;">Qty: ${order.qty}</span>
                 </div>
             </div>
             
