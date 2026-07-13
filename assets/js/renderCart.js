@@ -23,8 +23,16 @@ function renderCart(cart) {
                 : `<span>${s}</span><br>`).join('')
             : '';
 
+        const cleanPrice = String(item.price).replace(/[₹,\s]/g, '');
+        const cleanOriginalPrice = String(item.originalPrice).replace(/[₹,\s]/g, '');
+        let cleanDiscount = item.discount;
+        const discountMatch = String(item.discount).match(/(\d+\s*%\s*off)/i);
+        if (discountMatch) {
+            cleanDiscount = discountMatch[1];
+        }
+
         html += `
-        <div class="row align-items-center py-2 ${borderClass} cart-item" data-price="${item.price.replace(/,/g, '')}" data-original-price="${item.originalPrice.replace(/,/g, '')}" data-id="${item.id}">
+        <div class="row align-items-center py-2 ${borderClass} cart-item" data-price="${cleanPrice}" data-original-price="${cleanOriginalPrice}" data-id="${item.id}">
             <div class="col-auto d-flex align-items-center justify-content-center">
                 <input type="checkbox" class="form-check-input cart-checkbox" checked style="width: 14px; height: 14px; cursor: pointer;" onchange="calculateTotals()">
             </div>
@@ -56,9 +64,9 @@ function renderCart(cart) {
                 </div>
                 <div class="d-flex align-items-center justify-content-between w-100 mt-1">
                     <div class="d-flex align-items-center gap-2">
-                        <h6 class="fw-bold text-dark mb-0 item-current-price" style="font-size: 0.9rem;">₹${item.price}</h6>
-                        <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.7rem;">₹ ${item.originalPrice}</span>
-                        <span class="badge bg-success bg-opacity-10 text-success px-1 py-0.5" style="font-size: 0.6rem;">${item.discount}</span>
+                        <h6 class="fw-bold text-dark mb-0 item-current-price" style="font-size: 0.9rem;">₹${cleanPrice}</h6>
+                        <span class="text-muted text-decoration-line-through style-original-price" style="font-size: 0.7rem;">₹ ${cleanOriginalPrice}</span>
+                        <span class="badge bg-success bg-opacity-10 text-success px-1 py-0.5" style="font-size: 0.6rem;">${cleanDiscount}</span>
                     </div>
                     <div>
                         <button class="btn btn-link text-danger p-0 border-0 btn-remove d-flex align-items-center gap-1" type="button" style="text-decoration: none;" onclick="removeCartItem(this, '${item.id}')">
