@@ -983,18 +983,16 @@ input[type=range]::-moz-range-thumb {
 
 
 #mainProductImage {
-    max-width: 92%;
-    max-height: 92%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .thumbnail-item img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    padding: 6px;
+    object-fit: cover;
+    padding: 0;
 }
 
 @media (min-width: 992px) {

@@ -34,41 +34,52 @@
     <script src="assets/js/cartUtils.js"></script>
 
     <style>
-        .card-icon-wishlist i, .card-icon-share i {
+        .card-icon-wishlist i,
+        .card-icon-share i {
             color: #6c757d !important;
             transition: color 0.3s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
+
         .card-icon-wishlist:hover i {
             color: #dc3545 !important;
             transform: scale(1.2);
         }
+
         .card-icon-share:hover i {
             color: #4b70f5 !important;
             transform: scale(1.2);
         }
+
         .product-card:hover .product-card-overlay {
             opacity: 1 !important;
         }
+
         .product-card:hover .product-wishlist-btn {
             opacity: 1 !important;
         }
+
         .product-card:hover .product-floating-actions {
             opacity: 1 !important;
         }
+
         @media (max-width: 767.98px) {
             .product-floating-actions {
                 opacity: 1 !important;
             }
         }
+
         .large-card-wishlist-btn {
             transition: color 0.3s ease;
         }
+
         .large-card-wishlist-btn:hover {
             color: #dc3545 !important;
         }
+
         .large-card-share-btn {
             transition: color 0.3s ease;
         }
+
         .large-card-share-btn:hover {
             color: #4b70f5 !important;
         }
@@ -91,66 +102,83 @@
 <body style="font-family: 'Roboto', sans-serif;">
 
     <!-- Header Placeholder -->
-    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+    <div id="header-placeholder">
+        <div class="skeleton-box skeleton-header"></div>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content" style="padding-top: 155px; min-height: 100vh;">
-        
+
         <!-- Product View Section -->
         <div class="container pb-5">
             <div class="row g-4">
-                
+
                 <!-- Left Column: Product Gallery -->
                 <div class="col-lg-6 sticky-gallery">
                     <!-- Breadcrumbs -->
                     <div class="py-3">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0" style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-                                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
-                                <li class="breadcrumb-item"><a href="category.html" class="text-decoration-none text-secondary">Category</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0)" class="text-decoration-none text-secondary">Fashion & Lifestyle</a></li>
-                                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">T-Shirts</li>
+                            <ol class="breadcrumb mb-0"
+                                style="font-size: 0.85rem; font-family: 'Montserrat', sans-serif; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                                <li class="breadcrumb-item"><a href="index.html"
+                                        class="text-decoration-none text-secondary">Home</a></li>
+                                <li class="breadcrumb-item"><a href="category.html"
+                                        class="text-decoration-none text-secondary">Category</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0)"
+                                        class="text-decoration-none text-secondary">Fashion & Lifestyle</a></li>
+                                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">T-Shirts
+                                </li>
                             </ol>
                         </nav>
                     </div>
 
                     <div class="d-flex flex-column-reverse flex-md-row gap-3">
                         <!-- Thumbnail list -->
-                        <div class="d-flex flex-row flex-md-column gap-2 overflow-auto scrollbar-none flex-shrink-0" id="thumbScroll">
-                            <div class="thumbnail-item active border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
+                        <div class="d-flex flex-row flex-md-column gap-2 overflow-auto scrollbar-none flex-shrink-0"
+                            id="thumbScroll">
+                            <div class="thumbnail-item active border rounded-4 overflow-hidden cursor-pointer bg-white"
+                                style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Side View">
                             </div>
-                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white"
+                                style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Angle View">
                             </div>
-                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white"
+                                style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Detail View">
                             </div>
-                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white"
+                                style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Scale Detail">
                             </div>
-                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white" style="width: 80px; height: 106px; flex-shrink: 0;">
+                            <div class="thumbnail-item border rounded-4 overflow-hidden cursor-pointer bg-white"
+                                style="width: 80px; height: 106px; flex-shrink: 0;">
                                 <img src="assets/img/homescreenimg.png" alt="Digital Scale Box View">
                             </div>
                         </div>
- 
+
                         <!-- Main Image -->
-                        <div class="flex-grow-1 rounded-4 overflow-hidden bg-white position-relative main-image-wrapper" style="border: 18px solid #dff2ff !important; border-radius: 12px !important;">
-                            <img src="assets/img/homescreenimg.png" id="mainProductImage" alt="Digital Personal Body Weight Scale">
-                            
+                        <div class="flex-grow-1 rounded-4 overflow-hidden bg-white position-relative main-image-wrapper"
+                            style="border: 18px solid #dff2ff !important; border-radius: 12px !important;">
+                            <img src="assets/img/homescreenimg.png" id="mainProductImage"
+                                alt="Digital Personal Body Weight Scale">
+
                             <!-- Share Icon (Always visible) -->
-                            <div class="position-absolute large-card-share-btn" style="top: 60px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div class="position-absolute large-card-share-btn"
+                                style="top: 60px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                 <i class="fa-regular fa-paper-plane"></i>
                             </div>
 
                             <!-- Top Right Wishlist Icon -->
-                            <div id="topRightWishlistBtn" class="position-absolute large-card-wishlist-btn" style="top: 15px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div id="topRightWishlistBtn" class="position-absolute large-card-wishlist-btn"
+                                style="top: 15px; right: 15px; z-index: 6; font-size: 1.4rem; cursor: pointer; color: #6c757d; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); background: rgba(255,255,255,0.8); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                 <i class="far fa-heart"></i>
                             </div>
                         </div>
                     </div>
                 </div>
- 
+
                 <!-- Right Column: Product Information -->
                 <div class="col-lg-6">
                     <!-- Spacer matching left column breadcrumbs height -->
@@ -170,29 +198,42 @@
             </div>
         </div>
 
-    <!-- Explore Similar Products Section -->
+        <!-- Explore Similar Products Section -->
         <div class="container pb-4">
             <div class="bg-white rounded-3 p-4 shadow-sm" style="border: 1px solid #eef2f5;">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Explore Similar Products</h3>
-                        <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">There products you may like similarly</p>
+                        <h3 class="fw-bold text-dark mb-1"
+                            style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Explore Similar Products
+                        </h3>
+                        <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">There products you may
+                            like similarly</p>
                     </div>
-                    <a id="similar-products-view-all" href="category.html?category=Fashion%20%26%20Lifestyle&subcategory=T-Shirts" class="view-all-arrow-btn text-decoration-none" style="background-color: #0087F6;"><i class="fas fa-arrow-right"></i></a>
+                    <a id="similar-products-view-all"
+                        href="category.html?category=Fashion%20%26%20Lifestyle&subcategory=T-Shirts"
+                        class="view-all-arrow-btn text-decoration-none" style="background-color: #0087F6;"><i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
-                
+
                 <div class="position-relative">
-                    <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 carousel-left p-0 border-0 bg-transparent" style="display: none; left: -18px !important;">
-                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                    <button
+                        class="btn position-absolute top-50 start-0 translate-middle-y z-3 carousel-left p-0 border-0 bg-transparent"
+                        style="display: none; left: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm"
+                            style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
                             <i class="fas fa-chevron-left fs-6"></i>
                         </div>
                     </button>
-                    <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 carousel-right p-0 border-0 bg-transparent" style="right: -18px !important;">
-                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                    <button
+                        class="btn position-absolute top-50 end-0 translate-middle-y z-3 carousel-right p-0 border-0 bg-transparent"
+                        style="right: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm"
+                            style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
                             <i class="fas fa-chevron-right fs-6"></i>
                         </div>
                     </button>
-                    <div id="similar-products-container" class="d-flex gap-3 overflow-auto hide-scroll pb-2" style="scroll-behavior: smooth;"></div>
+                    <div id="similar-products-container" class="d-flex gap-3 overflow-auto hide-scroll pb-2"
+                        style="scroll-behavior: smooth;"></div>
                 </div>
             </div>
         </div>
@@ -202,24 +243,36 @@
             <div class="bg-white rounded-3 p-4 shadow-sm" style="border: 1px solid #eef2f5;">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <h3 class="fw-bold text-dark mb-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Peoples Looking for these Products</h3>
-                        <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">lots of people buying those</p>
+                        <h3 class="fw-bold text-dark mb-1"
+                            style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">Peoples Looking for these
+                            Products</h3>
+                        <p class="text-muted mb-0" style="font-size: 0.85rem; font-weight: 500;">lots of people buying
+                            those</p>
                     </div>
-                    <a id="peoples-products-view-all" href="category.html?category=All%20Category" class="view-all-arrow-btn text-decoration-none" style="background-color: #0087F6;"><i class="fas fa-arrow-right"></i></a>
+                    <a id="peoples-products-view-all" href="category.html?category=All%20Category"
+                        class="view-all-arrow-btn text-decoration-none" style="background-color: #0087F6;"><i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
-                
+
                 <div class="position-relative">
-                    <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 carousel-left p-0 border-0 bg-transparent" style="display: none; left: -18px !important;">
-                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                    <button
+                        class="btn position-absolute top-50 start-0 translate-middle-y z-3 carousel-left p-0 border-0 bg-transparent"
+                        style="display: none; left: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm"
+                            style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
                             <i class="fas fa-chevron-left fs-6"></i>
                         </div>
                     </button>
-                    <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 carousel-right p-0 border-0 bg-transparent" style="right: -18px !important;">
-                        <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                    <button
+                        class="btn position-absolute top-50 end-0 translate-middle-y z-3 carousel-right p-0 border-0 bg-transparent"
+                        style="right: -18px !important;">
+                        <div class="d-flex align-items-center justify-content-center shadow-sm"
+                            style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
                             <i class="fas fa-chevron-right fs-6"></i>
                         </div>
                     </button>
-                    <div id="peoples-products-container" class="d-flex gap-3 overflow-auto hide-scroll pb-2" style="scroll-behavior: smooth;"></div>
+                    <div id="peoples-products-container" class="d-flex gap-3 overflow-auto hide-scroll pb-2"
+                        style="scroll-behavior: smooth;"></div>
                 </div>
             </div>
         </div>
@@ -227,7 +280,9 @@
     </div>
 
     <!-- Footer Placeholder -->
-    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+    <div id="footer-placeholder">
+        <div class="skeleton-box skeleton-footer"></div>
+    </div>
 
     <!-- Include Floating WhatsApp -->
     <div id="whatsapp-float-placeholder"></div>
@@ -278,7 +333,7 @@
                 const activeSizeBtn = document.querySelector('.size-btn.active');
                 const selectedSize = activeSizeBtn ? activeSizeBtn.textContent.trim() : '';
                 const productId = selectedSize ? productDetailsData.product.sku + '_' + selectedSize : productDetailsData.product.sku;
-                
+
                 if (isProductInCart(productId)) {
                     addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
                     addToCartBtn.classList.add('go-to-cart');
@@ -290,7 +345,7 @@
             const mainImg = document.getElementById('mainProductImage');
 
             thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', function() {
+                thumb.addEventListener('click', function () {
                     thumbnails.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
                     const newSrc = this.querySelector('img').getAttribute('src');
@@ -301,16 +356,16 @@
             // Size button selector interaction
             const sizeBtns = document.querySelectorAll('.size-btn');
             sizeBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     sizeBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     // Update button based on selected size
                     const addToCartBtn = document.getElementById('addToCartBtn');
                     if (addToCartBtn && typeof isProductInCart === 'function') {
                         const selectedSize = this.textContent.trim();
                         const productId = productDetailsData.product.sku + '_' + selectedSize;
-                        
+
                         if (isProductInCart(productId)) {
                             addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
                             addToCartBtn.classList.add('go-to-cart');
@@ -329,11 +384,11 @@
             const tabContentSpecification = document.getElementById('tabContentSpecification');
 
             if (descriptionTabBtn && specificationTabBtn && tabContentDescription && tabContentSpecification) {
-                descriptionTabBtn.addEventListener('click', function() {
+                descriptionTabBtn.addEventListener('click', function () {
                     // Activate Description Tab Button
                     descriptionTabBtn.classList.remove('bg-light', 'text-secondary');
                     descriptionTabBtn.classList.add('bg-primary', 'text-white', 'border-primary', 'active');
-                    
+
                     // Deactivate Specification Tab Button
                     specificationTabBtn.classList.remove('bg-primary', 'text-white', 'border-primary', 'active');
                     specificationTabBtn.classList.add('bg-light', 'text-secondary');
@@ -343,11 +398,11 @@
                     tabContentSpecification.classList.add('d-none');
                 });
 
-                specificationTabBtn.addEventListener('click', function() {
+                specificationTabBtn.addEventListener('click', function () {
                     // Activate Specification Tab Button
                     specificationTabBtn.classList.remove('bg-light', 'text-secondary');
                     specificationTabBtn.classList.add('bg-primary', 'text-white', 'border-primary', 'active');
-                    
+
                     // Deactivate Description Tab Button
                     descriptionTabBtn.classList.remove('bg-primary', 'text-white', 'border-primary', 'active');
                     descriptionTabBtn.classList.add('bg-light', 'text-secondary');
@@ -376,7 +431,7 @@
                 seeMoreLessText.textContent = "see more";
                 seeMoreLessIcon.className = "fas fa-chevron-down";
 
-                seeMoreLessBtn.addEventListener('click', function(e) {
+                seeMoreLessBtn.addEventListener('click', function (e) {
                     e.preventDefault();
                     if (isCollapsed) {
                         // Expand
@@ -400,14 +455,14 @@
             const qtyInput = document.getElementById('qtyInput');
 
             if (qtyDecreaseBtn && qtyIncreaseBtn && qtyInput) {
-                qtyDecreaseBtn.addEventListener('click', function() {
+                qtyDecreaseBtn.addEventListener('click', function () {
                     let currentVal = parseInt(qtyInput.value);
                     if (!isNaN(currentVal) && currentVal > 1) {
                         qtyInput.value = currentVal - 1;
                     }
                 });
 
-                qtyIncreaseBtn.addEventListener('click', function() {
+                qtyIncreaseBtn.addEventListener('click', function () {
                     let currentVal = parseInt(qtyInput.value);
                     if (!isNaN(currentVal)) {
                         qtyInput.value = currentVal + 1;
@@ -421,7 +476,7 @@
             const detailsAccordionIcon = document.getElementById('detailsAccordionIcon');
 
             if (detailsAccordionHeader && detailsAccordionContent && detailsAccordionIcon) {
-                detailsAccordionHeader.addEventListener('click', function() {
+                detailsAccordionHeader.addEventListener('click', function () {
                     if (detailsAccordionContent.classList.contains('d-none')) {
                         detailsAccordionContent.classList.remove('d-none');
                         detailsAccordionIcon.className = "fas fa-chevron-up";
@@ -438,7 +493,7 @@
             const reviewsAccordionIcon = document.getElementById('reviewsAccordionIcon');
 
             if (reviewsAccordionHeader && reviewsSectionContent && reviewsAccordionIcon) {
-                reviewsAccordionHeader.addEventListener('click', function() {
+                reviewsAccordionHeader.addEventListener('click', function () {
                     if (reviewsSectionContent.classList.contains('d-none')) {
                         reviewsSectionContent.classList.remove('d-none');
                         reviewsAccordionIcon.className = "fas fa-chevron-up";
@@ -454,7 +509,7 @@
                 const toastEl = document.getElementById('action-toast');
                 const toastBody = document.getElementById('toast-body-content');
                 if (!toastEl || !toastBody) return;
-                
+
                 if (isSuccess) {
                     toastEl.classList.remove('text-bg-danger');
                     toastEl.classList.add('text-bg-success');
@@ -470,7 +525,7 @@
             }
 
             // Event Delegation for dynamically rendered Add to Cart & Wishlist buttons
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 // Add to Cart
                 const addToCartBtn = e.target.closest('#addToCartBtn');
                 if (addToCartBtn) {
@@ -478,15 +533,15 @@
                         window.location.href = 'mycart.html';
                         return;
                     }
-                    
+
                     const qtyInput = document.getElementById('qtyInput');
                     const qty = qtyInput ? parseInt(qtyInput.value) : 1;
                     const productName = productDetailsData.product.title;
-                    
+
                     // Get selected size
                     const activeSizeBtn = document.querySelector('.size-btn.active');
                     const selectedSize = activeSizeBtn ? activeSizeBtn.textContent.trim() : '';
-                    
+
                     // Prepare product object for cart
                     const productForCart = {
                         id: selectedSize ? productDetailsData.product.sku + '_' + selectedSize : productDetailsData.product.sku,
@@ -498,13 +553,13 @@
                         specs: productDetailsData.product.specifications ? productDetailsData.product.specifications.map(spec => spec.value) : [],
                         size: selectedSize
                     };
-                    
+
                     // Add to cart using localStorage
                     addToCart(productForCart, qty);
-                    
+
                     // Update cart count in header
                     updateCartCount();
-                    
+
                     // Change label to Go to Cart and add a class
                     addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
                     addToCartBtn.classList.add('go-to-cart');
@@ -516,10 +571,10 @@
                 if (addToWishlistBtn || topRightWishlistBtn) {
                     e.preventDefault();
                     const productName = productDetailsData.product.title;
-                    
+
                     const topIcon = document.querySelector('#topRightWishlistBtn i');
                     const bottomIcon = document.querySelector('#addToWishlistBtn i');
-                    
+
                     const clickedIcon = (addToWishlistBtn || topRightWishlistBtn).querySelector('i');
                     if (clickedIcon) {
                         if (clickedIcon.classList.contains('far')) {
@@ -540,13 +595,16 @@
     </script>
 
     <!-- Notification Toast System -->
-    <div class="toast-container position-fixed top-0 end-0 p-3 mobile-bottom-toast" style="z-index: 1100; margin-top: 90px;">
-        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-container position-fixed top-0 end-0 p-3 mobile-bottom-toast"
+        style="z-index: 1100; margin-top: 90px;">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body fw-semibold" id="toast-body-content">
                     Action successful!
                 </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
             </div>
         </div>
     </div>
@@ -561,10 +619,12 @@
                 </div>
                 <div class="modal-body">
                     <ul class="list-unstyled mb-0">
-                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Pay cash when your order arrives</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Pay cash when your order arrives
+                        </li>
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>No advance payment required</li>
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Available for most pin codes</li>
-                        <li class="mb-0"><i class="fas fa-check text-success me-2"></i>Easy and secure payment method</li>
+                        <li class="mb-0"><i class="fas fa-check text-success me-2"></i>Easy and secure payment method
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -583,10 +643,13 @@
                     <ul class="list-unstyled mb-0">
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free shipping on all orders</li>
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Fast and reliable delivery</li>
-                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Track your order in real-time</li>
-                        <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Delivery within 5-7 business days</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Track your order in real-time
+                        </li>
+                        <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Delivery within 5-7 business days
+                        </li>
                     </ul>
-                    <a href="shipping.html" class="text-primary text-decoration-none fw-semibold">Read more <i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="shipping.html" class="text-primary text-decoration-none fw-semibold">Read more <i
+                            class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -603,11 +666,13 @@
                 <div class="modal-body">
                     <ul class="list-unstyled mb-0">
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Easy return policy</li>
-                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free returns for defective products</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Free returns for defective
+                            products</li>
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Quick refund processing</li>
                         <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Hassle-free return process</li>
                     </ul>
-                    <a href="return-policy.html" class="text-primary text-decoration-none fw-semibold">Read more <i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="return-policy.html" class="text-primary text-decoration-none fw-semibold">Read more <i
+                            class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -621,4 +686,5 @@
         }
     </script>
 </body>
+
 </html>
