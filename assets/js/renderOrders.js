@@ -112,7 +112,6 @@ function renderOrders(ordersData) {
             </div>
             <div class="order-status-panel">
                 <span class="status-pill ${order.statusClass}">${order.status} <i class="fa-solid ${order.statusIcon}"></i></span>
-                ${order.status.toLowerCase() === 'delivered' ? '<i class="fa-solid fa-download text-success ms-2 cursor-pointer" style="cursor: pointer;" title="Download Invoice" onclick="event.stopPropagation(); downloadInvoice(\'' + order.id + '\');"></i>' : ''}
                 <p>${order.statusDateLabel}</p>
                 <strong>${order.statusDate}</strong>
                 <div class="d-flex align-items-center gap-1"><span>Total Amount:</span> <b class="m-0">&#8377;${order.totalAmount}</b></div>
@@ -160,12 +159,6 @@ function renderOrders(ordersData) {
                             <span class="meta-value">${order.paymentMethod}</span>
                         </div>
                     </div>
-                </div>
-                ${order.status.toLowerCase() === 'delivered' ? `
-                <button class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center mobile-download-btn" onclick="event.stopPropagation(); downloadInvoice('${order.id}');" style="width: 36px; height: 36px; padding: 0; border-color: #0087F6; color: #0087F6;" title="Download Invoice">
-                    <i class="fa-solid fa-download" style="font-size: 0.95rem;"></i>
-                </button>
-                ` : ''}
             </div>
         </article>
         `;

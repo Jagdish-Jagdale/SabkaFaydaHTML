@@ -125,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="d-flex align-items-center gap-2">
                         <i class="fa-solid fa-circle-check text-success fs-5"></i>
                         <span class="text-success-emphasis fw-medium small">Your order has been delivered successfully</span>
-                        <i class="fa-solid fa-download text-success ms-auto cursor-pointer d-none d-md-block" style="cursor: pointer;" onclick="downloadInvoice('${orderDetailsData.orderInfo.orderNumber}');"></i>
                     </div>
                     <span class="text-success fw-bold small ms-4">Delivered on ${orderDetailsData.timeline[orderDetailsData.timeline.length - 1].time}</span>
                 </div>
