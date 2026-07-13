@@ -31,10 +31,70 @@
     <link rel="preload" href="assets/js/mockCategories.js" as="script">
 
 
-    <!-- Preload Dynamic Components -->
-    <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
-    <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
+    <!-- Style overrides for mobile layout of wallet history card -->
+    <style>
+        @media (max-width: 768px) {
+            .wallet-history-card {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr;
+                padding: 15px !important;
+                gap: 10px !important;
+            }
+            .wallet-history-card > div {
+                padding: 0 !important;
+                border: none !important;
+                min-width: unset !important;
+                width: auto !important;
+            }
+            /* Div 1: Left side order id + date/time */
+            .wallet-history-card > div:nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border-right: none !important;
+                padding-right: 0 !important;
+            }
+            /* Div 2: Hide labels on mobile */
+            .wallet-history-card > div:nth-child(2) {
+                display: none !important;
+            }
+            /* Div 3: Right side rupees & points */
+            .wallet-history-card > div:nth-child(3) {
+                grid-column: 2;
+                grid-row: 1;
+                text-align: right !important;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                padding-left: 0 !important;
+            }
+            /* Div 4: View details button whole width at bottom */
+            .wallet-history-card > div:nth-child(4) {
+                grid-column: span 2;
+                grid-row: 2;
+                margin-top: 10px;
+                padding-top: 12px !important;
+                border-top: 1px solid #f1f5f9 !important;
+                width: 100% !important;
+                text-align: center !important;
+                padding-left: 0 !important;
+            }
+            .wallet-history-card > div:nth-child(4) button {
+                width: 100% !important;
+                display: block !important;
+                background-color: transparent !important;
+                color: #0087F6 !important;
+                padding: 10px 16px !important;
+                text-align: center;
+                border: none !important;
+                font-weight: 700 !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="orders-page">
@@ -429,9 +489,6 @@
             txItem.className = 'wallet-history-card';
             txItem.innerHTML = `
                 <div class="d-flex align-items-center gap-3 border-end pe-4 flex-grow-1 flex-md-grow-0" style="min-width: 240px;">
-                    <div class="rounded-circle d-flex align-items-center justify-content-center bg-danger bg-opacity-10 text-danger" style="width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0;">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                    </div>
                     <div>
                         <h6 class="fw-bold mb-1 text-dark">Redeem Transfer</h6>
                         <span class="text-muted" style="font-size: 0.72rem; font-weight: 500;">Just now</span>
@@ -450,7 +507,7 @@
                     </span>
                 </div>
                 <div class="ps-4 text-end flex-grow-1 flex-md-grow-0">
-                    <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="viewTxDetails('${methodText}', 'Just now', 'Redeemed Out', '-₹ ${amount.toFixed(0)}', '0 Points')">View Details</button>
+                    <button class="btn btn-link text-primary fw-bold text-decoration-none p-0" style="font-size: 0.85rem;" onclick="event.stopPropagation(); viewTxDetails('${methodText}', 'Just now', 'Redeemed Out', '-₹ ${amount.toFixed(0)}', '0 Points')">View Details</button>
                 </div>
             `;
             walletHistoryContainer.insertBefore(txItem, walletHistoryContainer.firstChild);
