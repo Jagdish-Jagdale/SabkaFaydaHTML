@@ -151,6 +151,12 @@
             .d-print-none {
                 display: none !important;
             }
+
+            /* Prevent elements from breaking across pages when printing */
+            .row, .invoice-card, .table-responsive, .col-4, .col-6, .support-info-item, .footer-section-title, .footer-section-list {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
         }
     </style>
 </head>
@@ -585,7 +591,8 @@
                         filename: 'Invoice_' + (order ? order.id : '63826479595') + '.pdf',
                         image: { type: 'jpeg', quality: 0.98 },
                         html2canvas: { scale: 2, useCORS: true, logging: false },
-                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                        pagebreak: { mode: ['avoid-all', 'css'] }
                     };
 
                     // Generate and download the PDF
