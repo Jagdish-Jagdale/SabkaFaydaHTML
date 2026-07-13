@@ -90,7 +90,7 @@ function renderHomePage(data) {
                     grid-template-rows: 1fr !important;
                 }
                 .keep-shopping-small-img {
-                    height: 110px !important;
+                    height: 140px !important;
                 }
                 #homeContent > .container {
                     margin-bottom: 15px !important;
@@ -273,7 +273,7 @@ function renderHomePage(data) {
                                         <li>Wearables</li>
                                     </ul>
                                 </div>
-                                <img src="assets/img/homescreenimg.png" class="position-absolute top-0 end-0 z-1 pe-2 pt-2" alt="Woman" style="width: 50%; height: auto; max-width: 220px; object-fit: contain;" ${imgAttrs(30 + sectionIndex * 10)}>
+                                <img src="assets/img/homescreenimg copy.png" class="position-absolute top-0 end-0 z-1 pe-2 pt-2" alt="Woman" style="width: 50%; height: auto; max-width: 220px; object-fit: contain;" ${imgAttrs(30 + sectionIndex * 10)}>
                                 <div class="mt-auto z-2 w-100 text-end text-md-center position-absolute bottom-0 start-0 pe-none">
                                     <img src="assets/img/electronicimg.png" class="object-fit-contain electronics-gadgets-img" alt="Electronics" ${imgAttrs(31 + sectionIndex * 10)}>
                                 </div>
