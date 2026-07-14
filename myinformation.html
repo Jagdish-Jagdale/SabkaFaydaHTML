@@ -64,23 +64,53 @@
                 <div class="overflow-hidden profile-main-card">
 
                     <!-- Welcome Banner -->
-                    <div class="welcome-banner d-flex align-items-center gap-3 px-4 py-4 position-relative overflow-hidden">
-                        <!-- Editable Avatar -->
-                        <div class="position-relative" style="flex-shrink:0;">
-                            <div class="welcome-avatar rounded-circle d-flex align-items-center justify-content-center" id="avatarPreview">
-                                <i class="fa-solid fa-user" id="avatarIcon"></i>
-                                <img id="avatarImg" src="" alt="Profile" class="d-none" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                    <div class="welcome-banner d-flex align-items-center justify-content-between px-4 py-4 position-relative">
+                        <div class="d-flex align-items-center gap-3">
+                            <!-- Editable Avatar -->
+                            <div class="position-relative" style="flex-shrink:0;">
+                                <div class="welcome-avatar rounded-circle d-flex align-items-center justify-content-center" id="avatarPreview">
+                                    <i class="fa-solid fa-user" id="avatarIcon"></i>
+                                    <img id="avatarImg" src="" alt="Profile" class="d-none" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                                </div>
+                                <!-- Edit overlay button -->
+                                <label for="avatarInput" id="avatarEditLabel" title="Change photo" class="d-none"
+                                    style="position:absolute; bottom:0; right:0; background:#0087F6; color:#fff; border:2px solid #fff; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:0.65rem; box-shadow:0 2px 6px rgba(0,0,0,.2);">
+                                    <i class="fa-solid fa-pen"></i>
+                                </label>
+                                <input type="file" id="avatarInput" accept="image/*" class="d-none" onchange="previewAvatar(event)">
                             </div>
-                            <!-- Edit overlay button -->
-                            <label for="avatarInput" title="Change photo"
-                                style="position:absolute; bottom:0; right:0; background:#0087F6; color:#fff; border:2px solid #fff; border-radius:50%; width:26px; height:26px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:0.65rem; box-shadow:0 2px 6px rgba(0,0,0,.2);">
-                                <i class="fa-solid fa-pen"></i>
-                            </label>
-                            <input type="file" id="avatarInput" accept="image/*" class="d-none" onchange="previewAvatar(event)">
+                            <div>
+                                <p class="mb-0 fw-medium text-secondary" style="font-size:.85rem;">Welcome,</p>
+                                <h2 class="mb-0 fw-bold" id="displayUserName" style="font-size:1.5rem; color:#1a1a2e;">User</h2>
+                            </div>
                         </div>
-                        <div>
-                            <p class="mb-0 fw-medium text-secondary" style="font-size:.85rem;">Welcome,</p>
-                            <h2 class="mb-0 fw-bold" id="displayUserName" style="font-size:1.5rem; color:#1a1a2e;">User</h2>
+
+                        <!-- Action Area (Save Button & Dropdown) -->
+                        <div class="d-flex align-items-center gap-2" style="z-index: 10;">
+                            <!-- Save Changes Button -->
+                            <button type="submit" form="profile-form" class="btn btn-primary btn-sm py-2 px-3 fw-semibold d-none" id="btn-save-info" style="border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; background: #0087F6; border-color: #0087F6; box-shadow: 0 2px 6px rgba(0, 135, 246, 0.2);">
+                                <i class="fa-solid fa-floppy-disk me-1"></i> Save
+                            </button>
+
+                            <!-- Action Dropdown (Three Dots) -->
+                            <div class="dropdown">
+                                <button class="btn btn-link text-secondary p-2 border-0" type="button" id="profileActionsDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="box-shadow: none; outline: none;">
+                                    <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border" aria-labelledby="profileActionsDropdown">
+                                    <li>
+                                        <button class="dropdown-item py-2" type="button" onclick="enableProfileEdit()" style="font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600;">
+                                            <i class="fa-solid fa-user-pen me-2 text-primary"></i> Edit Profile
+                                        </button>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <button class="dropdown-item py-2 text-danger" type="button" onclick="showDeleteAccountModal()" style="font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600;">
+                                            <i class="fa-solid fa-trash me-2"></i> Delete Account
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -92,21 +122,21 @@
                                     <label class="form-label fw-semibold small text-secondary" for="firstName">First Name <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="firstName"
                                         placeholder="Enter your first name" value="" maxlength="50"
-                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" disabled>
                                     <div class="invalid-feedback-custom d-none" id="err-firstName"></div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small text-secondary" for="lastName">Last Name <span class="text-danger">*</span></label>
                                     <input type="text" class="profile-form-control" id="lastName"
                                         placeholder="Enter your last name" value="" maxlength="50"
-                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                        oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" disabled>
                                     <div class="invalid-feedback-custom d-none" id="err-lastName"></div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold small text-secondary" for="gender">Gender</label>
-                                <select class="profile-form-control" id="gender">
+                                <select class="profile-form-control" id="gender" disabled>
                                     <option value="" selected disabled>Select your gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -119,20 +149,17 @@
                                 <label class="form-label fw-semibold small text-secondary" for="mobile">Mobile Number <span class="text-danger">*</span></label>
                                 <input type="tel" class="profile-form-control" id="mobile"
                                     placeholder="Enter 10-digit mobile number (starts with 6-9)" value="" maxlength="10"
-                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" disabled>
                                 <div class="invalid-feedback-custom d-none" id="err-mobile"></div>
                             </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-semibold small text-secondary" for="email">Email Address <span class="text-danger">*</span></label>
                                 <input type="email" class="profile-form-control" id="email"
-                                    placeholder="Enter your email address" value="">
+                                    placeholder="Enter your email address" value="" disabled>
                                 <div class="invalid-feedback-custom d-none" id="err-email"></div>
                             </div>
 
-                            <button type="submit" class="btn-profile-save" id="btn-save-info">
-                                <i class="fa-solid fa-floppy-disk me-2"></i>Save Changes
-                            </button>
                         </form>
                     </div>
 
@@ -164,6 +191,29 @@
                     <i class="fa-solid fa-circle-check me-2"></i>Saved successfully!
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Account Confirmation Modal -->
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+            <div class="modal-content border-0 shadow" style="border-radius: 16px;">
+                <div class="modal-header border-0 pt-4 px-4 pb-0">
+                    <h5 class="modal-title fw-bold text-danger d-flex align-items-center gap-2" id="deleteAccountModalLabel" style="font-size: 1.15rem;">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Delete Account
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <p class="text-secondary small mb-0" style="line-height: 1.6;">
+                        Are you sure you want to delete your account? This action is permanent and cannot be undone. All your orders, wallet balance, and wishlist items will be permanently removed.
+                    </p>
+                </div>
+                <div class="modal-footer border-0 pb-4 px-4 pt-0 gap-2">
+                    <button type="button" class="btn btn-light flex-grow-1 py-2 fw-semibold" data-bs-dismiss="modal" style="border-radius: 8px; font-size: 0.85rem;">Cancel</button>
+                    <button type="button" class="btn btn-danger flex-grow-1 py-2 fw-semibold" onclick="confirmDeleteAccount()" style="border-radius: 8px; font-size: 0.85rem;">Delete Permanent</button>
+                </div>
             </div>
         </div>
     </div>
@@ -304,9 +354,69 @@
 
             if (hasError) return;
 
+            // Save user back to session
+            if (typeof getAuthUser === 'function') {
+                const user = getAuthUser() || {};
+                user.name = firstName + (lastName ? ' ' + lastName : '');
+                user.mobile = mobile;
+                user.email = email;
+                user.gender = gender;
+                localStorage.setItem('sf_auth_user', JSON.stringify(user));
+                document.getElementById('displayUserName').textContent = firstName;
+            }
+
+            disableProfileEdit();
+
             document.getElementById('toast-msg').innerHTML =
                 '<i class="fa-solid fa-circle-check me-2"></i>Profile saved successfully!';
             new bootstrap.Toast(document.getElementById('save-toast'), { delay: 3000 }).show();
+        }
+
+        /* Profile Editing Control Logic */
+        let isEditMode = false;
+
+        function enableProfileEdit() {
+            isEditMode = true;
+            document.getElementById('firstName').removeAttribute('disabled');
+            document.getElementById('lastName').removeAttribute('disabled');
+            document.getElementById('gender').removeAttribute('disabled');
+            document.getElementById('mobile').removeAttribute('disabled');
+            document.getElementById('email').removeAttribute('disabled');
+            document.getElementById('btn-save-info').classList.remove('d-none');
+            document.getElementById('avatarEditLabel').classList.remove('d-none');
+        }
+
+        function disableProfileEdit() {
+            isEditMode = false;
+            document.getElementById('firstName').setAttribute('disabled', 'true');
+            document.getElementById('lastName').setAttribute('disabled', 'true');
+            document.getElementById('gender').setAttribute('disabled', 'true');
+            document.getElementById('mobile').setAttribute('disabled', 'true');
+            document.getElementById('email').setAttribute('disabled', 'true');
+            document.getElementById('btn-save-info').classList.add('d-none');
+            document.getElementById('avatarEditLabel').classList.add('d-none');
+        }
+
+        function showDeleteAccountModal() {
+            const modalEl = document.getElementById('deleteAccountModal');
+            const modal = new bootstrap.Modal(modalEl);
+            modal.show();
+        }
+
+        function confirmDeleteAccount() {
+            localStorage.removeItem('sf_auth_user');
+            
+            const modalEl = document.getElementById('deleteAccountModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+            
+            document.getElementById('toast-msg').innerHTML =
+                '<i class="fa-solid fa-circle-check me-2"></i>Account deleted successfully!';
+            new bootstrap.Toast(document.getElementById('save-toast'), { delay: 2000 }).show();
+            
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
         }
 
         /* Populate user data if logged in */
@@ -318,11 +428,20 @@
                         document.getElementById('mobile').value = user.mobile;
                     }
                     if (user.name) {
-                        document.getElementById('displayUserName').textContent = user.name;
-                        document.getElementById('firstName').value = user.name;
+                        document.getElementById('displayUserName').textContent = user.name.split(' ')[0];
+                        const parts = user.name.split(' ');
+                        document.getElementById('firstName').value = parts[0] || '';
+                        document.getElementById('lastName').value = parts.slice(1).join(' ') || '';
+                    }
+                    if (user.gender) {
+                        document.getElementById('gender').value = user.gender;
+                    }
+                    if (user.email) {
+                        document.getElementById('email').value = user.email;
                     }
                 }
             }
+            disableProfileEdit();
         });
     </script>
 </body>

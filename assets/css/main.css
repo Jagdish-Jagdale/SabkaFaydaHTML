@@ -1324,6 +1324,13 @@ input[type=range]::-moz-range-thumb {
     appearance: none;
 }
 
+.profile-form-control:disabled {
+    background-color: #f8fafc;
+    color: #64748b;
+    border-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
 .profile-form-control:focus {
     border-color: #0087F6;
     box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.12);
@@ -3027,7 +3034,6 @@ select.profile-form-control {
 
 @media (min-width: 992px) {
     .profile-main-card {
-        min-height: 625px;
         display: flex;
         flex-direction: column;
     }
@@ -4504,4 +4510,19 @@ a {
 .testimonial-card:hover .quote-icon {
     transform: scale(1.15) rotate(-5deg);
     opacity: 0.15;
+}
+
+/* Custom Dropdown Item Overrides */
+.dropdown-item:hover, 
+.dropdown-item:focus, 
+.dropdown-item:active {
+    background-color: #e8f3ff !important;
+    color: #0087F6 !important;
+}
+
+.dropdown-item.text-danger:hover, 
+.dropdown-item.text-danger:focus, 
+.dropdown-item.text-danger:active {
+    background-color: #fee2e2 !important;
+    color: #dc2626 !important;
 }
