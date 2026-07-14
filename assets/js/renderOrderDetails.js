@@ -309,9 +309,41 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="mb-3 small" style="font-size: 0.8rem; line-height: 1.5;">
                     <p class="fw-bold mb-1 text-dark">${da.name}</p>
                     <p class="text-secondary mb-3"><i class="fa-solid fa-phone me-1 opacity-75"></i> ${da.phone}</p>
-                    <p class="text-secondary mb-0">${da.address.replace(/,/g, ',<br>')}</p>
+                    <div class="position-relative">
+                        <p id="addressText" class="text-secondary mb-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; max-height: 4.5em; transition: max-height 0.3s ease;">
+                            ${da.address.replace(/,/g, ',<br>')}
+                        </p>
+                        <button id="toggleAddressBtn" class="btn btn-link p-0 text-primary fw-semibold text-decoration-none d-none" style="font-size: 0.75rem; margin-top: 4px;">
+                            Show More
+                        </button>
+                    </div>
                 </div>
             `;
+
+            // Add expand/collapse logic
+            setTimeout(() => {
+                const addrEl = document.getElementById('addressText');
+                const btnEl = document.getElementById('toggleAddressBtn');
+                if (addrEl && btnEl) {
+                    if (addrEl.scrollHeight > addrEl.clientHeight) {
+                        btnEl.classList.remove('d-none');
+                        btnEl.addEventListener('click', () => {
+                            const isCollapsed = addrEl.style.webkitLineClamp === '3' || addrEl.style.webkitLineClamp === '';
+                            if (isCollapsed) {
+                                addrEl.style.display = 'block';
+                                addrEl.style.maxHeight = 'none';
+                                addrEl.style.webkitLineClamp = 'unset';
+                                btnEl.textContent = 'Show Less';
+                            } else {
+                                addrEl.style.display = '-webkit-box';
+                                addrEl.style.maxHeight = '4.5em';
+                                addrEl.style.webkitLineClamp = '3';
+                                btnEl.textContent = 'Show More';
+                            }
+                        });
+                    }
+                }
+            }, 50);
         }
     }
 
