@@ -22,6 +22,42 @@ document.addEventListener("DOMContentLoaded", function () {
         if (productInfoContainer && productDetailsData.product) {
             const p = productDetailsData.product;
             
+            // Dynamically update Breadcrumbs
+            const breadcrumbContainer = document.querySelector('.breadcrumb');
+            if (breadcrumbContainer) {
+                breadcrumbContainer.innerHTML = `
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
+                    <li class="breadcrumb-item"><a href="category.html" class="text-decoration-none text-secondary">Category</a></li>
+                    <li class="breadcrumb-item"><a href="category.html?category=${encodeURIComponent(p.category)}" class="text-decoration-none text-secondary">${p.category}</a></li>
+                    ${p.subcategory ? `<li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">${p.subcategory}</li>` : `<li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">${p.title}</li>`}
+                `;
+            }
+
+            // Dynamically update Gallery
+            const thumbScroll = document.getElementById('thumbScroll');
+            const mainImg = document.getElementById('mainProductImage');
+            if (thumbScroll && mainImg && p.images && p.images.length > 0) {
+                mainImg.setAttribute('src', p.images[0]);
+                mainImg.setAttribute('alt', p.title);
+                thumbScroll.innerHTML = p.images.map((img, idx) => `
+                    <div class="thumbnail-item ${idx === 0 ? 'active' : ''} border rounded-4 overflow-hidden cursor-pointer bg-white"
+                        style="width: 80px; height: 106px; flex-shrink: 0;">
+                        <img src="${img}" alt="${p.title} View ${idx + 1}" class="w-100 h-100 object-fit-contain">
+                    </div>
+                `).join('');
+
+                // Re-bind thumbnail interactions
+                const thumbnails = thumbScroll.querySelectorAll('.thumbnail-item');
+                thumbnails.forEach(thumb => {
+                    thumb.addEventListener('click', function () {
+                        thumbnails.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        const newSrc = this.querySelector('img').getAttribute('src');
+                        mainImg.setAttribute('src', newSrc);
+                    });
+                });
+            }
+
             // Dynamically update View All links
             if (p.category) {
                 const viewAllLink = `category.html?category=${encodeURIComponent(p.category)}${p.subcategory ? '&subcategory=' + encodeURIComponent(p.subcategory) : ''}`;
@@ -215,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <!-- Reviews and Ratings Section -->
                 <div class="reviews-section mb-4">
                     <div id="reviewsAccordionHeader" class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3" style="cursor: pointer;">
-                        <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem;">Reviews & Ratings</h5>
+                        <h5 class="fw-bold text-dark mb-0" style="font-size: 1.05rem; font-family: 'Montserrat', sans-serif;">Ratings and reviews</h5>
                         <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.85rem;">
                             <span>Customer Feedback and Ratings</span>
                             <i id="reviewsAccordionIcon" class="fas fa-chevron-up"></i>
@@ -224,47 +260,130 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div id="reviewsSectionContent">
                         <!-- Rating header summary -->
-                        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-                            <div class="d-flex align-items-center gap-2">
-                                <div class="text-success d-flex gap-1" style="font-size: 0.95rem;">
-                                    <i class="fas fa-star text-success"></i>
-                                    <i class="fas fa-star text-success"></i>
-                                    <i class="fas fa-star text-success"></i>
-                                    <i class="fas fa-star text-success"></i>
-                                    <i class="fas fa-star text-success"></i>
-                                </div>
-                                <span class="badge bg-success px-2.5 py-1.5 fw-semibold" style="font-size: 0.8rem; border-radius: 4px;">Good</span>
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <span class="fw-bold text-dark fs-2 mb-0" style="line-height: 1;">${p.rating !== undefined ? p.rating : '4.3'}</span>
+                                <span style="font-size: 1.4rem; line-height: 1;"><i class="fas fa-star text-warning"></i></span>
+                                <span class="badge px-2 py-1 fw-bold" style="font-size: 0.78rem; border-radius: 4px; background-color: #e6fcf5; color: #0ca678;">Very Good</span>
                             </div>
+                            <p class="text-secondary small mb-0">based on ${p.reviews !== undefined ? p.reviews : '696'} ratings</p>
+                        </div>
+
+                        <!-- Review Images Container -->
+                        <div class="mb-4" id="reviewImagesContainer">
+                            <!-- Will be rendered dynamically -->
                         </div>
 
                         <!-- Review List -->
-                        <div class="review-list d-flex flex-column gap-3">
-                            ${productDetailsData.reviews.map(review => {
-                                const reviewStars = Array(review.rating).fill('<i class="fas fa-star text-warning"></i>').join('');
-                                const reviewEmptyStars = Array(5 - review.rating).fill('<i class="far fa-star text-muted"></i>').join('');
-                                return `
-                                    <div class="d-flex gap-3">
-                                        <div class="flex-shrink-0">
-                                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; font-weight: bold; background-color: #94a3b8 !important;">
-                                                <i class="fas fa-user"></i>
+                        <div class="position-relative">
+                            <button class="btn position-absolute top-50 start-0 translate-middle-y z-3 carousel-left p-0 border-0 bg-transparent" style="display: none; left: -18px !important;">
+                                <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                                    <i class="fas fa-chevron-left fs-6"></i>
+                                </div>
+                            </button>
+                            <button class="btn position-absolute top-50 end-0 translate-middle-y z-3 carousel-right p-0 border-0 bg-transparent" style="right: -18px !important;">
+                                <div class="d-flex align-items-center justify-content-center shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffffff; color: #333333; border: 1px solid #eef2f5;">
+                                    <i class="fas fa-chevron-right fs-6"></i>
+                                </div>
+                            </button>
+                            <div id="reviewsSlider" class="review-list d-flex gap-3 overflow-auto scrollbar-none pb-2" style="scrollbar-width: none; scroll-behavior: smooth;">
+                                ${productDetailsData.reviews.map(review => {
+                                    return `
+                                        <div class="border rounded-4 p-3 bg-white flex-shrink-0" style="width: calc(50% - 8px); min-width: 280px; border-color: #f1f5f9 !important; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -2px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;">
+                                            <div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 36px; height: 36px; font-weight: bold; background-color: #f1f5f9 !important; color: #64748b !important; border: 1px solid #cbd5e1;">
+                                                            <i class="fas fa-user" style="font-size: 0.85rem;"></i>
+                                                        </div>
+                                                        <span class="fw-semibold text-secondary" style="font-size: 0.8rem;">${review.userName || 'Verified Customer'}</span>
+                                                    </div>
+                                                    <div class="text-warning d-flex gap-0.5" style="font-size: 0.8rem;">
+                                                        ${Array(review.rating).fill('<i class="fas fa-star"></i>').join('')}${Array(5 - review.rating).fill('<i class="far fa-star text-muted"></i>').join('')}
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-2 mb-1">
+                                                    <span class="fw-bold text-dark" style="font-size: 0.85rem;">${review.rating >= 4 ? 'Excellent' : 'Good'}</span>
+                                                </div>
+                                                <p class="mb-2 text-dark" style="font-size: 0.8rem; line-height: 1.5; min-height: 4.5em; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                                                    ${review.text}
+                                                </p>
+                                            </div>
+                                            <div class="text-muted" style="font-size: 0.72rem; font-weight: 500; border-top: 1px solid #f1f5f9; padding-top: 8px; margin-top: 4px;">
+                                                <span>${review.timeAgo}</span>
                                             </div>
                                         </div>
-                                        <div>
-                                            <div class="text-warning mb-1" style="font-size: 0.72rem;">
-                                                ${reviewStars}${reviewEmptyStars}
-                                            </div>
-                                            <div class="text-muted mb-1" style="font-size: 0.72rem; font-weight: 500;">• ${review.timeAgo}</div>
-                                            <p class="mb-0 text-dark" style="font-size: 0.82rem; line-height: 1.5;">
-                                                ${review.text}
-                                            </p>
-                                        </div>
-                                    </div>
-                                `;
-                            }).join('')}
+                                    `;
+                                }).join('')}
+                            </div>
                         </div>
                     </div>
                 </div>
             `;
+
+            // Render dynamic Review Images (Desktop Grid and Mobile Slider)
+            const reviewImagesContainer = document.getElementById('reviewImagesContainer');
+            if (reviewImagesContainer && productDetailsData.reviewImages && productDetailsData.reviewImages.length > 0) {
+                const imgs = productDetailsData.reviewImages;
+                const maxVisible = 5;
+                
+                // 1. Desktop grid HTML (d-none d-md-block)
+                let desktopHtml = `
+                    <div class="d-none d-md-block">
+                        <div class="row g-2" style="max-width: 500px;">
+                            <div class="col-6">
+                                <div class="rounded-3 overflow-hidden" style="height: 180px;">
+                                    <img src="${imgs[0].src}" class="w-100 h-100 object-fit-cover hover-zoom" alt="Review Image 1" style="cursor: pointer;" onclick="openReviewLightbox(0)">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="rounded-3 overflow-hidden" style="height: 86px;">
+                                        <img src="${imgs[1].src}" class="w-100 h-100 object-fit-cover hover-zoom" alt="Review Image 2" style="cursor: pointer;" onclick="openReviewLightbox(1)">
+                                    </div>
+                                    <div class="rounded-3 overflow-hidden" style="height: 86px;">
+                                        <img src="${imgs[2].src}" class="w-100 h-100 object-fit-cover hover-zoom" alt="Review Image 3" style="cursor: pointer;" onclick="openReviewLightbox(2)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="rounded-3 overflow-hidden" style="height: 86px;">
+                                        <img src="${imgs[3].src}" class="w-100 h-100 object-fit-cover hover-zoom" alt="Review Image 4" style="cursor: pointer;" onclick="openReviewLightbox(3)">
+                                    </div>
+                                    <div class="position-relative rounded-3 overflow-hidden border" style="height: 86px; cursor: pointer;" onclick="openReviewGrid()">
+                                        <img src="${imgs[4].src}" class="w-100 h-100 object-fit-cover" alt="More review images">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center text-white fw-bold" style="font-size: 0.95rem;">+${imgs.length - 5}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // 2. Mobile slider HTML (d-flex d-md-none)
+                let mobileSliderHtml = `
+                    <div class="d-flex d-md-none gap-2 overflow-auto scrollbar-none pb-1" style="scrollbar-width: none;">
+                `;
+                for (let i = 0; i < Math.min(imgs.length, maxVisible); i++) {
+                    mobileSliderHtml += `
+                        <div class="rounded-3 overflow-hidden border flex-shrink-0" style="width: 100px; height: 100px; cursor: pointer;" onclick="openReviewLightbox(${i})">
+                            <img src="${imgs[i].src}" class="w-100 h-100 object-fit-cover hover-zoom" alt="Review Image ${i + 1}">
+                        </div>
+                    `;
+                }
+                if (imgs.length > maxVisible) {
+                    mobileSliderHtml += `
+                        <div class="position-relative rounded-3 overflow-hidden border flex-shrink-0" style="width: 100px; height: 100px; cursor: pointer;" onclick="openReviewGrid()">
+                            <img src="${imgs[maxVisible].src}" class="w-100 h-100 object-fit-cover" alt="More review images">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center text-white fw-bold" style="font-size: 0.95rem;">+${imgs.length - maxVisible}</div>
+                        </div>
+                    `;
+                }
+                mobileSliderHtml += `</div>`;
+
+                reviewImagesContainer.innerHTML = desktopHtml + mobileSliderHtml;
+            }
         }
     }
 
@@ -432,4 +551,81 @@ document.addEventListener("DOMContentLoaded", function () {
     
     setupCarouselScroll('similar-products-container');
     setupCarouselScroll('peoples-products-container');
+    setupCarouselScroll('reviewsSlider');
+
+    // Review Lightbox & Grid Logic
+    let currentReviewImgIndex = 0;
+
+    window.openReviewLightbox = function(index) {
+        currentReviewImgIndex = index;
+        const reviewImages = productDetailsData.reviewImages || [];
+        const imgData = reviewImages[currentReviewImgIndex];
+        if (!imgData) return;
+        
+        // Hide review grid modal if open
+        const gridModalEl = document.getElementById('reviewGridModal');
+        if (gridModalEl) {
+            const gridModal = bootstrap.Modal.getInstance(gridModalEl) || new bootstrap.Modal(gridModalEl);
+            gridModal.hide();
+        }
+        
+        updateLightboxContent();
+        
+        const lightboxModalEl = document.getElementById('reviewLightboxModal');
+        const lightboxModal = bootstrap.Modal.getInstance(lightboxModalEl) || new bootstrap.Modal(lightboxModalEl);
+        lightboxModal.show();
+    };
+
+    window.openReviewGrid = function() {
+        const reviewImages = productDetailsData.reviewImages || [];
+        const gridContainer = document.getElementById('reviewImagesGridContainer');
+        if (gridContainer) {
+            gridContainer.innerHTML = reviewImages.map((img, idx) => `
+                <div class="col-4 col-sm-3 col-md-2 p-1">
+                    <div class="rounded-3 overflow-hidden border" style="height: 100px; cursor: pointer;" onclick="openReviewLightbox(${idx})">
+                        <img src="${img.src}" class="w-100 h-100 object-fit-cover hover-zoom">
+                    </div>
+                </div>
+            `).join('');
+        }
+        const gridModalEl = document.getElementById('reviewGridModal');
+        const gridModal = bootstrap.Modal.getInstance(gridModalEl) || new bootstrap.Modal(gridModalEl);
+        gridModal.show();
+    };
+
+    function updateLightboxContent() {
+        const reviewImages = productDetailsData.reviewImages || [];
+        const imgData = reviewImages[currentReviewImgIndex];
+        if (!imgData) return;
+        
+        document.getElementById('lightboxMainImg').src = imgData.src;
+        document.getElementById('lightboxRating').innerHTML = `${Array(imgData.rating).fill('<i class="fas fa-star"></i>').join('')}${Array(5 - imgData.rating).fill('<i class="far fa-star text-white-50"></i>').join('')}`;
+        document.getElementById('lightboxTitle').textContent = imgData.title;
+        document.getElementById('lightboxText').textContent = imgData.text;
+        document.getElementById('lightboxUser').textContent = imgData.userName;
+        document.getElementById('lightboxTime').textContent = `• ${imgData.timeAgo}`;
+    }
+
+    const prevBtn = document.getElementById('lightboxPrevBtn');
+    const nextBtn = document.getElementById('lightboxNextBtn');
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const reviewImages = productDetailsData.reviewImages || [];
+            currentReviewImgIndex = (currentReviewImgIndex - 1 + reviewImages.length) % reviewImages.length;
+            updateLightboxContent();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const reviewImages = productDetailsData.reviewImages || [];
+            currentReviewImgIndex = (currentReviewImgIndex + 1) % reviewImages.length;
+            updateLightboxContent();
+        });
+    }
 });

@@ -37,7 +37,6 @@ const mockData = {
             statusDate: '18 Jun 2026',
             totalAmount: '1,299',
             actions: [
-                { label: 'Track Order', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
             ]
         },
@@ -57,7 +56,6 @@ const mockData = {
             statusDate: '13 Jun 2026, 11:05 AM',
             totalAmount: '899',
             actions: [
-                { label: 'Track Order', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
             ]
         },
@@ -77,7 +75,6 @@ const mockData = {
             statusDate: '14 Jun 2026',
             totalAmount: '2,499',
             actions: [
-                { label: 'Track Order', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
             ]
         },
