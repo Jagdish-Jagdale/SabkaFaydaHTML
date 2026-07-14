@@ -223,12 +223,13 @@
     <div class="modal fade" id="returnProductModal" tabindex="-1" aria-labelledby="returnProductModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content border-0 rounded-4 shadow">
-                <div class="modal-header border-0 pb-0">
+                <div class="modal-header border-0 pb-3">
                     <h5 class="modal-title fw-bold" id="returnProductModalLabel">Return Product Request for Order #SF20260001254</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body pt-4">
-                    <h6 class="fw-bold mb-4">Select Items to Return/Replace</h6>
+                <hr class="m-0" style="border-color: #e2e8f0; opacity: 1;">
+                <div class="modal-body pt-4" style="background-color: #f8fafc;">
+                    <h6 class="fw-bold mb-4">Select Items to Return</h6>
                     <div class="row g-4">
                         <!-- Left Column -->
                         <div class="col-md-6">
@@ -254,33 +255,16 @@
                                 <textarea class="form-control form-control-sm" rows="3" placeholder="Enter additional comments here..." style="border-radius: 8px; font-size: 0.85rem; resize: none;"></textarea>
                             </div>
 
-                            <!-- Upload Evidence Photos -->
-                            <div class="mb-4">
-                                <label class="fw-semibold small mb-2">Upload Evidence Photos</label>
-                                <p class="text-secondary small mb-2">(e.g., damaged product, wrong item)</p>
-                                <div class="border-2 border-dashed rounded-3 p-4 text-center position-relative" style="border-color: #e2e8f0; background: #f8fbff;">
-                                    <i class="fa-solid fa-cloud-arrow-up text-primary fs-4 mb-2"></i>
-                                    <p class="text-secondary small mb-0">Drag-and-drop here... | Add Media</p>
-                                    <input type="file" class="position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer" multiple accept="image/*">
-                                </div>
-                            </div>
+
                         </div>
 
                         <!-- Right Column -->
                         <div class="col-md-6">
-                            <!-- Contextual Help -->
-                            <div class="rounded-3 p-3 mb-4" style="background: #f8fbff; border: 1px solid #e4edf8;">
-                                <div class="d-flex align-items-center gap-2 mb-2">
-                                    <i class="fa-solid fa-circle-info text-primary"></i>
-                                    <span class="fw-semibold small">Return Policy</span>
-                                </div>
-                                <p class="text-secondary small mb-1 fw-semibold">Return Timeline:</p>
-                                <p class="text-secondary small mb-0">7-day return window</p>
-                            </div>
+
 
                             <!-- Reason for Return -->
                             <div class="mb-4">
-                                <label class="fw-semibold small mb-2">Reason for Return/Replacement <span class="text-danger">*</span></label>
+                                <label class="fw-semibold small mb-2">Reason for Return <span class="text-danger">*</span></label>
                                 <select class="form-select" style="border-radius: 8px; font-size: 0.85rem; padding: 0.6rem 0.75rem;">
                                     <option value="">Select a reason...</option>
                                     <option value="damaged">Product damaged on delivery</option>
@@ -293,24 +277,18 @@
                                 </select>
                             </div>
 
-                            <!-- Choose Action -->
+                            <!-- Upload Unboxing Video -->
                             <div class="mb-4">
-                                <label class="fw-semibold small mb-2">Choose Action</label>
-                                <div class="rounded-3 p-3" style="background: #f8fbff; border: 1px solid #e4edf8;">
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="radio" name="returnAction" id="refundAction" checked style="cursor: pointer;">
-                                        <label class="form-check-label small" for="refundAction" style="cursor: pointer;">
-                                            Request Refund to Original Payment Method (Prepaid UPI)
-                                        </label>
-                                    </div>
-                                    <div class="form-check mb-0">
-                                        <input class="form-check-input" type="radio" name="returnAction" id="replacementAction" style="cursor: pointer;">
-                                        <label class="form-check-label small" for="replacementAction" style="cursor: pointer;">
-                                            Request Replacement
-                                        </label>
-                                    </div>
+                                <label class="fw-semibold small mb-2">Upload Unboxing Video <span class="text-danger">*</span></label>
+                                <p class="text-secondary small mb-2">(e.g., unboxing video)</p>
+                                <div class="border-2 border-dashed rounded-3 p-4 text-center position-relative" style="border-color: #e2e8f0; background: #f8fbff;">
+                                    <i class="fa-solid fa-cloud-arrow-up text-primary fs-4 mb-2"></i>
+                                    <p class="text-secondary small mb-0">Drag-and-drop here... | Add Media</p>
+                                    <input type="file" class="position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer" accept="video/*">
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
 
