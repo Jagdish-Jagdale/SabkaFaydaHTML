@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View order bonus distribution breakdown. Check daily, weekly, and monthly releases for Order #399.">
+    <meta name="description"
+        content="View order bonus distribution breakdown. Check daily, weekly, and monthly releases for Order #399.">
     <title>Order #399 Breakdown | Sabka Fayda</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <!-- Bootstrap 5 CSS -->
@@ -12,7 +13,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main CSS -->
@@ -30,18 +33,39 @@
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
+    <style>
+        @media (max-width: 576px) {
+            .order-title {
+                font-size: 1.05rem !important;
+            }
+            .balance-pill {
+                padding: 6px 12px !important;
+                gap: 6px !important;
+            }
+            .balance-label {
+                font-size: 0.68rem !important;
+            }
+            .balance-value {
+                font-size: 0.78rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="orders-page">
     <!-- Site Header -->
-    <div id="header-placeholder"><div class="skeleton-box skeleton-header"></div></div>
+    <div id="header-placeholder">
+        <div class="skeleton-box skeleton-header"></div>
+    </div>
 
     <!-- Page Main Shell -->
     <main class="orders-shell container-fluid px-3 px-md-4">
-        
+
         <!-- Mobile Sidebar Toggle Row -->
-        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm" style="border: 1px solid #eef2f6;">
-            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+        <div class="d-lg-none d-flex align-items-center mb-3 bg-white p-3 rounded-4 shadow-sm"
+            style="border: 1px solid #eef2f6;">
+            <button class="btn btn-link p-0 me-3 border-0 text-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
                 <i class="fa-solid fa-bars fs-3"></i>
             </button>
             <span class="fw-bold fs-5 text-dark">Order Breakdown</span>
@@ -49,18 +73,23 @@
 
         <div class="row g-4">
             <!-- ═══ SIDEBAR MENU ═══ -->
-            <aside class="col-lg-3" id="sidebar-placeholder"><div class="skeleton-box skeleton-sidebar d-none d-lg-block"></div></aside>
+            <aside class="col-lg-3" id="sidebar-placeholder">
+                <div class="skeleton-box skeleton-sidebar d-none d-lg-block"></div>
+            </aside>
 
             <!-- ═══ MAIN CONTENT AREA ═══ -->
             <section class="col-lg-9 col-12">
-                
+
                 <!-- Page Top Header Bar -->
-                <div class="d-flex align-items-center justify-content-between mb-4 bg-white p-3 border" style="border-radius: 8px !important;">
-                    <h4 class="fw-bold text-dark mb-0" style="font-family: 'Montserrat', sans-serif; font-size: 1.35rem;">Order #399 Breakdown</h4>
+                <div class="d-flex align-items-center justify-content-between mb-4 bg-white p-3 border"
+                    style="border-radius: 8px !important;">
+                    <h4 class="fw-bold text-dark mb-0 order-title"
+                        style="font-family: 'Montserrat', sans-serif; font-size: 1.35rem;">Order #399 Breakdown</h4>
                     <div class="d-flex align-items-center" style="font-size: 0.88rem; font-weight: 700;">
-                        <div class="border rounded-pill px-4 py-2 bg-light d-flex align-items-center shadow-sm" style="gap: 10px;">
-                            <span class="text-secondary" style="font-size: 0.75rem; font-weight: 700;">Balance:</span>
-                            <span class="text-success">&#8377; 360</span>
+                        <div class="border rounded-pill px-4 py-2 bg-light d-flex align-items-center shadow-sm balance-pill"
+                            style="gap: 10px; white-space: nowrap;">
+                            <span class="text-secondary balance-label" style="font-size: 0.75rem; font-weight: 700;">Balance:</span>
+                            <span class="text-success balance-value">&#8377; 360</span>
                         </div>
                     </div>
                 </div>
@@ -71,65 +100,78 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary" style="width: 32px; height: 32px; font-size: 0.95rem;">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #e0f2fe !important; color: #0d8dfb !important;">
                                     <i class="fa-solid fa-indian-rupee-sign"></i>
                                 </div>
                                 <span class="fw-bold text-dark" style="font-size: 0.78rem;">Total Order Bonus</span>
                             </div>
                             <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">₹179.17</h4>
-                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">All-time earned from Order #399</p>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">All-time earned
+                                from Order #399</p>
                         </div>
                     </div>
                     <!-- Card 2: Daily Distribution -->
                     <div class="col-md-3 col-sm-6">
                         <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center bg-purple bg-opacity-10 text-purple text-info" style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #f3e8ff !important; color: #7c3aed !important;">
-                                    <i class="fa-solid fa-1"></i>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-purple text-info"
+                                    style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #f3e8ff !important; color: #7c3aed !important;">
+                                    <i class="fa-solid fa-calendar-day"></i>
                                 </div>
                                 <span class="fw-bold text-dark" style="font-size: 0.78rem;">Daily Distribution</span>
                             </div>
                             <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">1 Claimed</h4>
-                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Daily recurring cash rewards</p>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Daily recurring
+                                cash rewards</p>
                         </div>
                     </div>
                     <!-- Card 3: Weekly Milestones -->
                     <div class="col-md-3 col-sm-6">
                         <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center text-success" style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #dcfce7 !important; color: #16a34a !important;">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-success"
+                                    style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #dcfce7 !important; color: #16a34a !important;">
                                     <i class="fa-solid fa-calendar-check"></i>
                                 </div>
                                 <span class="fw-bold text-dark" style="font-size: 0.78rem;">Weekly Milestones</span>
                             </div>
                             <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">0 Completed</h4>
-                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Achieve tier goals for extra bonus</p>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Achieve tier goals
+                                for extra bonus</p>
                         </div>
                     </div>
                     <!-- Card 4: Monthly Tiers -->
                     <div class="col-md-3 col-sm-6">
                         <div class="card p-3 shadow-sm border h-100" style="border-radius: 8px !important;">
                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center text-warning" style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #ffedd5 !important; color: #ea580c !important;">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-warning"
+                                    style="width: 32px; height: 32px; font-size: 0.95rem; background-color: #ffedd5 !important; color: #ea580c !important;">
                                     <i class="fa-solid fa-award"></i>
                                 </div>
                                 <span class="fw-bold text-dark" style="font-size: 0.78rem;">Monthly Tiers</span>
                             </div>
                             <h4 class="fw-bold mb-1 text-dark" style="font-size: 1.25rem;">3 Settled</h4>
-                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Recurring high-value cash releases</p>
+                            <p class="text-muted mb-0" style="font-size: 0.68rem; font-weight: 500;">Recurring
+                                high-value cash releases</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Toolbar Filters -->
-                <div class="d-flex flex-wrap align-items-center justify-content-between p-3 bg-white border mb-3 gap-3" style="border-radius: 8px !important;">
+                <div class="d-flex flex-wrap align-items-center justify-content-between p-3 bg-white border mb-3 gap-3"
+                    style="border-radius: 8px !important;">
                     <div class="position-relative flex-grow-1" style="max-width: 350px;">
-                        <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.85rem;"></i>
-                        <input type="search" id="logSearch" placeholder="Search" class="form-control py-1.5 ps-5 rounded-3" style="font-size: 0.82rem; border-color: #dde5eb;">
+                        <i class="fa-solid fa-magnifying-glass position-absolute text-muted"
+                            style="left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.85rem;"></i>
+                        <input type="search" id="logSearch" placeholder="Search"
+                            class="form-control py-1.5 ps-5 rounded-3"
+                            style="font-size: 0.82rem; border-color: #dde5eb;">
                     </div>
                     <div class="d-flex align-items-center gap-2">
                         <span class="text-secondary fw-semibold text-nowrap" style="font-size: 0.8rem;">Sort by</span>
-                        <select class="form-select py-1.5 px-3 rounded-3" id="logSort" style="font-size: 0.82rem; border-color: #dde5eb; min-width: 130px; cursor: pointer;">
+                        <select class="form-select py-1.5 px-3 rounded-3" id="logSort"
+                            style="font-size: 0.82rem; border-color: #dde5eb; min-width: 130px; cursor: pointer;">
                             <option value="latest">Latest First</option>
                             <option value="oldest">Oldest First</option>
                         </select>
@@ -138,53 +180,73 @@
 
                 <!-- Chips filters -->
                 <div class="d-flex flex-wrap gap-2 mb-3">
-                    <button class="btn btn-outline-primary py-1 px-3 fw-bold rounded-pill active-chip" style="font-size: 0.75rem; border-radius: 20px !important; border: 1px solid #0087F6;" onclick="filterLogs('all', this)" id="chip-all">All (36)</button>
-                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('daily', this)" id="chip-daily">Daily (20)</button>
-                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('weekly', this)" id="chip-weekly">Weekly (8)</button>
-                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill" style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('monthly', this)" id="chip-monthly">Monthly (8)</button>
+                    <button class="btn btn-outline-primary py-1 px-3 fw-bold rounded-pill active-chip"
+                        style="font-size: 0.75rem; border-radius: 20px !important; border: 1px solid #0087F6;"
+                        onclick="filterLogs('all', this)" id="chip-all">All (36)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill"
+                        style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('daily', this)"
+                        id="chip-daily">Daily (20)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill"
+                        style="font-size: 0.75rem; border-radius: 20px !important;" onclick="filterLogs('weekly', this)"
+                        id="chip-weekly">Weekly (8)</button>
+                    <button class="btn btn-outline-secondary py-1 px-3 fw-semibold rounded-pill"
+                        style="font-size: 0.75rem; border-radius: 20px !important;"
+                        onclick="filterLogs('monthly', this)" id="chip-monthly">Monthly (8)</button>
                 </div>
 
                 <!-- Grid layout of breakdown list + side card -->
                 <div class="row g-3">
                     <!-- Left: Log items list -->
                     <div class="col-lg-8 col-12">
-                        <div class="d-flex flex-column gap-2" id="breakdownLogsList" style="max-height: 600px; overflow-y: auto; padding-right: 8px;"></div>
+                        <div class="d-flex flex-column gap-2" id="breakdownLogsList"
+                            style="max-height: 600px; overflow-y: auto; padding-right: 8px;"></div>
                     </div>
 
                     <!-- Right Column: Order Info side card -->
                     <div class="col-lg-4 col-12">
                         <div class="card p-4 shadow-sm border bg-white" style="border-radius: 8px !important;">
-                            <h5 class="fw-bold text-dark mb-3" style="font-size: 1.05rem; font-family: 'Montserrat', sans-serif;">Order Information<br>#SF2026001254</h5>
-                            
-                            <div class="d-flex justify-content-between mb-2 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                            <h5 class="fw-bold text-dark mb-3"
+                                style="font-size: 1.05rem; font-family: 'Montserrat', sans-serif;">Order
+                                Information<br>#SF2026001254</h5>
+
+                            <div class="d-flex justify-content-between mb-2 text-secondary"
+                                style="font-size: 0.8rem; font-weight: 500;">
                                 <span>Invoice ID</span>
                                 <span class="fw-bold text-dark">#SF2026001254</span>
                             </div>
-                            <div class="d-flex justify-content-between mb-2 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                            <div class="d-flex justify-content-between mb-2 text-secondary"
+                                style="font-size: 0.8rem; font-weight: 500;">
                                 <span>Order Date</span>
                                 <span class="fw-bold text-dark">24 May 2026</span>
                             </div>
-                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                            <div class="d-flex justify-content-between mb-3 text-secondary"
+                                style="font-size: 0.8rem; font-weight: 500;">
                                 <span>Total Items</span>
                                 <span class="fw-bold text-dark">1</span>
                             </div>
-                            
+
                             <hr class="my-3 opacity-25">
 
-                            <div class="d-flex justify-content-between mb-3 text-secondary" style="font-size: 0.8rem; font-weight: 500;">
+                            <div class="d-flex justify-content-between mb-3 text-secondary"
+                                style="font-size: 0.8rem; font-weight: 500;">
                                 <span>Original Amount</span>
                                 <span class="fw-bold text-dark">₹15,990</span>
                             </div>
-                            
+
                             <div class="mb-4">
-                                <span class="text-secondary fw-semibold d-block mb-1" style="font-size: 0.8rem;">Purchase Details</span>
-                                <span class="fw-bold text-dark d-block" style="font-size: 0.82rem;">Samsung Galaxy M35 5G x1</span>
+                                <span class="text-secondary fw-semibold d-block mb-1"
+                                    style="font-size: 0.8rem;">Purchase Details</span>
+                                <span class="fw-bold text-dark d-block" style="font-size: 0.82rem;">Samsung Galaxy M35
+                                    5G x1</span>
                             </div>
 
-                            <button class="btn btn-primary w-100 fw-bold py-2 mb-2" style="border-radius: 4px; font-size: 0.85rem;" onclick="location.href='order-details.html'">
+                            <button class="btn btn-primary w-100 fw-bold py-2 mb-2"
+                                style="border-radius: 4px; font-size: 0.85rem;"
+                                onclick="location.href='order-details.html'">
                                 View Original Order
                             </button>
-                            <button class="btn btn-outline-primary w-100 fw-bold py-2" style="border-radius: 4px; font-size: 0.85rem;" onclick="downloadStatement()">
+                            <button class="btn btn-outline-primary w-100 fw-bold py-2"
+                                style="border-radius: 4px; font-size: 0.85rem;" onclick="downloadStatement()">
                                 Download Bonus Statement
                             </button>
                         </div>
@@ -195,29 +257,33 @@
         </div>
     </main>
 
-    <div id="footer-placeholder"><div class="skeleton-box skeleton-footer"></div></div>
+    <div id="footer-placeholder">
+        <div class="skeleton-box skeleton-footer"></div>
+    </div>
 
     <!-- Include Floating WhatsApp -->
     <div id="whatsapp-float-placeholder"></div>
 
     <!-- Notification Toast System -->
     <div class="position-fixed top-0 end-0 p-3" style="z-index:9999; margin-top: 90px;">
-        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="action-toast" class="toast align-items-center text-bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body fw-semibold" id="toast-body-content">
                     <i class="fa-solid fa-circle-check me-2"></i>Action completed successfully!
                 </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap Bundle with Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Login Mock JS -->
     <script src="assets/js/authcontext.js"></script>
-    
+
     <!-- Header Injection & Loader Script -->
     <script src="assets/js/main.js?v=6"></script>
     <script>
@@ -244,7 +310,7 @@
             });
 
         // Set active sidebar link
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 const myWalletLink = document.getElementById('link-mywallet');
                 if (myWalletLink) {
