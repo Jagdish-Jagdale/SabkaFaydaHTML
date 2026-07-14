@@ -32,7 +32,7 @@ const orderDetailsData = {
     deliveryAddress: {
         name: 'Rajesh Sharma',
         phone: '+91 9876543210',
-        address: 'Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115'
+        address: 'Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115 Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115Flat 204, Ganesh Residency, Ichalkaranji, Maharashtra - 416115'
     },
     paymentInfo: {
         paymentMethod: 'UPI',
