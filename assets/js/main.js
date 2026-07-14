@@ -68,38 +68,42 @@
         history.scrollRestoration = 'manual';
     }
 
-    // Save scroll position and current page URL before page unload
-    window.addEventListener('beforeunload', function() {
-        sessionStorage.setItem('scrollPosition', window.pageYOffset || document.documentElement.scrollTop);
-        sessionStorage.setItem('currentPageUrl', window.location.href);
-    });
+    // Save scroll position keyed by path on scroll
+    window.addEventListener('scroll', function() {
+        sessionStorage.setItem('scrollPos_' + window.location.pathname, window.pageYOffset || document.documentElement.scrollTop);
+    }, { passive: true });
 
-    // Restore scroll position only if it's the same page (refresh)
     function restoreScrollPosition() {
-        const scrollPosition = sessionStorage.getItem('scrollPosition');
-        const savedPageUrl = sessionStorage.getItem('currentPageUrl');
-        const currentPageUrl = window.location.href;
-
-        // Only restore if the saved URL matches current URL (same page refresh)
-        if (scrollPosition !== null && savedPageUrl === currentPageUrl) {
-            window.scrollTo(0, parseInt(scrollPosition, 10));
-            sessionStorage.removeItem('scrollPosition');
-            sessionStorage.removeItem('currentPageUrl');
+        const navEntries = performance.getEntriesByType("navigation");
+        const isRestore = navEntries.length > 0 && (navEntries[0].type === "back_forward" || navEntries[0].type === "reload");
+        
+        if (isRestore) {
+            const scrollPosition = sessionStorage.getItem('scrollPos_' + window.location.pathname);
+            if (scrollPosition) {
+                const targetScroll = parseInt(scrollPosition, 10);
+                window.scrollTo(0, targetScroll);
+                
+                // Retry scrolling for dynamic content
+                const tryScroll = setInterval(() => {
+                    if (document.documentElement.scrollHeight > targetScroll) {
+                        window.scrollTo(0, targetScroll);
+                        // Once we successfully scroll past the target, we can clear it early,
+                        // but it's safe to just let it run for the timeout to ensure it sticks.
+                    }
+                }, 50);
+                setTimeout(() => clearInterval(tryScroll), 1000);
+            }
         } else {
-            // For new pages or different URLs, ensure page starts at top
+            // For new page navigations, ensure page starts at top
             window.scrollTo(0, 0);
-            sessionStorage.removeItem('scrollPosition');
-            sessionStorage.removeItem('currentPageUrl');
         }
     }
 
-    // Restore immediately on page load (before content renders)
+    // Restore immediately on page load
     restoreScrollPosition();
 
     // Also restore on DOMContentLoaded as backup
-    window.addEventListener('DOMContentLoaded', function() {
-        restoreScrollPosition();
-    });
+    window.addEventListener('DOMContentLoaded', restoreScrollPosition);
 })();
 
 /* header.js */
