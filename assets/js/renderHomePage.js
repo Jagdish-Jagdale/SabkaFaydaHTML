@@ -168,7 +168,7 @@ function renderHomePage(data) {
         `).join('');
 
         return `
-            <div class="container mb-4 position-relative">
+            <div class="container mb-4 position-relative pt-3 pt-md-0">
                 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
                     <div class="carousel-inner">${slides}</div>
                     <div class="carousel-indicators custom-indicators">
