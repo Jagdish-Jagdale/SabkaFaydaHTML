@@ -94,7 +94,65 @@ const mockData = {
             statusDate: '10 Jun 2026, 05:20 PM',
             totalAmount: '799',
             actions: [
-                { label: 'Reorder', btnClass: 'btn-outline-primary' }
+                { label: 'Reorder', btnClass: 'btn-outline-primary' },
+                { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
+            ]
+        },
+        {
+            id: 'SF2026001259',
+            productName: 'boAt Rockerz 450 Bluetooth Headphones',
+            productDesc: 'Aqua Blue, On Ear',
+            qty: 1,
+            image: 'assets/img/electronicimg.png',
+            orderDate: '15 Jun 2026',
+            orderTime: '02:15 PM',
+            paymentMethod: 'Prepaid',
+            status: 'Confirmed',
+            statusIcon: 'fa-check',
+            statusClass: 'confirmed',
+            statusDateLabel: 'Confirmed on',
+            statusDate: '15 Jun 2026, 02:20 PM',
+            totalAmount: '1,499',
+            actions: [
+                { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
+            ]
+        },
+        {
+            id: 'SF2026001260',
+            productName: 'Noise ColorFit Pro 4 Smartwatch',
+            productDesc: 'Charcoal Black',
+            qty: 1,
+            image: 'assets/img/homescreenimg.png',
+            orderDate: '14 Jun 2026',
+            orderTime: '10:00 AM',
+            paymentMethod: 'Prepaid',
+            status: 'Label Printed',
+            statusIcon: 'fa-print',
+            statusClass: 'label-printed',
+            statusDateLabel: 'Label Printed on',
+            statusDate: '14 Jun 2026, 11:30 AM',
+            totalAmount: '2,999',
+            actions: [
+                { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
+            ]
+        },
+        {
+            id: 'SF2026001261',
+            productName: 'Safari Ray Polycarbonate Suitcase',
+            productDesc: '65 cms, Midnight Blue',
+            qty: 1,
+            image: 'assets/img/a044e058df3531fb5b172a6bc3128b5e27a6fbe8.png',
+            orderDate: '01 Jun 2026',
+            orderTime: '09:00 AM',
+            paymentMethod: 'COD',
+            status: 'Returned',
+            statusIcon: 'fa-arrow-rotate-left',
+            statusClass: 'returned',
+            statusDateLabel: 'Returned on',
+            statusDate: '08 Jun 2026, 04:00 PM',
+            totalAmount: '3,499',
+            actions: [
+                { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' }
             ]
         }
     ],

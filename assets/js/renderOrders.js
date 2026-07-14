@@ -18,6 +18,8 @@ let currentFilter = 'all';
 let searchQuery = '';
 let currentSort = 'latest';
 let isInitialized = false;
+let currentPage = 1;
+const itemsPerPage = 10;
 
 function renderOrders(ordersData) {
     if (!isInitialized) {
@@ -68,12 +70,23 @@ function renderOrders(ordersData) {
         return 0;
     });
     
+    // Render pagination
+    renderPagination(filtered);
+    
+    // Slice for pagination
+    const startIdx = (currentPage - 1) * itemsPerPage;
+    const endIdx = startIdx + itemsPerPage;
+    const paginatedOrders = filtered.slice(startIdx, endIdx);
+    
     // 3. Render HTML
     let html = '';
-    filtered.forEach(order => {
+    paginatedOrders.forEach(order => {
         let actionsHtml = order.actions.map(action => {
             if (action.link) {
-                return `<a href="${action.link}" class="btn ${action.btnClass}">${action.label}</a>`;
+                const urlObj = new URL(action.link, window.location.origin);
+                urlObj.searchParams.set('status', order.status);
+                const finalLink = action.link.includes('?') ? action.link + '&status=' + encodeURIComponent(order.status) : action.link + '?status=' + encodeURIComponent(order.status);
+                return `<a href="${finalLink}" class="btn ${action.btnClass}">${action.label}</a>`;
             } else {
                 return `<button class="btn ${action.btnClass}">${action.label}</button>`;
             }
@@ -183,6 +196,7 @@ function initFilterEvents() {
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             searchQuery = e.target.value;
+            currentPage = 1;
             renderOrders(allOrders);
         });
     }
@@ -211,6 +225,7 @@ function initFilterEvents() {
                 currentSort = 'lowest';
             }
 
+            currentPage = 1;
             renderOrders(allOrders);
         });
     });
@@ -221,6 +236,7 @@ function initFilterEvents() {
         chip.addEventListener('click', function() {
             const baseText = this.textContent.replace(/\s*\(\d+\)/g, '').trim();
             currentFilter = baseText.toLowerCase().replace(/\s+/g, '');
+            currentPage = 1;
             renderOrders(allOrders);
         });
     });
@@ -249,4 +265,100 @@ function updateChipCounts() {
             chip.classList.remove('active');
         }
     });
+}
+
+// Render pagination controls dynamically based on filtered length
+function renderPagination(filteredList) {
+    const paginationContainer = document.getElementById('orderPagination');
+    if (!paginationContainer) return;
+
+    const totalPages = Math.ceil(filteredList.length / itemsPerPage);
+
+    if (totalPages <= 1) {
+        paginationContainer.style.setProperty('display', 'none', 'important');
+        return;
+    } else {
+        paginationContainer.style.display = 'flex';
+        paginationContainer.style.gap = '8px';
+    }
+
+    paginationContainer.innerHTML = '';
+
+    // PREVIOUS Button
+    const prevLink = document.createElement('a');
+    prevLink.href = '#';
+    prevLink.className = `text-decoration-none fw-bold me-2 ${currentPage === 1 ? 'text-muted' : ''}`;
+    prevLink.style.color = currentPage === 1 ? '#adb5bd' : '#4b70f5';
+    prevLink.style.fontSize = '0.9rem';
+    prevLink.style.display = 'flex';
+    prevLink.style.alignItems = 'center';
+    prevLink.innerHTML = '&laquo; PREVIOUS';
+    if (currentPage > 1) {
+        prevLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            currentPage--;
+            renderOrders(allOrders);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    } else {
+        prevLink.style.pointerEvents = 'none';
+    }
+    paginationContainer.appendChild(prevLink);
+
+    let startPage = Math.max(1, currentPage - 4);
+    let endPage = Math.min(totalPages, startPage + 9);
+
+    if (endPage - startPage < 9) {
+        startPage = Math.max(1, endPage - 9);
+    }
+
+    // Page Numbers
+    for (let i = startPage; i <= endPage; i++) {
+        const pageLink = document.createElement('a');
+        pageLink.href = '#';
+        pageLink.className = 'd-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold';
+        pageLink.style.width = '36px';
+        pageLink.style.height = '36px';
+        pageLink.style.fontSize = '0.95rem';
+        pageLink.style.flexShrink = '0';
+        pageLink.textContent = i;
+
+        if (i === currentPage) {
+            pageLink.style.backgroundColor = '#4b70f5';
+            pageLink.style.color = '#fff';
+        } else {
+            pageLink.style.backgroundColor = 'transparent';
+            pageLink.style.color = '#1a1a1a';
+        }
+
+        pageLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            currentPage = i;
+            renderOrders(allOrders);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        paginationContainer.appendChild(pageLink);
+    }
+
+    // NEXT Button
+    const nextLink = document.createElement('a');
+    nextLink.href = '#';
+    nextLink.className = `text-decoration-none fw-bold ms-2 ${currentPage === totalPages ? 'text-muted' : ''}`;
+    nextLink.style.color = currentPage === totalPages ? '#adb5bd' : '#4b70f5';
+    nextLink.style.fontSize = '0.9rem';
+    nextLink.style.display = 'flex';
+    nextLink.style.alignItems = 'center';
+    nextLink.innerHTML = 'NEXT &raquo;';
+    if (currentPage < totalPages) {
+        nextLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            currentPage++;
+            renderOrders(allOrders);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    } else {
+        nextLink.style.pointerEvents = 'none';
+    }
+    paginationContainer.appendChild(nextLink);
 }

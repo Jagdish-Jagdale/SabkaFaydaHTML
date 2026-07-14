@@ -48,6 +48,59 @@ window.openReviewModal = function() {
 
 /* Render Order Details Page */
 document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderStatusParam = urlParams.get('status');
+
+    if (orderStatusParam && orderDetailsData) {
+        orderDetailsData.orderInfo.orderStatus = orderStatusParam;
+        
+        if (orderStatusParam === 'Cancelled' || orderStatusParam === 'Returned') {
+            const btnReturn = document.getElementById('btn-return-product');
+            const btnCancel = document.getElementById('btn-cancel-order');
+            if (btnReturn) {
+                btnReturn.classList.remove('d-flex');
+                btnReturn.classList.add('d-none');
+            }
+            if (btnCancel) {
+                btnCancel.classList.remove('d-flex');
+                btnCancel.classList.add('d-none');
+            }
+        }
+        
+        const baseTimeline = [
+            { status: 'Confirmed', time: '13 Jun 2026, 10:30 AM', completed: true },
+            { status: 'Label Printed', time: '13 Jun 2026, 10:45 AM', completed: true },
+            { status: 'Shipped', time: '13 Jun 2026, 04:10 PM', completed: true },
+            { status: 'In Transit', time: '14 Jun 2026, 09:20 AM', completed: true },
+            { status: 'Out for Delivery', time: '14 Jun 2026, 12:10 PM', completed: true },
+            { status: 'Delivered', time: '14 Jun 2026, 02:45 PM', completed: true }
+        ];
+
+        let newTimeline = [];
+        if (orderStatusParam === 'Cancelled') {
+            newTimeline = [
+                { status: 'Confirmed', time: '13 Jun 2026, 10:30 AM', completed: true },
+                { status: 'Cancelled', time: '13 Jun 2026, 11:00 AM', completed: true }
+            ];
+        } else if (orderStatusParam === 'Returned') {
+            newTimeline = [
+                ...baseTimeline,
+                { status: 'Returned', time: '16 Jun 2026, 10:00 AM', completed: true }
+            ];
+        } else {
+            const statusIndex = baseTimeline.findIndex(t => t.status.toLowerCase() === orderStatusParam.toLowerCase());
+            if (statusIndex !== -1) {
+                newTimeline = baseTimeline.slice(0, statusIndex + 1);
+                for (let i = statusIndex + 1; i < baseTimeline.length; i++) {
+                    newTimeline.push({ status: baseTimeline[i].status, time: '--', completed: false });
+                }
+            } else {
+                newTimeline = baseTimeline;
+            }
+        }
+        orderDetailsData.timeline = newTimeline;
+    }
+
     // Render Order Info Banner
     function renderOrderBanner() {
         const bannerContainer = document.getElementById('order-banner-container');
@@ -103,30 +156,60 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderTimeline() {
         const timelineContainer = document.getElementById('timeline-container');
         if (timelineContainer && orderDetailsData.timeline) {
-            const completedCount = orderDetailsData.timeline.filter(t => t.completed).length;
+            const completedSteps = orderDetailsData.timeline.filter(t => t.completed);
+            const completedCount = completedSteps.length;
             const progressPercent = (completedCount / orderDetailsData.timeline.length) * 100;
+            const lastStep = completedSteps[completedSteps.length - 1] || orderDetailsData.timeline[0];
+            
+            let alertColor = 'success';
+            let alertBg = '#eafcf1';
+            let alertBorder = '#d1f7df';
+            let alertIcon = 'fa-circle-check';
+            let alertMessage = `Your order has been ${lastStep.status.toLowerCase()}`;
+            
+            if (lastStep.status === 'Cancelled') {
+                alertColor = 'danger';
+                alertBg = '#fceaea';
+                alertBorder = '#f7d1d1';
+                alertIcon = 'fa-circle-xmark';
+                alertMessage = 'Your order has been cancelled';
+            } else if (lastStep.status === 'Returned') {
+                alertColor = 'warning';
+                alertBg = '#fcf8ea';
+                alertBorder = '#f7f1d1';
+                alertIcon = 'fa-arrow-rotate-left';
+                alertMessage = 'Your order has been returned';
+            } else if (lastStep.status !== 'Delivered') {
+                alertColor = 'primary';
+                alertBg = '#eaf2fc';
+                alertBorder = '#d1e3f7';
+                alertIcon = 'fa-circle-info';
+                alertMessage = `Your order is currently: ${lastStep.status}`;
+            }
+
+            const isRedTimeline = (lastStep.status === 'Cancelled' || lastStep.status === 'Returned');
             
             timelineContainer.innerHTML = `
-                <div class="timeline-track-wrap mb-2" style="margin-top: 4px;">
+                <div class="timeline-track-wrap mb-2 ${isRedTimeline ? 'timeline-red' : ''}" style="margin-top: 4px;">
                     <div class="timeline-line">
                         <div class="timeline-line-active" style="width: ${progressPercent}%;"></div>
                     </div>
                     <div class="timeline-steps">
                         ${orderDetailsData.timeline.map(step => `
                             <div class="timeline-step ${step.completed ? 'completed' : ''}">
-                                <div class="timeline-circle">${step.completed ? '<i class="fa-solid fa-check"></i>' : ''}</div>
+                                <div class="timeline-circle">${step.completed ? (step.status === 'Cancelled' ? '<i class="fa-solid fa-xmark"></i>' : (step.status === 'Returned' ? '<i class="fa-solid fa-rotate-left"></i>' : '<i class="fa-solid fa-check"></i>')) : ''}</div>
                                 <div class="timeline-label">${step.status}</div>
-                                <span class="timeline-time">${step.time}</span>
+                                <span class="timeline-time">${step.time.includes(',') ? `${step.time.split(',')[0]}<br>${step.time.split(',')[1].trim()}` : step.time}</span>
                             </div>
                         `).join('')}
                     </div>
                 </div>
-                <div class="alert alert-success d-flex flex-column gap-1 p-3 rounded-3 mb-0" role="alert" style="background-color: #eafcf1; border: 1px solid #d1f7df;">
+                <div class="alert alert-${alertColor} d-flex flex-column gap-1 p-3 rounded-3 mb-0" role="alert" style="background-color: ${alertBg}; border: 1px solid ${alertBorder};">
                     <div class="d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-circle-check text-success fs-5"></i>
-                        <span class="text-success-emphasis fw-medium small">Your order has been delivered successfully</span>
+                        <i class="fa-solid ${alertIcon} text-${alertColor} fs-5"></i>
+                        <span class="text-${alertColor}-emphasis fw-medium small">${alertMessage}</span>
                     </div>
-                    <span class="text-success fw-bold small ms-4">Delivered on ${orderDetailsData.timeline[orderDetailsData.timeline.length - 1].time}</span>
+                    <span class="text-${alertColor} fw-bold small ms-4">Status on ${lastStep.time}</span>
                 </div>
             `;
         }
@@ -173,9 +256,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         </tbody>
                     </table>
                 </div>
+                ${oi.orderStatus !== 'Cancelled' ? `
                 <button class="btn btn-outline-primary w-100 mt-3 d-flex align-items-center justify-content-center gap-2 py-2 fw-bold" onclick="downloadInvoice('${oi.orderNumber}');" style="border-radius: 8px; font-size: 0.8rem;">
                     <i class="fa-solid fa-download"></i> Download Invoice
                 </button>
+                ` : ''}
             `;
         }
     }
@@ -204,9 +289,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="d-flex gap-2">
                     <button class="btn btn-primary flex-grow-1 py-2 fw-semibold" style="border-radius: 8px; font-size: 0.75rem; white-space: nowrap;" onclick="window.location.href='checkout.html'">Buy Again</button>
+                    ${orderDetailsData.orderInfo.orderStatus !== 'Cancelled' ? `
                     <button class="btn btn-outline-primary flex-grow-1 py-2 fw-semibold d-flex align-items-center justify-content-center gap-1" onclick="openReviewModal();" style="border-radius: 8px; font-size: 0.75rem; white-space: nowrap;">
                         <i class="fa-regular fa-star"></i> Rate Product
                     </button>
+                    ` : ''}
                 </div>
             `;
         }
@@ -291,6 +378,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderReturnInfo() {
         const returnContainer = document.getElementById('return-info-container');
         if (returnContainer && orderDetailsData.returnInfo) {
+            if (orderDetailsData.orderInfo && orderDetailsData.orderInfo.orderStatus === 'Cancelled') {
+                returnContainer.innerHTML = '';
+                return;
+            }
             const ri = orderDetailsData.returnInfo;
             returnContainer.innerHTML = `
                 <h5 class="details-card-title"><i class="fa-solid fa-arrows-rotate"></i> Return / Replace</h5>
@@ -310,6 +401,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Render More Actions
+    function renderMoreActions() {
+        if (orderDetailsData.orderInfo) {
+            const status = orderDetailsData.orderInfo.orderStatus;
+            if (status === 'Cancelled' || status === 'Returned') {
+                const returnBtn = document.getElementById('returnOrderBtn');
+                const cancelBtn = document.getElementById('cancelOrderBtn');
+                
+                if (returnBtn) {
+                    returnBtn.classList.remove('d-flex');
+                    returnBtn.classList.add('d-none');
+                }
+                if (cancelBtn) {
+                    cancelBtn.classList.remove('d-flex');
+                    cancelBtn.classList.add('d-none');
+                }
+            }
+        }
+    }
+
     // Initialize all renders
     renderOrderBanner();
     renderTimeline();
@@ -318,4 +429,5 @@ document.addEventListener("DOMContentLoaded", function () {
     renderDeliveryAddress();
     renderPaymentInfo();
     renderTrackingHistory();
+    renderMoreActions();
 });

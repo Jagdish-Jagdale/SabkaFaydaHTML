@@ -2129,6 +2129,21 @@ select.profile-form-control {
     color: #b91c1c;
 }
 
+.status-pill.confirmed {
+    background: #cffafe;
+    color: #0891b2;
+}
+
+.status-pill.label-printed {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+.status-pill.returned {
+    background: #f1f5f9;
+    color: #475569;
+}
+
 .order-actions {
     align-items: center;
     display: flex;
@@ -2642,6 +2657,16 @@ select.profile-form-control {
     background: #16a34a;
     border-color: #16a34a;
     color: #ffffff;
+}
+
+.timeline-track-wrap.timeline-red .timeline-line-active {
+    background: #ef4444 !important;
+}
+
+.timeline-track-wrap.timeline-red .timeline-step.completed .timeline-circle {
+    background: #ef4444 !important;
+    border-color: #ef4444 !important;
+    color: #ffffff !important;
 }
 
 .timeline-step.step-blue.completed .timeline-circle {
