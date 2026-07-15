@@ -18,7 +18,7 @@ const mockData = {
             actions: [
                 { label: 'Buy Again', btnClass: 'btn-primary' },
                 { label: 'View Details', btnClass: 'btn-outline-primary', link: 'order-details.html' },
-                { label: 'Rate Product', btnClass: 'btn-outline-primary' }
+                { label: 'Rate Product', btnClass: 'btn-outline-primary', link: 'order-details.html?rate=true' }
             ]
         },
         {

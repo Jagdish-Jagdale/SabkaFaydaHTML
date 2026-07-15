@@ -462,4 +462,13 @@ document.addEventListener("DOMContentLoaded", function () {
     renderPaymentInfo();
     renderTrackingHistory();
     renderMoreActions();
+
+    const rateParam = urlParams.get('rate');
+    if (rateParam === 'true') {
+        setTimeout(() => {
+            if (typeof window.openReviewModal === 'function') {
+                window.openReviewModal();
+            }
+        }, 300);
+    }
 });
