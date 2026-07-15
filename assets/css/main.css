@@ -701,12 +701,15 @@ body {
     background-color: #f7f9fa;
 }
 
-/* Banner Styling */
 .category-banner-img {
     width: 100% !important;
     border-radius: 12px;
     object-fit: cover;
     object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 @media (min-width: 992px) {
