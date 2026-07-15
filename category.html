@@ -38,14 +38,17 @@
             }
         }
 
-        .card-icon-wishlist i, .card-icon-share i {
+        .card-icon-wishlist i,
+        .card-icon-share i {
             color: #6c757d !important;
             transition: color 0.3s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
+
         .card-icon-wishlist:hover i {
             color: #dc3545 !important;
             transform: scale(1.2);
         }
+
         .card-icon-share:hover i {
             color: #4b70f5 !important;
             transform: scale(1.2);
@@ -168,10 +171,11 @@
 
                 <!-- Left Sidebar Filters -->
                 <div class="col-md-3 mb-4 filter-sidebar-col d-none d-md-block custom-sidebar-col"
-                    style="padding-top: 0 !important; margin-top: 0 !important;"><img
-                        src="assets/img/categorygiftimg.png"
+                    style="padding-top: 0 !important; margin-top: 0 !important;"><video autoplay loop muted
+                        src="assets/img/categorygiftimg.mp4"
                         class="category-banner-img w-100 object-fit-cover rounded-3 mb-4"
-                        style="display: block !important; margin-top: 0 !important;" alt="Small Category Banner">
+                        style="display: block !important; margin-top: 0 !important;"
+                        alt="Small Category Banner"></video>
 
                     <!-- Selected Filters Card -->
                     <div class="bg-white border rounded-3 py-3 px-4 mb-3 shadow-sm"
@@ -181,7 +185,8 @@
                                 style="font-family: 'Inter', sans-serif; font-size: 0.95rem;">Selected Filters</h6>
                             <a href="javascript:void(0)" id="clearAllFiltersBtn"
                                 class="text-danger text-decoration-none d-none"
-                                style="font-size: 0.75rem; font-weight: 500;" onclick="clearAllFilters()">Clear All</a>
+                                style="font-size: 0.75rem; font-weight: 500;" onclick="clearAllFilters()">Clear
+                                All</a>
                         </div>
                         <div id="selectedFiltersContainer" class="d-flex flex-wrap gap-1 mt-2"
                             style="min-height: 35px;">
@@ -191,7 +196,8 @@
 
                     <!-- Category Filter Card -->
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
-                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Category</h5>
+                        <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Category
+                        </h5>
                         <ul class="list-unstyled mb-0">
                             <!-- All Categories -->
                             <li class="mb-3">

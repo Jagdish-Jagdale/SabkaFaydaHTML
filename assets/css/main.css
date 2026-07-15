@@ -168,20 +168,6 @@ html, body {
 }
 
 /* ── Cascading Category Dropdown Panels ── */
-.cat-drop-box {
-    background: #fff;
-    border: 1px solid #e4e8f0;
-    border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(0, 93, 255, 0.10);
-    min-width: 220px;
-    padding: 6px 0;
-    position: absolute;
-    top: 100%;
-    z-index: 1200;
-    /* Invisible top extension acts as a hover bridge from bar → dropdown */
-    margin-top: 0;
-}
-
 /* Invisible hover bridge: extends clickable area upward so cursor never leaves */
 .cat-drop-box::before {
     content: '';
@@ -196,54 +182,6 @@ html, body {
 .cat-drop-box ul {
     margin: 0;
     padding: 0;
-}
-
-.cat-l1-item {
-    align-items: center;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    font-size: 0.84rem;
-    font-weight: 600;
-    justify-content: space-between;
-    margin: 2px 6px;
-    padding: 9px 14px;
-    transition: background 0.15s ease, color 0.15s ease;
-    color: #2d3748;
-}
-
-.cat-l1-item:hover,
-.cat-l1-item.active {
-    background: #eff6ff;
-    color: #0087F6;
-}
-
-.cat-l1-item .cat-chevron {
-    font-size: 0.65rem;
-    opacity: 0.55;
-}
-
-.cat-l1-item.active .cat-chevron {
-    opacity: 1;
-    color: #0087F6;
-}
-
-.cat-l2-item {
-    border-radius: 8px;
-    color: #374151;
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 500;
-    margin: 2px 6px;
-    padding: 8px 14px;
-    text-decoration: none;
-    transition: background 0.15s ease, color 0.15s ease;
-}
-
-.cat-l2-item:hover {
-    background: #eff6ff;
-    color: #0087F6;
-    text-decoration: none;
 }
 
 /* Custom Category Dropdown Styling */
@@ -1761,17 +1699,6 @@ select.profile-form-control {
     color: #dc2626;
 }
 
-.notification-icon-wrapper {
-    align-items: center;
-    border-radius: 50%;
-    display: flex;
-    flex: 0 0 44px;
-    font-size: 1.2rem;
-    height: 44px;
-    justify-content: center;
-    width: 44px;
-}
-
 .orders-toolbar {
     align-items: center;
     border: 1px solid #eef2f6;
@@ -2076,12 +2003,6 @@ select.profile-form-control {
     color: #6b7280;
     font-size: 0.68rem;
     font-weight: 700;
-}
-
-/* Notification card — adjusted grid so the 4th column (actions) is always visible */
-.notification-card {
-    grid-template-columns: minmax(200px, 2fr) minmax(170px, 1fr) minmax(120px, 0.8fr) minmax(160px, 0.9fr);
-    align-items: center;
 }
 
 .notification-card .order-actions {
@@ -2423,6 +2344,10 @@ select.profile-form-control {
         flex-direction: column;
     }
 
+    .orders-sort-btn {
+        width: 100%;
+    }
+
     .order-product {
         flex-direction: column;
         align-items: center;
@@ -2430,39 +2355,14 @@ select.profile-form-control {
     }
 
     .order-product-img {
-        height: 110px;
-        width: 110px;
+        height: 120px;
+        width: 120px;
     }
 
     .order-id {
         justify-content: center;
         display: flex;
         align-items: center;
-    }
-}
-
-@media (max-width: 575px) {
-    .orders-summary-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-    .orders-toolbar {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .orders-sort-btn {
-        width: 100%;
-    }
-
-    .order-product {
-        flex-direction: column;
-    }
-
-    .order-product-img {
-        height: 120px;
-        width: 120px;
     }
 }
 
@@ -2938,6 +2838,7 @@ select.profile-form-control {
    ================================================ */
 .notification-card {
     grid-template-columns: minmax(280px, 1.8fr) minmax(180px, 1fr) minmax(220px, 1.2fr) !important;
+    align-items: center;
 }
 
 .notification-icon-wrapper {
@@ -3461,17 +3362,6 @@ a {
     padding-right: 6px !important;
     color: #6c757d !important;
     content: "/" !important;
-}
-
-/* Profile Dropdown Hover Styles */
-.profile-dropdown-item:hover {
-    background-color: #eaf5ff !important;
-    color: #0087f6 !important;
-}
-
-.profile-logout-item:hover {
-    background-color: #ffeaea !important;
-    color: #dc3545 !important;
 }
 
 /* Custom Profile Dropdown Styles */
