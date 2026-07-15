@@ -24,27 +24,17 @@
     <link rel="preload" href="assets/js/mockCategories.js" as="script">
 
     <style>
-        @media (min-width: 992px) {
+        @media (min-width: 768px) {
             .custom-sidebar-col {
-                flex: 0 0 23%;
-                max-width: 23%;
+                flex: 0 0 300px !important;
+                width: 300px !important;
+                max-width: 300px !important;
             }
 
             .custom-main-col {
-                flex: 0 0 77%;
-                max-width: 77%;
-            }
-        }
-
-        @media (min-width: 1400px) {
-            .custom-sidebar-col {
-                flex: 0 0 21%;
-                max-width: 21%;
-            }
-
-            .custom-main-col {
-                flex: 0 0 79%;
-                max-width: 79%;
+                flex: 0 0 calc(100% - 300px) !important;
+                width: calc(100% - 300px) !important;
+                max-width: calc(100% - 300px) !important;
             }
         }
 
@@ -180,7 +170,7 @@
                 <div class="col-md-3 mb-4 filter-sidebar-col d-none d-md-block custom-sidebar-col"
                     style="padding-top: 0 !important; margin-top: 0 !important;"><img
                         src="assets/img/categorygiftimg.png"
-                        class="category-banner-img w-100 object-fit-contain rounded-3 mb-4"
+                        class="category-banner-img w-100 object-fit-cover rounded-3 mb-4"
                         style="display: block !important; margin-top: 0 !important;" alt="Small Category Banner">
 
                     <!-- Selected Filters Card -->
