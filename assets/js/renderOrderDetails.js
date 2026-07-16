@@ -1,16 +1,45 @@
-window.downloadInvoice = function(orderId) {
-    let iframe = document.getElementById('invoice-download-iframe');
-    if (iframe) {
-        iframe.remove();
+window.downloadInvoice = function(orderId, btnElement) {
+    // Add loading state to button
+    if (btnElement) {
+        const originalContent = btnElement.innerHTML;
+        btnElement.disabled = true;
+        btnElement.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Downloading...';
+        
+        // Simulate download delay
+        setTimeout(() => {
+            let iframe = document.getElementById('invoice-download-iframe');
+            if (iframe) {
+                iframe.remove();
+            }
+            iframe = document.createElement('iframe');
+            iframe.id = 'invoice-download-iframe';
+            iframe.style.position = 'absolute';
+            iframe.style.width = '0';
+            iframe.style.height = '0';
+            iframe.style.border = '0';
+            iframe.src = 'invoice.html?id=' + orderId + '&download=true';
+            document.body.appendChild(iframe);
+            
+            // Reset button after download
+            setTimeout(() => {
+                btnElement.disabled = false;
+                btnElement.innerHTML = originalContent;
+            }, 1000);
+        }, 500);
+    } else {
+        let iframe = document.getElementById('invoice-download-iframe');
+        if (iframe) {
+            iframe.remove();
+        }
+        iframe = document.createElement('iframe');
+        iframe.id = 'invoice-download-iframe';
+        iframe.style.position = 'absolute';
+        iframe.style.width = '0';
+        iframe.style.height = '0';
+        iframe.style.border = '0';
+        iframe.src = 'invoice.html?id=' + orderId + '&download=true';
+        document.body.appendChild(iframe);
     }
-    iframe = document.createElement('iframe');
-    iframe.id = 'invoice-download-iframe';
-    iframe.style.position = 'absolute';
-    iframe.style.width = '0';
-    iframe.style.height = '0';
-    iframe.style.border = '0';
-    iframe.src = 'invoice.html?id=' + orderId + '&download=true';
-    document.body.appendChild(iframe);
 };
 
 window.openReviewModal = function() {
@@ -257,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </table>
                 </div>
                 ${oi.orderStatus !== 'Cancelled' ? `
-                <button class="btn btn-outline-primary w-100 mt-3 d-flex align-items-center justify-content-center gap-2 py-2 fw-bold" onclick="downloadInvoice('${oi.orderNumber}');" style="border-radius: 8px; font-size: 0.8rem;">
+                <button class="btn btn-outline-primary w-100 mt-3 d-flex align-items-center justify-content-center gap-2 py-2 fw-bold" onclick="downloadInvoice('${oi.orderNumber}', this);" style="border-radius: 8px; font-size: 0.8rem;">
                     <i class="fa-solid fa-download"></i> Download Invoice
                 </button>
                 ` : ''}

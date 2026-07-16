@@ -512,35 +512,43 @@
                         return;
                     }
 
-                    const qtyInput = document.getElementById('qtyInput');
-                    const qty = qtyInput ? parseInt(qtyInput.value) : 1;
-                    const productName = productDetailsData.product.title;
+                    // Add loading state
+                    const originalContent = addToCartBtn.innerHTML;
+                    addToCartBtn.disabled = true;
+                    addToCartBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
 
-                    // Get selected size
-                    const activeSizeBtn = document.querySelector('.size-btn.active');
-                    const selectedSize = activeSizeBtn ? activeSizeBtn.textContent.trim() : '';
+                    setTimeout(() => {
+                        const qtyInput = document.getElementById('qtyInput');
+                        const qty = qtyInput ? parseInt(qtyInput.value) : 1;
+                        const productName = productDetailsData.product.title;
 
-                    // Prepare product object for cart
-                    const productForCart = {
-                        id: selectedSize ? productDetailsData.product.sku + '_' + selectedSize : productDetailsData.product.sku,
-                        title: productDetailsData.product.title,
-                        image: productDetailsData.product.images[0],
-                        price: productDetailsData.product.price,
-                        originalPrice: '₹' + productDetailsData.product.originalPrice,
-                        discount: productDetailsData.product.discount,
-                        specs: productDetailsData.product.specifications ? productDetailsData.product.specifications.map(spec => spec.value) : [],
-                        size: selectedSize
-                    };
+                        // Get selected size
+                        const activeSizeBtn = document.querySelector('.size-btn.active');
+                        const selectedSize = activeSizeBtn ? activeSizeBtn.textContent.trim() : '';
 
-                    // Add to cart using localStorage
-                    addToCart(productForCart, qty);
+                        // Prepare product object for cart
+                        const productForCart = {
+                            id: selectedSize ? productDetailsData.product.sku + '_' + selectedSize : productDetailsData.product.sku,
+                            title: productDetailsData.product.title,
+                            image: productDetailsData.product.images[0],
+                            price: productDetailsData.product.price,
+                            originalPrice: '₹' + productDetailsData.product.originalPrice,
+                            discount: productDetailsData.product.discount,
+                            specs: productDetailsData.product.specifications ? productDetailsData.product.specifications.map(spec => spec.value) : [],
+                            size: selectedSize
+                        };
 
-                    // Update cart count in header
-                    updateCartCount();
+                        // Add to cart using localStorage
+                        addToCart(productForCart, qty);
 
-                    // Change label to Go to Cart and add a class
-                    addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
-                    addToCartBtn.classList.add('go-to-cart');
+                        // Update cart count in header
+                        updateCartCount();
+
+                        // Change label to Go to Cart and add a class
+                        addToCartBtn.disabled = false;
+                        addToCartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i> <span>Go to Cart</span>`;
+                        addToCartBtn.classList.add('go-to-cart');
+                    }, 500);
                 }
 
                 // Add to Wishlist

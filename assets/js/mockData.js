@@ -161,7 +161,7 @@ const mockData = {
             id: 'W001',
             productName: 'Samsung Galaxy S24 Ultra, 512GB, Titanium Black',
             price: '1,34,999',
-            image: 'assets/img/iphone15_blue.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg',
             addedDate: '28 Jun 2026, 11:30 AM',
             orderDate: '28 Jun 2026',
             status: 'IN STOCK',
@@ -171,7 +171,7 @@ const mockData = {
             id: 'W002',
             productName: 'Bose QuietComfort Ultra',
             price: '29,990',
-            image: 'assets/img/sony_headphones.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg',
             addedDate: '25 Jun 2026, 09:15 AM',
             orderDate: '25 Jun 2026',
             status: 'IN STOCK',
@@ -181,7 +181,7 @@ const mockData = {
             id: 'W003',
             productName: 'Adidas Ultraboost 22',
             price: '14,995',
-            image: 'assets/img/nike_shoes.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg',
             addedDate: '22 Jun 2026, 04:45 PM',
             orderDate: '22 Jun 2026',
             status: 'ONLY 2 LEFT',
@@ -191,7 +191,7 @@ const mockData = {
             id: 'W004',
             productName: 'JBL Flip 6 Portable Speaker',
             price: '4,499',
-            image: 'assets/img/boat_speaker.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg',
             addedDate: '20 Jun 2026, 10:20 AM',
             orderDate: '20 Jun 2026',
             status: 'IN STOCK',
@@ -208,7 +208,7 @@ const mockData = {
             price: '42,990',
             originalPrice: '46,990',
             discount: '9% Off',
-            image: 'assets/img/electronicimg.png'
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg'
         },
         {
             id: 'C002',
@@ -219,7 +219,7 @@ const mockData = {
             price: '3,499',
             originalPrice: '3,999',
             discount: '13% Off',
-            image: 'assets/img/sony_headphones.png'
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg'
         },
         {
             id: 'C003',
@@ -230,7 +230,7 @@ const mockData = {
             price: '6,490',
             originalPrice: '7,990',
             discount: '19% Off',
-            image: 'assets/img/homescreenimg.png'
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg'
         }
     ],
     wallet: [

@@ -1,12 +1,12 @@
 const homePageMockData = {
     heroSlides: [
         {
-            image: 'assets/img/homescreenimg.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg',
             ctaText: 'Shop Now',
             ctaLink: 'category.html'
         },
         {
-            image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg',
             ctaText: 'Shop Now',
             ctaLink: 'category.html'
         }
@@ -25,12 +25,12 @@ const homePageMockData = {
     keepShopping: {
         title: 'keep Shopping User Name',
         items: [
-            { title: 'Min. 70% Off', desc: 'Structured style with extra long text to test truncation', image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=200&auto=format&fit=crop', alt: 'Shirt' },
-            { title: 'Up to 80% Off', desc: 'Fun playtime', image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=200&auto=format&fit=crop', alt: 'Toy Car' },
-            { title: 'From ₹ 6,299/M*', desc: 'Intel Core Ultra PCs', image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=200&auto=format&fit=crop', alt: 'Laptop' },
-            { title: 'Min. 60% Off', desc: 'Sports shoes', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop', alt: 'Shoes' },
-            { title: 'From ₹ 499', desc: 'Audio picks', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=200&auto=format&fit=crop', alt: 'Headphones' },
-            { title: 'Up to 55% Off', desc: 'Home decor', image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=200&auto=format&fit=crop', alt: 'Home Decor' }
+            { title: 'Min. 70% Off', desc: 'Structured style with extra long text to test truncation', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg', alt: 'Shirt' },
+            { title: 'Up to 80% Off', desc: 'Fun playtime', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg', alt: 'Toy Car' },
+            { title: 'From ₹ 6,299/M*', desc: 'Intel Core Ultra PCs', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg', alt: 'Laptop' },
+            { title: 'Min. 60% Off', desc: 'Sports shoes', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg', alt: 'Shoes' },
+            { title: 'From ₹ 499', desc: 'Audio picks', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg', alt: 'Headphones' },
+            { title: 'Up to 55% Off', desc: 'Home decor', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg', alt: 'Home Decor' }
         ]
     },
     productSections: [
@@ -38,43 +38,43 @@ const homePageMockData = {
             title: 'TOP Refer Product',
             layout: 'smallRow',
             items: [
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop' }
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (20).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (22).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg' }
             ]
         },
         {
             title: 'Electronic Gadgets',
             layout: 'smallRow',
             items: [
-                { title: 'Smart Gadgets', subtitle: 'Top deals', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Audio Picks', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Wearables', subtitle: 'Best seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Accessories', subtitle: 'New deals', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Premium Tech', subtitle: 'Limited offer', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Home Theater', subtitle: 'Save big', image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Gaming Gear', subtitle: 'Pro setup', image: 'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Cameras', subtitle: 'Capture life', image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Wireless Buds', subtitle: 'No strings attached', image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Smart Watches', subtitle: 'Stay connected', image: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Drones', subtitle: 'Sky high', image: 'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Tablets', subtitle: 'Work & Play', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=200&auto=format&fit=crop' }
+                { title: 'Smart Gadgets', subtitle: 'Top deals', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg' },
+                { title: 'Audio Picks', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg' },
+                { title: 'Wearables', subtitle: 'Best seller', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg' },
+                { title: 'Accessories', subtitle: 'New deals', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg' },
+                { title: 'Premium Tech', subtitle: 'Limited offer', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg' },
+                { title: 'Home Theater', subtitle: 'Save big', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg' },
+                { title: 'Gaming Gear', subtitle: 'Pro setup', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg' },
+                { title: 'Cameras', subtitle: 'Capture life', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg' },
+                { title: 'Wireless Buds', subtitle: 'No strings attached', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (20).jpeg' },
+                { title: 'Smart Watches', subtitle: 'Stay connected', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (22).jpeg' },
+                { title: 'Drones', subtitle: 'Sky high', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg' },
+                { title: 'Tablets', subtitle: 'Work & Play', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg' }
             ]
         },
         {
             title: 'Featured Products',
             layout: 'smallRow',
             items: [
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=200&auto=format&fit=crop' },
-                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=200&auto=format&fit=crop' }
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg' },
+                { title: 'Jewelry Set', subtitle: 'Mini 70 % off', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg' }
             ]
         }
     ],
@@ -94,13 +94,13 @@ const homePageMockData = {
         }
     ],
     productGrid: [
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Sale On', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Offer', image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1599643478514-4a4e09d56334?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Sale On', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=300&auto=format&fit=crop' },
-        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=300&auto=format&fit=crop' }
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Sale On', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Offer', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'New Arrival', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Sale On', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg' },
+        { title: 'Tanishk Zumke', desc: 'thisis the tital of......', oldPrice: '1000', price: '₹ 500', offer: '70 % Off on all Jewellry', badge: 'Best Seller', image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg' }
     ]
 };

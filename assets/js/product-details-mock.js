@@ -15,11 +15,11 @@ const productDetailsData = {
         upiPrice: 18999,
         offerTag: 'UPI Offer',
         images: [
-            'assets/img/electronicimg.png',
-            'assets/img/electronicimg.png',
-            'assets/img/electronicimg.png',
-            'assets/img/electronicimg.png',
-            'assets/img/electronicimg.png'
+            'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg',
+            'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg',
+            'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg',
+            'assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg',
+            'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg'
         ],
         sizes: ['128GB', '256GB', '512GB'],
         selectedSize: '256GB',
@@ -107,7 +107,7 @@ const productDetailsData = {
     ],
     similarProducts: [
         {
-            image: 'assets/img/electronicimg.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg',
             title: 'Samsung Galaxy M35 5G (6GB RAM, 128GB Storage)',
             rating: 4.3,
             reviews: 289,
@@ -119,7 +119,7 @@ const productDetailsData = {
             sponsored: true
         },
         {
-            image: 'assets/img/electronicimg.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg',
             title: 'Realme 12 Pro 5G (8GB RAM, 256GB Storage)',
             rating: 4.1,
             reviews: 145,
@@ -131,7 +131,7 @@ const productDetailsData = {
             sponsored: false
         },
         {
-            image: 'assets/img/electronicimg.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg',
             title: 'Vivo V30 Pro 5G (8GB RAM, 256GB Storage)',
             rating: 4.5,
             reviews: 312,
@@ -143,7 +143,7 @@ const productDetailsData = {
             sponsored: true
         },
         {
-            image: 'assets/img/electronicimg.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg',
             title: 'Redmi Note 13 Pro 5G (8GB RAM, 256GB Storage)',
             rating: 4.2,
             reviews: 198,
@@ -155,7 +155,7 @@ const productDetailsData = {
             sponsored: false
         },
         {
-            image: 'assets/img/electronicimg.png',
+            image: 'assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg',
             title: 'Motorola Edge 40 Neo 5G (8GB RAM, 128GB Storage)',
             rating: 4.0,
             reviews: 87,

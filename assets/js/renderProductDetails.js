@@ -1,3 +1,16 @@
+window.handleBuyNow = function(btnElement) {
+    // Add loading state
+    const originalContent = btnElement.innerHTML;
+    btnElement.disabled = true;
+    btnElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+    
+    setTimeout(() => {
+        btnElement.disabled = false;
+        btnElement.innerHTML = originalContent;
+        window.location.href = 'checkout.html';
+    }, 500);
+};
+
 /* Render Product Details Page */
 document.addEventListener("DOMContentLoaded", function () {
     function generateCardStarsHtml(rating) {
@@ -151,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     
                     <!-- Buy Now Button -->
-                    <button class="btn btn-primary w-100 fw-bold py-2.5 mb-3" style="background-color: #0087F6; border: none; border-radius: 6px; font-size: 1rem;" onclick="window.location.href='checkout.html'">
+                    <button class="btn btn-primary w-100 fw-bold py-2.5 mb-3" style="background-color: #0087F6; border: none; border-radius: 6px; font-size: 1rem;" onclick="handleBuyNow(this)">
                         Buy Now
                     </button>
 

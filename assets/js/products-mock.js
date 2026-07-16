@@ -2,7 +2,7 @@ const mockProducts = [
     {
         "id": 1,
         "name": "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 209,
@@ -15,7 +15,7 @@ const mockProducts = [
     {
         "id": 2,
         "name": "Wireless Bluetooth Bass Boost Headphones with Mic",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg",
         "sponsored": false,
         "rating": 4.3,
         "reviews": 145,
@@ -28,7 +28,7 @@ const mockProducts = [
     {
         "id": 3,
         "name": "Ergonomic Optical Wireless Mouse with Nano Receiver",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg",
         "sponsored": true,
         "rating": 4.6,
         "reviews": 312,
@@ -41,7 +41,7 @@ const mockProducts = [
     {
         "id": 4,
         "name": "Premium Organic Darjeeling Green Tea Pack of 2",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg",
         "sponsored": false,
         "rating": 4.7,
         "reviews": 98,
@@ -54,7 +54,7 @@ const mockProducts = [
     {
         "id": 5,
         "name": "Stainless Steel Insulated Smart Water Bottle 500ml",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg",
         "sponsored": true,
         "rating": 4.2,
         "reviews": 76,
@@ -67,7 +67,7 @@ const mockProducts = [
     {
         "id": 6,
         "name": "Ultra-Thin Portable Power Bank 10000mAh Dual USB",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg",
         "sponsored": false,
         "rating": 4.4,
         "reviews": 189,
@@ -80,7 +80,7 @@ const mockProducts = [
     {
         "id": 7,
         "name": "Multi-Functional Leather Passport Holder & Wallet",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 220,
@@ -93,7 +93,7 @@ const mockProducts = [
     {
         "id": 8,
         "name": "Smart Fitness Band with Heart Rate Monitor & Sleep Tracker",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg",
         "sponsored": false,
         "rating": 4.1,
         "reviews": 350,
@@ -106,7 +106,7 @@ const mockProducts = [
     {
         "id": 9,
         "name": "Premium Quality Bamboo Fiber Kitchen Towel Set of 4",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg",
         "sponsored": true,
         "rating": 4.8,
         "reviews": 115,
@@ -119,7 +119,7 @@ const mockProducts = [
     {
         "id": 10,
         "name": "Heavy-Duty Adjustable Laptop Stand Aluminum Holder",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg",
         "sponsored": false,
         "rating": 4.6,
         "reviews": 275,
@@ -132,7 +132,7 @@ const mockProducts = [
     {
         "id": 11,
         "name": "Multi-Functional Leather Passport Holder & Wallet",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (20).jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 220,
@@ -145,7 +145,7 @@ const mockProducts = [
     {
         "id": 12,
         "name": "Multi-Functional Leather Passport Holder & Wallet",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (22).jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 220,
@@ -158,7 +158,7 @@ const mockProducts = [
     {
         "id": 13,
         "name": "Heavy-Duty Adjustable Laptop Stand Aluminum Holder",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg",
         "sponsored": false,
         "rating": 4.6,
         "reviews": 275,
@@ -171,7 +171,7 @@ const mockProducts = [
     {
         "id": 14,
         "name": "Heavy-Duty Adjustable Laptop Stand Aluminum Holder",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg",
         "sponsored": false,
         "rating": 4.6,
         "reviews": 275,
@@ -184,7 +184,7 @@ const mockProducts = [
     {
         "id": 15,
         "name": "Wireless Bluetooth Bass Boost Headphones with Mic",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg",
         "sponsored": false,
         "rating": 4.3,
         "reviews": 145,
@@ -197,7 +197,7 @@ const mockProducts = [
     {
         "id": 16,
         "name": "Ergonomic Optical Wireless Mouse with Nano Receiver",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg",
         "sponsored": true,
         "rating": 4.6,
         "reviews": 312,
@@ -210,7 +210,7 @@ const mockProducts = [
     {
         "id": 17,
         "name": "Wireless Bluetooth Bass Boost Headphones with Mic",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg",
         "sponsored": false,
         "rating": 4.3,
         "reviews": 145,
@@ -223,7 +223,7 @@ const mockProducts = [
     {
         "id": 18,
         "name": "Stainless Steel Insulated Smart Water Bottle 500ml",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg",
         "sponsored": true,
         "rating": 4.2,
         "reviews": 76,
@@ -236,7 +236,7 @@ const mockProducts = [
     {
         "id": 19,
         "name": "Stainless Steel Insulated Smart Water Bottle 500ml",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg",
         "sponsored": true,
         "rating": 4.2,
         "reviews": 76,
@@ -249,7 +249,7 @@ const mockProducts = [
     {
         "id": 20,
         "name": "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 209,
@@ -262,7 +262,7 @@ const mockProducts = [
     {
         "id": 21,
         "name": "Heavy-Duty Adjustable Laptop Stand Aluminum Holder",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg",
         "sponsored": false,
         "rating": 4.6,
         "reviews": 275,
@@ -275,7 +275,7 @@ const mockProducts = [
     {
         "id": 22,
         "name": "Wireless Bluetooth Bass Boost Headphones with Mic",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg",
         "sponsored": false,
         "rating": 4.3,
         "reviews": 145,
@@ -288,7 +288,7 @@ const mockProducts = [
     {
         "id": 23,
         "name": "Ergonomic Optical Wireless Mouse with Nano Receiver",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (20).jpeg",
         "sponsored": true,
         "rating": 4.6,
         "reviews": 312,
@@ -301,7 +301,7 @@ const mockProducts = [
     {
         "id": 24,
         "name": "Premium Organic Darjeeling Green Tea Pack of 2",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (22).jpeg",
         "sponsored": false,
         "rating": 4.7,
         "reviews": 98,
@@ -314,7 +314,7 @@ const mockProducts = [
     {
         "id": 25,
         "name": "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 209,
@@ -327,7 +327,7 @@ const mockProducts = [
     {
         "id": 26,
         "name": "Multi-Functional Leather Passport Holder & Wallet",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 220,
@@ -340,7 +340,7 @@ const mockProducts = [
     {
         "id": 27,
         "name": "Heavy-Duty Adjustable Laptop Stand Aluminum Holder",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg",
         "sponsored": false,
         "rating": 4.6,
         "reviews": 275,
@@ -353,7 +353,7 @@ const mockProducts = [
     {
         "id": 28,
         "name": "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 209,
@@ -366,7 +366,7 @@ const mockProducts = [
     {
         "id": 29,
         "name": "Stainless Steel Insulated Smart Water Bottle 500ml",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg",
         "sponsored": true,
         "rating": 4.2,
         "reviews": 76,
@@ -379,7 +379,7 @@ const mockProducts = [
     {
         "id": 30,
         "name": "Premium Quality Bamboo Fiber Kitchen Towel Set of 4",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg",
         "sponsored": true,
         "rating": 4.8,
         "reviews": 115,
@@ -392,7 +392,7 @@ const mockProducts = [
     {
         "id": 31,
         "name": "Premium Quality Bamboo Fiber Kitchen Towel Set of 4",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg",
         "sponsored": true,
         "rating": 4.8,
         "reviews": 115,
@@ -405,7 +405,7 @@ const mockProducts = [
     {
         "id": 32,
         "name": "Multi-Functional Leather Passport Holder & Wallet",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg",
         "sponsored": true,
         "rating": 4.5,
         "reviews": 220,
@@ -418,7 +418,7 @@ const mockProducts = [
     {
         "id": 33,
         "name": "Wireless Bluetooth Bass Boost Headphones with Mic",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg",
         "sponsored": false,
         "rating": 4.3,
         "reviews": 145,
@@ -431,7 +431,7 @@ const mockProducts = [
     {
         "id": 34,
         "name": "Ergonomic Optical Wireless Mouse with Nano Receiver",
-        "image": "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+        "image": "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg",
         "sponsored": true,
         "rating": 4.6,
         "reviews": 312,

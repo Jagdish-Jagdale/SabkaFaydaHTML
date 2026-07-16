@@ -7,7 +7,7 @@ const checkoutData = {
     products: [
         {
             id: 1,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM.jpeg",
             title: "Digital Personal Body Weight Scale (1 Pc)",
             size: "XL",
             status: "Out of Stock",
@@ -23,7 +23,7 @@ const checkoutData = {
         },
         {
             id: 2,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (1).jpeg",
             title: "Digital Personal Body Weight Scale (1 Pc)",
             size: "XL",
             status: "Out of Stock",
@@ -39,7 +39,7 @@ const checkoutData = {
         },
         {
             id: 3,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (10).jpeg",
             title: "Digital Personal Body Weight Scale (1 Pc)",
             size: "XL",
             status: "Out of Stock",
@@ -65,7 +65,7 @@ const checkoutData = {
     similarProducts: [
         {
             id: 1,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.19.28 PM (11).jpeg",
             title: "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic",
             rating: 4.5,
             reviews: 209,
@@ -78,7 +78,7 @@ const checkoutData = {
         },
         {
             id: 2,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (3).jpeg",
             title: "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic",
             rating: 4.5,
             reviews: 209,
@@ -91,7 +91,7 @@ const checkoutData = {
         },
         {
             id: 3,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (4).jpeg",
             title: "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic",
             rating: 4.5,
             reviews: 209,
@@ -104,7 +104,7 @@ const checkoutData = {
         },
         {
             id: 4,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (5).jpeg",
             title: "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic",
             rating: 4.5,
             reviews: 209,
@@ -117,7 +117,7 @@ const checkoutData = {
         },
         {
             id: 5,
-            image: "assets/img/a2f999f18286586db85f7a0a39ac20a6f3b46f37.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (7).jpeg",
             title: "Premium Slim Bi-Fold Wallet for Men with Gift Box Packing 1 pic",
             rating: 4.5,
             reviews: 209,
@@ -130,7 +130,7 @@ const checkoutData = {
         },
         {
             id: 6,
-            image: "assets/img/product1.jpg",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (6).jpeg",
             title: "Samsung Galaxy M35 5G (Moonlight Blue, 128GB)",
             rating: 4.3,
             reviews: 512,
@@ -143,7 +143,7 @@ const checkoutData = {
         },
         {
             id: 7,
-            image: "assets/img/orderstatus.png",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (14).jpeg",
             title: "Realme Buds Air 5 Pro (Wireless Earbuds, White)",
             rating: 4.6,
             reviews: 340,
@@ -156,7 +156,7 @@ const checkoutData = {
         },
         {
             id: 8,
-            image: "assets/img/product1.jpg",
+            image: "assets/img/WhatsApp Image 2026-07-16 at 3.23.47 PM (20).jpeg",
             title: "OnePlus Nord CE 4 Lite 5G (Super Silver, 128GB)",
             rating: 4.2,
             reviews: 180,
