@@ -1,1482 +1,2963 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
+
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description"
+
         content="Browse our high-quality products, apply filters to find exactly what you need, and shop the best deals on Sabka Fayda.">
+
     <title>Category | Sabka Fayda</title>
+
     <!-- Favicon -->
+
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
     <!-- Bootstrap 5 CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Google Fonts -->
+
     <link
+
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap"
+
         rel="stylesheet">
+
     <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Main CSS -->
+
     <link rel="stylesheet" href="assets/css/main.css?v=22">
+
     <!-- Preload Logo and Header Data -->
+
     <link rel="preload" href="assets/img/sflogo.png" as="image" fetchpriority="high">
+
     <link rel="preload" href="assets/js/mockCategories.js" as="script">
 
+
+
     <style>
+
         @media (min-width: 768px) {
+
             .custom-sidebar-col {
+
                 flex: 0 0 350px !important;
+
                 width: 350px !important;
+
                 max-width: 350px !important;
+
             }
+
+
 
             .custom-main-col {
+
                 flex: 0 0 calc(100% - 350px) !important;
+
                 width: calc(100% - 350px) !important;
+
                 max-width: calc(100% - 350px) !important;
+
             }
+
         }
+
+
 
         .card-icon-wishlist i,
+
         .card-icon-share i {
+
             color: #6c757d !important;
+
             transition: color 0.3s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+
         }
+
+
 
         .card-icon-wishlist:hover i {
+
             color: #dc3545 !important;
+
             transform: scale(1.2);
+
         }
+
+
 
         .card-icon-share:hover i {
+
             color: #4b70f5 !important;
+
             transform: scale(1.2);
+
         }
+
+
 
         .product-action-overlay {
+
             visibility: hidden;
+
         }
+
+
 
         .product-card:hover .product-action-overlay {
+
             opacity: 1 !important;
+
             visibility: visible;
+
         }
+
+
 
         @media (max-width: 767.98px) {
+
             .product-action-overlay {
+
                 opacity: 1 !important;
+
                 visibility: visible !important;
+
             }
+
         }
+
+
 
         .product-card {
+
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+
         }
+
+
 
         .product-card:hover {
+
             transform: translateY(-2px);
+
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
+
         }
+
+
 
         @keyframes heartPulse {
+
             0% {
+
                 transform: scale(1);
+
             }
+
+
 
             50% {
+
                 transform: scale(1.3);
+
             }
+
+
 
             100% {
+
                 transform: scale(1);
+
             }
+
         }
+
+
 
         .wishlist-animating i {
+
             animation: heartPulse 0.3s ease;
+
         }
+
+
 
         #categoriesBarContainer {
+
             display: none !important;
+
         }
 
+
+
         .category-banner-img {
+
             width: 100%;
+
             height: auto;
+
             object-fit: contain;
+
             object-position: center;
+
             image-rendering: -webkit-optimize-contrast;
+
             image-rendering: crisp-edges;
+
             transform: translateZ(0);
+
             backface-visibility: hidden;
+
         }
+
     </style>
+
     <!-- Preload Dynamic Components -->
+
     <link rel="preload" href="header.html?v=5" as="fetch" crossorigin="anonymous">
+
     <link rel="preload" href="sidebar.html?v=5" as="fetch" crossorigin="anonymous">
+
     <link rel="preload" href="footer.html?v=5" as="fetch" crossorigin="anonymous">
+
 </head>
+
+
 
 <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden;">
 
+
+
     <!-- Header Placeholder -->
+
     <div id="header-placeholder">
+
         <div class="skeleton-box skeleton-header"></div>
+
     </div>
 
+
+
     <!-- Main Content -->
+
     <div class="main-content" style="padding-top: 140px; min-height: 100vh;">
 
 
+
+
+
         <!-- Mobile Filters (Category, Sort By) -->
+
         <div class="container-fluid px-3 px-xl-4 d-flex d-md-none justify-content-between gap-3 mb-3">
+
             <div class="dropdown flex-fill">
+
                 <button class="btn btn-light w-100 d-flex justify-content-between align-items-center py-2 px-3 border-0"
+
                     type="button" data-bs-toggle="dropdown" aria-expanded="false"
+
                     style="background-color: #f1f3f5; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #1a1a1a;">
+
                     <span>Category</span>
+
                     <i class="fas fa-chevron-down ms-2" style="font-size: 0.8rem; color: #1a1a1a;"></i>
+
                 </button>
+
                 <ul class="dropdown-menu w-100 shadow-sm border-0 mt-1" style="border-radius: 8px; font-size: 0.85rem;">
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Apparel & Fashion Accessories</a></li>
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Fashion Accessories</a></li>
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Electronics</a></li>
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Home & Living</a></li>
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Kids & Toys</a></li>
+
                 </ul>
+
             </div>
+
             <div class="dropdown flex-fill">
+
                 <button class="btn btn-light w-100 d-flex justify-content-between align-items-center py-2 px-3 border-0"
+
                     type="button" data-bs-toggle="dropdown" aria-expanded="false"
+
                     style="background-color: #f1f3f5; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #1a1a1a;">
+
                     <span>Sort By</span>
+
                     <i class="fas fa-chevron-down ms-2" style="font-size: 0.8rem; color: #1a1a1a;"></i>
+
                 </button>
+
                 <ul class="dropdown-menu dropdown-menu-end w-100 shadow-sm border-0 mt-1"
+
                     style="border-radius: 8px; font-size: 0.85rem;">
+
                     <li><a class="dropdown-item active" href="javascript:void(0)">Most selling</a></li>
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Newest First</a></li>
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Price Low to High</a></li>
+
                     <li><a class="dropdown-item" href="javascript:void(0)">Price High to Low</a></li>
+
                 </ul>
+
             </div>
+
         </div>
 
+
+
         <!-- Split Layout Content -->
+
         <div class="container-fluid px-3 px-xl-4 pb-5">
+
+
 
             <div class="row">
 
+
+
                 <!-- Left Sidebar Filters -->
+
                 <div class="col-md-3 mb-4 filter-sidebar-col d-none d-md-block custom-sidebar-col"
+
                     style="padding-top: 0 !important; margin-top: 0 !important;">
+
                     <div class="rounded-3 overflow-hidden mb-4"
+
                         style="display: block !important; margin-top: 0 !important; height: 240px !important; width: 350px !important; margin-left: -12px !important; margin-right: -12px !important; background-color: #d1c1f7;">
+
                         <video autoplay loop muted playsinline
+
                             src="assets/img/categorygiftimg.mp4"
+
                             style="width: 100%; height: 100%; object-fit: contain;"
+
                             alt="Small Category Banner"></video>
+
                     </div>
+
+
 
                     <!-- Selected Filters Card -->
+
                     <div class="bg-white border rounded-3 py-3 px-4 mb-3 shadow-sm"
+
                         style="border-color: #e2e8f0 !important;" id="selectedFiltersCard">
+
                         <div class="d-flex justify-content-between align-items-center">
+
                             <h6 class="fw-bold text-dark mb-0"
+
                                 style="font-family: 'Inter', sans-serif; font-size: 0.95rem;">Selected Filters</h6>
+
                             <a href="javascript:void(0)" id="clearAllFiltersBtn"
+
                                 class="text-danger text-decoration-none d-none"
+
                                 style="font-size: 0.75rem; font-weight: 500;" onclick="clearAllFilters()">Clear
+
                                 All</a>
+
                         </div>
+
                         <div id="selectedFiltersContainer" class="d-flex flex-wrap gap-1 mt-2"
+
                             style="min-height: 35px;">
+
                             <!-- Dynamic filter tags will be injected here -->
+
                         </div>
+
                     </div>
+
+
 
                     <!-- Category Filter Card -->
+
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
+
                         <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Category
+
                         </h5>
+
                         <ul class="list-unstyled mb-0">
+
                             <!-- All Categories -->
+
                             <li class="mb-3">
+
                                 <a href="category.html?category=All%20Category"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;">
+
                                     <span>All Category</span>
+
                                 </a>
+
                             </li>
+
                             <!-- For You -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, 'menuForYou')">
+
                                     <span>For You</span>
+
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
+
                                 </a>
+
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuForYou"
+
                                     style="display: none;">
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Best seller</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Under 50 Rs</a></li>
+
                                 </ul>
+
                             </li>
+
                             <!-- Category 1 -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, 'menuFashion')">
+
                                     <span>Fashion & Lifestyle</span>
+
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
+
                                 </a>
+
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuFashion"
+
                                     style="display: none;">
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">T-Shirts</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Shirts</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Jeans</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Watches</a></li>
+
                                 </ul>
+
                             </li>
+
                             <!-- Category 2 -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, 'menuElectronics')">
+
                                     <span>Electronics</span>
+
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
+
                                 </a>
+
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuElectronics"
+
                                     style="display: none;">
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Mobiles</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Laptops</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Headphones</a></li>
+
                                 </ul>
+
                             </li>
+
                             <!-- Category 3 -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, 'menuHome')">
+
                                     <span>Home & Living</span>
+
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
+
                                 </a>
+
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuHome"
+
                                     style="display: none;">
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none" style="color: #718096; font-size: 0.85rem;">Bed
+
                                             Sheets</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Curtains</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Kitchenware</a></li>
+
                                 </ul>
+
                             </li>
+
                             <!-- Category 4 -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, 'menuKids')">
+
                                     <span>kids & Toys</span>
+
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
+
                                 </a>
+
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuKids"
+
                                     style="display: none;">
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Soft Toys</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Board Games</a></li>
+
                                 </ul>
+
                             </li>
+
                             <!-- Category 5 -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, 'menuPersonal')">
+
                                     <span>Personal Care</span>
+
                                     <i class="fas fa-chevron-down text-secondary" style="font-size: 0.75rem;"></i>
+
                                 </a>
+
                                 <ul class="list-unstyled ps-3 mt-2 category-submenu" id="menuPersonal"
+
                                     style="display: none;">
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Skincare</a></li>
+
                                     <li class="mb-2 position-relative subcategory-item"><a href="javascript:void(0)"
+
                                             class="text-decoration-none"
+
                                             style="color: #718096; font-size: 0.85rem;">Cosmetics</a></li>
+
                                 </ul>
+
                             </li>
+
                             <!-- Retail & Gifts -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, null)">
+
                                     <span>Retail & Gifts</span>
+
                                 </a>
+
                             </li>
+
                             <!-- Animal & pet -->
+
                             <li class="mb-3">
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, null)">
+
                                     <span>Animal & pet</span>
+
                                 </a>
+
                             </li>
+
                             <!-- Automobile -->
+
                             <li>
+
                                 <a href="javascript:void(0)"
+
                                     class="text-decoration-none d-flex justify-content-between align-items-center category-menu-trigger"
+
                                     style="color: #4a5568; font-size: 0.9rem; font-weight: 500;"
+
                                     onclick="toggleCategoryMenu(event, null)">
+
                                     <span>Automobile</span>
+
                                 </a>
+
                             </li>
+
                         </ul>
+
                     </div>
+
+
 
                     <!-- Price Filter Card -->
+
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
+
                         <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Filter By
+
                             Price</h5>
+
                         <div class="px-1">
+
                             <div class="range-slider-container">
+
                                 <div class="slider-track"></div>
+
                                 <input type="range" class="custom-range-slider" min="1" max="100000" step="1" value="1"
+
                                     id="priceRangeMin" oninput="updateMinRange(this.value)">
+
                                 <input type="range" class="custom-range-slider" min="1" max="100000" step="1"
+
                                     value="100000" id="priceRangeMax" oninput="updateMaxRange(this.value)">
+
                             </div>
+
                             <div class="d-flex align-items-center gap-2 mt-3">
+
                                 <div class="flex-fill border rounded px-3 py-2 text-center"
+
                                     style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
+
                                     <input type="text" id="minPriceInput" value="1" readonly
+
                                         class="border-0 bg-transparent text-center fw-bold w-100"
+
                                         style="outline: none; color: #2d3748;">
+
                                 </div>
+
                                 <div class="flex-fill border rounded px-3 py-2 text-center"
+
                                     style="background-color: #f7f9fa; font-size: 0.85rem; color: #4a5568; border-color: #e2e8f0 !important;">
+
                                     <input type="text" id="maxPriceInput" value="100000" readonly
+
                                         class="border-0 bg-transparent text-center fw-bold w-100"
+
                                         style="outline: none; color: #2d3748;">
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
+
 
                     <!-- Products Status Filter Card -->
+
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
+
                         <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Products
+
                             Status</h5>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+
                                 id="statusFeatured">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+
                                 for="statusFeatured">
+
                                 Featured
+
                             </label>
+
                         </div>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+
                                 id="statusTodaysDeal">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+
                                 for="statusTodaysDeal">
+
                                 Today's Deal
+
                             </label>
+
                         </div>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+
                                 id="statusOnSale">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+
                                 for="statusOnSale">
+
                                 On Sale
+
                             </label>
+
                         </div>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+
                                 id="statusTopFaydaPoints">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+
                                 for="statusTopFaydaPoints">
+
                                 Top Fayda Points
+
                             </label>
+
                         </div>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+
                                 id="statusTopRefer">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+
                                 for="statusTopRefer">
+
                                 Top Refer
+
                             </label>
+
                         </div>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+
                                 id="statusHotDeal">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+
                                 for="statusHotDeal">
+
                                 Hot Deal
+
                             </label>
+
                         </div>
+
                         <div class="form-check">
+
                             <input class="form-check-input rounded-circle" type="radio" name="productStatus"
+
                                 id="statusTopSale">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;"
+
                                 for="statusTopSale">
+
                                 Top Sale
+
                             </label>
+
                         </div>
+
                     </div>
+
+
 
                     <!-- Customer Reviews Filter Card -->
+
                     <div class="bg-white border rounded-3 p-4 mb-4 shadow-sm" style="border-color: #e2e8f0 !important;">
+
                         <h5 class="fs-6 fw-bold text-dark mb-3" style="font-family: 'Inter', sans-serif;">Customer
+
                             Reviews</h5>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input" type="radio" name="customerReview" id="review4">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review4">
+
                                 <span class="text-warning">★★★★☆</span> and up
+
                             </label>
+
                         </div>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input" type="radio" name="customerReview" id="review3">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review3">
+
                                 <span class="text-warning">★★★☆☆</span> and up
+
                             </label>
+
                         </div>
+
                         <div class="form-check mb-2">
+
                             <input class="form-check-input" type="radio" name="customerReview" id="review2">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review2">
+
                                 <span class="text-warning">★★☆☆☆</span> and up
+
                             </label>
+
                         </div>
+
                         <div class="form-check">
+
                             <input class="form-check-input" type="radio" name="customerReview" id="review1">
+
                             <label class="form-check-label text-secondary" style="font-size: 0.9rem;" for="review1">
+
                                 <span class="text-warning">★☆☆☆☆</span> and up
+
                             </label>
+
                         </div>
+
                     </div>
+
                 </div>
+
+
 
                 <!-- Right Side Main Products Grid -->
+
                 <div class="col-md-9 custom-main-col" style="padding-top: 0 !important; margin-top: 0 !important;">
+
                     <div class="w-100 rounded-3 overflow-hidden mb-4"
+
                         style="display: block !important; margin-top: 0 !important; height: 240px !important;">
+
                         <img src="assets/img/GDGDGDGD.png" id="categoryBannerImage"
+
                             class="category-banner-img"
+
                             style="width: 100%; height: 100%; object-fit: fill;"
+
                             alt="Exclusive Savings Festival Banner">
+
                     </div>
+
+
 
                     <!-- Breadcrumbs aligned with sorting bar -->
+
                     <div class="mb-3" id="breadcrumb-container"
+
                         style="font-size: 0.82rem; font-family: 'Montserrat', sans-serif;">
+
                         <a href="index.html" class="text-decoration-none text-secondary">Home</a>
+
                         <span class="text-secondary mx-1">/</span>
+
                         <a href="category.html?category=All%20Category"
+
                             class="text-decoration-none text-secondary">Category</a>
+
                         <span class="text-secondary mx-1">/</span>
+
                         <span class="text-secondary fw-semibold" id="breadcrumb-category" style="cursor: pointer;"
+
                             onclick="updateCategoryUI(this.textContent)">All Category</span>
+
                         <span class="text-secondary mx-1 d-none" id="breadcrumb-separator">/</span>
+
                         <span class="text-secondary fw-semibold d-none" id="breadcrumb-subcategory"></span>
+
                     </div>
+
+
 
                     <!-- Sorting Bar (using Bootstrap nav-underline) -->
+
                     <ul class="nav nav-underline border-bottom pb-2 mb-4 d-none d-md-flex align-items-center gap-4"
+
                         style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">
+
                         <li class="nav-item">
+
                             <span class="fw-semibold text-secondary me-2">Sort By</span>
+
                         </li>
+
                         <li class="nav-item">
+
                             <a class="nav-link active p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+
                                 onclick="setSortActive(this)">Most selling</a>
+
                         </li>
+
                         <li class="nav-item">
+
                             <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+
                                 onclick="setSortActive(this)">Newest First</a>
+
                         </li>
+
                         <li class="nav-item">
+
                             <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+
                                 onclick="setSortActive(this)">Price Low to Hight</a>
+
                         </li>
+
                         <li class="nav-item">
+
                             <a class="nav-link text-secondary p-0 pb-2 cursor-pointer" style="cursor: pointer;"
+
                                 onclick="setSortActive(this)">Price High to Low</a>
+
                         </li>
+
                     </ul>
 
+
+
                     <!-- Products Grid Container -->
+
                     <div class="bg-white border rounded-3 p-3 shadow-sm"
+
                         style="min-height: 600px; border-color: #eef2f5 !important;">
+
                         <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2"
+
                             id="productsGrid">
+
                             <!-- Products will be generated dynamically from assets/js/products-mock.js -->
+
                         </div>
 
+
+
                         <!-- Pagination (Mobile & Desktop) -->
+
                         <div id="productPagination"
+
                             class="d-flex justify-content-center align-items-center gap-2 mt-5 pb-3 w-100"
+
                             style="font-family: 'Roboto', sans-serif; width: 100% !important;">
+
                             <a href="javascript:void(0)"
+
                                 class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+
                                 style="width: 36px; height: 36px; background-color: #0087F6; color: #fff; font-size: 0.95rem; flex-shrink: 0;">1</a>
+
                             <a href="javascript:void(0)"
+
                                 class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+
                                 style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">2</a>
+
                             <a href="javascript:void(0)"
+
                                 class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+
                                 style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">3</a>
+
                             <a href="javascript:void(0)"
+
                                 class="d-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold"
+
                                 style="width: 36px; height: 36px; background-color: #e8eeef; color: #1a1a1a; font-size: 0.95rem; flex-shrink: 0;">4</a>
+
                             <a href="javascript:void(0)" class="text-decoration-none fw-bold ms-3"
+
                                 style="color: #4b70f5; font-size: 1rem; flex-shrink: 0;">Next</a>
+
                         </div>
+
                     </div>
+
+
 
                 </div>
 
+
+
             </div>
+
         </div>
 
+
+
     </div>
+
+
 
     <!-- Footer Placeholder -->
+
     <div id="footer-placeholder">
+
         <div class="skeleton-box skeleton-footer"></div>
+
     </div>
 
+
+
     <!-- Include Floating WhatsApp -->
+
     <div id="whatsapp-float-placeholder"></div>
 
+
+
     <!-- Bootstrap JS Bundle with Popper -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+
+
     <!-- Main JS -->
+
     <script src="assets/js/main.js?v=6"></script>
+
     <script src="assets/js/products-mock.js"></script>
 
+
+
     <!-- Script to load Header/Footer dynamically & page interactions -->
+
     <script>
+
         let currentPage = 1;
+
         const itemsPerPage = 16;
+
         let filteredProductsList = [];
 
+
+
         document.addEventListener("DOMContentLoaded", function () {
+
             // Load Header
+
             fetch('header.html?v=5')
+
                 .then(response => response.text())
+
                 .then(data => {
+
                     document.getElementById('header-placeholder').innerHTML = data;
+
                     if (typeof initHeader === 'function') {
+
                         initHeader();
+
                     }
+
                 });
+
+
 
             // Load Footer
+
             fetch('footer.html?v=5')
+
                 .then(response => response.text())
+
                 .then(data => {
+
                     document.getElementById('footer-placeholder').innerHTML = data;
+
                 });
+
+
 
             // Load Floating WhatsApp
+
             fetch('whatsapp-float.html')
+
                 .then(response => response.text())
+
                 .then(data => {
+
                     document.getElementById('whatsapp-float-placeholder').innerHTML = data;
+
                 });
+
+
 
             // Initialize filtered list to all products by default
+
             if (typeof mockProducts !== 'undefined') {
+
                 filteredProductsList = [...mockProducts];
+
             }
+
+
 
             // Render first page
+
             displayProducts();
 
+
+
             // Initialize slider track gradient
+
             updateTrack();
+
         });
 
+
+
         function toggleCategoryMenu(e, menuId) {
+
             e.preventDefault();
+
+
 
             // Extract category name
+
             const triggerSpan = e.currentTarget.querySelector('span');
+
             const categoryName = triggerSpan ? triggerSpan.textContent.trim() : "";
 
+
+
             if (menuId) {
+
                 // Category HAS subcategories: Just toggle the submenu, DO NOT activate the category
+
                 const subMenus = document.querySelectorAll('.category-submenu');
 
+
+
                 subMenus.forEach(menu => {
+
                     const parentLi = menu.closest('li');
+
                     const trigger = parentLi.querySelector('.category-menu-trigger');
+
                     const icon = trigger.querySelector('i');
 
+
+
                     if (menu.id === menuId) {
+
                         if (menu.style.display === 'none' || menu.style.display === '') {
+
                             menu.style.display = 'block';
+
                             if (icon) {
+
                                 icon.classList.remove('fa-chevron-down');
+
                                 icon.classList.add('fa-chevron-up');
+
                             }
+
                         } else {
+
                             menu.style.display = 'none';
+
                             if (icon) {
+
                                 icon.classList.remove('fa-chevron-up');
+
                                 icon.classList.add('fa-chevron-down');
+
                             }
+
                         }
+
                     } else {
+
                         menu.style.display = 'none';
+
                         if (icon) {
+
                             icon.classList.remove('fa-chevron-up');
+
                             icon.classList.add('fa-chevron-down');
+
                         }
+
                     }
+
                 });
+
             } else {
+
                 // Category DOES NOT have subcategories: Activate it directly
+
                 if (categoryName) {
+
                     document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+
                     updateCategoryUI(categoryName, null);
+
                 }
+
             }
+
         }
+
+
 
         function closeAllCategoryMenus() {
+
             const subMenus = document.querySelectorAll('.category-submenu');
+
             subMenus.forEach(menu => {
+
                 menu.style.display = 'none';
+
                 const parentLi = menu.closest('li');
+
                 if (parentLi) {
+
                     const trigger = parentLi.querySelector('.category-menu-trigger');
+
                     if (trigger) {
+
                         const icon = trigger.querySelector('i');
+
                         if (icon) {
+
                             icon.classList.remove('fa-chevron-up');
+
                             icon.classList.add('fa-chevron-down');
+
                         }
+
                     }
+
                 }
+
             });
+
         }
 
+
+
         function handleTopCategoryClick(e, menuId, el) {
+
             e.preventDefault();
 
+
+
             // Extract category name and update UI
+
             if (el) {
+
                 const categoryName = el.querySelector('.cat-icon-text').textContent.trim();
+
                 updateCategoryUI(categoryName);
+
             }
+
+
 
             // Expand the sidebar if applicable
+
             if (menuId) {
+
                 const targetMenu = document.getElementById(menuId);
+
                 if (targetMenu && targetMenu.style.display !== 'block') {
+
                     const subMenus = document.querySelectorAll('.category-submenu');
+
                     subMenus.forEach(menu => {
+
                         const parentLi = menu.closest('li');
+
                         const trigger = parentLi.querySelector('.category-menu-trigger');
+
                         const icon = trigger.querySelector('i');
 
+
+
                         if (menu.id === menuId) {
+
                             menu.style.display = 'block';
+
                             icon.classList.remove('fa-chevron-down');
+
                             icon.classList.add('fa-chevron-up');
+
                         } else {
+
                             menu.style.display = 'none';
+
                             icon.classList.remove('fa-chevron-up');
+
                             icon.classList.add('fa-chevron-down');
+
                         }
+
                     });
+
                 }
+
             }
+
+
 
             activateCategoryByMenuId(menuId);
 
+
+
             // Allow clicked top category without menuId to just become active
+
             if (!menuId && el) {
+
                 document.querySelectorAll('.top-category-btn').forEach(btn => {
+
                     const span = btn.querySelector('.cat-icon-text');
+
                     if (btn === el) {
+
                         span.style.color = '#0d8dfb';
+
                         span.style.borderBottom = '2px solid #0d8dfb';
+
                     } else {
+
                         span.style.color = '';
+
                         span.style.borderBottom = '';
+
                     }
+
                 });
+
             }
+
         }
+
+
+
+
 
 
 
         // Render products for the current page
+
         function displayProducts() {
+
             const startIndex = (currentPage - 1) * itemsPerPage;
+
             const endIndex = startIndex + itemsPerPage;
+
             const pageProducts = filteredProductsList.slice(startIndex, endIndex);
 
+
+
             renderProducts(pageProducts);
+
             renderPagination();
+
         }
+
+
 
         function generateStarsHtml(rating) {
+
             let starsHtml = '';
+
             const fullStars = Math.floor(rating);
+
             const hasHalfStar = rating % 1 !== 0;
 
+
+
             for (let i = 1; i <= 5; i++) {
+
                 if (i <= fullStars) {
+
                     starsHtml += '<i class="fa-solid fa-star" style="color: #ffb800; font-size: 0.75rem; margin-right: 2px;"></i>';
+
                 } else if (i === fullStars + 1 && hasHalfStar) {
+
                     starsHtml += '<i class="fa-solid fa-star-half-stroke" style="color: #ffb800; font-size: 0.75rem; margin-right: 2px;"></i>';
+
                 } else {
+
                     starsHtml += '<i class="fa-regular fa-star" style="color: #ffb800; font-size: 0.75rem; margin-right: 2px;"></i>';
+
                 }
+
             }
+
             return starsHtml;
+
         }
+
+
 
         // Render products dynamically from the mock data array
+
         function renderProducts(productsToRender) {
+
             const grid = document.getElementById('productsGrid');
+
             if (!grid) return;
+
             grid.innerHTML = '';
 
+
+
             if (productsToRender.length === 0) {
+
                 grid.innerHTML = `
+
                     <div class="col-12 w-100 d-flex flex-column align-items-center justify-content-center py-5 text-center" style="min-height: 400px;">
+
                         <div class="text-secondary mb-3">
+
                             <i class="fas fa-search fa-4x" style="color: #cbd5e0;"></i>
+
                         </div>
+
                         <h4 class="fw-bold" style="color: #4a5568;">No Products Found</h4>
+
                         <p class="text-muted" style="font-size: 0.95rem;">We couldn't find any products matching your selected filters.<br>Try adjusting your criteria to see more options.</p>
+
                     </div>
+
                 `;
+
                 return;
+
             }
 
+
+
             productsToRender.forEach(product => {
+
                 const col = document.createElement('div');
+
                 col.className = 'col';
+
                 col.innerHTML = `
+
                     <div class="card h-100 border product-card bg-white" style="border-color: #f0f3f6 !important; border-radius: 8px;" data-price="${product.price}">
+
                         <div class="position-relative bg-light overflow-hidden d-flex align-items-center justify-content-center product-image-container" style="padding-top: 90%; border-top-left-radius: 8px; border-top-right-radius: 8px; cursor: pointer;" onclick="if(!event.target.closest('.btn')){ window.location.href='product-details.html?product=${encodeURIComponent(product.name)}'; }">
-                            <img src="${product.image}" alt="${product.name}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 95%; max-height: 95%; object-fit: contain;">
+
+                            <img src="${product.image}" alt="${product.name}" class="position-absolute start-50 top-50 translate-middle" style="max-width: 95%; max-height: 95%; object-fit: contain;" loading="lazy" decoding="async">
+
                             
+
                             <div class="product-action-overlay position-absolute w-100 h-100 top-0 start-0" style="opacity: 0; transition: all 0.2s ease; z-index: 10; pointer-events: none;">
+
                                 <!-- Wishlist (Top Right) -->
+
                                 <button class="btn border-0 position-absolute product-wishlist-btn card-icon-wishlist" title="Add to Wishlist" style="background-color: #ffffff !important; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.15); top: 8px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;"><i class="fa-regular fa-heart"></i></button>
+
                                 
+
                                 <!-- Share (Below Wishlist) -->
+
                                 <button class="btn border-0 position-absolute product-share-btn card-icon-share" title="Share" style="background-color: #ffffff !important; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.15); top: 45px; right: 8px; width: 32px; height: 32px; padding: 0; pointer-events: auto; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;" onclick="event.stopPropagation();"><i class="fa-regular fa-paper-plane"></i></button>
+
                                 
+
                                 <!-- Cart & Buy Now (Bottom) -->
+
                                 <div class="position-absolute w-100 d-none d-md-flex justify-content-between gap-1 px-2" style="bottom: 8px; pointer-events: auto;" onclick="event.stopPropagation();">
+
                                     <button class="btn btn-success btn-sm rounded-2 shadow-sm flex-grow-1" style="font-size: 0.7rem; padding: 0.25rem 0; font-weight: 600;"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+
                                     <button class="btn btn-primary btn-sm rounded-2 shadow-sm text-white flex-grow-1" style="font-size: 0.7rem; padding: 0.25rem 0; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Buy Now</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                         <a href="product-details.html?product=${encodeURIComponent(product.name)}" class="card-body p-2 p-md-3 d-flex flex-column justify-content-between flex-grow-1 text-decoration-none cursor-pointer">
+
                             <div>
+
                                 <div class="d-flex flex-wrap gap-1 mb-1 mt-1">
+
                                     <span class="custom-badge badge-refer" style="font-size: 0.65rem; padding: 2px 6px;">Refer ${product.refer}</span>
+
                                     <span class="custom-badge badge-earn" style="font-size: 0.65rem; padding: 2px 6px;">Earn ${product.earn}</span>
+
                                 </div>
+
                                 
+
                                 <h6 class="product-name text-dark mb-2" style="font-size: 0.9rem; font-weight: 500; line-height: 1.3; height: 2.6em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${product.name}</h6>
+
                                 
+
                                 <div class="d-flex align-items-center mb-1 text-nowrap overflow-hidden">
+
                                     <div class="d-flex align-items-center me-1">
+
                                         ${generateStarsHtml(product.rating)}
+
                                     </div>
+
                                     <span class="text-muted text-truncate" style="font-size: 0.7rem; font-weight: 500;">(${product.reviews || '2'} Reviews)</span>
+
                                 </div>
+
                             </div>
+
                             
+
                             <div class="mt-auto pt-1">
+
                                 <div class="d-flex align-items-baseline flex-nowrap gap-2 mb-1 overflow-hidden">
+
                                     <span class="text-muted text-decoration-line-through text-truncate" style="font-size: 0.85rem; max-width: 35%;">₹${product.originalPrice}</span>
+
                                     <span class="text-dark fw-bold" style="font-size: 1.15rem;">₹${product.price}</span>
+
                                     <span class="text-success fw-semibold text-truncate" style="font-size: 0.8rem;">${product.discountText || '47% off'}</span>
+
                                 </div>
+
                                 <div class="text-success fw-semibold" style="font-size: 0.75rem;">
+
                                     Rs ${product.price} with UPI offer
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
+
                 `;
+
                 grid.appendChild(col);
+
             });
+
         }
 
+
+
         // Render pagination controls dynamically based on filteredProductsList length
+
         function renderPagination() {
+
             const paginationContainer = document.getElementById('productPagination');
+
             if (!paginationContainer) return;
+
+
 
             const totalPages = Math.ceil(filteredProductsList.length / itemsPerPage);
 
+
+
             if (totalPages <= 1) {
+
                 paginationContainer.style.setProperty('display', 'none', 'important');
+
                 return;
+
             } else {
+
                 paginationContainer.style.display = 'flex';
+
                 paginationContainer.style.gap = '8px'; // Add gap between items
+
             }
+
+
 
             paginationContainer.innerHTML = '';
 
+
+
             // PREVIOUS Button
+
             const prevLink = document.createElement('a');
+
             prevLink.href = '#';
+
             prevLink.className = `text-decoration-none fw-bold me-2 ${currentPage === 1 ? 'text-muted' : ''}`;
+
             prevLink.style.color = currentPage === 1 ? '#adb5bd' : '#4b70f5';
+
             prevLink.style.fontSize = '0.9rem';
+
             prevLink.style.display = 'flex';
+
             prevLink.style.alignItems = 'center';
+
             prevLink.innerHTML = '&laquo; PREVIOUS';
+
             if (currentPage > 1) {
+
                 prevLink.addEventListener('click', function (e) {
+
                     e.preventDefault();
+
                     currentPage--;
+
                     displayProducts();
+
                     window.scrollTo({ top: 300, behavior: 'smooth' });
+
                 });
+
             } else {
+
                 prevLink.style.pointerEvents = 'none';
+
             }
+
             paginationContainer.appendChild(prevLink);
 
+
+
             // Calculate sliding window for page numbers (show up to 10 pages)
+
             let startPage = Math.max(1, currentPage - 4);
+
             let endPage = Math.min(totalPages, startPage + 9);
 
+
+
             if (endPage - startPage < 9) {
+
                 startPage = Math.max(1, endPage - 9);
+
             }
+
+
 
             // Page Numbers
+
             for (let i = startPage; i <= endPage; i++) {
+
                 const pageLink = document.createElement('a');
+
                 pageLink.href = '#';
+
                 pageLink.className = 'd-flex align-items-center justify-content-center text-decoration-none rounded-circle fw-bold';
+
                 pageLink.style.width = '36px';
+
                 pageLink.style.height = '36px';
+
                 pageLink.style.fontSize = '0.95rem';
+
                 pageLink.style.flexShrink = '0';
+
                 pageLink.textContent = i;
 
+
+
                 if (i === currentPage) {
+
                     pageLink.style.backgroundColor = '#4b70f5';
+
                     pageLink.style.color = '#fff';
+
                 } else {
+
                     pageLink.style.backgroundColor = 'transparent';
+
                     pageLink.style.color = '#1a1a1a';
+
                 }
 
+
+
                 pageLink.addEventListener('click', function (e) {
+
                     e.preventDefault();
+
                     currentPage = i;
+
                     displayProducts();
+
                     window.scrollTo({ top: 300, behavior: 'smooth' });
+
                 });
+
+
 
                 paginationContainer.appendChild(pageLink);
+
             }
+
+
 
             // NEXT Button
+
             const nextLink = document.createElement('a');
+
             nextLink.href = '#';
+
             nextLink.className = `text-decoration-none fw-bold ms-2 ${currentPage === totalPages ? 'text-muted' : ''}`;
+
             nextLink.style.color = currentPage === totalPages ? '#adb5bd' : '#4b70f5';
+
             nextLink.style.fontSize = '0.9rem';
+
             nextLink.style.display = 'flex';
+
             nextLink.style.alignItems = 'center';
+
             nextLink.innerHTML = 'NEXT &raquo;';
+
             if (currentPage < totalPages) {
+
                 nextLink.addEventListener('click', function (e) {
+
                     e.preventDefault();
+
                     currentPage++;
+
                     displayProducts();
+
                     window.scrollTo({ top: 300, behavior: 'smooth' });
+
                 });
+
             } else {
+
                 nextLink.style.pointerEvents = 'none';
+
             }
+
             paginationContainer.appendChild(nextLink);
+
         }
+
+
 
         // Update Slider Track style
+
         function updateTrack() {
+
             const minSlider = document.getElementById('priceRangeMin');
+
             const maxSlider = document.getElementById('priceRangeMax');
+
             const track = document.querySelector('.slider-track');
+
             if (minSlider && maxSlider && track) {
+
                 const minVal = parseInt(minSlider.value);
+
                 const maxVal = parseInt(maxSlider.value);
+
                 const minPercent = ((minVal - 1) / (100000 - 1)) * 100;
+
                 const maxPercent = ((maxVal - 1) / (100000 - 1)) * 100;
+
                 track.style.background = `linear-gradient(to right, #e2e8f0 ${minPercent}%, #0087F6 ${minPercent}%, #0087F6 ${maxPercent}%, #e2e8f0 ${maxPercent}%)`;
+
             }
+
         }
+
+
 
         // Filter products based on min and max price
+
         function filterProducts() {
+
             const minVal = parseInt(document.getElementById('priceRangeMin').value);
+
             const maxVal = parseInt(document.getElementById('priceRangeMax').value);
 
+
+
             if (typeof mockProducts !== 'undefined') {
+
                 filteredProductsList = mockProducts.filter(product => {
+
                     return product.price >= minVal && product.price <= maxVal;
+
                 });
+
             }
+
+
 
             currentPage = 1;
+
             displayProducts();
+
             if (typeof updateSelectedFilters === 'function') updateSelectedFilters();
+
         }
+
+
 
         // Update min slider and check collision with max
+
         function updateMinRange(val) {
+
             const minSlider = document.getElementById('priceRangeMin');
+
             const maxSlider = document.getElementById('priceRangeMax');
+
             const minInput = document.getElementById('minPriceInput');
 
+
+
             if (parseInt(val) >= parseInt(maxSlider.value)) {
+
                 minSlider.value = parseInt(maxSlider.value) - 10;
+
                 val = minSlider.value;
+
             }
+
             minInput.value = val;
+
             updateTrack();
+
             filterProducts();
+
         }
+
+
 
         // Update max slider and check collision with min
+
         function updateMaxRange(val) {
+
             const minSlider = document.getElementById('priceRangeMin');
+
             const maxSlider = document.getElementById('priceRangeMax');
+
             const maxInput = document.getElementById('maxPriceInput');
 
+
+
             if (parseInt(val) <= parseInt(minSlider.value)) {
+
                 maxSlider.value = parseInt(minSlider.value) + 10;
+
                 val = maxSlider.value;
+
             }
+
             maxInput.value = val;
+
             updateTrack();
+
             filterProducts();
+
         }
+
+
 
         // Sorting Active styling
+
         function setSortActive(element) {
+
             const options = document.querySelectorAll('.nav-link');
+
             options.forEach(opt => {
+
                 opt.classList.remove('active');
+
                 opt.classList.add('text-secondary');
+
             });
+
             element.classList.add('active');
+
             element.classList.remove('text-secondary');
+
         }
 
+
+
         function updateCategoryUI(category, subcategory, fromProductStatus = false) {
+
             if (!category) return;
 
+
+
             // Clear any subcategory highlights if we are resetting to main category level
+
             if (!subcategory) {
+
                 document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+
             }
+
+
 
             // URL logic removed. It is handled entirely by updateSelectedFilters now.
 
+
+
             // Uncheck product status if a category is chosen
+
             if (!fromProductStatus) {
+
                 document.querySelectorAll('input[name="productStatus"]').forEach(radio => {
+
                     radio.checked = false;
+
                 });
+
             }
+
+
 
             const breadcrumbCategory = document.getElementById('breadcrumb-category');
+
             const breadcrumbSeparator = document.getElementById('breadcrumb-separator');
+
             const breadcrumbSubcategory = document.getElementById('breadcrumb-subcategory');
 
+
+
             if (breadcrumbCategory) {
+
                 breadcrumbCategory.dataset.fullCategory = category;
+
                 let displayCat = category;
+
                 if (displayCat.length > 25 && displayCat.includes(' ')) {
+
                     displayCat = displayCat.split(' ')[0] + '.....';
+
                 }
+
                 breadcrumbCategory.textContent = displayCat;
+
                 if (subcategory) {
+
                     breadcrumbCategory.classList.remove('fw-semibold', 'text-secondary');
+
                     breadcrumbCategory.style.color = '#0d8dfb'; // Highlight parent
+
                 } else {
+
                     breadcrumbCategory.classList.add('fw-semibold', 'text-secondary');
+
                     breadcrumbCategory.style.color = '';
+
                 }
+
             }
+
+
 
             if (breadcrumbSeparator && breadcrumbSubcategory) {
+
                 if (subcategory) {
+
                     breadcrumbSeparator.classList.remove('d-none');
+
                     breadcrumbSubcategory.classList.remove('d-none');
+
                     breadcrumbSubcategory.textContent = subcategory;
+
                 } else {
+
                     breadcrumbSeparator.classList.add('d-none');
+
                     breadcrumbSubcategory.classList.add('d-none');
+
                     breadcrumbSubcategory.textContent = '';
+
                 }
+
             }
+
+
 
             if (subcategory) {
+
                 document.title = subcategory + " | " + category + " | Sabka Fayda";
+
             } else {
+
                 document.title = category + " | Sabka Fayda";
+
             }
+
+
 
             // Change banner based on category
+
             const bannerMap = {
+
                 'Electronics': 'assets/img/electronicimg.png',
+
                 'Fashion & Lifestyle': 'assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png',
+
                 'Home & Living': 'assets/img/aboutusbanner.png',
+
                 'For You': 'assets/img/sabkafaydastoriesimg.png',
+
                 'default': 'assets/img/e9e1823dbbf9666a3b545f2d0c1aa22628a65eb1.png'
+
             };
+
             const bannerImg = document.getElementById('categoryBannerImage');
+
             if (bannerImg) {
+
                 bannerImg.src = bannerMap[category] || bannerMap['default'];
+
             }
+
+
 
             // Highlight sidebar category text
+
             document.querySelectorAll('.category-menu-trigger span').forEach(span => {
+
                 if (!fromProductStatus && span.textContent.trim() === category) {
+
                     span.style.color = '#0d8dfb';
+
                     span.style.fontWeight = '700';
+
                 } else {
+
                     span.style.color = '#4a5568';
+
                     span.style.fontWeight = '500';
+
                 }
+
             });
 
+
+
             // Handle All Category link highlight separately
+
             const allCatLink = document.querySelector('a[href*="All%20Category"]');
+
             if (allCatLink) {
+
                 const span = allCatLink.querySelector('span');
+
                 if (span) {
+
                     if (!fromProductStatus && category === 'All Category' && !subcategory) {
+
                         span.style.color = '#0d8dfb';
+
                         span.style.fontWeight = '700';
+
                     } else {
+
                         span.style.color = '#4a5568';
+
                         span.style.fontWeight = '500';
+
                     }
+
                 }
+
             }
 
+
+
             if (typeof updateSelectedFilters === 'function') updateSelectedFilters();
+
         }
+
+
 
         let isFiltersExpanded = false;
 
+
+
         function toggleFiltersExpand() {
+
             isFiltersExpanded = !isFiltersExpanded;
+
             updateSelectedFilters();
+
         }
 
+
+
         function updateSelectedFilters() {
+
             const container = document.getElementById('selectedFiltersContainer');
+
             if (!container) return;
+
             container.innerHTML = '';
+
+
 
             let tags = [];
 
+
+
             // Category
+
             const breadcrumbCategory = document.getElementById('breadcrumb-category');
+
             const breadcrumbSubcategory = document.getElementById('breadcrumb-subcategory');
+
             let categoryName = breadcrumbCategory ? (breadcrumbCategory.dataset.fullCategory || breadcrumbCategory.textContent.trim()) : 'All Category';
+
             let subCategoryName = breadcrumbSubcategory && !breadcrumbSubcategory.classList.contains('d-none') ? breadcrumbSubcategory.textContent.trim() : '';
 
+
+
             // If no category and no product status, highlight 'All Category'
+
             const isProductStatusChecked = document.querySelector('input[name="productStatus"]:checked');
+
             if (categoryName === 'All Category' && !isProductStatusChecked) {
+
                 const allCatLink = document.querySelector('a[href*="All%20Category"]');
+
                 if (allCatLink) {
+
                     const span = allCatLink.querySelector('span');
+
                     if (span) {
+
                         span.style.color = '#0d8dfb';
+
                         span.style.fontWeight = '700';
+
                     }
+
                 }
+
             }
 
+
+
             if (categoryName !== 'All Category') {
+
                 let name = subCategoryName ? subCategoryName : categoryName;
+
                 tags.push({
+
                     text: name, onRemove: () => {
+
                         updateCategoryUI('All Category', null);
+
                     }
+
                 });
+
             }
+
+
 
             // Product Status
+
             const checkedStatus = document.querySelector('input[name="productStatus"]:checked');
+
             if (checkedStatus) {
+
                 const label = checkedStatus.nextElementSibling.textContent.trim();
+
                 tags.push({
+
                     text: label, onRemove: () => {
+
                         checkedStatus.checked = false;
+
                         updateSelectedFilters();
+
                         filterProducts();
+
                     }
+
                 });
+
             }
+
+
 
             // Customer Reviews
+
             const checkedReview = document.querySelector('input[name="customerReview"]:checked');
+
             if (checkedReview) {
+
                 const label = checkedReview.nextElementSibling.textContent.trim();
+
                 tags.push({
+
                     text: label, onRemove: () => {
+
                         checkedReview.checked = false;
+
                         updateSelectedFilters();
+
                         filterProducts();
+
                     }
+
                 });
+
             }
+
+
 
             // Price Range
+
             const minSlider = document.getElementById('priceRangeMin');
+
             const maxSlider = document.getElementById('priceRangeMax');
+
             const minVal = minSlider ? parseInt(minSlider.value) : 1;
+
             const maxVal = maxSlider ? parseInt(maxSlider.value) : 100000;
+
             const absoluteMax = maxSlider ? parseInt(maxSlider.max) : 100000;
 
+
+
             if (minVal > 1 || maxVal < absoluteMax) {
+
                 tags.push({
+
                     text: `₹${minVal} - ₹${maxVal}`, onRemove: () => {
+
                         if (minSlider) minSlider.value = 1;
+
                         if (maxSlider) maxSlider.value = absoluteMax;
+
                         const minInput = document.getElementById('minPriceInput');
+
                         const maxInput = document.getElementById('maxPriceInput');
+
                         if (minInput) minInput.value = 1;
+
                         if (maxInput) maxInput.value = absoluteMax;
+
                         updateTrack();
+
                         filterProducts();
+
                     }
+
                 });
+
             }
+
+
 
             // Update URL for filters
+
             const url = new URL(window.location);
+
             let urlChanged = false;
 
+
+
             // Sync category
+
             if (categoryName !== 'All Category') {
+
                 if (url.searchParams.get('category') !== categoryName) {
+
                     url.searchParams.set('category', categoryName);
+
                     urlChanged = true;
+
                 }
+
                 if (subCategoryName) {
+
                     if (url.searchParams.get('subcategory') !== subCategoryName) {
+
                         url.searchParams.set('subcategory', subCategoryName);
+
                         urlChanged = true;
+
                     }
+
                 } else {
+
                     if (url.searchParams.has('subcategory')) {
+
                         url.searchParams.delete('subcategory');
+
                         urlChanged = true;
+
                     }
+
                 }
+
             } else {
+
                 if (url.searchParams.has('category')) {
+
                     url.searchParams.delete('category');
+
                     urlChanged = true;
+
                 }
+
                 if (url.searchParams.has('subcategory')) {
+
                     url.searchParams.delete('subcategory');
+
                     urlChanged = true;
+
                 }
+
             }
+
+
 
             // Sync status
+
             if (checkedStatus) {
+
                 const label = checkedStatus.nextElementSibling.textContent.trim();
+
                 if (url.searchParams.get('status') !== label) {
+
                     url.searchParams.set('status', label);
+
                     urlChanged = true;
+
                 }
+
             } else {
+
                 if (url.searchParams.has('status')) {
+
                     url.searchParams.delete('status');
+
                     urlChanged = true;
+
                 }
+
             }
+
+
 
             // Sync price
+
             if (minVal > 1 || maxVal < absoluteMax) {
+
                 if (url.searchParams.get('minPrice') !== String(minVal)) {
+
                     url.searchParams.set('minPrice', minVal);
+
                     urlChanged = true;
+
                 }
+
                 if (url.searchParams.get('maxPrice') !== String(maxVal)) {
+
                     url.searchParams.set('maxPrice', maxVal);
+
                     urlChanged = true;
+
                 }
+
             } else {
+
                 if (url.searchParams.has('minPrice')) {
+
                     url.searchParams.delete('minPrice');
+
                     urlChanged = true;
+
                 }
+
                 if (url.searchParams.has('maxPrice')) {
+
                     url.searchParams.delete('maxPrice');
+
                     urlChanged = true;
+
                 }
+
             }
+
+
 
             if (urlChanged) {
+
                 window.history.replaceState({}, '', url);
+
             }
+
+
 
             // Display logic
+
             const maxVisible = 2;
+
             let displayTags = tags;
 
+
+
             if (tags.length > maxVisible && !isFiltersExpanded) {
+
                 displayTags = tags.slice(0, maxVisible);
+
             }
+
+
 
             if (tags.length === 0) {
+
                 const placeholder = document.createElement('span');
+
                 placeholder.textContent = 'No filters applied';
+
                 placeholder.className = 'text-muted';
+
                 placeholder.style.fontSize = '0.85rem';
+
                 placeholder.style.fontStyle = 'italic';
+
                 container.appendChild(placeholder);
+
             } else {
+
                 displayTags.forEach(t => {
+
                     const tag = document.createElement('div');
+
                     tag.className = 'bg-light border rounded px-2 py-1 d-flex align-items-center gap-2 mb-1';
+
                     tag.style.fontSize = '0.8rem';
+
                     tag.style.color = '#4a5568';
 
+
+
                     const textSpan = document.createElement('span');
+
                     textSpan.textContent = t.text.replace('and up', '').trim();
 
+
+
                     const closeBtn = document.createElement('i');
+
                     closeBtn.className = 'fas fa-times cursor-pointer';
+
                     closeBtn.style.cursor = 'pointer';
+
                     closeBtn.onclick = t.onRemove;
 
+
+
                     tag.appendChild(textSpan);
+
                     tag.appendChild(closeBtn);
+
                     container.appendChild(tag);
+
                 });
+
+
 
                 if (tags.length > maxVisible) {
+
                     const toggleBtn = document.createElement('a');
+
                     toggleBtn.href = "javascript:void(0)";
+
                     toggleBtn.className = "text-primary text-decoration-none d-block w-100 mt-1";
+
                     toggleBtn.style.fontSize = "0.8rem";
+
                     toggleBtn.style.fontWeight = "600";
+
                     toggleBtn.textContent = isFiltersExpanded ? "SHOW LESS" : "SHOW MORE";
+
                     toggleBtn.onclick = toggleFiltersExpand;
+
                     container.appendChild(toggleBtn);
+
                 }
+
             }
+
+
 
             // Hide the clear button entirely if no tags
+
             const clearBtn = document.getElementById('clearAllFiltersBtn');
+
             if (clearBtn) {
+
                 if (tags.length > 0) {
+
                     clearBtn.classList.remove('d-none');
+
                 } else {
+
                     clearBtn.classList.add('d-none');
+
                 }
+
             }
+
         }
+
+
 
         function clearAllFilters() {
+
             // Clear Category
+
             updateCategoryUI('All Category', null);
 
+
+
             // Clear Product Status
+
             document.querySelectorAll('input[name="productStatus"]').forEach(radio => radio.checked = false);
 
+
+
             // Clear Customer Reviews
+
             document.querySelectorAll('input[name="customerReview"]').forEach(radio => radio.checked = false);
 
+
+
             // Clear Price Range
+
             const minSlider = document.getElementById('priceRangeMin');
+
             const maxSlider = document.getElementById('priceRangeMax');
+
             if (minSlider && maxSlider) {
+
                 minSlider.value = 1;
+
                 maxSlider.value = maxSlider.max;
+
                 document.getElementById('minPriceInput').value = 1;
+
                 document.getElementById('maxPriceInput').value = maxSlider.max;
+
                 updateTrack();
+
                 filterProducts();
+
             }
 
+
+
             updateSelectedFilters();
+
         }
 
+
+
         // Update UI from URL on load
+
         window.addEventListener('DOMContentLoaded', () => {
+
             // Attach click handlers to subcategories
+
             document.querySelectorAll('.subcategory-item a').forEach(link => {
+
                 link.addEventListener('click', (e) => {
+
                     e.preventDefault();
+
                     const subcat = e.target.textContent.trim();
+
                     const parentMenu = e.target.closest('.category-submenu');
+
                     let parentCategory = "";
+
                     if (parentMenu) {
+
                         const trigger = parentMenu.closest('li').querySelector('.category-menu-trigger span');
+
                         if (trigger) parentCategory = trigger.textContent.trim();
+
                     }
+
+
 
                     // Highlight selected subcategory
+
                     document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+
                     e.target.style.color = '#0d8dfb';
 
+
+
                     updateCategoryUI(parentCategory, subcat);
+
                 });
+
             });
+
+
 
             const params = new URLSearchParams(window.location.search);
+
             const category = params.get('category');
+
             if (category) {
+
                 let subcategory = params.get('subcategory');
 
+
+
                 // Auto-open menu and select first subcategory if not provided
+
                 document.querySelectorAll('.category-menu-trigger span').forEach(span => {
+
                     if (span.textContent.trim() === category) {
+
                         const triggerLink = span.closest('.category-menu-trigger');
+
                         const li = triggerLink.closest('li');
+
                         const submenu = li.querySelector('.category-submenu');
 
+
+
                         if (submenu) {
+
                             // Open the dropdown menu
+
                             submenu.style.display = 'block';
+
                             const icon = triggerLink.querySelector('i');
+
                             if (icon) {
+
                                 icon.classList.remove('fa-chevron-down');
+
                                 icon.classList.add('fa-chevron-up');
+
                             }
+
+
 
                             // Highlight the matching or first subcategory
+
                             document.querySelectorAll('.subcategory-item a').forEach(a => a.style.color = '#718096');
+
                             if (!subcategory) {
+
                                 const firstSubItem = submenu.querySelector('.subcategory-item a');
+
                                 if (firstSubItem) {
+
                                     subcategory = firstSubItem.textContent.trim();
+
                                     firstSubItem.style.color = '#0d8dfb';
+
                                 }
+
                             } else {
+
                                 submenu.querySelectorAll('.subcategory-item a').forEach(a => {
+
                                     if (a.textContent.trim() === subcategory) {
+
                                         a.style.color = '#0d8dfb';
+
                                     }
+
                                 });
+
                             }
+
                         }
+
                     }
+
                 });
+
+
 
                 updateCategoryUI(category, subcategory);
+
             }
+
+
 
             // Apply Product Status from URL
+
             const statusParams = params.get('status');
+
             if (statusParams) {
+
                 document.querySelectorAll('input[name="productStatus"]').forEach(radio => {
+
                     if (radio.nextElementSibling.textContent.trim() === statusParams) {
+
                         radio.checked = true;
+
                     }
+
                 });
+
             }
+
+
 
             // Apply Price Range from URL
+
             const minPriceParam = params.get('minPrice');
+
             const maxPriceParam = params.get('maxPrice');
+
             if (minPriceParam || maxPriceParam) {
+
                 const minSlider = document.getElementById('priceRangeMin');
+
                 const maxSlider = document.getElementById('priceRangeMax');
+
                 if (minSlider && minPriceParam) {
+
                     minSlider.value = minPriceParam;
+
                     const minInput = document.getElementById('minPriceInput');
+
                     if (minInput) minInput.value = minPriceParam;
+
                 }
+
                 if (maxSlider && maxPriceParam) {
+
                     maxSlider.value = maxPriceParam;
+
                     const maxInput = document.getElementById('maxPriceInput');
+
                     if (maxInput) maxInput.value = maxPriceParam;
+
                 }
+
                 updateTrack();
+
             }
 
+
+
             // When product status is chosen
+
             document.querySelectorAll('input[name="productStatus"]').forEach(radio => {
+
                 radio.addEventListener('change', (e) => {
+
                     if (e.target.checked) {
+
                         closeAllCategoryMenus();
+
                         updateCategoryUI('All Category', null, true);
+
                     }
+
                     updateSelectedFilters();
+
                     filterProducts();
+
                 });
+
             });
+
+
 
             // When customer review is chosen
+
             document.querySelectorAll('input[name="customerReview"]').forEach(radio => {
+
                 radio.addEventListener('change', (e) => {
+
                     updateSelectedFilters();
+
                     filterProducts();
+
                 });
+
             });
 
+
+
             // Initialize Selected Filters
+
             updateSelectedFilters();
 
+
+
             // Apply initial filtering on load
+
             filterProducts();
+
         });
+
     </script>
+
 </body>
+
+
 
 </html>
