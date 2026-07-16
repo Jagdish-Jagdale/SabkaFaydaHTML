@@ -3147,16 +3147,44 @@ select.profile-form-control {
 }
 
 .notification-page .notification-card {
+    position: relative;
+    background: #ffffff;
     align-items: center;
     display: grid;
     gap: 14px;
-    grid-template-columns: minmax(280px, 1fr) 162px 82px 172px !important;
+    grid-template-columns: minmax(280px, 1fr) 162px 82px 100px !important;
     min-height: 86px;
     padding: 12px 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.notification-page .notification-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border-color: #cbd5e1 !important;
 }
 
 .notification-page .notification-card[data-status="unread"] {
-    background: #f4fcff;
+    background: linear-gradient(90deg, #f0f7ff 0%, #ffffff 100%) !important;
+}
+
+.notification-page .notification-card[data-status="unread"]::before {
+    content: 'New';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background-color: #0087F6;
+    color: #ffffff;
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-top-left-radius: 16px;
+    border-bottom-right-radius: 8px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    z-index: 2;
+    box-shadow: 2px 2px 5px rgba(0, 135, 246, 0.15);
 }
 
 .notification-page .notification-icon-wrapper {
@@ -3204,7 +3232,9 @@ select.profile-form-control {
 }
 
 .notification-actions {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .notification-actions .btn {
@@ -3214,10 +3244,12 @@ select.profile-form-control {
     min-height: 30px;
     padding: 5px 10px;
     white-space: nowrap;
+    width: 100%;
+    max-width: 100px;
 }
 
-.notification-actions .btn:first-child {
-    grid-column: 1 / -1;
+.notification-meta-group {
+    display: contents;
 }
 
 .notification-page .status-pill {
@@ -3248,11 +3280,9 @@ select.profile-form-control {
 
     .notification-actions {
         grid-column: 1 / -1;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .notification-actions .btn:first-child {
-        grid-column: auto;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 8px;
     }
 }
 
@@ -3276,20 +3306,35 @@ select.profile-form-control {
         align-items: flex-start;
     }
 
+    .notification-meta-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border-top: 1px solid #e3ebf4;
+        padding-top: 10px;
+        grid-column: 1 / -1;
+    }
+
     .notification-meta {
         border-left: 0;
-        border-top: 1px solid #e3ebf4;
+        border-top: 0;
         padding-left: 0;
-        padding-top: 10px;
+        padding-top: 0;
     }
 
     .notification-state {
-        justify-self: start;
+        justify-self: auto;
     }
 
     .notification-actions {
-        grid-template-columns: 1fr;
+        display: flex;
+        justify-content: flex-start;
         width: 100%;
+        margin-top: 12px;
+    }
+    .notification-actions .btn {
+        max-width: 100%;
     }
 }
 

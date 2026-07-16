@@ -115,16 +115,29 @@
                         <input type="search" id="notificationSearchInput"
                             placeholder="Search by Notification Title, Message...">
                     </div>
-                    <div class="dropdown">
-                        <button class="orders-sort-btn dropdown-toggle" type="button" id="sortDropdownBtn"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <span>Sort By:</span> <span id="current-sort-label">Latest First</span>
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+
+                        <div class="dropdown">
+                            <button class="orders-sort-btn dropdown-toggle" type="button" id="sortDropdownBtn"
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                                style="min-height: 34px; padding: 6px 12px; font-size: 0.72rem;">
+                                <span>Sort By:</span> <span id="current-sort-label">Latest First</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end orders-dropdown"
+                                aria-labelledby="sortDropdownBtn">
+                                <li><a class="dropdown-item active sort-option" href="javascript:void(0)"
+                                        data-sort="latest">Latest First</a>
+                                </li>
+                                <li><a class="dropdown-item sort-option" href="javascript:void(0)"
+                                        data-sort="oldest">Oldest First</a></li>
+                            </ul>
+                        </div>
+                        <button
+                            class="btn btn-outline-danger btn-sm fw-bold px-3 py-2 rounded-3 d-flex align-items-center gap-1"
+                            id="deleteAllBtn" onclick="deleteAllNotifications()"
+                            style="font-size: 0.72rem; min-height: 34px;">
+                            <i class="fa-solid fa-trash-can"></i> Delete All
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end orders-dropdown" aria-labelledby="sortDropdownBtn">
-                            <li><a class="dropdown-item active sort-option" href="javascript:void(0)" data-sort="latest">Latest First</a>
-                            </li>
-                            <li><a class="dropdown-item sort-option" href="javascript:void(0)" data-sort="oldest">Oldest First</a></li>
-                        </ul>
                     </div>
                 </div>
 
@@ -143,7 +156,8 @@
                 </div>
 
                 <!-- Empty State (Hidden initially) -->
-                <div id="emptyState" class="text-center py-5" style="display: none; background: #fff; border-radius: 12px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);">
+                <div id="emptyState" class="text-center py-5"
+                    style="display: none; background: #fff; border-radius: 12px; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);">
                     <i class="fa-solid fa-bell-slash text-secondary opacity-50 mb-3" style="font-size: 4rem;"></i>
                     <h4 class="text-secondary fw-bold mb-2">No notifications found</h4>
                     <p class="text-muted mb-0">You're all caught up! There are no alerts matching your filters.</p>
@@ -194,13 +208,36 @@
                 <div class="modal-body pt-3">
                     <p class="text-secondary mb-3" id="modal-description"></p>
                     <div class="rounded-3 p-3" style="background:#f8fbff; border:1px solid #e4edf8;">
-                        <span class="d-block text-muted fw-bold mb-1" style="font-size:0.72rem;">Notification Date</span>
+                        <span class="d-block text-muted fw-bold mb-1" style="font-size:0.72rem;">Notification
+                            Date</span>
                         <strong class="d-block text-dark" id="modal-date"></strong>
                         <small class="text-primary fw-bold" id="modal-time-ago"></small>
                     </div>
                 </div>
                 <div class="modal-footer border-0 pt-0">
                     <button type="button" class="btn btn-primary px-4 fw-bold" data-bs-dismiss="modal">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete All Confirmation Modal -->
+    <div class="modal fade" id="deleteAllConfirmModal" tabindex="-1" aria-labelledby="delete-confirm-title"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-danger d-flex align-items-center gap-2" id="delete-confirm-title">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Delete All Notifications
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-3">
+                    <p class="text-secondary mb-0">Are you sure you want to permanently delete all notifications? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer border-0 pt-3">
+                    <button type="button" class="btn btn-light px-4 fw-semibold" data-bs-dismiss="modal" style="border-radius: 8px;">Cancel</button>
+                    <button type="button" class="btn btn-danger px-4 fw-bold" id="confirmDeleteAllBtn" style="border-radius: 8px;">Delete All</button>
                 </div>
             </div>
         </div>
@@ -338,13 +375,13 @@
                 card.setAttribute('data-status', 'read');
                 pill.className = 'status-pill read';
                 pill.textContent = 'READ';
-                buttonEl.textContent = 'Mark Unread';
+                if (buttonEl) buttonEl.textContent = 'Mark Unread';
                 if (showToastNotify) showToast('Notification marked as read.');
             } else {
                 card.setAttribute('data-status', 'unread');
                 pill.className = 'status-pill unread';
                 pill.textContent = 'UNREAD';
-                buttonEl.textContent = 'Mark Read';
+                if (buttonEl) buttonEl.textContent = 'Mark Read';
                 if (showToastNotify) showToast('Notification marked as unread.');
             }
 
@@ -365,6 +402,35 @@
                 showToast('Notification deleted.');
                 updateUIState();
             }, 400);
+        }
+
+        // Delete All Notifications
+        window.deleteAllNotifications = function () {
+            const cards = document.querySelectorAll('.notification-card');
+            if (cards.length === 0) {
+                showToast('No notifications to delete.', false);
+                return;
+            }
+
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteAllConfirmModal'));
+            deleteModal.show();
+
+            const confirmBtn = document.getElementById('confirmDeleteAllBtn');
+            confirmBtn.onclick = function () {
+                deleteModal.hide();
+
+                cards.forEach(card => {
+                    card.style.transition = 'all 0.4s ease';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                });
+
+                setTimeout(() => {
+                    cards.forEach(card => card.remove());
+                    showToast('All notifications deleted.');
+                    updateUIState();
+                }, 400);
+            };
         }
 
         // Filter chips click handling
