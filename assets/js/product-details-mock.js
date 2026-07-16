@@ -13,7 +13,7 @@ const productDetailsData = {
         originalPrice: 23999,
         price: 19999,
         upiPrice: 18999,
-        offerTag: 'Bank Offer',
+        offerTag: 'UPI Offer',
         images: [
             'assets/img/electronicimg.png',
             'assets/img/electronicimg.png',

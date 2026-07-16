@@ -723,12 +723,102 @@
         </div>
     </div>
 
+    <!-- Product Image Viewer Modal -->
+    <div class="modal fade" id="productImageViewerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen d-flex flex-column justify-content-center p-0 m-0">
+            <div class="modal-content">
+                <!-- Close Button (Top Right) -->
+                <div class="position-absolute top-0 end-0 p-3" style="z-index: 1050;">
+                    <button type="button" class="btn text-white fs-4 p-0 border-0 shadow-none" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <!-- Main Content (Image & Navigation) -->
+                <div class="d-flex flex-grow-1 align-items-center justify-content-center position-relative w-100 h-100" style="background-color: #000000;">
+                    <!-- Left Arrow -->
+                    <button class="btn text-white position-absolute start-0 top-50 translate-middle-y fs-3 border-0 shadow-none" id="productImagePrevBtn" style="z-index: 10; padding: 20px;">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <!-- Main Image -->
+                    <img id="productViewerMainImg" src="" class="img-fluid object-fit-contain" style="max-height: 90vh; max-width: 90vw;">
+                    
+                    <!-- Right Arrow -->
+                    <button class="btn text-white position-absolute end-0 top-50 translate-middle-y fs-3 border-0 shadow-none" id="productImageNextBtn" style="z-index: 10; padding: 20px;">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal JavaScript -->
     <script>
         function openModal(modalId) {
             const modal = new bootstrap.Modal(document.getElementById(modalId));
             modal.show();
         }
+
+        // Product Image Viewer Modal Logic
+        let currentImageIndex = 0;
+        let productImages = [];
+
+        // Open image viewer when main product image is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainProductImage = document.getElementById('mainProductImage');
+            if (mainProductImage) {
+                mainProductImage.style.cursor = 'pointer';
+                mainProductImage.addEventListener('click', function() {
+                    productImages = productDetailsData.product.images;
+                    currentImageIndex = productImages.indexOf(this.src);
+                    if (currentImageIndex === -1) currentImageIndex = 0;
+                    
+                    const modal = new bootstrap.Modal(document.getElementById('productImageViewerModal'));
+                    document.getElementById('productViewerMainImg').src = productImages[currentImageIndex];
+                    modal.show();
+                });
+            }
+
+            // Previous button
+            const prevBtn = document.getElementById('productImagePrevBtn');
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    if (productImages.length === 0) return;
+                    currentImageIndex = (currentImageIndex - 1 + productImages.length) % productImages.length;
+                    document.getElementById('productViewerMainImg').src = productImages[currentImageIndex];
+                });
+            }
+
+            // Next button
+            const nextBtn = document.getElementById('productImageNextBtn');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    if (productImages.length === 0) return;
+                    currentImageIndex = (currentImageIndex + 1) % productImages.length;
+                    document.getElementById('productViewerMainImg').src = productImages[currentImageIndex];
+                });
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                const modal = document.getElementById('productImageViewerModal');
+                if (!modal || !modal.classList.contains('show')) return;
+
+                if (e.key === 'ArrowLeft') {
+                    if (productImages.length === 0) return;
+                    currentImageIndex = (currentImageIndex - 1 + productImages.length) % productImages.length;
+                    document.getElementById('productViewerMainImg').src = productImages[currentImageIndex];
+                } else if (e.key === 'ArrowRight') {
+                    if (productImages.length === 0) return;
+                    currentImageIndex = (currentImageIndex + 1) % productImages.length;
+                    document.getElementById('productViewerMainImg').src = productImages[currentImageIndex];
+                } else if (e.key === 'Escape') {
+                    const modalInstance = bootstrap.Modal.getInstance(modal);
+                    if (modalInstance) modalInstance.hide();
+                }
+            });
+        });
     </script>
 </body>
 
